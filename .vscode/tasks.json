@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tiny: doctor",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs doctor",
+      "problemMatcher": []
+    },
+    {
+      "label": "tiny: install",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs install",
+      "problemMatcher": []
+    },
+    {
+      "label": "tiny: demo",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs demo",
+      "problemMatcher": []
+    },
+    {
+      "label": "tiny: benchmark",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs benchmark",
+      "problemMatcher": []
+    },
+    {
+      "label": "tiny: report",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs report",
+      "problemMatcher": []
+    },
+    {
+      "label": "tiny: join (validation)",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs join",
+      "problemMatcher": []
+    },
+    {
+      "label": "tiny: share results",
+      "type": "shell",
+      "command": "node scripts/tiny.mjs share -y",
+      "problemMatcher": []
+    }
+  ]
+}

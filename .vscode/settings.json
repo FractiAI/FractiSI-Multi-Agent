@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/.venv-cuda": true
+  },
+  "terminal.integrated.env.windows": {
+    "TINY_FOOTPRINT_WORKSTATION": "1"
+  },
+  "editor.formatOnSave": false
+}

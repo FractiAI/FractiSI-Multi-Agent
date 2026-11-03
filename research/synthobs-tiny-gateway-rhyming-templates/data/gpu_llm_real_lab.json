@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "product": "Tiny Footprint",
+  "labKind": "real_llm_local_gpu",
+  "device": "NVIDIA GeForce GTX 860M",
+  "deviceDetail": {
+    "name": "NVIDIA GeForce GTX 860M",
+    "totalMib": 2048,
+    "driverVersion": "512.77",
+    "backend": "directml",
+    "torchDevice": "privateuseone:0"
+  },
+  "model": {
+    "id": "sshleifer/tiny-gpt2",
+    "parameterCount": 203228
+  },
+  "workload": {
+    "sessions": 6,
+    "userTurns": 2,
+    "newTokens": 8,
+    "trials": 3,
+    "trainSteps": 5
+  },
+  "inference": {
+    "withoutTinyFootprint": {
+      "prefillBatchMs": {
+        "n": 3,
+        "meanMs": 216.40556709220013,
+        "p50Ms": 213.7832003645599,
+        "minMs": 204.07900027930737,
+        "maxMs": 231.3545006327331
+      },
+      "generateBatchMs": {
+        "n": 3,
+        "meanMs": 1250.258933287114,
+        "p50Ms": 1248.8449001684785,
+        "minMs": 1226.2240001000464,
+        "maxMs": 1275.7078995928168
+      },
+      "nvidiaSmiUsedMib": 265,
+      "torchPeakAllocMib": null
+    },
+    "withTinyFootprint": {
+      "prefillBatchMs": {
+        "n": 3,
+        "meanMs": 139.92300008734068,
+        "p50Ms": 118.51439997553825,
+        "minMs": 115.11790100485086,
+        "maxMs": 186.1366992816329
+      },
+      "generateBatchMs": {
+        "n": 3,
+        "meanMs": 958.6153663694859,
+        "p50Ms": 908.8737000711262,
+        "minMs": 854.1218992322683,
+        "maxMs": 1112.850499805063
+      },
+      "nvidiaSmiUsedMib": 265,
+      "torchPeakAllocMib": null
+    },
+    "comparison": {
+      "prefillP50Speedup": 1.8038584375289872,
+      "generateP50Speedup": 1.3740576936825732,
+      "prefillFasterWithTinyFootprint": true
+    }
+  },
+  "training": {
+    "withoutTinyFootprint": {
+      "stepMs": {
+        "n": 5,
+        "meanMs": 397.28961987420917,
+        "p50Ms": 310.70669973269105,
+        "minMs": 292.75189992040396,
+        "maxMs": 729.2010001838207
+      },
+      "nvidiaSmiDeltaMib": 0,
+      "torchPeakAllocMib": null,
+      "optimizerCopies": 4
+    },
+    "withTinyFootprint": {
+      "stepMs": {
+        "n": 5,
+        "meanMs": 315.19177993759513,
+        "p50Ms": 265.5048999004066,
+        "minMs": 259.1621996834874,
+        "maxMs": 490.98809994757175
+      },
+      "nvidiaSmiDeltaMib": 0,
+      "torchPeakAllocMib": null,
+      "optimizerCopies": 1
+    },
+    "comparison": {
+      "stepP50Speedup": 1.1702484581235226,
+      "fasterWithTinyFootprint": true,
+      "nvidiaSmiDeltaReductionRatio": null,
+      "lessResidentTrainMemoryWithTinyFootprint": false
+    }
+  },
+  "nvidiaSmi": {
+    "idleMib": 0
+  },
+  "honesty": "Real local-GPU causal-LM forward/generate + AdamW train microbench on NVIDIA GeForce GTX 860M via directml. Tiny Footprint = shared system-prefix KV reuse + single optimizer; without = duplicated full-prefix prefill per session + multiple optimizer copies. Not frontier decode TTFT on a hosted API; DirectML/CUDA on laptop GeForce \u2260 datacenter HBM proof.",
+  "passRealLlmGate": true
+}

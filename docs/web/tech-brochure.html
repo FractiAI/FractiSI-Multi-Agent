@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="vbi18n-ready">
+<head>
+  <script>(function(){var h=document.documentElement;if(!h)return;h.classList.remove("vbi18n-pending");h.classList.add("vbi18n-ready");})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tiny Footprint · Memory product brochure · FractiAI</title>
+  <meta name="description" content="Tiny Footprint: stop paying rent on duplicated resident state. Pack more concurrent AI work per box, buy less memory per service unit, stretch scarce accelerators." />
+  <link rel="canonical" href="https://www.ssvibelandiaquestfest24x365.com/tiny-footprint" />
+  <meta property="og:title" content="Tiny Footprint · Memory product for AI serving" />
+  <meta property="og:description" content="Shared patterns once. Deltas and state only. Selective reconstruction. Measured live GPU chat-stack lab." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./brand-gold-surfaces.css" />
+  <link rel="stylesheet" href="/interfaces/voyage-brochure-publication.css" />
+  <style>
+    :root {
+      --tf-ink: #0b1424;
+      --tf-paper: #e8eef6;
+      --tf-gold: #c9a227;
+      --tf-mist: rgba(232, 238, 246, 0.88);
+    }
+    html.vbi18n-pending body, html.vbi18n-ready body { visibility: visible; }
+    body.tf-brochure {
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(201,162,39,0.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, rgba(40,90,140,0.35), transparent 50%),
+        linear-gradient(165deg, #071018 0%, #0b1424 45%, #121c2e 100%);
+      color: var(--tf-paper);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+    .tf-hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      align-content: end;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      padding-bottom: clamp(2rem, 6vw, 3.5rem);
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(7,16,24,0.15) 0%, rgba(7,16,24,0.75) 55%, rgba(7,16,24,0.95) 100%),
+        repeating-linear-gradient(-12deg, transparent 0 14px, rgba(201,162,39,0.04) 14px 15px),
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(80,140,190,0.25), transparent 60%);
+    }
+    .tf-hero__brand {
+      margin: 0;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(3.4rem, 12vw, 6.5rem);
+      letter-spacing: 0.04em;
+      line-height: 0.92;
+      color: #f3e6c0;
+    }
+    .tf-hero__line {
+      margin: 0.85rem 0 0;
+      max-width: 28rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--tf-mist);
+    }
+    .tf-hero__sub {
+      margin: 0.75rem 0 0;
+      max-width: 32rem;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: rgba(232,238,246,0.78);
+    }
+    .tf-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .tf-cta a {
+      display: inline-block;
+      padding: 0.7rem 1.1rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(201,162,39,0.55);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .tf-cta a:hover { transform: translateY(-2px); }
+    .tf-cta__gold { background: var(--tf-gold); color: #111; }
+    .tf-cta__ghost { background: transparent; color: var(--tf-paper); }
+    .tf-wrap {
+      width: min(52rem, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.5rem 0 3.5rem;
+    }
+    .tf-wrap h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: #f3e6c0;
+    }
+    .tf-wrap p, .tf-wrap li {
+      line-height: 1.62;
+      color: rgba(232,238,246,0.88);
+    }
+    .tf-props {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .tf-props li {
+      padding: 0.95rem 1rem;
+      border-left: 3px solid var(--tf-gold);
+      background: rgba(8, 18, 36, 0.55);
+    }
+    .tf-props strong {
+      display: block;
+      color: #f3e6c0;
+      margin-bottom: 0.25rem;
+      font-size: 1.02rem;
+    }
+    .tf-metrics {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      margin: 1.25rem 0;
+    }
+    .tf-metrics div {
+      padding: 1rem 0.9rem;
+      background: rgba(8, 18, 36, 0.65);
+      border: 1px solid rgba(201,162,39,0.28);
+      text-align: center;
+    }
+    .tf-metrics b {
+      display: block;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      color: var(--tf-gold);
+    }
+    .tf-metrics span {
+      font-size: 0.82rem;
+      color: rgba(232,238,246,0.7);
+    }
+    .honesty {
+      margin-top: 2rem;
+      font-size: 0.88rem;
+      color: rgba(232,238,246,0.62);
+      border-top: 1px solid rgba(201,162,39,0.25);
+      padding-top: 1rem;
+    }
+    .tf-nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      font-size: 0.85rem;
+      z-index: 2;
+    }
+    .tf-nav a { color: rgba(243,230,192,0.9); text-decoration: none; }
+    .tf-nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body data-tf-local-kit="1" class="tf-brochure">
+  <header class="tf-hero" aria-label="Tiny Footprint">
+    <nav class="tf-nav" aria-label="Site">
+    <span class="tf-local-kit-banner" style="opacity:.85">Local kit docs · <a href="./simple.html">Plainspeak</a> · <a href="./tech-brochure.html">Tech brochure</a> · <a href="./commercial-brochure-print.html">Print brochure</a></span>
+      <a href="./product-hub.html">Product hub</a>
+      <a href="https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/download">Download Workstation</a>
+      <a href="https://www.ssvibelandiaquestfest24x365.com/questfest">SS Vibelandia</a>
+      <a href="https://www.ssvibelandiaquestfest24x365.com/whitepaper/tiny-gateway-rhyming-templates">Whitepaper</a>
+    </nav>
+    <p class="tf-hero__brand">Tiny Footprint</p>
+    <p class="tf-hero__line">Stop paying rent on duplicated resident state.</p>
+    <p class="tf-hero__sub">The memory product for AI serving: keep the organizational pattern once, store only differences and state, rebuild the slice you need.</p>
+    <div class="tf-cta">
+      <a class="tf-cta__gold" href="./product-hub.html">Commercial product hub</a>
+      <a class="tf-cta__ghost" href="https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/download">Download Workstation 0.1</a>
+      <a class="tf-cta__ghost" href="https://www.ssvibelandiaquestfest24x365.com/whitepaper/tiny-gateway-rhyming-templates">Whitepaper</a>
+      <a class="tf-cta__ghost" href="mailto:purser@ssvibelandiaquestfest24x365.com?subject=Tiny%20Footprint">Talk to the Purser</a>
+    </div>
+  </header>
+
+  <main class="tf-wrap">
+    <h2>The problem operators feel</h2>
+    <p>Compute shortages are not only “we need more GPUs.” A large share of cost is reprinting the same organizational pattern for every concurrent session—system envelopes, indexes, intermediates, full copies across workers. That is rent on duplicated resident state.</p>
+
+    <h2>What Tiny Footprint does</h2>
+    <p>Built on Tiny Gateway Rhyming Templates: shared patterns, nested vectors, selective reconstruction, and optional eight-node shared broadcast. Tiny Footprint is the product name for putting that memory architecture in front of serving stacks.</p>
+
+    <ul class="tf-props">
+      <li>
+        <strong>Pack more concurrent work per box</strong>
+        Same accelerator, denser sessions when the non-weight pile shrinks.
+      </li>
+      <li>
+        <strong>Buy less memory per unit of AI service</strong>
+        Memory cost tracked per equivalent workload—not per clever metaphor.
+      </li>
+      <li>
+        <strong>Stretch limited accelerator supply further</strong>
+        Scarce silicon serves more useful concurrency before the next purchase order.
+      </li>
+    </ul>
+
+    <h2>Measured on this laptop’s GeForce GTX</h2>
+    <p><strong>Real LLM lab</strong> on <strong>NVIDIA GeForce GTX 860M</strong> via torch-directml + <code>sshleifer/tiny-gpt2</code> — shared system-prefix KV reuse and single optimizer vs duplicated full-prefix / multi-optimizer:</p>
+    <div class="tf-metrics" aria-label="Real LLM metrics">
+      <div><b>1.80×</b><span>prefill faster (Tiny)</span></div>
+      <div><b>1.37×</b><span>generate faster (Tiny)</span></div>
+      <div><b>1.17×</b><span>train-step faster (Tiny)</span></div>
+      <div><b>84.5%</b><span>in-process aggregate</span></div>
+    </div>
+    <p>Prefill batch p50: ~214&nbsp;ms without → ~119&nbsp;ms with Tiny Footprint. Generate batch p50: ~1249&nbsp;ms → ~909&nbsp;ms. Train-step p50: ~311&nbsp;ms → ~266&nbsp;ms. A separate HtoD allocation proxy still shows large device-memory cuts; that proxy is <em>not</em> a model forward. This GeForce uses GDDR via DirectML—not datacenter HBM silicon, not a hosted frontier API attestation.</p>
+
+    <h2>How to implement with big LLMs</h2>
+    <p>Offer Tiny Footprint as a serving fabric beside the model: shared system/policy/tool templates, per-session deltas, selective context reconstruction, shared originating story across worker nodes. Start where duplication is worst and quality is checkable. Measure resident memory, bandwidth, latency, and answer quality on equal workloads before shrinking purchased HBM/DRAM configs.</p>
+
+    <h2>Invitation</h2>
+    <p>Replay <code>npm run research:synthobs-tiny-gateway-rhyming-templates</code>, open the whitepaper, and request an operator pilot via the Purser. ENGINE_SHELF #52 carries the architecture pin; Tiny Footprint is how we name the product on the floor.</p>
+
+    <p class="honesty"><strong>Honesty:</strong> Headline LLM numbers are from a real local-GPU causal-LM microbench (tiny-gpt2 on GTX 860M via DirectML)—infer + AdamW train with vs without Tiny Footprint. An older HtoD allocation proxy exists and must not be read as model decode. DirectML/GDDR ≠ datacenter HBM; not a hosted frontier bake-off; not CapEx −80% without your measurement. Φ_EGS design grammar only. Fair Exchange via the Purser.</p>
+  </main>
+  </body>
+</html>

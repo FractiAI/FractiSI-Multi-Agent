@@ -1,0 +1,103 @@
+{
+  "ok": true,
+  "product": "Tiny Footprint",
+  "device": "NVIDIA GeForce GTX 860M",
+  "deviceDetail": {
+    "name": "NVIDIA GeForce GTX 860M",
+    "totalMib": 2048,
+    "driverVersion": "512.77",
+    "api": "nvcuda.dll cuMemAlloc + cuMemcpyHtoD + nvidia-smi",
+    "host": "live laptop GeForce (this machine)"
+  },
+  "memoryClassNote": "Measured on NVIDIA GeForce GTX 860M via nvidia-smi / cuMemAlloc / cuMemcpyHtoD. This GeForce uses GDDR device memory; datacenter HBM is the operator analogue for the same duplicated-resident-state problem \u2014 not identical silicon. Latency is materialization path, not frontier LLM decode.",
+  "liveStack": {
+    "sessions": 16,
+    "kvMibPerSession": 4,
+    "systemPromptMib": 12,
+    "weightStubMib": 32,
+    "mode": "live_local_chat_serving_proxy_on_gpu"
+  },
+  "nvidiaSmi": {
+    "idleMib": 0,
+    "conventionalPeakMib": 313,
+    "tinyPeakMib": 85,
+    "conventionalUsedVsIdleMib": 313,
+    "tinyUsedVsIdleMib": 85,
+    "reductionRatio": 0.7284345047923323
+  },
+  "cuMemAlloc": {
+    "conventionalMib": 288.0,
+    "tinyMib": 53.59999084472656,
+    "reductionRatio": 0.8138889206780328
+  },
+  "latency": {
+    "metric": "chat_stack_materialization_latency",
+    "honesty": "Wall-clock cuMemcpyHtoD + cuCtxSynchronize on this GPU for with/without Tiny Footprint materialization. Not frontier LLM decode TTFT/TPS.",
+    "trials": 24,
+    "payloadBytesPerTurn": {
+      "conventional": 134217728,
+      "tinyFootprint": 14260624,
+      "trafficReductionRatio": 0.8937500715255737
+    },
+    "withoutTinyFootprint": {
+      "label": "conventional_duplicated_resident_state",
+      "turnMaterializeMs": {
+        "n": 24,
+        "meanMs": 43.524900024446346,
+        "p50Ms": 43.147899908944964,
+        "p95Ms": 45.80190032720566,
+        "minMs": 40.98620032891631,
+        "maxMs": 50.13710027560592
+      },
+      "sessionBringupMs": {
+        "n": 8,
+        "meanMs": 6.05657504638657,
+        "p50Ms": 5.986350122839212,
+        "p95Ms": 6.270499899983406,
+        "minMs": 5.509800277650356,
+        "maxMs": 7.461499888449907
+      }
+    },
+    "withTinyFootprint": {
+      "label": "shared_pattern_plus_deltas",
+      "turnMaterializeMs": {
+        "n": 24,
+        "meanMs": 4.599775013048202,
+        "p50Ms": 4.496699897572398,
+        "p95Ms": 5.030000116676092,
+        "minMs": 4.071800038218498,
+        "maxMs": 5.74659975245595
+      },
+      "sessionBringupMs": {
+        "n": 8,
+        "meanMs": 3.116649982985109,
+        "p50Ms": 3.0023499857634306,
+        "p95Ms": 3.4620999358594418,
+        "minMs": 2.9286998324096203,
+        "maxMs": 3.5286000929772854
+      }
+    },
+    "comparison": {
+      "turnP50RatioTinyOverConventional": 0.10421596200653534,
+      "bringupP50RatioTinyOverConventional": 0.501532640783709,
+      "turnFasterWithTinyFootprint": true,
+      "bringupFasterWithTinyFootprint": true,
+      "turnSpeedup": 9.595459090396252,
+      "bringupSpeedup": 1.993888171340896
+    },
+    "passLatencyGate": true
+  },
+  "strategy": {
+    "proposition": "A lot of cost is paying rent on duplicated resident state so the same organizational pattern can be served many times.",
+    "sessionsPerNonWeightMibConventional": 0.0625,
+    "sessionsPerNonWeightMibTinyFootprint": 0.740741054707727,
+    "concurrencyDensityGain": 11.851856875323632,
+    "implications": [
+      "pack more concurrent work per box",
+      "buy less memory per unit of AI service",
+      "stretch limited accelerator supply further"
+    ]
+  },
+  "pass80": true,
+  "passLatency": true
+}

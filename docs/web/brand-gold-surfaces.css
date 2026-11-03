@@ -1,0 +1,94 @@
+/*
+ * SS Vibelandia · sitewide brand gold on dark surfaces
+ * No blue, purple, or teal text on black. Ever.
+ * Navy tokens are HULL BACKGROUND only (Frontiersman poster night sky) — ink stays gold/champagne.
+ * Load on every HTML surface.
+ */
+:root {
+  --brand-gold: #d4af37;
+  --brand-gold-hi: #fef3c7;
+  --brand-champagne: #f5e6c8;
+  --brand-text: #f5f0e8;
+  --brand-text-soft: #d6cfc4;
+  --brand-muted: #a8a29e;
+  --brand-link: #f5e6c8;
+  --brand-link-hover: #fef3c7;
+  --brand-walnut: #1a120c;
+  --brand-bg: #0a0806;
+  --voyage-navy: #070b14;
+  --voyage-navy-mid: #0c1628;
+}
+
+html {
+  color-scheme: dark;
+}
+
+/* Live i18n disabled: never hide the body waiting on translation (Sep 2026). */
+html.vbi18n-pending body,
+html.vbi18n-ready body {
+  visibility: visible !important;
+}
+
+body {
+  -webkit-tap-highlight-color: rgba(212, 175, 55, 0.25);
+}
+
+/* Catch browser-default blue / purple unstyled links */
+a:any-link {
+  color: var(--brand-link);
+  text-decoration-color: rgba(212, 175, 55, 0.45);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--brand-link-hover);
+  text-decoration-color: var(--brand-gold);
+}
+
+/* Inline code on dark decks */
+code,
+kbd,
+samp {
+  color: var(--brand-gold-hi);
+  background: rgba(212, 175, 55, 0.12);
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+}
+
+/* Button-styled links keep their own colors (a:any-link must not win) */
+a.deck-btn,
+a.gs-btn,
+a.li-btn,
+a.hood-btn,
+a.sun-btn,
+a.btn,
+a.btn-primary,
+a.btn-ghost,
+a.btn-welcome,
+a.btn-pass,
+a.cm-btn,
+a.bh-btn,
+a.nest-member-bar__btn,
+a.machote-campaign-btn,
+a.deck-paper-card,
+a.grs-btn,
+a.grs-top-nav__btn {
+  text-decoration: none;
+}
+
+/* Solid gold CTAs need dark ink — cream/white text fails contrast on gold fill */
+a.grs-btn--hire,
+a.grs-btn--hire:any-link,
+a.grs-btn--hire:hover,
+a.grs-btn--hire:focus-visible,
+a.grs-top-nav__btn--hire,
+a.grs-top-nav__btn--hire:any-link,
+a.grs-top-nav__btn--hire:hover,
+a.grs-top-nav__btn--hire:focus-visible,
+a.nest-member-bar__btn--gold,
+a.nest-member-bar__btn--gold:any-link,
+a.nest-member-bar__btn--gold:hover,
+a.nest-member-bar__btn--gold:focus-visible {
+  color: #1a1208;
+  text-decoration: none;
+}

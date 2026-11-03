@@ -1,0 +1,10 @@
+{
+  "name": "synthobs-tiny-gateway-rhyming-templates",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tiny Gateway · Rhyming Templates · 80% DRAM research target",
+  "scripts": {
+    "research": "node scripts/run_empirical_pipeline.mjs"
+  }
+}
