@@ -145,8 +145,7 @@ Hub pricing: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/local
 
 ## Support
 
-- Validation desk email (shared results): **valetpru@gmail.com**  
-- Purser / commercial: purser@ssvibelandiaquestfest24x365.com  
+- Contact / validation / shared results: **valetpru@gmail.com**  
 - SING 13 monorepo mirror: `products/tiny-footprint-workstation/` in [psw.vibelandia.sing13](https://github.com/FractiAI/psw.vibelandia.sing13)
 
 → ∞^∞
