@@ -5,7 +5,7 @@
 import {
   DIGITAL_SEED,
   VALIDATION_SEED,
-  REPRESENTATION_REDUCTION_TARGET,
+  DRAM_REDUCTION_TARGET,
   ENGINE_SHELF_SLOT,
   HONESTY,
 } from './constants.mjs';
@@ -16,6 +16,8 @@ import {
   encodeExpression,
   reconstructExpression,
   deepEqual,
+  structuralSignature,
+  shapesRhyme,
 } from './rhyming-template.mjs';
 import { createVectorStore } from './nested-vector.mjs';
 import {
@@ -27,6 +29,18 @@ import {
 import { createGateway } from './gateway.mjs';
 import { runGpuLiveChatLab } from './gpu-live-lab.mjs';
 import { runGpuLlmRealLab } from './gpu-llm-real-lab.mjs';
+import {
+  auditRhyme,
+  brickWallCandidate,
+  trueRhymeCandidate,
+  FOUR_PILLARS,
+} from './holographic-rhyme-gate.mjs';
+import {
+  compareRhymeToCache,
+  differingWordSessions,
+  identicalTextSessions,
+  RHYME_PATTERN,
+} from './rhyme-vs-cache.mjs';
 
 /** A · Illustrative §7 arithmetic (hypothesis model, not measurement) */
 export function experimentA_illustrativeModel() {
@@ -48,6 +62,8 @@ export function experimentB_structuredData(seed = DIGITAL_SEED, n = 500) {
     kind: 'record',
     schema: 'person_v1',
     fields: ['id', 'name', 'role', 'dept', 'active'],
+    id: 0,
+    name: '',
     role: 'employee',
     dept: 'ops',
     active: true,
@@ -248,14 +264,14 @@ export function experimentF_aiContextProxy(seed = DIGITAL_SEED, sessions = 40, t
   const exact = deepEqual(reconSys, systemPrompt);
   return {
     id: 'F_ai_context_proxy',
-    title: 'Workload E/F proxy · shared system prompt + turn deltas',
+    title: 'Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)',
     sessions,
     turns,
     ...r,
     exact,
     pass: r.ratio >= 0.4 && exact,
     honesty:
-      'In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server.',
+      'Prefix-reuse / shared-identical-system-prompt meter — not a holographic rhyme proof, and not measured GPU KV-cache / HBM for a production LLM server.',
   };
 }
 
@@ -263,7 +279,12 @@ export function experimentF_aiContextProxy(seed = DIGITAL_SEED, sessions = 40, t
 export function experimentG_gatewayExactness(seed = DIGITAL_SEED, validationSeed = VALIDATION_SEED) {
   function run(s) {
     const gw = createGateway();
-    const pattern = { kind: 'packet', proto: 'v2', qos: 'default', payload: null };
+    const pattern = {
+      kind: 'packet',
+      proto: 'v2',
+      qos: 'default',
+      payload: { x: 0, y: 0, tag: '' },
+    };
     gw.registerTemplate({ id: 'tpl_packet', pattern });
     const rng = mulberry32(s);
     let ok = 0;
@@ -336,7 +357,7 @@ export function experimentI_gpuLiveChatStack() {
     pass,
     honesty:
       report?.memoryClassNote ||
-      'Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.',
+      'Prefix-reuse / shared-system-pattern GPU meter — not a holographic rhyme proof. Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.',
     interpretation: pass
       ? `Live on ${report?.device || 'NVIDIA GeForce'}: cuMemAlloc ${(allocR * 100).toFixed(1)}%; nvidia-smi ${
           smiR == null ? 'n/a' : `${(smiR * 100).toFixed(1)}%`
@@ -372,27 +393,121 @@ export function experimentJ_gpuLlmReal() {
   };
 }
 
-/** H · ENGINE_SHELF pin gate — ≥80% representation reduction + exactness checks + GPU lab */
-export function experimentH_enginePinGate(parts, exactOk, gpuLab) {
+/**
+ * R · Holographic rhyme gate — four pillars required; brick wall / schema-only / exact-text ≠ rhyme.
+ * Prefix-cache reuse remains a separate meter (experiments F/I/J), not a rhyme proof.
+ */
+export function experimentR_holographicRhymeGate() {
+  const differing = differingWordSessions();
+  const identical = identicalTextSessions();
+  const trueCandidate = trueRhymeCandidate(differing, 2, 0.15);
+  const trueAudit = auditRhyme(trueCandidate);
+  const brick = brickWallCandidate(40);
+  const brickAudit = auditRhyme(brick);
+
+  const schemaOnly = auditRhyme({
+    pattern: { a: 1, b: 'x' },
+    expressions: [
+      { a: 1, b: 'x' },
+      { a: 2, b: 'y' },
+    ],
+    nestDepth: 0,
+  });
+
+  const vsCacheDiffering = compareRhymeToCache(differing);
+  const vsCacheIdentical = compareRhymeToCache(identical);
+
+  let falseMatchRejected = false;
+  try {
+    const cat = createTemplateCatalog();
+    cat.register({ id: 'invoice', pattern: { id: 0, name: '', amount: 0 } });
+    cat.register({ id: 'person', pattern: { id: 0, name: '', amount: 0 } });
+  } catch (e) {
+    falseMatchRejected = /false_match_risk/.test(String(e?.message || e));
+  }
+
+  const arrayObjectDistinct =
+    structuralSignature({ tags: ['a'] }) !== structuralSignature({ tags: { a: true } }) &&
+    !shapesRhyme({ tags: ['a'] }, { tags: { a: true } });
+
+  const base = { meta: { role: 'user', octave: 1 }, utterance: '' };
+  const expr = { meta: { role: 'lead', octave: 1 }, utterance: 'q1' };
+  const cat = createTemplateCatalog();
+  cat.register({ id: 'tpl_nested', pattern: base });
+  const enc = encodeExpression('tpl_nested', base, expr);
+  const nestedFieldDelta =
+    enc.delta?.meta &&
+    enc.delta.meta.role === 'lead' &&
+    enc.delta.meta.octave === undefined &&
+    deepEqual(reconstructExpression(cat, enc), expr);
+
+  const pass =
+    trueAudit.pass &&
+    FOUR_PILLARS.every((p) => trueAudit.pillars[p]?.pass) &&
+    !brickAudit.pass &&
+    brickAudit.failed.includes('self_similar') &&
+    !schemaOnly.pass &&
+    vsCacheDiffering.equivalent &&
+    vsCacheDiffering.rhymeAuditPass &&
+    vsCacheDiffering.rhymeBytes < vsCacheDiffering.cacheBytes &&
+    vsCacheIdentical.equivalent &&
+    vsCacheIdentical.cacheBytes < vsCacheIdentical.rhymeBytes &&
+    falseMatchRejected &&
+    arrayObjectDistinct &&
+    nestedFieldDelta;
+
+  return {
+    id: 'R_holographic_rhyme_gate',
+    title: 'Holographic rhyme gate (four pillars · brick wall fails · rhyme ≠ cache)',
+    trueAudit,
+    brickAudit,
+    schemaOnly,
+    vsCacheDiffering: {
+      rhymeBytes: vsCacheDiffering.rhymeBytes,
+      cacheBytes: vsCacheDiffering.cacheBytes,
+      equivalent: vsCacheDiffering.equivalent,
+    },
+    vsCacheIdentical: {
+      rhymeBytes: vsCacheIdentical.rhymeBytes,
+      cacheBytes: vsCacheIdentical.cacheBytes,
+      equivalent: vsCacheIdentical.equivalent,
+    },
+    falseMatchRejected,
+    arrayObjectDistinct,
+    nestedFieldDelta,
+    pattern: RHYME_PATTERN,
+    pass,
+    honesty:
+      'Four-pillar catalog audit for Rhyming Templates. Brick wall / schema-only / exact-text cache are contrast cases. Shared-prefix GPU labs are prefix-reuse meters, not rhyme proofs.',
+  };
+}
+
+/** H · ENGINE_SHELF pin gate — ≥80% aggregate + exactness + rhyme gate + GPU lab */
+export function experimentH_enginePinGate(parts, exactOk, gpuLab, rhymeOk = true) {
   const agg = aggregateMeasured(parts);
-  const hitsTarget = agg.ratio >= REPRESENTATION_REDUCTION_TARGET;
+  const hitsTarget = agg.ratio >= DRAM_REDUCTION_TARGET;
   const gpuOk = gpuLab?.pass === true;
-  const enginePinRecommended = hitsTarget && exactOk && gpuOk;
+  const enginePinRecommended = hitsTarget && exactOk && gpuOk && rhymeOk === true;
   return {
     id: 'H_engine_pin_gate',
-    title: 'Data-gated ENGINE_SHELF pin (80% representation gate + Tiny Footprint GPU lab)',
-    target: REPRESENTATION_REDUCTION_TARGET,
+    title:
+      'Data-gated ENGINE_SHELF pin (80% measured + holographic rhyme gate + Tiny Footprint GPU lab)',
+    target: DRAM_REDUCTION_TARGET,
     aggregateRatio: agg.ratio,
     aggregatePct: agg.ratio * 100,
     ...agg,
     exactOk,
+    rhymeOk,
     gpuLabPass: gpuLab?.pass ?? null,
     enginePinRecommended,
     candidateSlot: ENGINE_SHELF_SLOT,
     pass: enginePinRecommended,
     interpretation: enginePinRecommended
-      ? `Representation aggregate ${(agg.ratio * 100).toFixed(1)}% ≥ 80% with B/D/F/G exactness checks + GPU live-stack lab (alloc ${(100 * (gpuLab.allocReduction || 0)).toFixed(1)}%).`
-      : `Pin refused — representation aggregate, exactness, or GPU lab gate failed.`,
+      ? `Aggregate ${(agg.ratio * 100).toFixed(1)}% ≥ 80% with exactness + holographic rhyme gate` +
+        (gpuLab?.pass
+          ? ` + Tiny Footprint GPU live-stack lab (alloc ${(100 * (gpuLab.allocReduction || 0)).toFixed(1)}%).`
+          : '.')
+      : `Pin refused — aggregate/exactness/rhyme gate/GPU lab gate.`,
   };
 }
 
@@ -404,10 +519,11 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
   const E = experimentE_crossOctave(seed);
   const F = experimentF_aiContextProxy(seed);
   const G = experimentG_gatewayExactness(seed, validationSeed);
+  const R = experimentR_holographicRhymeGate();
   const I = experimentI_gpuLiveChatStack();
   const J = experimentJ_gpuLlmReal();
   const exactOk = B.exact && D.exact && F.exact && G.pass;
-  const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I);
+  const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I, R.pass);
 
   const experiments = [
     { id: 'E1_illustrative_model', title: A.title, pass: A.pass, A },
@@ -417,6 +533,7 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     { id: 'E5_cross_octave', title: E.title, pass: E.pass, E },
     { id: 'E6_ai_context_proxy', title: F.title, pass: F.pass, F },
     { id: 'E7_gateway_exactness', title: G.title, pass: G.pass, G },
+    { id: 'E11_holographic_rhyme_gate', title: R.title, pass: R.pass, R },
     { id: 'E8_gpu_live_tiny_footprint', title: I.title, pass: I.pass, I },
     { id: 'E10_gpu_llm_real', title: J.title, pass: J.pass, J },
     {
@@ -442,6 +559,7 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     E,
     F,
     G,
+    R,
     I,
     J,
     H,
