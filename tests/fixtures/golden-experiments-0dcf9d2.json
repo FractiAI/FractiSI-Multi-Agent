@@ -1,0 +1,107 @@
+{
+ "A": {
+  "id": "A_illustrative_model",
+  "title": "Illustrative 78.7% memory model arithmetic",
+  "remainingPct": 21.3,
+  "reductionPct": 78.69999999999999,
+  "nonWeightCutNeededPct": 94.11764705882354,
+  "approaches80": true,
+  "pass": true,
+  "honesty": "Architectural arithmetic only — not a measured DRAM/HBM result."
+ },
+ "B": {
+  "id": "B_structured_data",
+  "title": "Workload A · structured rhyming-template records",
+  "n": 500,
+  "ratio": 0.5433438568797685,
+  "saved": 41305,
+  "baselineBytes": 76020,
+  "tinyBytes": 34715,
+  "exact": true,
+  "pass": true
+ },
+ "C": {
+  "id": "C_cross_linked",
+  "title": "Workload B · cross-linked shared references",
+  "nNodes": 200,
+  "nEdges": 600,
+  "ratio": 0.8235809103011827,
+  "saved": 1024449,
+  "baselineBytes": 1243896,
+  "tinyBytes": 219447,
+  "pass": true
+ },
+ "D": {
+  "id": "D_eight_node_broadcast",
+  "title": "Workload C · eight-node shared originating story",
+  "ratio": 0.8641549185288119,
+  "saved": 38556,
+  "baselineBytes": 44617,
+  "tinyBytes": 6061,
+  "exact": true,
+  "pass": true
+ },
+ "E": {
+  "id": "E_cross_octave",
+  "title": "Workload D · selective cross-octave reconstruction",
+  "nVectors": 768,
+  "workingN": 4,
+  "ratio": 0.9948120355650975,
+  "saved": 776603,
+  "baselineBytes": 780653,
+  "tinyBytes": 4050,
+  "pass": true
+ },
+ "F": {
+  "id": "F_ai_context_proxy",
+  "title": "Workload E/F proxy · shared system prompt + turn deltas",
+  "sessions": 40,
+  "turns": 25,
+  "ratio": 0.4892008188160588,
+  "saved": 93680,
+  "baselineBytes": 191496,
+  "tinyBytes": 97816,
+  "exact": true,
+  "pass": true,
+  "honesty": "In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server."
+ },
+ "G": {
+  "id": "G_gateway_exactness",
+  "title": "Gateway exact reconstruction (primary + validation seeds)",
+  "primary": {
+   "n": 100,
+   "ok": 100,
+   "exactRate": 1
+  },
+  "validation": {
+   "n": 100,
+   "ok": 100,
+   "exactRate": 1
+  },
+  "pass": true
+ },
+ "rhymeDiffering": {
+  "sessions": 40,
+  "shapeHits": 40,
+  "exactTextHits": 0,
+  "equivalent": true,
+  "naiveBytes": 6704,
+  "cacheBytes": 6704,
+  "rhymeBytes": 4758,
+  "rhymeVersusNaive": 0.2902744630071599,
+  "cacheVersusNaive": 0,
+  "rhymeVersusCache": 0.2902744630071599
+ },
+ "rhymeIdentical": {
+  "sessions": 40,
+  "shapeHits": 40,
+  "exactTextHits": 39,
+  "equivalent": true,
+  "naiveBytes": 6521,
+  "cacheBytes": 164,
+  "rhymeBytes": 4691,
+  "rhymeVersusNaive": 0.28063180493789297,
+  "cacheVersusNaive": 0.9748504830547462,
+  "rhymeVersusCache": -27.603658536585368
+ }
+}

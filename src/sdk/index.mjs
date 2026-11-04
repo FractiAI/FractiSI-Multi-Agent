@@ -1,0 +1,38 @@
+/**
+ * Tiny Footprint SDK, Workstation 0.1.
+ * Thin facade for template submit / session delta / measure.
+ */
+export const PRODUCT = 'Tiny Footprint';
+export const VERSION = '0.1.0';
+
+/**
+ * @param {string} templateId
+ * @param {unknown} pattern
+ */
+export function registerTemplate(templateId, pattern) {
+  return { templateId, pattern, registeredAt: new Date().toISOString() };
+}
+
+/**
+ * @param {string} templateId
+ * @param {unknown} delta
+ */
+export function sessionDelta(templateId, delta) {
+  return { templateId, delta, kind: 'session_delta' };
+}
+
+/**
+ * Selective reconstruction stub: returns a working-set descriptor.
+ */
+export function reconstruct(templateId, delta, opts = {}) {
+  return {
+    templateId,
+    workingSet: { patternRef: templateId, delta, selective: true, ...opts },
+  };
+}
+
+export function measureBytes(obj) {
+  const json = JSON.stringify(obj);
+  if (json === undefined) throw new TypeError('measureBytes requires a JSON-serializable value');
+  return Buffer.byteLength(json, 'utf8');
+}
