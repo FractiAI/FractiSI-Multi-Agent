@@ -4,30 +4,28 @@ Thanks for testing Tiny Footprint. This repository is a workstation kit; keep ch
 
 ## Local checks
 
-Use Node.js 18 or newer.
+Node 18 or newer, plus [uv](https://docs.astral.sh/uv/) for the Python labs and figures.
 
 ```bash
-npm test
-node scripts/tiny.mjs doctor
-node scripts/tiny.mjs demo
+npm test                          # Node tests and repository gates
+uv sync --group dev --group figures
+uv run pytest
+uv run ruff check src/tiny_footprint_labs tests/tiny_footprint_labs tests/integration scripts
+uv run mypy
+node scripts/verify_project.mjs --before-render   # the provenance chain, without the PDF
 ```
 
-If you change the research suite, run its pipeline from the suite directory:
-
-```bash
-cd research/synthobs-tiny-gateway-rhyming-templates
-npm run research
-```
-
-GPU labs are optional and local-only. Do not commit regenerated receipts unless the change is specifically about the published evidence.
+[docs/development/](./docs/development/README.md) covers testing, conventions and how to extend the code. GPU labs are optional and local-only.
 
 ## Change rules
 
-- Never commit credentials, `.env` files, share packets, or validation-join records.
+- Never commit credentials, `.env` files, share packets, or validation-join records. Everything under `benchmarks/reports/` except its guides is gitignored for this reason.
 - Keep benchmark claims tied to a receipt and its hardware class. Do not turn a local GeForce measurement into a datacenter HBM claim.
-- Update the matching document when behavior changes: `README.md`, `QUICKSTART.md`, `docs/`, or the suite status.
-- Keep `docs/TECH_PAPER.md` and its suite copies byte-identical.
-- Do not commit generated `benchmarks/reports/` output.
+- Fix producers, then regenerate. Files under `output/`, `docs/benchmarks/RESULTS.md` and the README's generated block are not edited by hand.
+- Measure again after changing anything listed in `src/benchmarks/fingerprint.mjs`, even a comment. Verification rejects stale receipts.
+- Keep logic in `src/` with a mirrored test, keep dependencies pointing down, keep `scripts/` thin, and give every new folder a `README.md` and an `AGENTS.md`. Gates check all four.
+- Update the matching document when behaviour changes.
+- Keep `docs/research/TECH_PAPER.md` and its two copies under `research/` byte-identical.
 
 ## Reporting
 

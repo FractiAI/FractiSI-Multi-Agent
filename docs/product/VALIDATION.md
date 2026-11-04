@@ -10,7 +10,7 @@ node scripts/tiny.mjs join
 
 You will be asked for name, email, organization, role, and hardware interest. Submitting `join` opens an email with those contact details.
 
-**Share results (optional):** when you answer **yes**, the kit builds a share packet from your latest benchmarks (including hostname, platform, Node version, and receipt contents) and **emails it to `valetpru@gmail.com`** (opens your mail client with a prefilled message; or silent SMTP on Windows if you set the `TINY_FOOTPRINT_SMTP_*` env vars). If you answer **no**, only your contact details and hardware interest are sent; no benchmark receipts are read or attached.
+**Share results (optional):** when you answer **yes**, the kit builds a share packet from your latest benchmarks on this machine (including hostname, platform, Node version, and receipt contents) and **sends it to `valetpru@gmail.com`** (opens your mail client with a prefilled summary, and you attach the packet whose path it prints; or silent SMTP on Windows, which attaches it, if you set the `TINY_FOOTPRINT_SMTP_*` env vars). If you answer **no**, only your contact details and hardware interest are sent; no benchmark receipts are read or attached.
 
 You can also share later:
 

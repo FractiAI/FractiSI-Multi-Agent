@@ -12,7 +12,7 @@ We aim to acknowledge reports within three business days and will coordinate dis
 
 ## Scope
 
-In scope: the CLI (`scripts/tiny.mjs`), the opt-in share path (`scripts/share-results.mjs`), local report generation, and the SDK under `tiny-footprint/`.
+In scope: the CLI (`scripts/tiny.mjs` and `src/cli/`), the opt-in share path (`src/share/`), local report generation (`src/reporting/`), and the SDK (`src/sdk/`).
 
 Out of scope: vulnerabilities in third-party GPU drivers, Python packages installed for the optional research labs, and results that require running untrusted code on your own machine. Review the research scripts before running them with a GPU environment.
 

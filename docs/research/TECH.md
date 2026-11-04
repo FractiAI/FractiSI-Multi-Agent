@@ -1,5 +1,7 @@
 # Tiny Footprint · Technology (short)
 
+> **Evidence note.** Byte counts on this page are serialized JSON, not memory. For live memory, latency and real-model results, see the [results and claim ledger](../benchmarks/RESULTS.md).
+
 ## Tiny Gateway
 
 Architecture centered on **Rhyming Templates**: reusable organizational patterns across information, sessions, and workloads.
@@ -22,5 +24,5 @@ On 40 sessions that share a shape and say different things, the rhyme stores 4,7
 
 Local GeForce results (often GDDR via DirectML or nvcuda) are **not** datacenter HBM silicon identity and **not** a hosted frontier-vendor bake-off. Production claims require matched workload validation.
 
-Paper / suite: nested under `research/synthobs-tiny-gateway-rhyming-templates/`  
+Whitepaper: [TECH_PAPER.md](TECH_PAPER.md) · Implementation: [`src/engine/`](../../src/engine/README.md) · Reproducible study: [`docs/manuscript/`](../manuscript/README.md)  
 Also: https://github.com/FractiAI/synthobs-tiny-gateway-rhyming-templates

@@ -4,7 +4,7 @@
 
 **FractiAI commercial product kit** · powered by **Tiny Gateway™**
 
-[![Edition](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/PRODUCT.md)
+[![Edition](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/product/PRODUCT.md)
 [![Product hub](https://img.shields.io/badge/hub-ssvibelandia-0b1424)](https://www.ssvibelandiaquestfest24x365.com/tiny-footprint)
 
 ---
@@ -27,7 +27,9 @@ Tiny Footprint is software you install **beside** your existing AI stack. It doe
 | **Server** | Enterprises | Company GPU servers |
 | **Cloud** | Hyperscale / GPU clouds | Provider infrastructure |
 
-Product story: [docs/PRODUCT.md](./docs/PRODUCT.md) · [docs/SIMPLE.md](./docs/SIMPLE.md) · [docs/TECH.md](./docs/TECH.md) · [technical paper](./docs/TECH_PAPER.md)
+Product story: [product](./docs/product/PRODUCT.md) · [plain language](./docs/product/SIMPLE.md) · [technology](./docs/research/TECH.md) · [whitepaper](./docs/research/TECH_PAPER.md)
+
+Evidence: [results and claim ledger](./docs/benchmarks/RESULTS.md) · [reproducible study (PDF)](./output/pdf/tiny-footprint-workstation_combined.pdf) · [all documentation](./docs/README.md)
 
 ### Brochures & plainspeak (in this repo)
 
@@ -64,11 +66,13 @@ node scripts/tiny.mjs benchmark   # conventional vs Tiny
 node scripts/tiny.mjs report      # write HTML/JSON receipts
 ```
 
-`npm test` runs the SDK, consent-path, engine-gate, and rhyme-versus-cache checks without touching your receipts.
+`benchmark` writes results for this machine only. A lab that cannot run here reports `not_run`, and the suite's verdict reads `incomplete`.
+
+`npm test` runs the whole Node test suite and repository gates without touching your receipts.
 
 VS Code tasks are preconfigured under `.vscode/tasks.json` (Terminal → Run Task → `tiny: …`).
 
-Optional GPU LLM lab (Windows DirectML): see `research/synthobs-tiny-gateway-rhyming-templates/requirements-directml.txt`.
+Optional real-model lab: `uv sync --group llm`, then `TINY_FOOTPRINT_FORCE_LLM_LAB=1 node scripts/tiny.mjs benchmark`. It runs on CPU, Apple MPS, NVIDIA and DirectML. The original Windows environment is pinned in `research/synthobs-tiny-gateway-rhyming-templates/requirements-directml.txt`.
 
 ---
 
@@ -84,7 +88,7 @@ You will enter name, email, organization, role, and hardware interest.
 
 ### Share your results (opt-in)
 
-When you **select share**, the kit packages your latest benchmark receipts (plus hostname, platform, and Node version) and **emails them to `valetpru@gmail.com`** for the validation desk. If you decline, `join` sends only your contact details and hardware interest.
+When you **select share**, the kit packages your latest benchmark receipts (plus hostname, platform, and Node version) and **opens a message to `valetpru@gmail.com`** for the validation desk. The message holds a summary. A mail link cannot attach files, so attach the JSON packet whose path the kit prints before you send it. With SMTP configured on Windows, the kit sends it and attaches the packet itself. If you decline, `join` sends only your contact details and hardware interest.
 
 ```bash
 # during join — answer "y" to share results
@@ -99,7 +103,7 @@ node scripts/tiny.mjs share
 - Optional silent SMTP (Windows): set `TINY_FOOTPRINT_SMTP_HOST`, `TINY_FOOTPRINT_SMTP_USER`, `TINY_FOOTPRINT_SMTP_PASS`, `TINY_FOOTPRINT_SMTP_FROM`.
 - Override recipient only if needed: `TINY_FOOTPRINT_SHARE_EMAIL` (default remains `valetpru@gmail.com`).
 
-Details: [docs/VALIDATION.md](./docs/VALIDATION.md)
+Details: [docs/product/VALIDATION.md](./docs/product/VALIDATION.md)
 
 ---
 
@@ -107,33 +111,69 @@ Details: [docs/VALIDATION.md](./docs/VALIDATION.md)
 
 ```
 tiny-footprint-workstation/
-├── README.md                 ← you are here
-├── QUICKSTART.md
-├── .github/workflows/        ← CI: syntax, unit tests, demo
-├── docs/                     ← product · simple · tech · validation
-│   └── web/                  ← plainspeak + tech/commercial brochures (HTML)
-├── media/                    ← product images
-├── scripts/                  ← tiny.mjs CLI + opt-in share-results.mjs
-├── tests/                    ← SDK correctness checks
-├── tiny-gateway/             ← engine pointer
-├── tiny-footprint/           ← SDK · adapters · configuration
-├── workloads/                ← demo multi-session app
-├── benchmarks/reports/       ← your receipts + share packets
-└── research/
-    └── synthobs-tiny-gateway-rhyming-templates/   ← proven benchmark suite
+├── src/                  ← all logic, in submodules
+│   ├── core/             ← bytes, statistics, randomness, hashing
+│   ├── engine/           ← Tiny Gateway: templates, vectors, broadcast
+│   ├── sdk/              ← public facade
+│   ├── experiments/      ← registered suite, one module per experiment
+│   ├── labs/             ← adapters that report only what ran now
+│   ├── benchmarks/       ← deterministic and measured tiers
+│   ├── analysis/         ← one summary; computed claim ledger
+│   ├── manuscript/       ← tokens, hydration, hard-coded-value gate
+│   ├── pipeline/         ← stage graph, binding to docxology/template
+│   ├── verification/     ← re-derives artifacts, compares with disk
+│   ├── gates/            ← repository structure rules
+│   ├── cli/ share/ reporting/ workloads/ docs_tools/
+│   └── tiny_footprint_labs/   ← Python: real-model lab, GPU lab, figures
+├── tests/                ← mirrors src/ one to one
+├── scripts/              ← thin entry points
+├── benchmarks/           ← protocol (plan.json); your receipts under reports/
+├── output/               ← generated receipts, figures, hydrated manuscript, PDF
+├── docs/                 ← start at docs/README.md
+│   ├── manuscript/       ← the study's source, rendered by docxology/template
+│   └── architecture/ benchmarks/ development/ product/ reference/ research/ web/
+├── research/synthobs-tiny-gateway-rhyming-templates/   ← history, receipts, old paths
+├── tiny-footprint/       ← public SDK path, adapters, configuration
+├── tiny-gateway/         ← engine pointer
+├── workloads/            ← demo entry point
+├── media/                ← product and website images
+└── index.html, company/, css/, library/, open/, product/, recruit/   ← FractiSI website
 ```
+
+Every folder has a `README.md` for people and an `AGENTS.md` for agents.
 
 ---
 
-## Measured local evidence (honesty-bound)
+## What the evidence shows
 
-On FractiAI’s developer GeForce class labs (see suite receipts):
+<!-- BEGIN GENERATED EVIDENCE -->
+Generated from the receipts in [`output/data/`](./output/data/README.md). Measured values are from **Apple M4 Pro**. [Full results and the claim ledger](./docs/benchmarks/RESULTS.md).
 
-- Allocation proxy: large device-memory cuts (e.g. ~81% alloc / ~73% peak in the published configuration)
-- Real tiny-gpt2 path: prefill / generate / train-step speedups with vs without Tiny Footprint
-- The real-LLM lab measured latency, not device-memory savings; its baseline re-prefilled the full prompt each turn, so production prefix caching may already capture part of that gain. The memory cuts come from the allocation proxy.
+- **Representation bytes** (deterministic): the published aggregate reproduces at **84.5%**. It is 74.3% with equal weights and 77.0% over lossless workloads, against a target of 80%.
+- **Live memory** (measured, 1,024 sessions sharing a system prompt): JSON predicts 49.5% and the V8 heap falls **32.8%**. A plain object reference reaches 32.9%.
+- **Same shape, different words** (measured): JSON predicts 31.9% and the shipped engine's heap shows **10.3%**. A tighter encoding of the same idea reaches 30.4%, past a plain reference at 24.1%.
+- **In-process latency** (measured): materializing a session takes 1.81× to 11.44× the time of reading a duplicated store.
+- **Real models** (measured): reusing a shared prefix speeds prefill by **1.38× to 3.43×**, with decode at 0.99× to 1.02×. A production prefix cache provides the same mechanism.
+- **Key-value residency** (measured, `distilgpt2` on MPS): **84.4%** on the device allocator, 27.3% once weights are counted.
+- **Not established:** a reduction of 80% in DRAM or accelerator memory for AI serving.
+<!-- END GENERATED EVIDENCE -->
 
-These are **local** results. They are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations. Your `tiny benchmark` + `tiny report` produce receipts on **your** machine.
+Your `tiny benchmark` and `tiny report` produce receipts for **your** machine. These figures are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations.
+
+### Reproduce it
+
+```bash
+uv sync --group dev --group figures --group llm
+npm test && uv run pytest
+
+# Re-derive analysis, figures, manuscript and results from the committed receipts
+node scripts/run_pipeline.mjs --only analysis,figures,hydrate,docs
+node scripts/verify_project.mjs --before-render
+```
+
+Rendering the PDF needs a [docxology/template](https://github.com/docxology/template) checkout in `TINY_TEMPLATE_ROOT`, plus `pandoc`, `pandoc-crossref` and `xelatex`. With those in place, `node scripts/run_pipeline.mjs --rebuild` goes through to the validated PDF. Running `node scripts/run_pipeline.mjs` with no flags measures again and replaces the receipts, so the values become your machine's. It checks what its stages need before it changes anything.
+
+[Running the benchmarks](./docs/benchmarks/running.md) covers each stage and connecting [docxology/template](https://github.com/docxology/template), which renders the PDF.
 
 ---
 

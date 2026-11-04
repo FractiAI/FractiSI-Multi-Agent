@@ -1,5 +1,7 @@
 # Simple breakdown
 
+> **Evidence note.** Byte counts on this page are serialized JSON, not memory. For live memory, latency and real-model results, see the [results and claim ledger](../benchmarks/RESULTS.md).
+
 We deliver software installed **alongside** existing AI. Customers do not buy new computers, replace GPUs, or move operations to FractiAI.
 
 1. **Local** — developer PC · Workstation Kit · Free / Pro  
