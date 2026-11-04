@@ -18,7 +18,7 @@
     "tiny": "./scripts/tiny.mjs"
   },
   "scripts": {
-    "test": "node tests/correctness/sdk.test.mjs && node tests/correctness/share-results.test.mjs && node tests/correctness/engine-gate.test.mjs && node tests/correctness/rhyme-vs-cache.test.mjs && node tests/correctness/rhyme-gate.test.mjs",
+    "test": "node tests/correctness/sdk.test.mjs && node tests/correctness/share-results.test.mjs && node tests/correctness/engine-gate.test.mjs && node tests/correctness/rhyme-vs-cache.test.mjs && node tests/correctness/rhyme-gate.test.mjs && node tests/correctness/h100-rhyme-sim.test.mjs",
     "doctor": "node scripts/tiny.mjs doctor",
     "install-kit": "node scripts/tiny.mjs install",
     "demo": "node scripts/tiny.mjs demo",

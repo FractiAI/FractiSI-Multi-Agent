@@ -135,6 +135,8 @@ On FractiAI’s developer GeForce class labs (see suite receipts):
 
 These are **local** results. They are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations. Your `tiny benchmark` + `tiny report` produce receipts on **your** machine.
 
+**H100 simulation (not live silicon):** when sessions share organization but not exact wording, a production prefix cache cannot share and the Tiny Footprint template+delta residency hypothesis cuts KV about **34%** versus that prefix cache (~**1.52×** materialize bandwidth proxy on the published H100 SXM profile). When the exact prefix is identical, Tiny matches the prefix cache.
+
 ---
 
 ## Commercial editions (preview)

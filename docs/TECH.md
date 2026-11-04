@@ -15,13 +15,14 @@ On 40 sessions that share nested organization and say different things, the rhym
 ## What we measure
 
 - Holographic rhyme gate (four pillars; brick wall / schema-only negatives)  
+- H100 published-profile **simulation**: when organizational wording differs, prefix cache cannot share and Tiny Footprint’s template+delta residency is ~34% smaller KV than prefix cache (~1.52× materialize bandwidth proxy). When the exact prefix is identical, Tiny matches prefix cache.  
 - GPU allocation / peak device memory (local proxy lab — **prefix-reuse meter**, not a rhyme proof)  
 - Real local-GPU causal-LM prefill / generate / train-step with vs without Tiny Footprint (DirectML/CUDA when available) — shared-prefix reuse  
 - In-process representation reductions + exact reconstruction gates  
 
 ## Honesty
 
-Local GeForce results (often GDDR via DirectML or nvcuda) are **not** datacenter HBM silicon identity and **not** a hosted frontier-vendor bake-off. Shared-prefix GPU labs are not holographic rhyme proofs. Production claims require matched workload validation.
+Local GeForce results (often GDDR via DirectML or nvcuda) are **not** datacenter HBM silicon identity and **not** a hosted frontier-vendor bake-off. The H100 arm is a **simulation** on published device specs using the measured in-process rhyme shared/delta fraction — not a live H100 KV-cache measurement. Shared-prefix GPU labs are not holographic rhyme proofs. Production claims require matched workload validation.
 
 Paper / suite: nested under `research/synthobs-tiny-gateway-rhyming-templates/`  
 Also: https://github.com/FractiAI/synthobs-tiny-gateway-rhyming-templates

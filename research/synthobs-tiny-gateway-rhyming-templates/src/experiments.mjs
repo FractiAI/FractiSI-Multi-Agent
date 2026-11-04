@@ -41,6 +41,10 @@ import {
   identicalTextSessions,
   RHYME_PATTERN,
 } from './rhyme-vs-cache.mjs';
+import {
+  runH100RhymeSim,
+  assertH100RhymeSimInvariants,
+} from './h100-rhyme-sim.mjs';
 
 /** A · Illustrative §7 arithmetic (hypothesis model, not measurement) */
 export function experimentA_illustrativeModel() {
@@ -482,6 +486,30 @@ export function experimentR_holographicRhymeGate() {
   };
 }
 
+/**
+ * S · H100 rhyme-vs-prefix residency simulation.
+ * Identical exact prefixes: Tiny = prefix cache.
+ * Rhyming different wording: prefix cache cannot share; Tiny uses measured template/delta split.
+ */
+export function experimentS_h100RhymeVsPrefixSim() {
+  const report = runH100RhymeSim();
+  const invariants = assertH100RhymeSimInvariants(report);
+  const rhyming = report?.workloads?.rhymingDifferentWording;
+  return {
+    id: 'S_h100_rhyme_vs_prefix_sim',
+    title: 'H100 simulation · rhyme beats prefix cache when organizational wording differs',
+    report,
+    invariants,
+    tinyKvReductionVersusPrefixCache: rhyming?.comparison?.tinyKvReductionVersusPrefixCache ?? null,
+    tinyMaterializeSpeedupVersusPrefixCache:
+      rhyming?.comparison?.tinyMaterializeSpeedupVersusPrefixCache ?? null,
+    pass: report?.ok === true && invariants.pass === true,
+    honesty:
+      report?.honesty ||
+      'H100 SXM published-profile simulation — not a live H100 measurement; shared/delta fraction from in-process rhyme encode.',
+  };
+}
+
 /** H · ENGINE_SHELF pin gate — ≥80% aggregate + exactness + rhyme gate + GPU lab */
 export function experimentH_enginePinGate(parts, exactOk, gpuLab, rhymeOk = true) {
   const agg = aggregateMeasured(parts);
@@ -520,10 +548,11 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
   const F = experimentF_aiContextProxy(seed);
   const G = experimentG_gatewayExactness(seed, validationSeed);
   const R = experimentR_holographicRhymeGate();
+  const S = experimentS_h100RhymeVsPrefixSim();
   const I = experimentI_gpuLiveChatStack();
   const J = experimentJ_gpuLlmReal();
   const exactOk = B.exact && D.exact && F.exact && G.pass;
-  const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I, R.pass);
+  const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I, R.pass && S.pass);
 
   const experiments = [
     { id: 'E1_illustrative_model', title: A.title, pass: A.pass, A },
@@ -534,6 +563,7 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     { id: 'E6_ai_context_proxy', title: F.title, pass: F.pass, F },
     { id: 'E7_gateway_exactness', title: G.title, pass: G.pass, G },
     { id: 'E11_holographic_rhyme_gate', title: R.title, pass: R.pass, R },
+    { id: 'E12_h100_rhyme_vs_prefix_sim', title: S.title, pass: S.pass, S },
     { id: 'E8_gpu_live_tiny_footprint', title: I.title, pass: I.pass, I },
     { id: 'E10_gpu_llm_real', title: J.title, pass: J.pass, J },
     {
@@ -560,6 +590,7 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     F,
     G,
     R,
+    S,
     I,
     J,
     H,

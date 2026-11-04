@@ -89,8 +89,9 @@ Generative possibility ? processes ? Infinite Octaves ? 3D Hexagon / eight-node 
 | F AI context proxy | 48.9% | ? |
 | G Exactness | 100% primary+validation | ✓ |
 | R Holographic rhyme gate | four pillars pass; brick wall / schema-only fail; differing-words rhyme beats exact cache; identical text: cache smaller | ✓ |
+| S H100 rhyme vs prefix sim | identical exact prefix: Tiny = prefix cache; rhyming different wording: ~34% KV cut vs prefix cache, ~1.52× materialize bandwidth proxy (published H100 profile · not live silicon) | ✓ |
 | **I Tiny Footprint GPU live stack** | **alloc 81.4%; smi 72.8%; density ~11.9×; turn p50 ~11×** (prefix-reuse meter) | ✓ |
-| H/E9 Pin gate | aggregate 84.5% + rhyme gate + GPU lab → pin #52 | ✓ |
+| H/E9 Pin gate | aggregate 84.5% + rhyme gate + H100 rhyme-sim + GPU lab → pin #52 | ✓ |
 
 Reproduce: `npm run research:synthobs-tiny-gateway-rhyming-templates` · GPU lab script `scripts/gpu_live_chat_hbm_lab.py`.
 
