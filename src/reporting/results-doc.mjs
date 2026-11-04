@@ -1,7 +1,7 @@
 /** The generated results page for the documentation, from the same tables as the manuscript. */
 import { heapTable, latencyTable, llmTable, residencyTable, rssTable, workloadsTable, claimsTable } from '../manuscript/tables.mjs';
 import { completedRuns } from '../analysis/measured-summary.mjs';
-import { int, pct, pct0, times } from '../core/format.mjs';
+import { fixed2, int, pct, pct0, times } from '../core/format.mjs';
 
 const BLOCK_START = '<!-- BEGIN GENERATED EVIDENCE -->';
 const BLOCK_END = '<!-- END GENERATED EVIDENCE -->';
@@ -21,7 +21,7 @@ export function renderEvidenceBlock(summary) {
     '',
     `- **Representation bytes** (deterministic): the published aggregate reproduces at **${pct(s.published.ratio)}**. It is ${pct(s.unweightedMean.ratio)} with equal weights and ${pct(s.lossless.ratio)} over lossless workloads, against a target of ${pct0(s.target)}.`,
     `- **Live memory** (measured, ${int(largest)} sessions sharing a system prompt): JSON predicts ${pct(heap('ai_context', 'tiny').jsonReduction)} and the V8 heap falls **${pct(heap('ai_context', 'tiny').heapReduction.estimate)}**. A plain object reference reaches ${pct(heap('ai_context', 'aliased').heapReduction.estimate)}.`,
-    `- **Same shape, different words** (measured): JSON predicts ${pct(heap('rhyme_differing', 'tiny').jsonReduction)} and the shipped engine's heap shows **${pct(heap('rhyme_differing', 'tiny').heapReduction.estimate)}**. A tighter encoding of the same idea reaches ${pct(heap('rhyme_differing', 'tiny_compact').heapReduction.estimate)}, past a plain reference at ${pct(heap('rhyme_differing', 'aliased').heapReduction.estimate)}.`,
+    `- **Same shape, different words** (measured): JSON predicts ${pct(heap('rhyme_differing', 'tiny').jsonReduction)} and the shipped engine's heap shows **${pct(heap('rhyme_differing', 'tiny').heapReduction.estimate)}**. A tighter encoding of the same idea reaches ${pct(heap('rhyme_differing', 'tiny_compact').heapReduction.estimate)}, level with a plain reference at ${pct(heap('rhyme_differing', 'aliased').heapReduction.estimate)}.`,
     `- **In-process latency** (measured): materializing a session takes ${times(latency('ai_context', 'tiny').ratioToDuplicated.estimate)} to ${times(latency('rhyme_differing', 'tiny').ratioToDuplicated.estimate)} the time of reading a duplicated store.`,
   ];
   if (runs.length > 0) {
@@ -29,6 +29,9 @@ export function renderEvidenceBlock(summary) {
   }
   if (kv) {
     lines.push(`- **Key-value residency** (measured, \`${kv.model.id.split('/').pop()}\` on ${kv.backend.toUpperCase()}): **${pct(kv.residency.reduction.device)}** on the device allocator, ${pct(kv.withWeights.reduction)} once weights are counted.`);
+  }
+  if (kv?.rhymeSharing) {
+    lines.push(`- **Rhymes on real tensors** (measured, \`${kv.model.id.split('/').pop()}\`): with ${pct(kv.rhymeSharing.changedTokens / kv.rhymeSharing.positions)} of tokens changed, ${pct(kv.rhymeSharing.matchingCellFraction)} of KV cells repeat, and resuming from the other prompt's cache moves logits by ${fixed2(kv.rhymeSharing.resumeFromRhymingCache.worstLogitAbsDifference)}. The simulated ${pct(summary.h100.workloads.rhymingDifferentWording.comparison.tinyKvReductionVersusPrefixCache)} H100 saving for rhymes has no measurement behind it.`);
   }
   lines.push(`- **Not established:** a reduction of ${pct0(s.target)} in DRAM or accelerator memory for AI serving.`);
   return lines.join('\n');

@@ -159,13 +159,15 @@ export function evaluateClaims(summary) {
     {
       id: 'rhyme_gate',
       claim: 'A four-pillar gate tells a holographic rhyme from a brick wall',
-      evidence: `${gate.plainWall.pass ? 'It accepts a plain wall.' : 'It refuses a plain wall.'} The same bricks ${gate.wallWithNestedFieldAndDeclaredValues.pass ? 'pass' : 'still fail'} once they have a nested field and declare a nesting depth and a drift, because ${gate.pillarsReadingDeclaredValues.join(' and ')} read values the caller states.`,
+      evidence: `${gate.plainWall.pass ? 'It accepts a plain wall.' : 'It refuses a plain wall.'} ${gate.wallWithNestedFieldAndDeclaredValues.pass
+        ? `The same bricks pass once they have a nested field and declare a nesting depth and a drift, because ${gate.pillarsReadingDeclaredValues.join(' and ')} read values the caller states.`
+        : 'The same bricks still fail when they have a nested field and declare a nesting depth and a drift.'}`,
       status: gate.plainWall.pass ? CLAIM_STATUS.NOT_REPRODUCED : gate.wallWithNestedFieldAndDeclaredValues.pass ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.REPRODUCED,
     },
     {
       id: 'h100_rhyme',
       claim: `On an H100, a rhyme holds ${pct(rhymeSim.tinyKvReductionVersusPrefixCache)} less KV memory than a prefix cache when wording differs (simulated)`,
-      evidence: `${measuredShare == null ? 'The real-model lab did not read this on this host.' : `Measured on ${biggest.model.id.split('/').pop()}, with ${pct(measuredShare.changedTokens / measuredShare.positions)} of tokens changed: ${pct(measuredShare.matchingCellFraction)} of KV cells repeat, and resuming from the other prompt's cache moves logits by ${fixed2(measuredShare.resumeFromRhymingCache.worstLogitAbsDifference)}.`} The simulation applies a JSON byte fraction of ${pct(assumedShare)} to KV memory, and its equivalence check compares lengths.`,
+      evidence: `${measuredShare == null ? 'The real-model lab did not read this on this host.' : `Measured on ${biggest.model.id.split('/').pop()}, with ${pct(measuredShare.changedTokens / measuredShare.positions)} of tokens changed: ${pct(measuredShare.matchingCellFraction)} of KV cells repeat, and resuming from the other prompt's cache moves logits by ${sci(measuredShare.resumeFromRhymingCache.worstLogitAbsDifference)}.`} The simulation applies a JSON byte fraction of ${pct(assumedShare)} to KV memory, and its equivalence check compares lengths.`,
       status: measuredShare == null ? CLAIM_STATUS.NOT_TESTABLE : shareHolds ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.NOT_REPRODUCED,
     },
     {

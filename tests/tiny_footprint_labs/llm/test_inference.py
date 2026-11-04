@@ -102,6 +102,14 @@ def test_rhyme_sharing_reports_what_repeats_and_what_a_resume_would_do(tiny_mode
     assert report["resumeFromRhymingCache"]["turns"] == 2
 
 
+def test_only_the_first_layer_repeats_at_unchanged_positions(tiny_model: Any) -> None:
+    prefix, suffixes = _ids(*range(1, 18)), [_ids(30, 31)]
+    report = measure_rhyme_sharing(tiny_model, prefix, suffixes, new_tokens=2, tolerance=1e-4)
+    first, *later = report["matchingPositionsByLayer"]
+    assert first == report["positions"] - report["changedTokens"]
+    assert all(count < first for count in later)
+
+
 def test_negative_control_identical_prompts_share_every_cell(tiny_model: Any) -> None:
     prefix, suffixes = _ids(*range(1, 18)), [_ids(30, 31)]
     report = measure_rhyme_sharing(tiny_model, prefix, suffixes, new_tokens=2, tolerance=1e-4, rhyme_ids=prefix.clone())

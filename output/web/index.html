@@ -1438,7 +1438,8 @@ exists for, the gap is larger. JSON predicts 35.9% and the heap shows
 engine adds a wrapper object and nested delta objects per session.
 Removing the wrapper recovers most of the difference: the compact
 ablation reaches 20.9%, level with the aliased store at 20.1%, because
-each session then holds only the fields that differ. In a live heap the
+each session then holds only the fields that differ. Neither store
+interns equal nested objects, which would help both. In a live heap the
 idea roughly matches a plain reference, and the shipped encoding gives
 that saving back. The exact-text cache is 45.4% larger than duplication
 here, because it has no hits and keeps a digest per session. When
@@ -2404,8 +2405,8 @@ and self_correcting read values the caller states.</td>
 when wording differs (simulated)</td>
 <td>Measured on distilgpt2, with 12.5% of tokens changed: 14.6% of KV
 cells repeat, and resuming from the other prompt’s cache moves logits by
-3.72. The simulation applies a JSON byte fraction of 38.9% to KV memory,
-and its equivalence check compares lengths.</td>
+3.7e+0. The simulation applies a JSON byte fraction of 38.9% to KV
+memory, and its equivalence check compares lengths.</td>
 <td>not reproduced</td>
 </tr>
 <tr>

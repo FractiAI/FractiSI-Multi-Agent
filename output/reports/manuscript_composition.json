@@ -1,9 +1,9 @@
 {
   "algorithm": "web-renderer-combine-v1",
-  "binding_sha256": "b793440966bc8a6397054d1c91657c5ac816fc92841aee0ab3beef65e082198a",
+  "binding_sha256": "bb2cc4c7ff3929dbd7d48b6c2a0514465a4a24c6d389aeed00dd2d6a10603405",
   "combined_path": "output/web/_combined_manuscript.md",
-  "combined_sha256": "e9d8e0608681b0c07416593966a31d97bd5ca09967d7126996f19be0235ce4f7",
-  "combined_size_bytes": 55133,
+  "combined_sha256": "00072cb293819fc221030de253f92a5f31377b20d6eeef49b59416190b966ccf",
+  "combined_size_bytes": 55202,
   "input_root_kind": "hydrated",
   "ordered_inputs": [
     {
@@ -33,8 +33,8 @@
     {
       "ordinal": 5,
       "path": "output/manuscript/04_results.md",
-      "sha256": "8c372632fb4ab322020e5510a2382c478b5fb5b82cec1753e2b4c57f70abdfa7",
-      "size_bytes": 21529
+      "sha256": "d04d26aa417d1221b150fee29f26f92ace3e4c57efe13700223fbe7030ebe360",
+      "size_bytes": 21596
     },
     {
       "ordinal": 6,
@@ -63,8 +63,8 @@
     {
       "ordinal": 10,
       "path": "output/manuscript/S01_claim_ledger.md",
-      "sha256": "547dbbc8d00cd8b4d281351de3a46ef5bf120d6ef86b57f6112225a117d51910",
-      "size_bytes": 5065
+      "sha256": "c8da5e40d9151ee44c1879bb8a5c84478337dbfdd01a2f970511c36bf243f9e3",
+      "size_bytes": 5067
     },
     {
       "ordinal": 11,
@@ -73,7 +73,7 @@
       "size_bytes": 31
     }
   ],
-  "ordered_inputs_sha256": "b5e7a1410b5fe895df7f63d83f5f9ed3e415a38a8b4690b930edf20d370ad72e",
+  "ordered_inputs_sha256": "b48ad246817f545d187ce0617a620adc8d45cb5d51cd059bbcc8b8c22be35822",
   "project": "working/tiny-footprint-workstation",
   "schema_version": "template-manuscript-composition-v1"
 }

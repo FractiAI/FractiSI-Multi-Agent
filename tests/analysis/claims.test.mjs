@@ -51,6 +51,16 @@ test('the memory target follows resident memory measured on a real model', () =>
   assert.doesNotMatch(claim.evidence, /Not established/);
 });
 
+test('a small logit shift is never printed as zero, and the gate sentence stays true when the declared wall fails', () => {
+  const changed = structuredClone(summary);
+  for (const run of changed.llm) if (run.rhymeSharing) run.rhymeSharing.resumeFromRhymingCache.worstLogitAbsDifference = 0.001;
+  assert.doesNotMatch(byId(evaluateClaims(changed)).h100_rhyme.evidence, /by 0\.00\b/);
+  changed.deterministic.rhymeGate.wallWithNestedFieldAndDeclaredValues.pass = false;
+  const gate = byId(evaluateClaims(changed)).rhyme_gate;
+  assert.equal(gate.status, CLAIM_STATUS.REPRODUCED);
+  assert.doesNotMatch(gate.evidence, /because/);
+});
+
 test('the corrected defect is checked against this host, so it can come back', () => {
   const changed = structuredClone(summary);
   changed.gpuLive = { status: 'not_run', reason: 'nvcuda_unavailable' };

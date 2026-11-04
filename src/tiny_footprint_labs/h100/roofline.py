@@ -47,7 +47,7 @@ SESSIONS = 16
 
 # Measured from research/.../src/rhyme-vs-cache.mjs differing-word cohort:
 # oneFull=198 B, oneDelta=121 B → sharedFraction = 1 - 121/198.
-# Locked by tests/correctness / suite experiment R companions.
+# Locked by assertH100RhymeSimInvariants in src/experiments/s-h100-rhyme-sim.mjs.
 RHYME_SHARED_ORG_FRACTION = 1.0 - (121.0 / 198.0)
 RHYME_DELTA_ORG_FRACTION = 121.0 / 198.0
 RHYME_SHARE_SOURCE = (
