@@ -10,6 +10,8 @@ export function buildStructuredWorkload(seed = DIGITAL_SEED, n = 500) {
     kind: 'record',
     schema: 'person_v1',
     fields: ['id', 'name', 'role', 'dept', 'active'],
+    id: 0,
+    name: '',
     role: 'employee',
     dept: 'ops',
     active: true,

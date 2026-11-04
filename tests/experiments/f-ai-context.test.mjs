@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { buildAiContextWorkload, experimentF_aiContextProxy } from '../../src/experiments/f-ai-context.mjs';
 
-const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-0dcf9d2.json', import.meta.url), 'utf8'));
+const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-733b48e.json', import.meta.url), 'utf8'));
 
 test('output is byte-identical to the result captured before modularization', () => {
   assert.equal(JSON.stringify(experimentF_aiContextProxy()), JSON.stringify(golden.F));

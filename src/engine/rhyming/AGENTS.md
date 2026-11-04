@@ -1,3 +1,3 @@
 # Rhyming templates
 
-A delta records overrides only, so an expression missing a pattern key reconstructs with that key present. `findMatch` excludes those expressions, and direct callers must too. `deepEqual` compares JSON text, so key order matters and it errs toward false negatives.
+`encodeExpression` refuses an expression that does not rhyme, and a catalog refuses two templates with one signature unless told otherwise. In the gate, `recursive` and `self_correcting` read values the caller declares, so a pass is a declaration and not a measurement. Keep `deepEqual` on JSON text, because the suite's exactness results depend on it.

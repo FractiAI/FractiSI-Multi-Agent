@@ -1,5 +1,10 @@
 {
   "schema": "tiny-footprint-benchmark-plan/v1",
+  "kit": {
+    "upstream": "FractiAI/tiny-footprint-workstation",
+    "commit": "733b48e",
+    "label": "v1.3 companions"
+  },
   "seeds": {
     "primary": 20261103,
     "validation": 202611032,
@@ -163,14 +168,14 @@
         "model": "sshleifer/tiny-gpt2",
         "backend": "mps",
         "prefixTokens": 256,
-        "trainSteps": 15,
+        "trainSteps": 60,
         "revision": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be"
       },
       {
         "model": "sshleifer/tiny-gpt2",
         "backend": "cpu",
         "prefixTokens": 256,
-        "trainSteps": 15,
+        "trainSteps": 60,
         "revision": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be"
       },
       {
@@ -191,7 +196,7 @@
     "sessions": 8,
     "userTurns": 2,
     "newTokens": 8,
-    "trials": 9,
+    "trials": 15,
     "warmup": 2,
     "logitTolerance": 0.05
   },

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { buildCrossOctaveWorkload, experimentE_crossOctave } from '../../src/experiments/e-cross-octave.mjs';
 
-const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-0dcf9d2.json', import.meta.url), 'utf8'));
+const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-733b48e.json', import.meta.url), 'utf8'));
 
 test('output is byte-identical to the result captured before modularization', () => {
   assert.equal(JSON.stringify(experimentE_crossOctave()), JSON.stringify(golden.E));

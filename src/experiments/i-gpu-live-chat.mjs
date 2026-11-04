@@ -41,7 +41,7 @@ export function experimentI_gpuLiveChatStack(report) {
     pass,
     honesty:
       report?.memoryClassNote ||
-      'Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.',
+      'Prefix-reuse / shared-system-pattern GPU meter — not a holographic rhyme proof. Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.',
     interpretation: pass
       ? `Live on ${report?.device || 'NVIDIA GeForce'}: cuMemAlloc ${(allocR * 100).toFixed(1)}%; nvidia-smi ${
           smiR == null ? 'n/a' : `${(smiR * 100).toFixed(1)}%`

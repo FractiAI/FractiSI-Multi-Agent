@@ -198,6 +198,7 @@ export function summarizeLlm(receipts, bootstrap) {
       software: r.software,
       workload: r.workload,
       equivalence: r.equivalence,
+      rhymeSharing: r.rhymeSharing,
       prefillCall: {
         withoutMs: bootstrapCi(withoutCalls, bootstrap),
         withMs: bootstrapCi(withCalls, bootstrap),
@@ -226,6 +227,10 @@ export function summarizeLlm(receipts, bootstrap) {
         reduction: 1 - residentReduction(r.residency.shared) / residentReduction(r.residency.duplicated),
       },
       trainingSpeedup: r.training?.comparison?.stepP50Speedup ?? null,
+      trainingInterval: r.training
+        ? bootstrapRatioCi(r.training.withoutTinyFootprint.stepSamplesMs, r.training.withTinyFootprint.stepSamplesMs, bootstrap)
+        : null,
+      load: r.load,
       trainingSteps: r.workload.trainSteps,
     };
   });

@@ -19,6 +19,8 @@ from tiny_footprint_labs.llm.kv import KvPair, as_cache, kv_pairs
 
 ARM_WITHOUT = "without"
 ARM_WITH = "with"
+RHYME_SLOT_EVERY = 8
+KV_RELATIVE_TOLERANCE = 0.01
 
 
 def run_forward(model: Any, input_ids: Any, past_pairs: Sequence[KvPair] | None) -> Any:
@@ -209,5 +211,59 @@ def check_equivalence(
             "worstLogitAbsDifference": wrong["worstLogitAbsDifference"],
             "tokenSequencesEqual": wrong["tokenSequencesEqual"],
             "detected": not wrong["equivalent"],
+        },
+    }
+
+
+def rhyming_prefix(prefix_ids: Any, slot_every: int = RHYME_SLOT_EVERY) -> Any:
+    """The same organization with different words: every ``slot_every``-th token is replaced by its neighbor."""
+    changed = prefix_ids.clone()
+    changed[:, ::slot_every] = prefix_ids.roll(-1, dims=1)[:, ::slot_every]
+    return changed
+
+
+def measure_rhyme_sharing(
+    model: Any,
+    prefix_ids: Any,
+    suffix_ids_per_turn: Sequence[Any],
+    new_tokens: int,
+    tolerance: float,
+    rhyme_ids: Any = None,
+) -> dict[str, Any]:
+    """Test whether a rhyme's KV state could stand in for another prompt's.
+
+    Two prompts keep most tokens and differ in a few slots, which favors sharing more
+    than any real pair of sessions would. Each key and value cell, one per layer and
+    position, counts as shareable only if it matches within a relative tolerance. A
+    server would also have to resume from the other prompt's cache, which is tested too.
+    """
+    rhyme_ids = rhyming_prefix(prefix_ids) if rhyme_ids is None else rhyme_ids
+    base = kv_pairs(run_forward(model, prefix_ids, None).past_key_values)
+    rhyme = kv_pairs(run_forward(model, rhyme_ids, None).past_key_values)
+    positions = int(prefix_ids.shape[1])
+    unchanged = (rhyme_ids == prefix_ids)[0]
+    matching_by_layer = []
+    for base_pair, rhyme_pair in zip(base, rhyme, strict=True):
+        matches = unchanged.clone()
+        for original, candidate in zip(base_pair, rhyme_pair, strict=True):
+            difference = (original - candidate).abs().amax(dim=(0, 1, 3))
+            scale = original.abs().amax(dim=(0, 1, 3)).clamp_min(1e-12)
+            matches = matches & (difference / scale <= KV_RELATIVE_TOLERANCE)
+        matching_by_layer.append(int(matches.sum().item()))
+    resumed = _compare_arms(model, rhyme_ids, prefix_ids, suffix_ids_per_turn, new_tokens, tolerance)
+    return {
+        "kind": f"every {RHYME_SLOT_EVERY}th prefix token replaced by its neighbor",
+        "relativeTolerance": KV_RELATIVE_TOLERANCE,
+        "positions": positions,
+        "changedTokens": positions - int(unchanged.sum().item()),
+        "layers": len(base),
+        "matchingPositionsByLayer": matching_by_layer,
+        "matchingCellFraction": sum(matching_by_layer) / (len(base) * positions),
+        "layersWithAnyMatch": sum(1 for count in matching_by_layer if count > 0),
+        "resumeFromRhymingCache": {
+            "worstLogitAbsDifference": resumed["worstLogitAbsDifference"],
+            "tokenSequencesEqual": resumed["tokenSequencesEqual"],
+            "turns": resumed["turns"],
+            "equivalent": resumed["equivalent"],
         },
     }

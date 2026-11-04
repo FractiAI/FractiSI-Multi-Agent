@@ -2,7 +2,15 @@ from typing import Any
 
 import pytest
 
-from tiny_footprint_labs.llm.inference import check_equivalence, greedy_decode, measure_timing, run_forward
+from tiny_footprint_labs.llm.inference import (
+    RHYME_SLOT_EVERY,
+    check_equivalence,
+    greedy_decode,
+    measure_rhyme_sharing,
+    measure_timing,
+    rhyming_prefix,
+    run_forward,
+)
 from tiny_footprint_labs.llm.kv import kv_pairs
 
 
@@ -74,3 +82,29 @@ def test_timing_reports_both_arms_and_keeps_raw_samples(tiny_model: Any) -> None
         assert result[arm]["prefillCallMs"]["n"] == 4
     assert result["prefixPrefillMs"]["n"] == 2
     assert result["comparison"]["prefillP50Speedup"] > 0
+
+
+def test_a_rhyming_prefix_changes_only_its_slots() -> None:
+    prefix = _ids(*range(1, 18))
+    changed = rhyming_prefix(prefix)
+    assert changed.shape == prefix.shape
+    assert int((changed != prefix).sum()) == len(range(0, 17, RHYME_SLOT_EVERY))
+    assert int(prefix[0, 1]) == int(changed[0, 0])
+
+
+def test_rhyme_sharing_reports_what_repeats_and_what_a_resume_would_do(tiny_model: Any) -> None:
+    prefix, suffixes = _ids(*range(1, 18)), [_ids(30, 31), _ids(40, 41)]
+    report = measure_rhyme_sharing(tiny_model, prefix, suffixes, new_tokens=2, tolerance=1e-4)
+    assert report["positions"] == 17
+    assert report["changedTokens"] == 3
+    assert report["layers"] == len(report["matchingPositionsByLayer"])
+    assert 0 <= report["matchingCellFraction"] < 1
+    assert report["resumeFromRhymingCache"]["turns"] == 2
+
+
+def test_negative_control_identical_prompts_share_every_cell(tiny_model: Any) -> None:
+    prefix, suffixes = _ids(*range(1, 18)), [_ids(30, 31)]
+    report = measure_rhyme_sharing(tiny_model, prefix, suffixes, new_tokens=2, tolerance=1e-4, rhyme_ids=prefix.clone())
+    assert report["changedTokens"] == 0
+    assert report["matchingCellFraction"] == 1
+    assert report["resumeFromRhymingCache"]["equivalent"] is True

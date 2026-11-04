@@ -27,6 +27,18 @@ import {
 
 const parseAll = (wires) => wires.map((wire) => JSON.parse(wire));
 
+/** `mergeDelta` with no cloning: the same result, sharing the template's own objects. */
+function mergeWithoutClone(base, delta) {
+  const isPlain = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
+  if (!isPlain(base) || !isPlain(delta)) return delta;
+  const out = { ...base };
+  for (const key of Object.keys(delta)) {
+    if (delta[key]?.__missing === true) delete out[key];
+    else out[key] = mergeWithoutClone(base[key], delta[key]);
+  }
+  return out;
+}
+
 function exactCache(wires) {
   const byDigest = new Map();
   const entries = wires.map((wire) => {
@@ -98,7 +110,8 @@ function rhymeWorkload(makeSessions) {
         const first = parsed[0];
         // Fields that hold the same value in every session point at the first session's copy.
         for (const key of Object.keys(first)) {
-          if (parsed.every((session) => session[key] === first[key])) {
+          const text = JSON.stringify(first[key]);
+          if (parsed.every((session) => JSON.stringify(session[key]) === text)) {
             for (const session of parsed) session[key] = first[key];
           }
         }
@@ -126,7 +139,7 @@ function rhymeWorkload(makeSessions) {
       tiny: (store, i) => JSON.stringify(reconstructExpression(store.catalog, store.expressions[i])),
       tiny_noclone(store, i) {
         const encoded = store.expressions[i];
-        return JSON.stringify({ ...store.catalog.get(encoded.templateId).pattern, ...encoded.delta });
+        return JSON.stringify(mergeWithoutClone(store.catalog.get(encoded.templateId).pattern, encoded.delta));
       },
       exact_cache: exactCacheMaterialize,
     },

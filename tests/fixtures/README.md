@@ -6,4 +6,4 @@ Captured data the tests compare against.
 
 | Path | What it is |
 |---|---|
-| [`golden-experiments-0dcf9d2.json`](golden-experiments-0dcf9d2.json) | Experiment results from upstream commit 0dcf9d2 |
+| [`golden-experiments-733b48e.json`](golden-experiments-733b48e.json) | Experiment results computed by upstream's own code at commit 733b48e |

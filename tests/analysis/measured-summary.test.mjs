@@ -74,6 +74,20 @@ test('a completed run computes speedups and the reduction with weights', () => {
   assert.equal(run.trainingSpeedup, null);
 });
 
+test('training gets a bootstrap interval from its round samples', () => {
+  const arm = { prefillCallSamplesMs: [2], prefillBatchSamplesMs: [2], decodeBatchSamplesMs: [2] };
+  const [run] = summarizeLlm([{
+    status: 'pass', run: 'r', model: { parameterCount: 1 }, backend: 'cpu', device: 'x', software: {}, workload: { trainSteps: 3, trials: 1 }, equivalence: {},
+    inference: { withoutTinyFootprint: arm, withTinyFootprint: arm },
+    residency: { duplicated: { logicalBytes: 2 }, shared: { logicalBytes: 1 } },
+    training: { withoutTinyFootprint: { stepSamplesMs: [2, 2, 2] }, withTinyFootprint: { stepSamplesMs: [1, 1, 1] }, comparison: { stepP50Speedup: 2 } },
+    load: { start: {}, end: {} },
+  }], bootstrap);
+  assert.equal(run.trainingInterval.estimate, 2);
+  assert.equal(run.trainingInterval.low, 2);
+  assert.deepEqual(run.load, { start: {}, end: {} });
+});
+
 test('call samples reduce to one median per trial, the most independent unit in one process', () => {
   assert.deepEqual(perTrialMedians([1, 2, 3, 10, 20, 30], 2), [2, 20]);
   assert.throws(() => perTrialMedians([1, 2, 3], 2), /do not divide/);

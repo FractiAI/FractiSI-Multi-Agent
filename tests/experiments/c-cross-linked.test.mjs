@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { buildCrossLinkedWorkload, experimentC_crossLinked } from '../../src/experiments/c-cross-linked.mjs';
 
-const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-0dcf9d2.json', import.meta.url), 'utf8'));
+const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-733b48e.json', import.meta.url), 'utf8'));
 
 test('output is byte-identical to the result captured before modularization', () => {
   assert.equal(JSON.stringify(experimentC_crossLinked()), JSON.stringify(golden.C));

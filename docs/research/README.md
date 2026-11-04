@@ -7,4 +7,4 @@ FractiAI's technical summary and whitepaper. For a reproducible account, read [t
 | Path | What it is |
 |---|---|
 | [`TECH.md`](TECH.md) | A short technology summary |
-| [`TECH_PAPER.md`](TECH_PAPER.md) | FractiAI's frozen whitepaper, version 1.2 |
+| [`TECH_PAPER.md`](TECH_PAPER.md) | FractiAI's whitepaper, version 1.2, with a note on the v1.3 companions |

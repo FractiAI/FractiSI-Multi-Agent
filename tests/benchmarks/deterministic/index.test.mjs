@@ -6,6 +6,6 @@ import { loadPlan } from '../../../src/benchmarks/plan.mjs';
 test('the tier produces every section and repeats exactly', () => {
   const { plan } = loadPlan();
   const a = runDeterministicBenchmarks(plan);
-  assert.deepEqual(Object.keys(a), ['suite', 'sensitivity', 'exactness', 'baselines', 'scaling', 'crossover', 'gpuProxy']);
+  assert.deepEqual(Object.keys(a), ['suite', 'companions', 'sensitivity', 'exactness', 'baselines', 'scaling', 'crossover', 'gpuProxy', 'rhymeGate', 'rhymeByteFraction']);
   assert.equal(JSON.stringify(a), JSON.stringify(runDeterministicBenchmarks(plan)));
 });

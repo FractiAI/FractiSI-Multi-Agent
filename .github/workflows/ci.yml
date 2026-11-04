@@ -28,8 +28,7 @@ jobs:
           done
       - name: Paper copies stay in sync
         run: |
-          cmp docs/research/TECH_PAPER.md research/synthobs-tiny-gateway-rhyming-templates/paper/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
-          cmp docs/research/TECH_PAPER.md research/synthobs-tiny-gateway-rhyming-templates/docs/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
+          cmp research/synthobs-tiny-gateway-rhyming-templates/paper/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md research/synthobs-tiny-gateway-rhyming-templates/docs/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
       - name: Tests and repository gates
         run: npm test
       - name: Multi-session demo

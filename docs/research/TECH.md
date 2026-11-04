@@ -12,7 +12,7 @@ Architecture centered on **Rhyming Templates**: reusable organizational patterns
 - **Compact differences** — session-specific state without full reprints  
 - **Selective reconstruction** — rebuild only what the next operation needs  
 
-On 40 sessions that share a shape and say different things, the rhyme stores 4,758 bytes and an exact-text cache stores 6,704. When all 40 sentences are identical, the cache stores 164 bytes and the rhyme stores 4,691. Those are JSON byte counts, not GPU memory.
+On 40 sessions that share a shape and say different things, the rhyme stores about a third fewer bytes than an exact-text cache. When all 40 sentences are identical, the cache is far smaller than the rhyme. Those are JSON byte counts, not GPU memory, and [the results page](../benchmarks/RESULTS.md) has the current values.
 
 ## What we measure
 

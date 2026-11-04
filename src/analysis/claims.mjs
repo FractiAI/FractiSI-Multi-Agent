@@ -62,6 +62,12 @@ export function evaluateClaims(summary) {
     caught.length > 0 ? `Logits match a full prefill to within ${sci(Math.max(...caught.map((run) => run.equivalence.worstLogitAbsDifference)))} on ${modelNames(caught)}, where the check catches a cache built from the wrong prefix.` : 'On no model does the equivalence check catch a cache built from the wrong prefix.',
     missed.length > 0 && caught.length > 0 ? `On ${modelNames(missed)} it does not, so those turns show nothing.` : '',
   ].filter(Boolean).join(' ');
+  const gate = summary.deterministic.rhymeGate;
+  const { K, L, M } = summary.deterministic.companions;
+  const rhymeSim = summary.h100.workloads.rhymingDifferentWording.comparison;
+  const assumedShare = summary.h100.workload.rhymeSharedOrgFraction;
+  const measuredShare = biggest?.rhymeSharing;
+  const shareHolds = measuredShare != null && measuredShare.matchingCellFraction >= assumedShare && measuredShare.resumeFromRhymingCache.equivalent;
   const residentAtTarget = runs.filter((run) => run.withWeights.reduction >= sensitivity.target);
   const faster = [latencyAi, latencyRhyme].filter((row) => row.ratioToDuplicated.high < 1).length;
   const smi = historical.gpuMeasured;
@@ -117,10 +123,10 @@ export function evaluateClaims(summary) {
       claim: `Real-model train-step speedup of ${times(historical.realLlm.trainStepP50Speedup)} (historical, GTX 860M)`,
       evidence: trainRuns.length === 0
         ? notRunHere
-        : `Warmed up and with arms interleaved, this host gives ${range(trainSpeedups, times)}. Both arms perform the same steps per round; the original lab ran one arm first with no warm-up.`,
+        : `Warmed up and with arms interleaved, this host gives ${range(trainSpeedups, times)}, with intervals spanning ${times(Math.min(...trainRuns.map((run) => run.trainingInterval.low)))} to ${times(Math.max(...trainRuns.map((run) => run.trainingInterval.high)))}. Both arms perform the same steps per round; the original lab ran one arm first with no warm-up.`,
       status: trainRuns.length === 0
         ? CLAIM_STATUS.NOT_TESTABLE
-        : Math.min(...trainSpeedups) >= historical.realLlm.trainStepP50Speedup ? CLAIM_STATUS.REPRODUCED : CLAIM_STATUS.NOT_REPRODUCED,
+        : Math.min(...trainRuns.map((run) => run.trainingInterval.low)) >= historical.realLlm.trainStepP50Speedup ? CLAIM_STATUS.REPRODUCED : CLAIM_STATUS.NOT_REPRODUCED,
     },
     {
       id: 'gpu_allocation',
@@ -137,7 +143,7 @@ export function evaluateClaims(summary) {
     {
       id: 'gpu_turn_latency',
       claim: `Host-to-device turn materialization ${times(smi.suiteTurnSpeedup)} faster (historical, GTX 860M)`,
-      evidence: `${gpuRanHere ? `This host read ${times(summary.gpuLive.latency.comparison.turnSpeedup)}.` : 'Needs NVIDIA hardware.'} The copied payload alone is ${times(smi.payloadRatio)} smaller than the conventional one, so the byte count predicts most of the speedups recorded in the two stored receipts (${times(smi.turnSpeedup)} and ${times(smi.suiteTurnSpeedup)}).`,
+      evidence: `${gpuRanHere ? `This host read ${times(summary.gpuLive.latency.comparison.turnSpeedup)}.` : 'Needs NVIDIA hardware.'} The copied payload alone is ${times(smi.payloadRatio)} smaller than the conventional one, so the byte count predicts most of the speedup recorded in the stored receipts (${smi.turnSpeedup === smi.suiteTurnSpeedup ? times(smi.turnSpeedup) : `${times(smi.turnSpeedup)} and ${times(smi.suiteTurnSpeedup)}`}).`,
       status: !gpuRanHere ? CLAIM_STATUS.NOT_TESTABLE : summary.gpuLive.latency.comparison.turnSpeedup > 1 ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.NOT_REPRODUCED,
     },
     {
@@ -146,9 +152,27 @@ export function evaluateClaims(summary) {
       evidence: residentAtTarget.length > 0
         ? `Resident memory with weights counted reached ${pct(Math.max(...residentAtTarget.map((run) => run.withWeights.reduction)))} on ${modelNames(residentAtTarget)}, against no sharing at all, and a prefix cache gets the same residency.`
         : biggest
-        ? `Not established by any receipt. Key-value residency alone can exceed that (${pct(biggest.residency.reduction.device)} here), but counting weights gives ${pct(biggest.withWeights.reduction)} here and ${pct(summary.h100.comparison.residentReductionVersusNaive)} on the H100 roofline, and a prefix cache gets the same residency.`
-        : `Not established by any receipt. Counting weights gives ${pct(summary.h100.comparison.residentReductionVersusNaive)} on the H100 roofline, and a prefix cache gets the same residency.`,
+        ? `Not established by any receipt. Key-value residency alone can exceed that (${pct(biggest.residency.reduction.device)} here), but counting weights gives ${pct(biggest.withWeights.reduction)} here and ${pct(summary.h100.derived.residentReductionVersusNaive)} on the H100 roofline, and a prefix cache gets the same residency.`
+        : `Not established by any receipt. Counting weights gives ${pct(summary.h100.derived.residentReductionVersusNaive)} on the H100 roofline, and a prefix cache gets the same residency.`,
       status: residentAtTarget.length > 0 ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.NOT_REPRODUCED,
+    },
+    {
+      id: 'rhyme_gate',
+      claim: 'A four-pillar gate tells a holographic rhyme from a brick wall',
+      evidence: `${gate.plainWall.pass ? 'It accepts a plain wall.' : 'It refuses a plain wall.'} The same bricks ${gate.wallWithNestedFieldAndDeclaredValues.pass ? 'pass' : 'still fail'} once they have a nested field and declare a nesting depth and a drift, because ${gate.pillarsReadingDeclaredValues.join(' and ')} read values the caller states.`,
+      status: gate.plainWall.pass ? CLAIM_STATUS.NOT_REPRODUCED : gate.wallWithNestedFieldAndDeclaredValues.pass ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.REPRODUCED,
+    },
+    {
+      id: 'h100_rhyme',
+      claim: `On an H100, a rhyme holds ${pct(rhymeSim.tinyKvReductionVersusPrefixCache)} less KV memory than a prefix cache when wording differs (simulated)`,
+      evidence: `${measuredShare == null ? 'The real-model lab did not read this on this host.' : `Measured on ${biggest.model.id.split('/').pop()}, with ${pct(measuredShare.changedTokens / measuredShare.positions)} of tokens changed: ${pct(measuredShare.matchingCellFraction)} of KV cells repeat, and resuming from the other prompt's cache moves logits by ${fixed2(measuredShare.resumeFromRhymingCache.worstLogitAbsDifference)}.`} The simulation applies a JSON byte fraction of ${pct(assumedShare)} to KV memory, and its equivalence check compares lengths.`,
+      status: measuredShare == null ? CLAIM_STATUS.NOT_TESTABLE : shareHolds ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.NOT_REPRODUCED,
+    },
+    {
+      id: 'companion_meters',
+      claim: 'Signature routing, context-fold hooks and an energy proxy',
+      evidence: `They run and ${K.pass && L.pass && M.pass ? 'pass' : 'do not all pass'}: ${K.bucketCompares} comparisons against ${K.linearCompares} for a scan, a fold ratio of ${pct(L.foldRatio)} over ${L.levels} retained turns, and depth scaled from ${M.baselineDepth} to ${M.scaledDepth}. These count comparisons, bytes and joules from assumed constants. None is a memory, latency or energy reading from a device.`,
+      status: K.pass && L.pass && M.pass ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.NOT_REPRODUCED,
     },
     {
       id: 'receipts_on_your_machine',

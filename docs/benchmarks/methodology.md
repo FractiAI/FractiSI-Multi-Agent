@@ -47,4 +47,6 @@ Two ablations separate the idea from this implementation, so a cost in the shipp
 
 ## What the labs do not establish
 
+The H100 rhyme arm is a hypothesis, because it applies a fraction of JSON bytes to KV memory. The real-model lab tests that premise on one small model, by comparing the KV tensors of two prompts that differ in a few slots and by resuming from one prompt's cache for the other. The gate's `recursive` and `self_correcting` pillars read values the caller declares, so a pass is not a measurement. The companion meters count comparisons, bytes and assumed joules.
+
 The real-model lab compares reusing a shared prefix against re-prefilling the whole prompt. A production prefix cache already reuses prefixes, so this measures the size of that opportunity and shows no advantage over a server that takes it. Whether two prompts with the same organization and different words can share key-value state at all is an open question that no experiment here tests.

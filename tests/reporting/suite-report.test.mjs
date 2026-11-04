@@ -4,12 +4,12 @@ import { runAllExperiments } from '../../src/experiments/suite.mjs';
 import { notRunReport } from '../../src/labs/lab-status.mjs';
 import { renderSuiteReport } from '../../src/reporting/suite-report.mjs';
 
-const results = runAllExperiments({ labs: { gpuLive: notRunReport('x'), gpuLlm: notRunReport('y') } });
+const results = runAllExperiments({ labs: { gpuLive: notRunReport('x'), gpuLlm: notRunReport('y'), h100: notRunReport('z') } });
 
 test('the report states the verdict and that a lab did not run', () => {
   const text = renderSuiteReport({ generatedAt: 'T', results });
   assert.match(text, /`incomplete`/);
-  assert.match(text, /7 pass · 0 fail · 3 not run/);
+  assert.match(text, /11 pass · 0 fail · 4 not run/);
   assert.match(text, /\| GPU allocation reduction \| not_run \|/);
   assert.match(text, /84\.5%/);
   assert.match(text, /Generated:\*\* T/);

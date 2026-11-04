@@ -19,6 +19,26 @@ import * as shimLlm from '../../research/synthobs-tiny-gateway-rhyming-templates
 import { runAllExperiments } from '../../src/experiments/suite.mjs';
 import { bytesOf } from '../../src/core/bytes.mjs';
 
+test('the v1.3 module paths export the canonical functions', async () => {
+  const suite = '../../research/synthobs-tiny-gateway-rhyming-templates/src';
+  const gate = await import(`${suite}/holographic-rhyme-gate.mjs`);
+  const route = await import(`${suite}/geometric-rhyme-route.mjs`);
+  const buffer = await import(`${suite}/context-buffer.mjs`);
+  const hooks = await import(`${suite}/context-compress-hooks.mjs`);
+  const energy = await import(`${suite}/energy-proxy.mjs`);
+  const sim = await import(`${suite}/h100-rhyme-sim.mjs`);
+  assert.equal(typeof gate.auditRhyme, 'function');
+  assert.equal(typeof route.routeBySignature, 'function');
+  assert.equal(typeof buffer.createRecursiveContextBuffer, 'function');
+  assert.equal(typeof hooks.createCompressionHookRegistry, 'function');
+  assert.equal(typeof energy.scaleUnderBudget, 'function');
+  assert.equal(typeof sim.runH100RhymeSim, 'function');
+  assert.equal(sim.RHYME_SHARED_ORG_FRACTION, 1 - 121 / 198);
+  for (const name of ['structuralSignature', 'shapesRhyme', 'diffDelta', 'mergeDelta', 'reconstructExpressionWithState']) {
+    assert.equal(typeof shimRhyming[name], 'function', name);
+  }
+});
+
 test('every old module path still exports the same functions', () => {
   assert.equal(shimExperiments.runAllExperiments, runAllExperiments);
   assert.equal(shimMemory.bytesOf, bytesOf);

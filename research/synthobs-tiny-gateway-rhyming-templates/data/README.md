@@ -1,6 +1,6 @@
 # Historical receipts
 
-Receipts recorded on the original GTX 860M laptop. They are evidence about that machine on that date.
+Receipts FractiAI stored for the suite. The GPU readings come from the original GTX 860M laptop, and the v1.3 suite report reuses them as `cached`. They are evidence about that machine on that date.
 
 ## Contents
 

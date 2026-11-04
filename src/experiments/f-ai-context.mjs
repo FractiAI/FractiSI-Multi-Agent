@@ -43,13 +43,13 @@ export function experimentF_aiContextProxy(seed = DIGITAL_SEED, sessions = 40, t
   const exact = deepEqual(reconSys, systemPrompt);
   return {
     id: 'F_ai_context_proxy',
-    title: 'Workload E/F proxy · shared system prompt + turn deltas',
+    title: 'Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)',
     sessions,
     turns,
     ...r,
     exact,
     pass: r.ratio >= 0.4 && exact,
     honesty:
-      'In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server.',
+      'Prefix-reuse / shared-identical-system-prompt meter — not a holographic rhyme proof, and not measured GPU KV-cache / HBM for a production LLM server.',
   };
 }

@@ -10,6 +10,11 @@ Where each module went when the code was split into submodules, for reconciling 
 | `src/rng.mjs` | `src/core/rng.mjs` |
 | `src/memory.mjs` | `src/core/bytes.mjs`, and `src/experiments/a-illustrative-model.mjs` for the illustrative model |
 | `src/rhyming-template.mjs` | `src/engine/rhyming/` (`catalog.mjs`, `shape.mjs`, `codec.mjs`) |
+| `src/holographic-rhyme-gate.mjs` | `src/engine/rhyming/gate.mjs` |
+| `src/geometric-rhyme-route.mjs` | `src/engine/rhyming/route.mjs` |
+| `src/context-buffer.mjs`, `src/context-compress-hooks.mjs` | `src/engine/context/` |
+| `src/energy-proxy.mjs` | `src/engine/energy/proxy.mjs` |
+| `src/h100-rhyme-sim.mjs` | `src/labs/h100-sim-lab.mjs` and `src/experiments/s-h100-rhyme-sim.mjs` |
 | `src/nested-vector.mjs` | `src/engine/vectors/store.mjs` |
 | `src/eight-node.mjs` | `src/engine/broadcast/eight-node.mjs` |
 | `src/gateway.mjs` | `src/engine/gateway.mjs` |
@@ -50,7 +55,7 @@ Where each module went when the code was split into submodules, for reconciling 
 
 ## Behaviour that changed on purpose
 
-Moving code preserved results: the deterministic experiments are byte-identical to the commit before the split, pinned by `tests/fixtures/golden-experiments-0dcf9d2.json`. These behaviours changed deliberately.
+Moving code preserved results: the deterministic experiments are byte-identical to the commit before the split, pinned by `tests/fixtures/golden-experiments-733b48e.json`. These behaviours changed deliberately.
 
 | Before | Now | Why |
 |---|---|---|
@@ -60,3 +65,7 @@ Moving code preserved results: the deterministic experiments are byte-identical 
 | The verdict was pass or fail | `all_pass`, `incomplete` or `fail` | `not_run` is neither |
 | The real-model lab ran one arm entirely before the other | Arms interleave in seeded order, from identical token ids | Order and tokenization could differ between arms |
 | `generate` included prefill in its time | Prefill and decode are timed separately | They respond differently to prefix reuse |
+
+## Merging upstream
+
+FractiAI's v1.3 commit `733b48e` was ported here rather than copied, and experiment results match upstream's own code byte for byte (`tests/fixtures/`). One part was left out on purpose: upstream's `gpu-live-lab.mjs` reuses a stored GPU receipt by default and its suite counts that as a pass. That is the defect `src/labs/python-runner.mjs` exists to prevent, so a lab here still reports only what ran now.

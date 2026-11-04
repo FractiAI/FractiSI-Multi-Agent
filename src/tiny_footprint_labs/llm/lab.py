@@ -15,7 +15,7 @@ from typing import Any
 
 from tiny_footprint_labs.common.receipt import LabNotRunnable
 from tiny_footprint_labs.llm.device import pick_device
-from tiny_footprint_labs.llm.inference import check_equivalence, measure_timing
+from tiny_footprint_labs.llm.inference import check_equivalence, measure_rhyme_sharing, measure_timing
 from tiny_footprint_labs.llm.prompts import SYSTEM_PREFIX, session_turn
 from tiny_footprint_labs.llm.residency import measure_residency
 from tiny_footprint_labs.llm.training import measure_training
@@ -108,6 +108,7 @@ def run_lab(
 
     timing = measure_timing(loaded, backend, prefix_ids, suffix_ids_per_turn, new_tokens, trials, warmup, seed)
     equivalence = check_equivalence(loaded, prefix_ids, suffix_ids_per_turn, new_tokens, logit_tolerance)
+    rhyme_sharing = measure_rhyme_sharing(loaded, prefix_ids, suffix_ids_per_turn, new_tokens, logit_tolerance)
     residency = measure_residency(
         loaded,
         backend,
@@ -163,6 +164,7 @@ def run_lab(
         },
         "inference": timing,
         "equivalence": equivalence,
+        "rhymeSharing": rhyme_sharing,
         "residency": residency,
         "training": training,
         "honesty": HONESTY,

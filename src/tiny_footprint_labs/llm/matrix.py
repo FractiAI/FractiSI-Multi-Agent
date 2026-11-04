@@ -8,9 +8,11 @@ any older receipt is removed first, so a run that dies cannot leave stale eviden
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -67,11 +69,18 @@ def run_command(script: Path, run: dict[str, Any], llm_plan: dict[str, Any], see
     ]
 
 
-def bind_receipt(out: Path, plan_sha256: str, fingerprint: dict[str, Any]) -> None:
-    """Record which plan and which lab source produced a receipt."""
+def load_sample() -> dict[str, Any]:
+    """The load average now, in the shape the measured receipts use."""
+    one, five, fifteen = os.getloadavg()
+    return {"at": datetime.now(UTC).isoformat(), "loadAverage": {"one": one, "five": five, "fifteen": fifteen}}
+
+
+def bind_receipt(out: Path, plan_sha256: str, fingerprint: dict[str, Any], load: dict[str, Any]) -> None:
+    """Record which plan and which lab source produced a receipt, and how busy the host was."""
     report = json.loads(out.read_text(encoding="utf-8"))
     report["planSha256"] = plan_sha256
     report["sourceFingerprint"] = fingerprint
+    report["load"] = load
     write_report(report, out)
 
 
@@ -88,10 +97,11 @@ def run_matrix(plan_path: Path, script: Path, out_dir: Path, repo_root: Path) ->
         out = out_dir / f"{run_slug(run)}.json"
         out.unlink(missing_ok=True)
         command = run_command(script, run, llm_plan, plan["seeds"]["primary"], out)
+        start = load_sample()
         completed = subprocess.run(command, capture_output=True, text=True, check=False)
         has_receipt = out.exists()
         if has_receipt:
-            bind_receipt(out, plan_sha256, fingerprint)
+            bind_receipt(out, plan_sha256, fingerprint, {"start": start, "end": load_sample()})
         outcome: dict[str, Any] = {
             "run": run_slug(run),
             "exitCode": completed.returncode,

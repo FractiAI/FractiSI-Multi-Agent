@@ -6,7 +6,7 @@ import { DIGITAL_SEED, VALIDATION_SEED } from './constants.mjs';
 
 function runGatewayRoundTrips(seed) {
   const gw = createGateway();
-  const pattern = { kind: 'packet', proto: 'v2', qos: 'default', payload: null };
+  const pattern = { kind: 'packet', proto: 'v2', qos: 'default', payload: { x: 0, y: 0, tag: '' } };
   gw.registerTemplate({ id: 'tpl_packet', pattern });
   const rng = mulberry32(seed);
   let ok = 0;

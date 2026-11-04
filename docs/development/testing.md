@@ -28,7 +28,7 @@ A gate that cannot fail proves nothing. Every verifier has a test that feeds it 
 
 ## Golden results
 
-`tests/fixtures/golden-experiments-0dcf9d2.json` holds the deterministic experiments' output from the commit before the code was split. Each experiment test compares against it byte for byte, so moving code cannot change a result unnoticed. Changing a result on purpose means regenerating that file and explaining why in the commit.
+`tests/fixtures/golden-experiments-733b48e.json` holds the deterministic experiments' output from the commit before the code was split. Each experiment test compares against it byte for byte, so moving code cannot change a result unnoticed. Changing a result on purpose means regenerating that file and explaining why in the commit.
 
 ## Tests that read committed evidence
 

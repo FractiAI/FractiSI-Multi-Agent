@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { runSuiteBytes } from '../../../src/benchmarks/deterministic/suite-bytes.mjs';
 
-const golden = JSON.parse(readFileSync(new URL('../../fixtures/golden-experiments-0dcf9d2.json', import.meta.url), 'utf8'));
+const golden = JSON.parse(readFileSync(new URL('../../fixtures/golden-experiments-733b48e.json', import.meta.url), 'utf8'));
 
 test('workload bytes equal the result captured before modularization', () => {
   const { workloads } = runSuiteBytes({ seed: 20261103, validationSeed: 202611032 });

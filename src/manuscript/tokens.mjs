@@ -79,7 +79,7 @@ export function buildCatalog(summary, { plan, planSha256, registry, suite }) {
   const workloadRows = summary.deterministic.suite.workloads;
   const shareOf = (keys) => summary.deterministic.sensitivity.byteShare.filter((b) => keys.includes(b.key)).reduce((sum, b) => sum + b.share, 0);
   const loo = summary.deterministic.sensitivity.leaveOneOut;
-  const loads = [summary.heap.load, summary.latency.load, summary.rss.load].flatMap((l) => [l.start.loadAverage.one, l.end.loadAverage.one]);
+  const loads = [summary.heap.load, summary.latency.load, summary.rss.load, ...runs.map((r) => r.load)].flatMap((l) => [l.start.loadAverage.one, l.end.loadAverage.one]);
   const below = summary.deterministic.gpuProxy.sweep.find((p) => p.reductionRatio < summary.target);
   const fullKv = summary.deterministic.gpuProxy.sweep.find((p) => p.deltaFraction === 1);
   const scaling = summary.deterministic.scaling.series;
@@ -231,6 +231,7 @@ export function buildCatalog(summary, { plan, planSha256, registry, suite }) {
   c.derived('LLM_END_TO_END_RANGE', 'prefill plus decode speedups across runs', rangeOf(runs.map((r) => r.endToEndBatch.speedup.estimate), times));
   c.derived('LLM_TRAIN_RANGE', 'training speedups across runs', rangeOf(trainRuns.map((r) => r.trainingSpeedup), times));
   c.derived('LLM_TRAIN_STEPS', 'training rounds', String(trainRuns[0].trainingSteps));
+  c.derived('LLM_TRAIN_INTERVAL', 'widest interval across training runs', interval(Math.min(...trainRuns.map((r) => r.trainingInterval.low)), Math.max(...trainRuns.map((r) => r.trainingInterval.high)), times));
   c.derived('LLM_TOKENS_EQUAL', 'turns with equal greedy tokens across runs', int(runs.reduce((sum, r) => sum + r.equivalence.tokenSequencesEqual, 0)));
   c.derived('LLM_TOKENS_TOTAL', 'turns compared across runs', int(runs.reduce((sum, r) => sum + r.equivalence.turns, 0)));
   c.derived('LLM_WORST_LOGIT', 'worst logit difference across runs', sci(Math.max(...runs.map((r) => r.equivalence.worstLogitAbsDifference))));
@@ -254,15 +255,32 @@ export function buildCatalog(summary, { plan, planSha256, registry, suite }) {
   c.add('KV_WEIGHTS', `${kvPath}.withWeights.weightBytes`, mib);
   c.add('KV_MATERIALIZE', `${kvPath}.residency.materializeMs.p50Ms`, ms);
   c.add('KV_REBUILD_DIFF', `${kvPath}.residency.concatWorstAbsDifference`, sci);
+  c.derived('RHYME_KV_CHANGED', 'share of prefix tokens changed in the rhyming control', pct(kv.rhymeSharing.changedTokens / kv.rhymeSharing.positions));
+  c.add('RHYME_KV_CELLS', `${kvPath}.rhymeSharing.matchingCellFraction`, pct);
+  c.add('RHYME_KV_LAYERS_MATCHING', `${kvPath}.rhymeSharing.layersWithAnyMatch`, word);
+  c.add('RHYME_KV_LAYERS', `${kvPath}.rhymeSharing.layers`, word);
+  c.add('RHYME_KV_TOLERANCE', `${kvPath}.rhymeSharing.relativeTolerance`, pct0);
+  c.add('RHYME_RESUME_LOGIT', `${kvPath}.rhymeSharing.resumeFromRhymingCache.worstLogitAbsDifference`, fixed2);
+  c.add('RHYME_RESUME_TOKENS_EQUAL', `${kvPath}.rhymeSharing.resumeFromRhymingCache.tokenSequencesEqual`, int);
+  c.add('RHYME_RESUME_TURNS', `${kvPath}.rhymeSharing.resumeFromRhymingCache.turns`, int);
+  c.add('RHYME_COHORT_FRACTION', `${det}.rhymeByteFraction.cohortSharedFraction`, pct);
+  c.derived('GATE_DECLARED_PILLARS', 'pillars that read values the caller declares', word(readPath(summary, `${det}.rhymeGate.pillarsReadingDeclaredValues`).length));
+  c.add('COMPANION_K_BUCKET', `${det}.companions.K.bucketCompares`, int);
+  c.add('COMPANION_K_LINEAR', `${det}.companions.K.linearCompares`, int);
+  c.add('COMPANION_L_FOLD', `${det}.companions.L.foldRatio`, pct);
+  c.derived('KIT_COMMIT', 'the upstream commit this study measures', plan.kit.commit);
+  c.derived('KIT_LABEL', 'the upstream release this study measures', plan.kit.label);
 
   // Simulation
   c.add('H100_NAME', 'h100.device.name');
   c.add('H100_SESSIONS', 'h100.workload.sessions', word);
-  c.add('H100_PREFIX', 'h100.workload.prefixTokens', int);
+  c.add('H100_PREFIX', 'h100.workload.orgTokens', int);
   c.add('H100_SUFFIX', 'h100.workload.suffixTokens', int);
-  c.add('H100_KV_REDUCTION', 'h100.comparison.kvReductionVersusNaive', pct);
-  c.add('H100_RESIDENT_REDUCTION', 'h100.comparison.residentReductionVersusNaive', pct);
-  c.derived('H100_TINY_VS_PREFIX', 'Tiny minus prefix-cache resident bytes', word(readPath(summary, 'h100.comparison.tinyVersusPrefixCacheResidentBytes')));
+  c.add('H100_KV_REDUCTION', 'h100.workloads.identicalPrefix.comparison.prefixKvReductionVersusNaive', pct);
+  c.add('H100_RESIDENT_REDUCTION', 'h100.derived.residentReductionVersusNaive', pct);
+  c.add('H100_RHYME_KV', 'h100.workloads.rhymingDifferentWording.comparison.tinyKvReductionVersusPrefixCache', pct);
+  c.add('H100_RHYME_FRACTION', 'h100.workload.rhymeSharedOrgFraction', pct);
+  c.derived('H100_TINY_VS_PREFIX', 'Tiny minus prefix-cache resident bytes', word(readPath(summary, 'h100.workloads.identicalPrefix.comparison.tinyVersusPrefixCacheResidentBytes')));
 
   // Historical
   c.add('HIST_DEVICE', 'historical.device');
@@ -274,7 +292,6 @@ export function buildCatalog(summary, { plan, planSha256, registry, suite }) {
   c.add('HIST_SMI_CONV', 'historical.gpuMeasured.smiConventionalPeakMib', String);
   c.add('HIST_SMI_TINY', 'historical.gpuMeasured.smiTinyPeakMib', String);
   c.add('HIST_TURN_SPEEDUP', 'historical.gpuMeasured.turnSpeedup', times);
-  c.add('HIST_TURN_SPEEDUP_SUITE', 'historical.gpuMeasured.suiteTurnSpeedup', times);
   c.add('HIST_TRAIN_STEPS', 'historical.realLlm.trainSteps', word);
   c.add('HIST_PAYLOAD_RATIO', 'historical.gpuMeasured.payloadRatio', times);
   c.add('HIST_LLM_SMI', 'historical.realLlm.nvidiaSmiUsedMib', String);

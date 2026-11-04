@@ -19,4 +19,5 @@ The registered suite. Each module has a `build…Workload` that creates the data
 | [`index.mjs`](index.mjs) | Re-exports this folder's public API. |
 | [`j-gpu-llm-real.mjs`](j-gpu-llm-real.mjs) | J: real local-accelerator LLM inference and training. |
 | [`rhyme-vs-cache.mjs`](rhyme-vs-cache.mjs) | Rhyme versus exact-text cache. |
+| [`s-h100-rhyme-sim.mjs`](s-h100-rhyme-sim.mjs) | S: the H100 rhyme-versus-prefix simulation. |
 | [`suite.mjs`](suite.mjs) | The registered experiment suite: deterministic workloads plus the optional accelerator labs, with an explicit verdict that keeps `not_run` distinct from both pass and fail. |

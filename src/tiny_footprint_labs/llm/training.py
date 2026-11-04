@@ -65,8 +65,8 @@ def measure_training(
 
     without_step = summarize_ms(samples["without"])
     with_step = summarize_ms(samples["with"])
-    without = {"stepMs": without_step, "optimizerCopies": len(encoded)}
-    with_arm = {"stepMs": with_step, "optimizerCopies": 1}
+    without = {"stepMs": without_step, "stepSamplesMs": samples["without"], "optimizerCopies": len(encoded)}
+    with_arm = {"stepMs": with_step, "stepSamplesMs": samples["with"], "optimizerCopies": 1}
     speedup = ratio(without_step["p50Ms"], with_step["p50Ms"])
     return {
         "order": "warmed up, then alternating in seeded random order",

@@ -7,7 +7,7 @@ Architectural memory lab for Rhyming Templates, nested vectors, eight-node share
 npm run research
 
 # from the workstation repo root:
-cd research/synthobs-tiny-gateway-rhyming-templates && npm run research
+npm run research
 ```
 
 Journey: `/journey/homeostasis-expedition` · Paper: `/whitepaper/tiny-gateway-rhyming-templates`
@@ -19,8 +19,8 @@ The suite's code now lives in [`src/`](../../src/README.md), so every path here 
 | Path | What it is |
 |---|---|
 | [`data/`](data/README.md) | Historical receipts from the original laptop |
-| [`docs/`](docs/README.md) | Copy of FractiAI's whitepaper |
-| [`paper/`](paper/README.md) | Copy of FractiAI's whitepaper |
+| [`docs/`](docs/README.md) | FractiAI's v1.3 whitepaper |
+| [`paper/`](paper/README.md) | The same whitepaper |
 | [`results/`](results/README.md) | Historical summary manifest |
 | [`scripts/`](scripts/README.md) | Compatibility entry points |
 | [`src/`](src/README.md) | Compatibility re-exports |

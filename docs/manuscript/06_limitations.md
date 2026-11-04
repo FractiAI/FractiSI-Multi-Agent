@@ -6,7 +6,7 @@
 
 **Synthetic workloads.** Sessions are generated, not captured from production, and the workload parameters are the suite's. [@prop:saturation] says which parameters matter: a real deployment's shared fraction determines its saving, and it should be measured.
 
-**Small models, no production server.** The real-model lab used small GPT-2-family models on one consumer accelerator and on CPU, with no batching, paging or production scheduler. It measures the mechanism and not a serving system. Output equivalence here means matching greedy tokens and close logits under one tolerance, on the prompts tested, and it is informative only for a model whose check catches a wrong cache. It does not address answer quality.
+**Small models, no production server.** The real-model lab used small GPT-2-family models on one consumer accelerator and on CPU, with no batching, paging or production scheduler. It measures the mechanism and not a serving system, and the rhyme control covers one model and one pattern of changed slots. Output equivalence here means matching greedy tokens and close logits under one tolerance, on the prompts tested, and it is informative only for a model whose check catches a wrong cache. It does not address answer quality.
 
 **Hardware not reproduced.** The GPU lab was not executed in this study, because this host lacks its runtime. Its modularized code keeps the original logic and reports `not_run` here, but it has not been re-run on NVIDIA hardware since the change, and the historical receipts remain the only record of its device readings. They are from one laptop on one date.
 

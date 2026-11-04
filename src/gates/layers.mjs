@@ -10,9 +10,9 @@ import { listFiles } from './files.mjs';
 /** Lowest first. Folders on one line do not import each other. */
 export const LAYERS = Object.freeze([
   ['core'],
-  ['engine', 'labs', 'sdk'],
-  ['experiments', 'workloads'],
-  ['benchmarks'],
+  ['engine', 'labs'],
+  ['experiments', 'sdk'],
+  ['benchmarks', 'workloads'],
   ['analysis'],
   ['manuscript'],
   ['reporting', 'share', 'gates', 'docs_tools'],

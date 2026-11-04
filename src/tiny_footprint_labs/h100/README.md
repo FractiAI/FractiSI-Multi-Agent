@@ -7,4 +7,4 @@ A simulation of KV-cache residency on a published H100 SXM profile. It models a 
 | Path | What it is |
 |---|---|
 | [`__init__.py`](__init__.py) | Key-value cache residency roofline for a published accelerator profile. |
-| [`roofline.py`](roofline.py) | KV-cache residency roofline for the named H100 SXM 80GB profile. |
+| [`roofline.py`](roofline.py) | H100 SXM residency roofline: rhyme versus a production prefix cache. |

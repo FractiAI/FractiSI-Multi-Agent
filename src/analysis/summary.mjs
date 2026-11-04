@@ -42,6 +42,13 @@ function loadLlmReceipts(dir, plan) {
   });
 }
 
+/** The simulation, with the resident-memory reduction its prefix-cache arm implies. */
+function summarizeH100(h100) {
+  const { naiveRefill, productionPrefixCache } = h100.workloads.identicalPrefix.arms;
+  const residentReductionVersusNaive = (naiveRefill.residentBytes - productionPrefixCache.residentBytes) / naiveRefill.residentBytes;
+  return { ...h100, derived: { residentReductionVersusNaive } };
+}
+
 /**
  * @param {object} plan validated benchmark plan
  * @param {{dataDir?: string, historicalDir?: string}} [options]
@@ -75,7 +82,7 @@ export function buildAnalysisSummary(plan, { dataDir = PATHS.outputData, histori
     target: plan.deterministic.target,
     deterministic,
     compression,
-    h100,
+    h100: summarizeH100(h100),
     heap: { host: heap.host, load: heap.load, sourceFingerprint: heap.sourceFingerprint, childFlags: heap.childFlags, ...summarizeHeap(heap, bootstrap) },
     latency: { host: latency.host, load: latency.load, sourceFingerprint: latency.sourceFingerprint, ...summarizeLatency(latency, bootstrap) },
     rss: { host: rss.host, load: rss.load, ...summarizeRss(rss, bootstrap) },

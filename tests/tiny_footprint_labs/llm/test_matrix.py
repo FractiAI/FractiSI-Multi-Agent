@@ -56,6 +56,8 @@ def test_every_receipt_is_bound_to_the_plan_and_the_lab_source(tmp_path: Path) -
     assert receipt["status"] == "pass"
     assert len(receipt["planSha256"]) == 64
     assert len(receipt["sourceFingerprint"]["sha256"]) == 64
+    assert receipt["load"]["start"]["loadAverage"]["one"] >= 0
+    assert receipt["load"]["end"]["at"] >= receipt["load"]["start"]["at"]
 
 
 def test_negative_control_a_run_that_dies_leaves_no_old_receipt_and_fails_the_stage(tmp_path: Path) -> None:

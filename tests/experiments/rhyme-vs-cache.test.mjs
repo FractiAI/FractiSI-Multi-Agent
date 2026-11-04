@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { RHYME_SESSIONS, compareRhymeToCache, differingWordSessions, identicalTextSessions, mixedSessions } from '../../src/experiments/rhyme-vs-cache.mjs';
+
+const golden = JSON.parse(readFileSync(new URL('../fixtures/golden-experiments-733b48e.json', import.meta.url), 'utf8'));
 
 test('with different words the rhyme beats the exact cache, and reconstruction matches', () => {
   const result = compareRhymeToCache(differingWordSessions());
@@ -8,16 +11,17 @@ test('with different words the rhyme beats the exact cache, and reconstruction m
   assert.equal(result.shapeHits, RHYME_SESSIONS);
   assert.equal(result.exactTextHits, 0);
   assert.equal(result.cacheBytes, result.naiveBytes);
-  assert.equal(result.naiveBytes, 6704);
-  assert.equal(result.rhymeBytes, 4758);
+  assert.ok(result.rhymeBytes < result.cacheBytes);
+  assert.equal(result.rhymeAuditPass, true);
+  assert.equal(JSON.stringify(result), JSON.stringify(golden.rhymeDiffering));
 });
 
 test('with identical words the exact cache wins', () => {
   const result = compareRhymeToCache(identicalTextSessions());
   assert.equal(result.equivalent, true);
   assert.equal(result.exactTextHits, RHYME_SESSIONS - 1);
-  assert.equal(result.cacheBytes, 164);
-  assert.equal(result.rhymeBytes, 4691);
+  assert.ok(result.cacheBytes < result.rhymeBytes);
+  assert.equal(JSON.stringify(result), JSON.stringify(golden.rhymeIdentical));
 });
 
 test('a duplicate fraction controls how many records repeat', () => {
@@ -27,6 +31,6 @@ test('a duplicate fraction controls how many records repeat', () => {
   assert.throws(() => mixedSessions(1.5), RangeError);
 });
 
-test('a record that does not rhyme is refused', () => {
-  assert.throws(() => compareRhymeToCache([{ other: 'shape' }]), /did not rhyme/);
+test('a cohort that does not rhyme is refused', () => {
+  assert.throws(() => compareRhymeToCache([{ other: 'shape' }, { other: 'shape' }]), /four-pillar audit/);
 });

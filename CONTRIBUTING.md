@@ -25,7 +25,7 @@ node scripts/verify_project.mjs --before-render   # the provenance chain, withou
 - Measure again after changing anything listed in `src/benchmarks/fingerprint.mjs`, even a comment. Verification rejects stale receipts.
 - Keep logic in `src/` with a mirrored test, keep dependencies pointing down, keep `scripts/` thin, and give every new folder a `README.md` and an `AGENTS.md`. Gates check all four.
 - Update the matching document when behaviour changes.
-- Keep `docs/research/TECH_PAPER.md` and its two copies under `research/` byte-identical.
+- Keep the two whitepaper copies under `research/` byte-identical.
 
 ## Reporting
 
