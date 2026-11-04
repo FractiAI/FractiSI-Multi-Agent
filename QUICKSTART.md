@@ -12,7 +12,7 @@ node scripts/tiny.mjs benchmark
 node scripts/tiny.mjs report
 ```
 
-4. Join industry testing (optional share → **valetpru@gmail.com**):
+4. Join industry testing (contact email; optional results share → **valetpru@gmail.com**):
 
 ```bash
 node scripts/tiny.mjs join

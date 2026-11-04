@@ -3,9 +3,11 @@
  * Reference multi-session workload: shared system pattern vs duplicated.
  */
 import { performance } from 'node:perf_hooks';
+import { measureBytes } from '../../tiny-footprint/sdk/index.mjs';
 
 const SYSTEM = 'Tiny Footprint shared organizational pattern. Policy v1. '.repeat(8);
-const sessions = 12;
+const requested = Number.parseInt(process.env.TINY_FOOTPRINT_SESSIONS || '12', 10);
+const sessions = Number.isInteger(requested) && requested > 0 ? requested : 12;
 
 function conventional() {
   const store = [];
@@ -14,7 +16,7 @@ function conventional() {
     store.push({ system: SYSTEM, history: [`user-${s}`, `asst-${s}`] });
   }
   const ms = performance.now() - t0;
-  const bytes = store.reduce((n, x) => n + JSON.stringify(x).length, 0);
+  const bytes = store.reduce((n, x) => n + measureBytes(x), 0);
   return { mode: 'conventional', ms, bytes, sessions };
 }
 
@@ -26,7 +28,7 @@ function tiny() {
     deltas.push({ history: [`user-${s}`, `asst-${s}`] });
   }
   const ms = performance.now() - t0;
-  const bytes = JSON.stringify(shared).length + deltas.reduce((n, x) => n + JSON.stringify(x).length, 0);
+  const bytes = measureBytes(shared) + deltas.reduce((n, x) => n + measureBytes(x), 0);
   return { mode: 'tiny_footprint', ms, bytes, sessions };
 }
 

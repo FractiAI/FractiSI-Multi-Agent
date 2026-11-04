@@ -32,5 +32,7 @@ export function reconstruct(templateId, delta, opts = {}) {
 }
 
 export function measureBytes(obj) {
-  return JSON.stringify(obj).length;
+  const json = JSON.stringify(obj);
+  if (json === undefined) throw new TypeError('measureBytes requires a JSON-serializable value');
+  return Buffer.byteLength(json, 'utf8');
 }

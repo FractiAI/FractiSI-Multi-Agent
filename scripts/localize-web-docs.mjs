@@ -66,6 +66,9 @@ for (const file of fs.readdirSync(web).filter((f) => f.endsWith('.html'))) {
   t = t.replace(/<script src="\/interfaces\/vbi18n-failopen\.js"><\/script>\s*/g, '');
   t = t.replace(/<script src="\/interfaces\/i18n-auto\.js"[^>]*><\/script>\s*/g, '');
   t = t.replace(/<script src="\/interfaces\/site-quicklinks\.js"[^>]*><\/script>\s*/g, '');
+  // Keep local kit pages offline: drop third-party fonts and site-only styles.
+  t = t.replace(/<link[^>]+fonts\.googleapis\.com[^>]*>\s*/g, '');
+  t = t.replace(/<link[^>]+voyage-brochure-publication\.css[^>]*>\s*/g, '');
   // banner for local kit viewers
   if (!t.includes('tf-local-kit-banner')) {
     t = t.replace(

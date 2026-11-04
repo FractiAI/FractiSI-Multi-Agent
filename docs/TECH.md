@@ -12,8 +12,8 @@ Architecture centered on **Rhyming Templates**: reusable organizational patterns
 ## What we measure
 
 - GPU allocation / peak device memory (local proxy lab)  
-- Real local-GPU causal-LM prefill / generate / train-step with vs without Tiny Footprint (DirectML/CUDA when available)  
-- In-process representation reductions + exact reconstruction gates  
+- Real local-GPU causal-LM prefill / generate / train-step with vs without Tiny Footprint (DirectML when available); this lab measures latency, not device-memory savings
+- In-process representation reductions; exactness checks for B/D/F/G (C/E are structural/selective reductions)
 
 ## Honesty
 

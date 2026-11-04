@@ -9,7 +9,7 @@ We deliver software installed **alongside** existing AI. Customers do not buy ne
 **Without:** each session may retain full shared context independently.  
 **With:** one shared representation + compact per-session state.
 
-We install the Tiny Footprint package (runtime, SDK, benchmarks). We integrate with the customer’s inference stack through defined adapters—we do not require replacing that stack.
+We install the Tiny Footprint package (runtime, SDK, benchmarks). We integrate with the customer’s inference stack through versioned adapters—Workstation 0.1 ships the in-process demo adapter; serving integrations are planned. We do not require replacing that stack.
 
 Sharing system/static context is the first integration. Transparent KV-cache changes need engine-specific engineering.
 

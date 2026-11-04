@@ -4,7 +4,7 @@
 
 **FractiAI commercial product kit** · powered by **Tiny Gateway™**
 
-[![License](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/PRODUCT.md)
+[![Edition](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/PRODUCT.md)
 [![Product hub](https://img.shields.io/badge/hub-ssvibelandia-0b1424)](https://www.ssvibelandiaquestfest24x365.com/tiny-footprint)
 
 ---
@@ -27,7 +27,7 @@ Tiny Footprint is software you install **beside** your existing AI stack. It doe
 | **Server** | Enterprises | Company GPU servers |
 | **Cloud** | Hyperscale / GPU clouds | Provider infrastructure |
 
-Product story: [docs/PRODUCT.md](./docs/PRODUCT.md) · [docs/SIMPLE.md](./docs/SIMPLE.md) · [docs/TECH.md](./docs/TECH.md)
+Product story: [docs/PRODUCT.md](./docs/PRODUCT.md) · [docs/SIMPLE.md](./docs/SIMPLE.md) · [docs/TECH.md](./docs/TECH.md) · [technical paper](./docs/TECH_PAPER.md)
 
 ### Brochures & plainspeak (in this repo)
 
@@ -64,6 +64,8 @@ node scripts/tiny.mjs benchmark   # conventional vs Tiny
 node scripts/tiny.mjs report      # write HTML/JSON receipts
 ```
 
+`npm test` runs the SDK and consent-path checks without touching your receipts.
+
 VS Code tasks are preconfigured under `.vscode/tasks.json` (Terminal → Run Task → `tiny: …`).
 
 Optional GPU LLM lab (Windows DirectML): see `research/synthobs-tiny-gateway-rhyming-templates/requirements-directml.txt`.
@@ -78,11 +80,11 @@ We invite infrastructure teams, cloud operators, accelerator partners, and AI-se
 node scripts/tiny.mjs join
 ```
 
-You will enter name, email, organization, and hardware interest.
+You will enter name, email, organization, role, and hardware interest.
 
 ### Share your results (opt-in)
 
-When you **select share**, the kit packages your latest benchmark receipts and **emails them to `valetpru@gmail.com`** for the validation desk.
+When you **select share**, the kit packages your latest benchmark receipts (plus hostname, platform, and Node version) and **emails them to `valetpru@gmail.com`** for the validation desk. If you decline, `join` sends only your contact details and hardware interest.
 
 ```bash
 # during join — answer "y" to share results
@@ -94,7 +96,7 @@ node scripts/tiny.mjs share
 ```
 
 - Default: opens your system mail client with a prefilled message to **valetpru@gmail.com** (plus a local share packet under `benchmarks/reports/share-packets/`).
-- Optional silent SMTP: set `TINY_FOOTPRINT_SMTP_HOST`, `TINY_FOOTPRINT_SMTP_USER`, `TINY_FOOTPRINT_SMTP_PASS`, `TINY_FOOTPRINT_SMTP_FROM`.
+- Optional silent SMTP (Windows): set `TINY_FOOTPRINT_SMTP_HOST`, `TINY_FOOTPRINT_SMTP_USER`, `TINY_FOOTPRINT_SMTP_PASS`, `TINY_FOOTPRINT_SMTP_FROM`.
 - Override recipient only if needed: `TINY_FOOTPRINT_SHARE_EMAIL` (default remains `valetpru@gmail.com`).
 
 Details: [docs/VALIDATION.md](./docs/VALIDATION.md)
@@ -107,10 +109,12 @@ Details: [docs/VALIDATION.md](./docs/VALIDATION.md)
 tiny-footprint-workstation/
 ├── README.md                 ← you are here
 ├── QUICKSTART.md
+├── .github/workflows/        ← CI: syntax, unit tests, demo
 ├── docs/                     ← product · simple · tech · validation
 │   └── web/                  ← plainspeak + tech/commercial brochures (HTML)
 ├── media/                    ← product images
-├── scripts/tiny.mjs          ← doctor | install | demo | benchmark | report | join | share
+├── scripts/                  ← tiny.mjs CLI + opt-in share-results.mjs
+├── tests/                    ← SDK correctness checks
 ├── tiny-gateway/             ← engine pointer
 ├── tiny-footprint/           ← SDK · adapters · configuration
 ├── workloads/                ← demo multi-session app
@@ -127,6 +131,7 @@ On FractiAI’s developer GeForce class labs (see suite receipts):
 
 - Allocation proxy: large device-memory cuts (e.g. ~81% alloc / ~73% peak in the published configuration)
 - Real tiny-gpt2 path: prefill / generate / train-step speedups with vs without Tiny Footprint
+- The real-LLM lab measured latency, not device-memory savings; its baseline re-prefilled the full prompt each turn, so production prefix caching may already capture part of that gain. The memory cuts come from the allocation proxy.
 
 These are **local** results. They are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations. Your `tiny benchmark` + `tiny report` produce receipts on **your** machine.
 
@@ -142,6 +147,10 @@ These are **local** results. They are **not** CapEx guarantees, **not** datacent
 Hub pricing: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/local
 
 ---
+
+## Contributing and security
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Report vulnerabilities privately using [SECURITY.md](./SECURITY.md).
 
 ## Support
 

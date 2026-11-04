@@ -5,7 +5,7 @@
 import {
   DIGITAL_SEED,
   VALIDATION_SEED,
-  DRAM_REDUCTION_TARGET,
+  REPRESENTATION_REDUCTION_TARGET,
   ENGINE_SHELF_SLOT,
   HONESTY,
 } from './constants.mjs';
@@ -372,16 +372,16 @@ export function experimentJ_gpuLlmReal() {
   };
 }
 
-/** H · ENGINE_SHELF pin gate — ≥80% aggregate measured + exactness (+ GPU lab when available) */
+/** H · ENGINE_SHELF pin gate — ≥80% representation reduction + exactness checks + GPU lab */
 export function experimentH_enginePinGate(parts, exactOk, gpuLab) {
   const agg = aggregateMeasured(parts);
-  const hitsTarget = agg.ratio >= DRAM_REDUCTION_TARGET;
-  const gpuOk = !gpuLab || gpuLab.pass;
+  const hitsTarget = agg.ratio >= REPRESENTATION_REDUCTION_TARGET;
+  const gpuOk = gpuLab?.pass === true;
   const enginePinRecommended = hitsTarget && exactOk && gpuOk;
   return {
     id: 'H_engine_pin_gate',
-    title: 'Data-gated ENGINE_SHELF pin (80% measured + Tiny Footprint GPU lab)',
-    target: DRAM_REDUCTION_TARGET,
+    title: 'Data-gated ENGINE_SHELF pin (80% representation gate + Tiny Footprint GPU lab)',
+    target: REPRESENTATION_REDUCTION_TARGET,
     aggregateRatio: agg.ratio,
     aggregatePct: agg.ratio * 100,
     ...agg,
@@ -389,13 +389,10 @@ export function experimentH_enginePinGate(parts, exactOk, gpuLab) {
     gpuLabPass: gpuLab?.pass ?? null,
     enginePinRecommended,
     candidateSlot: ENGINE_SHELF_SLOT,
-    pass: true,
+    pass: enginePinRecommended,
     interpretation: enginePinRecommended
-      ? `Aggregate ${(agg.ratio * 100).toFixed(1)}% ≥ 80% with exactness` +
-        (gpuLab?.pass
-          ? ` + Tiny Footprint GPU live-stack lab (alloc ${(100 * (gpuLab.allocReduction || 0)).toFixed(1)}%).`
-          : '.')
-      : `Pin refused — aggregate/exactness/GPU lab gate.`,
+      ? `Representation aggregate ${(agg.ratio * 100).toFixed(1)}% ≥ 80% with B/D/F/G exactness checks + GPU live-stack lab (alloc ${(100 * (gpuLab.allocReduction || 0)).toFixed(1)}%).`
+      : `Pin refused — representation aggregate, exactness, or GPU lab gate failed.`,
   };
 }
 

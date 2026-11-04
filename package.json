@@ -4,10 +4,21 @@
   "private": true,
   "type": "module",
   "description": "Tiny Footprint IDE Workstation Kit 0.1 — AI Memory Efficiency Developer Kit",
+  "license": "UNLICENSED",
+  "author": "FractiAI",
+  "homepage": "https://www.ssvibelandiaquestfest24x365.com/tiny-footprint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FractiAI/tiny-footprint-workstation.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "bin": {
     "tiny": "./scripts/tiny.mjs"
   },
   "scripts": {
+    "test": "node tests/correctness/sdk.test.mjs && node tests/correctness/share-results.test.mjs && node tests/correctness/engine-gate.test.mjs",
     "doctor": "node scripts/tiny.mjs doctor",
     "install-kit": "node scripts/tiny.mjs install",
     "demo": "node scripts/tiny.mjs demo",
