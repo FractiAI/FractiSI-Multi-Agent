@@ -1,0 +1,50 @@
+# The study's design contract, in the template's format. Numeric parameters such as
+# trial counts, grids and seeds live in benchmarks/plan.json.
+conditions:
+  - name: duplicated
+    role: reference
+    description: "One fully parsed object per session."
+  - name: aliased
+    role: reference
+    description: "Parsed, then shared fields point at one object: an ordinary JavaScript reference."
+  - name: tiny
+    role: proposed
+    description: "One registered template plus per-session expressions, using the shipped engine."
+  - name: exact_cache
+    role: reference
+    description: "One parsed object per distinct wire text."
+  - name: tiny_compact
+    role: variant
+    description: "Ablation: the template plus bare deltas, without the engine's per-session wrapper."
+  - name: tiny_noclone
+    role: variant
+    description: "Ablation: the shipped store, materialized without structuredClone."
+metrics:
+  primary:
+    name: live_heap_reduction_versus_duplicated
+    direction: maximize
+protocol: >-
+  Run the deterministic tier to reproduce and stress the published byte results, then
+  measure live heap, resident set size and materialization latency in isolated
+  processes in seeded random order, with controls, and run real forward passes with
+  and without a shared prefix, checking output equivalence and reading key-value
+  residency. All values reach the manuscript through tokens bound to receipts.
+expected_figures:
+  - fig:vendor_architecture
+  - fig:workload_reductions
+  - fig:aggregate_sensitivity
+  - fig:session_scaling
+  - fig:rhyme_crossover
+  - fig:gpu_proxy_sensitivity
+  - fig:heap_vs_json
+  - fig:heap_scaling
+  - fig:materialization_latency
+  - fig:llm_prefill
+  - fig:kv_residency
+baselines:
+  - duplicated
+  - aliased
+  - exact_cache
+ablations:
+  - tiny_compact
+  - tiny_noclone

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata from this file.
+title: Tiny Footprint Workstation
+type: software
+version: 0.1.0
+abstract: Developer kit for storing shared AI-serving state once, with a reproducible benchmark pipeline.
+authors:
+  - name: FractiAI
+  - family-names: Friedman
+    given-names: Daniel Ari
+    orcid: 0000-0001-6232-9096
+    affiliation: Active Inference Institute
+repository-code: https://github.com/FractiAI/tiny-footprint-workstation
+keywords:
+  - AI serving
+  - memory efficiency
+  - key-value cache
+  - prefix caching
+  - benchmarking
