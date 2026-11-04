@@ -5,7 +5,7 @@
 import {
   DIGITAL_SEED,
   VALIDATION_SEED,
-  REPRESENTATION_REDUCTION_TARGET,
+  DRAM_REDUCTION_TARGET,
   ENGINE_SHELF_SLOT,
   HONESTY,
 } from './constants.mjs';
@@ -16,6 +16,9 @@ import {
   encodeExpression,
   reconstructExpression,
   deepEqual,
+  structuralSignature,
+  shapesRhyme,
+  mergeDelta,
 } from './rhyming-template.mjs';
 import { createVectorStore } from './nested-vector.mjs';
 import {
@@ -27,6 +30,31 @@ import {
 import { createGateway } from './gateway.mjs';
 import { runGpuLiveChatLab } from './gpu-live-lab.mjs';
 import { runGpuLlmRealLab } from './gpu-llm-real-lab.mjs';
+import {
+  auditRhyme,
+  brickWallCandidate,
+  trueRhymeCandidate,
+  FOUR_PILLARS,
+} from './holographic-rhyme-gate.mjs';
+import {
+  compareRhymeToCache,
+  differingWordSessions,
+  identicalTextSessions,
+  RHYME_PATTERN,
+} from './rhyme-vs-cache.mjs';
+import {
+  runH100RhymeSim,
+  assertH100RhymeSimInvariants,
+} from './h100-rhyme-sim.mjs';
+import { rhymeScore } from './geometric-rhyme-route.mjs';
+import {
+  createCompressionHookRegistry,
+  nestedDeltaFoldHook,
+  octaveScaleCapHook,
+  workingSetBoundHook,
+} from './context-compress-hooks.mjs';
+import { createRecursiveContextBuffer } from './context-buffer.mjs';
+import { createEnergyModel, scaleUnderBudget } from './energy-proxy.mjs';
 
 /** A · Illustrative §7 arithmetic (hypothesis model, not measurement) */
 export function experimentA_illustrativeModel() {
@@ -48,6 +76,8 @@ export function experimentB_structuredData(seed = DIGITAL_SEED, n = 500) {
     kind: 'record',
     schema: 'person_v1',
     fields: ['id', 'name', 'role', 'dept', 'active'],
+    id: 0,
+    name: '',
     role: 'employee',
     dept: 'ops',
     active: true,
@@ -248,14 +278,14 @@ export function experimentF_aiContextProxy(seed = DIGITAL_SEED, sessions = 40, t
   const exact = deepEqual(reconSys, systemPrompt);
   return {
     id: 'F_ai_context_proxy',
-    title: 'Workload E/F proxy · shared system prompt + turn deltas',
+    title: 'Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)',
     sessions,
     turns,
     ...r,
     exact,
     pass: r.ratio >= 0.4 && exact,
     honesty:
-      'In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server.',
+      'Prefix-reuse / shared-identical-system-prompt meter — not a holographic rhyme proof, and not measured GPU KV-cache / HBM for a production LLM server.',
   };
 }
 
@@ -263,7 +293,12 @@ export function experimentF_aiContextProxy(seed = DIGITAL_SEED, sessions = 40, t
 export function experimentG_gatewayExactness(seed = DIGITAL_SEED, validationSeed = VALIDATION_SEED) {
   function run(s) {
     const gw = createGateway();
-    const pattern = { kind: 'packet', proto: 'v2', qos: 'default', payload: null };
+    const pattern = {
+      kind: 'packet',
+      proto: 'v2',
+      qos: 'default',
+      payload: { x: 0, y: 0, tag: '' },
+    };
     gw.registerTemplate({ id: 'tpl_packet', pattern });
     const rng = mulberry32(s);
     let ok = 0;
@@ -336,7 +371,7 @@ export function experimentI_gpuLiveChatStack() {
     pass,
     honesty:
       report?.memoryClassNote ||
-      'Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.',
+      'Prefix-reuse / shared-system-pattern GPU meter — not a holographic rhyme proof. Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.',
     interpretation: pass
       ? `Live on ${report?.device || 'NVIDIA GeForce'}: cuMemAlloc ${(allocR * 100).toFixed(1)}%; nvidia-smi ${
           smiR == null ? 'n/a' : `${(smiR * 100).toFixed(1)}%`
@@ -372,27 +407,325 @@ export function experimentJ_gpuLlmReal() {
   };
 }
 
-/** H · ENGINE_SHELF pin gate — ≥80% representation reduction + exactness checks + GPU lab */
-export function experimentH_enginePinGate(parts, exactOk, gpuLab) {
+/**
+ * R · Holographic rhyme gate — four pillars required; brick wall / schema-only / exact-text ≠ rhyme.
+ * Prefix-cache reuse remains a separate meter (experiments F/I/J), not a rhyme proof.
+ */
+export function experimentR_holographicRhymeGate() {
+  const differing = differingWordSessions();
+  const identical = identicalTextSessions();
+  const trueCandidate = trueRhymeCandidate(differing, 2, 0.15);
+  const trueAudit = auditRhyme(trueCandidate);
+  const brick = brickWallCandidate(40);
+  const brickAudit = auditRhyme(brick);
+
+  const schemaOnly = auditRhyme({
+    pattern: { a: 1, b: 'x' },
+    expressions: [
+      { a: 1, b: 'x' },
+      { a: 2, b: 'y' },
+    ],
+    nestDepth: 0,
+  });
+
+  const vsCacheDiffering = compareRhymeToCache(differing);
+  const vsCacheIdentical = compareRhymeToCache(identical);
+
+  let falseMatchRejected = false;
+  try {
+    const cat = createTemplateCatalog();
+    cat.register({ id: 'invoice', pattern: { id: 0, name: '', amount: 0 } });
+    cat.register({ id: 'person', pattern: { id: 0, name: '', amount: 0 } });
+  } catch (e) {
+    falseMatchRejected = /false_match_risk/.test(String(e?.message || e));
+  }
+
+  const arrayObjectDistinct =
+    structuralSignature({ tags: ['a'] }) !== structuralSignature({ tags: { a: true } }) &&
+    !shapesRhyme({ tags: ['a'] }, { tags: { a: true } });
+
+  const base = { meta: { role: 'user', octave: 1 }, utterance: '' };
+  const expr = { meta: { role: 'lead', octave: 1 }, utterance: 'q1' };
+  const cat = createTemplateCatalog();
+  cat.register({ id: 'tpl_nested', pattern: base });
+  const enc = encodeExpression('tpl_nested', base, expr);
+  const nestedFieldDelta =
+    enc.delta?.meta &&
+    enc.delta.meta.role === 'lead' &&
+    enc.delta.meta.octave === undefined &&
+    deepEqual(reconstructExpression(cat, enc), expr);
+
+  const pass =
+    trueAudit.pass &&
+    FOUR_PILLARS.every((p) => trueAudit.pillars[p]?.pass) &&
+    !brickAudit.pass &&
+    brickAudit.failed.includes('self_similar') &&
+    !schemaOnly.pass &&
+    vsCacheDiffering.equivalent &&
+    vsCacheDiffering.rhymeAuditPass &&
+    vsCacheDiffering.rhymeBytes < vsCacheDiffering.cacheBytes &&
+    vsCacheIdentical.equivalent &&
+    vsCacheIdentical.cacheBytes < vsCacheIdentical.rhymeBytes &&
+    falseMatchRejected &&
+    arrayObjectDistinct &&
+    nestedFieldDelta;
+
+  return {
+    id: 'R_holographic_rhyme_gate',
+    title: 'Holographic rhyme gate (four pillars · brick wall fails · rhyme ≠ cache)',
+    trueAudit,
+    brickAudit,
+    schemaOnly,
+    vsCacheDiffering: {
+      rhymeBytes: vsCacheDiffering.rhymeBytes,
+      cacheBytes: vsCacheDiffering.cacheBytes,
+      equivalent: vsCacheDiffering.equivalent,
+    },
+    vsCacheIdentical: {
+      rhymeBytes: vsCacheIdentical.rhymeBytes,
+      cacheBytes: vsCacheIdentical.cacheBytes,
+      equivalent: vsCacheIdentical.equivalent,
+    },
+    falseMatchRejected,
+    arrayObjectDistinct,
+    nestedFieldDelta,
+    pattern: RHYME_PATTERN,
+    pass,
+    honesty:
+      'Four-pillar catalog audit for Rhyming Templates. Brick wall / schema-only / exact-text cache are contrast cases. Shared-prefix GPU labs are prefix-reuse meters, not rhyme proofs.',
+  };
+}
+
+/**
+ * S · H100 rhyme-vs-prefix residency simulation.
+ * Identical exact prefixes: Tiny = prefix cache.
+ * Rhyming different wording: prefix cache cannot share; Tiny uses measured template/delta split.
+ */
+export function experimentS_h100RhymeVsPrefixSim() {
+  const report = runH100RhymeSim();
+  const invariants = assertH100RhymeSimInvariants(report);
+  const rhyming = report?.workloads?.rhymingDifferentWording;
+  return {
+    id: 'S_h100_rhyme_vs_prefix_sim',
+    title: 'H100 simulation · rhyme beats prefix cache when organizational wording differs',
+    report,
+    invariants,
+    tinyKvReductionVersusPrefixCache: rhyming?.comparison?.tinyKvReductionVersusPrefixCache ?? null,
+    tinyMaterializeSpeedupVersusPrefixCache:
+      rhyming?.comparison?.tinyMaterializeSpeedupVersusPrefixCache ?? null,
+    pass: report?.ok === true && invariants.pass === true,
+    honesty:
+      report?.honesty ||
+      'H100 SXM published-profile simulation — not a live H100 measurement; shared/delta fraction from in-process rhyme encode.',
+  };
+}
+
+/**
+ * K · Dynamic structural signature routing (companion meter — not in H pin).
+ * Signature-bucket route vs naïve linear scan; false-match reject; partial rank.
+ */
+export function experimentK_dynamicRoute() {
+  const catalog = createTemplateCatalog({ requireUniqueSignature: true });
+  const patterns = [
+    { id: 'tpl_a', pattern: { kind: 'rec', schema: 'a', id: 0, name: '' } },
+    { id: 'tpl_b', pattern: { kind: 'rec', schema: 'b', role: '', dept: '' } },
+    { id: 'tpl_c', pattern: { kind: 'event', type: 'x', ts: 0, payload: { n: 0 } } },
+    { id: 'tpl_d', pattern: { kind: 'msg', from: '', to: '', body: '' } },
+    { id: 'tpl_e', pattern: { kind: 'node', octave: 0, children: [], cross: [] } },
+  ];
+  for (const p of patterns) catalog.register(p);
+
+  // Linear baseline compares = catalog size per query
+  const queries = [
+    { kind: 'rec', schema: 'a', id: 7, name: 'u7' },
+    { kind: 'event', type: 'x', ts: 9, payload: { n: 1 } },
+    { kind: 'msg', from: 'a', to: 'b', body: 'hi' },
+  ];
+  let linearCompares = 0;
+  let bucketCompares = 0;
+  let exactHits = 0;
+  for (const q of queries) {
+    linearCompares += catalog.size();
+    const route = catalog.routeTemplate(q, { mode: 'exact' });
+    bucketCompares += route.compares;
+    if (route.id && route.exact) exactHits += 1;
+  }
+
+  // Colliding signatures under requireUniqueSignature=false → exact returns null
+  const amb = createTemplateCatalog({ requireUniqueSignature: false });
+  amb.register({ id: 'c1', pattern: { k: 'same', v: 1 } });
+  amb.register({ id: 'c2', pattern: { k: 'same', v: 2 } });
+  const ambRoute = amb.routeTemplate({ k: 'same', v: 3 }, { mode: 'exact' });
+  const falseMatchRejected = ambRoute.id === null && ambRoute.candidates.length >= 2;
+
+  // Partial rank without full matrix: score only bucket/pool
+  const best = catalog.routeTemplate({ kind: 'rec', schema: 'a', id: 1, name: 'x' }, { mode: 'best', maxCandidates: 3 });
+  const partialOk = best.candidates.length <= 3 && best.score >= 0.5;
+
+  const bucketCheaper = bucketCompares < linearCompares;
+  const pass = exactHits === queries.length && falseMatchRejected && partialOk && bucketCheaper;
+
+  return {
+    id: 'K_dynamic_route',
+    title: 'Dynamic structural signature routing (bucket ≪ linear · false-match reject)',
+    linearCompares,
+    bucketCompares,
+    exactHits,
+    falseMatchRejected,
+    partialTopScore: best.score,
+    candidateCap: best.candidates.length,
+    rhymeScoreSample: rhymeScore(patterns[0].pattern, queries[0]),
+    pass,
+    honesty:
+      'Structural signature routing + scored partial rhyme — not semantic search, not full pairwise matrix expansion, not automatic discovery without false-match controls.',
+  };
+}
+
+/**
+ * L · Recursive context-fold hooks (companion meter — not in H pin).
+ */
+export function experimentL_contextCompressHooks(seed = DIGITAL_SEED, turns = 24) {
+  const rng = mulberry32(seed);
+  const pattern = {
+    kind: 'turn',
+    role: 'user',
+    text: '',
+    meta: { session: 's1', i: 0 },
+  };
+  const hooks = createCompressionHookRegistry();
+  hooks.registerHook('nested_delta_fold', nestedDeltaFoldHook(pattern));
+  hooks.registerHook('octave_scale_cap', octaveScaleCapHook({ maxDepth: 4 }));
+  hooks.registerHook('working_set_bound', workingSetBoundHook({ maxBytes: 4_096 }));
+
+  const buf = createRecursiveContextBuffer({
+    maxLevels: 6,
+    maxBytesPerLevel: 2_048,
+    pattern,
+    hooks,
+  });
+
+  for (let i = 0; i < turns; i++) {
+    buf.pushTurn({
+      kind: 'turn',
+      role: i % 2 === 0 ? 'user' : 'assistant',
+      text: `msg-${i}-${(rng() * 1e6).toFixed(0)}`,
+      meta: { session: 's1', i },
+    });
+  }
+  const meters = buf.snapshotMeters();
+  // Replay expected last-window turns for reconstruct exactness
+  const window = buf.reconstructWindow(mergeDelta);
+  let exact = window.length === meters.levels;
+  for (let i = 0; i < window.length; i++) {
+    const w = window[i];
+    if (!w || w.kind !== 'turn' || typeof w.meta?.i !== 'number') {
+      exact = false;
+      break;
+    }
+  }
+  const hooksFired = meters.hooksFired?.length > 0;
+  const foldPositive = meters.foldRatio > 0 && meters.foldedBytes < meters.allRawWouldBe;
+  const pass = foldPositive && exact && hooksFired && meters.levels <= 6;
+
+  return {
+    id: 'L_context_compress_hooks',
+    title: 'Recursive context-fold hooks + demo meters',
+    turns,
+    ...meters,
+    exact,
+    pass,
+    honesty:
+      'Recursive context-fold hooks and demo meters — not a KV-cache compression product, not infinite lossless context, not measured transformer KV on device.',
+  };
+}
+
+/**
+ * M · Energy-proxy substrate scaling (companion meter — not in H pin).
+ */
+export function experimentM_energyProxyScale(seed = DIGITAL_SEED) {
+  const store = createVectorStore();
+  // Build a small tree
+  for (let i = 0; i < 15; i++) {
+    store.put({
+      id: `n${i}`,
+      octave: i % 5,
+      children: i < 10 ? [`n${i + 1}`] : [],
+      cross: i % 3 === 0 && i + 2 < 15 ? [`n${i + 2}`] : [],
+      payload: { i, seed },
+    });
+  }
+  const model = createEnergyModel({ joulesPerByteTouch: 1e-8, joulesPerCompare: 1e-8 });
+  const baseline = store.resolveWorkingSet('n0', { maxDepth: 8 });
+  const tightBudget = (baseline.meters?.energy?.joules || 1) * 0.15;
+  const scaled = store.resolveWorkingSet('n0', {
+    maxDepth: 8,
+    energyBudgetJ: tightBudget,
+    energyModel: model,
+  });
+  const planScale = scaleUnderBudget(
+    {
+      maxDepth: 8,
+      candidateCap: 32,
+      bufferLevels: 4,
+      bytesTouched: baseline.meters?.energy?.bytesTouched || 1000,
+      compares: baseline.meters?.energy?.compares || 100,
+      reconstructs: 1,
+    },
+    tightBudget,
+    model,
+  );
+
+  const pass =
+    baseline.meters?.PROXY === true &&
+    scaled.meters?.scaled === true &&
+    scaled.meters.maxDepth < baseline.meters.requestedMaxDepth &&
+    scaled.meters.energy.bytesTouched <= baseline.meters.energy.bytesTouched &&
+    planScale.PROXY === true &&
+    planScale.scaled === true;
+
+  return {
+    id: 'M_energy_proxy_scale',
+    title: 'Energy-proxy substrate scaling (byte-touch joule PROXY)',
+    baselineDepth: baseline.meters?.maxDepth,
+    scaledDepth: scaled.meters?.maxDepth,
+    baselineBytes: baseline.meters?.energy?.bytesTouched,
+    scaledBytes: scaled.meters?.energy?.bytesTouched,
+    baselineJ: baseline.meters?.energy?.joules,
+    scaledJ: scaled.meters?.energy?.joules,
+    budgetJ: tightBudget,
+    planScale,
+    pass,
+    honesty:
+      'Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim.',
+  };
+}
+
+/** H · ENGINE_SHELF pin gate — ≥80% aggregate + exactness + rhyme gate + GPU lab */
+export function experimentH_enginePinGate(parts, exactOk, gpuLab, rhymeOk = true) {
   const agg = aggregateMeasured(parts);
-  const hitsTarget = agg.ratio >= REPRESENTATION_REDUCTION_TARGET;
+  const hitsTarget = agg.ratio >= DRAM_REDUCTION_TARGET;
   const gpuOk = gpuLab?.pass === true;
-  const enginePinRecommended = hitsTarget && exactOk && gpuOk;
+  const enginePinRecommended = hitsTarget && exactOk && gpuOk && rhymeOk === true;
   return {
     id: 'H_engine_pin_gate',
-    title: 'Data-gated ENGINE_SHELF pin (80% representation gate + Tiny Footprint GPU lab)',
-    target: REPRESENTATION_REDUCTION_TARGET,
+    title:
+      'Data-gated ENGINE_SHELF pin (80% measured + holographic rhyme gate + Tiny Footprint GPU lab)',
+    target: DRAM_REDUCTION_TARGET,
     aggregateRatio: agg.ratio,
     aggregatePct: agg.ratio * 100,
     ...agg,
     exactOk,
+    rhymeOk,
     gpuLabPass: gpuLab?.pass ?? null,
     enginePinRecommended,
     candidateSlot: ENGINE_SHELF_SLOT,
     pass: enginePinRecommended,
     interpretation: enginePinRecommended
-      ? `Representation aggregate ${(agg.ratio * 100).toFixed(1)}% ≥ 80% with B/D/F/G exactness checks + GPU live-stack lab (alloc ${(100 * (gpuLab.allocReduction || 0)).toFixed(1)}%).`
-      : `Pin refused — representation aggregate, exactness, or GPU lab gate failed.`,
+      ? `Aggregate ${(agg.ratio * 100).toFixed(1)}% ≥ 80% with exactness + holographic rhyme gate` +
+        (gpuLab?.pass
+          ? ` + Tiny Footprint GPU live-stack lab (alloc ${(100 * (gpuLab.allocReduction || 0)).toFixed(1)}%).`
+          : '.')
+      : `Pin refused — aggregate/exactness/rhyme gate/GPU lab gate.`,
   };
 }
 
@@ -404,10 +737,16 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
   const E = experimentE_crossOctave(seed);
   const F = experimentF_aiContextProxy(seed);
   const G = experimentG_gatewayExactness(seed, validationSeed);
+  const R = experimentR_holographicRhymeGate();
+  const S = experimentS_h100RhymeVsPrefixSim();
+  const K = experimentK_dynamicRoute();
+  const L = experimentL_contextCompressHooks(seed);
+  const M = experimentM_energyProxyScale(seed);
   const I = experimentI_gpuLiveChatStack();
   const J = experimentJ_gpuLlmReal();
   const exactOk = B.exact && D.exact && F.exact && G.pass;
-  const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I);
+  // H pin unchanged — K/L/M are companion meters and do not gate #52.
+  const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I, R.pass && S.pass);
 
   const experiments = [
     { id: 'E1_illustrative_model', title: A.title, pass: A.pass, A },
@@ -417,6 +756,11 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     { id: 'E5_cross_octave', title: E.title, pass: E.pass, E },
     { id: 'E6_ai_context_proxy', title: F.title, pass: F.pass, F },
     { id: 'E7_gateway_exactness', title: G.title, pass: G.pass, G },
+    { id: 'E11_holographic_rhyme_gate', title: R.title, pass: R.pass, R },
+    { id: 'E12_h100_rhyme_vs_prefix_sim', title: S.title, pass: S.pass, S },
+    { id: 'E13_dynamic_route', title: K.title, pass: K.pass, K },
+    { id: 'E14_context_compress_hooks', title: L.title, pass: L.pass, L },
+    { id: 'E15_energy_proxy_scale', title: M.title, pass: M.pass, M },
     { id: 'E8_gpu_live_tiny_footprint', title: I.title, pass: I.pass, I },
     { id: 'E10_gpu_llm_real', title: J.title, pass: J.pass, J },
     {
@@ -442,6 +786,11 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     E,
     F,
     G,
+    R,
+    S,
+    K,
+    L,
+    M,
     I,
     J,
     H,

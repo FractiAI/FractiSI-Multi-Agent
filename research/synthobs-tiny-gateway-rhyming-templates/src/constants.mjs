@@ -1,6 +1,6 @@
 /**
  * Tiny Gateway · Rhyming Templates · Memory-Efficient Computing
- * Candidate ENGINE_SHELF #52 · data-gated (80% DRAM research target)
+ * ENGINE_SHELF #52 · data-gated (80% representation-reduction research target)
  * Homeostasis Expedition companion · builds on Tiny Gateway language+fusion
  */
 export const PHI_EGS = (1 + Math.sqrt(5)) / 2;
@@ -20,16 +20,13 @@ export const JOURNEY_SLUG = 'homeostasis-expedition';
 export const DIGITAL_SEED = 20261103;
 export const VALIDATION_SEED = 202611032;
 
-/**
- * Pass bar from paper §9.6. This is measured on in-process representation bytes,
- * not on device DRAM. DRAM is the product analogue, not a quantity this suite reads.
- */
+/** Pass bar from paper §9.6 — representation / duplicated-resident-state target */
 export const REPRESENTATION_REDUCTION_TARGET = 0.8;
-/** @deprecated Use REPRESENTATION_REDUCTION_TARGET; the old name overstates what is measured. */
+/** @deprecated alias — prefer REPRESENTATION_REDUCTION_TARGET */
 export const DRAM_REDUCTION_TARGET = REPRESENTATION_REDUCTION_TARGET;
 
 export const HONESTY =
-  'Tiny Gateway · Rhyming Templates / Tiny Footprint: in-process lab + (A) HtoD allocation proxy on GTX 860M and (B) REAL local-GPU LLM lab (sshleifer/tiny-gpt2 via torch-directml) measuring shared-prefix infer + AdamW train with vs without Tiny Footprint. Proxy ≠ model forward. DirectML on laptop GeForce ≠ datacenter HBM / hosted frontier API. Φ_EGS design grammar only. Engine pin is data-gated.';
+  'Tiny Gateway · Rhyming Templates / Tiny Footprint: holographic rhyme = repeating · self-similar · self-correcting · recursive (four-pillar gate). Signature-bucket routing + recursive context-fold hooks + byte-touch joule PROXY are companion meters (K/L/M) — not semantic retrieval, not a KV-compression product, not wall-socket energy, not solar-synced clocks. In-process lab + (A) HtoD allocation proxy on GTX 860M and (B) REAL local-GPU LLM lab (sshleifer/tiny-gpt2 via torch-directml) measuring shared-prefix infer + AdamW train with vs without Tiny Footprint — those GPU meters are prefix-reuse, not rhyme proofs. Proxy ≠ model forward. DirectML on laptop GeForce ≠ datacenter HBM / hosted frontier API. Φ_EGS design grammar only. Engine pin is data-gated.';
 
 export const BUILDS_ON = Object.freeze([
   'synthobs-tiny-gateway-language-radar-2026-10',

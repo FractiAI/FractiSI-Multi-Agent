@@ -162,3 +162,11 @@ Publication cross-links are retained for the standalone suite; only the receipts
 5. Tiny Footprint brochure — `interfaces/tiny-footprint-brochure.html`
 
 → ∞^∞
+
+## Companion meters (v1.3 · not in ENGINE_SHELF pin)
+
+- **K** signature-bucket structural routing (not semantic search / not N×N matrix)
+- **L** recursive context-fold hooks (not KV compression product)
+- **M** byte-touch joule PROXY depth scaling (not calorimeter / not PUE)
+
+→ ∞^∞

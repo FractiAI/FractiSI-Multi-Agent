@@ -1,7 +1,7 @@
 /**
  * Rhyme versus exact-text cache.
  *
- * A rhyme matches organization: the same fields and the same kinds of values.
+ * A holographic rhyme matches organization (four-pillar gate + structural signature).
  * An exact cache hits only when the stored text is identical.
  * Byte counts are UTF-8 JSON, in process. Not a GPU measurement.
  */
@@ -11,16 +11,22 @@ import {
   reconstructExpression,
   deepEqual,
 } from './rhyming-template.mjs';
+import { auditRhyme, trueRhymeCandidate } from './holographic-rhyme-gate.mjs';
 import { bytesOf, reduction } from './memory.mjs';
+import { PHI_EGS } from './constants.mjs';
 
 export const RHYME_SESSIONS = 40;
 
+/** Nested self-similar organization — required for four-pillar rhyme. */
 export const RHYME_PATTERN = {
   kind: 'session',
   schema: 'rhyme_v1',
   motion: 'repeat-mirror-recurse-correct',
-  role: 'user',
-  octave: 1,
+  organization: {
+    kind: 'session',
+    role: 'user',
+    octave: 1,
+  },
   utterance: '',
 };
 
@@ -29,8 +35,11 @@ function session(i, utterance) {
     kind: 'session',
     schema: 'rhyme_v1',
     motion: 'repeat-mirror-recurse-correct',
-    role: i % 9 === 0 ? 'lead' : 'user',
-    octave: (i % 7) + 1,
+    organization: {
+      kind: 'session',
+      role: i % 9 === 0 ? 'lead' : 'user',
+      octave: (i % 7) + 1,
+    },
     utterance,
   };
 }
@@ -54,14 +63,25 @@ function exactCache(items) {
 }
 
 function rhymeStore(items) {
+  const candidate = trueRhymeCandidate(items, 2, 0.15);
+  const audit = auditRhyme(candidate);
+  if (!audit.pass) {
+    throw new Error(`rhyme cohort failed four-pillar audit: ${audit.failed.join(',')}`);
+  }
   const catalog = createTemplateCatalog();
-  catalog.register({ id: 'tpl_rhyme_v1', pattern: RHYME_PATTERN, reconstruction: 'merge_delta' });
+  catalog.register({
+    id: 'tpl_rhyme_v1',
+    pattern: RHYME_PATTERN,
+    reconstruction: 'merge_delta',
+    rhymePass: audit.pass,
+    nestDepth: 2,
+  });
   const expressions = items.map((item) => {
     const match = catalog.findMatch(item);
     if (!match) throw new Error('shape did not rhyme');
     return encodeExpression(match.id, match.pattern, item);
   });
-  return { catalog, stored: { template: catalog.get('tpl_rhyme_v1'), expressions } };
+  return { catalog, stored: { template: catalog.get('tpl_rhyme_v1'), expressions }, audit };
 }
 
 export function compareRhymeToCache(items) {
@@ -84,11 +104,13 @@ export function compareRhymeToCache(items) {
     shapeHits: items.length,
     exactTextHits,
     equivalent,
+    rhymeAuditPass: rhyme.audit.pass,
     naiveBytes,
     cacheBytes,
     rhymeBytes,
     rhymeVersusNaive: reduction(naiveBytes, rhymeBytes).ratio,
     cacheVersusNaive: reduction(naiveBytes, cacheBytes).ratio,
     rhymeVersusCache: reduction(cacheBytes, rhymeBytes).ratio,
+    phiEgs: PHI_EGS,
   };
 }
