@@ -388,9 +388,18 @@ pre {
 }
 .credit a { color: inherit; }
 @media (max-width: 800px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   .places { grid-template-columns: 1fr; }
   .place img { height: 14rem; }
   .feature, .grid, .metrics, .list a.row, .stage, .shots { grid-template-columns: 1fr; }
+  .stage {
+    width: 100%;
+    min-height: 0;
+  }
   .hero {
     padding-top: 3.2rem;
     margin-left: auto;
@@ -416,15 +425,19 @@ pre {
   }
   .stage-visual {
     order: -1;
-    min-height: 280px;
-    height: 42vw;
-    max-height: 360px;
-    object-position: center center;
+    width: 100%;
+    min-height: 220px;
+    height: min(52vw, 280px);
+    max-height: 300px;
+    /* Crop to the wordmark/leaf in the hero art (baked-in text sits left in the file) */
+    object-position: 22% 42%;
   }
   .stage-copy {
     padding: 2rem 1.25rem 2.4rem;
     text-align: center;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
   }
   .stage-copy .lede,
   .stage-copy p {
