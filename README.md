@@ -11,7 +11,7 @@
 
 ## What is Tiny Footprint?
 
-Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It helps that AI use **memory more efficiently** and potentially **respond faster** by sharing reusable organizational patterns once and keeping compact per-session differences.
+Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It helps that AI use **memory more efficiently** and potentially **respond faster** by matching a rhyme: the same organization, even when the words differ, stored once, with only the difference kept per session. An exact-text cache does that job only when the words themselves repeat.
 
 | | Without Tiny Footprint | With Tiny Footprint |
 |--|------------------------|---------------------|
@@ -64,7 +64,7 @@ node scripts/tiny.mjs benchmark   # conventional vs Tiny
 node scripts/tiny.mjs report      # write HTML/JSON receipts
 ```
 
-`npm test` runs the SDK and consent-path checks without touching your receipts.
+`npm test` runs the SDK, consent-path, engine-gate, and rhyme-versus-cache checks without touching your receipts.
 
 VS Code tasks are preconfigured under `.vscode/tasks.json` (Terminal → Run Task → `tiny: …`).
 

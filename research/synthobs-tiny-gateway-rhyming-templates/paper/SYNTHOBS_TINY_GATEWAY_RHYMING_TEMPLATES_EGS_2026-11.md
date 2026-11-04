@@ -23,11 +23,12 @@
 
 | Tier | Claims | Does not claim |
 |------|--------|----------------|
-| **Architecture** | Rhyming Templates + selective reconstruction implementable in-suite | Every conventional AI stack already replaced |
+| **Architecture** | Rhyming Templates + selective reconstruction implementable in-suite. A rhyme matches organization (same fields, same kinds of values), not identical text | That a rhyme is a prefix cache; every conventional AI stack already replaced |
 | **In-process lab** | Aggregate B–F representation-size reduction 84.5%; exactness checked for B, D, F, and G; C and E are structural/selective reductions, not reconstruction-tested | That alone delivers a datacenter CapEx −80% result |
 | **Tiny Footprint GPU lab** | Live chat-serving proxy on **NVIDIA GeForce GTX 860M** (this laptop): cuMemAlloc ~81.4%; nvidia-smi 313→85 MiB (~72.8%); density ~11.9×; turn materialize p50 **45.1 ms → 4.0 ms (~11.2×)**; bringup p50 **5.7 → 3.0 ms (~1.9×)** | Hosted frontier-vendor API bake-off; that GeForce GDDR is identical silicon to datacenter HBM; that these ms are frontier LLM decode TTFT/TPS |
 | **Latency wording** | Wall-clock `cuMemcpyHtoD` + sync for with/without Tiny Footprint materialization on GTX 860M | End-to-end frontier model generation latency on a hosted chat API |
 | **HBM wording** | Device memory measured via nvidia-smi / cuMemAlloc on GTX 860M GDDR; HBM is the datacenter analogue operators care about for the same duplicated-resident-state problem | This laptop GeForce is HBM silicon |
+| **Rhyme versus cache** | In-process, 40 sessions of the same shape and different words: rhyme 4,758 bytes, exact-text cache 6,704 bytes (~29% less), reconstruction matched. Forty identical sentences: cache 164 bytes, rhyme 4,691 bytes | That this byte count is device memory, HBM, or a result on an H100 |
 | **Product** | Tiny Footprint brochure offers the memory product framing | Guaranteed procurement savings without operator measurement |
 | **Φ_EGS** | Design grammar when cited | Physical memory constant |
 
@@ -88,6 +89,7 @@ Generative possibility → processes → Infinite Octaves → 3D Hexagon / eight
 | E Selective octave | 99.5% | ✓ |
 | F AI context proxy | 48.9% | ✓ |
 | G Exactness | 100% primary+validation | ✓ |
+| **Rhyme versus exact cache** | 40 same-shape, different words: 4,758 vs 6,704 bytes; 40 identical sentences: cache 164, rhyme 4,691 | ✓ |
 | **I Tiny Footprint GPU live stack** | **alloc 81.4%; smi 72.8%; density ~11.9×; turn p50 45.1→4.0 ms (~11.2×)** | ✓ |
 | H/E9 Pin gate | representation aggregate 84.5% + exactness checks B/D/F/G + GPU lab → pin #52 | ✓ |
 
