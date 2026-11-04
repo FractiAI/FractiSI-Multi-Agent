@@ -9,9 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  node:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -28,9 +28,28 @@ jobs:
           done
       - name: Paper copies stay in sync
         run: |
-          cmp docs/TECH_PAPER.md research/synthobs-tiny-gateway-rhyming-templates/paper/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
-          cmp docs/TECH_PAPER.md research/synthobs-tiny-gateway-rhyming-templates/docs/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
-      - name: Unit tests
+          cmp docs/research/TECH_PAPER.md research/synthobs-tiny-gateway-rhyming-templates/paper/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
+          cmp docs/research/TECH_PAPER.md research/synthobs-tiny-gateway-rhyming-templates/docs/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
+      - name: Tests and repository gates
         run: npm test
       - name: Multi-session demo
         run: node scripts/tiny.mjs demo
+      - name: Deterministic receipts reproduce
+        run: |
+          node scripts/run_deterministic_benchmarks.mjs
+          git diff --exit-code output/data/deterministic/results.json
+
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install without PyTorch; LLM tests skip and say so
+        run: uv sync --group dev --group figures
+      - name: Lint
+        run: uv run ruff check src/tiny_footprint_labs tests/tiny_footprint_labs tests/integration scripts
+      - name: Types
+        run: uv run mypy
+      - name: Tests
+        run: uv run pytest
