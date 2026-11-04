@@ -1,0 +1,802 @@
+{
+  "baselines": {
+    "conventionalBytes": 1243896,
+    "conventionalToNormalized": 0.8365731540257385,
+    "conventionalToTiny": 0.8235809103011827,
+    "normalizedBytes": 203286,
+    "normalizedToTiny": -0.07949883415483604,
+    "tinyBytes": 219447
+  },
+  "crossover": {
+    "allEquivalent": true,
+    "cacheFirstSmallerAt": 0.4,
+    "points": [
+      {
+        "cacheBytes": 6704,
+        "duplicateFraction": 0,
+        "equivalent": true,
+        "naiveBytes": 6704,
+        "rhymeBytes": 4758,
+        "smaller": "rhyme"
+      },
+      {
+        "cacheBytes": 6204,
+        "duplicateFraction": 0.1,
+        "equivalent": true,
+        "naiveBytes": 6693,
+        "rhymeBytes": 4756,
+        "smaller": "rhyme"
+      },
+      {
+        "cacheBytes": 5538,
+        "duplicateFraction": 0.2,
+        "equivalent": true,
+        "naiveBytes": 6679,
+        "rhymeBytes": 4765,
+        "smaller": "rhyme"
+      },
+      {
+        "cacheBytes": 4868,
+        "duplicateFraction": 0.3,
+        "equivalent": true,
+        "naiveBytes": 6661,
+        "rhymeBytes": 4745,
+        "smaller": "rhyme"
+      },
+      {
+        "cacheBytes": 4196,
+        "duplicateFraction": 0.4,
+        "equivalent": true,
+        "naiveBytes": 6641,
+        "rhymeBytes": 4748,
+        "smaller": "cache"
+      },
+      {
+        "cacheBytes": 3524,
+        "duplicateFraction": 0.5,
+        "equivalent": true,
+        "naiveBytes": 6621,
+        "rhymeBytes": 4726,
+        "smaller": "cache"
+      },
+      {
+        "cacheBytes": 2852,
+        "duplicateFraction": 0.6,
+        "equivalent": true,
+        "naiveBytes": 6601,
+        "rhymeBytes": 4729,
+        "smaller": "cache"
+      },
+      {
+        "cacheBytes": 2180,
+        "duplicateFraction": 0.7,
+        "equivalent": true,
+        "naiveBytes": 6581,
+        "rhymeBytes": 4707,
+        "smaller": "cache"
+      },
+      {
+        "cacheBytes": 1508,
+        "duplicateFraction": 0.8,
+        "equivalent": true,
+        "naiveBytes": 6561,
+        "rhymeBytes": 4710,
+        "smaller": "cache"
+      },
+      {
+        "cacheBytes": 836,
+        "duplicateFraction": 0.9,
+        "equivalent": true,
+        "naiveBytes": 6541,
+        "rhymeBytes": 4713,
+        "smaller": "cache"
+      },
+      {
+        "cacheBytes": 164,
+        "duplicateFraction": 1,
+        "equivalent": true,
+        "naiveBytes": 6521,
+        "rhymeBytes": 4691,
+        "smaller": "cache"
+      }
+    ],
+    "sessions": 40
+  },
+  "exactness": {
+    "B": {
+      "checked": 500,
+      "lossless": true,
+      "matched": 500
+    },
+    "C": {
+      "checked": 600,
+      "lossless": true,
+      "matched": 600
+    },
+    "D": {
+      "checked": 8,
+      "lossless": true,
+      "matched": 8
+    },
+    "E": {
+      "checked": 768,
+      "lossless": false,
+      "matched": 4,
+      "note": "The working set is the closure of one request. Vectors outside it are not represented, so it cannot reconstruct the lattice."
+    },
+    "F": {
+      "checked": 40,
+      "lossless": true,
+      "matched": 40
+    }
+  },
+  "gpuProxy": {
+    "assumedDeltaFraction": 0.15,
+    "atAssumedFraction": {
+      "conventionalMib": 288,
+      "reductionRatio": 0.8138889206780328,
+      "tinyMib": 53.59999084472656
+    },
+    "inputs": {
+      "kvMibPerSession": 4,
+      "sessions": 16,
+      "systemPromptMib": 12,
+      "weightStubMib": 32
+    },
+    "sweep": [
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 0.05,
+        "reductionRatio": 0.8361111217074924,
+        "tinyMib": 47.19999694824219
+      },
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 0.1,
+        "reductionRatio": 0.8250000211927626,
+        "tinyMib": 50.399993896484375
+      },
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 0.15,
+        "reductionRatio": 0.8138889206780328,
+        "tinyMib": 53.59999084472656
+      },
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 0.25,
+        "reductionRatio": 0.7916666666666666,
+        "tinyMib": 60
+      },
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 0.5,
+        "reductionRatio": 0.7361111111111112,
+        "tinyMib": 76
+      },
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 0.75,
+        "reductionRatio": 0.6805555555555556,
+        "tinyMib": 92
+      },
+      {
+        "conventionalMib": 288,
+        "deltaFraction": 1,
+        "reductionRatio": 0.625,
+        "tinyMib": 108
+      }
+    ]
+  },
+  "planSha256": "c4afaf509e7058b3499d5d39ee0541d90639c4ff8df4f077ccb57b162a698636",
+  "scaling": {
+    "formula": "R(n) = f (1 - 1/n), f = S / (S + D)",
+    "series": [
+      {
+        "maxAbsoluteError": 0.02989771833202203,
+        "measuredAtLargestN": 0.9430865250946743,
+        "points": [
+          {
+            "baselineBytes": 2542,
+            "measured": -0.02989771833202203,
+            "predicted": 0,
+            "sessions": 1,
+            "sharedFraction": 0.9527930763178599,
+            "tinyBytes": 2618
+          },
+          {
+            "baselineBytes": 5083,
+            "measured": 0.4579972457210309,
+            "predicted": 0.47649026165650205,
+            "sessions": 2,
+            "sharedFraction": 0.9529805233130041,
+            "tinyBytes": 2755
+          },
+          {
+            "baselineBytes": 10164,
+            "measured": 0.7020857929948839,
+            "predicted": 0.7148760330578512,
+            "sessions": 4,
+            "sharedFraction": 0.953168044077135,
+            "tinyBytes": 3028
+          },
+          {
+            "baselineBytes": 20327,
+            "measured": 0.8241255473016186,
+            "predicted": 0.8340630688247159,
+            "sessions": 8,
+            "sharedFraction": 0.9532149357996753,
+            "tinyBytes": 3575
+          },
+          {
+            "baselineBytes": 40669,
+            "measured": 0.8848016917062136,
+            "predicted": 0.8933094002803118,
+            "sessions": 16,
+            "sharedFraction": 0.9528633602989992,
+            "tinyBytes": 4685
+          },
+          {
+            "baselineBytes": 81370,
+            "measured": 0.9149317930441194,
+            "predicted": 0.9227233624185818,
+            "sessions": 32,
+            "sharedFraction": 0.9524886321740199,
+            "tinyBytes": 6922
+          },
+          {
+            "baselineBytes": 162768,
+            "measured": 0.9300108129362037,
+            "predicted": 0.9374447065762311,
+            "sessions": 64,
+            "sharedFraction": 0.9523247812837904,
+            "tinyBytes": 11392
+          },
+          {
+            "baselineBytes": 325654,
+            "measured": 0.9372892702070296,
+            "predicted": 0.9445423670521473,
+            "sessions": 128,
+            "sharedFraction": 0.9519797085249989,
+            "tinyBytes": 20422
+          },
+          {
+            "baselineBytes": 651646,
+            "measured": 0.9406088581837379,
+            "predicted": 0.9477691875650276,
+            "sessions": 256,
+            "sharedFraction": 0.9514859294770474,
+            "tinyBytes": 38702
+          },
+          {
+            "baselineBytes": 1303616,
+            "measured": 0.9422774804850508,
+            "predicted": 0.9493915386125975,
+            "sessions": 512,
+            "sharedFraction": 0.9512494476901173,
+            "tinyBytes": 75248
+          },
+          {
+            "baselineBytes": 2607625,
+            "measured": 0.9430865250946743,
+            "predicted": 0.950177268587316,
+            "sessions": 1024,
+            "sharedFraction": 0.9511060831216145,
+            "tinyBytes": 148409
+          }
+        ],
+        "sharedFractionAtLargestN": 0.9511060831216145,
+        "turns": 1
+      },
+      {
+        "maxAbsoluteError": 0.026161790017211705,
+        "measuredAtLargestN": 0.821073458418903,
+        "points": [
+          {
+            "baselineBytes": 2905,
+            "measured": -0.026161790017211705,
+            "predicted": 0,
+            "sessions": 1,
+            "sharedFraction": 0.8337349397590361,
+            "tinyBytes": 2981
+          },
+          {
+            "baselineBytes": 5808,
+            "measured": 0.40082644628099173,
+            "predicted": 0.41701101928374656,
+            "sessions": 2,
+            "sharedFraction": 0.8340220385674931,
+            "tinyBytes": 3480
+          },
+          {
+            "baselineBytes": 11614,
+            "measured": 0.614430859307732,
+            "predicted": 0.6256242465989323,
+            "sessions": 4,
+            "sharedFraction": 0.8341656621319098,
+            "tinyBytes": 4478
+          },
+          {
+            "baselineBytes": 23231,
+            "measured": 0.7211054194825879,
+            "predicted": 0.7298006973440662,
+            "sessions": 8,
+            "sharedFraction": 0.8340579398217899,
+            "tinyBytes": 6479
+          },
+          {
+            "baselineBytes": 46525,
+            "measured": 0.7734336378291241,
+            "predicted": 0.7808704997313273,
+            "sessions": 16,
+            "sharedFraction": 0.8329285330467491,
+            "tinyBytes": 10541
+          },
+          {
+            "baselineBytes": 93165,
+            "measured": 0.7990983738528418,
+            "predicted": 0.8059035045349648,
+            "sessions": 32,
+            "sharedFraction": 0.8319003917780282,
+            "tinyBytes": 18717
+          },
+          {
+            "baselineBytes": 186439,
+            "measured": 0.8119331255799485,
+            "predicted": 0.8184231839904741,
+            "sessions": 64,
+            "sharedFraction": 0.8314140281807991,
+            "tinyBytes": 35063
+          },
+          {
+            "baselineBytes": 373297,
+            "measured": 0.8176652906398927,
+            "predicted": 0.8239926921459321,
+            "sessions": 128,
+            "sharedFraction": 0.830480823580152,
+            "tinyBytes": 68065
+          },
+          {
+            "baselineBytes": 747811,
+            "measured": 0.8196509545861187,
+            "predicted": 0.8258904990699522,
+            "sessions": 256,
+            "sharedFraction": 0.8291292853408148,
+            "tinyBytes": 134867
+          },
+          {
+            "baselineBytes": 1496827,
+            "measured": 0.8206479439507706,
+            "predicted": 0.8268437167421486,
+            "sessions": 512,
+            "sharedFraction": 0.8284618062073974,
+            "tinyBytes": 268459
+          },
+          {
+            "baselineBytes": 2995123,
+            "measured": 0.821073458418903,
+            "predicted": 0.8272468275927233,
+            "sessions": 1024,
+            "sharedFraction": 0.8280554755180338,
+            "tinyBytes": 535907
+          }
+        ],
+        "sharedFractionAtLargestN": 0.8280554755180338,
+        "turns": 5
+      },
+      {
+        "maxAbsoluteError": 0.016010111649462817,
+        "measuredAtLargestN": 0.49545177344672187,
+        "points": [
+          {
+            "baselineBytes": 4747,
+            "measured": -0.016010111649462817,
+            "predicted": 0,
+            "sessions": 1,
+            "sharedFraction": 0.510216979144723,
+            "tinyBytes": 4823
+          },
+          {
+            "baselineBytes": 9496,
+            "measured": 0.2451558550968829,
+            "predicted": 0.2550547598989048,
+            "sessions": 2,
+            "sharedFraction": 0.5101095197978096,
+            "tinyBytes": 7168
+          },
+          {
+            "baselineBytes": 18992,
+            "measured": 0.37573715248525696,
+            "predicted": 0.3825821398483572,
+            "sessions": 4,
+            "sharedFraction": 0.5101095197978096,
+            "tinyBytes": 11856
+          },
+          {
+            "baselineBytes": 37991,
+            "measured": 0.4409465399699929,
+            "predicted": 0.44626358874470273,
+            "sessions": 8,
+            "sharedFraction": 0.510015529993946,
+            "tinyBytes": 21239
+          },
+          {
+            "baselineBytes": 76292,
+            "measured": 0.4716615110365438,
+            "predicted": 0.47619671787343365,
+            "sessions": 16,
+            "sharedFraction": 0.5079431657316625,
+            "tinyBytes": 40308
+          },
+          {
+            "baselineBytes": 153089,
+            "measured": 0.4863053517888287,
+            "predicted": 0.49044673359940943,
+            "sessions": 32,
+            "sharedFraction": 0.506267595973584,
+            "tinyBytes": 78641
+          },
+          {
+            "baselineBytes": 306714,
+            "measured": 0.4935412142908377,
+            "predicted": 0.4974862575558989,
+            "sessions": 64,
+            "sharedFraction": 0.505382864818691,
+            "tinyBytes": 155338
+          },
+          {
+            "baselineBytes": 615345,
+            "measured": 0.49603393218438435,
+            "predicted": 0.4998724292876354,
+            "sessions": 128,
+            "sharedFraction": 0.503808432667853,
+            "tinyBytes": 310113
+          },
+          {
+            "baselineBytes": 1236317,
+            "measured": 0.4957822306091399,
+            "predicted": 0.4995563435591357,
+            "sessions": 256,
+            "sharedFraction": 0.5015153880436813,
+            "tinyBytes": 623373
+          },
+          {
+            "baselineBytes": 2478398,
+            "measured": 0.49562983830684176,
+            "predicted": 0.4993717716040765,
+            "sessions": 512,
+            "sharedFraction": 0.500349015775513,
+            "tinyBytes": 1250030
+          },
+          {
+            "baselineBytes": 4963583,
+            "measured": 0.49545177344672187,
+            "predicted": 0.4991769050703897,
+            "sessions": 1024,
+            "sharedFraction": 0.49966485903429037,
+            "tinyBytes": 2504367
+          }
+        ],
+        "sharedFractionAtLargestN": 0.49966485903429037,
+        "turns": 25
+      },
+      {
+        "maxAbsoluteError": 0.005400412136715696,
+        "measuredAtLargestN": 0.1649595401661994,
+        "points": [
+          {
+            "baselineBytes": 14073,
+            "measured": -0.005400412136715696,
+            "predicted": 0,
+            "sessions": 1,
+            "sharedFraction": 0.1721026078305976,
+            "tinyBytes": 14149
+          },
+          {
+            "baselineBytes": 28155,
+            "measured": 0.08268513585508791,
+            "predicted": 0.08602379683892737,
+            "sessions": 2,
+            "sharedFraction": 0.17204759367785474,
+            "tinyBytes": 25827
+          },
+          {
+            "baselineBytes": 56303,
+            "measured": 0.12674280233735324,
+            "predicted": 0.12905173791805052,
+            "sessions": 4,
+            "sharedFraction": 0.17206898389073405,
+            "tinyBytes": 49167
+          },
+          {
+            "baselineBytes": 112606,
+            "measured": 0.1487664955686198,
+            "predicted": 0.1505603609043923,
+            "sessions": 8,
+            "sharedFraction": 0.17206898389073405,
+            "tinyBytes": 95854
+          },
+          {
+            "baselineBytes": 226718,
+            "measured": 0.15871699644492276,
+            "predicted": 0.16024312141073935,
+            "sessions": 16,
+            "sharedFraction": 0.1709259961714553,
+            "tinyBytes": 190734
+          },
+          {
+            "baselineBytes": 455965,
+            "measured": 0.16327569002006734,
+            "predicted": 0.1646661476209797,
+            "sessions": 32,
+            "sharedFraction": 0.16997795883455968,
+            "tinyBytes": 381517
+          },
+          {
+            "baselineBytes": 914475,
+            "measured": 0.16553322944859072,
+            "predicted": 0.16685639301238414,
+            "sessions": 64,
+            "sharedFraction": 0.1695049071871839,
+            "tinyBytes": 763099
+          },
+          {
+            "baselineBytes": 1838586,
+            "measured": 0.16601453508293873,
+            "predicted": 0.16729921798599576,
+            "sessions": 128,
+            "sharedFraction": 0.16861653466305085,
+            "tinyBytes": 1533354
+          },
+          {
+            "baselineBytes": 3704763,
+            "measured": 0.16544756034326621,
+            "predicted": 0.166707020125174,
+            "sessions": 256,
+            "sharedFraction": 0.16736077314527273,
+            "tinyBytes": 3091819
+          },
+          {
+            "baselineBytes": 7437208,
+            "measured": 0.16516520715838523,
+            "predicted": 0.16641218048493467,
+            "sessions": 512,
+            "sharedFraction": 0.1667378403293279,
+            "tinyBytes": 6208840
+          },
+          {
+            "baselineBytes": 14907995,
+            "measured": 0.1649595401661994,
+            "predicted": 0.16619981426073727,
+            "sessions": 1024,
+            "sharedFraction": 0.16636227742228246,
+            "tinyBytes": 12448779
+          }
+        ],
+        "sharedFractionAtLargestN": 0.16636227742228246,
+        "turns": 125
+      }
+    ]
+  },
+  "schema": "tiny-footprint-deterministic/v1",
+  "sensitivity": {
+    "byteShare": [
+      {
+        "key": "B",
+        "share": 0.032533310052459
+      },
+      {
+        "key": "C",
+        "share": 0.5323343099317751
+      },
+      {
+        "key": "D",
+        "share": 0.01909416856893664
+      },
+      {
+        "key": "E",
+        "share": 0.33408611013394207
+      },
+      {
+        "key": "F",
+        "share": 0.08195210131288724
+      }
+    ],
+    "leaveOneOut": [
+      {
+        "clearsTarget": true,
+        "keys": [
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "label": "Without B",
+        "leftOut": "B",
+        "ratio": 0.8551866665605031
+      },
+      {
+        "clearsTarget": true,
+        "keys": [
+          "B",
+          "D",
+          "E",
+          "F"
+        ],
+        "label": "Without C",
+        "leftOut": "C",
+        "ratio": 0.8694694112113442
+      },
+      {
+        "clearsTarget": true,
+        "keys": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "label": "Without D",
+        "leftOut": "D",
+        "ratio": 0.8446693265679638
+      },
+      {
+        "clearsTarget": false,
+        "keys": [
+          "B",
+          "C",
+          "D",
+          "F"
+        ],
+        "label": "Without E",
+        "leftOut": "E",
+        "ratio": 0.7699021033669681
+      },
+      {
+        "clearsTarget": true,
+        "keys": [
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "label": "Without F",
+        "leftOut": "F",
+        "ratio": 0.8768064867102433
+      }
+    ],
+    "lossless": {
+      "clearsTarget": false,
+      "keys": [
+        "B",
+        "C",
+        "D",
+        "F"
+      ],
+      "label": "Lossless workloads only",
+      "ratio": 0.7699021033669681
+    },
+    "nonStrawman": {
+      "clearsTarget": false,
+      "keys": [
+        "B",
+        "D",
+        "F"
+      ],
+      "label": "Lossless, without the anti-pattern baseline",
+      "ratio": 0.5559841477831565
+    },
+    "published": {
+      "clearsTarget": true,
+      "keys": [
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "label": "All five workloads, byte-weighted",
+      "ratio": 0.8450413877455297
+    },
+    "target": 0.8,
+    "unweightedMean": {
+      "clearsTarget": false,
+      "label": "All five workloads, equal weight",
+      "ratio": 0.7430185080181839
+    }
+  },
+  "sourceFingerprint": {
+    "algorithm": "sha256-of-sorted-file-hashes",
+    "fileCount": 63,
+    "sha256": "9b976d68bdfd289452b2185eb003f97973409cc621bedcf42eb2f4c5b0989908"
+  },
+  "suite": {
+    "gateway": {
+      "id": "G_gateway_exactness",
+      "pass": true,
+      "primary": {
+        "exactRate": 1,
+        "n": 100,
+        "ok": 100
+      },
+      "title": "Gateway exact reconstruction (primary + validation seeds)",
+      "validation": {
+        "exactRate": 1,
+        "n": 100,
+        "ok": 100
+      }
+    },
+    "illustrative": {
+      "nonWeightCutNeededPct": 94.11764705882354,
+      "pass": true,
+      "reductionPct": 78.69999999999999
+    },
+    "rhyme": {
+      "differingWords": {
+        "cacheBytes": 6704,
+        "cacheVersusNaive": 0,
+        "equivalent": true,
+        "exactTextHits": 0,
+        "naiveBytes": 6704,
+        "rhymeBytes": 4758,
+        "rhymeVersusCache": 0.2902744630071599,
+        "rhymeVersusNaive": 0.2902744630071599,
+        "sessions": 40,
+        "shapeHits": 40
+      },
+      "identicalText": {
+        "cacheBytes": 164,
+        "cacheVersusNaive": 0.9748504830547462,
+        "equivalent": true,
+        "exactTextHits": 39,
+        "naiveBytes": 6521,
+        "rhymeBytes": 4691,
+        "rhymeVersusCache": -27.603658536585368,
+        "rhymeVersusNaive": 0.28063180493789297,
+        "sessions": 40,
+        "shapeHits": 40
+      }
+    },
+    "workloads": [
+      {
+        "baselineBytes": 76020,
+        "key": "B",
+        "label": "Structured records",
+        "pass": true,
+        "ratio": 0.5433438568797685,
+        "tinyBytes": 34715
+      },
+      {
+        "baselineBytes": 1243896,
+        "key": "C",
+        "label": "Cross-linked graph",
+        "pass": true,
+        "ratio": 0.8235809103011827,
+        "tinyBytes": 219447
+      },
+      {
+        "baselineBytes": 44617,
+        "key": "D",
+        "label": "Eight-node broadcast",
+        "pass": true,
+        "ratio": 0.8641549185288119,
+        "tinyBytes": 6061
+      },
+      {
+        "baselineBytes": 780653,
+        "key": "E",
+        "label": "Selective working set",
+        "pass": true,
+        "ratio": 0.9948120355650975,
+        "tinyBytes": 4050
+      },
+      {
+        "baselineBytes": 191496,
+        "key": "F",
+        "label": "Shared system prompt",
+        "pass": true,
+        "ratio": 0.4892008188160588,
+        "tinyBytes": 97816
+      }
+    ]
+  }
+}

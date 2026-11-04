@@ -1,0 +1,13 @@
+{
+  "detail": "dlopen(C:\\Windows\\System32\\nvcuda.dll",
+  "liveRun": false,
+  "ok": false,
+  "planSha256": "c4afaf509e7058b3499d5d39ee0541d90639c4ff8df4f077ccb57b162a698636",
+  "reason": "nvcuda_unavailable",
+  "sourceFingerprint": {
+    "algorithm": "sha256-of-sorted-file-hashes",
+    "fileCount": 63,
+    "sha256": "9b976d68bdfd289452b2185eb003f97973409cc621bedcf42eb2f4c5b0989908"
+  },
+  "status": "not_run"
+}

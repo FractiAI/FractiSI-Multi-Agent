@@ -1,0 +1,8 @@
+{
+  "hydrationManifestSha256": "a1ff288be57b58eeceeb1b6e808f6732f2460c6174923c49cd1a8a7079ca83e8",
+  "pdf": "output/pdf/tiny-footprint-workstation_combined.pdf",
+  "pdfBytes": 1269310,
+  "pdfSha256": "a7be1dfae2633b88193a2d81c733ae9c77f124c6e44b4aac5e31f9285bdd4f2e",
+  "schema": "tiny-footprint-render/v1",
+  "templateCommit": "5141c050c9f93ec35ec14422307bf0e13536e61c"
+}

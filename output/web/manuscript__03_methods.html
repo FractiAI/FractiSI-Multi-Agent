@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.13" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>03_methods.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      color: light-dark(#1a1a1a, #fdfdfd);
+      background-color: #fdfdfd;
+      background-color: light-dark(#fdfdfd, #1a1a1a);
+      color-scheme: light dark;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        color-scheme: light only;
+      }
+      html, body, pre, code {
+        background-color: transparent;
+      }
+      body, a, a:visited, blockquote {
+        color: black;
+      }
+      pre, code {
+        padding: 0;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a, a:visited {
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid;
+      border-color: #e6e6e6;
+      border-color: light-dark(#e6e6e6, #4c4c4c);
+      color: #606060;
+      color: light-dark(#606060, #b6b6b6);
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid currentColor;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+    }
+    th {
+      border-top: 1px solid currentColor;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+
+<link data-template-favicon rel="icon" href="favicon.ico">
+
+<style>
+:root {
+  --brand-1: #5b6ee0;
+  --web-bg: #f8f8f8;
+  --web-surface: #ffffff;
+  --web-text: #2c3e50;
+  --web-border: #bdc3c7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-1: #7e8ce8;
+    --web-bg: #0f1420;
+    --web-surface: #161c2b;
+    --web-text: #e6eaf2;
+    --web-border: #2a3447;
+  }
+}
+.theorem-box {
+  border-left: 4px solid var(--brand-1);
+  background: var(--web-surface);
+  padding: 0.6em 1em;
+  margin: 1.1em 0;
+  border-radius: 0 4px 4px 0;
+}
+.theorem-box.definition { border-left-style: dashed; }
+.theorem-box > p:first-child { margin-top: 0; }
+.theorem-box > p:last-child { margin-bottom: 0; }
+.figure-long-description {
+  border: 1px solid var(--web-border);
+  border-radius: 4px;
+  margin-block: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+.figure-long-description > summary { cursor: pointer; font-weight: 700; }
+.figure-long-description > p { max-width: 80ch; overflow-wrap: anywhere; }
+.figure-exact-values { max-width: 80ch; overflow-wrap: anywhere; }
+code { overflow-wrap: anywhere; word-break: break-word; }
+pre {
+  max-width: 100%;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+pre code { overflow-wrap: inherit; white-space: inherit; word-break: inherit; }
+div.sourceCode { max-width: 100%; overflow: visible; }
+pre.sourceCode { background: #2c3e50; color: #ecf0f1; }
+pre.sourceCode code,
+pre.sourceCode code span { color: inherit; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+mjx-container[display="true"] { max-width: 100%; overflow: visible; }
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+.table-scroll:focus-visible {
+  outline: 3px solid var(--brand-1);
+  outline-offset: 3px;
+}
+.table-scroll > table { margin-block: 0; display: table; min-width: 100%; width: 100%; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body {
+  font-family: 'Liberation Serif', 'Times New Roman', serif;
+  line-height: 1.6;
+  width: min(100%, 800px);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  color: #1a1a1a;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+main,
+nav,
+section,
+article,
+figure,
+figcaption {
+  min-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 0.65rem 0.9rem;
+  transform: translateY(-120%);
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.skip-link:visited {
+  color: #ffffff;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  figure img {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  overflow-wrap: anywhere;
+}
+
+code {
+  background-color: #ecf0f1;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Liberation Mono', 'Courier New', monospace;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+pre {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 100%;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  overflow-wrap: inherit;
+  white-space: inherit;
+  word-break: inherit;
+}
+
+div.sourceCode {
+  max-width: 100%;
+  overflow: visible;
+}
+
+pre.sourceCode {
+  background: #2c3e50;
+  color: #ecf0f1;
+}
+
+pre.sourceCode code,
+pre.sourceCode code span {
+  color: inherit;
+}
+
+pre > code.sourceCode {
+  white-space: pre-wrap;
+}
+
+pre > code.sourceCode > span {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+
+.table-scroll:focus-visible {
+  outline: 3px solid #1f6f8b;
+  outline-offset: 3px;
+}
+
+.table-scroll > table {
+  margin-block: 0;
+  display: table;
+  min-width: 100%;
+  width: 100%;
+}
+
+figure {
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
+th, td {
+  border: 1px solid #bdc3c7;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #1f6f8b;
+  color: white;
+}
+
+/* Preserve a complete inline-code header within the table's scroll region. */
+th code {
+  color: inherit;
+  background-color: transparent;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #b91c1c;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+  overflow-wrap: anywhere;
+}
+
+a:visited {
+  color: #8f1d1d;
+}
+
+a:hover {
+  text-decoration-thickness: 0.14em;
+}
+
+a:focus-visible {
+  outline: 3px solid #1f6f8b;
+  outline-offset: 3px;
+}
+
+.toc {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.toc a,
+#TOC a {
+  color: #b91c1c;
+  display: inline-block;
+  min-height: 28px;
+  line-height: 1.5;
+  padding-block: 2px;
+}
+
+.toc li,
+#TOC li {
+  margin-block: 1px;
+}
+
+.math {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.1em;
+}
+
+mjx-container[display="true"] {
+  display: block;
+  max-width: 100%;
+  overflow: visible;
+  padding-bottom: 0.25rem;
+}
+
+.figure {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* A reading column keeps prose comfortable, but dense scientific figures need
+   a larger inspection surface.  The rendered image remains responsive and the
+   explicit link opens its source-resolution asset without changing the PDF. */
+.figure-full-size-link {
+  color: inherit;
+  display: block;
+  max-width: 100%;
+  text-align: center;
+}
+
+.figure-full-size-link img {
+  cursor: zoom-in;
+  margin-bottom: 0.45rem;
+}
+
+.figure-full-size-label {
+  color: #1f6f8b;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.figure-full-size-link:focus-visible {
+  outline: 3px solid #1f6f8b;
+  outline-offset: 4px;
+}
+
+@media (min-width: 1000px) {
+  /* Wide figure links stay within the viewport but extend beyond the prose
+     column. Do not clip their labels at the narrower body boundary. */
+  body {
+    overflow-x: visible;
+  }
+
+  .figure-full-size-link {
+    left: 50%;
+    max-width: none;
+    position: relative;
+    transform: translateX(-50%);
+    width: min(1080px, calc(100vw - 3rem));
+  }
+}
+
+.figure-caption {
+  font-style: italic;
+  color: #4b5563;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.figure-long-description,
+.figure-exact-values {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+</style>
+<script data-template-source-font-loader src="assets/source-web-fonts.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main id="main-content" tabindex="-1">
+<h1 id="sec:methods">Methods</h1>
+<h2 id="sec:tiers">Evidence tiers</h2>
+<ul>
+<li><strong>Deterministic.</strong> Byte accounting, with no clock and
+no description of the host. The receipts are byte-identical on repeated
+runs.</li>
+<li><strong>Measured.</strong> Live memory and wall-clock time on one
+named host, in isolated processes. The values are expected to differ on
+other machines.</li>
+<li><strong>Simulated.</strong> Arithmetic over a published hardware
+profile. No device is touched.</li>
+<li><strong>Historical.</strong> Receipts recorded on another machine.
+They are bound by hash and reported as evidence about that machine on
+that date, never as a current run.</li>
+</ul>
+<h2 id="sec:host">Host</h2>
+<p>Measurements ran on Apple M4 Pro with 14 logical cores and 24 GiB of
+memory, under darwin 27.2.0 on arm64, with Node v26.13.0 and V8
+14.6.202.34-node.40. Real-model runs used Python 3.13.17, PyTorch 2.15.0
+[paszke2019pytorch] and Transformers 5.22.1 [wolf2020transformers]. The
+machine was not idle: other work ran concurrently, and the one-minute
+load average across the measured runs was 3.96 to 5.98. Receipts record
+the load at the start and end of each run.</p>
+<h2 id="sec:deterministic">Deterministic tier</h2>
+<p>The registered workloads are the suite’s own. Workload B holds
+structured records, C a cross-linked graph, D one story broadcast to
+eight nodes, E a lattice of vectors against one request’s working set,
+and F chat sessions sharing a system prompt. All use seed 20261103, with
+gateway round trips also checked under 202611032, and sizes are UTF-8
+JSON bytes.</p>
+<p>The suite’s own exactness checks are partial, so this tier adds a
+full round trip of every record in B, C, D and F. To test the aggregate,
+it recomputes <span class="citation"
+data-cites="eq:aggregate">[@eq:aggregate]</span> with equal weights,
+over lossless workloads only, without the baseline of workload C, and
+leaving out each workload in turn. That baseline embeds full copies of
+both nodes in every edge, which the suite’s source describes as a
+conventional anti-pattern. Workload C is also compared with a plain
+normalized graph whose edges refer to nodes by id, with no template
+engine. As a yardstick for how much redundancy the bytes contain, each
+lossless workload’s conventional JSON is compressed with gzip.</p>
+<p><span class="citation"
+data-cites="prop:saturation">[@prop:saturation]</span> is tested by
+running workload F’s encoding across a grid of 11 session counts up to
+1,024 sessions and 1, 5, 25 and 125 turns per session. The rhyme is
+compared with an exact-text cache across a grid of duplicate shares from
+0% to 100%, for 40 same-shaped sessions.</p>
+<h2 id="sec:measured">Measured tier</h2>
+<p>JSON bytes do not see object references, shared hidden classes or
+allocator behaviour. V8 shares object shapes through hidden classes
+[bruni2017fast], so identical keys in many objects are not stored many
+times. The measured tier therefore reads the heap itself. Every store
+starts from per-session wire text, as a server receiving request bodies
+would, so nothing shares memory by accident. The stores are:</p>
+<ul>
+<li><em>Duplicated</em>: one fully parsed object per session.</li>
+<li><em>Aliased</em>: parsed, then shared fields point at a single
+object. This is an ordinary JavaScript reference and the baseline a
+template engine must beat in memory.</li>
+<li><em>Tiny</em>: one registered template plus per-session expressions,
+using the shipped engine.</li>
+<li><em>Exact-text cache</em>: one parsed object per distinct wire
+text.</li>
+</ul>
+<p>Two ablations separate the idea from this implementation of it.
+<em>Tiny compact</em> keeps the template and bare deltas without the
+engine’s per-session wrapper. <em>Tiny without clone</em> materializes
+from the shipped store without <code>structuredClone</code>.</p>
+<p><strong>Heap.</strong> Each measurement runs in a fresh process with
+garbage collection exposed. The whole build runs first and is discarded,
+so that lazily compiled code and tier-up are not charged to whichever
+store happens to allocate them. The heap is read on both sides of the
+build after collecting until it stops shrinking. As a check on the
+instrument, a store’s total heap must grow with its size, and
+verification enforces this. Tier-up allocates code in the same heap from
+a background thread, so these processes run with <code>--no-opt</code>,
+<code>--no-maglev</code>, <code>--no-sparkplug</code> and
+<code>--single-threaded-gc</code>: retained object layouts do not depend
+on the tier, and the reading then holds data alone. Latency and RSS keep
+normal settings, because they describe a realistic process. The design
+is three workloads across 16, 64, 256 and 1,024 sessions with 21
+processes per cell, 1,218 in all including controls, run in seeded
+random order so that drift on the host spreads across conditions
+[mytkowicz2009producing].</p>
+<p><strong>Controls.</strong> An empty control allocates nothing and a
+known control allocates a packed array of computable size. They measure
+the instrument itself.</p>
+<p><strong>Resident set size.</strong> Reading RSS after preparing
+sessions on the JS heap is confounded, because V8 keeps committed pages
+after collecting garbage. This design holds all wire text in one
+off-heap buffer and ingests sessions one at a time. It runs at 16,384
+sessions, where the differences resolve, with 11 processes per
+store.</p>
+<p><strong>Latency.</strong> Materialization is the time to turn one
+stored session back into its full request text. Before any timing, every
+session is checked to reconstruct to its original wire text exactly.
+Each of 15 independent processes per condition warms up for 4,000
+operations and then times 4,000 operations in batches of 16, at 64
+sessions.</p>
+<p><strong>Statistics.</strong> The independent unit is the process
+[kalibera2013rigorous; georges2007statistically]. Point estimates are
+medians, with quantiles by linear interpolation [hyndman1996sample].
+Intervals are percentile bootstrap at 95% confidence
+[efron1993introduction] with 4,000 resamples and seed 20261105; neither
+assumes normally distributed timings [hoefler2015scientific]. Ratios use
+independent resampling of numerator and denominator. The real-model lab
+runs one process per combination, so its intervals resample per-trial
+medians and describe repeatability within that process. All comparisons
+are descriptive.</p>
+<h2 id="sec:llm_methods">Real-model lab</h2>
+<p>The lab runs four combinations of <code>distilgpt2</code> and
+<code>tiny-gpt2</code> on CPU and MPS, with weights pinned to fixed
+revisions and held as <code>float32</code>. The models belong to the
+GPT-2 family [radford2019language], whose attention layout is what <span
+class="citation" data-cites="eq:kv">[@eq:kv]</span> describes.
+<code>tiny-gpt2</code> repeats the original lab’s choice. Its KV cache
+is too small to measure memory, so <code>distilgpt2</code> gives a
+measurable one. Their shared prefixes are 256 and 512 tokens, with eight
+sessions of two turns, 21 suffix tokens and eight decoded tokens.</p>
+<p>The original lab tokenized its arms differently, ran one arm entirely
+before the other, and did not check output equivalence. This lab builds
+both arms from the same token ids, interleaves them in seeded random
+order within each turn across nine trials, and compares both
+last-position logits and greedy tokens between arms, turn by turn. A
+control repeats this with a cache built from the reversed prefix, to
+test whether the check can detect a wrong cache. Training arms are
+warmed up and alternated in the same way. The “with” arm is charged once
+per trial for prefilling the shared prefix.</p>
+<p>KV residency holds every session’s cache live and reads three
+accountings: <span class="citation" data-cites="eq:kv">[@eq:kv]</span>,
+summed tensor sizes, and the device allocator where one exists. “With
+Tiny Footprint” in this lab means reusing a shared prefix, which is what
+a production prefix cache does, so the lab tests prefix sharing and not
+rhyming.</p>
+<h2 id="sec:other_evidence">Simulated and historical evidence</h2>
+<p>The roofline applies <span class="citation"
+data-cites="eq:kv">[@eq:kv]</span> and <span class="citation"
+data-cites="eq:with_weights">[@eq:with_weights]</span> to a published
+profile of the NVIDIA H100 SXM 80GB [nvidia2026h100] and a model with
+the shape of Llama 2 7B [touvron2023llama], with 16 sessions, 2,048
+prefix tokens and 128 suffix tokens. The historical receipts come from
+the NVIDIA GeForce GTX 860M. The GPU lab needs that vendor’s runtime, so
+on this host it records <code>not_run</code> with reason
+<code>nvcuda_unavailable</code>, and its allocation figure is recomputed
+with no device.</p>
+</main>
+</body>
+</html>

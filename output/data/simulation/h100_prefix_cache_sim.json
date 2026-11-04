@@ -1,0 +1,65 @@
+{
+  "ok": true,
+  "kind": "simulation",
+  "simulator": "kv-cache residency roofline",
+  "notAMeasurement": true,
+  "device": {
+    "name": "NVIDIA H100 SXM 80GB",
+    "memoryClass": "HBM3",
+    "capacityBytes": 85899345920,
+    "peakBandwidthBytesPerSec": 3350000000000.0,
+    "source": "NVIDIA H100 Tensor Core GPU datasheet: 80 GB HBM3, 3.35 TB/s"
+  },
+  "model": {
+    "id": "meta-llama/Llama-2-7b-hf",
+    "parameters": 6738415616,
+    "layers": 32,
+    "kvHeads": 32,
+    "headDim": 128,
+    "dtypeBytes": 2
+  },
+  "workload": {
+    "prefixTokens": 2048,
+    "suffixTokens": 128,
+    "sessions": 16,
+    "kvBytesPerToken": 524288,
+    "weightBytes": 13476831232
+  },
+  "outputEquivalence": {
+    "checked": "reconstructed token ids equal the original ids",
+    "equivalent": true,
+    "sessions": 16,
+    "notGeneratedText": true
+  },
+  "arms": {
+    "naiveRefill": {
+      "kvBytes": 18253611008,
+      "residentBytes": 31730442240,
+      "materializeBytes": 18253611008,
+      "fits": true,
+      "materializeSecondsAtPeak": 0.005448839106865671
+    },
+    "productionPrefixCache": {
+      "kvBytes": 2147483648,
+      "residentBytes": 15624314880,
+      "materializeBytes": 2147483648,
+      "fits": true,
+      "materializeSecondsAtPeak": 0.0006410398949253731
+    },
+    "tinyFootprint": {
+      "kvBytes": 2147483648,
+      "residentBytes": 15624314880,
+      "materializeBytes": 2147483648,
+      "sameResidentSetAsPrefixCache": true,
+      "fits": true,
+      "materializeSecondsAtPeak": 0.0006410398949253731
+    }
+  },
+  "comparison": {
+    "kvReductionVersusNaive": 0.8823529411764706,
+    "residentReductionVersusNaive": 0.5075922748941806,
+    "tinyVersusPrefixCacheResidentBytes": 0,
+    "peakBandwidthIsAnUpperBound": true
+  },
+  "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. Tiny Footprint is given the same resident KV as a production prefix cache, because this lab has not measured a KV compression factor. The in-process 84.5% representation cut is not applied to device memory."
+}

@@ -1,0 +1,113 @@
+{
+  "consumed_manuscript": [
+    {
+      "rendered_path": "output/manuscript/00_abstract.md",
+      "rendered_sha256": "947582cdf1a26fc296923a3d7114be43cf7c7daf10086d12b35d17e9275d9f77",
+      "source_path": "docs/manuscript/00_abstract.md",
+      "source_sha256": "9a9aa223c89d547d6f3b3fae0c7faed7aa9b9fb485069961cdf3cc56e65ab805"
+    },
+    {
+      "rendered_path": "output/manuscript/01_introduction.md",
+      "rendered_sha256": "c582aee405529eafd4c7560967b4774571325d32ebd0b8286fc54a65605fff8b",
+      "source_path": "docs/manuscript/01_introduction.md",
+      "source_sha256": "1e670a022763338eb9117f3c56dff06a98a86f8f21f2f7e8ceecbbbd9b386265"
+    },
+    {
+      "rendered_path": "output/manuscript/02_formalism.md",
+      "rendered_sha256": "cbe428cf3f1c707833dd14d01fd00eceeba8b7d7afb1e181dde112031f73889e",
+      "source_path": "docs/manuscript/02_formalism.md",
+      "source_sha256": "cbe428cf3f1c707833dd14d01fd00eceeba8b7d7afb1e181dde112031f73889e"
+    },
+    {
+      "rendered_path": "output/manuscript/03_methods.md",
+      "rendered_sha256": "6307d441b1c291e4f6c8dfbe0e4bc4898199795ec53b2c858cab2fa3028359c3",
+      "source_path": "docs/manuscript/03_methods.md",
+      "source_sha256": "9f5a08780b056863c45b70666f311c60bf5f4decf3cb9f574f07f2279963e635"
+    },
+    {
+      "rendered_path": "output/manuscript/04_results.md",
+      "rendered_sha256": "964feabe004c57a6da6764fe4223c4efaf9cb1470ba823aa998e583a10c3e2e4",
+      "source_path": "docs/manuscript/04_results.md",
+      "source_sha256": "d2d1fb39b9f93d59ba91690549119769b838504780f2ebfd401571e0160b1a30"
+    },
+    {
+      "rendered_path": "output/manuscript/05_discussion.md",
+      "rendered_sha256": "bbf7695fb505ce6863f96246890b4a5700aae078cdc8b8af00763aab1b56b38c",
+      "source_path": "docs/manuscript/05_discussion.md",
+      "source_sha256": "cc76818367a11214dac36e2b133db825ad9ab9ef99eec9cc6a54acc8ddf072d7"
+    },
+    {
+      "rendered_path": "output/manuscript/06_limitations.md",
+      "rendered_sha256": "d6d85d27967bb9b78e3e75464d2a27ac42f5f8ee851aa70c54fdc1d15f6e7715",
+      "source_path": "docs/manuscript/06_limitations.md",
+      "source_sha256": "008b79091f2390d166156d5902402006f174d14f3739fce30833fd4f883bb0fd"
+    },
+    {
+      "rendered_path": "output/manuscript/07_related_work.md",
+      "rendered_sha256": "69550f80f7b1eb425c22d07020fde8670ec0e714c0846b82a000cc3e8d546766",
+      "source_path": "docs/manuscript/07_related_work.md",
+      "source_sha256": "69550f80f7b1eb425c22d07020fde8670ec0e714c0846b82a000cc3e8d546766"
+    },
+    {
+      "rendered_path": "output/manuscript/08_reproducibility.md",
+      "rendered_sha256": "7d4c251f8092f57c64e00d7bb0ffbe61a0c424f2b0532d75b3476b9803b4105d",
+      "source_path": "docs/manuscript/08_reproducibility.md",
+      "source_sha256": "a8af2a073caeb9c664fac66bde3a6f3fb44717ff8249c2fe363e7f5f9344125a"
+    },
+    {
+      "rendered_path": "output/manuscript/S01_claim_ledger.md",
+      "rendered_sha256": "c6d55c84e20d38d6ebed7c021abde9babd4d9aedb2a357ccf96894f3e800bfd5",
+      "source_path": "docs/manuscript/S01_claim_ledger.md",
+      "source_sha256": "fb94c141895a5548c4d893bfa93f026610e049813a8754dc1473ad5c95414497"
+    },
+    {
+      "rendered_path": "output/manuscript/99_references.md",
+      "rendered_sha256": "20f4a91ee979db68b8c62777d4518e3a6bd40994562308aa12f827ba621567a0",
+      "source_path": "docs/manuscript/99_references.md",
+      "source_sha256": "20f4a91ee979db68b8c62777d4518e3a6bd40994562308aa12f827ba621567a0"
+    }
+  ],
+  "evidence_files": {
+    "artifact_manifest": {
+      "path": "output/reports/artifact_manifest.json",
+      "sha256": "12e316421397eb743801acb005b3b4d4e5a1c5919b4af6220407ea420baccbaf",
+      "size_bytes": 28576
+    },
+    "combined_manuscript": {
+      "path": "output/web/_combined_manuscript.md",
+      "sha256": "e33acb597207d92b6940b53b1a720c9caefe5640320b64ba7b3be6cb4f44a1d5",
+      "size_bytes": 51004
+    },
+    "composition_manifest": {
+      "path": "output/reports/manuscript_composition.json",
+      "sha256": "fe942e5f74f080c66fda61aa65cdf6526a2fabbbf657712d791280b2bb51b08f",
+      "size_bytes": 2713
+    },
+    "validation_report": {
+      "path": "output/reports/validation_report.json",
+      "sha256": "31060f9bfd099de57f9dd690ebdf8ee87fe3544a26088bd94f3b60f9f5a033fc",
+      "size_bytes": 12129
+    }
+  },
+  "evidence_mode": "validated-co-snapshot-fingerprint-bridge",
+  "fingerprints": {
+    "config": {
+      "file_count": 15,
+      "sha256": "d929f567cb79281f8c1e2106babbae72c14098920d9983a5381dbdde669fe6f4"
+    },
+    "output": {
+      "file_count": 89,
+      "sha256": "25fe572cc1f63ac90ee3c67a0345c473371d881ccf38fe4cc47f123f368a8ca0"
+    },
+    "source": {
+      "file_count": 230,
+      "sha256": "d67bf34b7c1c3f3e92a4c89290e043cf2988ea1d5ef4dcf31c16dd744f6ef01a"
+    },
+    "stage": {
+      "file_count": 1600,
+      "sha256": "879f42f21f423d08a54edc2a5aa7d842784f4e70db85f9bbfdba9d41d63776ee"
+    }
+  },
+  "project": "working/tiny-footprint-workstation",
+  "schema_version": "template-rendered-provenance-v2"
+}

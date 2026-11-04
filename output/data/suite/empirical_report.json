@@ -1,0 +1,378 @@
+{
+  "DOC_ID": "WP-SYNTHOBS-TINY-GATEWAY-RHYMING-TEMPLATES-EGS-2026-11-03",
+  "REGISTRY_ID": "synthobs-tiny-gateway-rhyming-templates-2026-11",
+  "STUDY_TITLE": "Tiny Gateway: Rhyming Templates and a New Architecture for Memory-Efficient Computing",
+  "generatedAt": "2026-11-04T19:53:26.568Z",
+  "host": {
+    "arch": "arm64",
+    "cpuModel": "Apple M4 Pro",
+    "logicalCores": 14,
+    "node": "v26.13.0",
+    "platform": "darwin",
+    "pointerBytes": 8,
+    "release": "27.2.0",
+    "totalMemoryBytes": 25769803776,
+    "v8": "14.6.202.34-node.40"
+  },
+  "results": {
+    "A": {
+      "approaches80": true,
+      "honesty": "Architectural arithmetic only — not a measured DRAM/HBM result.",
+      "id": "A_illustrative_model",
+      "nonWeightCutNeededPct": 94.11764705882354,
+      "pass": true,
+      "reductionPct": 78.69999999999999,
+      "remainingPct": 21.3,
+      "title": "Illustrative 78.7% memory model arithmetic"
+    },
+    "B": {
+      "baselineBytes": 76020,
+      "exact": true,
+      "id": "B_structured_data",
+      "n": 500,
+      "pass": true,
+      "ratio": 0.5433438568797685,
+      "saved": 41305,
+      "tinyBytes": 34715,
+      "title": "Workload A · structured rhyming-template records"
+    },
+    "C": {
+      "baselineBytes": 1243896,
+      "id": "C_cross_linked",
+      "nEdges": 600,
+      "nNodes": 200,
+      "pass": true,
+      "ratio": 0.8235809103011827,
+      "saved": 1024449,
+      "tinyBytes": 219447,
+      "title": "Workload B · cross-linked shared references"
+    },
+    "D": {
+      "baselineBytes": 44617,
+      "exact": true,
+      "id": "D_eight_node_broadcast",
+      "pass": true,
+      "ratio": 0.8641549185288119,
+      "saved": 38556,
+      "tinyBytes": 6061,
+      "title": "Workload C · eight-node shared originating story"
+    },
+    "E": {
+      "baselineBytes": 780653,
+      "id": "E_cross_octave",
+      "nVectors": 768,
+      "pass": true,
+      "ratio": 0.9948120355650975,
+      "saved": 776603,
+      "tinyBytes": 4050,
+      "title": "Workload D · selective cross-octave reconstruction",
+      "workingN": 4
+    },
+    "F": {
+      "baselineBytes": 191496,
+      "exact": true,
+      "honesty": "In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server.",
+      "id": "F_ai_context_proxy",
+      "pass": true,
+      "ratio": 0.4892008188160588,
+      "saved": 93680,
+      "sessions": 40,
+      "tinyBytes": 97816,
+      "title": "Workload E/F proxy · shared system prompt + turn deltas",
+      "turns": 25
+    },
+    "G": {
+      "id": "G_gateway_exactness",
+      "pass": true,
+      "primary": {
+        "exactRate": 1,
+        "n": 100,
+        "ok": 100
+      },
+      "title": "Gateway exact reconstruction (primary + validation seeds)",
+      "validation": {
+        "exactRate": 1,
+        "n": 100,
+        "ok": 100
+      }
+    },
+    "H": {
+      "aggregatePct": 84.50413877455297,
+      "aggregateRatio": 0.8450413877455297,
+      "baselineBytes": 2336682,
+      "candidateSlot": 52,
+      "enginePinRecommended": false,
+      "exactOk": true,
+      "gpuLabPass": false,
+      "id": "H_engine_pin_gate",
+      "interpretation": "Pin withheld: representation aggregate 84.5% and exactness passed, but the GPU lab did not run on this host.",
+      "pass": false,
+      "ratio": 0.8450413877455297,
+      "saved": 1974593,
+      "status": "not_run",
+      "target": 0.8,
+      "tinyBytes": 362089,
+      "title": "Data-gated ENGINE_SHELF pin (80% representation gate + Tiny Footprint GPU lab)"
+    },
+    "I": {
+      "allocReduction": 0,
+      "concurrencyDensityGain": null,
+      "honesty": "Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.",
+      "id": "I_gpu_live_chat_stack",
+      "interpretation": "GPU live stack did not run on this host: nvcuda_unavailable.",
+      "latency": null,
+      "pass": false,
+      "product": "Tiny Footprint",
+      "report": {
+        "detail": "dlopen(C:\\Windows\\System32\\nvcuda.dll",
+        "liveRun": false,
+        "ok": false,
+        "reason": "nvcuda_unavailable",
+        "status": "not_run"
+      },
+      "smiReduction": null,
+      "status": "not_run",
+      "title": "Tiny Footprint · live GPU chat-stack memory + latency (nvidia-smi)",
+      "turnP50MsWith": null,
+      "turnP50MsWithout": null,
+      "turnP50RatioTinyOverConventional": null,
+      "turnSpeedup": null
+    },
+    "J": {
+      "generateP50Speedup": null,
+      "honesty": "Requires a Python environment with torch; not the HtoD allocation proxy.",
+      "id": "J_gpu_llm_real",
+      "interpretation": "Real LLM lab did not run on this host: not_requested.",
+      "pass": false,
+      "prefillP50Speedup": null,
+      "product": "Tiny Footprint",
+      "report": {
+        "detail": "Set TINY_FOOTPRINT_FORCE_LLM_LAB=1 or benchmark.forceLlmLab to run this lab.",
+        "liveRun": false,
+        "ok": false,
+        "reason": "not_requested",
+        "status": "not_run"
+      },
+      "status": "not_run",
+      "title": "Tiny Footprint · real local-GPU LLM infer + train (DirectML/CUDA)",
+      "trainStepP50Speedup": null
+    },
+    "all_pass": false,
+    "enginePinRecommended": false,
+    "engineShelfSlot": 52,
+    "experiments": [
+      {
+        "A": {
+          "approaches80": true,
+          "honesty": "Architectural arithmetic only — not a measured DRAM/HBM result.",
+          "id": "A_illustrative_model",
+          "nonWeightCutNeededPct": 94.11764705882354,
+          "pass": true,
+          "reductionPct": 78.69999999999999,
+          "remainingPct": 21.3,
+          "title": "Illustrative 78.7% memory model arithmetic"
+        },
+        "id": "E1_illustrative_model",
+        "pass": true,
+        "status": "pass",
+        "title": "Illustrative 78.7% memory model arithmetic"
+      },
+      {
+        "B": {
+          "baselineBytes": 76020,
+          "exact": true,
+          "id": "B_structured_data",
+          "n": 500,
+          "pass": true,
+          "ratio": 0.5433438568797685,
+          "saved": 41305,
+          "tinyBytes": 34715,
+          "title": "Workload A · structured rhyming-template records"
+        },
+        "id": "E2_structured_data",
+        "pass": true,
+        "status": "pass",
+        "title": "Workload A · structured rhyming-template records"
+      },
+      {
+        "C": {
+          "baselineBytes": 1243896,
+          "id": "C_cross_linked",
+          "nEdges": 600,
+          "nNodes": 200,
+          "pass": true,
+          "ratio": 0.8235809103011827,
+          "saved": 1024449,
+          "tinyBytes": 219447,
+          "title": "Workload B · cross-linked shared references"
+        },
+        "id": "E3_cross_linked",
+        "pass": true,
+        "status": "pass",
+        "title": "Workload B · cross-linked shared references"
+      },
+      {
+        "D": {
+          "baselineBytes": 44617,
+          "exact": true,
+          "id": "D_eight_node_broadcast",
+          "pass": true,
+          "ratio": 0.8641549185288119,
+          "saved": 38556,
+          "tinyBytes": 6061,
+          "title": "Workload C · eight-node shared originating story"
+        },
+        "id": "E4_eight_node",
+        "pass": true,
+        "status": "pass",
+        "title": "Workload C · eight-node shared originating story"
+      },
+      {
+        "E": {
+          "baselineBytes": 780653,
+          "id": "E_cross_octave",
+          "nVectors": 768,
+          "pass": true,
+          "ratio": 0.9948120355650975,
+          "saved": 776603,
+          "tinyBytes": 4050,
+          "title": "Workload D · selective cross-octave reconstruction",
+          "workingN": 4
+        },
+        "id": "E5_cross_octave",
+        "pass": true,
+        "status": "pass",
+        "title": "Workload D · selective cross-octave reconstruction"
+      },
+      {
+        "F": {
+          "baselineBytes": 191496,
+          "exact": true,
+          "honesty": "In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server.",
+          "id": "F_ai_context_proxy",
+          "pass": true,
+          "ratio": 0.4892008188160588,
+          "saved": 93680,
+          "sessions": 40,
+          "tinyBytes": 97816,
+          "title": "Workload E/F proxy · shared system prompt + turn deltas",
+          "turns": 25
+        },
+        "id": "E6_ai_context_proxy",
+        "pass": true,
+        "status": "pass",
+        "title": "Workload E/F proxy · shared system prompt + turn deltas"
+      },
+      {
+        "G": {
+          "id": "G_gateway_exactness",
+          "pass": true,
+          "primary": {
+            "exactRate": 1,
+            "n": 100,
+            "ok": 100
+          },
+          "title": "Gateway exact reconstruction (primary + validation seeds)",
+          "validation": {
+            "exactRate": 1,
+            "n": 100,
+            "ok": 100
+          }
+        },
+        "id": "E7_gateway_exactness",
+        "pass": true,
+        "status": "pass",
+        "title": "Gateway exact reconstruction (primary + validation seeds)"
+      },
+      {
+        "I": {
+          "allocReduction": 0,
+          "concurrencyDensityGain": null,
+          "honesty": "Accelerator device memory + materialization latency on local NVIDIA GPU; GeForce is typically GDDR — HBM is the datacenter analogue. Not frontier decode TTFT.",
+          "id": "I_gpu_live_chat_stack",
+          "interpretation": "GPU live stack did not run on this host: nvcuda_unavailable.",
+          "latency": null,
+          "pass": false,
+          "product": "Tiny Footprint",
+          "report": {
+            "detail": "dlopen(C:\\Windows\\System32\\nvcuda.dll",
+            "liveRun": false,
+            "ok": false,
+            "reason": "nvcuda_unavailable",
+            "status": "not_run"
+          },
+          "smiReduction": null,
+          "status": "not_run",
+          "title": "Tiny Footprint · live GPU chat-stack memory + latency (nvidia-smi)",
+          "turnP50MsWith": null,
+          "turnP50MsWithout": null,
+          "turnP50RatioTinyOverConventional": null,
+          "turnSpeedup": null
+        },
+        "id": "E8_gpu_live_tiny_footprint",
+        "pass": false,
+        "status": "not_run",
+        "title": "Tiny Footprint · live GPU chat-stack memory + latency (nvidia-smi)"
+      },
+      {
+        "J": {
+          "generateP50Speedup": null,
+          "honesty": "Requires a Python environment with torch; not the HtoD allocation proxy.",
+          "id": "J_gpu_llm_real",
+          "interpretation": "Real LLM lab did not run on this host: not_requested.",
+          "pass": false,
+          "prefillP50Speedup": null,
+          "product": "Tiny Footprint",
+          "report": {
+            "detail": "Set TINY_FOOTPRINT_FORCE_LLM_LAB=1 or benchmark.forceLlmLab to run this lab.",
+            "liveRun": false,
+            "ok": false,
+            "reason": "not_requested",
+            "status": "not_run"
+          },
+          "status": "not_run",
+          "title": "Tiny Footprint · real local-GPU LLM infer + train (DirectML/CUDA)",
+          "trainStepP50Speedup": null
+        },
+        "id": "E10_gpu_llm_real",
+        "pass": false,
+        "status": "not_run",
+        "title": "Tiny Footprint · real local-GPU LLM infer + train (DirectML/CUDA)"
+      },
+      {
+        "H": {
+          "aggregatePct": 84.50413877455297,
+          "aggregateRatio": 0.8450413877455297,
+          "baselineBytes": 2336682,
+          "candidateSlot": 52,
+          "enginePinRecommended": false,
+          "exactOk": true,
+          "gpuLabPass": false,
+          "id": "H_engine_pin_gate",
+          "interpretation": "Pin withheld: representation aggregate 84.5% and exactness passed, but the GPU lab did not run on this host.",
+          "pass": false,
+          "ratio": 0.8450413877455297,
+          "saved": 1974593,
+          "status": "not_run",
+          "target": 0.8,
+          "tinyBytes": 362089,
+          "title": "Data-gated ENGINE_SHELF pin (80% representation gate + Tiny Footprint GPU lab)"
+        },
+        "enginePinRecommended": false,
+        "id": "E9_engine_pin_gate",
+        "interpretation": "Pin withheld: representation aggregate 84.5% and exactness passed, but the GPU lab did not run on this host.",
+        "pass": false,
+        "status": "not_run",
+        "title": "Data-gated ENGINE_SHELF pin (80% representation gate + Tiny Footprint GPU lab)"
+      }
+    ],
+    "honesty": "Tiny Gateway · Rhyming Templates / Tiny Footprint: in-process lab + (A) HtoD allocation proxy on GTX 860M and (B) REAL local-GPU LLM lab (sshleifer/tiny-gpt2 via torch-directml) measuring shared-prefix infer + AdamW train with vs without Tiny Footprint. Proxy ≠ model forward. DirectML on laptop GeForce ≠ datacenter HBM / hosted frontier API. Φ_EGS design grammar only. Engine pin is data-gated.",
+    "n_fail": 0,
+    "n_not_run": 3,
+    "n_pass": 7,
+    "n_total": 10,
+    "product": "Tiny Footprint",
+    "verdict": "incomplete"
+  },
+  "schema": "synthobs-tiny-gateway-rhyming-templates/v2"
+}

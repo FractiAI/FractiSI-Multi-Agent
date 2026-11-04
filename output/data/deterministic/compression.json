@@ -1,0 +1,42 @@
+{
+  "schema": "tiny-footprint-compression-reference/v1",
+  "workloads": [
+    {
+      "baselineBytes": 76020,
+      "baselineGzipBytes": 3278,
+      "gzipReduction": 0.9568797684819784,
+      "key": "B",
+      "tinyBytes": 34715,
+      "tinyGzipBytes": 3155,
+      "tinyReduction": 0.5433438568797685
+    },
+    {
+      "baselineBytes": 1243896,
+      "baselineGzipBytes": 267700,
+      "gzipReduction": 0.7847890820454443,
+      "key": "C",
+      "tinyBytes": 219447,
+      "tinyGzipBytes": 58514,
+      "tinyReduction": 0.8235809103011827
+    },
+    {
+      "baselineBytes": 44617,
+      "baselineGzipBytes": 2976,
+      "gzipReduction": 0.9332989667615483,
+      "key": "D",
+      "tinyBytes": 6061,
+      "tinyGzipBytes": 2604,
+      "tinyReduction": 0.8641549185288119
+    },
+    {
+      "baselineBytes": 191496,
+      "baselineGzipBytes": 18298,
+      "gzipReduction": 0.9044470902786481,
+      "key": "F",
+      "tinyBytes": 97816,
+      "tinyGzipBytes": 17625,
+      "tinyReduction": 0.4892008188160588
+    }
+  ],
+  "zlib": "1.2.12"
+}
