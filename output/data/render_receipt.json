@@ -1,8 +1,8 @@
 {
-  "hydrationManifestSha256": "a1ff288be57b58eeceeb1b6e808f6732f2460c6174923c49cd1a8a7079ca83e8",
+  "hydrationManifestSha256": "645abd44b031a76d57d0a0d9d4bb0e0e2ab0bfd8562530a346d7016b0b37a848",
   "pdf": "output/pdf/tiny-footprint-workstation_combined.pdf",
-  "pdfBytes": 1269310,
-  "pdfSha256": "a7be1dfae2633b88193a2d81c733ae9c77f124c6e44b4aac5e31f9285bdd4f2e",
+  "pdfBytes": 1278880,
+  "pdfSha256": "99ec8215bdf3e381e90ba4af9df6253336c37d1ed309ab48a666b5d553f9ff76",
   "schema": "tiny-footprint-render/v1",
   "templateCommit": "5141c050c9f93ec35ec14422307bf0e13536e61c"
 }

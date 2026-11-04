@@ -1,10 +1,10 @@
 {
-  "aggregateReduction": 0.8450413877455297,
+  "aggregateReduction": 0.8449117166991487,
   "enginePinRecommended": false,
   "engineShelfSlot": 52,
   "n_fail": 0,
   "n_not_run": 3,
-  "n_pass": 7,
-  "n_total": 10,
+  "n_pass": 12,
+  "n_total": 15,
   "verdict": "incomplete"
 }

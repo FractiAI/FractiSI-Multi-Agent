@@ -612,7 +612,7 @@ evidence.</caption>
 gate</td>
 <td>Reproduced to every digit at 84.5%. 3 of 3 alternative aggregates
 fall below the gate: equal weight 74.3%, lossless only 77.0%, without
-the anti-pattern baseline 55.6%.</td>
+the anti-pattern baseline 55.5%.</td>
 <td>reproduced with a qualification</td>
 </tr>
 <tr>
@@ -623,31 +623,31 @@ engine.</td>
 <td>reproduced with a qualification</td>
 </tr>
 <tr>
-<td>A rhyme stores about 29% less when sessions share a shape and differ
+<td>A rhyme stores about 31% less when sessions share a shape and differ
 in words</td>
-<td>True of JSON bytes (29.0%). In the live heap at 1,024 sessions the
-shipped engine saves 10.3%, and a tighter encoding of the same idea
-30.4%, against 24.1% for a plain reference.</td>
+<td>True of JSON bytes (31.1%). In the live heap at 1,024 sessions the
+shipped engine saves 4.2%, and a tighter encoding of the same idea
+20.9%, against 20.1% for a plain reference.</td>
 <td>reproduced with a qualification</td>
 </tr>
 <tr>
 <td>An exact-text cache wins when every session repeats the same
 words</td>
-<td>Reproduced: cache 164 bytes, rhyme 4,691 bytes. The cache is first
+<td>Reproduced: cache 198 bytes, rhyme 5,572 bytes. The cache is first
 smaller at 40% duplicates on the tested grid.</td>
 <td>reproduced</td>
 </tr>
 <tr>
 <td>Lower latency from reconstructing a working set</td>
-<td>In process, materializing a session takes 1.81× and 11.44× the
-duplicated store’s time for the two workloads, or 1.04× and 1.24×
+<td>In process, materializing a session takes 1.69× and 11.81× the
+duplicated store’s time for the two workloads, or 1.06× and 1.96×
 without cloning.</td>
 <td>not reproduced</td>
 </tr>
 <tr>
 <td>Real-model prefill speedup of 1.80× (historical, GTX 860M)</td>
-<td>Direction reproduced on this host: 1.38× to 3.43× per turn. Decode
-alone 0.99× to 1.02×; prefill plus decode 1.07× to 1.56×. The tested
+<td>Direction reproduced on this host: 1.34× to 3.50× per turn. Decode
+alone 0.98× to 1.03×; prefill plus decode 1.06× to 1.63×. The tested
 mechanism is prefix reuse, which a prefix cache already provides. Logits
 match a full prefill to within 1.4e-4 on distilgpt2, where the check
 catches a cache built from the wrong prefix. On tiny-gpt2 it does not,
@@ -656,9 +656,9 @@ so those turns show nothing.</td>
 </tr>
 <tr>
 <td>Real-model train-step speedup of 1.17× (historical, GTX 860M)</td>
-<td>Warmed up and with arms interleaved, this host gives 0.98× to 1.02×.
-Both arms perform the same steps per round; the original lab ran one arm
-first with no warm-up.</td>
+<td>Warmed up and with arms interleaved, this host gives 1.00× to 1.03×,
+with intervals spanning 0.94× to 1.09×. Both arms perform the same steps
+per round; the original lab ran one arm first with no warm-up.</td>
 <td>not reproduced</td>
 </tr>
 <tr>
@@ -679,11 +679,11 @@ counted.</td>
 <td>not testable on this host</td>
 </tr>
 <tr>
-<td>Host-to-device turn materialization 11.24× faster (historical, GTX
+<td>Host-to-device turn materialization 9.60× faster (historical, GTX
 860M)</td>
 <td>Needs NVIDIA hardware. The copied payload alone is 9.41× smaller
 than the conventional one, so the byte count predicts most of the
-speedups recorded in the two stored receipts (9.60× and 11.24×).</td>
+speedup recorded in the stored receipts (9.60×).</td>
 <td>not testable on this host</td>
 </tr>
 <tr>
@@ -692,6 +692,30 @@ speedups recorded in the two stored receipts (9.60× and 11.24×).</td>
 that (84.4% here), but counting weights gives 27.3% here and 50.8% on
 the H100 roofline, and a prefix cache gets the same residency.</td>
 <td>not reproduced</td>
+</tr>
+<tr>
+<td>A four-pillar gate tells a holographic rhyme from a brick wall</td>
+<td>It refuses a plain wall. The same bricks pass once they have a
+nested field and declare a nesting depth and a drift, because recursive
+and self_correcting read values the caller states.</td>
+<td>reproduced with a qualification</td>
+</tr>
+<tr>
+<td>On an H100, a rhyme holds 34.3% less KV memory than a prefix cache
+when wording differs (simulated)</td>
+<td>Measured on distilgpt2, with 12.5% of tokens changed: 14.6% of KV
+cells repeat, and resuming from the other prompt’s cache moves logits by
+3.72. The simulation applies a JSON byte fraction of 38.9% to KV memory,
+and its equivalence check compares lengths.</td>
+<td>not reproduced</td>
+</tr>
+<tr>
+<td>Signature routing, context-fold hooks and an energy proxy</td>
+<td>They run and pass: 3 comparisons against 15 for a scan, a fold ratio
+of 10.0% over 6 retained turns, and depth scaled from 8 to 1. These
+count comparisons, bytes and joules from assumed constants. None is a
+memory, latency or energy reading from a device.</td>
+<td>reproduced with a qualification</td>
 </tr>
 <tr>
 <td><code>tiny benchmark</code> produces receipts on your machine</td>

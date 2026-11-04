@@ -1,22 +1,22 @@
 {
   "algorithm": "web-renderer-combine-v1",
-  "binding_sha256": "2234b10ba1d96f45a7944bb46ee725de57e701445778cfc1921f3596bd5b25e3",
+  "binding_sha256": "b793440966bc8a6397054d1c91657c5ac816fc92841aee0ab3beef65e082198a",
   "combined_path": "output/web/_combined_manuscript.md",
-  "combined_sha256": "e33acb597207d92b6940b53b1a720c9caefe5640320b64ba7b3be6cb4f44a1d5",
-  "combined_size_bytes": 51004,
+  "combined_sha256": "e9d8e0608681b0c07416593966a31d97bd5ca09967d7126996f19be0235ce4f7",
+  "combined_size_bytes": 55133,
   "input_root_kind": "hydrated",
   "ordered_inputs": [
     {
       "ordinal": 1,
       "path": "output/manuscript/00_abstract.md",
-      "sha256": "947582cdf1a26fc296923a3d7114be43cf7c7daf10086d12b35d17e9275d9f77",
-      "size_bytes": 2509
+      "sha256": "0bfda1e90ecd34d723d60cadcbc9ffa6e6c00b9bd3092fcbeb85ba1df35ccf6f",
+      "size_bytes": 2791
     },
     {
       "ordinal": 2,
       "path": "output/manuscript/01_introduction.md",
-      "sha256": "c582aee405529eafd4c7560967b4774571325d32ebd0b8286fc54a65605fff8b",
-      "size_bytes": 3805
+      "sha256": "71e5d7c9afa4be4d5e56f1d7c23e53d77eeba7f34b1c98c47a7d8af85badae6a",
+      "size_bytes": 3985
     },
     {
       "ordinal": 3,
@@ -27,26 +27,26 @@
     {
       "ordinal": 4,
       "path": "output/manuscript/03_methods.md",
-      "sha256": "6307d441b1c291e4f6c8dfbe0e4bc4898199795ec53b2c858cab2fa3028359c3",
-      "size_bytes": 7914
+      "sha256": "a7dfbf627da6e2f55f31dcf0359ff1417e38a56ae1cbf8edc94c714d1cdc0ea0",
+      "size_bytes": 8148
     },
     {
       "ordinal": 5,
       "path": "output/manuscript/04_results.md",
-      "sha256": "964feabe004c57a6da6764fe4223c4efaf9cb1470ba823aa998e583a10c3e2e4",
-      "size_bytes": 19556
+      "sha256": "8c372632fb4ab322020e5510a2382c478b5fb5b82cec1753e2b4c57f70abdfa7",
+      "size_bytes": 21529
     },
     {
       "ordinal": 6,
       "path": "output/manuscript/05_discussion.md",
-      "sha256": "bbf7695fb505ce6863f96246890b4a5700aae078cdc8b8af00763aab1b56b38c",
-      "size_bytes": 3699
+      "sha256": "c6120836c62d195e4416de256ca8fc50bf82584aea39ba7987aeeb56ccdd04f0",
+      "size_bytes": 4040
     },
     {
       "ordinal": 7,
       "path": "output/manuscript/06_limitations.md",
-      "sha256": "d6d85d27967bb9b78e3e75464d2a27ac42f5f8ee851aa70c54fdc1d15f6e7715",
-      "size_bytes": 2184
+      "sha256": "070be903854106362f46585dfb3ba2769a5ae14dc105e86110831d13ce7ee8af",
+      "size_bytes": 2258
     },
     {
       "ordinal": 8,
@@ -57,14 +57,14 @@
     {
       "ordinal": 9,
       "path": "output/manuscript/08_reproducibility.md",
-      "sha256": "7d4c251f8092f57c64e00d7bb0ffbe61a0c424f2b0532d75b3476b9803b4105d",
+      "sha256": "806bb06fc3e51eb7f294173e4179ce73137ec448a2a2992c80c6960384296253",
       "size_bytes": 3043
     },
     {
       "ordinal": 10,
       "path": "output/manuscript/S01_claim_ledger.md",
-      "sha256": "c6d55c84e20d38d6ebed7c021abde9babd4d9aedb2a357ccf96894f3e800bfd5",
-      "size_bytes": 4020
+      "sha256": "547dbbc8d00cd8b4d281351de3a46ef5bf120d6ef86b57f6112225a117d51910",
+      "size_bytes": 5065
     },
     {
       "ordinal": 11,
@@ -73,7 +73,7 @@
       "size_bytes": 31
     }
   ],
-  "ordered_inputs_sha256": "e9ebfab96e028ef4af82a8cb66d9576a6d7805617215f3aca540536ca8eaebd1",
+  "ordered_inputs_sha256": "b5e7a1410b5fe895df7f63d83f5f9ed3e415a38a8b4690b930edf20d370ad72e",
   "project": "working/tiny-footprint-workstation",
   "schema_version": "template-manuscript-composition-v1"
 }

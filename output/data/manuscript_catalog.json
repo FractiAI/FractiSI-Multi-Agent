@@ -13,22 +13,22 @@
     {
       "source": "derived: sha256 of benchmarks/plan.json",
       "token": "PLAN_SHA256",
-      "value": "c4afaf509e7058b3499d5d39ee0541d90639c4ff8df4f077ccb57b162a698636"
+      "value": "df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770"
     },
     {
       "source": "heap.sourceFingerprint.sha256",
       "token": "SOURCE_FINGERPRINT",
-      "value": "9b976d68bdfd289452b2185eb003f97973409cc621bedcf42eb2f4c5b0989908"
+      "value": "25fca7c9326662ec43eba34aa3fc8aff360487a2498139abc8daedcb2b5d8ae4"
     },
     {
       "source": "heap.sourceFingerprint.fileCount",
       "token": "SOURCE_FILES",
-      "value": "63"
+      "value": "75"
     },
     {
       "source": "historical.receipts.suite.sha256",
       "token": "HIST_SUITE_SHA256",
-      "value": "d1bc3be17e107dfe56e3db818ade5067b2037f14efdfe21c2b458e6fb6657d1a"
+      "value": "d5b16ee2da2ea07acbd5556fcca2108a5afade48f5662fb8ccb9affdac3fad61"
     },
     {
       "source": "heap.host.cpuModel",
@@ -63,7 +63,7 @@
     {
       "source": "derived: one-minute load average across measured receipts",
       "token": "LOAD_RANGE",
-      "value": "3.96 to 5.98"
+      "value": "4.77 to 18.71"
     },
     {
       "source": "seeds.primary",
@@ -203,7 +203,7 @@
     {
       "source": "deterministic.sensitivity.nonStrawman.ratio",
       "token": "AGG_NON_STRAWMAN",
-      "value": "55.6%"
+      "value": "55.5%"
     },
     {
       "source": "derived: byte share of workloads C and E",
@@ -248,7 +248,7 @@
     {
       "source": "derived: Tiny versus the normalized graph",
       "token": "C_TINY_OVER_NORMALIZED",
-      "value": "7.9%"
+      "value": "8.0%"
     },
     {
       "source": "derived: lossless workloads where gzip exceeds the template reduction",
@@ -263,7 +263,7 @@
     {
       "source": "derived: largest absolute error, in percentage points",
       "token": "SCALING_MAX_ERROR",
-      "value": "3.0"
+      "value": "7.3"
     },
     {
       "source": "derived: longest turn count",
@@ -288,27 +288,27 @@
     {
       "source": "deterministic.suite.rhyme.differingWords.rhymeBytes",
       "token": "RHYME_DIFFERING_BYTES",
-      "value": "4,758"
+      "value": "5,554"
     },
     {
       "source": "deterministic.suite.rhyme.differingWords.cacheBytes",
       "token": "RHYME_DIFFERING_CACHE",
-      "value": "6,704"
+      "value": "8,064"
     },
     {
       "source": "deterministic.suite.rhyme.differingWords.rhymeVersusCache",
       "token": "RHYME_VS_CACHE",
-      "value": "29.0%"
+      "value": "31.1%"
     },
     {
       "source": "deterministic.suite.rhyme.identicalText.cacheBytes",
       "token": "RHYME_IDENTICAL_CACHE",
-      "value": "164"
+      "value": "198"
     },
     {
       "source": "deterministic.suite.rhyme.identicalText.rhymeBytes",
       "token": "RHYME_IDENTICAL_BYTES",
-      "value": "4,691"
+      "value": "5,572"
     },
     {
       "source": "deterministic.crossover.cacheFirstSmallerAt",
@@ -378,67 +378,67 @@
     {
       "source": "derived: Tiny and aliased heap medians at the largest count",
       "token": "HEAP_AI_TINY_VS_ALIASED",
-      "value": "0.04%"
+      "value": "0.07%"
     },
     {
       "source": "heap.rows[workload=rhyme_differing,sessions=1024,condition=tiny].jsonReduction",
       "token": "HEAP_RHYME_TINY_JSON",
-      "value": "31.9%"
+      "value": "35.9%"
     },
     {
       "source": "heap.rows[workload=rhyme_differing,sessions=1024,condition=tiny].heapReduction.estimate",
       "token": "HEAP_RHYME_TINY",
-      "value": "10.3%"
+      "value": "4.2%"
     },
     {
       "source": "heap.rows[workload=rhyme_differing,sessions=1024,condition=tiny_compact].heapReduction.estimate",
       "token": "HEAP_RHYME_COMPACT",
-      "value": "30.4%"
+      "value": "20.9%"
     },
     {
       "source": "heap.rows[workload=rhyme_differing,sessions=1024,condition=aliased].heapReduction.estimate",
       "token": "HEAP_RHYME_ALIASED",
-      "value": "24.1%"
+      "value": "20.1%"
     },
     {
       "source": "derived: exact cache versus duplicated",
       "token": "HEAP_RHYME_CACHE_INCREASE",
-      "value": "54.5%"
+      "value": "45.4%"
     },
     {
       "source": "heap.rows[workload=rhyme_identical,sessions=1024,condition=exact_cache].heapReduction.estimate",
       "token": "HEAP_IDENTICAL_CACHE",
-      "value": "95.2%"
+      "value": "96.0%"
     },
     {
       "source": "derived: per-session heap at the smallest count",
       "token": "HEAP_RHYME_TINY_SMALLEST_BYTES",
-      "value": "429"
+      "value": "579"
     },
     {
       "source": "derived: per-session heap at the smallest count",
       "token": "HEAP_RHYME_DUP_SMALLEST_BYTES",
-      "value": "224"
+      "value": "264"
     },
     {
       "source": "derived: first session count where the shipped engine uses less heap than duplication",
       "token": "HEAP_RHYME_BREAKEVEN",
-      "value": "256"
+      "value": "1,024"
     },
     {
       "source": "rss.rows[condition=duplicated].rss.estimate",
       "token": "RSS_DUPLICATED",
-      "value": "199.5 MiB"
+      "value": "196.1 MiB"
     },
     {
       "source": "rss.rows[condition=tiny].rss.estimate",
       "token": "RSS_TINY",
-      "value": "157.6 MiB"
+      "value": "157.4 MiB"
     },
     {
       "source": "rss.rows[condition=tiny].rssReduction.estimate",
       "token": "RSS_TINY_REDUCTION",
-      "value": "21.0%"
+      "value": "19.7%"
     },
     {
       "source": "rss.rows[condition=tiny].heapReduction",
@@ -448,37 +448,37 @@
     {
       "source": "rss.rows[condition=aliased].rssReduction.estimate",
       "token": "RSS_ALIASED_REDUCTION",
-      "value": "21.2%"
+      "value": "20.1%"
     },
     {
       "source": "rss.rows[condition=duplicated].peakRssMedianBytes",
       "token": "RSS_PEAK_DUPLICATED",
-      "value": "307.4 MiB"
+      "value": "304.1 MiB"
     },
     {
       "source": "rss.rows[condition=tiny].peakRssMedianBytes",
       "token": "RSS_PEAK_TINY",
-      "value": "268.9 MiB"
+      "value": "269.2 MiB"
     },
     {
       "source": "latency.rows[workload=ai_context,condition=tiny].ratioToDuplicated.estimate",
       "token": "LAT_AI_TINY_RATIO",
-      "value": "1.81×"
+      "value": "1.69×"
     },
     {
       "source": "latency.rows[workload=rhyme_differing,condition=tiny].ratioToDuplicated.estimate",
       "token": "LAT_RHYME_TINY_RATIO",
-      "value": "11.44×"
+      "value": "11.81×"
     },
     {
       "source": "latency.rows[workload=ai_context,condition=tiny_noclone].ratioToDuplicated.estimate",
       "token": "LAT_AI_NOCLONE_RATIO",
-      "value": "1.04×"
+      "value": "1.06×"
     },
     {
       "source": "latency.rows[workload=rhyme_differing,condition=tiny_noclone].ratioToDuplicated.estimate",
       "token": "LAT_RHYME_NOCLONE_RATIO",
-      "value": "1.24×"
+      "value": "1.96×"
     },
     {
       "source": "derived: exact reconstructions across latency conditions",
@@ -568,32 +568,37 @@
     {
       "source": "derived: plan trials",
       "token": "LLM_TRIALS",
-      "value": "nine"
+      "value": "15"
     },
     {
       "source": "derived: prefill speedups across runs",
       "token": "LLM_PREFILL_RANGE",
-      "value": "1.38× to 3.43×"
+      "value": "1.34× to 3.50×"
     },
     {
       "source": "derived: decode speedups across runs",
       "token": "LLM_DECODE_RANGE",
-      "value": "0.99× to 1.02×"
+      "value": "0.98× to 1.03×"
     },
     {
       "source": "derived: prefill plus decode speedups across runs",
       "token": "LLM_END_TO_END_RANGE",
-      "value": "1.07× to 1.56×"
+      "value": "1.06× to 1.63×"
     },
     {
       "source": "derived: training speedups across runs",
       "token": "LLM_TRAIN_RANGE",
-      "value": "0.98× to 1.02×"
+      "value": "1.00× to 1.03×"
     },
     {
       "source": "derived: training rounds",
       "token": "LLM_TRAIN_STEPS",
-      "value": "15"
+      "value": "60"
+    },
+    {
+      "source": "derived: widest interval across training runs",
+      "token": "LLM_TRAIN_INTERVAL",
+      "value": "0.94× to 1.09×"
     },
     {
       "source": "derived: turns with equal greedy tokens across runs",
@@ -688,12 +693,87 @@
     {
       "source": "llm[run=distilbert-distilgpt2-mps].residency.materializeMs.p50Ms",
       "token": "KV_MATERIALIZE",
-      "value": "0.34 ms"
+      "value": "0.35 ms"
     },
     {
       "source": "llm[run=distilbert-distilgpt2-mps].residency.concatWorstAbsDifference",
       "token": "KV_REBUILD_DIFF",
       "value": "2.0e-5"
+    },
+    {
+      "source": "derived: share of prefix tokens changed in the rhyming control",
+      "token": "RHYME_KV_CHANGED",
+      "value": "12.5%"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.matchingCellFraction",
+      "token": "RHYME_KV_CELLS",
+      "value": "14.6%"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.layersWithAnyMatch",
+      "token": "RHYME_KV_LAYERS_MATCHING",
+      "value": "one"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.layers",
+      "token": "RHYME_KV_LAYERS",
+      "value": "six"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.relativeTolerance",
+      "token": "RHYME_KV_TOLERANCE",
+      "value": "1%"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.resumeFromRhymingCache.worstLogitAbsDifference",
+      "token": "RHYME_RESUME_LOGIT",
+      "value": "3.72"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.resumeFromRhymingCache.tokenSequencesEqual",
+      "token": "RHYME_RESUME_TOKENS_EQUAL",
+      "value": "16"
+    },
+    {
+      "source": "llm[run=distilbert-distilgpt2-mps].rhymeSharing.resumeFromRhymingCache.turns",
+      "token": "RHYME_RESUME_TURNS",
+      "value": "16"
+    },
+    {
+      "source": "deterministic.rhymeByteFraction.cohortSharedFraction",
+      "token": "RHYME_COHORT_FRACTION",
+      "value": "36.4%"
+    },
+    {
+      "source": "derived: pillars that read values the caller declares",
+      "token": "GATE_DECLARED_PILLARS",
+      "value": "two"
+    },
+    {
+      "source": "deterministic.companions.K.bucketCompares",
+      "token": "COMPANION_K_BUCKET",
+      "value": "3"
+    },
+    {
+      "source": "deterministic.companions.K.linearCompares",
+      "token": "COMPANION_K_LINEAR",
+      "value": "15"
+    },
+    {
+      "source": "deterministic.companions.L.foldRatio",
+      "token": "COMPANION_L_FOLD",
+      "value": "10.0%"
+    },
+    {
+      "source": "derived: the upstream commit this study measures",
+      "token": "KIT_COMMIT",
+      "value": "733b48e"
+    },
+    {
+      "source": "derived: the upstream release this study measures",
+      "token": "KIT_LABEL",
+      "value": "v1.3 companions"
     },
     {
       "source": "h100.device.name",
@@ -706,7 +786,7 @@
       "value": "16"
     },
     {
-      "source": "h100.workload.prefixTokens",
+      "source": "h100.workload.orgTokens",
       "token": "H100_PREFIX",
       "value": "2,048"
     },
@@ -716,14 +796,24 @@
       "value": "128"
     },
     {
-      "source": "h100.comparison.kvReductionVersusNaive",
+      "source": "h100.workloads.identicalPrefix.comparison.prefixKvReductionVersusNaive",
       "token": "H100_KV_REDUCTION",
       "value": "88.2%"
     },
     {
-      "source": "h100.comparison.residentReductionVersusNaive",
+      "source": "h100.derived.residentReductionVersusNaive",
       "token": "H100_RESIDENT_REDUCTION",
       "value": "50.8%"
+    },
+    {
+      "source": "h100.workloads.rhymingDifferentWording.comparison.tinyKvReductionVersusPrefixCache",
+      "token": "H100_RHYME_KV",
+      "value": "34.3%"
+    },
+    {
+      "source": "h100.workload.rhymeSharedOrgFraction",
+      "token": "H100_RHYME_FRACTION",
+      "value": "38.9%"
     },
     {
       "source": "derived: Tiny minus prefix-cache resident bytes",
@@ -774,11 +864,6 @@
       "source": "historical.gpuMeasured.turnSpeedup",
       "token": "HIST_TURN_SPEEDUP",
       "value": "9.60×"
-    },
-    {
-      "source": "historical.gpuMeasured.suiteTurnSpeedup",
-      "token": "HIST_TURN_SPEEDUP_SUITE",
-      "value": "11.24×"
     },
     {
       "source": "historical.realLlm.trainSteps",
@@ -843,7 +928,7 @@
     {
       "source": "derived: suite manifest on this host",
       "token": "SUITE_PASS",
-      "value": "seven"
+      "value": "twelve"
     },
     {
       "source": "derived: suite manifest on this host",
@@ -858,37 +943,37 @@
     {
       "source": "derived: workloads table",
       "token": "TABLE_WORKLOADS",
-      "value": "| Workload | Conventional bytes | Tiny bytes | Reduction | gzip | Round trip |\n| ---------------------------- | -------------: | ----------: | ---------: | -------: | ----------------------------- |\n| B: Structured records | 76,020 | 34,715 | 54.3% | 95.7% | 500 of 500 exact |\n| C: Cross-linked graph | 1,243,896 | 219,447 | 82.4% | 78.5% | 600 of 600 exact |\n| D: Eight-node broadcast | 44,617 | 6,061 | 86.4% | 93.3% | 8 of 8 exact |\n| E: Selective working set | 780,653 | 4,050 | 99.5% | n/a | not lossless: holds 4 of 768 |\n| F: Shared system prompt | 191,496 | 97,816 | 48.9% | 90.4% | 40 of 40 exact |"
+      "value": "| Workload | Conventional bytes | Tiny bytes | Reduction | gzip | Round trip |\n| ---------------------------- | -------------: | ----------: | ---------: | -------: | ----------------------------- |\n| B: Structured records | 76,020 | 34,859 | 54.1% | 95.8% | 500 of 500 exact |\n| C: Cross-linked graph | 1,243,896 | 219,496 | 82.4% | 78.5% | 600 of 600 exact |\n| D: Eight-node broadcast | 44,617 | 6,061 | 86.4% | 93.3% | 8 of 8 exact |\n| E: Selective working set | 780,653 | 4,050 | 99.5% | n/a | not lossless: holds 4 of 768 |\n| F: Shared system prompt | 191,496 | 97,926 | 48.9% | 90.4% | 40 of 40 exact |"
     },
     {
       "source": "derived: heap table",
       "token": "TABLE_HEAP",
-      "value": "| Workload | Store | JSON bytes | Heap | JSON reduction | Heap reduction |\n| ---------------- | -------------------- | -----------: | -----------: | -------------------: | -------------------: |\n| Shared prompt | Aliased | 4847.2 KiB | 5107.4 KiB | 0.0% | 32.9% |\n| Shared prompt | Tiny (shipped) | 2445.7 KiB | 5109.4 KiB | 49.5% | 32.8% |\n| Shared prompt | Duplicated | 4847.2 KiB | 7608.9 KiB | 0.0% | 0.0% |\n| Shared prompt | Exact-text cache | 4914.3 KiB | 7740.7 KiB | -1.4% | -1.7% |\n| Same shape | Tiny compact | 77.0 KiB | 138.6 KiB | 54.4% | 30.4% |\n| Same shape | Aliased | 168.8 KiB | 151.1 KiB | 0.0% | 24.1% |\n| Same shape | Tiny (shipped) | 115.0 KiB | 178.6 KiB | 31.9% | 10.3% |\n| Same shape | Duplicated | 168.8 KiB | 199.0 KiB | 0.0% | 0.0% |\n| Same shape | Exact-text cache | 235.8 KiB | 307.5 KiB | -39.7% | -54.5% |\n| Identical | Exact-text cache | 67.2 KiB | 9.3 KiB | 58.8% | 95.2% |\n| Identical | Aliased | 163.0 KiB | 80.6 KiB | 0.0% | 58.1% |\n| Identical | Tiny compact | 74.2 KiB | 131.4 KiB | 54.5% | 31.7% |\n| Identical | Tiny (shipped) | 112.2 KiB | 171.4 KiB | 31.2% | 11.0% |\n| Identical | Duplicated | 163.0 KiB | 192.5 KiB | 0.0% | 0.0% |"
+      "value": "| Workload | Store | JSON bytes | Heap | JSON reduction | Heap reduction |\n| ---------------- | -------------------- | -----------: | -----------: | -------------------: | -------------------: |\n| Shared prompt | Aliased | 4847.2 KiB | 5107.4 KiB | 0.0% | 32.9% |\n| Shared prompt | Tiny (shipped) | 2445.8 KiB | 5110.9 KiB | 49.5% | 32.8% |\n| Shared prompt | Duplicated | 4847.2 KiB | 7608.9 KiB | 0.0% | 0.0% |\n| Shared prompt | Exact-text cache | 4914.3 KiB | 7740.7 KiB | -1.4% | -1.7% |\n| Same shape | Tiny compact | 92.0 KiB | 189.1 KiB | 54.6% | 20.9% |\n| Same shape | Aliased | 202.8 KiB | 191.1 KiB | 0.0% | 20.1% |\n| Same shape | Tiny (shipped) | 130.0 KiB | 229.1 KiB | 35.9% | 4.2% |\n| Same shape | Duplicated | 202.8 KiB | 239.0 KiB | 0.0% | 0.0% |\n| Same shape | Exact-text cache | 269.8 KiB | 347.5 KiB | -33.0% | -45.4% |\n| Identical | Exact-text cache | 67.2 KiB | 9.4 KiB | 65.9% | 96.0% |\n| Identical | Aliased | 197.0 KiB | 72.7 KiB | 0.0% | 68.8% |\n| Identical | Tiny compact | 91.4 KiB | 189.2 KiB | 53.6% | 18.6% |\n| Identical | Tiny (shipped) | 129.4 KiB | 229.2 KiB | 34.3% | 1.4% |\n| Identical | Duplicated | 197.0 KiB | 232.5 KiB | 0.0% | 0.0% |"
     },
     {
       "source": "derived: RSS table",
       "token": "TABLE_RSS",
-      "value": "| Store | RSS growth | 95% interval | RSS reduction | Heap reduction |\n| ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |\n| Duplicated | 199.5 MiB | 196.5 MiB to 199.9 MiB | 0.0% | 0.0% |\n| Tiny (shipped) | 157.6 MiB | 157.3 MiB to 157.8 MiB | 21.0% | 32.1% |\n| Aliased | 157.1 MiB | 157.0 MiB to 157.4 MiB | 21.2% | 32.1% |"
+      "value": "| Store | RSS growth | 95% interval | RSS reduction | Heap reduction |\n| ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |\n| Duplicated | 196.1 MiB | 194.4 MiB to 199.7 MiB | 0.0% | 0.0% |\n| Tiny (shipped) | 157.4 MiB | 157.2 MiB to 157.7 MiB | 19.7% | 32.1% |\n| Aliased | 156.6 MiB | 156.5 MiB to 157.0 MiB | 20.1% | 32.1% |"
     },
     {
       "source": "derived: latency table",
       "token": "TABLE_LATENCY",
-      "value": "| Workload | Store | Median | 95% interval | Ratio | 95% interval |\n| ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |\n| Shared prompt | Aliased | 1.90 µs | 1.80 µs to 1.93 µs | 0.99× | 0.95× to 1.01× |\n| Shared prompt | Duplicated | 1.92 µs | 1.85 µs to 1.94 µs | 1.00× | 0.98× to 1.03× |\n| Shared prompt | Tiny without clone | 1.99 µs | 1.96 µs to 2.01 µs | 1.04× | 1.02× to 1.07× |\n| Shared prompt | Tiny (shipped) | 3.47 µs | 3.45 µs to 3.48 µs | 1.81× | 1.79× to 1.87× |\n| Same shape | Aliased | 0.12 µs | 0.12 µs to 0.13 µs | 0.98× | 0.98× to 1.02× |\n| Same shape | Duplicated | 0.13 µs | 0.12 µs to 0.13 µs | 1.00× | 0.98× to 1.02× |\n| Same shape | Tiny without clone | 0.15 µs | 0.15 µs to 0.16 µs | 1.24× | 1.23× to 1.28× |\n| Same shape | Tiny (shipped) | 1.43 µs | 1.41 µs to 1.44 µs | 11.44× | 11.29× to 11.79× |"
+      "value": "| Workload | Store | Median | 95% interval | Ratio | 95% interval |\n| ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |\n| Shared prompt | Aliased | 1.89 µs | 1.88 µs to 1.90 µs | 1.00× | 0.97× to 1.07× |\n| Shared prompt | Duplicated | 1.90 µs | 1.76 µs to 1.94 µs | 1.00× | 0.93× to 1.07× |\n| Shared prompt | Tiny without clone | 2.01 µs | 1.98 µs to 2.04 µs | 1.06× | 1.03× to 1.14× |\n| Shared prompt | Tiny (shipped) | 3.21 µs | 3.18 µs to 3.23 µs | 1.69× | 1.65× to 1.82× |\n| Same shape | Duplicated | 0.15 µs | 0.14 µs to 0.15 µs | 1.00× | 0.98× to 1.02× |\n| Same shape | Aliased | 0.15 µs | 0.14 µs to 0.15 µs | 1.00× | 0.98× to 1.04× |\n| Same shape | Tiny without clone | 0.29 µs | 0.29 µs to 0.29 µs | 1.96× | 1.96× to 2.04× |\n| Same shape | Tiny (shipped) | 1.72 µs | 1.70 µs to 1.74 µs | 11.81× | 11.74× to 12.14× |"
     },
     {
       "source": "derived: real-model table",
       "token": "TABLE_LLM",
-      "value": "| Model | Backend | Re-prefill | Shared | Prefill | Decode | Both | Tokens equal | Control |\n| ------------- | --------- | -----------: | ----------: | --------: | --------: | -------: | -------------: | ----------: |\n| distilgpt2 | CPU | 51.64 ms | 15.05 ms | 3.43× | 0.99× | 1.56× | 16 of 16 | caught |\n| distilgpt2 | MPS | 22.37 ms | 6.61 ms | 3.38× | 1.00× | 1.47× | 16 of 16 | caught |\n| tiny-gpt2 | CPU | 1.95 ms | 0.69 ms | 2.82× | 1.00× | 1.26× | 16 of 16 | missed |\n| tiny-gpt2 | MPS | 1.58 ms | 1.15 ms | 1.38× | 1.02× | 1.07× | 16 of 16 | missed |"
+      "value": "| Model | Backend | Re-prefill | Shared | Prefill | Decode | Both | Tokens equal | Control |\n| ------------- | --------- | -----------: | ----------: | --------: | --------: | -------: | -------------: | ----------: |\n| distilgpt2 | CPU | 53.22 ms | 15.20 ms | 3.50× | 1.02× | 1.63× | 16 of 16 | caught |\n| distilgpt2 | MPS | 22.81 ms | 6.89 ms | 3.31× | 0.98× | 1.40× | 16 of 16 | caught |\n| tiny-gpt2 | CPU | 2.03 ms | 0.76 ms | 2.66× | 1.03× | 1.27× | 16 of 16 | missed |\n| tiny-gpt2 | MPS | 1.61 ms | 1.21 ms | 1.34× | 1.00× | 1.06× | 16 of 16 | missed |"
     },
     {
       "source": "derived: residency table",
       "token": "TABLE_RESIDENCY",
-      "value": "| Model | Backend | Predicted | Tensors | Allocator | Duplicated | Shared | + weights |\n| ------------- | ---------- | -----------: | ----------: | -----------: | -------------: | -----------: | -----------: |\n| distilgpt2 | CPU | 84.1% | 84.1% | n/a | 149.9 MiB | 23.9 MiB | 27.3% |\n| distilgpt2 | MPS | 84.1% | 84.1% | 84.4% | 154.5 MiB | 24.2 MiB | 27.3% |\n| tiny-gpt2 | CPU | 80.9% | 80.9% | n/a | 0.1 MiB | 0.0 MiB | 11.9% |\n| tiny-gpt2 | MPS | 80.9% | 80.9% | 78.5% | 0.1 MiB | 0.0 MiB | 11.9% |"
+      "value": "| Model | Backend | Predicted | Tensors | Allocator | Duplicated | Shared | + weights |\n| ------------- | ---------- | -----------: | ----------: | -----------: | -------------: | -----------: | -----------: |\n| distilgpt2 | CPU | 84.1% | 84.1% | n/a | 149.9 MiB | 23.9 MiB | 27.3% |\n| distilgpt2 | MPS | 84.1% | 84.1% | 84.4% | 154.1 MiB | 24.1 MiB | 27.3% |\n| tiny-gpt2 | CPU | 80.9% | 80.9% | n/a | 0.1 MiB | 0.0 MiB | 11.9% |\n| tiny-gpt2 | MPS | 80.9% | 80.9% | 78.5% | 0.1 MiB | 0.0 MiB | 11.9% |"
     },
     {
       "source": "derived: computed claim ledger",
       "token": "TABLE_CLAIMS",
-      "value": "| Claim | Evidence | Status |\n| ------------------------------ | ---------------------------------------------------- | ------------------ |\n| Aggregate representation reduction of 84.5%, clearing the 80% gate | Reproduced to every digit at 84.5%. 3 of 3 alternative aggregates fall below the gate: equal weight 74.3%, lossless only 77.0%, without the anti-pattern baseline 55.6%. | reproduced with a qualification |\n| Sharing a system prompt across sessions uses less memory | At 1,024 sessions the live heap falls 32.8% against the JSON prediction of 49.5%. A plain object reference reaches 32.9% with no engine. | reproduced with a qualification |\n| A rhyme stores about 29% less when sessions share a shape and differ in words | True of JSON bytes (29.0%). In the live heap at 1,024 sessions the shipped engine saves 10.3%, and a tighter encoding of the same idea 30.4%, against 24.1% for a plain reference. | reproduced with a qualification |\n| An exact-text cache wins when every session repeats the same words | Reproduced: cache 164 bytes, rhyme 4,691 bytes. The cache is first smaller at 40% duplicates on the tested grid. | reproduced |\n| Lower latency from reconstructing a working set | In process, materializing a session takes 1.81× and 11.44× the duplicated store's time for the two workloads, or 1.04× and 1.24× without cloning. | not reproduced |\n| Real-model prefill speedup of 1.80× (historical, GTX 860M) | Direction reproduced on this host: 1.38× to 3.43× per turn. Decode alone 0.99× to 1.02×; prefill plus decode 1.07× to 1.56×. The tested mechanism is prefix reuse, which a prefix cache already provides. Logits match a full prefill to within 1.4e-4 on distilgpt2, where the check catches a cache built from the wrong prefix. On tiny-gpt2 it does not, so those turns show nothing. | reproduced with a qualification |\n| Real-model train-step speedup of 1.17× (historical, GTX 860M) | Warmed up and with arms interleaved, this host gives 0.98× to 1.02×. Both arms perform the same steps per round; the original lab ran one arm first with no warm-up. | not reproduced |\n| GPU allocation falls 81.4%, from 288.00 to 53.60 MiB | Reproduced to every digit by arithmetic, with no GPU, because the value follows from requested buffer sizes and an assumed 15% delta. It is not a device reading, and no experiment here measures that assumption. | reproduced with a qualification |\n| nvidia-smi peak falls 72.8%, from 313 to 85 MiB (historical, GTX 860M) | Needs NVIDIA hardware; the lab reports not_run on this host (nvcuda_unavailable). A real-model analogue is measured here: key-value residency 84.4% on the MPS allocator, 27.3% once weights are counted. | not testable on this host |\n| Host-to-device turn materialization 11.24× faster (historical, GTX 860M) | Needs NVIDIA hardware. The copied payload alone is 9.41× smaller than the conventional one, so the byte count predicts most of the speedups recorded in the two stored receipts (9.60× and 11.24×). | not testable on this host |\n| A DRAM or accelerator memory reduction of 80% for AI serving | Not established by any receipt. Key-value residency alone can exceed that (84.4% here), but counting weights gives 27.3% here and 50.8% on the H100 roofline, and a prefix cache gets the same residency. | not reproduced |\n| `tiny benchmark` produces receipts on your machine | False before this work: on a host with no GPU it reported a stored laptop receipt as a fresh pass, naming that laptop as the device. Labs now report only what ran in the current invocation, and a regression test pins it. On this host the GPU lab's status is not_run and the suite's verdict is incomplete. | corrected in this repository |"
+      "value": "| Claim | Evidence | Status |\n| ------------------------------ | ---------------------------------------------------- | ------------------ |\n| Aggregate representation reduction of 84.5%, clearing the 80% gate | Reproduced to every digit at 84.5%. 3 of 3 alternative aggregates fall below the gate: equal weight 74.3%, lossless only 77.0%, without the anti-pattern baseline 55.5%. | reproduced with a qualification |\n| Sharing a system prompt across sessions uses less memory | At 1,024 sessions the live heap falls 32.8% against the JSON prediction of 49.5%. A plain object reference reaches 32.9% with no engine. | reproduced with a qualification |\n| A rhyme stores about 31% less when sessions share a shape and differ in words | True of JSON bytes (31.1%). In the live heap at 1,024 sessions the shipped engine saves 4.2%, and a tighter encoding of the same idea 20.9%, against 20.1% for a plain reference. | reproduced with a qualification |\n| An exact-text cache wins when every session repeats the same words | Reproduced: cache 198 bytes, rhyme 5,572 bytes. The cache is first smaller at 40% duplicates on the tested grid. | reproduced |\n| Lower latency from reconstructing a working set | In process, materializing a session takes 1.69× and 11.81× the duplicated store's time for the two workloads, or 1.06× and 1.96× without cloning. | not reproduced |\n| Real-model prefill speedup of 1.80× (historical, GTX 860M) | Direction reproduced on this host: 1.34× to 3.50× per turn. Decode alone 0.98× to 1.03×; prefill plus decode 1.06× to 1.63×. The tested mechanism is prefix reuse, which a prefix cache already provides. Logits match a full prefill to within 1.4e-4 on distilgpt2, where the check catches a cache built from the wrong prefix. On tiny-gpt2 it does not, so those turns show nothing. | reproduced with a qualification |\n| Real-model train-step speedup of 1.17× (historical, GTX 860M) | Warmed up and with arms interleaved, this host gives 1.00× to 1.03×, with intervals spanning 0.94× to 1.09×. Both arms perform the same steps per round; the original lab ran one arm first with no warm-up. | not reproduced |\n| GPU allocation falls 81.4%, from 288.00 to 53.60 MiB | Reproduced to every digit by arithmetic, with no GPU, because the value follows from requested buffer sizes and an assumed 15% delta. It is not a device reading, and no experiment here measures that assumption. | reproduced with a qualification |\n| nvidia-smi peak falls 72.8%, from 313 to 85 MiB (historical, GTX 860M) | Needs NVIDIA hardware; the lab reports not_run on this host (nvcuda_unavailable). A real-model analogue is measured here: key-value residency 84.4% on the MPS allocator, 27.3% once weights are counted. | not testable on this host |\n| Host-to-device turn materialization 9.60× faster (historical, GTX 860M) | Needs NVIDIA hardware. The copied payload alone is 9.41× smaller than the conventional one, so the byte count predicts most of the speedup recorded in the stored receipts (9.60×). | not testable on this host |\n| A DRAM or accelerator memory reduction of 80% for AI serving | Not established by any receipt. Key-value residency alone can exceed that (84.4% here), but counting weights gives 27.3% here and 50.8% on the H100 roofline, and a prefix cache gets the same residency. | not reproduced |\n| A four-pillar gate tells a holographic rhyme from a brick wall | It refuses a plain wall. The same bricks pass once they have a nested field and declare a nesting depth and a drift, because recursive and self_correcting read values the caller states. | reproduced with a qualification |\n| On an H100, a rhyme holds 34.3% less KV memory than a prefix cache when wording differs (simulated) | Measured on distilgpt2, with 12.5% of tokens changed: 14.6% of KV cells repeat, and resuming from the other prompt's cache moves logits by 3.72. The simulation applies a JSON byte fraction of 38.9% to KV memory, and its equivalence check compares lengths. | not reproduced |\n| Signature routing, context-fold hooks and an energy proxy | They run and pass: 3 comparisons against 15 for a scan, a fold ratio of 10.0% over 6 retained turns, and depth scaled from 8 to 1. These count comparisons, bytes and joules from assumed constants. None is a memory, latency or energy reading from a device. | reproduced with a qualification |\n| `tiny benchmark` produces receipts on your machine | False before this work: on a host with no GPU it reported a stored laptop receipt as a fresh pass, naming that laptop as the device. Labs now report only what ran in the current invocation, and a regression test pins it. On this host the GPU lab's status is not_run and the suite's verdict is incomplete. | corrected in this repository |"
     },
     {
       "source": "derived: figure registry entry fig:aggregate_sensitivity",
@@ -923,7 +1008,7 @@
     {
       "source": "derived: figure registry entry fig:materialization_latency",
       "token": "FIG_MATERIALIZATION_LATENCY_CAPTION",
-      "value": "Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.81 to 1.04."
+      "value": "Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.69 to 1.06."
     },
     {
       "source": "derived: figure registry entry fig:rhyme_crossover",
@@ -948,7 +1033,7 @@
     {
       "source": "derived: tokens in this catalog",
       "token": "TOKEN_COUNT",
-      "value": "190"
+      "value": "207"
     }
   ]
 }

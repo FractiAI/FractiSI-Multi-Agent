@@ -812,8 +812,14 @@ the accounting</a></li>
 <li><a href="#sec:res_h100" id="toc-sec:res_h100"><span
 class="toc-section-number">5.11</span> Simulation at datacenter
 scale</a></li>
+<li><a href="#sec:res_rhyme_kv" id="toc-sec:res_rhyme_kv"><span
+class="toc-section-number">5.12</span> A rhyme’s KV state does not stand
+in for another’s</a></li>
+<li><a href="#sec:res_gate" id="toc-sec:res_gate"><span
+class="toc-section-number">5.13</span> The rhyme gate and the companion
+meters</a></li>
 <li><a href="#sec:res_historical" id="toc-sec:res_historical"><span
-class="toc-section-number">5.12</span> Historical GPU evidence</a></li>
+class="toc-section-number">5.14</span> Historical GPU evidence</a></li>
 </ul></li>
 <li><a href="#sec:discussion" id="toc-sec:discussion"><span
 class="toc-section-number">6</span> Discussion</a>
@@ -869,25 +875,29 @@ memory and latency measured on Apple M4 Pro, and real forward passes
 through <code>distilgpt2</code> and <code>tiny-gpt2</code>.</p>
 <p>The published aggregate reproduces to every digit, at 84.5%. Whether
 it clears the 80% gate depends on selection and weighting: it is 74.3%
-with equal weights, 77.0% over the lossless workloads, and 55.6% once a
+with equal weights, 77.0% over the lossless workloads, and 55.5% once a
 baseline built as a deliberate anti-pattern is also removed. Serialized
 bytes overstate memory. For sessions sharing a system prompt, JSON
 predicts a reduction of 49.5% and the live V8 heap shows 32.8%, while a
 plain object reference reaches 32.9% with no engine. For sessions
-sharing only a shape, JSON predicts 31.9% and the shipped engine’s heap
-shows 10.3%; a tighter encoding of the same idea reaches 30.4%, past
-plain references at 24.1%. Materializing one session takes 1.81× to
-11.44× the duplicated store’s time, falling to 1.04× and 1.24× without
+sharing only a shape, JSON predicts 35.9% and the shipped engine’s heap
+shows 4.2%; a tighter encoding of the same idea reaches 20.9%, level
+with plain references at 20.1%. Materializing one session takes 1.69× to
+11.81× the duplicated store’s time, falling to 1.06× and 1.96× without
 one cloning call. On real models, reusing a shared prefix speeds prefill
-by 1.38× to 3.43×, with last-position logits within 1.4e-4 of a full
+by 1.34× to 3.50×, with last-position logits within 1.4e-4 of a full
 prefill on the model where a wrong cache is detectable, and leaves
-decode at 0.99× to 1.02×. Key-value residency falls 84.4% on the device
+decode at 0.98× to 1.03×. Key-value residency falls 84.4% on the device
 allocator against 84.1% predicted, and 27.3% once model weights are
 counted. A production prefix cache provides the same mechanism.</p>
 <p>Two published figures do not survive as stated. The 81.4% GPU
 allocation reduction is arithmetic on requested buffer sizes and an
 assumed delta, and it reproduces with no GPU. The 1.17× training speedup
-becomes 0.98× to 1.02× once the arms are warmed up and interleaved. This
+becomes 1.00× to 1.03× once the arms are warmed up and interleaved. A
+simulated advantage for rhymes over a prefix cache, 34.3% of KV memory
+on an H100, rests on applying a JSON byte fraction to KV tensors. On
+real tensors, with 12.5% of tokens changed, 14.6% of KV cells repeat,
+and resuming from the other prompt’s cache moves logits by 3.72. This
 study also discloses and corrects a defect through which the kit
 reported a stored laptop receipt as a fresh result on hosts with no GPU.
 The evidence supports prefix sharing as a real, bounded memory
@@ -952,8 +962,11 @@ The README promised results from the reader’s own machine, so this was a
 defect and not a matter of interpretation. Labs now report only what ran
 in the current invocation, with <code>not_run</code> as an outcome
 distinct from pass and fail. On the host used here the corrected suite
-reports a verdict of <code>incomplete</code>: seven experiments pass,
-zero fail and three did not run, and it withholds the engine pin.</p>
+reports a verdict of <code>incomplete</code>: twelve experiments pass,
+zero fail and three did not run, and it withholds the engine pin.
+FractiAI’s latest release again reuses a stored GPU receipt by default,
+now labelled as cached, and still counts it as a pass, so this study’s
+code keeps the corrected behaviour.</p>
 <h2 data-number="2.2" id="sec:contributions"><span
 class="header-section-number">2.2</span> Contributions</h2>
 <p>This study makes four contributions.</p>
@@ -1079,16 +1092,17 @@ class="nocase">Paszke et al.</span> 2019</a>)</span> and Transformers
 href="#ref-wolf2020transformers" role="doc-biblioref"><span
 class="nocase">Wolf et al.</span> 2020</a>)</span>. The machine was not
 idle: other work ran concurrently, and the one-minute load average
-across the measured runs was 3.96 to 5.98. Receipts record the load at
+across the measured runs was 4.77 to 18.71. Receipts record the load at
 the start and end of each run.</p>
 <h2 data-number="4.3" id="sec:deterministic"><span
 class="header-section-number">4.3</span> Deterministic tier</h2>
-<p>The registered workloads are the suite’s own. Workload B holds
-structured records, C a cross-linked graph, D one story broadcast to
-eight nodes, E a lattice of vectors against one request’s working set,
-and F chat sessions sharing a system prompt. All use seed 20261103, with
-gateway round trips also checked under 202611032, and sizes are UTF-8
-JSON bytes.</p>
+<p>The study measures the kit at upstream commit <code>733b48e</code>
+(v1.3 companions). The registered workloads are the suite’s own.
+Workload B holds structured records, C a cross-linked graph, D one story
+broadcast to eight nodes, E a lattice of vectors against one request’s
+working set, and F chat sessions sharing a system prompt. All use seed
+20261103, with gateway round trips also checked under 202611032, and
+sizes are UTF-8 JSON bytes.</p>
 <p>The suite’s own exactness checks are partial, so this tier adds a
 full round trip of every record in B, C, D and F. To test the aggregate,
 it recomputes eq. <a href="#eq:aggregate">2</a> with equal weights, over
@@ -1197,10 +1211,12 @@ tokens and eight decoded tokens.</p>
 <p>The original lab tokenized its arms differently, ran one arm entirely
 before the other, and did not check output equivalence. This lab builds
 both arms from the same token ids, interleaves them in seeded random
-order within each turn across nine trials, and compares both
-last-position logits and greedy tokens between arms, turn by turn. A
-control repeats this with a cache built from the reversed prefix, to
-test whether the check can detect a wrong cache. Training arms are
+order within each turn across 15 trials, and compares both last-position
+logits and greedy tokens between arms, turn by turn. A control repeats
+this with a cache built from the reversed prefix, to test whether the
+check can detect a wrong cache. A second control tests a rhyme: a prompt
+that keeps all but 12.5% of its tokens is compared with the original
+cell by cell, and the lab resumes from its cache. Training arms are
 warmed up and alternated in the same way. The “with” arm is charged once
 per trial for prefilling the shared prefix.</p>
 <p>KV residency holds every session’s cache live and reads three
@@ -1263,15 +1279,15 @@ conventional JSON as a yardstick and full round-trip results.</caption>
 <tr>
 <td>B: Structured records</td>
 <td style="text-align: right;">76,020</td>
-<td style="text-align: right;">34,715</td>
-<td style="text-align: right;">54.3%</td>
-<td style="text-align: right;">95.7%</td>
+<td style="text-align: right;">34,859</td>
+<td style="text-align: right;">54.1%</td>
+<td style="text-align: right;">95.8%</td>
 <td>500 of 500 exact</td>
 </tr>
 <tr>
 <td>C: Cross-linked graph</td>
 <td style="text-align: right;">1,243,896</td>
-<td style="text-align: right;">219,447</td>
+<td style="text-align: right;">219,496</td>
 <td style="text-align: right;">82.4%</td>
 <td style="text-align: right;">78.5%</td>
 <td>600 of 600 exact</td>
@@ -1295,7 +1311,7 @@ conventional JSON as a yardstick and full round-trip results.</caption>
 <tr>
 <td>F: Shared system prompt</td>
 <td style="text-align: right;">191,496</td>
-<td style="text-align: right;">97,816</td>
+<td style="text-align: right;">97,926</td>
 <td style="text-align: right;">48.9%</td>
 <td style="text-align: right;">90.4%</td>
 <td>40 of 40 exact</td>
@@ -1304,7 +1320,7 @@ conventional JSON as a yardstick and full round-trip results.</caption>
 </table></div>
 <figure id="fig:workload_reductions">
 <a class="figure-full-size-link" href="../figures/workload_reductions.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 2, Representation-byte reduction for each registered workload, computed as one minus the Tiny…"><img src="../figures/workload_reductions.png" style="width:92.0%"
-alt="Horizontal bars of reduction by workload: B 54.3%, C 82.4%, D 86.4%, E 99.5%, F 48.9%. gzip reaches further than the bar for B, D, F and less far for C." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Horizontal bars of reduction by workload: B 54.1%, C 82.4%, D 86.4%, E 99.5%, F 48.9%. gzip reaches further than the bar for B, D, F and less far for C." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 2: Representation-byte reduction
 for each registered workload, computed as one minus the Tiny Footprint
 form’s UTF-8 JSON bytes over the conventional arm’s. Diamonds show gzip
@@ -1324,12 +1340,12 @@ of the baseline bytes, so by eq. <a href="#eq:aggregate">2</a> they
 dominate the aggregate. The alternatives in fig. <a
 href="#fig:aggregate_sensitivity">3</a> recompute it. Equal weighting
 gives 74.3%. Removing E, which is not lossless, gives 77.0%. Removing
-C’s anti-pattern baseline as well gives 55.6%. The 80% gate is cleared
+C’s anti-pattern baseline as well gives 55.5%. The 80% gate is cleared
 under the published weighting and under four of five leave-one-out
 variants; the variant below it leaves out E.</p>
 <figure id="fig:aggregate_sensitivity">
 <a class="figure-full-size-link" href="../figures/aggregate_sensitivity.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 3, The aggregate reduction under alternative selections"><img src="../figures/aggregate_sensitivity.png" style="width:92.0%"
-alt="Lollipop chart of aggregate definitions. Published 84.5% clears the 80% line; equal weighting 74.3%, lossless only 77.0%, and without the anti-pattern baseline 55.6% do not." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Lollipop chart of aggregate definitions. Published 84.5% clears the 80% line; equal weighting 74.3%, lossless only 77.0%, and without the anti-pattern baseline 55.5% do not." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 3: The aggregate reduction under
 alternative selections and weightings of the same five workloads. The
 published aggregate sums bytes, so each workload counts in proportion to
@@ -1339,7 +1355,7 @@ deterministic.</figcaption>
 <p>Workload C’s baseline deserves separate attention. Moving from
 embedded node copies to edges that refer to nodes by id, with no
 template engine, saves 83.7%. Against that normalized graph, the Tiny
-form is 7.9% larger, because each edge carries a template reference and
+form is 8.0% larger, because each edge carries a template reference and
 an index. In this workload the saving comes from normalization.</p>
 <h2 data-number="5.3" id="sec:res_scaling"><span
 class="header-section-number">5.3</span> Saving is bounded by the shared
@@ -1347,7 +1363,7 @@ fraction</h2>
 <p><em>Tier: deterministic.</em> The test of <a
 href="#prop:saturation">Proposition 1</a> on the real encoding is in
 fig. <a href="#fig:session_scaling">4</a>. Measured reductions track the
-closed form within 3.0 points at every grid position, the gap coming
+closed form within 7.3 points at every grid position, the gap coming
 from a small fixed overhead visible at low session counts. The ceiling
 is the practical result: at 125 turns per session the reduction
 saturates near 16.5% regardless of how many sessions share the prompt,
@@ -1369,15 +1385,15 @@ turns.</figcaption>
 class="header-section-number">5.4</span> The exact cache overtakes the
 rhyme as duplicates grow</h2>
 <p><em>Tier: deterministic.</em> With 40 same-shaped sessions and
-different words, the rhyme stores 4,758 bytes against 6,704 for an
-exact-text cache, 29.0% less. When all sessions repeat the same words,
-the cache stores 164 bytes and the rhyme 4,691. The sweep in fig. <a
+different words, the rhyme stores 5,554 bytes against 8,064 for an
+exact-text cache, 31.1% less. When all sessions repeat the same words,
+the cache stores 198 bytes and the rhyme 5,572. The sweep in fig. <a
 href="#fig:rhyme_crossover">5</a> fills in between: the cache is already
 smaller at 40% duplicates on the tested grid. Reconstruction matched at
 every point.</p>
 <figure id="fig:rhyme_crossover">
 <a class="figure-full-size-link" href="../figures/rhyme_crossover.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 5, JSON bytes for 40 same-shaped sessions as a growing share of them repeat one identical record."><img src="../figures/rhyme_crossover.png" style="width:92.0%"
-alt="Three lines of bytes against duplicate share. The rhyme is flat near 4.6 KiB; the cache falls from 6.5 KiB to 0.16 KiB, crossing below the rhyme by 40% duplicates." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Three lines of bytes against duplicate share. The rhyme is flat near 5.4 KiB; the cache falls from 7.9 KiB to 0.19 KiB, crossing below the rhyme by 40% duplicates." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 5: JSON bytes for 40 same-shaped
 sessions as a growing share of them repeat one identical record. The
 rhyme stays nearly flat because it records every session; the exact-text
@@ -1405,10 +1421,10 @@ falls 32.8%, because in a live heap each session’s turns carry object
 overhead that serialized text does not. A plain object reference reaches
 32.9%, with JSON unable to see any saving from it at all. Over this
 workload the template engine and an ordinary reference hold the same
-memory, within 0.04% of each other.</p>
+memory, within 0.07% of each other.</p>
 <figure id="fig:heap_vs_json">
 <a class="figure-full-size-link" href="../figures/heap_vs_json.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 6, Reduction relative to the duplicated store at 1,024 sessions: what serialized JSON predicts"><img src="../figures/heap_vs_json.png" style="width:92.0%"
-alt="Two panels of paired markers. With a shared prompt, Tiny&#x27;s JSON reduction of 49.5% compares with a heap reduction of 32.8%; plain aliasing reaches 32.9%. With same-shape sessions, Tiny&#x27;s JSON reduction of 31.9% compares with a heap reduction of 10.3%." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Two panels of paired markers. With a shared prompt, Tiny&#x27;s JSON reduction of 49.5% compares with a heap reduction of 32.8%; plain aliasing reaches 32.9%. With same-shape sessions, Tiny&#x27;s JSON reduction of 35.9% compares with a heap reduction of 4.2%." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 6: Reduction relative to the
 duplicated store at 1,024 sessions: what serialized JSON predicts (open)
 and what a forced-collection read of the V8 heap shows (filled, median
@@ -1417,16 +1433,16 @@ Negative values mean a larger heap than the duplicated
 store.</figcaption>
 </figure>
 <p>With the same shape and different words, which is the case rhyming
-exists for, the gap is larger. JSON predicts 31.9% and the heap shows
-10.3%. V8’s hidden classes already share the repeated keys, and the
-engine adds a wrapper object and a delta object per session. Removing
-that wrapper changes the picture: the compact ablation reaches 30.4%,
-past the aliased store at 24.1%, because each session then holds only
-the fields that differ. The idea can beat a plain reference in a live
-heap, and the shipped encoding is what prevents it. The exact-text cache
-is 54.5% larger than duplication here, because it has no hits and keeps
-a digest per session. When sessions are truly identical it is the
-smallest store, at 95.2%.</p>
+exists for, the gap is larger. JSON predicts 35.9% and the heap shows
+4.2%. V8’s hidden classes already share the repeated keys, and the
+engine adds a wrapper object and nested delta objects per session.
+Removing the wrapper recovers most of the difference: the compact
+ablation reaches 20.9%, level with the aliased store at 20.1%, because
+each session then holds only the fields that differ. In a live heap the
+idea roughly matches a plain reference, and the shipped encoding gives
+that saving back. The exact-text cache is 45.4% larger than duplication
+here, because it has no hits and keeps a digest per session. When
+sessions are truly identical it is the smallest store, at 96.0%.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 2: Representation size and live heap by store at the largest session count, with reductions relative to the dup…"><table id="tbl:heap" data-responsive-table="true">
 <caption>Table 2: Representation size and live heap by store at the
 largest session count, with reductions relative to the duplicated
@@ -1461,8 +1477,8 @@ store.</caption>
 <tr>
 <td>Shared prompt</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">2445.7 KiB</td>
-<td style="text-align: right;">5109.4 KiB</td>
+<td style="text-align: right;">2445.8 KiB</td>
+<td style="text-align: right;">5110.9 KiB</td>
 <td style="text-align: right;">49.5%</td>
 <td style="text-align: right;">32.8%</td>
 </tr>
@@ -1485,80 +1501,80 @@ store.</caption>
 <tr>
 <td>Same shape</td>
 <td>Tiny compact</td>
-<td style="text-align: right;">77.0 KiB</td>
-<td style="text-align: right;">138.6 KiB</td>
-<td style="text-align: right;">54.4%</td>
-<td style="text-align: right;">30.4%</td>
+<td style="text-align: right;">92.0 KiB</td>
+<td style="text-align: right;">189.1 KiB</td>
+<td style="text-align: right;">54.6%</td>
+<td style="text-align: right;">20.9%</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Aliased</td>
-<td style="text-align: right;">168.8 KiB</td>
-<td style="text-align: right;">151.1 KiB</td>
+<td style="text-align: right;">202.8 KiB</td>
+<td style="text-align: right;">191.1 KiB</td>
 <td style="text-align: right;">0.0%</td>
-<td style="text-align: right;">24.1%</td>
+<td style="text-align: right;">20.1%</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">115.0 KiB</td>
-<td style="text-align: right;">178.6 KiB</td>
-<td style="text-align: right;">31.9%</td>
-<td style="text-align: right;">10.3%</td>
+<td style="text-align: right;">130.0 KiB</td>
+<td style="text-align: right;">229.1 KiB</td>
+<td style="text-align: right;">35.9%</td>
+<td style="text-align: right;">4.2%</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Duplicated</td>
-<td style="text-align: right;">168.8 KiB</td>
-<td style="text-align: right;">199.0 KiB</td>
+<td style="text-align: right;">202.8 KiB</td>
+<td style="text-align: right;">239.0 KiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Exact-text cache</td>
-<td style="text-align: right;">235.8 KiB</td>
-<td style="text-align: right;">307.5 KiB</td>
-<td style="text-align: right;">-39.7%</td>
-<td style="text-align: right;">-54.5%</td>
+<td style="text-align: right;">269.8 KiB</td>
+<td style="text-align: right;">347.5 KiB</td>
+<td style="text-align: right;">-33.0%</td>
+<td style="text-align: right;">-45.4%</td>
 </tr>
 <tr>
 <td>Identical</td>
 <td>Exact-text cache</td>
 <td style="text-align: right;">67.2 KiB</td>
-<td style="text-align: right;">9.3 KiB</td>
-<td style="text-align: right;">58.8%</td>
-<td style="text-align: right;">95.2%</td>
+<td style="text-align: right;">9.4 KiB</td>
+<td style="text-align: right;">65.9%</td>
+<td style="text-align: right;">96.0%</td>
 </tr>
 <tr>
 <td>Identical</td>
 <td>Aliased</td>
-<td style="text-align: right;">163.0 KiB</td>
-<td style="text-align: right;">80.6 KiB</td>
+<td style="text-align: right;">197.0 KiB</td>
+<td style="text-align: right;">72.7 KiB</td>
 <td style="text-align: right;">0.0%</td>
-<td style="text-align: right;">58.1%</td>
+<td style="text-align: right;">68.8%</td>
 </tr>
 <tr>
 <td>Identical</td>
 <td>Tiny compact</td>
-<td style="text-align: right;">74.2 KiB</td>
-<td style="text-align: right;">131.4 KiB</td>
-<td style="text-align: right;">54.5%</td>
-<td style="text-align: right;">31.7%</td>
+<td style="text-align: right;">91.4 KiB</td>
+<td style="text-align: right;">189.2 KiB</td>
+<td style="text-align: right;">53.6%</td>
+<td style="text-align: right;">18.6%</td>
 </tr>
 <tr>
 <td>Identical</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">112.2 KiB</td>
-<td style="text-align: right;">171.4 KiB</td>
-<td style="text-align: right;">31.2%</td>
-<td style="text-align: right;">11.0%</td>
+<td style="text-align: right;">129.4 KiB</td>
+<td style="text-align: right;">229.2 KiB</td>
+<td style="text-align: right;">34.3%</td>
+<td style="text-align: right;">1.4%</td>
 </tr>
 <tr>
 <td>Identical</td>
 <td>Duplicated</td>
-<td style="text-align: right;">163.0 KiB</td>
-<td style="text-align: right;">192.5 KiB</td>
+<td style="text-align: right;">197.0 KiB</td>
+<td style="text-align: right;">232.5 KiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
@@ -1567,12 +1583,12 @@ store.</caption>
 <p>The same designs across session counts are in fig. <a
 href="#fig:heap_scaling">7</a>. Small stores carry visible fixed
 overhead, which is why the shipped engine uses more heap than
-duplication at 16 sessions in the same-shape workload, at 429 against
-224 bytes per session. It first uses less at 256 sessions on the tested
-grid.</p>
+duplication at 16 sessions in the same-shape workload, at 579 against
+264 bytes per session. It first uses less at 1,024 sessions on the
+tested grid.</p>
 <figure id="fig:heap_scaling">
 <a class="figure-full-size-link" href="../figures/heap_scaling.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 7, Median V8 heap per session against the number of sessions"><img src="../figures/heap_scaling.png" style="width:92.0%"
-alt="Three panels of per-session heap against sessions, one line per store design. At the largest session count, with a shared prompt, the duplicated store holds 7609 bytes per session and Tiny 5109." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Three panels of per-session heap against sessions, one line per store design. At the largest session count, with a shared prompt, the duplicated store holds 7609 bytes per session and Tiny 5111." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 7: Median V8 heap per session
 against the number of sessions, for each store design and workload.
 Panels use independent vertical scales, because the workloads differ in
@@ -1584,12 +1600,12 @@ class="header-section-number">5.7</span> Resident memory falls less than
 the heap</h2>
 <p><em>Tier: measured.</em> What the operating system sees moves in the
 same direction as the heap, by less. At 16,384 sessions with a shared
-prompt, tbl. <a href="#tbl:rss">3</a> shows RSS growing by 199.5 MiB for
-the duplicated store and 157.6 MiB for Tiny, a reduction of 21.0%
+prompt, tbl. <a href="#tbl:rss">3</a> shows RSS growing by 196.1 MiB for
+the duplicated store and 157.4 MiB for Tiny, a reduction of 19.7%
 against 32.1% in the heap. Resident pages also hold allocator slack and
 recently collected garbage, which a heap reading excludes. The aliased
-store again matches Tiny, at 21.2%. Peak RSS over ingestion is 307.4 MiB
-and 268.9 MiB respectively.</p>
+store again matches Tiny, at 20.1%. Peak RSS over ingestion is 304.1 MiB
+and 269.2 MiB respectively.</p>
 <div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 3: Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes."><table id="tbl:rss" style="width:99%;" data-responsive-table="true">
 <caption>Table 3: Resident set growth while ingesting 16,384 sessions,
 with percentile-bootstrap intervals over processes.</caption>
@@ -1612,23 +1628,23 @@ with percentile-bootstrap intervals over processes.</caption>
 <tbody>
 <tr>
 <td>Duplicated</td>
-<td style="text-align: right;">199.5 MiB</td>
-<td>196.5 MiB to 199.9 MiB</td>
+<td style="text-align: right;">196.1 MiB</td>
+<td>194.4 MiB to 199.7 MiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
 <tr>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">157.6 MiB</td>
-<td>157.3 MiB to 157.8 MiB</td>
-<td style="text-align: right;">21.0%</td>
+<td style="text-align: right;">157.4 MiB</td>
+<td>157.2 MiB to 157.7 MiB</td>
+<td style="text-align: right;">19.7%</td>
 <td style="text-align: right;">32.1%</td>
 </tr>
 <tr>
 <td>Aliased</td>
-<td style="text-align: right;">157.1 MiB</td>
-<td>157.0 MiB to 157.4 MiB</td>
-<td style="text-align: right;">21.2%</td>
+<td style="text-align: right;">156.6 MiB</td>
+<td>156.5 MiB to 157.0 MiB</td>
+<td style="text-align: right;">20.1%</td>
 <td style="text-align: right;">32.1%</td>
 </tr>
 </tbody>
@@ -1639,23 +1655,23 @@ mostly because of one call</h2>
 <p><em>Tier: measured.</em> Reconstructing a session costs time that
 reading it does not. As fig. <a
 href="#fig:materialization_latency">8</a> and tbl. <a
-href="#tbl:latency">4</a> show, the shipped engine takes 1.81× the
-duplicated store’s time with a shared prompt and 11.44× with the same
-shape and different words. Nearly all of that is
-<code>structuredClone</code>. Without it the ratios are 1.04× and 1.24×.
-Every condition reproduced the original text in 7,680 of 7,680 checks.
-The in-process path therefore provides no latency gain, and a removable
-implementation choice accounts for most of its cost.</p>
+href="#tbl:latency">4</a> show, the shipped engine takes 1.69× the
+duplicated store’s time with a shared prompt and 11.81× with the same
+shape and different words. Most of that is <code>structuredClone</code>.
+Without it the ratios are 1.06× and 1.96×. Every condition reproduced
+the original text in 7,680 of 7,680 checks. The in-process path
+therefore provides no latency gain, and a removable implementation
+choice accounts for most of its cost.</p>
 <figure id="fig:materialization_latency">
 <a class="figure-full-size-link" href="../figures/materialization_latency.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 8, Time to turn one stored session back into its full request text, with each store’s ratio to…"><img src="../figures/materialization_latency.png" style="width:92.0%"
-alt="Two panels of medians. With a shared prompt, the shipped engine is 1.81 times the duplicated store and 1.04 times without cloning. With same-shape sessions the ratios are 11.44 and 1.24." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Two panels of medians. With a shared prompt, the shipped engine is 1.69 times the duplicated store and 1.06 times without cloning. With same-shape sessions the ratios are 11.81 and 1.96." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 8: Time to turn one stored session
 back into its full request text, with each store’s ratio to the
 duplicated store. Points are medians over independent processes, with
 percentile-bootstrap 95% intervals. Every condition reproduced the
 original text exactly. With a shared prompt, removing
 <code>structuredClone</code> from reconstruction moves the ratio from
-1.81 to 1.04.</figcaption>
+1.69 to 1.06.</figcaption>
 </figure>
 <div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 4: Time to materialize one session from each store, as medians over independent processes, with the ratio to th…"><table id="tbl:latency" data-responsive-table="true">
 <caption>Table 4: Time to materialize one session from each store, as
@@ -1683,66 +1699,66 @@ store.</caption>
 <tr>
 <td>Shared prompt</td>
 <td>Aliased</td>
-<td style="text-align: right;">1.90 µs</td>
-<td>1.80 µs to 1.93 µs</td>
-<td style="text-align: right;">0.99×</td>
-<td>0.95× to 1.01×</td>
+<td style="text-align: right;">1.89 µs</td>
+<td>1.88 µs to 1.90 µs</td>
+<td style="text-align: right;">1.00×</td>
+<td>0.97× to 1.07×</td>
 </tr>
 <tr>
 <td>Shared prompt</td>
 <td>Duplicated</td>
-<td style="text-align: right;">1.92 µs</td>
-<td>1.85 µs to 1.94 µs</td>
+<td style="text-align: right;">1.90 µs</td>
+<td>1.76 µs to 1.94 µs</td>
 <td style="text-align: right;">1.00×</td>
-<td>0.98× to 1.03×</td>
+<td>0.93× to 1.07×</td>
 </tr>
 <tr>
 <td>Shared prompt</td>
 <td>Tiny without clone</td>
-<td style="text-align: right;">1.99 µs</td>
-<td>1.96 µs to 2.01 µs</td>
-<td style="text-align: right;">1.04×</td>
-<td>1.02× to 1.07×</td>
+<td style="text-align: right;">2.01 µs</td>
+<td>1.98 µs to 2.04 µs</td>
+<td style="text-align: right;">1.06×</td>
+<td>1.03× to 1.14×</td>
 </tr>
 <tr>
 <td>Shared prompt</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">3.47 µs</td>
-<td>3.45 µs to 3.48 µs</td>
-<td style="text-align: right;">1.81×</td>
-<td>1.79× to 1.87×</td>
+<td style="text-align: right;">3.21 µs</td>
+<td>3.18 µs to 3.23 µs</td>
+<td style="text-align: right;">1.69×</td>
+<td>1.65× to 1.82×</td>
+</tr>
+<tr>
+<td>Same shape</td>
+<td>Duplicated</td>
+<td style="text-align: right;">0.15 µs</td>
+<td>0.14 µs to 0.15 µs</td>
+<td style="text-align: right;">1.00×</td>
+<td>0.98× to 1.02×</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Aliased</td>
-<td style="text-align: right;">0.12 µs</td>
-<td>0.12 µs to 0.13 µs</td>
-<td style="text-align: right;">0.98×</td>
-<td>0.98× to 1.02×</td>
-</tr>
-<tr>
-<td>Same shape</td>
-<td>Duplicated</td>
-<td style="text-align: right;">0.13 µs</td>
-<td>0.12 µs to 0.13 µs</td>
+<td style="text-align: right;">0.15 µs</td>
+<td>0.14 µs to 0.15 µs</td>
 <td style="text-align: right;">1.00×</td>
-<td>0.98× to 1.02×</td>
+<td>0.98× to 1.04×</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Tiny without clone</td>
-<td style="text-align: right;">0.15 µs</td>
-<td>0.15 µs to 0.16 µs</td>
-<td style="text-align: right;">1.24×</td>
-<td>1.23× to 1.28×</td>
+<td style="text-align: right;">0.29 µs</td>
+<td>0.29 µs to 0.29 µs</td>
+<td style="text-align: right;">1.96×</td>
+<td>1.96× to 2.04×</td>
 </tr>
 <tr>
 <td>Same shape</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">1.43 µs</td>
-<td>1.41 µs to 1.44 µs</td>
-<td style="text-align: right;">11.44×</td>
-<td>11.29× to 11.79×</td>
+<td style="text-align: right;">1.72 µs</td>
+<td>1.70 µs to 1.74 µs</td>
+<td style="text-align: right;">11.81×</td>
+<td>11.74× to 12.14×</td>
 </tr>
 </tbody>
 </table></div>
@@ -1751,15 +1767,15 @@ class="header-section-number">5.9</span> Real models: prefix reuse
 speeds prefill and only prefill</h2>
 <p><em>Tier: measured.</em> Reusing a shared prefix skips computation,
 so unlike in-process reconstruction it does save time. Prefill speedups
-are 1.38× to 3.43× per turn (fig. <a href="#fig:llm_prefill">9</a> and
+are 1.34× to 3.50× per turn (fig. <a href="#fig:llm_prefill">9</a> and
 tbl. <a href="#tbl:llm">5</a>). Decode alone is essentially unaffected,
-at 0.99× to 1.02×, because after prefill both arms hold the same cache
+at 0.98× to 1.03×, because after prefill both arms hold the same cache
 and do the same work per token. Over prefill and decode together,
 including the once-per-trial cost of the shared prefix, the speedup is
-1.07× to 1.56×.</p>
+1.06× to 1.63×.</p>
 <figure id="fig:llm_prefill">
 <a class="figure-full-size-link" href="../figures/llm_prefill.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 9, Real forward passes: prefill time per turn when the whole prompt is processed again"><img src="../figures/llm_prefill.png" style="width:92.0%"
-alt="Dumbbells of prefill time per turn for each model and backend, on a log scale. Speedups from reusing the prefix range from 1.4 to 3.4 times." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Dumbbells of prefill time per turn for each model and backend, on a log scale. Speedups from reusing the prefix range from 1.3 to 3.5 times." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 9: Real forward passes: prefill
 time per turn when the whole prompt is processed again, and when a
 shared prefix’s key-value tensors are reused so only the session’s own
@@ -1803,44 +1819,44 @@ a deliberately wrong cache.</caption>
 <tr>
 <td>distilgpt2</td>
 <td>CPU</td>
-<td style="text-align: right;">51.64 ms</td>
-<td style="text-align: right;">15.05 ms</td>
-<td style="text-align: right;">3.43×</td>
-<td style="text-align: right;">0.99×</td>
-<td style="text-align: right;">1.56×</td>
+<td style="text-align: right;">53.22 ms</td>
+<td style="text-align: right;">15.20 ms</td>
+<td style="text-align: right;">3.50×</td>
+<td style="text-align: right;">1.02×</td>
+<td style="text-align: right;">1.63×</td>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">caught</td>
 </tr>
 <tr>
 <td>distilgpt2</td>
 <td>MPS</td>
-<td style="text-align: right;">22.37 ms</td>
-<td style="text-align: right;">6.61 ms</td>
-<td style="text-align: right;">3.38×</td>
-<td style="text-align: right;">1.00×</td>
-<td style="text-align: right;">1.47×</td>
+<td style="text-align: right;">22.81 ms</td>
+<td style="text-align: right;">6.89 ms</td>
+<td style="text-align: right;">3.31×</td>
+<td style="text-align: right;">0.98×</td>
+<td style="text-align: right;">1.40×</td>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">caught</td>
 </tr>
 <tr>
 <td>tiny-gpt2</td>
 <td>CPU</td>
-<td style="text-align: right;">1.95 ms</td>
-<td style="text-align: right;">0.69 ms</td>
-<td style="text-align: right;">2.82×</td>
-<td style="text-align: right;">1.00×</td>
-<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">2.03 ms</td>
+<td style="text-align: right;">0.76 ms</td>
+<td style="text-align: right;">2.66×</td>
+<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">1.27×</td>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">missed</td>
 </tr>
 <tr>
 <td>tiny-gpt2</td>
 <td>MPS</td>
-<td style="text-align: right;">1.58 ms</td>
-<td style="text-align: right;">1.15 ms</td>
-<td style="text-align: right;">1.38×</td>
-<td style="text-align: right;">1.02×</td>
-<td style="text-align: right;">1.07×</td>
+<td style="text-align: right;">1.61 ms</td>
+<td style="text-align: right;">1.21 ms</td>
+<td style="text-align: right;">1.34×</td>
+<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">1.06×</td>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">missed</td>
 </tr>
@@ -1859,11 +1875,12 @@ equivalence is therefore the logit agreement on <code>distilgpt2</code>,
 within 1.4e-4.</p>
 <p>The historical 1.17× training speedup does not reappear. In this
 design both arms perform the same forward, backward and optimizer steps
-per round, and with warm-up and interleaving the ratio is 0.98× to 1.02×
-over 15 rounds. The original lab ran one arm entirely before the other,
-with no warm-up, over five steps. That does not show the historical
-value was an artifact on its own hardware. It does mean no mechanism in
-the arms predicts a speedup, and none is seen here.</p>
+per round, and with warm-up and interleaving the ratio is 1.00× to 1.03×
+over 60 rounds, with bootstrap intervals spanning 0.94× to 1.09×. The
+original lab ran one arm entirely before the other, with no warm-up,
+over five steps. That does not show the historical value was an artifact
+on its own hardware. It does mean no mechanism in the arms predicts a
+speedup, and none is seen here.</p>
 <h2 data-number="5.10" id="sec:res_residency"><span
 class="header-section-number">5.10</span> Real models: KV residency
 matches the accounting</h2>
@@ -1875,7 +1892,7 @@ allocator agrees closely, at 84.4% against 84.1% predicted. This is the
 first device-memory reduction in this repository measured on a real
 model’s tensors, and it supports the accounting behind the roofline
 below. Holding the prefix separately has a cost: rebuilding one
-session’s full cache by concatenation takes 0.34 ms on this backend, and
+session’s full cache by concatenation takes 0.35 ms on this backend, and
 the rebuilt tensors match a full prefill to within 2.0e-5.</p>
 <figure id="fig:kv_residency">
 <a class="figure-full-size-link" href="../figures/kv_residency.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 10, Key-value cache held live for 8 sessions of distilbert/distilgpt2 on MPS: 512 shared prefix…"><img src="../figures/kv_residency.png" style="width:92.0%"
@@ -1931,8 +1948,8 @@ href="#eq:with_weights">4</a>.</caption>
 <td style="text-align: right;">84.1%</td>
 <td style="text-align: right;">84.1%</td>
 <td style="text-align: right;">84.4%</td>
-<td style="text-align: right;">154.5 MiB</td>
-<td style="text-align: right;">24.2 MiB</td>
+<td style="text-align: right;">154.1 MiB</td>
+<td style="text-align: right;">24.1 MiB</td>
 <td style="text-align: right;">27.3%</td>
 </tr>
 <tr>
@@ -1959,10 +1976,7 @@ href="#eq:with_weights">4</a>.</caption>
 </table></div>
 <p>Counting weights changes the headline. With the 312.5 MiB of weights
 resident under both designs, the reduction for this run is 27.3%, as
-eq. <a href="#eq:with_weights">4</a> predicts. Residency also depends
-directly on the ratio of prefix to suffix, as <a
-href="#prop:saturation">Proposition 1</a> says, and a longer
-conversation means a smaller saving.</p>
+eq. <a href="#eq:with_weights">4</a> predicts.</p>
 <h2 data-number="5.11" id="sec:res_h100"><span
 class="header-section-number">5.11</span> Simulation at datacenter
 scale</h2>
@@ -1972,8 +1986,45 @@ weights are counted. The Tiny Footprint arm and the production prefix
 cache hold the same resident set, a difference of zero bytes, because no
 KV compression factor has been measured. Peak-bandwidth copy time is an
 upper bound. No H100 was involved.</p>
-<h2 data-number="5.12" id="sec:res_historical"><span
-class="header-section-number">5.12</span> Historical GPU evidence</h2>
+<h2 data-number="5.12" id="sec:res_rhyme_kv"><span
+class="header-section-number">5.12</span> A rhyme’s KV state does not
+stand in for another’s</h2>
+<p><em>Tier: simulated, then measured.</em> FractiAI’s latest release
+adds a second simulated workload, in which sessions fill the same
+organizational slots with different tokens. A prefix cache cannot share
+across them, and the simulation gives the rhyme arm 34.3% less KV memory
+than the cache. That follows from one assumption: that 38.9% of KV
+memory can be held once because that fraction of a JSON record’s bytes
+can. The constant is typed into the simulation, and the JSON cohort
+itself gives 36.4%. The workload’s equivalence check compares lengths,
+because the rebuilt tokens differ from the originals by construction, so
+it cannot fail.</p>
+<p>The real-model lab tests the assumption on the tensors. Two prompts
+match except for 12.5% of their tokens, in evenly spaced slots, which
+favours sharing more than sessions with different wording would. On
+<code>distilgpt2</code>, 14.6% of key and value cells match within 1%,
+and all of them lie in one of six layers: the first layer’s tensors
+depend only on a token and its position, and every later layer has
+already mixed in the changed words. Resuming from the other prompt’s
+cache moves last-position logits by 3.72, which fails the check,
+although greedy tokens still match in 16 of 16 turns. On this model a
+rhyme’s KV state cannot stand in for another’s, and the simulated saving
+has no measurement behind it.</p>
+<h2 data-number="5.13" id="sec:res_gate"><span
+class="header-section-number">5.13</span> The rhyme gate and the
+companion meters</h2>
+<p><em>Tier: deterministic.</em> The same release gates its pin on a
+four-pillar audit. It refuses a plain wall of repeated records, as it
+says it does, and it passes the same records once they have a nested
+field and state a nesting depth and a drift, because two of its pillars
+read values the caller declares. The gate therefore checks a declaration
+and not a behaviour. The release also adds companion meters outside the
+pin: signature routing (3 comparisons against 15 for a scan), context
+folding (10.0% over a window that drops older turns) and an energy proxy
+built on assumed constants. FractiAI labels them lab meters, and none
+reads a device.</p>
+<h2 data-number="5.14" id="sec:res_historical"><span
+class="header-section-number">5.14</span> Historical GPU evidence</h2>
 <p><em>Tier: historical, with an arithmetic check.</em> The 81.4%
 allocation reduction reproduces to every digit from the lab’s requested
 buffer sizes, with no GPU, because that is all it is: 288 MiB against
@@ -1982,8 +2033,7 @@ MiB system buffer, and a hard-coded assumption that a session’s delta is
 15% of its KV buffer. The sweep in fig. <a
 href="#fig:gpu_proxy_sensitivity">11</a> shows how that assumption
 carries the result. The value falls below the 80% gate by a delta of
-25%, and it is 62.5% if a session keeps its whole KV buffer. Nothing in
-this repository measures the delta.</p>
+25%, and it is 62.5% if a session keeps its whole KV buffer.</p>
 <figure id="fig:gpu_proxy_sensitivity">
 <a class="figure-full-size-link" href="../figures/gpu_proxy_sensitivity.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 11, The GPU lab’s allocation reduction recomputed from its requested buffer sizes, as a function…"><img src="../figures/gpu_proxy_sensitivity.png" style="width:92.0%"
 alt="A falling line from 83.6% at a small delta to 62.5% at a delta equal to the whole KV buffer; the lab&#x27;s assumption sits at 81.4%, and it is below the 80% target by a delta of 25%." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
@@ -1994,13 +2044,12 @@ in the lab, which reproduces the published figure exactly and needs no
 GPU. No experiment in this repository measures that
 fraction.</figcaption>
 </figure>
-<p>The nvidia-smi peak, from 313 to 85 MiB, and the turn speedup, 11.24×
-and 9.60× in the two stored receipts, are device readings from that
-machine and could not be repeated here. The speedups are near the 9.41×
-ratio of bytes copied per turn, which is what a copy benchmark would be
-expected to show. The historical receipts do not establish a saving on a
-model forward. On that lab’s real-model run the same nvidia-smi reading
-was 265 MiB in both arms.</p>
+<p>The nvidia-smi peak, from 313 to 85 MiB, and the turn speedup, 9.60×,
+are device readings from that machine and could not be repeated here.
+The speedup is near the 9.41× ratio of bytes copied per turn, which is
+what a copy benchmark would be expected to show. The historical receipts
+do not establish a saving on a model forward. On that lab’s real-model
+run the same nvidia-smi reading was 265 MiB in both arms.</p>
 <hr />
 <h1 data-number="6" id="sec:discussion"><span
 class="header-section-number">6</span> Discussion</h1>
@@ -2009,7 +2058,7 @@ class="header-section-number">6.1</span> What the evidence supports</h2>
 <p>Sharing a prefix across sessions is a real memory optimization, and
 on real tensors it behaves as simple accounting predicts. KV residency
 fell 84.4% on the device allocator with logits matching a full prefill,
-and prefill ran 1.38× to 3.43× faster. These gains are bounded by <a
+and prefill ran 1.34× to 3.50× faster. These gains are bounded by <a
 href="#prop:saturation">Proposition 1</a>. They shrink as conversations
 lengthen, and they shrink further once model weights are counted, to
 27.3% on the measured run and 50.8% on the roofline. Decode, which
@@ -2023,8 +2072,8 @@ href="#ref-kwon2023efficient" role="doc-biblioref">Kwon et al. 2023</a>;
 2023</a>; <a href="#ref-gim2023promptcache" role="doc-biblioref">Gim et
 al. 2023</a>)</span>. This study therefore shows the size of the
 prefix-sharing opportunity. It shows no advantage over systems that
-already take it, and the simulated arms hold the same resident set for
-that reason.</p>
+already take it, and with an exact prefix the simulated arms hold the
+same resident set for that reason.</p>
 <h2 data-number="6.2" id="sec:disc_unsupported"><span
 class="header-section-number">6.2</span> What it does not support</h2>
 <p>No receipt in this repository establishes a reduction of 80% in DRAM
@@ -2047,43 +2096,47 @@ repeated keys <span class="citation" data-cites="bruni2017fast">(<a
 href="#ref-bruni2017fast" role="doc-biblioref">Bruni 2017</a>)</span>
 and ordinary references cover repeated values, and the shipped engine
 gives back part of the rest through its per-session wrapper. A tighter
-encoding of the same idea does beat plain references, at 30.4% against
-24.1%, because a session stops storing fields that repeat a default.
-That is the strongest in-process result for the idea, though it comes
-from an ablation and not the shipped engine.</p>
-<p>The question that matters for accelerators is untested here: whether
-two prompts with the same organization and different words can share KV
-state at all. Attention state depends on the tokens, so this does not
-follow from sharing a schema. Prompt Cache reuses attention states for
-explicit modules with positional care <span class="citation"
-data-cites="gim2023promptcache">(<a href="#ref-gim2023promptcache"
-role="doc-biblioref">Gim et al. 2023</a>)</span>, which is the closest
-related evidence. A demonstration would need a real model, a defined
-notion of acceptable output, and a measured saving beyond a prefix
-cache. Until then, applying a byte fraction measured on JSON to KV-cache
-memory has no support from this evidence.</p>
+encoding of the same idea roughly matches plain references, at 20.9%
+against 20.1%, because a session stops storing fields that repeat a
+default. That is the strongest in-process result for the idea, though it
+comes from an ablation and not the shipped engine.</p>
+<p>The question that matters for accelerators is whether two prompts
+with the same organization and different words can share KV state at
+all. Attention state depends on the tokens, so this does not follow from
+sharing a schema, and on <code>distilgpt2</code> it mostly cannot
+happen: only the first layer’s cells repeat, and a cache taken from the
+other prompt changes the logits (sec. <a
+href="#sec:res_rhyme_kv">5.12</a>). That is one small model, so it does
+not rule out another scheme. A demonstration would need a larger model,
+a defined notion of acceptable output, and a measured saving beyond a
+prefix cache. Until then, applying a byte fraction measured on JSON to
+KV-cache memory has no support from this evidence, and the one test here
+goes against it.</p>
 <h2 data-number="6.4" id="sec:disc_recommendations"><span
 class="header-section-number">6.4</span> Recommendations</h2>
 <p>For the engine, removing <code>structuredClone</code> from
 reconstruction and dropping the per-session wrapper would recover most
 of the measured latency cost and turn the same-shape heap result from
-10.3% into 30.4%, as the ablations show, and neither changes the idea.
+4.2% into 20.9%, as the ablations show, and neither changes the idea.
 For the kit’s public language, the evidence supports statements of the
 form “sharing a prefix reduced KV residency by this much, on this
 workload, on this hardware, compared with no sharing”. It does not
 support a general percentage. For the suite’s gate, an aggregate that
 excludes non-lossless workloads and states its weighting would measure
-what the gate appears to promise.</p>
+what the gate appears to promise, and its rhyme audit would need to
+measure nesting and drift and not read them from the caller. The H100
+rhyme arm needs a fraction measured on KV tensors and an equivalence
+check that compares tokens.</p>
 <hr />
 <h1 data-number="7" id="sec:limitations"><span
 class="header-section-number">7</span> Limitations</h1>
 <p><strong>One host, under load.</strong> Measurements come from one
 machine that was running other work, with a one-minute load average of
-3.96 to 5.98 on 14 logical cores. Heap readings are insensitive to this,
-as the controls show. Timings are not, so the timing ratios describe
-this configuration. Medians over isolated processes and randomized order
-reduce the risk of bias but do not remove it <span class="citation"
-data-cites="mytkowicz2009producing">(<a
+4.77 to 18.71 on 14 logical cores. Heap readings are insensitive to
+this, as the controls show. Timings are not, so the timing ratios
+describe this configuration. Medians over isolated processes and
+randomized order reduce the risk of bias but do not remove it <span
+class="citation" data-cites="mytkowicz2009producing">(<a
 href="#ref-mytkowicz2009producing" role="doc-biblioref">Mytkowicz et al.
 2009</a>)</span>.</p>
 <p><strong>One runtime.</strong> The heap results describe V8. A runtime
@@ -2098,7 +2151,8 @@ it should be measured.</p>
 <p><strong>Small models, no production server.</strong> The real-model
 lab used small GPT-2-family models on one consumer accelerator and on
 CPU, with no batching, paging or production scheduler. It measures the
-mechanism and not a serving system. Output equivalence here means
+mechanism and not a serving system, and the rhyme control covers one
+model and one pattern of changed slots. Output equivalence here means
 matching greedy tokens and close logits under one tolerance, on the
 prompts tested, and it is informative only for a model whose check
 catches a wrong cache. It does not address answer quality.</p>
@@ -2203,14 +2257,14 @@ network access is needed only for that.</p>
 <h2 data-number="9.3" id="sec:bindings"><span
 class="header-section-number">9.3</span> Bindings for this build</h2>
 <p>The plan hash is
-<code>c4afaf509e7058b3499d5d39ee0541d90639c4ff8df4f077ccb57b162a698636</code>.
+<code>df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770</code>.
 Measured receipts are bound to source fingerprint
-<code>9b976d68bdfd289452b2185eb003f97973409cc621bedcf42eb2f4c5b0989908</code>,
-covering 63 files, and verification rejects a receipt whose producer has
-changed. This build’s token catalog holds 190 values, each recording its
+<code>25fca7c9326662ec43eba34aa3fc8aff360487a2498139abc8daedcb2b5d8ae4</code>,
+covering 75 files, and verification rejects a receipt whose producer has
+changed. This build’s token catalog holds 207 values, each recording its
 source path in the analysis summary. Historical receipts are bound by
 hash, with the suite receipt at
-<code>d1bc3be17e107dfe56e3db818ade5067b2037f14efdfe21c2b458e6fb6657d1a</code>.
+<code>d5b16ee2da2ea07acbd5556fcca2108a5afade48f5662fb8ccb9affdac3fad61</code>.
 The renderer’s commit and the PDF’s hash are recorded in
 <code>output/data/render_receipt.json</code>.</p>
 <h2 data-number="9.4" id="sec:gates"><span
@@ -2257,7 +2311,7 @@ evidence.</caption>
 gate</td>
 <td>Reproduced to every digit at 84.5%. 3 of 3 alternative aggregates
 fall below the gate: equal weight 74.3%, lossless only 77.0%, without
-the anti-pattern baseline 55.6%.</td>
+the anti-pattern baseline 55.5%.</td>
 <td>reproduced with a qualification</td>
 </tr>
 <tr>
@@ -2268,31 +2322,31 @@ engine.</td>
 <td>reproduced with a qualification</td>
 </tr>
 <tr>
-<td>A rhyme stores about 29% less when sessions share a shape and differ
+<td>A rhyme stores about 31% less when sessions share a shape and differ
 in words</td>
-<td>True of JSON bytes (29.0%). In the live heap at 1,024 sessions the
-shipped engine saves 10.3%, and a tighter encoding of the same idea
-30.4%, against 24.1% for a plain reference.</td>
+<td>True of JSON bytes (31.1%). In the live heap at 1,024 sessions the
+shipped engine saves 4.2%, and a tighter encoding of the same idea
+20.9%, against 20.1% for a plain reference.</td>
 <td>reproduced with a qualification</td>
 </tr>
 <tr>
 <td>An exact-text cache wins when every session repeats the same
 words</td>
-<td>Reproduced: cache 164 bytes, rhyme 4,691 bytes. The cache is first
+<td>Reproduced: cache 198 bytes, rhyme 5,572 bytes. The cache is first
 smaller at 40% duplicates on the tested grid.</td>
 <td>reproduced</td>
 </tr>
 <tr>
 <td>Lower latency from reconstructing a working set</td>
-<td>In process, materializing a session takes 1.81× and 11.44× the
-duplicated store’s time for the two workloads, or 1.04× and 1.24×
+<td>In process, materializing a session takes 1.69× and 11.81× the
+duplicated store’s time for the two workloads, or 1.06× and 1.96×
 without cloning.</td>
 <td>not reproduced</td>
 </tr>
 <tr>
 <td>Real-model prefill speedup of 1.80× (historical, GTX 860M)</td>
-<td>Direction reproduced on this host: 1.38× to 3.43× per turn. Decode
-alone 0.99× to 1.02×; prefill plus decode 1.07× to 1.56×. The tested
+<td>Direction reproduced on this host: 1.34× to 3.50× per turn. Decode
+alone 0.98× to 1.03×; prefill plus decode 1.06× to 1.63×. The tested
 mechanism is prefix reuse, which a prefix cache already provides. Logits
 match a full prefill to within 1.4e-4 on distilgpt2, where the check
 catches a cache built from the wrong prefix. On tiny-gpt2 it does not,
@@ -2301,9 +2355,9 @@ so those turns show nothing.</td>
 </tr>
 <tr>
 <td>Real-model train-step speedup of 1.17× (historical, GTX 860M)</td>
-<td>Warmed up and with arms interleaved, this host gives 0.98× to 1.02×.
-Both arms perform the same steps per round; the original lab ran one arm
-first with no warm-up.</td>
+<td>Warmed up and with arms interleaved, this host gives 1.00× to 1.03×,
+with intervals spanning 0.94× to 1.09×. Both arms perform the same steps
+per round; the original lab ran one arm first with no warm-up.</td>
 <td>not reproduced</td>
 </tr>
 <tr>
@@ -2324,11 +2378,11 @@ counted.</td>
 <td>not testable on this host</td>
 </tr>
 <tr>
-<td>Host-to-device turn materialization 11.24× faster (historical, GTX
+<td>Host-to-device turn materialization 9.60× faster (historical, GTX
 860M)</td>
 <td>Needs NVIDIA hardware. The copied payload alone is 9.41× smaller
 than the conventional one, so the byte count predicts most of the
-speedups recorded in the two stored receipts (9.60× and 11.24×).</td>
+speedup recorded in the stored receipts (9.60×).</td>
 <td>not testable on this host</td>
 </tr>
 <tr>
@@ -2337,6 +2391,30 @@ speedups recorded in the two stored receipts (9.60× and 11.24×).</td>
 that (84.4% here), but counting weights gives 27.3% here and 50.8% on
 the H100 roofline, and a prefix cache gets the same residency.</td>
 <td>not reproduced</td>
+</tr>
+<tr>
+<td>A four-pillar gate tells a holographic rhyme from a brick wall</td>
+<td>It refuses a plain wall. The same bricks pass once they have a
+nested field and declare a nesting depth and a drift, because recursive
+and self_correcting read values the caller states.</td>
+<td>reproduced with a qualification</td>
+</tr>
+<tr>
+<td>On an H100, a rhyme holds 34.3% less KV memory than a prefix cache
+when wording differs (simulated)</td>
+<td>Measured on distilgpt2, with 12.5% of tokens changed: 14.6% of KV
+cells repeat, and resuming from the other prompt’s cache moves logits by
+3.72. The simulation applies a JSON byte fraction of 38.9% to KV memory,
+and its equivalence check compares lengths.</td>
+<td>not reproduced</td>
+</tr>
+<tr>
+<td>Signature routing, context-fold hooks and an energy proxy</td>
+<td>They run and pass: 3 comparisons against 15 for a scan, a fold ratio
+of 10.0% over 6 retained turns, and depth scaled from 8 to 1. These
+count comparisons, bytes and joules from assumed constants. None is a
+memory, latency or energy reading from a device.</td>
+<td>reproduced with a qualification</td>
 </tr>
 <tr>
 <td><code>tiny benchmark</code> produces receipts on your machine</td>

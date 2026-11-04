@@ -2,101 +2,118 @@
   "baselines": {
     "conventionalBytes": 1243896,
     "conventionalToNormalized": 0.8365731540257385,
-    "conventionalToTiny": 0.8235809103011827,
+    "conventionalToTiny": 0.8235415179404066,
     "normalizedBytes": 203286,
-    "normalizedToTiny": -0.07949883415483604,
-    "tinyBytes": 219447
+    "normalizedToTiny": -0.07973987387227846,
+    "tinyBytes": 219496
+  },
+  "companions": {
+    "K": {
+      "bucketCompares": 3,
+      "linearCompares": 15,
+      "pass": true
+    },
+    "L": {
+      "foldRatio": 0.09961685823754785,
+      "levels": 6,
+      "pass": true
+    },
+    "M": {
+      "baselineDepth": 8,
+      "pass": true,
+      "scaledDepth": 1
+    }
   },
   "crossover": {
     "allEquivalent": true,
     "cacheFirstSmallerAt": 0.4,
     "points": [
       {
-        "cacheBytes": 6704,
+        "cacheBytes": 8064,
         "duplicateFraction": 0,
         "equivalent": true,
-        "naiveBytes": 6704,
-        "rhymeBytes": 4758,
+        "naiveBytes": 8064,
+        "rhymeBytes": 5554,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 6204,
+        "cacheBytes": 7462,
         "duplicateFraction": 0.1,
         "equivalent": true,
-        "naiveBytes": 6693,
-        "rhymeBytes": 4756,
+        "naiveBytes": 8053,
+        "rhymeBytes": 5552,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 5538,
+        "cacheBytes": 6660,
         "duplicateFraction": 0.2,
         "equivalent": true,
-        "naiveBytes": 6679,
-        "rhymeBytes": 4765,
+        "naiveBytes": 8039,
+        "rhymeBytes": 5578,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 4868,
+        "cacheBytes": 5854,
         "duplicateFraction": 0.3,
         "equivalent": true,
-        "naiveBytes": 6661,
-        "rhymeBytes": 4745,
+        "naiveBytes": 8021,
+        "rhymeBytes": 5558,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 4196,
+        "cacheBytes": 5046,
         "duplicateFraction": 0.4,
         "equivalent": true,
-        "naiveBytes": 6641,
-        "rhymeBytes": 4748,
+        "naiveBytes": 8001,
+        "rhymeBytes": 5578,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 3524,
+        "cacheBytes": 4238,
         "duplicateFraction": 0.5,
         "equivalent": true,
-        "naiveBytes": 6621,
-        "rhymeBytes": 4726,
+        "naiveBytes": 7981,
+        "rhymeBytes": 5556,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 2852,
+        "cacheBytes": 3430,
         "duplicateFraction": 0.6,
         "equivalent": true,
-        "naiveBytes": 6601,
-        "rhymeBytes": 4729,
+        "naiveBytes": 7961,
+        "rhymeBytes": 5576,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 2180,
+        "cacheBytes": 2622,
         "duplicateFraction": 0.7,
         "equivalent": true,
-        "naiveBytes": 6581,
-        "rhymeBytes": 4707,
+        "naiveBytes": 7941,
+        "rhymeBytes": 5554,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 1508,
+        "cacheBytes": 1814,
         "duplicateFraction": 0.8,
         "equivalent": true,
-        "naiveBytes": 6561,
-        "rhymeBytes": 4710,
+        "naiveBytes": 7921,
+        "rhymeBytes": 5574,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 836,
+        "cacheBytes": 1006,
         "duplicateFraction": 0.9,
         "equivalent": true,
-        "naiveBytes": 6541,
-        "rhymeBytes": 4713,
+        "naiveBytes": 7901,
+        "rhymeBytes": 5594,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 164,
+        "cacheBytes": 198,
         "duplicateFraction": 1,
         "equivalent": true,
-        "naiveBytes": 6521,
-        "rhymeBytes": 4691,
+        "naiveBytes": 7881,
+        "rhymeBytes": 5572,
         "smaller": "cache"
       }
     ],
@@ -188,389 +205,414 @@
       }
     ]
   },
-  "planSha256": "c4afaf509e7058b3499d5d39ee0541d90639c4ff8df4f077ccb57b162a698636",
+  "planSha256": "df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770",
+  "rhymeByteFraction": {
+    "cohortSharedFraction": 0.3640782749594914,
+    "expressionBytes": 5102,
+    "fullBytes": 8023,
+    "sessions": 40,
+    "simulationSharedFraction": 0.38888888888888884
+  },
+  "rhymeGate": {
+    "pillarsReadingDeclaredValues": [
+      "recursive",
+      "self_correcting"
+    ],
+    "plainWall": {
+      "failed": [
+        "self_similar",
+        "self_correcting",
+        "recursive"
+      ],
+      "pass": false
+    },
+    "wallWithNestedFieldAndDeclaredValues": {
+      "failed": [],
+      "pass": true
+    }
+  },
   "scaling": {
     "formula": "R(n) = f (1 - 1/n), f = S / (S + D)",
     "series": [
       {
-        "maxAbsoluteError": 0.02989771833202203,
-        "measuredAtLargestN": 0.9430865250946743,
+        "maxAbsoluteError": 0.07317073170731707,
+        "measuredAtLargestN": 0.9430443411149992,
         "points": [
           {
             "baselineBytes": 2542,
-            "measured": -0.02989771833202203,
+            "measured": -0.07317073170731707,
             "predicted": 0,
             "sessions": 1,
             "sharedFraction": 0.9527930763178599,
-            "tinyBytes": 2618
+            "tinyBytes": 2728
           },
           {
             "baselineBytes": 5083,
-            "measured": 0.4579972457210309,
+            "measured": 0.436356482392288,
             "predicted": 0.47649026165650205,
             "sessions": 2,
             "sharedFraction": 0.9529805233130041,
-            "tinyBytes": 2755
+            "tinyBytes": 2865
           },
           {
             "baselineBytes": 10164,
-            "measured": 0.7020857929948839,
+            "measured": 0.6912632821723731,
             "predicted": 0.7148760330578512,
             "sessions": 4,
             "sharedFraction": 0.953168044077135,
-            "tinyBytes": 3028
+            "tinyBytes": 3138
           },
           {
             "baselineBytes": 20327,
-            "measured": 0.8241255473016186,
+            "measured": 0.8187140256801299,
             "predicted": 0.8340630688247159,
             "sessions": 8,
             "sharedFraction": 0.9532149357996753,
-            "tinyBytes": 3575
+            "tinyBytes": 3685
           },
           {
             "baselineBytes": 40669,
-            "measured": 0.8848016917062136,
+            "measured": 0.8820969288647372,
             "predicted": 0.8933094002803118,
             "sessions": 16,
             "sharedFraction": 0.9528633602989992,
-            "tinyBytes": 4685
+            "tinyBytes": 4795
           },
           {
             "baselineBytes": 81370,
-            "measured": 0.9149317930441194,
+            "measured": 0.9135799434681087,
             "predicted": 0.9227233624185818,
             "sessions": 32,
             "sharedFraction": 0.9524886321740199,
-            "tinyBytes": 6922
+            "tinyBytes": 7032
           },
           {
             "baselineBytes": 162768,
-            "measured": 0.9300108129362037,
+            "measured": 0.9293350044234739,
             "predicted": 0.9374447065762311,
             "sessions": 64,
             "sharedFraction": 0.9523247812837904,
-            "tinyBytes": 11392
+            "tinyBytes": 11502
           },
           {
             "baselineBytes": 325654,
-            "measured": 0.9372892702070296,
+            "measured": 0.9369514883895177,
             "predicted": 0.9445423670521473,
             "sessions": 128,
             "sharedFraction": 0.9519797085249989,
-            "tinyBytes": 20422
+            "tinyBytes": 20532
           },
           {
             "baselineBytes": 651646,
-            "measured": 0.9406088581837379,
+            "measured": 0.9404400548764207,
             "predicted": 0.9477691875650276,
             "sessions": 256,
             "sharedFraction": 0.9514859294770474,
-            "tinyBytes": 38702
+            "tinyBytes": 38812
           },
           {
             "baselineBytes": 1303616,
-            "measured": 0.9422774804850508,
+            "measured": 0.9421930998085326,
             "predicted": 0.9493915386125975,
             "sessions": 512,
             "sharedFraction": 0.9512494476901173,
-            "tinyBytes": 75248
+            "tinyBytes": 75358
           },
           {
             "baselineBytes": 2607625,
-            "measured": 0.9430865250946743,
+            "measured": 0.9430443411149992,
             "predicted": 0.950177268587316,
             "sessions": 1024,
             "sharedFraction": 0.9511060831216145,
-            "tinyBytes": 148409
+            "tinyBytes": 148519
           }
         ],
         "sharedFractionAtLargestN": 0.9511060831216145,
         "turns": 1
       },
       {
-        "maxAbsoluteError": 0.026161790017211705,
-        "measuredAtLargestN": 0.821073458418903,
+        "maxAbsoluteError": 0.0640275387263339,
+        "measuredAtLargestN": 0.8210367320473984,
         "points": [
           {
             "baselineBytes": 2905,
-            "measured": -0.026161790017211705,
+            "measured": -0.0640275387263339,
             "predicted": 0,
             "sessions": 1,
             "sharedFraction": 0.8337349397590361,
-            "tinyBytes": 2981
+            "tinyBytes": 3091
           },
           {
             "baselineBytes": 5808,
-            "measured": 0.40082644628099173,
+            "measured": 0.3818870523415978,
             "predicted": 0.41701101928374656,
             "sessions": 2,
             "sharedFraction": 0.8340220385674931,
-            "tinyBytes": 3480
+            "tinyBytes": 3590
           },
           {
             "baselineBytes": 11614,
-            "measured": 0.614430859307732,
+            "measured": 0.6049595315997933,
             "predicted": 0.6256242465989323,
             "sessions": 4,
             "sharedFraction": 0.8341656621319098,
-            "tinyBytes": 4478
+            "tinyBytes": 4588
           },
           {
             "baselineBytes": 23231,
-            "measured": 0.7211054194825879,
+            "measured": 0.7163703671817829,
             "predicted": 0.7298006973440662,
             "sessions": 8,
             "sharedFraction": 0.8340579398217899,
-            "tinyBytes": 6479
+            "tinyBytes": 6589
           },
           {
             "baselineBytes": 46525,
-            "measured": 0.7734336378291241,
+            "measured": 0.7710693175711982,
             "predicted": 0.7808704997313273,
             "sessions": 16,
             "sharedFraction": 0.8329285330467491,
-            "tinyBytes": 10541
+            "tinyBytes": 10651
           },
           {
             "baselineBytes": 93165,
-            "measured": 0.7990983738528418,
+            "measured": 0.7979176729458488,
             "predicted": 0.8059035045349648,
             "sessions": 32,
             "sharedFraction": 0.8319003917780282,
-            "tinyBytes": 18717
+            "tinyBytes": 18827
           },
           {
             "baselineBytes": 186439,
-            "measured": 0.8119331255799485,
+            "measured": 0.8113431202699006,
             "predicted": 0.8184231839904741,
             "sessions": 64,
             "sharedFraction": 0.8314140281807991,
-            "tinyBytes": 35063
+            "tinyBytes": 35173
           },
           {
             "baselineBytes": 373297,
-            "measured": 0.8176652906398927,
+            "measured": 0.8173706191048951,
             "predicted": 0.8239926921459321,
             "sessions": 128,
             "sharedFraction": 0.830480823580152,
-            "tinyBytes": 68065
+            "tinyBytes": 68175
           },
           {
             "baselineBytes": 747811,
-            "measured": 0.8196509545861187,
+            "measured": 0.8195038585952867,
             "predicted": 0.8258904990699522,
             "sessions": 256,
             "sharedFraction": 0.8291292853408148,
-            "tinyBytes": 134867
+            "tinyBytes": 134977
           },
           {
             "baselineBytes": 1496827,
-            "measured": 0.8206479439507706,
+            "measured": 0.8205744551641573,
             "predicted": 0.8268437167421486,
             "sessions": 512,
             "sharedFraction": 0.8284618062073974,
-            "tinyBytes": 268459
+            "tinyBytes": 268569
           },
           {
             "baselineBytes": 2995123,
-            "measured": 0.821073458418903,
+            "measured": 0.8210367320473984,
             "predicted": 0.8272468275927233,
             "sessions": 1024,
             "sharedFraction": 0.8280554755180338,
-            "tinyBytes": 535907
+            "tinyBytes": 536017
           }
         ],
         "sharedFractionAtLargestN": 0.8280554755180338,
         "turns": 5
       },
       {
-        "maxAbsoluteError": 0.016010111649462817,
-        "measuredAtLargestN": 0.49545177344672187,
+        "maxAbsoluteError": 0.03918264166842216,
+        "measuredAtLargestN": 0.4954296120363052,
         "points": [
           {
             "baselineBytes": 4747,
-            "measured": -0.016010111649462817,
+            "measured": -0.03918264166842216,
             "predicted": 0,
             "sessions": 1,
             "sharedFraction": 0.510216979144723,
-            "tinyBytes": 4823
+            "tinyBytes": 4933
           },
           {
             "baselineBytes": 9496,
-            "measured": 0.2451558550968829,
+            "measured": 0.2335720303285594,
             "predicted": 0.2550547598989048,
             "sessions": 2,
             "sharedFraction": 0.5101095197978096,
-            "tinyBytes": 7168
+            "tinyBytes": 7278
           },
           {
             "baselineBytes": 18992,
-            "measured": 0.37573715248525696,
+            "measured": 0.3699452401010952,
             "predicted": 0.3825821398483572,
             "sessions": 4,
             "sharedFraction": 0.5101095197978096,
-            "tinyBytes": 11856
+            "tinyBytes": 11966
           },
           {
             "baselineBytes": 37991,
-            "measured": 0.4409465399699929,
+            "measured": 0.4380511173699034,
             "predicted": 0.44626358874470273,
             "sessions": 8,
             "sharedFraction": 0.510015529993946,
-            "tinyBytes": 21239
+            "tinyBytes": 21349
           },
           {
             "baselineBytes": 76292,
-            "measured": 0.4716615110365438,
+            "measured": 0.47021968227337074,
             "predicted": 0.47619671787343365,
             "sessions": 16,
             "sharedFraction": 0.5079431657316625,
-            "tinyBytes": 40308
+            "tinyBytes": 40418
           },
           {
             "baselineBytes": 153089,
-            "measured": 0.4863053517888287,
+            "measured": 0.485586815512545,
             "predicted": 0.49044673359940943,
             "sessions": 32,
             "sharedFraction": 0.506267595973584,
-            "tinyBytes": 78641
+            "tinyBytes": 78751
           },
           {
             "baselineBytes": 306714,
-            "measured": 0.4935412142908377,
+            "measured": 0.49318257399401394,
             "predicted": 0.4974862575558989,
             "sessions": 64,
             "sharedFraction": 0.505382864818691,
-            "tinyBytes": 155338
+            "tinyBytes": 155448
           },
           {
             "baselineBytes": 615345,
-            "measured": 0.49603393218438435,
+            "measured": 0.49585517067661233,
             "predicted": 0.4998724292876354,
             "sessions": 128,
             "sharedFraction": 0.503808432667853,
-            "tinyBytes": 310113
+            "tinyBytes": 310223
           },
           {
             "baselineBytes": 1236317,
-            "measured": 0.4957822306091399,
+            "measured": 0.49569325666475506,
             "predicted": 0.4995563435591357,
             "sessions": 256,
             "sharedFraction": 0.5015153880436813,
-            "tinyBytes": 623373
+            "tinyBytes": 623483
           },
           {
             "baselineBytes": 2478398,
-            "measured": 0.49562983830684176,
+            "measured": 0.49558545479781696,
             "predicted": 0.4993717716040765,
             "sessions": 512,
             "sharedFraction": 0.500349015775513,
-            "tinyBytes": 1250030
+            "tinyBytes": 1250140
           },
           {
             "baselineBytes": 4963583,
-            "measured": 0.49545177344672187,
+            "measured": 0.4954296120363052,
             "predicted": 0.4991769050703897,
             "sessions": 1024,
             "sharedFraction": 0.49966485903429037,
-            "tinyBytes": 2504367
+            "tinyBytes": 2504477
           }
         ],
         "sharedFractionAtLargestN": 0.49966485903429037,
         "turns": 25
       },
       {
-        "maxAbsoluteError": 0.005400412136715696,
-        "measuredAtLargestN": 0.1649595401661994,
+        "maxAbsoluteError": 0.013216798124067362,
+        "measuredAtLargestN": 0.1649521615750475,
         "points": [
           {
             "baselineBytes": 14073,
-            "measured": -0.005400412136715696,
+            "measured": -0.013216798124067362,
             "predicted": 0,
             "sessions": 1,
             "sharedFraction": 0.1721026078305976,
-            "tinyBytes": 14149
+            "tinyBytes": 14259
           },
           {
             "baselineBytes": 28155,
-            "measured": 0.08268513585508791,
+            "measured": 0.07877819215059492,
             "predicted": 0.08602379683892737,
             "sessions": 2,
             "sharedFraction": 0.17204759367785474,
-            "tinyBytes": 25827
+            "tinyBytes": 25937
           },
           {
             "baselineBytes": 56303,
-            "measured": 0.12674280233735324,
+            "measured": 0.12478908761522477,
             "predicted": 0.12905173791805052,
             "sessions": 4,
             "sharedFraction": 0.17206898389073405,
-            "tinyBytes": 49167
+            "tinyBytes": 49277
           },
           {
             "baselineBytes": 112606,
-            "measured": 0.1487664955686198,
+            "measured": 0.14778963820755556,
             "predicted": 0.1505603609043923,
             "sessions": 8,
             "sharedFraction": 0.17206898389073405,
-            "tinyBytes": 95854
+            "tinyBytes": 95964
           },
           {
             "baselineBytes": 226718,
-            "measured": 0.15871699644492276,
+            "measured": 0.15823181220723542,
             "predicted": 0.16024312141073935,
             "sessions": 16,
             "sharedFraction": 0.1709259961714553,
-            "tinyBytes": 190734
+            "tinyBytes": 190844
           },
           {
             "baselineBytes": 455965,
-            "measured": 0.16327569002006734,
+            "measured": 0.16303444343315826,
             "predicted": 0.1646661476209797,
             "sessions": 32,
             "sharedFraction": 0.16997795883455968,
-            "tinyBytes": 381517
+            "tinyBytes": 381627
           },
           {
             "baselineBytes": 914475,
-            "measured": 0.16553322944859072,
+            "measured": 0.16541294185188224,
             "predicted": 0.16685639301238414,
             "sessions": 64,
             "sharedFraction": 0.1695049071871839,
-            "tinyBytes": 763099
+            "tinyBytes": 763209
           },
           {
             "baselineBytes": 1838586,
-            "measured": 0.16601453508293873,
+            "measured": 0.16595470649727562,
             "predicted": 0.16729921798599576,
             "sessions": 128,
             "sharedFraction": 0.16861653466305085,
-            "tinyBytes": 1533354
+            "tinyBytes": 1533464
           },
           {
             "baselineBytes": 3704763,
-            "measured": 0.16544756034326621,
+            "measured": 0.1654178688353344,
             "predicted": 0.166707020125174,
             "sessions": 256,
             "sharedFraction": 0.16736077314527273,
-            "tinyBytes": 3091819
+            "tinyBytes": 3091929
           },
           {
             "baselineBytes": 7437208,
-            "measured": 0.16516520715838523,
+            "measured": 0.1651504166617365,
             "predicted": 0.16641218048493467,
             "sessions": 512,
             "sharedFraction": 0.1667378403293279,
-            "tinyBytes": 6208840
+            "tinyBytes": 6208950
           },
           {
             "baselineBytes": 14907995,
-            "measured": 0.1649595401661994,
+            "measured": 0.1649521615750475,
             "predicted": 0.16619981426073727,
             "sessions": 1024,
             "sharedFraction": 0.16636227742228246,
-            "tinyBytes": 12448779
+            "tinyBytes": 12448889
           }
         ],
         "sharedFractionAtLargestN": 0.16636227742228246,
@@ -613,7 +655,7 @@
         ],
         "label": "Without B",
         "leftOut": "B",
-        "ratio": 0.8551866665605031
+        "ratio": 0.8551163331802808
       },
       {
         "clearsTarget": true,
@@ -625,7 +667,7 @@
         ],
         "label": "Without C",
         "leftOut": "C",
-        "ratio": 0.8694694112113442
+        "ratio": 0.86923697777973
       },
       {
         "clearsTarget": true,
@@ -637,7 +679,7 @@
         ],
         "label": "Without D",
         "leftOut": "D",
-        "ratio": 0.8446693265679638
+        "ratio": 0.8445371313640756
       },
       {
         "clearsTarget": false,
@@ -649,7 +691,7 @@
         ],
         "label": "Without E",
         "leftOut": "E",
-        "ratio": 0.7699021033669681
+        "ratio": 0.7697073769190677
       },
       {
         "clearsTarget": true,
@@ -661,7 +703,7 @@
         ],
         "label": "Without F",
         "leftOut": "F",
-        "ratio": 0.8768064867102433
+        "ratio": 0.8767165178217646
       }
     ],
     "lossless": {
@@ -673,7 +715,7 @@
         "F"
       ],
       "label": "Lossless workloads only",
-      "ratio": 0.7699021033669681
+      "ratio": 0.7697073769190677
     },
     "nonStrawman": {
       "clearsTarget": false,
@@ -683,7 +725,7 @@
         "F"
       ],
       "label": "Lossless, without the anti-pattern baseline",
-      "ratio": 0.5559841477831565
+      "ratio": 0.5551703921084922
     },
     "published": {
       "clearsTarget": true,
@@ -695,19 +737,19 @@
         "F"
       ],
       "label": "All five workloads, byte-weighted",
-      "ratio": 0.8450413877455297
+      "ratio": 0.8449117166991487
     },
     "target": 0.8,
     "unweightedMean": {
       "clearsTarget": false,
       "label": "All five workloads, equal weight",
-      "ratio": 0.7430185080181839
+      "ratio": 0.7425168969681512
     }
   },
   "sourceFingerprint": {
     "algorithm": "sha256-of-sorted-file-hashes",
-    "fileCount": 63,
-    "sha256": "9b976d68bdfd289452b2185eb003f97973409cc621bedcf42eb2f4c5b0989908"
+    "fileCount": 75,
+    "sha256": "25fca7c9326662ec43eba34aa3fc8aff360487a2498139abc8daedcb2b5d8ae4"
   },
   "suite": {
     "gateway": {
@@ -732,26 +774,30 @@
     },
     "rhyme": {
       "differingWords": {
-        "cacheBytes": 6704,
+        "cacheBytes": 8064,
         "cacheVersusNaive": 0,
         "equivalent": true,
         "exactTextHits": 0,
-        "naiveBytes": 6704,
-        "rhymeBytes": 4758,
-        "rhymeVersusCache": 0.2902744630071599,
-        "rhymeVersusNaive": 0.2902744630071599,
+        "naiveBytes": 8064,
+        "phiEgs": 1.618033988749895,
+        "rhymeAuditPass": true,
+        "rhymeBytes": 5554,
+        "rhymeVersusCache": 0.31125992063492064,
+        "rhymeVersusNaive": 0.31125992063492064,
         "sessions": 40,
         "shapeHits": 40
       },
       "identicalText": {
-        "cacheBytes": 164,
-        "cacheVersusNaive": 0.9748504830547462,
+        "cacheBytes": 198,
+        "cacheVersusNaive": 0.9748762847354396,
         "equivalent": true,
         "exactTextHits": 39,
-        "naiveBytes": 6521,
-        "rhymeBytes": 4691,
-        "rhymeVersusCache": -27.603658536585368,
-        "rhymeVersusNaive": 0.28063180493789297,
+        "naiveBytes": 7881,
+        "phiEgs": 1.618033988749895,
+        "rhymeAuditPass": true,
+        "rhymeBytes": 5572,
+        "rhymeVersusCache": -27.141414141414142,
+        "rhymeVersusNaive": 0.29298312396903947,
         "sessions": 40,
         "shapeHits": 40
       }
@@ -762,16 +808,16 @@
         "key": "B",
         "label": "Structured records",
         "pass": true,
-        "ratio": 0.5433438568797685,
-        "tinyBytes": 34715
+        "ratio": 0.5414496185214417,
+        "tinyBytes": 34859
       },
       {
         "baselineBytes": 1243896,
         "key": "C",
         "label": "Cross-linked graph",
         "pass": true,
-        "ratio": 0.8235809103011827,
-        "tinyBytes": 219447
+        "ratio": 0.8235415179404066,
+        "tinyBytes": 219496
       },
       {
         "baselineBytes": 44617,
@@ -794,8 +840,8 @@
         "key": "F",
         "label": "Shared system prompt",
         "pass": true,
-        "ratio": 0.4892008188160588,
-        "tinyBytes": 97816
+        "ratio": 0.4886263942849981,
+        "tinyBytes": 97926
       }
     ]
   }

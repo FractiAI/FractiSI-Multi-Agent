@@ -1,17 +1,17 @@
 {
   "claim_boundary": "Compact evidence summary for manuscript validation; full fact dumps are opt-in debug output.",
-  "fact_count": 26221,
+  "fact_count": 34859,
   "freshness_warnings": [],
   "kind_counts": {
     "artifact": 88,
     "citation": 23,
     "equation": 4,
     "figure": 25,
-    "number": 26033,
-    "section": 40,
+    "number": 34669,
+    "section": 42,
     "table": 8
   },
-  "omitted_fact_count": 26021,
+  "omitted_fact_count": 34659,
   "sample_facts": [
     {
       "active": true,
@@ -63,6 +63,18 @@
     },
     {
       "active": true,
+      "checked_at": "2026-11-04T23:30:50Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.llm[0].prefillBatch.speedup.high (numeric variant)",
+      "source_field": "$.llm[0].prefillBatch.speedup.high",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "3.1"
+    },
+    {
+      "active": true,
       "checked_at": "2026-11-04T19:53:26Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[1].equivalence.control.worstLogitAbsDifference (numeric variant)",
@@ -99,7 +111,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:12:00Z",
       "kind": "number",
       "source": "output/data/measured/llm/sshleifer-tiny-gpt2-cpu.json:$.inference.withoutTinyFootprint.decodeCallMs.minMs (numeric variant)",
       "source_field": "$.inference.withoutTinyFootprint.decodeCallMs.minMs",
@@ -111,7 +123,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:12:00Z",
       "kind": "number",
       "source": "output/data/measured/llm/sshleifer-tiny-gpt2-cpu.json:$.inference.withTinyFootprint.decodeCallMs.minMs (numeric variant)",
       "source_field": "$.inference.withTinyFootprint.decodeCallMs.minMs",
@@ -147,35 +159,11 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
-      "kind": "number",
-      "source": "output/data/analysis_summary.json:$.llm[3].decodeBatch.withMs.low (numeric variant)",
-      "source_field": "$.llm[3].decodeBatch.withMs.low",
-      "source_path": "output/data/analysis_summary.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "90"
-    },
-    {
-      "active": true,
       "checked_at": "2026-11-04T17:31:14Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.crossover.points[9].duplicateFraction (numeric variant)",
       "source_field": "$.crossover.points[9].duplicateFraction",
       "source_path": "output/data/deterministic/results.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "90"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
-      "kind": "number",
-      "source": "output/data/measured/llm/sshleifer-tiny-gpt2-mps.json:$.inference.withTinyFootprint.decodeBatchSamplesMs[7] (numeric variant)",
-      "source_field": "$.inference.withTinyFootprint.decodeBatchSamplesMs[7]",
-      "source_path": "output/data/measured/llm/sshleifer-tiny-gpt2-mps.json",
       "source_tier": "generated_metric",
       "stale": false,
       "tolerance": 0.0,
@@ -471,10 +459,22 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:12:00Z",
       "kind": "number",
-      "source": "output/data/analysis_summary.json:$.h100.comparison.kvReductionVersusNaive (numeric variant)",
-      "source_field": "$.h100.comparison.kvReductionVersusNaive",
+      "source": "output/data/analysis_summary.json:$.h100.workloads.identicalPrefix.comparison.prefixKvReductionVersusNaive (numeric variant)",
+      "source_field": "$.h100.workloads.identicalPrefix.comparison.prefixKvReductionVersusNaive",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
+      "checked_at": "2026-11-04T23:12:00Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.h100.workloads.identicalPrefix.comparison.tinyKvReductionVersusNaive (numeric variant)",
+      "source_field": "$.h100.workloads.identicalPrefix.comparison.tinyKvReductionVersusNaive",
       "source_path": "output/data/analysis_summary.json",
       "source_tier": "generated_metric",
       "stale": false,
@@ -1311,6 +1311,18 @@
     },
     {
       "active": true,
+      "checked_at": "2026-11-04T23:30:50Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.latency.rows[1].ratioToDuplicated.low (numeric variant)",
+      "source_field": "$.latency.rows[1].ratioToDuplicated.low",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
       "checked_at": "2026-11-04T17:31:14Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.latency.rows[2].p50Ns.confidence (numeric variant)",
@@ -1351,18 +1363,6 @@
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.latency.rows[3].ratioToDuplicated.confidence (numeric variant)",
       "source_field": "$.latency.rows[3].ratioToDuplicated.confidence",
-      "source_path": "output/data/analysis_summary.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "0.9"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
-      "kind": "number",
-      "source": "output/data/analysis_summary.json:$.latency.rows[3].ratioToDuplicated.low (numeric variant)",
-      "source_field": "$.latency.rows[3].ratioToDuplicated.low",
       "source_path": "output/data/analysis_summary.json",
       "source_tier": "generated_metric",
       "stale": false,
@@ -1611,10 +1611,10 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
-      "source": "output/data/analysis_summary.json:$.llm[0].residency.materializeMs.p95Ms (numeric variant)",
-      "source_field": "$.llm[0].residency.materializeMs.p95Ms",
+      "source": "output/data/analysis_summary.json:$.llm[0].residency.materializeMs.p50Ms (numeric variant)",
+      "source_field": "$.llm[0].residency.materializeMs.p50Ms",
       "source_path": "output/data/analysis_summary.json",
       "source_tier": "generated_metric",
       "stale": false,
@@ -1635,7 +1635,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:12:00Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[1].decodeBatch.speedup.low (numeric variant)",
       "source_field": "$.llm[1].decodeBatch.speedup.low",
@@ -1791,7 +1791,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[2].decodeBatch.speedup.low (numeric variant)",
       "source_field": "$.llm[2].decodeBatch.speedup.low",
@@ -1935,6 +1935,42 @@
     },
     {
       "active": true,
+      "checked_at": "2026-11-04T23:12:00Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.llm[2].rhymeSharing.matchingCellFraction (numeric variant)",
+      "source_field": "$.llm[2].rhymeSharing.matchingCellFraction",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
+      "checked_at": "2026-11-04T23:30:50Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.llm[2].trainingInterval.confidence (numeric variant)",
+      "source_field": "$.llm[2].trainingInterval.confidence",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
+      "checked_at": "2026-11-04T23:30:50Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.llm[2].trainingInterval.low (numeric variant)",
+      "source_field": "$.llm[2].trainingInterval.low",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
       "checked_at": "2026-11-04T17:31:14Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[3].decodeBatch.speedup.confidence (numeric variant)",
@@ -1947,7 +1983,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[3].decodeBatch.speedup.low (numeric variant)",
       "source_field": "$.llm[3].decodeBatch.speedup.low",
@@ -1995,7 +2031,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[3].endToEndBatch.speedup.low (numeric variant)",
       "source_field": "$.llm[3].endToEndBatch.speedup.low",
@@ -2095,6 +2131,30 @@
       "kind": "number",
       "source": "output/data/analysis_summary.json:$.llm[3].prefillCall.withoutMs.confidence (numeric variant)",
       "source_field": "$.llm[3].prefillCall.withoutMs.confidence",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
+      "checked_at": "2026-11-04T23:12:00Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.llm[3].rhymeSharing.matchingCellFraction (numeric variant)",
+      "source_field": "$.llm[3].rhymeSharing.matchingCellFraction",
+      "source_path": "output/data/analysis_summary.json",
+      "source_tier": "generated_metric",
+      "stale": false,
+      "tolerance": 0.0,
+      "value": "0.9"
+    },
+    {
+      "active": true,
+      "checked_at": "2026-11-04T23:30:50Z",
+      "kind": "number",
+      "source": "output/data/analysis_summary.json:$.llm[3].trainingInterval.confidence (numeric variant)",
+      "source_field": "$.llm[3].trainingInterval.confidence",
       "source_path": "output/data/analysis_summary.json",
       "source_tier": "generated_metric",
       "stale": false,
@@ -2247,7 +2307,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[6].measured (numeric variant)",
       "source_field": "$.scaling.series[0].points[6].measured",
@@ -2259,7 +2319,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[6].predicted (numeric variant)",
       "source_field": "$.scaling.series[0].points[6].predicted",
@@ -2271,7 +2331,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[7].measured (numeric variant)",
       "source_field": "$.scaling.series[0].points[7].measured",
@@ -2283,7 +2343,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[7].predicted (numeric variant)",
       "source_field": "$.scaling.series[0].points[7].predicted",
@@ -2295,7 +2355,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[8].measured (numeric variant)",
       "source_field": "$.scaling.series[0].points[8].measured",
@@ -2307,7 +2367,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[8].predicted (numeric variant)",
       "source_field": "$.scaling.series[0].points[8].predicted",
@@ -2319,7 +2379,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[9].measured (numeric variant)",
       "source_field": "$.scaling.series[0].points[9].measured",
@@ -2331,7 +2391,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[9].predicted (numeric variant)",
       "source_field": "$.scaling.series[0].points[9].predicted",
@@ -2343,7 +2403,7 @@
     },
     {
       "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
+      "checked_at": "2026-11-04T23:30:50Z",
       "kind": "number",
       "source": "output/data/deterministic/results.json:$.scaling.series[0].points[10].measured (numeric variant)",
       "source_field": "$.scaling.series[0].points[10].measured",
@@ -2352,74 +2412,14 @@
       "stale": false,
       "tolerance": 0.0,
       "value": "0.9"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
-      "kind": "number",
-      "source": "output/data/deterministic/results.json:$.sensitivity.leaveOneOut[0].ratio (numeric variant)",
-      "source_field": "$.sensitivity.leaveOneOut[0].ratio",
-      "source_path": "output/data/deterministic/results.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "0.9"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
-      "kind": "number",
-      "source": "output/data/deterministic/results.json:$.sensitivity.leaveOneOut[1].ratio (numeric variant)",
-      "source_field": "$.sensitivity.leaveOneOut[1].ratio",
-      "source_path": "output/data/deterministic/results.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "0.9"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
-      "kind": "number",
-      "source": "output/data/deterministic/results.json:$.sensitivity.leaveOneOut[4].ratio (numeric variant)",
-      "source_field": "$.sensitivity.leaveOneOut[4].ratio",
-      "source_path": "output/data/deterministic/results.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "0.9"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T17:31:14Z",
-      "kind": "number",
-      "source": "output/data/deterministic/results.json:$.suite.workloads[2].ratio (numeric variant)",
-      "source_field": "$.suite.workloads[2].ratio",
-      "source_path": "output/data/deterministic/results.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "0.9"
-    },
-    {
-      "active": true,
-      "checked_at": "2026-11-04T19:53:26Z",
-      "kind": "number",
-      "source": "output/data/measured/llm/distilbert-distilgpt2-cpu.json:$.residency.materializeMs.p95Ms (numeric variant)",
-      "source_field": "$.residency.materializeMs.p95Ms",
-      "source_path": "output/data/measured/llm/distilbert-distilgpt2-cpu.json",
-      "source_tier": "generated_metric",
-      "stale": false,
-      "tolerance": 0.0,
-      "value": "0.9"
     }
   ],
   "schema": "template-evidence-registry-report-v1",
   "source_tiers": {
-    "artifact": 165,
+    "artifact": 167,
     "bibliography": 19,
     "claim_ledger": 4,
     "configuration": 7,
-    "generated_metric": 26026
+    "generated_metric": 34662
   }
 }

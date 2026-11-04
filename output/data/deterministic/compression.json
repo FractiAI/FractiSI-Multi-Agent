@@ -3,21 +3,21 @@
   "workloads": [
     {
       "baselineBytes": 76020,
-      "baselineGzipBytes": 3278,
-      "gzipReduction": 0.9568797684819784,
+      "baselineGzipBytes": 3166,
+      "gzipReduction": 0.9583530649828992,
       "key": "B",
-      "tinyBytes": 34715,
-      "tinyGzipBytes": 3155,
-      "tinyReduction": 0.5433438568797685
+      "tinyBytes": 34859,
+      "tinyGzipBytes": 3139,
+      "tinyReduction": 0.5414496185214417
     },
     {
       "baselineBytes": 1243896,
       "baselineGzipBytes": 267700,
       "gzipReduction": 0.7847890820454443,
       "key": "C",
-      "tinyBytes": 219447,
-      "tinyGzipBytes": 58514,
-      "tinyReduction": 0.8235809103011827
+      "tinyBytes": 219496,
+      "tinyGzipBytes": 58559,
+      "tinyReduction": 0.8235415179404066
     },
     {
       "baselineBytes": 44617,
@@ -33,9 +33,9 @@
       "baselineGzipBytes": 18298,
       "gzipReduction": 0.9044470902786481,
       "key": "F",
-      "tinyBytes": 97816,
-      "tinyGzipBytes": 17625,
-      "tinyReduction": 0.4892008188160588
+      "tinyBytes": 97926,
+      "tinyGzipBytes": 17709,
+      "tinyReduction": 0.4886263942849981
     }
   ],
   "zlib": "1.2.12"

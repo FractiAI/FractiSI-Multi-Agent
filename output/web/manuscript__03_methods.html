@@ -608,15 +608,16 @@ memory, under darwin 27.2.0 on arm64, with Node v26.13.0 and V8
 14.6.202.34-node.40. Real-model runs used Python 3.13.17, PyTorch 2.15.0
 [paszke2019pytorch] and Transformers 5.22.1 [wolf2020transformers]. The
 machine was not idle: other work ran concurrently, and the one-minute
-load average across the measured runs was 3.96 to 5.98. Receipts record
+load average across the measured runs was 4.77 to 18.71. Receipts record
 the load at the start and end of each run.</p>
 <h2 id="sec:deterministic">Deterministic tier</h2>
-<p>The registered workloads are the suite’s own. Workload B holds
-structured records, C a cross-linked graph, D one story broadcast to
-eight nodes, E a lattice of vectors against one request’s working set,
-and F chat sessions sharing a system prompt. All use seed 20261103, with
-gateway round trips also checked under 202611032, and sizes are UTF-8
-JSON bytes.</p>
+<p>The study measures the kit at upstream commit <code>733b48e</code>
+(v1.3 companions). The registered workloads are the suite’s own.
+Workload B holds structured records, C a cross-linked graph, D one story
+broadcast to eight nodes, E a lattice of vectors against one request’s
+working set, and F chat sessions sharing a system prompt. All use seed
+20261103, with gateway round trips also checked under 202611032, and
+sizes are UTF-8 JSON bytes.</p>
 <p>The suite’s own exactness checks are partial, so this tier adds a
 full round trip of every record in B, C, D and F. To test the aggregate,
 it recomputes <span class="citation"
@@ -709,10 +710,12 @@ sessions of two turns, 21 suffix tokens and eight decoded tokens.</p>
 <p>The original lab tokenized its arms differently, ran one arm entirely
 before the other, and did not check output equivalence. This lab builds
 both arms from the same token ids, interleaves them in seeded random
-order within each turn across nine trials, and compares both
-last-position logits and greedy tokens between arms, turn by turn. A
-control repeats this with a cache built from the reversed prefix, to
-test whether the check can detect a wrong cache. Training arms are
+order within each turn across 15 trials, and compares both last-position
+logits and greedy tokens between arms, turn by turn. A control repeats
+this with a cache built from the reversed prefix, to test whether the
+check can detect a wrong cache. A second control tests a rhyme: a prompt
+that keeps all but 12.5% of its tokens is compared with the original
+cell by cell, and the lab resumes from its cache. Training arms are
 warmed up and alternated in the same way. The “with” arm is charged once
 per trial for prefilling the shared prefix.</p>
 <p>KV residency holds every session’s cache live and reads three
