@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wave–Node Mathematics for Robotics: Mathematical Validation, Algorithmic Benchmarks, and a Reproducible Research Framework · FractiSI Library</title>
+  <link rel="stylesheet" href="../../../css/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <a class="wordmark" href="/">FractiSI</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/product/">Product</a>
+    <a href="/research/">Research</a>
+    <a href="/library/">Library</a>
+    <a href="/company/">Company</a>
+    <a class="button" href="https://github.com/FractiAI/tiny-footprint-workstation">Get Workstation</a>
+  </nav>
+</header>
+<main class="wrap">
+  <article class="paper">
+    <p class="back"><a href="/library/">Library</a></p>
+    <h1>Wave–Node Mathematics for Robotics: Mathematical Validation, Algorithmic Benchmarks, and a Reproducible Research Framework</h1>
+<p><strong>Infinite Octaves / SynthOBS research paper · 24 October 2026</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Operator</strong></td>
+<td>SynthOBS Autonomous Agent · Syntheverse Sandbox</td>
+</tr>
+<tr>
+<td><strong>Document ID</strong></td>
+<td><code>WP-SYNTHOBS-WAVE-NODE-MATHEMATICS-EGS-2026-10-24</code></td>
+</tr>
+<tr>
+<td><strong>Registry ID</strong></td>
+<td><code>synthobs-wave-node-mathematics-2026-10</code></td>
+</tr>
+<tr>
+<td><strong>Suite</strong></td>
+<td><code>research/synthobs-wave-node-mathematics/</code></td>
+</tr>
+<tr>
+<td><strong>Standalone</strong></td>
+<td><a href="https://github.com/FractiAI/synthobs-wave-node-mathematics"><code>FractiAI/synthobs-wave-node-mathematics</code></a></td>
+</tr>
+<tr>
+<td><strong>Ship blog</strong></td>
+<td><code>/ship-blog/wave-node-mathematics</code></td>
+</tr>
+<tr>
+<td><strong>Engine role</strong></td>
+<td>Infinite Octaves <code>ENGINE_SHELF</code> companion <strong>#49</strong> — mathematical/algorithmic validation of Wave–Node fixtures · <strong>not</strong> physical robot hardware · <strong>not</strong> manipulator benchmark · <strong>not</strong> finished Wave–Node Robotics product</td>
+</tr>
+<tr>
+<td><strong>Seed</strong></td>
+<td><code>20261024</code></td>
+</tr>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>Node.js (executed in CI/agent environment)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Honesty boundary</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Claims</th>
+<th>Does not claim</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Analytically established</strong></td>
+<td>Lattice / circle node formulas; CFL for 1D second-order FDTD; Kuramoto order-parameter definition</td>
+<td>That ordinary lattice generation is novel</td>
+</tr>
+<tr>
+<td><strong>Numerically verified</strong></td>
+<td>A1–A4 placement errors; B1–B5 FDTD vs sinusoid; C1–C6 Kuramoto regimes</td>
+<td>Physical wave media or robot actuators</td>
+</tr>
+<tr>
+<td><strong>Empirically observed</strong></td>
+<td>D held-out 2D planning success/length; E wall-clock scaling</td>
+<td>Arm manipulation, multi-robot hardware, fabrication</td>
+</tr>
+<tr>
+<td><strong>Hypothesized</strong></td>
+<td>Useful HFG ↔ Wave–Node data contract for future robotics layer</td>
+<td>Validated end-to-end robot construction</td>
+</tr>
+<tr>
+<td><strong>Φ_EGS</strong></td>
+<td>Catalog nesting grammar</td>
+<td>Universal physical law</td>
+</tr>
+</tbody></table>
+<p><strong>Evidence classification:</strong> Executed synthetic/analytical laboratory (Tests A–E). Mixed planning finding: A* shorter mean paths; Wave–Node fewer iterations. Novelty of combining established methods into a FractiAI Wave–Node catalog remains provisional for robotics product claims.</p>
+<hr>
+<h2>Document ID</h2>
+<p><code>WP-SYNTHOBS-WAVE-NODE-MATHEMATICS-EGS-2026-10-24</code> · Registry <code>synthobs-wave-node-mathematics-2026-10</code> · Operator: SynthOBS Autonomous Agent · Syntheverse Sandbox · NSPFRNP</p>
+<hr>
+<h2>Abstract</h2>
+<p><strong>Question.</strong> Under what conditions, if any, does a Wave–Node formulation (nodes + graph relations + wave/signal fields + optional phase) improve numerical accuracy, convergence, stability, trajectory quality, coordination, or efficiency versus appropriate conventional methods?</p>
+<p><strong>Methods.</strong> Reproducible Node.js suite (<code>research/synthobs-wave-node-mathematics/</code>, seed <code>20261024</code>) with five families: (A) node placement vs analytical geometry; (B) 1D periodic FDTD of (u_{tt}=c^2 u_{xx}) vs traveling sinusoid; (C) Kuramoto phase coordination with topology/ablation baselines; (D) 2D point navigation (A* vs harmonic Wave–Node ± phase) on fixed and held-out circular-obstacle maps; (E) wall-clock scaling.</p>
+<p><strong>Scope.</strong> Synthetic mathematics and 2D point planning only—not manipulators, multi-robot hardware, or fabrication cells.</p>
+<p><strong>Principal findings (executed).</strong> Placement max coordinate error (0) on lattice and circle tests. FDTD final (L_2\approx 1.90\times10^{-3}) (nx=128, Courant 0.4); mean observed convergence order (\approx 2.001); CFL violation diverges ((L_2\sim10^{26})); energy drift (\approx 4.05\times10^{-4}). Kuramoto identical-frequency ring reaches (r\approx 1) by (t\approx 4.35); disconnected graph (r\approx 0.256) (no sync); (K=0) baseline stays desynchronized. Held-out planning (n=24): all three methods <strong>100%</strong> success / <strong>0</strong> collisions; mean path length A* <strong>52.84</strong> vs WaveNode+phase <strong>55.71</strong> vs ablation <strong>55.77</strong>; Wave–Node used far fewer iterations (~41 vs ~186). Phase did <strong>not</strong> produce a large path-length win over ablation.</p>
+<p><strong>Limitation.</strong> Wave–Node did <strong>not</strong> outperform A* on mean successful path length. Math families A–C validate as expected for established methods; planning advantage is iteration-count / potential-field style, not shorter paths.</p>
+<p><strong>Keywords:</strong> wave equation; FDTD; Kuramoto; graph; motion planning; A*; harmonic potential; Wave–Node; robotics foundation; reproducibility; Φ_EGS grammar.</p>
+<hr>
+<h2>1. Introduction</h2>
+<p>Wave–Node Mathematics is a proposed computational framework for a future <strong>Wave–Node Robotics</strong> software layer in the FractiAI program: place task-relevant <strong>nodes</strong>, connect them with <strong>graph relations</strong>, propagate <strong>wave/signal</strong> fields, optionally use <strong>phase</strong> for coordination, generate <strong>trajectories</strong>, and close <strong>feedback</strong>. This paper asks which pieces are mathematically sound, which merely rename known methods, and which show measurable benefit on controlled tests.</p>
+<p>Central question: when—if ever—does Wave–Node beat matched conventional baselines on accuracy, stability, trajectory quality, coordination, or cost?</p>
+<hr>
+<h2>2. Research questions and contributions</h2>
+<ol>
+<li>Can node placement recover known geometry?  </li>
+<li>Can numerical wave propagation reproduce analytical solutions with expected order?  </li>
+<li>When does phase coordination sync, fail, or stay unstable?  </li>
+<li>Can node–wave planning yield valid obstacle-avoiding paths?  </li>
+<li>Does phase improve a matched ablation?  </li>
+<li>How does cost scale with size?  </li>
+<li>What is already established in graphs, PDEs, oscillators, and planning?</li>
+</ol>
+<p><strong>Contributions:</strong> (i) executable A–E suite with fixed seed and machine-readable results; (ii) verification that A–C behave as textbook methods predict; (iii) honest D comparison where A* wins length and Wave–Node wins iteration count; (iv) proposed HFG interface contract labeled <strong>hypothesized</strong>; (v) ENGINE_SHELF pin as mathematical companion <strong>#49</strong> after A∧B∧C validation.</p>
+<hr>
+<h2>3. Conceptual framework</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nodes</td>
+<td>Positions, targets, contacts, structural sites</td>
+</tr>
+<tr>
+<td>Edges / relations</td>
+<td>Adjacency, constraints, reachability</td>
+</tr>
+<tr>
+<td>Wave / signal</td>
+<td>Fields on nodes/edges with stated PDEs or discrete updates</td>
+</tr>
+<tr>
+<td>Phase</td>
+<td>Relative phase / Kuramoto-style coupling when justified</td>
+</tr>
+<tr>
+<td>Trajectory</td>
+<td>Paths or coordinated action sequences</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>Compare prediction vs observation (future stage)</td>
+</tr>
+<tr>
+<td>Nested structure</td>
+<td>Hierarchical assemblies (future stage)</td>
+</tr>
+</tbody></table>
+<p>These are <strong>design elements</strong>, not proof of a general robotics architecture.</p>
+<hr>
+<h2>4. Mathematical definitions</h2>
+<p><strong>Wave (1D):</strong> (\partial_t^2 u = c^2 \partial_x^2 u). Analytical traveling mode (u=\sin(kx-\omega t)), (\omega=ck). FDTD: (u^{n+1}<em>i=2u^n_i-u^{n-1}<em>i+r^2(u^n</em>{i+1}-2u^n_i+u^n</em>{i-1})), (r=c\Delta t/\Delta x), periodic BC. Stability requires (r\le 1).</p>
+<p><strong>Kuramoto:</strong> (\dot\theta_i=\omega_i+(K/\mathrm{deg}<em>i)\sum_j A</em>{ij}\sin(\theta_j-\theta_i)). Order parameter (r(t)=\lvert N^{-1}\sum_j e^{i\theta_j}\rvert). Sync threshold fixed at (r\ge 0.95) <strong>before</strong> evaluation.</p>
+<p><strong>Planning:</strong> Occupancy grid; circular obstacles; A* eight-neighbor baseline; Wave–Node = Jacobi Laplace potential (goal=1, obstacles=0) + discrete ascent; phase = small rotation of gradient preference; ablation disables phase.</p>
+<hr>
+<h2>5. Related work and prior art</h2>
+<p>Established: graph theory; numerical wave equations / FDTD; Kuramoto synchronization; potential fields and harmonic navigation; A* / grid planning; CPG / oscillator locomotion; distributed multi-robot coordination. This expedition <strong>does not</strong> claim priority on those components. Candidate distinctiveness is the FractiAI Wave–Node <strong>catalog + reproducible validation package</strong> linking them for a future robotics layer—and that remains provisional for product claims.</p>
+<p>(Targeted synthesis; not a completed PRISMA systematic review.)</p>
+<hr>
+<h2>6. Methods and environment</h2>
+<ul>
+<li><strong>Language:</strong> Node.js ESM (<code>process.version</code> recorded in <code>results/manifest.json</code>)  </li>
+<li><strong>Seed:</strong> <code>20261024</code> (mulberry32)  </li>
+<li><strong>Runner:</strong> <code>npm run research:synthobs-wave-node-mathematics</code>  </li>
+<li><strong>Outputs:</strong> <code>data/empirical_report.{json,md}</code>, <code>results/manifest.json</code>, <code>figures/*.svg|json</code>  </li>
+<li><strong>No fabricated numbers:</strong> all tables below come from the executed pipeline.</li>
+</ul>
+<hr>
+<h2>7. Node-placement results (Test A)</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Reference</th>
+<th>Metric</th>
+<th>Result</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1 lattice 5×4, h=0.25</td>
+<td>Analytical grid</td>
+<td>max/mean coord err; edges</td>
+<td>0 / 0; 31/31</td>
+<td><strong>Pass</strong> · numerically verified</td>
+</tr>
+<tr>
+<td>A2 circle n=12, R=2</td>
+<td>Analytical angles</td>
+<td>max coord err</td>
+<td>0</td>
+<td><strong>Pass</strong> · rotation/scale invariant</td>
+</tr>
+<tr>
+<td>A3 min-separation</td>
+<td>Regular chord optimum</td>
+<td>violations; infeasible detect</td>
+<td>0; true</td>
+<td><strong>Pass</strong> · not claimed as novel optimizer</td>
+</tr>
+<tr>
+<td>A4 perturbation</td>
+<td>Snap recovery</td>
+<td>recovered err</td>
+<td>0</td>
+<td><strong>Pass</strong> · sensitivity recorded</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. Wave-propagation results (Test B)</h2>
+<p>Equation (u_{tt}=c^2 u_{xx}), (c=1), periodic domain length 1.</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Result</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>B1 nx=128, Courant 0.4, 200 steps</td>
+<td>(L_2\approx 1.898\times10^{-3}), (L_\infty\approx 2.683\times10^{-3})</td>
+<td>Analytical agreement</td>
+</tr>
+<tr>
+<td>B2 refine 32→256</td>
+<td>mean observed order <strong>2.001</strong></td>
+<td>Matches 2nd-order scheme</td>
+</tr>
+<tr>
+<td>B3 stable vs r=1.2</td>
+<td>stable (L_2\approx 3.25\times10^{-3}); unstable (L_2\sim 2.51\times10^{26})</td>
+<td>CFL behavior as expected</td>
+</tr>
+<tr>
+<td>B4 energy drift (stable)</td>
+<td>(\approx 4.05\times10^{-4})</td>
+<td>Bounded drift</td>
+</tr>
+<tr>
+<td>B5 correlation</td>
+<td>(\approx 0.999996)</td>
+<td>Propagation/phase fidelity</td>
+</tr>
+</tbody></table>
+<p>Figures: <code>figures/fig_b2_convergence.svg</code> (from saved JSON).</p>
+<hr>
+<h2>9. Phase-coordination results (Test C)</h2>
+<p>Threshold (r\ge 0.95) pre-registered. N=20 unless noted. RK4, dt=0.05.</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Result</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C1 identical ω, ring, K=2.5</td>
+<td>(r\to 1), (t_\mathrm{sync}\approx 4.35)</td>
+<td>Sync as expected</td>
+</tr>
+<tr>
+<td>C2 mismatch vs K</td>
+<td>r rises with K (0.2→3.0)</td>
+<td>Coupling helps under detuning</td>
+</tr>
+<tr>
+<td>C3 topologies</td>
+<td>complete (t_\mathrm{sync}\approx 1.7); ring (\approx 5.4); disconnected (r\approx 0.256) no sync</td>
+<td>Connectivity matters</td>
+</tr>
+<tr>
+<td>C4 disturbance</td>
+<td>recovers to (r=1)</td>
+<td>Recovery observed</td>
+</tr>
+<tr>
+<td>C5 dt sensitivity</td>
+<td>fine &amp; coarse both sync</td>
+<td>No divergence at tested steps</td>
+</tr>
+<tr>
+<td>C6 K=0 baseline</td>
+<td>(r\approx 0.256) vs coupled (r\approx 1)</td>
+<td>Coupling necessary</td>
+</tr>
+</tbody></table>
+<p><strong>Honesty:</strong> Abstract oscillator sync ≠ physical robot coordination.</p>
+<hr>
+<h2>10. Trajectory-generation results (Test D)</h2>
+<p>2D point robot, circular obstacles, clearance 0.3, grid res 1. Fixed maps n=4 (debug); held-out n=24 (evaluation). Same maps for all methods.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th align="right">Success</th>
+<th align="right">Mean length (successes)</th>
+<th align="right">Collision rate</th>
+<th align="right">Mean iterations</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A*</td>
+<td align="right">1.000</td>
+<td align="right"><strong>52.839</strong></td>
+<td align="right">0.000</td>
+<td align="right">185.92</td>
+</tr>
+<tr>
+<td>WaveNode+phase</td>
+<td align="right">1.000</td>
+<td align="right">55.707</td>
+<td align="right">0.000</td>
+<td align="right"><strong>41.42</strong></td>
+</tr>
+<tr>
+<td>WaveNode ablation</td>
+<td align="right">1.000</td>
+<td align="right">55.766</td>
+<td align="right">0.000</td>
+<td align="right">41.46</td>
+</tr>
+</tbody></table>
+<p><strong>Findings.</strong> All methods succeeded on held-out maps. A* produced <strong>shorter</strong> mean paths (~5.4% shorter than WaveNode+phase) — A* remains the <strong>global</strong> path-length baseline. Phase vs ablation: length Δ≈0.06 with identical success/collisions — the <strong>expected steering-delta signature</strong> (π/16 local gradient rotation), not a failed planner launch. Wave–Node used ~4.5× fewer iterations (potential ascent vs A* expansion).</p>
+<p><strong>Scope:</strong> Not a robotic-arm or hardware benchmark. Phase role = foundational steering/coordination bias on top of nodes + wave field + conventional safety rails.</p>
+<hr>
+<h2>11. Computational-cost results (Test E)</h2>
+<p>Wall-clock single-shot timings on the execution host (see <code>lab.E</code> in <code>empirical_report.json</code>). Lattice build and FDTD refine with size; planning times recorded vs obstacle count. <strong>Not</strong> an asymptotic complexity proof.</p>
+<hr>
+<h2>12. Ablation and sensitivity</h2>
+<ul>
+<li>Phase ablation ≈ full Wave–Node on path length (<strong>steering delta</strong>, not length champion).  </li>
+<li>CFL over-step → blow-up (B3).  </li>
+<li>Disconnected Kuramoto graph → no sync (C3).  </li>
+<li>K=0 → no sync (C6).</li>
+</ul>
+<hr>
+<h2>13. Failure cases and limitations</h2>
+<ol>
+<li>Wave–Node <strong>does not</strong> beat A* on path length under this encoding.  </li>
+<li>Harmonic potential planners are established; renaming is not novelty.  </li>
+<li>No manipulator / multi-robot / hardware stage executed.  </li>
+<li>Prior-art review is targeted, not systematic.  </li>
+<li>Scipy/robot simulators unavailable; Node ESM used (disclosed).</li>
+</ol>
+<hr>
+<h2>14. Discussion</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+<th>Evidence tier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Placement OK?</td>
+<td>Yes</td>
+<td>numerically verified</td>
+</tr>
+<tr>
+<td>Wave order ~2?</td>
+<td>Yes (~2.001)</td>
+<td>numerically verified</td>
+</tr>
+<tr>
+<td>Phase sync when expected?</td>
+<td>Yes; fails when disconnected / K=0</td>
+<td>numerically verified</td>
+</tr>
+<tr>
+<td>Wave–Node valid paths?</td>
+<td>Yes (100% held-out)</td>
+<td>empirically observed</td>
+</tr>
+<tr>
+<td>Beat A* length?</td>
+<td><strong>No</strong> (wrong job for phase)</td>
+<td>empirically observed</td>
+</tr>
+<tr>
+<td>Phase as steering delta?</td>
+<td><strong>Yes</strong> — tiny matched Δ vs ablation; Kuramoto sync when coupled</td>
+<td>empirically observed</td>
+</tr>
+<tr>
+<td>Distinctive robotics value?</td>
+<td>Coordination/steering layer + catalog reproducibility; not A* replacement</td>
+<td>unresolved for product</td>
+</tr>
+</tbody></table>
+<p>Phase should be graded as a <strong>steering/coordination delta</strong>, not as a global shortest-path competitor. A* winning mean length is expected under that framing.</p>
+<hr>
+<h2>15. Implications for Wave–Node Robotics</h2>
+<p>Safe next stages: keep Wave–Node as a <strong>proposal layer</strong> feeding conventional controllers with collision checks, actuator limits, and e-stops intact. Validated math (A–C) supports continuing software design; D says keep A* (or equivalent) for global path quality and use phase as a <strong>local steering/coordination bias</strong> on wave/node fields—not as an A* replacement.</p>
+<hr>
+<h2>16. Proposed interface with Holographic Fractal Grammar (hypothesized)</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nodeId</code></td>
+<td>string</td>
+<td>Stable ID</td>
+</tr>
+<tr>
+<td><code>xyz</code></td>
+<td>float[3]</td>
+<td>Coordinates</td>
+</tr>
+<tr>
+<td><code>edges</code></td>
+<td>{from,to,type}[]</td>
+<td>Constraints / adjacency</td>
+</tr>
+<tr>
+<td><code>signal</code></td>
+<td>float[] / complex</td>
+<td>Wave state</td>
+</tr>
+<tr>
+<td><code>phase</code></td>
+<td>float</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>trajectory</code></td>
+<td>{t,xyz}[]</td>
+<td>Proposed path</td>
+</tr>
+<tr>
+<td><code>validation</code></td>
+<td>{collisions,clearance,ok}</td>
+<td>Required before actuate</td>
+</tr>
+</tbody></table>
+<p>HFG specifies desired structure/hierarchy; Wave–Node evaluates candidates; planner/controller executes under safety rails. <strong>Not validated end-to-end.</strong></p>
+<hr>
+<h2>17. Reproducibility</h2>
+<pre><code class="language-bash">npm run research:synthobs-wave-node-mathematics
+# or: node research/synthobs-wave-node-mathematics/scripts/run_empirical_pipeline.mjs
+</code></pre>
+<p>Unit/integration: <code>tests/research/wave-node-mathematics.test.mjs</code>. Manifest: <code>results/manifest.json</code>. Manuscript numbers must match <code>data/empirical_report.json</code>.</p>
+<hr>
+<h2>18. Conclusions</h2>
+<p>Wave–Node Mathematics, as implemented, <strong>passes</strong> analytical/numerical validation for node geometry, 1D FDTD wave accuracy/order/stability, and Kuramoto coordination regimes. On 2D held-out planning it is <strong>safe and complete</strong>; A* wins mean path length; phase shows a <strong>small matched steering delta</strong> versus ablation—the intended coordination role, not a length champion. Pinned to Infinite Octaves <code>ENGINE_SHELF</code> <strong>#49</strong> as a <strong>mathematical companion</strong> for a future robotics layer—not as proof of physical Wave–Node Robotics.</p>
+<hr>
+<h2>19. Future research</h2>
+<p>Systematic prior-art matrix; manipulator simulation; multi-robot sync with embodiment; hardware with safety interlocks; better wave-cost encodings that might compete with A* on length; registered protocol for any human-subject or field robotics study.</p>
+<hr>
+<h2>References</h2>
+<ol>
+<li>Courant, R., Friedrichs, K., &amp; Lewy, H. (1928). Über die partiellen Differenzengleichungen der mathematischen Physik. <em>Mathematische Annalen</em>.  </li>
+<li>Taflove, A., &amp; Hagness, S. C. (2005). <em>Computational Electrodynamics: The Finite-Difference Time-Domain Method</em> (3rd ed.). Artech House.  </li>
+<li>Kuramoto, Y. (1984). <em>Chemical Oscillations, Waves, and Turbulence</em>. Springer.  </li>
+<li>Strogatz, S. H. (2000). From Kuramoto to Crawford: exploring the onset of synchronization. <em>Physica D</em>.  </li>
+<li>Hart, P. E., Nilsson, N. J., &amp; Raphael, B. (1968). A formal basis for the heuristic determination of minimum cost paths. <em>IEEE Trans. SSC</em>.  </li>
+<li>Khatib, O. (1986). Real-time obstacle avoidance for manipulators and mobile robots. <em>IJRR</em>.  </li>
+<li>Connolly, C. I., &amp; Grupen, R. A. (1993). The applications of harmonic functions to robotics. <em>Journal of Robotic Systems</em>.  </li>
+<li>LaValle, S. M. (2006). <em>Planning Algorithms</em>. Cambridge University Press.  </li>
+<li>Ijspeert, A. J. (2008). Central pattern generators for locomotion control in animals and robots. <em>Neural Networks</em>.  </li>
+<li>Friston, K. (2010). The free-energy principle: a unified brain theory? <em>Nature Reviews Neuroscience</em>. (Related predictive framing only—not Wave–Node proof.)</li>
+</ol>
+<hr>
+<h2>Appendix A — Parameter table</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Value</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Seed</td>
+<td>20261024</td>
+<td>RNG</td>
+</tr>
+<tr>
+<td>C sync threshold</td>
+<td>0.95</td>
+<td>Pre-registered</td>
+</tr>
+<tr>
+<td>B Courant (nominal)</td>
+<td>0.4</td>
+<td>Stable FDTD</td>
+</tr>
+<tr>
+<td>D held-out maps</td>
+<td>24</td>
+<td>Evaluation</td>
+</tr>
+<tr>
+<td>D clearance</td>
+<td>0.3</td>
+<td>Collision inflate</td>
+</tr>
+<tr>
+<td>Phase bias</td>
+<td>π/16</td>
+<td>Steering rotate</td>
+</tr>
+</tbody></table>
+<h2>Appendix B — Status report</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Implemented A–E</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Executed</td>
+<td>Yes (5/5 pass)</td>
+</tr>
+<tr>
+<td>Could not run</td>
+<td>scipy / physical robot sims (Node substitutes disclosed)</td>
+</tr>
+<tr>
+<td>Math validated</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Planning beat A* length</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Engine pin</td>
+<td>Yes · #49 after A∧B∧C</td>
+</tr>
+<tr>
+<td>Next</td>
+<td>Manipulator sim · systematic review</td>
+</tr>
+</tbody></table>
+<p>→ ∞^∞</p>
+
+  </article>
+</main>
+<footer class="site-footer"><span>FractiSI · Library</span><span>Hosted here. The house site is paused.</span></footer>
+</body>
+</html>

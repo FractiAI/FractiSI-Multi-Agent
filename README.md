@@ -158,3 +158,11 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 - SING 13 monorepo mirror: `products/tiny-footprint-workstation/` in [psw.vibelandia.sing13](https://github.com/FractiAI/psw.vibelandia.sing13)
 
 → ∞^∞
+
+---
+
+## FractiSI site
+
+Marketing site for FractiSI (product hub, research, library, company, recruit) lives at the repo root and deploys to https://fractisi.vercel.app.
+
+- Recruit: `/recruit/`

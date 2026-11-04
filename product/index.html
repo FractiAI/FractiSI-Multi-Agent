@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny Footprint · FractiSI</title>
+  <meta name="description" content="Tiny Footprint is FractiSI’s AI memory-efficiency developer kit. It installs beside the AI you already run.">
+  <link rel="stylesheet" href="../css/site.css?v=4">
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/research/">Research</a>
+      <a href="/library/">Library</a>
+      <a href="/company/">Company</a>
+      <a href="/recruit/">Recruit</a>
+      <a class="button" href="https://github.com/FractiAI/tiny-footprint-workstation">Get Workstation</a>
+    </nav>
+  </header>
+
+  <img class="banner" src="../media/tiny-footprint-hero.jpg" alt="Tiny Footprint: a gold network converging on a small leaf mark.">
+  <main class="wrap">
+    <article class="page">
+      <p class="kicker">Product · open source · freemium</p>
+      <h1>Tiny Footprint</h1>
+      <p class="lede">Software installed alongside the AI you already run. It is not a new computer, and it is not a replacement for your stack.</p>
+      <p>We operate open source, with a freemium model. Community is free and needs no account. The kit is on GitHub. Developer Pro is a proposed paid step, $29–49 a month, for people who want it.</p>
+      <p>Shared information is stored once. Differences that belong to a single session stay compact. What a session needs is reconstructed when it is needed. The aim is less resident memory, less preparation delay, and more concurrent work on the same machines.</p>
+
+      <figure class="figure">
+        <img src="../media/tiny-footprint-architecture.jpg" alt="Tiny Footprint sits between an application and the hardware it already uses.">
+        <figcaption>Your application stays. Tiny Footprint sits beside it. Tiny Gateway is the engine inside.</figcaption>
+      </figure>
+
+      <h2>One engine, three places it can live</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Local</h3>
+          <p>For a developer on their own machine. Community is free. Developer Pro is proposed at $29–49 a month. The Workstation kit is the way in: an editor project, a demo, and benchmarks you run yourself.</p>
+        </div>
+        <div class="card">
+          <h3>Server</h3>
+          <p>For a company GPU fleet that already serves models. Team and enterprise terms are proposed, from $199 a month to a custom annual license. Start on a test cluster.</p>
+        </div>
+        <div class="card">
+          <h3>Cloud</h3>
+          <p>For platform operators. Licensing, OEM, and per-GPU-hour terms are negotiated. This is a partner conversation, not a self-serve checkout.</p>
+        </div>
+      </div>
+      <figure class="figure">
+        <img src="../media/tiny-footprint-markets.jpg" alt="Local, Server, and Cloud are three markets for one Tiny Footprint engine.">
+        <figcaption>Same engine. Three markets.</figcaption>
+      </figure>
+
+      <h2>Measured on a local GPU</h2>
+      <p>These figures come from FractiAI’s own labs on a laptop GeForce, using DirectML. The memory figure is an allocation proxy. The speed figures are a tiny-gpt2 microbench. They are a starting receipt, not a datacenter result.</p>
+      <div class="metrics" aria-label="Local lab measurements">
+        <div><b>81.4%</b><span>allocation cut, proxy lab</span></div>
+        <div><b>1.80×</b><span>prefill, tiny-gpt2</span></div>
+        <div><b>1.37×</b><span>generate, tiny-gpt2</span></div>
+        <div><b>1.17×</b><span>train step, tiny-gpt2</span></div>
+      </div>
+      <p><a href="/research/">How to read these numbers</a></p>
+
+      <h2>Workstation 0.1</h2>
+      <figure class="figure">
+        <img src="../media/tiny-footprint-workstation.jpg" alt="The Workstation kit opens in an editor on the developer’s own computer.">
+        <figcaption>Download, open, configure, run, compare, then decide whether to integrate.</figcaption>
+      </figure>
+      <p>The first success is local. You clone the kit, open it in your editor, and run the command sequence. FractiSI does not operate the machine.</p>
+      <pre><code>git clone https://github.com/FractiAI/tiny-footprint-workstation.git
+cd tiny-footprint-workstation
+node scripts/tiny.mjs doctor
+node scripts/tiny.mjs install
+node scripts/tiny.mjs demo
+node scripts/tiny.mjs benchmark
+node scripts/tiny.mjs report</code></pre>
+      <p><a href="https://github.com/FractiAI/tiny-footprint-workstation">github.com/FractiAI/tiny-footprint-workstation</a></p>
+
+      <h2>Validation</h2>
+      <p>Infrastructure teams, cloud platforms, and accelerator groups can join a joint measurement on hardware closer to production. Memory and latency are both in scope. Write to <a href="mailto:valetpru@gmail.com?subject=Tiny%20Footprint%20validation">valetpru@gmail.com</a>.</p>
+
+      <p>The FractiAI papers behind this product are collected in the <a href="/library/">library</a>.</p>
+      <p class="honesty">Prices above are proposed and can change before a release. The local numbers are not a capital-expense guarantee, not a high-bandwidth-memory result, and not a comparison against a hosted frontier model. Production fleets still need a partner measurement. The longer technical note lives with the <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway whitepaper</a>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>FractiSI · Tiny Footprint</span>
+    <span><a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a></span>
+  </footer>
+</body>
+</html>
+
