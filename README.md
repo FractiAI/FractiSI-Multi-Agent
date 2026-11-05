@@ -1,17 +1,17 @@
 # Tiny Footprint Workstation
 
-### Less Memory. Lower Latency. More AI Performance.
+### More AI from the silicon you already own.
 
-**FractiAI commercial product kit** · powered by **Tiny Gateway™**
+**FractiSI** · Tiny Footprint · powered by **Tiny Gateway™**
 
 [![Edition](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/product/PRODUCT.md)
-[![Product hub](https://img.shields.io/badge/hub-ssvibelandia-0b1424)](https://www.ssvibelandiaquestfest24x365.com/tiny-footprint)
+[![Site](https://img.shields.io/badge/site-fractisi.vercel.app-0b1424)](https://fractisi.vercel.app)
 
 ---
 
 ## What is Tiny Footprint?
 
-Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It **widens cache utilization**: exact prefix sharing (what production prefix caches already do) plus organizational rhyme for near-duplicates when the words differ. Open benchmark evidence: prefix reuse is the performing mechanism; rhyme has not beaten a plain object reference on live heap in the reproducible study. See [RESULTS.md](./docs/benchmarks/RESULTS.md).
+Tiny Footprint is the memory layer beside frontier serving. Install it **beside** the AI stack you already run—not a GPU swap, not a model rewrite. Exact prefix sharing (what production caches already do) plus organizational rhyme for near-duplicates when the words differ. Open evidence: prefix reuse is the performing mechanism; rhyme has not beaten a plain object reference on live heap in the reproducible study. See [RESULTS.md](./docs/benchmarks/RESULTS.md).
 
 | | Without Tiny Footprint | With Tiny Footprint |
 |--|------------------------|---------------------|
