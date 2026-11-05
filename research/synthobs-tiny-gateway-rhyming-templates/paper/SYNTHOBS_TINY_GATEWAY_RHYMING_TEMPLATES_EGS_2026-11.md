@@ -1,6 +1,6 @@
 # Tiny Gateway: Rhyming Templates and a New Architecture for Memory-Efficient Computing
 
-**An Architectural Framework for Infinite-Octave Organization, Nested-Vector Representation, Selective Reconstruction, Tiny Footprint productization, and an 80% DRAM / accelerator-resident reduction research target**
+**An Architectural Framework for Infinite-Octave Organization, Nested-Vector Representation, Selective Reconstruction, Tiny Footprint productization, and an 80% representation / duplicated-resident-state reduction research target**
 
 **Research paper · Version 1.3 (route · context-fold hooks · energy-proxy companions) · Infinite Octave / SynthOBS · 4 November 2026 · ENGINE_SHELF #52**
 
