@@ -147,6 +147,8 @@ Every folder has a `README.md` for people and an `AGENTS.md` for agents.
 ## What the evidence shows
 
 <!-- BEGIN GENERATED EVIDENCE -->
+**In short:** sharing a prompt prefix across sessions is the one thing here that performs, and production prefix caches already do it. The rhyming engine does not beat a plain object reference in memory, and it is slower to rebuild a session. [The results page](./docs/benchmarks/RESULTS.md) has the short answer with its numbers.
+
 Generated from the receipts in [`output/data/`](./output/data/README.md). Measured values are from **Apple M4 Pro**. [Full results and the claim ledger](./docs/benchmarks/RESULTS.md).
 
 - **Representation bytes** (deterministic): the published aggregate reproduces at **84.5%**. It is 74.3% with equal weights and 77.0% over lossless workloads, against a target of 80%.

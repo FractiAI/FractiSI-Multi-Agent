@@ -4,6 +4,17 @@
 
 These tables come from the receipts under [`output/data/`](../../output/data/README.md). The measured tables describe one host: **Apple M4 Pro**, Node v26.13.0. Run the benchmarks yourself for your own machine; see [running the benchmarks](running.md).
 
+## The short answer
+
+Sharing a prompt prefix is the one thing here that performs, and it is not new.
+
+- **What works:** sharing a prompt prefix across sessions. Prefill runs 1.34× to 3.50× faster, and KV memory falls 84.4%, or 27.3% once model weights are counted. Production prefix caches already do this, so it helps only on a serving stack without one.
+- **What does not:** the rhyming engine. With a shared prompt it saves 32.8% of heap, against 32.9% for a plain object reference. With the same shape and different words it saves 4.2%, against 20.1%. Rebuilding a session takes 1.69× to 11.81× the time of reading a duplicated store.
+- **What could improve it:** two changes, each measured on its own. Without `structuredClone`, rebuilding takes 1.06× to 1.96×, which is still no faster than a duplicated store. A tighter encoding saves 20.9% of heap on the same-shape workload, about level with a plain reference.
+- **What is worth reusing:** the benchmark method. Each receipt is bound to the code that produced it, and the real-model equivalence check also runs against a deliberately wrong cache, which shows whether that check can fail at all.
+
+These values come from one host and small GPT-2-family models. They do not say how the kit behaves on a production server.
+
 ## Representation bytes
 
 Deterministic. Identical on any machine.

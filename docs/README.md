@@ -7,7 +7,7 @@ Tiny Footprint Workstation is FractiAI's developer kit for storing shared AI-ser
 | You want to | Read |
 |---|---|
 | Understand the product in plain language | [product/SIMPLE.md](product/SIMPLE.md), then [product/PRODUCT.md](product/PRODUCT.md) |
-| See what the evidence shows | [benchmarks/RESULTS.md](benchmarks/RESULTS.md), which ends in the claim ledger |
+| See what the evidence shows | [benchmarks/RESULTS.md](benchmarks/RESULTS.md), which opens with the short answer and ends in the claim ledger |
 | Read the full study | [the rendered manuscript](../output/pdf/tiny-footprint-workstation_combined.pdf), from [manuscript/](manuscript/README.md) |
 | Run the benchmarks on your machine | [benchmarks/running.md](benchmarks/running.md) |
 | Understand how results are produced | [benchmarks/methodology.md](benchmarks/methodology.md) |
