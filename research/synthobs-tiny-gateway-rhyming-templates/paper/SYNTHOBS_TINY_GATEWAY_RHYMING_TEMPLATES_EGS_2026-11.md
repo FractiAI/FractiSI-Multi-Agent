@@ -24,7 +24,7 @@
 | Tier | Claims | Does not claim |
 |------|--------|----------------|
 | **Architecture** | Rhyming Templates + selective reconstruction implementable in-suite. A holographic rhyme requires four pillars (repeating · self-similar · self-correcting · recursive); schema match or prefix reuse alone is not a rhyme | That a rhyme is a prefix cache or exact-text dedupe; every conventional AI stack already replaced |
-| **In-process lab** | Aggregate B?F representation-size reduction 84.5% with exact reconstruction | That alone equals datacenter CapEx ?80% |
+| **In-process lab** | Aggregate B–F representation-size reduction 84.5% with exact reconstruction | That alone equals datacenter CapEx −80% |
 | **Tiny Footprint GPU lab** | Live chat-serving proxy on **NVIDIA GeForce GTX 860M** (this laptop): cuMemAlloc ~81.4%; nvidia-smi 313→85 MiB (~72.8%); density ~11.9×; turn materialize p50 **41.8 ms → 3.7 ms (~11.2×)**; bringup p50 **5.8 → 3.2 ms (~1.8×)** | Hosted frontier-vendor API bake-off; that GeForce GDDR is identical silicon to datacenter HBM; that these ms are frontier LLM decode TTFT/TPS |
 | **Latency wording** | Wall-clock `cuMemcpyHtoD` + sync for with/without Tiny Footprint materialization on GTX 860M | End-to-end frontier model generation latency on a hosted chat API |
 | **HBM wording** | Device memory measured via nvidia-smi / cuMemAlloc on GTX 860M GDDR; HBM is the datacenter analogue operators care about for the same duplicated-resident-state problem | This laptop GeForce is HBM silicon |
@@ -56,7 +56,7 @@ Tiny Gateway is a computing architecture organized around **Rhyming Templates**:
 
 **Potential novelties (open).** Multi-host Tiny Footprint; richer automatic template discovery; formal hexagon–circle geometry; operator runs on true HBM accelerators (A100/H100-class) against production frontier serving binaries.
 
-**Implications.** Tiny Footprint is offered as a **capacity multiplier for serving**: keep the pattern once, store deltas/state, reconstruct the working set. That targets today?s expense and shortage pattern?too much rent on duplicated resident state?without claiming weights disappear. CapEx/energy follow only after operators remove purchasable memory from real configurations while holding latency and quality.
+**Implications.** Tiny Footprint is offered as a **capacity multiplier for serving**: keep the pattern once, store deltas/state, reconstruct the working set. That targets today’s expense and shortage pattern—too much rent on duplicated resident state—without claiming weights disappear. CapEx/energy follow only after operators remove purchasable memory from real configurations while holding latency and quality.
 
 **Keywords:** Tiny Footprint, Tiny Gateway, Rhyming Templates, GPU device memory, materialization latency, HBM analogue, selective reconstruction, concurrency density, ENGINE_SHELF.
 
@@ -64,7 +64,7 @@ Tiny Gateway is a computing architecture organized around **Rhyming Templates**:
 
 ## 1. Strategic premise · Tiny Footprint
 
-Conventional serving often reprints the same organizational pattern per session (system prompt/policy envelopes, indexes, intermediate copies, full node replicas). Tiny Footprint?s offer: stop paying full rent on those reprints.
+Conventional serving often reprints the same organizational pattern per session (system prompt/policy envelopes, indexes, intermediate copies, full node replicas). Tiny Footprint’s offer: stop paying full rent on those reprints.
 
 Operator outcomes under test:
 
@@ -76,7 +76,7 @@ Operator outcomes under test:
 
 ## 2. Architecture (unchanged core)
 
-Generative possibility ? processes ? Infinite Octaves ? 3D Hexagon / eight-node broadcast ? Rhyming Templates ? nested vectors ? Tiny Gateway engine ? **Tiny Footprint memory productization**.
+Generative possibility → processes → Infinite Octaves → 3D Hexagon / eight-node broadcast → Rhyming Templates → nested vectors → Tiny Gateway engine → **Tiny Footprint memory productization**.
 
 ---
 
@@ -84,12 +84,12 @@ Generative possibility ? processes ? Infinite Octaves ? 3D Hexagon / eight-node 
 
 | Exp | Result | Pass |
 |-----|--------|------|
-| A Illustrative model | 78.7%; 94.1% non-weight cut for 80% total | ? |
-| B Structured | 54.3% | ? |
-| C Cross-linked | 82.4% | ? |
-| D Eight-node | 86.4% | ? |
-| E Selective octave | 99.5% | ? |
-| F AI context proxy | 48.9% | ? |
+| A Illustrative model | 78.7%; 94.1% non-weight cut for 80% total | ✓ |
+| B Structured | 54.3% | ✓ |
+| C Cross-linked | 82.4% | ✓ |
+| D Eight-node | 86.4% | ✓ |
+| E Selective octave | 99.5% | ✓ |
+| F AI context proxy | 48.9% | ✓ |
 | G Exactness | 100% primary+validation | ✓ |
 | R Holographic rhyme gate | four pillars pass; brick wall / schema-only fail; differing-words rhyme beats exact cache; identical text: cache smaller | ✓ |
 | S H100 rhyme vs prefix sim | identical exact prefix: Tiny = prefix cache; rhyming different wording: ~34% KV cut vs prefix cache, ~1.52× materialize bandwidth proxy (published H100 profile · not live silicon) | ✓ |
@@ -143,13 +143,13 @@ Tiny Footprint here means **shared system-prefix KV reuse** (infer) and **single
 
 **Name:** Tiny Footprint  
 **Brochure:** `/tiny-footprint`  
-**Positioning:** memory product for AI serving operators facing duplicated resident-state rent, memory cost, and accelerator scarcity ? with measured materialization latency that improves when the duplicated pile shrinks.
+**Positioning:** memory product for AI serving operators facing duplicated resident-state rent, memory cost, and accelerator scarcity — with measured materialization latency that improves when the duplicated pile shrinks.
 
 ---
 
 ## 6. Conclusion
 
-Version 1.2 adds measured Tiny Footprint **latency** (with vs without) beside the GPU live chat-stack memory receipt. On this laptop?s **NVIDIA GeForce GTX 860M**, Tiny Footprint cut resident device memory **and** sped turn materialization (~11.2× p50) and session bring-up (~1.8×), with explicit GDDR-vs-HBM honesty and an explicit non-claim on frontier decode TTFT.
+Version 1.2 adds measured Tiny Footprint **latency** (with vs without) beside the GPU live chat-stack memory receipt. On this laptop’s **NVIDIA GeForce GTX 860M**, Tiny Footprint cut resident device memory **and** sped turn materialization (~11.2× p50) and session bring-up (~1.8×), with explicit GDDR-vs-HBM honesty and an explicit non-claim on frontier decode TTFT.
 
 **Journey:** `/journey/homeostasis-expedition` · **Brochure:** `/tiny-footprint`
 
@@ -157,10 +157,10 @@ Version 1.2 adds measured Tiny Footprint **latency** (with vs without) beside th
 
 ## References / corpus cross-links
 
-1. Suite receipts ? `research/synthobs-tiny-gateway-rhyming-templates/data/empirical_report.json`
-2. GPU live lab ? `research/synthobs-tiny-gateway-rhyming-templates/data/gpu_live_chat_hbm_lab.json`
-3. Prior Tiny Gateway language+fusion ? `docs/SYNTHOBS_TINY_GATEWAY_LANGUAGE_RADAR_EGS_2026-10.md`
-4. Wave?Node / Homeostasis Expedition peers ? ENGINE_SHELF #49?#51 papers
-5. Tiny Footprint brochure ? `interfaces/tiny-footprint-brochure.html`
+1. Suite receipts — `research/synthobs-tiny-gateway-rhyming-templates/data/empirical_report.json`
+2. GPU live lab — `research/synthobs-tiny-gateway-rhyming-templates/data/gpu_live_chat_hbm_lab.json`
+3. Prior Tiny Gateway language+fusion — `docs/SYNTHOBS_TINY_GATEWAY_LANGUAGE_RADAR_EGS_2026-10.md`
+4. Wave–Node / Homeostasis Expedition peers — ENGINE_SHELF #49–#51 papers
+5. Tiny Footprint brochure — `interfaces/tiny-footprint-brochure.html`
 
-? ?^?
+→ ∞^∞

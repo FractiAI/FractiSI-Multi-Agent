@@ -28,6 +28,7 @@
     "join": "node scripts/tiny.mjs join",
     "share": "node scripts/tiny.mjs share",
     "research": "node research/synthobs-tiny-gateway-rhyming-templates/scripts/run_empirical_pipeline.mjs",
+    "research:synthobs-tiny-gateway-rhyming-templates": "npm run research",
     "pipeline": "node scripts/run_pipeline.mjs",
     "rebuild": "node scripts/run_pipeline.mjs --rebuild",
     "verify": "node scripts/verify_project.mjs"
