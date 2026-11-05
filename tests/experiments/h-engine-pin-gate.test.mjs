@@ -33,3 +33,11 @@ test('below the target or without exactness, no lab can rescue the pin', () => {
   assert.equal(experimentH_enginePinGate(clearing, false, { pass: true, allocReduction: 0.9 }).pass, false);
   assert.equal(experimentH_enginePinGate(below, true, null).status, 'fail');
 });
+
+test('a failed rhyme gate refuses the pin, even when the GPU lab passed', () => {
+  const lab = { pass: true, allocReduction: 0.9 };
+  assert.equal(experimentH_enginePinGate(clearing, true, lab, { pass: true }).enginePinRecommended, true);
+  const refused = experimentH_enginePinGate(clearing, true, lab, { pass: false });
+  assert.equal(refused.enginePinRecommended, false);
+  assert.equal(refused.status, 'fail');
+});

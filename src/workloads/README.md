@@ -6,4 +6,4 @@ The reference workload behind `tiny demo`.
 
 | Path | What it is |
 |---|---|
-| [`multi-session.mjs`](multi-session.mjs) | Reference multi-session workload: a shared system pattern versus duplicated. |
+| [`multi-session.mjs`](multi-session.mjs) | Reference multi-session workload: duplicated sessions, one shared system prompt, and a rhyme cohort. |

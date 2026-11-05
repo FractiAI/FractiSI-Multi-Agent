@@ -11,7 +11,7 @@
 
 ## What is Tiny Footprint?
 
-Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It helps that AI use **memory more efficiently** and potentially **respond faster** by matching a rhyme: the same organization, even when the words differ, stored once, with only the difference kept per session. An exact-text cache does that job only when the words themselves repeat.
+Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It helps that AI use **memory more efficiently** and potentially **respond faster** by matching a **holographic rhyme**: repeating · self-similar · self-correcting · recursive organization, stored once, with nested differences kept per session — including when the words differ. An exact-text cache only helps when the words themselves repeat; a shared identical system prompt is useful prefix reuse, not the full rhyme definition.
 
 | | Without Tiny Footprint | With Tiny Footprint |
 |--|------------------------|---------------------|
@@ -162,6 +162,8 @@ Generated from the receipts in [`output/data/`](./output/data/README.md). Measur
 <!-- END GENERATED EVIDENCE -->
 
 Your `tiny benchmark` and `tiny report` produce receipts for **your** machine. These figures are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations.
+
+**H100 simulation (not live silicon):** when sessions share organization but not exact wording, a production prefix cache cannot share and the Tiny Footprint template+delta residency hypothesis cuts KV about **34%** versus that prefix cache (~**1.52×** materialize bandwidth proxy on the published H100 SXM profile). When the exact prefix is identical, Tiny matches the prefix cache. The real-tensor line above shows what a measurement found.
 
 ### Reproduce it
 

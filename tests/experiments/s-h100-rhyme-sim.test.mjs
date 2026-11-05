@@ -12,6 +12,9 @@ test('the stored simulation meets its own invariants', () => {
   assert.equal(result.pass, true);
   assert.equal(result.status, 'pass');
   assert.ok(result.tinyKvReductionVersusPrefixCache > 0.3);
+  assert.ok(result.tinyMaterializeSpeedupVersusPrefixCache > 1.2);
+  assert.equal(result.report.workloads.identicalPrefix.comparison.tinyVersusPrefixCacheResidentBytes, 0);
+  assert.equal(result.report.workloads.rhymingDifferentWording.arms.tinyFootprintRhyme.sameResidentSetAsPrefixCache, false);
   assert.equal(receipt.workload.rhymeSharedOrgFraction, RHYME_SHARED_ORG_FRACTION);
 });
 

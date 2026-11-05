@@ -43,8 +43,12 @@ test('the thin entry points work end to end', () => {
   const doctor = run('scripts/tiny.mjs', 'doctor');
   assert.equal(doctor.status, 0, doctor.stderr);
   assert.match(doctor.stdout, /doctor complete/);
-  assert.match(run('scripts/tiny.mjs', 'demo').stdout, /byte reduction/);
-  assert.match(run('workloads/multi-session/run.mjs').stdout, /byte reduction/);
+  for (const entry of [['scripts/tiny.mjs', 'demo'], ['workloads/multi-session/run.mjs']]) {
+    const demo = run(...entry);
+    assert.equal(demo.status, 0, demo.stderr);
+    assert.match(demo.stdout, /prefix-reuse/);
+    assert.match(demo.stdout, /rhyme audit true · brick wall false/);
+  }
   const unknown = run('scripts/tiny.mjs', 'nope');
   assert.equal(unknown.status, 1);
   assert.match(unknown.stderr, /Unknown command/);

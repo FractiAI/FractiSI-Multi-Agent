@@ -69,3 +69,5 @@ Moving code preserved results: the deterministic experiments are byte-identical 
 ## Merging upstream
 
 FractiAI's v1.3 commit `733b48e` was ported here rather than copied, and experiment results match upstream's own code byte for byte (`tests/fixtures/`). One part was left out on purpose: upstream's `gpu-live-lab.mjs` reuses a stored GPU receipt by default and its suite counts that as a pass. That is the defect `src/labs/python-runner.mjs` exists to prevent, so a lab here still reports only what ran now.
+
+FractiAI's later merge of PR #2 (`d51c959`) changed documentation, tests and the demo workload, and no engine, experiment or benchmark source. The demo's new rhyme cohort lives in `src/workloads/`, and the tests moved into the mirrored tree. The receipts measured at `733b48e` still match the code, which the source fingerprint checks on every run.

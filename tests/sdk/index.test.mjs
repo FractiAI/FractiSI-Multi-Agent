@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { PRODUCT, VERSION, discover, measureBytes, reconstruct, registerCompressionHook, registerTemplate, routeTemplate, createCompressionHookRegistry, createContextBuffer, sessionDelta, trueRhymeCandidate, withEnergyBudget } from '../../src/sdk/index.mjs';
+import { FOUR_PILLARS, PRODUCT, VERSION, auditRhyme, brickWallCandidate, discover, measureBytes, reconstruct, registerCompressionHook, registerTemplate, routeTemplate, createCompressionHookRegistry, createContextBuffer, sessionDelta, shapesRhyme, structuralSignature, trueRhymeCandidate, withEnergyBudget } from '../../src/sdk/index.mjs';
 import * as publicPath from '../../tiny-footprint/sdk/index.mjs';
 
 const rhymed = (role, utterance) => ({ kind: 'sdk', schema: 's', organization: { kind: 'sdk', role }, utterance });
@@ -34,6 +34,30 @@ test('rhyme evidence is audited when given', () => {
   assert.equal(registerTemplate('sdk-audited', pattern, evidence).rhymePass, true);
   assert.throws(() => registerTemplate('sdk-refused', { unit: 'brick', index: 0 }, { expressions: [], nestDepth: 0 }), /holographic_rhyme_rejected/);
   assert.equal(typeof trueRhymeCandidate, 'function');
+});
+
+test('a template with rhyme evidence keeps nested differences and rebuilds the session', () => {
+  const pattern = { kind: 'session', schema: 'sdk_v1', organization: { kind: 'session', role: 'user', octave: 1 }, utterance: '' };
+  const session = { kind: 'session', schema: 'sdk_v1', organization: { kind: 'session', role: 'lead', octave: 2 }, utterance: 'hello from sdk' };
+  const template = registerTemplate('sys-v1', pattern, { expressions: [session, { ...session, utterance: 'second' }], nestDepth: 2, driftBefore: 0.15 });
+  assert.equal(template.rhymePass, true);
+  const { delta } = sessionDelta('sys-v1', session);
+  assert.equal(delta.utterance, 'hello from sdk');
+  assert.equal(delta.organization.role, 'lead');
+  assert.equal(delta.organization.octave, 2);
+  assert.deepEqual(reconstruct('sys-v1', delta).value, session);
+  assert.equal(shapesRhyme(pattern, session), true);
+});
+
+test('a brick wall fails the four pillars and a true rhyme passes all of them', () => {
+  const brick = auditRhyme(brickWallCandidate(8));
+  assert.equal(brick.pass, false);
+  assert.ok(brick.failed.includes('self_similar'));
+  const expression = (role, octave, utterance) => ({ kind: 'session', schema: 'rhyme_v1', motion: 'repeat-mirror-recurse-correct', organization: { kind: 'session', role, octave }, utterance });
+  const rhyme = auditRhyme(trueRhymeCandidate([expression('user', 1, 'other words same organization'), expression('lead', 2, 'a different question entirely')], 2, 0.15));
+  assert.equal(rhyme.pass, true);
+  assert.ok(FOUR_PILLARS.every((pillar) => rhyme.pillars[pillar].pass));
+  assert.notEqual(structuralSignature({ tags: ['a'] }), structuralSignature({ tags: { a: true } }));
 });
 
 test('the lab meters are reachable through the SDK', () => {

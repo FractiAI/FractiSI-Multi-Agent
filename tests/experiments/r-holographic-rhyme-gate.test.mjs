@@ -16,5 +16,6 @@ test('the gate passes the rhyme cohort and refuses the contrast cases', () => {
   assert.equal(result.brickAudit.pass, false);
   assert.equal(result.schemaOnly.pass, false);
   assert.equal(result.falseMatchRejected, true);
+  assert.equal(result.arrayObjectDistinct, true);
   assert.equal(result.nestedFieldDelta, true);
 });
