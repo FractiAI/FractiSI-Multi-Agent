@@ -26,94 +26,94 @@
   },
   "crossover": {
     "allEquivalent": true,
-    "cacheFirstSmallerAt": 0.4,
+    "cacheFirstSmallerAt": 0.6,
     "points": [
       {
-        "cacheBytes": 8064,
+        "cacheBytes": 13424,
         "duplicateFraction": 0,
         "equivalent": true,
-        "naiveBytes": 8064,
-        "rhymeBytes": 5554,
+        "naiveBytes": 13424,
+        "rhymeBytes": 7385,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 7462,
+        "cacheBytes": 12420,
         "duplicateFraction": 0.1,
         "equivalent": true,
-        "naiveBytes": 8053,
-        "rhymeBytes": 5552,
+        "naiveBytes": 13413,
+        "rhymeBytes": 7257,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 6660,
+        "cacheBytes": 11082,
         "duplicateFraction": 0.2,
         "equivalent": true,
-        "naiveBytes": 8039,
-        "rhymeBytes": 5578,
+        "naiveBytes": 13399,
+        "rhymeBytes": 7123,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 5854,
+        "cacheBytes": 9740,
         "duplicateFraction": 0.3,
         "equivalent": true,
-        "naiveBytes": 8021,
-        "rhymeBytes": 5558,
+        "naiveBytes": 13381,
+        "rhymeBytes": 6949,
         "smaller": "rhyme"
       },
       {
-        "cacheBytes": 5046,
+        "cacheBytes": 8396,
         "duplicateFraction": 0.4,
         "equivalent": true,
-        "naiveBytes": 8001,
-        "rhymeBytes": 5578,
-        "smaller": "cache"
+        "naiveBytes": 13361,
+        "rhymeBytes": 6809,
+        "smaller": "rhyme"
       },
       {
-        "cacheBytes": 4238,
+        "cacheBytes": 7052,
         "duplicateFraction": 0.5,
         "equivalent": true,
-        "naiveBytes": 7981,
-        "rhymeBytes": 5556,
-        "smaller": "cache"
+        "naiveBytes": 13341,
+        "rhymeBytes": 6619,
+        "smaller": "rhyme"
       },
       {
-        "cacheBytes": 3430,
+        "cacheBytes": 5708,
         "duplicateFraction": 0.6,
         "equivalent": true,
-        "naiveBytes": 7961,
-        "rhymeBytes": 5576,
+        "naiveBytes": 13321,
+        "rhymeBytes": 6479,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 2622,
+        "cacheBytes": 4364,
         "duplicateFraction": 0.7,
         "equivalent": true,
-        "naiveBytes": 7941,
-        "rhymeBytes": 5554,
+        "naiveBytes": 13301,
+        "rhymeBytes": 6303,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 1814,
+        "cacheBytes": 3020,
         "duplicateFraction": 0.8,
         "equivalent": true,
-        "naiveBytes": 7921,
-        "rhymeBytes": 5574,
+        "naiveBytes": 13281,
+        "rhymeBytes": 6163,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 1006,
+        "cacheBytes": 1676,
         "duplicateFraction": 0.9,
         "equivalent": true,
-        "naiveBytes": 7901,
-        "rhymeBytes": 5594,
+        "naiveBytes": 13261,
+        "rhymeBytes": 6057,
         "smaller": "cache"
       },
       {
-        "cacheBytes": 198,
+        "cacheBytes": 332,
         "duplicateFraction": 1,
         "equivalent": true,
-        "naiveBytes": 7881,
-        "rhymeBytes": 5572,
+        "naiveBytes": 13241,
+        "rhymeBytes": 5867,
         "smaller": "cache"
       }
     ],
@@ -207,13 +207,23 @@
   },
   "planSha256": "df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770",
   "rhymeByteFraction": {
-    "cohortSharedFraction": 0.3640782749594914,
-    "expressionBytes": 5102,
-    "fullBytes": 8023,
+    "cohortSharedFraction": 0.5039976089068221,
+    "expressionBytes": 6638,
+    "fullBytes": 13383,
     "sessions": 40,
     "simulationSharedFraction": 0.38888888888888884
   },
   "rhymeGate": {
+    "netZeroOctaveRhyme": {
+      "failed": [],
+      "netZeroRoot": true,
+      "octaveSpan": [
+        0,
+        1,
+        2
+      ],
+      "pass": true
+    },
     "pillarsReadingDeclaredValues": [
       "recursive",
       "self_correcting"
@@ -226,9 +236,12 @@
       ],
       "pass": false
     },
+    "recursiveRequiresNetZero": true,
     "wallWithNestedFieldAndDeclaredValues": {
-      "failed": [],
-      "pass": true
+      "failed": [
+        "recursive"
+      ],
+      "pass": false
     }
   },
   "scaling": {
@@ -749,7 +762,7 @@
   "sourceFingerprint": {
     "algorithm": "sha256-of-sorted-file-hashes",
     "fileCount": 75,
-    "sha256": "09ae257e21c433fdb760c5c3df984bb15b4a14e19e8c2cb96b376981ba6bb793"
+    "sha256": "58499c4c63f0969fbfc6c90ae6578b5c349d7766d975d6af48ae81a7fe1c7bd1"
   },
   "suite": {
     "gateway": {
@@ -774,30 +787,42 @@
     },
     "rhyme": {
       "differingWords": {
-        "cacheBytes": 8064,
+        "cacheBytes": 13424,
         "cacheVersusNaive": 0,
         "equivalent": true,
         "exactTextHits": 0,
-        "naiveBytes": 8064,
+        "naiveBytes": 13424,
+        "netZeroRoot": true,
+        "octaveSpan": [
+          0,
+          1,
+          2
+        ],
         "phiEgs": 1.618033988749895,
         "rhymeAuditPass": true,
-        "rhymeBytes": 5554,
-        "rhymeVersusCache": 0.31125992063492064,
-        "rhymeVersusNaive": 0.31125992063492064,
+        "rhymeBytes": 7385,
+        "rhymeVersusCache": 0.4498659117997616,
+        "rhymeVersusNaive": 0.4498659117997616,
         "sessions": 40,
         "shapeHits": 40
       },
       "identicalText": {
-        "cacheBytes": 198,
-        "cacheVersusNaive": 0.9748762847354396,
+        "cacheBytes": 332,
+        "cacheVersusNaive": 0.9749263650781663,
         "equivalent": true,
         "exactTextHits": 39,
-        "naiveBytes": 7881,
+        "naiveBytes": 13241,
+        "netZeroRoot": true,
+        "octaveSpan": [
+          0,
+          1,
+          2
+        ],
         "phiEgs": 1.618033988749895,
         "rhymeAuditPass": true,
-        "rhymeBytes": 5572,
-        "rhymeVersusCache": -27.141414141414142,
-        "rhymeVersusNaive": 0.29298312396903947,
+        "rhymeBytes": 5867,
+        "rhymeVersusCache": -16.67168674698795,
+        "rhymeVersusNaive": 0.5569065780530171,
         "sessions": 40,
         "shapeHits": 40
       }

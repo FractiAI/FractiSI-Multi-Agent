@@ -1,9 +1,9 @@
 /**
  * Rhyme versus exact-text cache.
  *
- * A holographic rhyme matches organization (four-pillar gate plus structural signature).
- * An exact cache hits only when the stored text is identical.
- * Byte counts are UTF-8 JSON, in process. Not a GPU measurement.
+ * A holographic rhyme matches organization from Net Zero (octave 0) through ascending
+ * octaves (four-pillar gate plus structural signature). An exact cache hits only when
+ * the stored text is identical. Byte counts are UTF-8 JSON, in process. Not a GPU measurement.
  */
 import { bytesOf, reduction } from '../core/bytes.mjs';
 import { auditRhyme, trueRhymeCandidate } from '../engine/rhyming/gate.mjs';
@@ -12,28 +12,55 @@ import { PHI_EGS } from './constants.mjs';
 
 export const RHYME_SESSIONS = 40;
 
-/** Nested self-similar organization, which the four-pillar gate requires. */
+/** Net Zero → octave-nested self-similar organization (four-pillar gate). */
 export const RHYME_PATTERN = {
   kind: 'session',
-  schema: 'rhyme_v1',
+  schema: 'rhyme_v2',
   motion: 'repeat-mirror-recurse-correct',
+  netZero: {
+    kind: 'session',
+    octave: 0,
+    role: 'origin',
+    equilibrium: true,
+  },
   organization: {
     kind: 'session',
     role: 'user',
     octave: 1,
+    organization: {
+      kind: 'session',
+      role: 'lead',
+      octave: 2,
+    },
   },
   utterance: '',
 };
 
 function session(i, utterance) {
+  const role1 = i % 9 === 0 ? 'lead' : 'user';
+  const role2 = i % 5 === 0 ? 'lead' : 'user';
+  // Ascend through octaves; always keep Net Zero origin (octave 0) fixed.
+  const octave1 = (i % 7) + 1;
+  const octave2 = Math.min(octave1 + 1, 8);
   return {
     kind: 'session',
-    schema: 'rhyme_v1',
+    schema: 'rhyme_v2',
     motion: 'repeat-mirror-recurse-correct',
+    netZero: {
+      kind: 'session',
+      octave: 0,
+      role: 'origin',
+      equilibrium: true,
+    },
     organization: {
       kind: 'session',
-      role: i % 9 === 0 ? 'lead' : 'user',
-      octave: (i % 7) + 1,
+      role: role1,
+      octave: octave1,
+      organization: {
+        kind: 'session',
+        role: role2,
+        octave: octave2,
+      },
     },
     utterance,
   };
@@ -82,18 +109,20 @@ function rhymeStore(items) {
   }
   const catalog = createTemplateCatalog();
   catalog.register({
-    id: 'tpl_rhyme_v1',
+    id: 'tpl_rhyme_v2',
     pattern: RHYME_PATTERN,
     reconstruction: 'merge_delta',
     rhymePass: audit.pass,
     nestDepth: 2,
+    octaveSpan: [0, 1, 2],
+    netZeroRoot: true,
   });
   const expressions = items.map((item) => {
     const match = catalog.findMatch(item);
     if (!match) throw new Error('shape did not rhyme');
     return encodeExpression(match.id, match.pattern, item);
   });
-  return { catalog, stored: { template: catalog.get('tpl_rhyme_v1'), expressions }, audit };
+  return { catalog, stored: { template: catalog.get('tpl_rhyme_v2'), expressions }, audit };
 }
 
 export function compareRhymeToCache(items) {
@@ -117,6 +146,8 @@ export function compareRhymeToCache(items) {
     exactTextHits,
     equivalent,
     rhymeAuditPass: rhyme.audit.pass,
+    netZeroRoot: rhyme.audit.netZeroRoot === true,
+    octaveSpan: rhyme.audit.octaveSpan,
     naiveBytes,
     cacheBytes,
     rhymeBytes,

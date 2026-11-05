@@ -38,7 +38,7 @@ test('one session has no saving to speak of, and reports its cohort as not run i
 test('the summary reports both the prefix and the rhyme', () => {
   const [prefix, rhyme] = demoSummaryLines(runMultiSessionDemo(12));
   assert.match(prefix, /prefix-reuse \d+\.\d% · conventional \d+ B → prefix \d+ B/);
-  assert.match(rhyme, /rhyme audit true · brick wall false · rhyme bytes \d+ vs naive \d+ · exact true/);
+  assert.match(rhyme, /rhyme audit true · Net Zero true · brick wall false · rhyme bytes \d+ vs naive \d+ · exact true/);
 });
 
 test('negative control: a failed audit, a passing brick wall or an inexact rebuild fails the demo', () => {

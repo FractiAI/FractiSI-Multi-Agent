@@ -28,18 +28,48 @@ test('an unknown template, and a session that does not rhyme, are refused', () =
   assert.throws(() => sessionDelta('sdk-flat', { other: 1 }), /does not rhyme/);
 });
 
+const netZeroRoot = (role = 'root') => ({
+  kind: 'session',
+  equilibrium: 'net_zero',
+  octave: 0,
+  organization: { kind: 'session', role, octave: 0 },
+});
+
+/** Distinct `fixture` key shapes keep catalog signatures from colliding across tests. */
+const octaveSession = (fixture, role, octave, utterance) => ({
+  kind: 'session',
+  schema: 'sdk_net_zero_v1',
+  motion: 'repeat-mirror-recurse-correct',
+  fixture,
+  organization: { kind: 'session', role, octave },
+  utterance,
+  netZero: netZeroRoot(),
+});
+
 test('rhyme evidence is audited when given', () => {
-  const pattern = { kind: 'sdk2', schema: 's', organization: { kind: 'sdk2', role: '' }, utterance: '', extra: '' };
-  const evidence = { expressions: [pattern, pattern], nestDepth: 2, driftBefore: 0.15, driftAfter: 0.05 };
+  const pattern = octaveSession({ auditLane: true }, 'user', 1, '');
+  const evidence = {
+    expressions: [
+      octaveSession({ auditLane: true }, 'lead', 2, 'one'),
+      octaveSession({ auditLane: true }, 'peer', 3, 'two'),
+    ],
+    nestDepth: 3,
+    driftBefore: 0.15,
+    driftAfter: 0.05,
+  };
   assert.equal(registerTemplate('sdk-audited', pattern, evidence).rhymePass, true);
   assert.throws(() => registerTemplate('sdk-refused', { unit: 'brick', index: 0 }, { expressions: [], nestDepth: 0 }), /holographic_rhyme_rejected/);
   assert.equal(typeof trueRhymeCandidate, 'function');
 });
 
 test('a template with rhyme evidence keeps nested differences and rebuilds the session', () => {
-  const pattern = { kind: 'session', schema: 'sdk_v1', organization: { kind: 'session', role: 'user', octave: 1 }, utterance: '' };
-  const session = { kind: 'session', schema: 'sdk_v1', organization: { kind: 'session', role: 'lead', octave: 2 }, utterance: 'hello from sdk' };
-  const template = registerTemplate('sys-v1', pattern, { expressions: [session, { ...session, utterance: 'second' }], nestDepth: 2, driftBefore: 0.15 });
+  const pattern = octaveSession({ sysLane: true }, 'user', 1, '');
+  const session = octaveSession({ sysLane: true }, 'lead', 2, 'hello from sdk');
+  const template = registerTemplate('sys-v1', pattern, {
+    expressions: [session, { ...session, utterance: 'second', organization: { kind: 'session', role: 'peer', octave: 3 } }],
+    nestDepth: 3,
+    driftBefore: 0.15,
+  });
   assert.equal(template.rhymePass, true);
   const { delta } = sessionDelta('sys-v1', session);
   assert.equal(delta.utterance, 'hello from sdk');
@@ -53,10 +83,34 @@ test('a brick wall fails the four pillars and a true rhyme passes all of them', 
   const brick = auditRhyme(brickWallCandidate(8));
   assert.equal(brick.pass, false);
   assert.ok(brick.failed.includes('self_similar'));
-  const expression = (role, octave, utterance) => ({ kind: 'session', schema: 'rhyme_v1', motion: 'repeat-mirror-recurse-correct', organization: { kind: 'session', role, octave }, utterance });
-  const rhyme = auditRhyme(trueRhymeCandidate([expression('user', 1, 'other words same organization'), expression('lead', 2, 'a different question entirely')], 2, 0.15));
+  // Expressions must share the Net Zero → octave ladder organization of trueRhymeCandidate.
+  const expression = (role, utterance) => ({
+    kind: 'session',
+    schema: 'rhyme_v2',
+    motion: 'repeat-mirror-recurse-correct',
+    netZero: { kind: 'session', octave: 0, role: 'origin', equilibrium: true },
+    organization: {
+      kind: 'session',
+      role,
+      octave: 1,
+      organization: { kind: 'session', role: 'lead', octave: 2 },
+    },
+    utterance,
+  });
+  const rhyme = auditRhyme(
+    trueRhymeCandidate(
+      [
+        expression('user', 'other words same organization'),
+        expression('lead', 'a different question entirely'),
+      ],
+      2,
+      0.15,
+    ),
+  );
   assert.equal(rhyme.pass, true);
   assert.ok(FOUR_PILLARS.every((pillar) => rhyme.pillars[pillar].pass));
+  assert.ok(rhyme.netZeroRoot);
+  assert.deepEqual(rhyme.octaveSpan, [0, 1, 2]);
   assert.notEqual(structuralSignature({ tags: ['a'] }), structuralSignature({ tags: { a: true } }));
 });
 

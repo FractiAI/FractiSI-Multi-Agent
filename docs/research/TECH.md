@@ -16,7 +16,7 @@ On 40 sessions that share nested organization and say different things, the rhym
 
 ## What we measure
 
-- Holographic rhyme gate (four pillars; brick wall / schema-only negatives)  
+- Holographic rhyme gate (four pillars from Net Zero / octave 0 through ascending octaves; brick wall / schema-only / mid-octave-only negatives)  
 - H100 published-profile **simulation**: when organizational wording differs, prefix cache cannot share and Tiny Footprint’s template+delta residency is ~34% smaller KV than prefix cache (~1.52× materialize bandwidth proxy). When the exact prefix is identical, Tiny matches prefix cache.  
 - GPU allocation / peak device memory (local proxy lab — **prefix-reuse meter**, not a rhyme proof)  
 - Real local-GPU causal-LM prefill / generate / train-step with vs without Tiny Footprint (DirectML/CUDA when available) — shared-prefix reuse  
