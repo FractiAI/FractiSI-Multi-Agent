@@ -75,6 +75,12 @@ node scripts/verify_project.mjs
 
 This re-runs the deterministic tier and compares it byte for byte, rejects measured receipts whose producer has changed, re-reduces the receipts, re-hydrates the manuscript, and checks the PDF against its receipt. Each line reads `PASS` or `FAIL`, and any failure exits non-zero. Use `--before-render` before a PDF exists.
 
+## On NVIDIA hardware
+
+`node scripts/tiny.mjs benchmark` runs the live GPU lab when it can load the NVIDIA driver. The lab needs Python and loads `nvcuda.dll` from `C:\\Windows\\System32`, so it runs on a Windows host with an NVIDIA GPU. Anywhere else it records `not_run` with the reason. It has not run since the code was split, so treat a failure on that host as a bug to report.
+
+The real-model lab also runs on NVIDIA: `uv sync --group llm`, then set `TINY_FOOTPRINT_FORCE_LLM_LAB=1` and run the same command. Either way the receipts land in `benchmarks/reports/`, and they describe that machine.
+
 ## On another machine
 
 The deterministic receipts stay identical and the measured values change, as they should. If you regenerate the measured tier, also read the interpretive sentences in `docs/manuscript/`: values update automatically, and sentences that characterize them may need rewriting if the picture changes.
