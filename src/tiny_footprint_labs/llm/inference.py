@@ -15,7 +15,14 @@ from typing import Any
 
 from tiny_footprint_labs.common.stats import ratio, summarize_ms
 from tiny_footprint_labs.llm.device import sync_device
-from tiny_footprint_labs.llm.kv import KvPair, as_cache, kv_pairs
+from tiny_footprint_labs.llm.kv import (
+    KvPair,
+    as_cache,
+    kv_pairs,
+    logical_bytes,
+    rhyme_kv_residency_bytes,
+    splice_kv_pairs,
+)
 
 ARM_WITHOUT = "without"
 ARM_WITH = "with"
@@ -222,6 +229,40 @@ def rhyming_prefix(prefix_ids: Any, slot_every: int = RHYME_SLOT_EVERY) -> Any:
     return changed
 
 
+def _compare_spliced_resume(
+    model: Any,
+    recipient_ids: Any,
+    donor_ids: Any,
+    match_masks: Sequence[Any],
+    suffix_ids_per_turn: Sequence[Any],
+    new_tokens: int,
+    tolerance: float,
+) -> dict[str, Any]:
+    """Resume from a recipient cache with donor cells spliced into matching org slots."""
+    import torch
+
+    recipient = kv_pairs(run_forward(model, recipient_ids, None).past_key_values)
+    donor = kv_pairs(run_forward(model, donor_ids, None).past_key_values)
+    spliced = splice_kv_pairs(recipient, donor, match_masks)
+    worst = 0.0
+    token_sequences_equal = 0
+    for suffix_ids in suffix_ids_per_turn:
+        full_ids = torch.cat([recipient_ids, suffix_ids], dim=1)
+        without = run_forward(model, full_ids, None)
+        with_arm = run_forward(model, suffix_ids, spliced)
+        difference = (without.logits[:, -1, :] - with_arm.logits[:, -1, :]).abs().max().item()
+        worst = max(worst, float(difference))
+        if greedy_decode(model, without, new_tokens) == greedy_decode(model, with_arm, new_tokens):
+            token_sequences_equal += 1
+    turns = len(suffix_ids_per_turn)
+    return {
+        "turns": turns,
+        "worstLogitAbsDifference": worst,
+        "tokenSequencesEqual": token_sequences_equal,
+        "equivalent": worst <= tolerance and token_sequences_equal == turns,
+    }
+
+
 def measure_rhyme_sharing(
     model: Any,
     prefix_ids: Any,
@@ -229,13 +270,18 @@ def measure_rhyme_sharing(
     new_tokens: int,
     tolerance: float,
     rhyme_ids: Any = None,
+    sessions: int = 16,
 ) -> dict[str, Any]:
-    """Test whether a rhyme's KV state could stand in for another prompt's.
+    """Measure organizational rhyme-KV share: matching cells, spliced resume, residency.
 
     Two prompts keep most tokens and differ in a few slots, which favors sharing more
     than any real pair of sessions would. Each key and value cell, one per layer and
-    position, counts as shareable only if it matches within a relative tolerance. A
-    server would also have to resume from the other prompt's cache, which is tested too.
+    position, counts as shareable only if it matches within a relative tolerance.
+
+    The rhyme-KV path splices donor cells into the recipient only where masks match
+    (nested-story slots that agree). Serving may claim the residency saving only when
+    ``resumeFromSplicedCache.equivalent`` is true. Blind reuse of the other prompt's
+    full cache is also reported for contrast.
     """
     rhyme_ids = rhyming_prefix(prefix_ids) if rhyme_ids is None else rhyme_ids
     base = kv_pairs(run_forward(model, prefix_ids, None).past_key_values)
@@ -243,6 +289,7 @@ def measure_rhyme_sharing(
     positions = int(prefix_ids.shape[1])
     unchanged = (rhyme_ids == prefix_ids)[0]
     matching_by_layer = []
+    match_masks = []
     for base_pair, rhyme_pair in zip(base, rhyme, strict=True):
         matches = unchanged.clone()
         for original, candidate in zip(base_pair, rhyme_pair, strict=True):
@@ -250,20 +297,48 @@ def measure_rhyme_sharing(
             scale = original.abs().amax(dim=(0, 1, 3)).clamp_min(1e-12)
             matches = matches & (difference / scale <= KV_RELATIVE_TOLERANCE)
         matching_by_layer.append(int(matches.sum().item()))
+        match_masks.append(matches)
+    matching_cell_fraction = sum(matching_by_layer) / (len(base) * positions)
     resumed = _compare_arms(model, rhyme_ids, prefix_ids, suffix_ids_per_turn, new_tokens, tolerance)
+    spliced = _compare_spliced_resume(
+        model, prefix_ids, rhyme_ids, match_masks, suffix_ids_per_turn, new_tokens, tolerance
+    )
+    full_bytes = logical_bytes(base)
+    residency = rhyme_kv_residency_bytes(full_bytes, matching_cell_fraction, sessions)
     return {
         "kind": f"every {RHYME_SLOT_EVERY}th prefix token replaced by its neighbor",
+        "path": "organizational_rhyme_kv_splice",
         "relativeTolerance": KV_RELATIVE_TOLERANCE,
         "positions": positions,
         "changedTokens": positions - int(unchanged.sum().item()),
         "layers": len(base),
         "matchingPositionsByLayer": matching_by_layer,
-        "matchingCellFraction": sum(matching_by_layer) / (len(base) * positions),
+        "matchingCellFraction": matching_cell_fraction,
         "layersWithAnyMatch": sum(1 for count in matching_by_layer if count > 0),
+        "fullKvBytesOneSession": full_bytes,
+        "rhymeKvResidency": residency,
+        "claimableShare": spliced["equivalent"] is True,
         "resumeFromRhymingCache": {
             "worstLogitAbsDifference": resumed["worstLogitAbsDifference"],
             "tokenSequencesEqual": resumed["tokenSequencesEqual"],
             "turns": resumed["turns"],
             "equivalent": resumed["equivalent"],
+            "note": "Blind full-cache reuse of the other prompt — contrast, not the splice path.",
         },
+        "resumeFromSplicedCache": {
+            "worstLogitAbsDifference": spliced["worstLogitAbsDifference"],
+            "tokenSequencesEqual": spliced["tokenSequencesEqual"],
+            "turns": spliced["turns"],
+            "equivalent": spliced["equivalent"],
+            "note": (
+                "Donor cells spliced only into matching nested-story slots; "
+                "non-matching slots stay private to the recipient."
+            ),
+        },
+        "honesty": (
+            "Rhyme-KV shares matching attention cells across nested-story organization. "
+            "Residency math uses the measured matchingCellFraction. "
+            "A production claim requires resumeFromSplicedCache.equivalent; "
+            "JSON template/delta fractions are not KV compression factors."
+        ),
     }

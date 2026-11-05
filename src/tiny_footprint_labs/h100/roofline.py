@@ -257,6 +257,77 @@ def rhyming_different_wording_workload(model: dict[str, Any], device: dict[str, 
     }
 
 
+def measured_rhyme_kv_workload(
+    model: dict[str, Any],
+    device: dict[str, Any],
+    per_token: int,
+    matching_cell_fraction: float,
+    *,
+    claimable_share: bool,
+    share_source: str,
+) -> dict[str, Any]:
+    """Rhyme-KV residency using a measured matching-cell fraction (not JSON bytes)."""
+    from tiny_footprint_labs.llm.kv import rhyme_kv_residency_bytes
+
+    naive_kv = SESSIONS * (ORG_TOKENS + SUFFIX_TOKENS) * per_token
+    one = (ORG_TOKENS + SUFFIX_TOKENS) * per_token
+    residency = rhyme_kv_residency_bytes(one, matching_cell_fraction, SESSIONS)
+    tiny_kv = int(residency["rhymeKvBytes"])
+    arms = {
+        "naiveRefill": finish_arm({"kvBytes": naive_kv, "materializeBytes": naive_kv}, model, device),
+        "productionPrefixCache": finish_arm(
+            {
+                "kvBytes": naive_kv,
+                "materializeBytes": naive_kv,
+                "exactPrefixHits": 0,
+                "note": "Different wording — exact-prefix cache cannot share.",
+            },
+            model,
+            device,
+        ),
+        "tinyFootprintRhymeKv": finish_arm(
+            {
+                "kvBytes": tiny_kv,
+                "materializeBytes": tiny_kv,
+                "matchingCellFraction": matching_cell_fraction,
+                "claimableShare": claimable_share,
+                "shareSource": share_source,
+                "sameResidentSetAsPrefixCache": False,
+            },
+            model,
+            device,
+        ),
+    }
+    naive = arms["naiveRefill"]
+    prefix = arms["productionPrefixCache"]
+    tiny = arms["tinyFootprintRhymeKv"]
+    return {
+        "id": "rhymingKvMeasuredCells",
+        "title": "Organizational rhyme-KV using measured matching-cell fraction",
+        "rhymeDifferentiates": True,
+        "claimableShare": claimable_share,
+        "arms": arms,
+        "comparison": {
+            "tinyKvReductionVersusNaive": (naive["kvBytes"] - tiny["kvBytes"]) / naive["kvBytes"],
+            "tinyKvReductionVersusPrefixCache": (prefix["kvBytes"] - tiny["kvBytes"]) / prefix["kvBytes"],
+            "matchingCellFraction": matching_cell_fraction,
+        },
+        "honesty": (
+            "Uses measured matchingCellFraction from real tensors. "
+            "claimableShare is true only when spliced-cache resume stayed logit-equivalent."
+        ),
+    }
+
+
+# Published distilgpt2 lab fixture (rhymeSharing.matchingCellFraction) for the measured arm.
+MEASURED_DISTILGPT2_MATCHING_CELL_FRACTION = 0.14583333333333334
+MEASURED_DISTILGPT2_CLAIMABLE_SHARE = False
+MEASURED_DISTILGPT2_SOURCE = (
+    "tiny-footprint-workstation llm lab · distilgpt2 rhymeSharing.matchingCellFraction "
+    "(slot_every=8). claimableShare=false until resumeFromSplicedCache.equivalent."
+)
+
+
 def build_report() -> dict[str, Any]:
     """Compute the roofline report; pure and deterministic."""
     model = LLAMA2_7B
@@ -266,6 +337,14 @@ def build_report() -> dict[str, Any]:
 
     identical = identical_prefix_workload(model, device, per_token)
     rhyming = rhyming_different_wording_workload(model, device, per_token)
+    measured = measured_rhyme_kv_workload(
+        model,
+        device,
+        per_token,
+        MEASURED_DISTILGPT2_MATCHING_CELL_FRACTION,
+        claimable_share=MEASURED_DISTILGPT2_CLAIMABLE_SHARE,
+        share_source=MEASURED_DISTILGPT2_SOURCE,
+    )
 
     report = {
         "ok": identical["outputEquivalence"]["equivalent"] and rhyming["outputEquivalence"]["equivalent"],
@@ -283,28 +362,35 @@ def build_report() -> dict[str, Any]:
             "rhymeSharedOrgFraction": RHYME_SHARED_ORG_FRACTION,
             "rhymeDeltaOrgFraction": RHYME_DELTA_ORG_FRACTION,
             "rhymeShareSource": RHYME_SHARE_SOURCE,
+            "measuredMatchingCellFraction": MEASURED_DISTILGPT2_MATCHING_CELL_FRACTION,
+            "measuredClaimableShare": MEASURED_DISTILGPT2_CLAIMABLE_SHARE,
         },
         "workloads": {
             "identicalPrefix": identical,
             "rhymingDifferentWording": rhyming,
+            "rhymingKvMeasuredCells": measured,
         },
-        # Back-compat summary: the rhyme-differentiating arm is the headline.
+        # Back-compat summary: the JSON-hypothesis rhyme-differentiating arm is the headline.
         "arms": rhyming["arms"],
         "comparison": {
             **rhyming["comparison"],
             "identicalPrefixTinyVersusPrefixCacheResidentBytes": identical["comparison"][
                 "tinyVersusPrefixCacheResidentBytes"
             ],
+            "measuredKvReductionVersusPrefixCache": measured["comparison"]["tinyKvReductionVersusPrefixCache"],
+            "measuredClaimableShare": measured["claimableShare"],
             "peakBandwidthIsAnUpperBound": True,
         },
         "honesty": (
             "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, "
             "not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production "
             "prefix-cache residency. On rhyming organization with different wording, prefix cache cannot "
-            "share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction "
-            f"({RHYME_SHARED_ORG_FRACTION:.6f} shared org / {RHYME_DELTA_ORG_FRACTION:.6f} delta org) as a "
-            "KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the "
-            "in-process 84.5% aggregate pasted onto device memory."
+            "share. The JSON template/delta fraction "
+            f"({RHYME_SHARED_ORG_FRACTION:.6f} shared org / {RHYME_DELTA_ORG_FRACTION:.6f} delta org) is a "
+            "KV residency hypothesis. The measured-cells arm applies "
+            f"matchingCellFraction={MEASURED_DISTILGPT2_MATCHING_CELL_FRACTION:.6f} from real tensors; "
+            f"claimableShare={MEASURED_DISTILGPT2_CLAIMABLE_SHARE} until spliced-cache resume is equivalent. "
+            "Not the in-process 84.5% aggregate pasted onto device memory."
         ),
     }
     return report

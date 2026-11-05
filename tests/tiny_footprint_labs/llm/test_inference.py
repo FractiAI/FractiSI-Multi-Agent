@@ -100,6 +100,10 @@ def test_rhyme_sharing_reports_what_repeats_and_what_a_resume_would_do(tiny_mode
     assert report["layers"] == len(report["matchingPositionsByLayer"])
     assert 0 <= report["matchingCellFraction"] < 1
     assert report["resumeFromRhymingCache"]["turns"] == 2
+    assert report["resumeFromSplicedCache"]["turns"] == 2
+    assert report["path"] == "organizational_rhyme_kv_splice"
+    assert "rhymeKvResidency" in report
+    assert report["claimableShare"] is report["resumeFromSplicedCache"]["equivalent"]
 
 
 def test_only_the_first_layer_repeats_at_unchanged_positions(tiny_model: Any) -> None:
@@ -116,3 +120,5 @@ def test_negative_control_identical_prompts_share_every_cell(tiny_model: Any) ->
     assert report["changedTokens"] == 0
     assert report["matchingCellFraction"] == 1
     assert report["resumeFromRhymingCache"]["equivalent"] is True
+    assert report["resumeFromSplicedCache"]["equivalent"] is True
+    assert report["claimableShare"] is True
