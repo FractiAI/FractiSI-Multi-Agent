@@ -1,9 +1,9 @@
 {
   "algorithm": "web-renderer-combine-v1",
-  "binding_sha256": "bb2cc4c7ff3929dbd7d48b6c2a0514465a4a24c6d389aeed00dd2d6a10603405",
+  "binding_sha256": "71e0f07d82c72546026d38177b4d9d9e319b0bc0e22dad7e85f960c053644b15",
   "combined_path": "output/web/_combined_manuscript.md",
-  "combined_sha256": "00072cb293819fc221030de253f92a5f31377b20d6eeef49b59416190b966ccf",
-  "combined_size_bytes": 55202,
+  "combined_sha256": "26e6e72d214e42d7dd3158d599053a081ee97e9291b739bb09687308095fa72d",
+  "combined_size_bytes": 55333,
   "input_root_kind": "hydrated",
   "ordered_inputs": [
     {
@@ -27,8 +27,8 @@
     {
       "ordinal": 4,
       "path": "output/manuscript/03_methods.md",
-      "sha256": "a7dfbf627da6e2f55f31dcf0359ff1417e38a56ae1cbf8edc94c714d1cdc0ea0",
-      "size_bytes": 8148
+      "sha256": "7c0c7a86056536a4d90784db240ddfdd31f155d3a790e0077d5e59500913101a",
+      "size_bytes": 8211
     },
     {
       "ordinal": 5,
@@ -45,8 +45,8 @@
     {
       "ordinal": 7,
       "path": "output/manuscript/06_limitations.md",
-      "sha256": "070be903854106362f46585dfb3ba2769a5ae14dc105e86110831d13ce7ee8af",
-      "size_bytes": 2258
+      "sha256": "38aca9a641a42c822fea3b16d6a5e6650ee591cc6e022966270d185262e878c3",
+      "size_bytes": 2332
     },
     {
       "ordinal": 8,
@@ -57,8 +57,8 @@
     {
       "ordinal": 9,
       "path": "output/manuscript/08_reproducibility.md",
-      "sha256": "806bb06fc3e51eb7f294173e4179ce73137ec448a2a2992c80c6960384296253",
-      "size_bytes": 3043
+      "sha256": "01126a876df5c23439d0685e14ce92ac46e424c90db84de9b7efb38212f41653",
+      "size_bytes": 3037
     },
     {
       "ordinal": 10,
@@ -73,7 +73,7 @@
       "size_bytes": 31
     }
   ],
-  "ordered_inputs_sha256": "b48ad246817f545d187ce0617a620adc8d45cb5d51cd059bbcc8b8c22be35822",
+  "ordered_inputs_sha256": "cf1fdb3630012fa4ba34ee65e42f8db6e46e1a2f31b6d4e15d6842f6f342ea39",
   "project": "working/tiny-footprint-workstation",
   "schema_version": "template-manuscript-composition-v1"
 }

@@ -28,4 +28,4 @@ Automated gates enforce the structure this document relies on. Hydration fails o
 
 ## Declarations {#sec:declarations}
 
-The source code, benchmarks and this draft were produced with an AI coding assistant (Claude, Anthropic) under the author's direction. This is a draft pending the author's review: competing-interest and funding statements have not yet been provided. No participant data were used.
+The source code, benchmarks and this draft were produced with an AI coding assistant (Claude, Anthropic) under the author's direction, and the author has reviewed the draft. Competing-interest and funding statements have not yet been provided. No participant data were used.

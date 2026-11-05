@@ -670,8 +670,8 @@ on the tier, and the reading then holds data alone. Latency and RSS keep
 normal settings, because they describe a realistic process. The design
 is three workloads across 16, 64, 256 and 1,024 sessions with 21
 processes per cell, 1,218 in all including controls, run in seeded
-random order so that drift on the host spreads across conditions
-[mytkowicz2009producing].</p>
+random order so that drift on the host spreads across conditions, by
+analogy with setup randomization [mytkowicz2009producing].</p>
 <p><strong>Controls.</strong> An empty control allocates nothing and a
 known control allocates a packed array of computable size. They measure
 the instrument itself.</p>
@@ -689,14 +689,14 @@ operations and then times 4,000 operations in batches of 16, at 64
 sessions.</p>
 <p><strong>Statistics.</strong> The independent unit is the process
 [kalibera2013rigorous; georges2007statistically]. Point estimates are
-medians, with quantiles by linear interpolation [hyndman1996sample].
-Intervals are percentile bootstrap at 95% confidence
-[efron1993introduction] with 4,000 resamples and seed 20261105; neither
-assumes normally distributed timings [hoefler2015scientific]. Ratios use
-independent resampling of numerator and denominator. The real-model lab
-runs one process per combination, so its intervals resample per-trial
-medians and describe repeatability within that process. All comparisons
-are descriptive.</p>
+medians, with quantiles by linear interpolation (type 7)
+[hyndman1996sample]. Intervals are percentile bootstrap at 95%
+confidence [efron1993introduction] with 4,000 resamples and seed
+20261105; neither assumes normally distributed timings
+[hoefler2015scientific]. Ratios use independent resampling of numerator
+and denominator. The real-model lab runs one process per combination, so
+its intervals resample per-trial medians and describe repeatability
+within that process. All comparisons are descriptive.</p>
 <h2 id="sec:llm_methods">Real-model lab</h2>
 <p>The lab runs four combinations of <code>distilgpt2</code> and
 <code>tiny-gpt2</code> on CPU and MPS, with weights pinned to fixed
@@ -729,12 +729,12 @@ rhyming.</p>
 data-cites="eq:kv">[@eq:kv]</span> and <span class="citation"
 data-cites="eq:with_weights">[@eq:with_weights]</span> to a published
 profile of the NVIDIA H100 SXM 80GB [nvidia2026h100] and a model with
-the shape of Llama 2 7B [touvron2023llama], with 16 sessions, 2,048
-prefix tokens and 128 suffix tokens. The historical receipts come from
-the NVIDIA GeForce GTX 860M. The GPU lab needs that vendor’s runtime, so
-on this host it records <code>not_run</code> with reason
-<code>nvcuda_unavailable</code>, and its allocation figure is recomputed
-with no device.</p>
+the released configuration of Llama 2 7B [touvron2023llama], with 16
+sessions, 2,048 prefix tokens and 128 suffix tokens. The historical
+receipts come from the NVIDIA GeForce GTX 860M. The GPU lab needs that
+vendor’s runtime, so on this host it records <code>not_run</code> with
+reason <code>nvcuda_unavailable</code>, and its allocation figure is
+recomputed with no device.</p>
 </main>
 </body>
 </html>

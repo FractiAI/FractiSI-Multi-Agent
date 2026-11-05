@@ -19,6 +19,7 @@ export const ALLOWED_NAMES = Object.freeze([
   'SHA-256', // hash
   'nvidia-smi', // tool name; listed so its hyphen is not read as a range
   'S01', // supplement identifier in a cross-reference
+  'type 7', // Hyndman and Fan's numbering of quantile definitions
 ]);
 
 /** Constants allowed inside mathematics: identities such as 1 - T/B, not results. */

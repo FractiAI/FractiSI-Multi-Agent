@@ -593,7 +593,8 @@ machine that was running other work, with a one-minute load average of
 4.77 to 18.71 on 14 logical cores. Heap readings are insensitive to
 this, as the controls show. Timings are not, so the timing ratios
 describe this configuration. Medians over isolated processes and
-randomized order reduce the risk of bias but do not remove it
+randomized order reduce the risk of bias but do not remove it, because a
+seemingly innocuous detail of the setup can bias a measurement
 [mytkowicz2009producing].</p>
 <p><strong>One runtime.</strong> The heap results describe V8. A runtime
 without hidden classes, or a compact binary layout, could behave

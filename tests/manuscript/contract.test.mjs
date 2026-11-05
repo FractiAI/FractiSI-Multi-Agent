@@ -66,4 +66,6 @@ test('the title page cannot carry a typed value, and identifiers there are not p
 test('structural constants in mathematics and named things with digits are allowed', () => {
   assert.deepEqual(scanSection('$$ R(n) = f(1 - 1/n), k = 2LHds $$'), []);
   assert.deepEqual(scanSection('UTF-8 bytes on V8, hashed with SHA-256, from GPT-2 and an H100 profile.'), []);
+  assert.deepEqual(scanSection('Quantiles by linear interpolation (type 7).'), []);
+  assert.equal(scanSection('Quantiles by linear interpolation (type 8).')[0].value, '8');
 });

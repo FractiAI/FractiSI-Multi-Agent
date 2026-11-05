@@ -1,6 +1,6 @@
 # Limitations {#sec:limitations}
 
-**One host, under load.** Measurements come from one machine that was running other work, with a one-minute load average of {{LOAD_RANGE}} on {{HOST_CORES}} logical cores. Heap readings are insensitive to this, as the controls show. Timings are not, so the timing ratios describe this configuration. Medians over isolated processes and randomized order reduce the risk of bias but do not remove it [@mytkowicz2009producing].
+**One host, under load.** Measurements come from one machine that was running other work, with a one-minute load average of {{LOAD_RANGE}} on {{HOST_CORES}} logical cores. Heap readings are insensitive to this, as the controls show. Timings are not, so the timing ratios describe this configuration. Medians over isolated processes and randomized order reduce the risk of bias but do not remove it, because a seemingly innocuous detail of the setup can bias a measurement [@mytkowicz2009producing].
 
 **One runtime.** The heap results describe V8. A runtime without hidden classes, or a compact binary layout, could behave differently, and neither should be inferred from these results. They do describe the engine as shipped, which is JavaScript.
 
