@@ -76,8 +76,13 @@ const aiContext = {
     duplicated: plainMaterialize,
     aliased: plainMaterialize,
     tiny(store, i) {
+      // Serialize-only path: skip structuredClone (Daniel: clone dominated rebuild latency).
       const entry = store.sessions[i];
-      const system = reconstructExpression(store.catalog, { templateId: entry.systemRef, delta: {} });
+      const system = reconstructExpression(
+        store.catalog,
+        { templateId: entry.systemRef, delta: {} },
+        { clone: false },
+      );
       return JSON.stringify({ session: entry.session, messages: [system, ...entry.turns] });
     },
     tiny_noclone(store, i) {
@@ -136,7 +141,8 @@ function rhymeWorkload(makeSessions) {
     materialize: {
       duplicated: plainMaterialize,
       aliased: plainMaterialize,
-      tiny: (store, i) => JSON.stringify(reconstructExpression(store.catalog, store.expressions[i])),
+      tiny: (store, i) =>
+        JSON.stringify(reconstructExpression(store.catalog, store.expressions[i], { clone: false })),
       tiny_noclone(store, i) {
         const encoded = store.expressions[i];
         return JSON.stringify(mergeWithoutClone(store.catalog.get(encoded.templateId).pattern, encoded.delta));

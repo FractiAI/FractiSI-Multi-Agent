@@ -9,7 +9,7 @@
 
 ## Host {#sec:host}
 
-Measurements ran on Apple M4 Pro with 14 logical cores and 24 GiB of memory, under darwin 27.2.0 on arm64, with Node v26.13.0 and V8 14.6.202.34-node.40. Real-model runs used Python 3.13.17, PyTorch 2.15.0 [@paszke2019pytorch] and Transformers 5.22.1 [@wolf2020transformers]. The machine was not idle: other work ran concurrently, and the one-minute load average across the measured runs was 4.77 to 18.71. Receipts record the load at the start and end of each run.
+Measurements ran on Intel(R) Xeon(R) Processor with 4 logical cores and 16 GiB of memory, under linux 6.12.94+ on x64, with Node v22.23.4 and V8 12.4.254.21-node.57. Real-model runs used Python 3.13.17, PyTorch 2.15.0 [@paszke2019pytorch] and Transformers 5.22.1 [@wolf2020transformers]. The machine was not idle: other work ran concurrently, and the one-minute load average across the measured runs was 1.16 to 18.71. Receipts record the load at the start and end of each run.
 
 ## Deterministic tier {#sec:deterministic}
 

@@ -3,40 +3,40 @@
   "workloads": [
     {
       "baselineBytes": 76020,
-      "baselineGzipBytes": 3166,
-      "gzipReduction": 0.9583530649828992,
+      "baselineGzipBytes": 3141,
+      "gzipReduction": 0.9586819258089976,
       "key": "B",
       "tinyBytes": 34859,
-      "tinyGzipBytes": 3139,
+      "tinyGzipBytes": 3141,
       "tinyReduction": 0.5414496185214417
     },
     {
       "baselineBytes": 1243896,
-      "baselineGzipBytes": 267700,
-      "gzipReduction": 0.7847890820454443,
+      "baselineGzipBytes": 261815,
+      "gzipReduction": 0.789520184967232,
       "key": "C",
       "tinyBytes": 219496,
-      "tinyGzipBytes": 58559,
+      "tinyGzipBytes": 57686,
       "tinyReduction": 0.8235415179404066
     },
     {
       "baselineBytes": 44617,
-      "baselineGzipBytes": 2976,
-      "gzipReduction": 0.9332989667615483,
+      "baselineGzipBytes": 2803,
+      "gzipReduction": 0.9371764125781653,
       "key": "D",
       "tinyBytes": 6061,
-      "tinyGzipBytes": 2604,
+      "tinyGzipBytes": 2438,
       "tinyReduction": 0.8641549185288119
     },
     {
       "baselineBytes": 191496,
-      "baselineGzipBytes": 18298,
-      "gzipReduction": 0.9044470902786481,
+      "baselineGzipBytes": 17512,
+      "gzipReduction": 0.9085516146551365,
       "key": "F",
       "tinyBytes": 97926,
-      "tinyGzipBytes": 17709,
+      "tinyGzipBytes": 16997,
       "tinyReduction": 0.4886263942849981
     }
   ],
-  "zlib": "1.2.12"
+  "zlib": "1.3.1-e00f703"
 }

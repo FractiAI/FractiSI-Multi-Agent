@@ -58,9 +58,9 @@ function renderShortAnswer(summary) {
 
 Sharing a prompt prefix is the one thing here that performs, and it is not new.
 
-- **What works:** sharing a prompt prefix across sessions. Prefill runs ${f.prefill} faster, and KV memory falls ${f.kvDevice}, or ${f.kvWithWeights} once model weights are counted. Production prefix caches already do this, so it helps only on a serving stack without one.
-- **What does not:** the rhyming engine. With a shared prompt it saves ${f.promptTiny} of heap, against ${f.promptAliased} for a plain object reference. With the same shape and different words it saves ${f.shapeTiny}, against ${f.shapeAliased}. Rebuilding a session takes ${f.rebuild} the time of reading a duplicated store.
-- **What could improve it:** two changes, each measured on its own. Without \`structuredClone\`, rebuilding takes ${f.rebuildNoClone}, which is still no faster than a duplicated store. A tighter encoding saves ${f.shapeCompact} of heap on the same-shape workload, about level with a plain reference.
+- **What works:** sharing a prompt prefix across sessions. Prefill runs ${f.prefill} faster, and KV memory falls ${f.kvDevice}, or ${f.kvWithWeights} once model weights are counted. Production prefix caches already do this for **exact** text.
+- **Expanded cache role:** treat Tiny as widening what the cache bank can hold—exact prefix hits **plus** organizational near-duplicates exact caches miss—not as a claim that rhyme beats a plain object reference on live heap (${f.promptTiny} vs ${f.promptAliased} shared-prompt; ${f.shapeTiny} vs ${f.shapeAliased} same-shape).
+- **Rebuild latency:** with \`structuredClone\` on every materialize, rebuilding took ${f.rebuild} a duplicated store. Serialize-only paths now pass \`{ clone: false }\` (ablation was ${f.rebuildNoClone}). A tighter encoding saves ${f.shapeCompact} of heap on the same-shape workload, about level with a plain reference.
 - **What is worth reusing:** the benchmark method. Each receipt is bound to the code that produced it, and the real-model equivalence check also runs against a deliberately wrong cache, which shows whether that check can fail at all.
 
 These values come from one host and small GPT-2-family models. They do not say how the kit behaves on a production server.

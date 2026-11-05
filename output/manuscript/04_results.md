@@ -6,15 +6,15 @@
 
 | Workload | Conventional bytes | Tiny bytes | Reduction | gzip | Round trip |
 | ---------------------------- | -------------: | ----------: | ---------: | -------: | ----------------------------- |
-| B: Structured records | 76,020 | 34,859 | 54.1% | 95.8% | 500 of 500 exact |
-| C: Cross-linked graph | 1,243,896 | 219,496 | 82.4% | 78.5% | 600 of 600 exact |
-| D: Eight-node broadcast | 44,617 | 6,061 | 86.4% | 93.3% | 8 of 8 exact |
+| B: Structured records | 76,020 | 34,859 | 54.1% | 95.9% | 500 of 500 exact |
+| C: Cross-linked graph | 1,243,896 | 219,496 | 82.4% | 79.0% | 600 of 600 exact |
+| D: Eight-node broadcast | 44,617 | 6,061 | 86.4% | 93.7% | 8 of 8 exact |
 | E: Selective working set | 780,653 | 4,050 | 99.5% | n/a | not lossless: holds 4 of 768 |
-| F: Shared system prompt | 191,496 | 97,926 | 48.9% | 90.4% | 40 of 40 exact |
+| F: Shared system prompt | 191,496 | 97,926 | 48.9% | 90.9% | 40 of 40 exact |
 
 : Representation bytes per workload, with gzip of the conventional JSON as a yardstick and full round-trip results. {#tbl:workloads}
 
-![Representation-byte reduction for each registered workload, computed as one minus the Tiny Footprint form's UTF-8 JSON bytes over the conventional arm's. Diamonds show gzip applied to the same conventional JSON (zlib 1.2.12). Workload E is hatched because its working set covers one request and is not a lossless representation. These are serialized sizes, not resident memory.](../../output/figures/workload_reductions.png){#fig:workload_reductions width=92%}
+![Representation-byte reduction for each registered workload, computed as one minus the Tiny Footprint form's UTF-8 JSON bytes over the conventional arm's. Diamonds show gzip applied to the same conventional JSON (zlib 1.3.1-e00f703). Workload E is hatched because its working set covers one request and is not a lossless representation. These are serialized sizes, not resident memory.](../../output/figures/workload_reductions.png){#fig:workload_reductions width=92%}
 
 gzip exceeds the template reduction on three of four lossless workloads. The redundancy is real, and general-purpose compression also finds it, at the cost of not being usable in place.
 
@@ -48,59 +48,59 @@ Workload C's baseline deserves separate attention. Moving from embedded node cop
 
 ![Reduction relative to the duplicated store at 1,024 sessions: what serialized JSON predicts (open) and what a forced-collection read of the V8 heap shows (filled, median with percentile-bootstrap 95% interval over independent processes). Negative values mean a larger heap than the duplicated store.](../../output/figures/heap_vs_json.png){#fig:heap_vs_json width=92%}
 
-With the same shape and different words, which is the case rhyming exists for, the gap is larger. JSON predicts 35.9% and the heap shows 4.2%. V8's hidden classes already share the repeated keys, and the engine adds a wrapper object and nested delta objects per session. Removing the wrapper recovers most of the difference: the compact ablation reaches 20.9%, level with the aliased store at 20.1%, because each session then holds only the fields that differ. Neither store interns equal nested objects, which would help both. In a live heap the idea roughly matches a plain reference, and the shipped encoding gives that saving back. The exact-text cache is 45.4% larger than duplication here, because it has no hits and keeps a digest per session. When sessions are truly identical it is the smallest store, at 96.0%.
+With the same shape and different words, which is the case rhyming exists for, the gap is larger. JSON predicts 35.9% and the heap shows 3.1%. V8's hidden classes already share the repeated keys, and the engine adds a wrapper object and nested delta objects per session. Removing the wrapper recovers most of the difference: the compact ablation reaches 19.8%, level with the aliased store at 20.1%, because each session then holds only the fields that differ. Neither store interns equal nested objects, which would help both. In a live heap the idea roughly matches a plain reference, and the shipped encoding gives that saving back. The exact-text cache is 45.4% larger than duplication here, because it has no hits and keeps a digest per session. When sessions are truly identical it is the smallest store, at 61.6%.
 
 | Workload | Store | JSON bytes | Heap | JSON reduction | Heap reduction |
 | ---------------- | -------------------- | -----------: | -----------: | -------------------: | -------------------: |
-| Shared prompt | Aliased | 4847.2 KiB | 5107.4 KiB | 0.0% | 32.9% |
-| Shared prompt | Tiny (shipped) | 2445.8 KiB | 5110.9 KiB | 49.5% | 32.8% |
+| Shared prompt | Aliased | 4847.2 KiB | 5107.3 KiB | 0.0% | 32.9% |
+| Shared prompt | Tiny (shipped) | 2445.8 KiB | 5110.8 KiB | 49.5% | 32.8% |
 | Shared prompt | Duplicated | 4847.2 KiB | 7608.9 KiB | 0.0% | 0.0% |
-| Shared prompt | Exact-text cache | 4914.3 KiB | 7740.7 KiB | -1.4% | -1.7% |
-| Same shape | Tiny compact | 92.0 KiB | 189.1 KiB | 54.6% | 20.9% |
+| Shared prompt | Exact-text cache | 4914.3 KiB | 7717.0 KiB | -1.4% | -1.4% |
 | Same shape | Aliased | 202.8 KiB | 191.1 KiB | 0.0% | 20.1% |
-| Same shape | Tiny (shipped) | 130.0 KiB | 229.1 KiB | 35.9% | 4.2% |
+| Same shape | Tiny compact | 92.0 KiB | 191.6 KiB | 54.6% | 19.8% |
+| Same shape | Tiny (shipped) | 130.0 KiB | 231.6 KiB | 35.9% | 3.1% |
 | Same shape | Duplicated | 202.8 KiB | 239.0 KiB | 0.0% | 0.0% |
 | Same shape | Exact-text cache | 269.8 KiB | 347.5 KiB | -33.0% | -45.4% |
-| Identical | Exact-text cache | 67.2 KiB | 9.4 KiB | 65.9% | 96.0% |
 | Identical | Aliased | 197.0 KiB | 72.7 KiB | 0.0% | 68.8% |
-| Identical | Tiny compact | 91.4 KiB | 189.2 KiB | 53.6% | 18.6% |
-| Identical | Tiny (shipped) | 129.4 KiB | 229.2 KiB | 34.3% | 1.4% |
+| Identical | Exact-text cache | 67.2 KiB | 89.3 KiB | 65.9% | 61.6% |
+| Identical | Tiny compact | 91.4 KiB | 213.0 KiB | 53.6% | 8.4% |
 | Identical | Duplicated | 197.0 KiB | 232.5 KiB | 0.0% | 0.0% |
+| Identical | Tiny (shipped) | 129.4 KiB | 253.0 KiB | 34.3% | -8.8% |
 
 : Representation size and live heap by store at the largest session count, with reductions relative to the duplicated store. {#tbl:heap}
 
-The same designs across session counts are in [@fig:heap_scaling]. Small stores carry visible fixed overhead, which is why the shipped engine uses more heap than duplication at 16 sessions in the same-shape workload, at 579 against 264 bytes per session. It first uses less at 1,024 sessions on the tested grid.
+The same designs across session counts are in [@fig:heap_scaling]. Small stores carry visible fixed overhead, which is why the shipped engine uses more heap than duplication at 16 sessions in the same-shape workload, at 574 against 264 bytes per session. It first uses less at 1,024 sessions on the tested grid.
 
 ![Median V8 heap per session against the number of sessions, for each store design and workload. Panels use independent vertical scales, because the workloads differ in record size by more than an order of magnitude. The measuring host is reported in the Methods section.](../../output/figures/heap_scaling.png){#fig:heap_scaling width=92%}
 
 ## Resident memory falls less than the heap {#sec:res_rss}
 
-*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 196.1 MiB for the duplicated store and 157.4 MiB for Tiny, a reduction of 19.7% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 20.1%. Peak RSS over ingestion is 304.1 MiB and 269.2 MiB respectively.
+*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.0 MiB for the duplicated store and 111.4 MiB for Tiny, a reduction of 25.7% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.8%. Peak RSS over ingestion is 281.1 MiB and 242.7 MiB respectively.
 
 | Store | RSS growth | 95% interval | RSS reduction | Heap reduction |
 | ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |
-| Duplicated | 196.1 MiB | 194.4 MiB to 199.7 MiB | 0.0% | 0.0% |
-| Tiny (shipped) | 157.4 MiB | 157.2 MiB to 157.7 MiB | 19.7% | 32.1% |
-| Aliased | 156.6 MiB | 156.5 MiB to 157.0 MiB | 20.1% | 32.1% |
+| Duplicated | 150.0 MiB | 149.9 MiB to 150.4 MiB | 0.0% | 0.0% |
+| Tiny (shipped) | 111.4 MiB | 111.4 MiB to 111.5 MiB | 25.7% | 32.1% |
+| Aliased | 111.4 MiB | 111.3 MiB to 111.8 MiB | 25.8% | 32.1% |
 
 : Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes. {#tbl:rss}
 
 ## Materialization is slower, mostly because of one call {#sec:res_latency}
 
-*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.69× the duplicated store's time with a shared prompt and 11.81× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.06× and 1.96×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
+*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.02× the duplicated store's time with a shared prompt and 1.65× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.02× and 1.87×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
 
-![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.69 to 1.06.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
+![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.02 to 1.02.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
 
 | Workload | Store | Median | 95% interval | Ratio | 95% interval |
 | ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |
-| Shared prompt | Aliased | 1.89 µs | 1.88 µs to 1.90 µs | 1.00× | 0.97× to 1.07× |
-| Shared prompt | Duplicated | 1.90 µs | 1.76 µs to 1.94 µs | 1.00× | 0.93× to 1.07× |
-| Shared prompt | Tiny without clone | 2.01 µs | 1.98 µs to 2.04 µs | 1.06× | 1.03× to 1.14× |
-| Shared prompt | Tiny (shipped) | 3.21 µs | 3.18 µs to 3.23 µs | 1.69× | 1.65× to 1.82× |
-| Same shape | Duplicated | 0.15 µs | 0.14 µs to 0.15 µs | 1.00× | 0.98× to 1.02× |
-| Same shape | Aliased | 0.15 µs | 0.14 µs to 0.15 µs | 1.00× | 0.98× to 1.04× |
-| Same shape | Tiny without clone | 0.29 µs | 0.29 µs to 0.29 µs | 1.96× | 1.96× to 2.04× |
-| Same shape | Tiny (shipped) | 1.72 µs | 1.70 µs to 1.74 µs | 11.81× | 11.74× to 12.14× |
+| Shared prompt | Duplicated | 8.35 µs | 8.34 µs to 8.39 µs | 1.00× | 1.00× to 1.00× |
+| Shared prompt | Aliased | 8.43 µs | 8.38 µs to 8.49 µs | 1.01× | 1.00× to 1.01× |
+| Shared prompt | Tiny without clone | 8.51 µs | 8.48 µs to 8.57 µs | 1.02× | 1.01× to 1.03× |
+| Shared prompt | Tiny (shipped) | 8.52 µs | 8.51 µs to 8.54 µs | 1.02× | 1.02× to 1.02× |
+| Same shape | Duplicated | 0.37 µs | 0.36 µs to 0.37 µs | 1.00× | 0.99× to 1.01× |
+| Same shape | Aliased | 0.38 µs | 0.38 µs to 0.38 µs | 1.04× | 1.04× to 1.05× |
+| Same shape | Tiny (shipped) | 0.60 µs | 0.60 µs to 0.65 µs | 1.65× | 1.64× to 1.77× |
+| Same shape | Tiny without clone | 0.68 µs | 0.61 µs to 0.69 µs | 1.87× | 1.69× to 1.91× |
 
 : Time to materialize one session from each store, as medians over independent processes, with the ratio to the duplicated store. {#tbl:latency}
 

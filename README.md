@@ -11,7 +11,7 @@
 
 ## What is Tiny Footprint?
 
-Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It helps that AI use **memory more efficiently** and potentially **respond faster** by matching a **holographic rhyme**: repeating · self-similar · self-correcting · recursive organization, stored once, with nested differences kept per session — including when the words differ. An exact-text cache only helps when the words themselves repeat; a shared identical system prompt is useful prefix reuse, not the full rhyme definition.
+Tiny Footprint is software you install **beside** your existing AI stack. It does **not** replace your GPUs, your inference server, or your applications. It **widens cache utilization**: exact prefix sharing (what production prefix caches already do) plus organizational rhyme for near-duplicates when the words differ. Open benchmark evidence: prefix reuse is the performing mechanism; rhyme has not beaten a plain object reference on live heap in the reproducible study. See [RESULTS.md](./docs/benchmarks/RESULTS.md).
 
 | | Without Tiny Footprint | With Tiny Footprint |
 |--|------------------------|---------------------|
@@ -149,12 +149,12 @@ Every folder has a `README.md` for people and an `AGENTS.md` for agents.
 <!-- BEGIN GENERATED EVIDENCE -->
 **In short:** sharing a prompt prefix across sessions is the one thing here that performs, and production prefix caches already do it. The rhyming engine does not beat a plain object reference in memory, and it is slower to rebuild a session. [The results page](./docs/benchmarks/RESULTS.md) has the short answer with its numbers.
 
-Generated from the receipts in [`output/data/`](./output/data/README.md). Measured values are from **Apple M4 Pro**. [Full results and the claim ledger](./docs/benchmarks/RESULTS.md).
+Generated from the receipts in [`output/data/`](./output/data/README.md). Measured values are from **Intel(R) Xeon(R) Processor**. [Full results and the claim ledger](./docs/benchmarks/RESULTS.md).
 
 - **Representation bytes** (deterministic): the published aggregate reproduces at **84.5%**. It is 74.3% with equal weights and 77.0% over lossless workloads, against a target of 80%.
 - **Live memory** (measured, 1,024 sessions sharing a system prompt): JSON predicts 49.5% and the V8 heap falls **32.8%**. A plain object reference reaches 32.9%.
-- **Same shape, different words** (measured): JSON predicts 35.9% and the shipped engine's heap shows **4.2%**. A tighter encoding of the same idea reaches 20.9%, level with a plain reference at 20.1%.
-- **In-process latency** (measured): materializing a session takes 1.69× to 11.81× the time of reading a duplicated store.
+- **Same shape, different words** (measured): JSON predicts 35.9% and the shipped engine's heap shows **3.1%**. A tighter encoding of the same idea reaches 19.8%, level with a plain reference at 20.1%.
+- **In-process latency** (measured): materializing a session takes 1.02× to 1.65× the time of reading a duplicated store.
 - **Real models** (measured): reusing a shared prefix speeds prefill by **1.34× to 3.50×**, with decode at 0.98× to 1.03×. A production prefix cache provides the same mechanism.
 - **Key-value residency** (measured, `distilgpt2` on MPS): **84.4%** on the device allocator, 27.3% once weights are counted.
 - **Rhymes on real tensors** (measured, `distilgpt2`): with 12.5% of tokens changed, 14.6% of KV cells repeat, and resuming from the other prompt's cache moves logits by 3.72. The simulated 34.3% H100 saving for rhymes has no measurement behind it.

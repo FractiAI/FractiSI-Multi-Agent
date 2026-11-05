@@ -43,8 +43,16 @@ export function diffDelta(base, expr) {
   return structuredClone(expr);
 }
 
-export function mergeDelta(base, delta) {
-  if (delta === undefined) return structuredClone(base);
+/**
+ * @param {unknown} base
+ * @param {unknown} delta
+ * @param {{ clone?: boolean }} [opts] - `clone: false` shares template object identity
+ *   (fast path for read/serialize). Default `true` keeps reconstructed values independent.
+ */
+export function mergeDelta(base, delta, opts = {}) {
+  const clone = opts.clone !== false;
+  const copy = (value) => (clone ? structuredClone(value) : value);
+  if (delta === undefined) return copy(base);
   if (delta && typeof delta === 'object' && delta.__missing === true) return undefined;
   if (
     base &&
@@ -58,9 +66,9 @@ export function mergeDelta(base, delta) {
     !Array.isArray(delta)
   ) {
     // Leaf replace when delta is a typed leaf container? Plain object → deep merge.
-    const out = structuredClone(base);
+    const out = clone ? structuredClone(base) : { ...base };
     for (const k of Object.keys(delta)) {
-      const merged = mergeDelta(base[k], delta[k]);
+      const merged = mergeDelta(base[k], delta[k], opts);
       if (merged === undefined && delta[k] && delta[k].__missing) {
         delete out[k];
       } else {
@@ -69,7 +77,7 @@ export function mergeDelta(base, delta) {
     }
     return out;
   }
-  return structuredClone(delta);
+  return copy(delta);
 }
 
 /**
@@ -86,16 +94,21 @@ export function encodeExpression(templateId, basePattern, expression, state = nu
   return out;
 }
 
-/** Reconstruct organizational value only (state is returned separately when present). */
-export function reconstructExpression(catalog, encoded) {
+/**
+ * Reconstruct organizational value only (state is returned separately when present).
+ * @param {{ clone?: boolean }} [opts] - default clone true; pass `clone: false` when the
+ *   caller will only read or immediately serialize (avoids the structuredClone tax Daniel measured).
+ */
+export function reconstructExpression(catalog, encoded, opts = {}) {
   const t = catalog.get(encoded.templateId);
   if (!t) throw new Error(`missing template ${encoded.templateId}`);
-  return mergeDelta(t.pattern, encoded.delta || {});
+  return mergeDelta(t.pattern, encoded.delta || {}, opts);
 }
 
-export function reconstructExpressionWithState(catalog, encoded) {
+export function reconstructExpressionWithState(catalog, encoded, opts = {}) {
+  const clone = opts.clone !== false;
   return {
-    value: reconstructExpression(catalog, encoded),
-    state: encoded.state != null ? structuredClone(encoded.state) : null,
+    value: reconstructExpression(catalog, encoded, opts),
+    state: encoded.state != null ? (clone ? structuredClone(encoded.state) : encoded.state) : null,
   };
 }
