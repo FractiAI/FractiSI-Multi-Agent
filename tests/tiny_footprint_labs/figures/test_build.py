@@ -22,8 +22,16 @@ def test_every_expected_figure_is_built_and_registered(
 
 def test_the_committed_registry_is_current(repo_root: Path, tmp_path: Path) -> None:
     build_from_files(repo_root, tmp_path)
-    fresh = (tmp_path / REGISTRY_NAME).read_text(encoding="utf-8")
-    assert fresh == (repo_root / "output" / "figures" / REGISTRY_NAME).read_text(encoding="utf-8")
+
+    def without_image_hashes(path: Path) -> dict[str, Any]:
+        # Glyph rendering can differ between platforms, so image bytes are compared in the test below.
+        registry: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+        for entry in registry.values():
+            del entry["metadata"]["sha256"]
+        return registry
+
+    fresh = without_image_hashes(tmp_path / REGISTRY_NAME)
+    assert fresh == without_image_hashes(repo_root / "output" / "figures" / REGISTRY_NAME)
 
 
 @pytest.mark.skipif(
