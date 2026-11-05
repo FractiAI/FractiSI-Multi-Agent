@@ -283,6 +283,7 @@ pre {
   object-position: center 18%;
 }
 .invite {
+  scroll-margin-top: 4.5rem;
   background: #14120e;
   color: #f4f1ea;
   padding: 3.2rem 0 2.8rem;
