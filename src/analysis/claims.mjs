@@ -158,11 +158,17 @@ export function evaluateClaims(summary) {
     },
     {
       id: 'rhyme_gate',
-      claim: 'A four-pillar gate tells a holographic rhyme from a brick wall',
+      claim: 'A four-pillar gate tells a holographic rhyme from a brick wall (Net Zero → ascending octaves)',
       evidence: `${gate.plainWall.pass ? 'It accepts a plain wall.' : 'It refuses a plain wall.'} ${gate.wallWithNestedFieldAndDeclaredValues.pass
         ? `The same bricks pass once they have a nested field and declare a nesting depth and a drift, because ${gate.pillarsReadingDeclaredValues.join(' and ')} read values the caller states.`
-        : 'The same bricks still fail when they have a nested field and declare a nesting depth and a drift.'}`,
-      status: gate.plainWall.pass ? CLAIM_STATUS.NOT_REPRODUCED : gate.wallWithNestedFieldAndDeclaredValues.pass ? CLAIM_STATUS.QUALIFIED : CLAIM_STATUS.REPRODUCED,
+        : 'Declaring a nesting depth and a drift on a mid-level nest is not enough without a Net Zero (octave 0) root.'} ${gate.netZeroOctaveRhyme?.pass
+        ? `A Net Zero → ascending-octave cohort passes all four pillars (span ${JSON.stringify(gate.netZeroOctaveRhyme.octaveSpan)}).`
+        : 'A Net Zero → ascending-octave cohort does not yet pass.'}`,
+      status: gate.plainWall.pass || !gate.netZeroOctaveRhyme?.pass
+        ? CLAIM_STATUS.NOT_REPRODUCED
+        : gate.wallWithNestedFieldAndDeclaredValues.pass
+          ? CLAIM_STATUS.QUALIFIED
+          : CLAIM_STATUS.REPRODUCED,
     },
     {
       id: 'h100_rhyme',

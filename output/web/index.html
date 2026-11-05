@@ -2,21 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.13" />
+  <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Daniel Ari Friedman" />
   <meta name="description" content="A reproducible benchmark of the Tiny Footprint Workstation: representation bytes, live memory, materialization latency and real-model key-value residency" />
   <title>Measuring Shared-Representation Memory Claims</title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     html {
       color: #1a1a1a;
-      color: light-dark(#1a1a1a, #fdfdfd);
       background-color: #fdfdfd;
-      background-color: light-dark(#fdfdfd, #1a1a1a);
-      color-scheme: light dark;
     }
     body {
       margin: 0 auto;
@@ -41,16 +35,12 @@
     }
     @media print {
       html {
-        color-scheme: light only;
+        background-color: white;
       }
-      html, body, pre, code {
+      body {
         background-color: transparent;
-      }
-      body, a, a:visited, blockquote {
         color: black;
-      }
-      pre, code {
-        padding: 0;
+        font-size: 12pt;
       }
       p, h2, h3 {
         orphans: 3;
@@ -63,14 +53,13 @@
     p {
       margin: 1em 0;
     }
-    a, a:visited {
-      color: inherit;
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
     }
     img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -93,14 +82,10 @@
     blockquote {
       margin: 1em 0 1em 1.7em;
       padding-left: 1em;
-      border-left: 2px solid;
-      border-color: #e6e6e6;
-      border-color: light-dark(#e6e6e6, #4c4c4c);
+      border-left: 2px solid #e6e6e6;
       color: #606060;
-      color: light-dark(#606060, #b6b6b6);
     }
     code {
-      white-space: pre-wrap;
       font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
@@ -120,8 +105,8 @@
      overflow: visible;
     }
     hr {
+      background-color: #1a1a1a;
       border: none;
-      border-top: 1px solid currentColor;
       height: 1px;
       margin: 1em 0;
     }
@@ -138,11 +123,11 @@
     }
     tbody {
       margin-top: 0.5em;
-      border-top: 1px solid currentColor;
-      border-bottom: 1px solid currentColor;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
     }
     th {
-      border-top: 1px solid currentColor;
+      border-top: 1px solid #1a1a1a;
       padding: 0.25em 0.5em 0.25em 0.5em;
     }
     td {
@@ -164,13 +149,10 @@
     #TOC a:not(:hover) {
       text-decoration: none;
     }
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -182,9 +164,8 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -266,6 +247,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script data-template-mathjax-config>
 window.MathJax = window.MathJax || {};
 window.MathJax.chtml = Object.assign({}, window.MathJax.chtml, {
@@ -329,8 +311,7 @@ window.MathJax.startup = Object.assign({}, window.MathJax.startup, {
   }
 });
 </script>
-<script defer=""
-  type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js" integrity="sha384-2BWc4dVaHADUocwKrUrK9u3iDwHxVMKXWEcoRmUkXYSFKhAsgVAYClu9ydNuo5Oz" crossorigin="anonymous"></script>
+<script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js" integrity="sha384-2BWc4dVaHADUocwKrUrK9u3iDwHxVMKXWEcoRmUkXYSFKhAsgVAYClu9ydNuo5Oz" crossorigin="anonymous"></script>
 
 <link data-template-favicon rel="icon" href="favicon.ico">
 
@@ -871,8 +852,9 @@ such kit. Its published evidence includes an aggregate reduction of
 84.5% in representation bytes and device measurements from a laptop GPU.
 This study rebuilds that evidence as one reproducible pipeline with
 three tiers: byte accounting that is identical on any machine, live
-memory and latency measured on Apple M4 Pro, and real forward passes
-through <code>distilgpt2</code> and <code>tiny-gpt2</code>.</p>
+memory and latency measured on Intel(R) Xeon(R) Processor, and real
+forward passes through <code>distilgpt2</code> and
+<code>tiny-gpt2</code>.</p>
 <p>The published aggregate reproduces to every digit, at 84.5%. Whether
 it clears the 80% gate depends on selection and weighting: it is 74.3%
 with equal weights, 77.0% over the lossless workloads, and 55.5% once a
@@ -880,10 +862,10 @@ baseline built as a deliberate anti-pattern is also removed. Serialized
 bytes overstate memory. For sessions sharing a system prompt, JSON
 predicts a reduction of 49.5% and the live V8 heap shows 32.8%, while a
 plain object reference reaches 32.9% with no engine. For sessions
-sharing only a shape, JSON predicts 35.9% and the shipped engine’s heap
-shows 4.2%; a tighter encoding of the same idea reaches 20.9%, level
-with plain references at 20.1%. Materializing one session takes 1.69× to
-11.81× the duplicated store’s time, falling to 1.06× and 1.96× without
+sharing only a shape, JSON predicts 49.8% and the shipped engine’s heap
+shows 13.2%; a tighter encoding of the same idea reaches 24.4%, level
+with plain references at 28.9%. Materializing one session takes 1.01× to
+1.62× the duplicated store’s time, falling to 1.01× and 1.68× without
 one cloning call. On real models, reusing a shared prefix speeds prefill
 by 1.34× to 3.50×, with last-position logits within 1.4e-4 of a full
 prefill on the model where a wrong cache is detectable, and leaves
@@ -1012,12 +994,12 @@ S/(S+D)\)</span>.</p>
 <div id="prop:saturation" class="proposition">
 <p><strong>Proposition 1.</strong> If the shared bytes are stored once
 with no overhead, then <span id="eq:saturation"><span
-class="math display">\[R(n) = f\left(1 -
-\frac{1}{n}\right).\qquad{(1)}\]</span></span> Hence <span
-class="math inline">\(R(n) &lt; f\)</span> for every <span
-class="math inline">\(n\)</span>, and a target reduction <span
-class="math inline">\(\tau\)</span> is reachable only if <span
-class="math inline">\(f &gt; \tau\)</span>.</p>
+class="math display">\[
+R(n) = f\left(1 - \frac{1}{n}\right).
+\qquad{(1)}\]</span></span> Hence <span class="math inline">\(R(n) &lt;
+f\)</span> for every <span class="math inline">\(n\)</span>, and a
+target reduction <span class="math inline">\(\tau\)</span> is reachable
+only if <span class="math inline">\(f &gt; \tau\)</span>.</p>
 </div>
 <p>To see this, take <span class="math inline">\(B = n(S+D)\)</span> and
 <span class="math inline">\(T = S + nD\)</span>. Then <span
@@ -1033,9 +1015,10 @@ as sessions age.</p>
 <p><strong>Definition 3.</strong> Across workloads with sizes <span
 class="math inline">\(B_i\)</span> and <span
 class="math inline">\(T_i\)</span>, the <em>byte-weighted aggregate</em>
-is <span id="eq:aggregate"><span class="math display">\[A = 1 -
-\frac{\sum_i T_i}{\sum_i B_i} = \sum_i w_i R_i, \qquad w_i =
-\frac{B_i}{\sum_j B_j}.\qquad{(2)}\]</span></span></p>
+is <span id="eq:aggregate"><span class="math display">\[
+A = 1 - \frac{\sum_i T_i}{\sum_i B_i} = \sum_i w_i R_i, \qquad w_i =
+\frac{B_i}{\sum_j B_j}.
+\qquad{(2)}\]</span></span></p>
 </div>
 <p>By eq. <a href="#eq:aggregate">2</a>, the aggregate is a weighted
 mean in which each workload counts in proportion to its baseline size. A
@@ -1051,17 +1034,18 @@ tensors themselves. With a prefix of <span
 class="math inline">\(P\)</span> tokens shared by <span
 class="math inline">\(n\)</span> sessions that each add <span
 class="math inline">\(Q\)</span> tokens, <span id="eq:kv"><span
-class="math display">\[K_{\mathrm{dup}} = n(P+Q)k, \qquad
-K_{\mathrm{shared}} = (P+nQ)k,\qquad{(3)}\]</span></span> which is <a
+class="math display">\[
+K_{\mathrm{dup}} = n(P+Q)k, \qquad K_{\mathrm{shared}} = (P+nQ)k,
+\qquad{(3)}\]</span></span> which is <a
 href="#prop:saturation">Proposition 1</a> with <span
 class="math inline">\(S = Pk\)</span> and <span class="math inline">\(D
 = Qk\)</span>. Model weights of <span class="math inline">\(W\)</span>
 bytes are resident under both designs, so the reduction in total
 resident memory is <span id="eq:with_weights"><span
-class="math display">\[R_W = 1 - \frac{W + K_{\mathrm{shared}}}{W +
-K_{\mathrm{dup}}}.\qquad{(4)}\]</span></span> The weights dilute the
-saving, and they dilute it most where the KV cache is small relative to
-the model.</p>
+class="math display">\[
+R_W = 1 - \frac{W + K_{\mathrm{shared}}}{W + K_{\mathrm{dup}}}.
+\qquad{(4)}\]</span></span> The weights dilute the saving, and they
+dilute it most where the KV cache is small relative to the model.</p>
 <hr />
 <h1 data-number="4" id="sec:methods"><span
 class="header-section-number">4</span> Methods</h1>
@@ -1082,17 +1066,16 @@ that date, never as a current run.</li>
 </ul>
 <h2 data-number="4.2" id="sec:host"><span
 class="header-section-number">4.2</span> Host</h2>
-<p>Measurements ran on Apple M4 Pro with 14 logical cores and 24 GiB of
-memory, under darwin 27.2.0 on arm64, with Node v26.13.0 and V8
-14.6.202.34-node.40. Real-model runs used Python 3.13.17, PyTorch 2.15.0
-<span class="citation" data-cites="paszke2019pytorch">(<a
-href="#ref-paszke2019pytorch" role="doc-biblioref"><span
-class="nocase">Paszke et al.</span> 2019</a>)</span> and Transformers
-5.22.1 <span class="citation" data-cites="wolf2020transformers">(<a
-href="#ref-wolf2020transformers" role="doc-biblioref"><span
-class="nocase">Wolf et al.</span> 2020</a>)</span>. The machine was not
+<p>Measurements ran on Intel(R) Xeon(R) Processor with 4 logical cores
+and 16 GiB of memory, under linux 6.12.94+ on x64, with Node v22.23.4
+and V8 12.4.254.21-node.57. Real-model runs used Python 3.13.17, PyTorch
+2.15.0 <span class="citation" data-cites="paszke2019pytorch">(<a
+href="#ref-paszke2019pytorch" role="doc-biblioref">Paszke et al.
+2019</a>)</span> and Transformers 5.22.1 <span class="citation"
+data-cites="wolf2020transformers">(<a href="#ref-wolf2020transformers"
+role="doc-biblioref">Wolf et al. 2020</a>)</span>. The machine was not
 idle: other work ran concurrently, and the one-minute load average
-across the measured runs was 4.77 to 18.71. Receipts record the load at
+across the measured runs was 0.64 to 18.71. Receipts record the load at
 the start and end of each run.</p>
 <h2 data-number="4.3" id="sec:deterministic"><span
 class="header-section-number">4.3</span> Deterministic tier</h2>
@@ -1181,9 +1164,9 @@ sessions.</p>
 data-cites="kalibera2013rigorous georges2007statistically">(<a
 href="#ref-kalibera2013rigorous" role="doc-biblioref">Kalibera and Jones
 2013</a>; <a href="#ref-georges2007statistically"
-role="doc-biblioref">Georges et al. 2007</a>)</span>. Point estimates
-are medians, with quantiles by linear interpolation (type 7) <span
-class="citation" data-cites="hyndman1996sample">(<a
+role="doc-biblioref">Georges, Buytaert, and Eeckhout 2007</a>)</span>.
+Point estimates are medians, with quantiles by linear interpolation
+(type 7) <span class="citation" data-cites="hyndman1996sample">(<a
 href="#ref-hyndman1996sample" role="doc-biblioref">Hyndman and Fan
 1996</a>)</span>. Intervals are percentile bootstrap at 95% confidence
 <span class="citation" data-cites="efron1993introduction">(<a
@@ -1234,13 +1217,12 @@ SXM 80GB <span class="citation" data-cites="nvidia2026h100">(<a
 href="#ref-nvidia2026h100" role="doc-biblioref">NVIDIA Corporation
 2026</a>)</span> and a model with the released configuration of Llama 2
 7B <span class="citation" data-cites="touvron2023llama">(<a
-href="#ref-touvron2023llama" role="doc-biblioref"><span
-class="nocase">Touvron et al.</span> 2023</a>)</span>, with 16 sessions,
-2,048 prefix tokens and 128 suffix tokens. The historical receipts come
-from the NVIDIA GeForce GTX 860M. The GPU lab needs that vendor’s
-runtime, so on this host it records <code>not_run</code> with reason
-<code>nvcuda_unavailable</code>, and its allocation figure is recomputed
-with no device.</p>
+href="#ref-touvron2023llama" role="doc-biblioref">Touvron et al.
+2023</a>)</span>, with 16 sessions, 2,048 prefix tokens and 128 suffix
+tokens. The historical receipts come from the NVIDIA GeForce GTX 860M.
+The GPU lab needs that vendor’s runtime, so on this host it records
+<code>not_run</code> with reason <code>nvcuda_unavailable</code>, and
+its allocation figure is recomputed with no device.</p>
 <hr />
 <h1 data-number="5" id="sec:results"><span
 class="header-section-number">5</span> Results</h1>
@@ -1255,7 +1237,8 @@ record in the lossless workloads. Workload E is different in kind: its
 working set contains 4 of 768 vectors, so its 99.5% reduction is the
 size of one request’s closure compared with the whole lattice, and it
 cannot reconstruct the rest.</p>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 1: Representation bytes per workload, with gzip of the conventional JSON as a yardstick and full round-trip res…"><table id="tbl:workloads" data-responsive-table="true">
+<div id="tbl:workloads">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 1: Representation bytes per workload, with gzip of the conventional JSON as a yardstick and full round-trip res…"><table data-responsive-table="true">
 <caption>Table 1: Representation bytes per workload, with gzip of the
 conventional JSON as a yardstick and full round-trip results.</caption>
 <colgroup>
@@ -1267,7 +1250,7 @@ conventional JSON as a yardstick and full round-trip results.</caption>
 <col style="width: 28%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Workload</th>
 <th style="text-align: right;">Conventional bytes</th>
 <th style="text-align: right;">Tiny bytes</th>
@@ -1277,31 +1260,31 @@ conventional JSON as a yardstick and full round-trip results.</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>B: Structured records</td>
 <td style="text-align: right;">76,020</td>
 <td style="text-align: right;">34,859</td>
 <td style="text-align: right;">54.1%</td>
-<td style="text-align: right;">95.8%</td>
+<td style="text-align: right;">95.9%</td>
 <td>500 of 500 exact</td>
 </tr>
-<tr>
+<tr class="even">
 <td>C: Cross-linked graph</td>
 <td style="text-align: right;">1,243,896</td>
 <td style="text-align: right;">219,496</td>
 <td style="text-align: right;">82.4%</td>
-<td style="text-align: right;">78.5%</td>
+<td style="text-align: right;">79.0%</td>
 <td>600 of 600 exact</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>D: Eight-node broadcast</td>
 <td style="text-align: right;">44,617</td>
 <td style="text-align: right;">6,061</td>
 <td style="text-align: right;">86.4%</td>
-<td style="text-align: right;">93.3%</td>
+<td style="text-align: right;">93.7%</td>
 <td>8 of 8 exact</td>
 </tr>
-<tr>
+<tr class="even">
 <td>E: Selective working set</td>
 <td style="text-align: right;">780,653</td>
 <td style="text-align: right;">4,050</td>
@@ -1309,25 +1292,26 @@ conventional JSON as a yardstick and full round-trip results.</caption>
 <td style="text-align: right;">n/a</td>
 <td>not lossless: holds 4 of 768</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>F: Shared system prompt</td>
 <td style="text-align: right;">191,496</td>
 <td style="text-align: right;">97,926</td>
 <td style="text-align: right;">48.9%</td>
-<td style="text-align: right;">90.4%</td>
+<td style="text-align: right;">90.9%</td>
 <td>40 of 40 exact</td>
 </tr>
 </tbody>
 </table></div>
+</div>
 <figure id="fig:workload_reductions">
 <a class="figure-full-size-link" href="../figures/workload_reductions.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 2, Representation-byte reduction for each registered workload, computed as one minus the Tiny…"><img src="../figures/workload_reductions.png" style="width:92.0%"
 alt="Horizontal bars of reduction by workload: B 54.1%, C 82.4%, D 86.4%, E 99.5%, F 48.9%. gzip reaches further than the bar for B, D, F and less far for C." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 2: Representation-byte reduction
 for each registered workload, computed as one minus the Tiny Footprint
 form’s UTF-8 JSON bytes over the conventional arm’s. Diamonds show gzip
-applied to the same conventional JSON (zlib 1.2.12). Workload E is
-hatched because its working set covers one request and is not a lossless
-representation. These are serialized sizes, not resident
+applied to the same conventional JSON (zlib 1.3.1-e00f703). Workload E
+is hatched because its working set covers one request and is not a
+lossless representation. These are serialized sizes, not resident
 memory.</figcaption>
 </figure>
 <p>gzip exceeds the template reduction on three of four lossless
@@ -1386,15 +1370,15 @@ turns.</figcaption>
 class="header-section-number">5.4</span> The exact cache overtakes the
 rhyme as duplicates grow</h2>
 <p><em>Tier: deterministic.</em> With 40 same-shaped sessions and
-different words, the rhyme stores 5,554 bytes against 8,064 for an
-exact-text cache, 31.1% less. When all sessions repeat the same words,
-the cache stores 198 bytes and the rhyme 5,572. The sweep in fig. <a
+different words, the rhyme stores 7,385 bytes against 13,424 for an
+exact-text cache, 45.0% less. When all sessions repeat the same words,
+the cache stores 332 bytes and the rhyme 5,867. The sweep in fig. <a
 href="#fig:rhyme_crossover">5</a> fills in between: the cache is already
-smaller at 40% duplicates on the tested grid. Reconstruction matched at
+smaller at 60% duplicates on the tested grid. Reconstruction matched at
 every point.</p>
 <figure id="fig:rhyme_crossover">
 <a class="figure-full-size-link" href="../figures/rhyme_crossover.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 5, JSON bytes for 40 same-shaped sessions as a growing share of them repeat one identical record."><img src="../figures/rhyme_crossover.png" style="width:92.0%"
-alt="Three lines of bytes against duplicate share. The rhyme is flat near 5.4 KiB; the cache falls from 7.9 KiB to 0.19 KiB, crossing below the rhyme by 40% duplicates." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Three lines of bytes against duplicate share. The rhyme is flat near 7.2 KiB; the cache falls from 13.1 KiB to 0.32 KiB, crossing below the rhyme by 60% duplicates." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 5: JSON bytes for 40 same-shaped
 sessions as a growing share of them repeat one identical record. The
 rhyme stays nearly flat because it records every session; the exact-text
@@ -1425,7 +1409,7 @@ workload the template engine and an ordinary reference hold the same
 memory, within 0.07% of each other.</p>
 <figure id="fig:heap_vs_json">
 <a class="figure-full-size-link" href="../figures/heap_vs_json.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 6, Reduction relative to the duplicated store at 1,024 sessions: what serialized JSON predicts"><img src="../figures/heap_vs_json.png" style="width:92.0%"
-alt="Two panels of paired markers. With a shared prompt, Tiny&#x27;s JSON reduction of 49.5% compares with a heap reduction of 32.8%; plain aliasing reaches 32.9%. With same-shape sessions, Tiny&#x27;s JSON reduction of 35.9% compares with a heap reduction of 4.2%." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Two panels of paired markers. With a shared prompt, Tiny&#x27;s JSON reduction of 49.5% compares with a heap reduction of 32.8%; plain aliasing reaches 32.9%. With same-shape sessions, Tiny&#x27;s JSON reduction of 49.8% compares with a heap reduction of 13.2%." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 6: Reduction relative to the
 duplicated store at 1,024 sessions: what serialized JSON predicts (open)
 and what a forced-collection read of the V8 heap shows (filled, median
@@ -1434,18 +1418,19 @@ Negative values mean a larger heap than the duplicated
 store.</figcaption>
 </figure>
 <p>With the same shape and different words, which is the case rhyming
-exists for, the gap is larger. JSON predicts 35.9% and the heap shows
-4.2%. V8’s hidden classes already share the repeated keys, and the
+exists for, the gap is larger. JSON predicts 49.8% and the heap shows
+13.2%. V8’s hidden classes already share the repeated keys, and the
 engine adds a wrapper object and nested delta objects per session.
 Removing the wrapper recovers most of the difference: the compact
-ablation reaches 20.9%, level with the aliased store at 20.1%, because
+ablation reaches 24.4%, level with the aliased store at 28.9%, because
 each session then holds only the fields that differ. Neither store
 interns equal nested objects, which would help both. In a live heap the
 idea roughly matches a plain reference, and the shipped encoding gives
-that saving back. The exact-text cache is 45.4% larger than duplication
+that saving back. The exact-text cache is 30.2% larger than duplication
 here, because it has no hits and keeps a digest per session. When
-sessions are truly identical it is the smallest store, at 96.0%.</p>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 2: Representation size and live heap by store at the largest session count, with reductions relative to the dup…"><table id="tbl:heap" data-responsive-table="true">
+sessions are truly identical it is the smallest store, at 74.6%.</p>
+<div id="tbl:heap">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 2: Representation size and live heap by store at the largest session count, with reductions relative to the dup…"><table data-responsive-table="true">
 <caption>Table 2: Representation size and live heap by store at the
 largest session count, with reductions relative to the duplicated
 store.</caption>
@@ -1458,7 +1443,7 @@ store.</caption>
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Workload</th>
 <th>Store</th>
 <th style="text-align: right;">JSON bytes</th>
@@ -1468,23 +1453,23 @@ store.</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Shared prompt</td>
 <td>Aliased</td>
 <td style="text-align: right;">4847.2 KiB</td>
-<td style="text-align: right;">5107.4 KiB</td>
+<td style="text-align: right;">5107.3 KiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">32.9%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Shared prompt</td>
 <td>Tiny (shipped)</td>
 <td style="text-align: right;">2445.8 KiB</td>
-<td style="text-align: right;">5110.9 KiB</td>
+<td style="text-align: right;">5110.8 KiB</td>
 <td style="text-align: right;">49.5%</td>
 <td style="text-align: right;">32.8%</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Shared prompt</td>
 <td>Duplicated</td>
 <td style="text-align: right;">4847.2 KiB</td>
@@ -1492,102 +1477,103 @@ store.</caption>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Shared prompt</td>
 <td>Exact-text cache</td>
 <td style="text-align: right;">4914.3 KiB</td>
-<td style="text-align: right;">7740.7 KiB</td>
+<td style="text-align: right;">7717.0 KiB</td>
 <td style="text-align: right;">-1.4%</td>
-<td style="text-align: right;">-1.7%</td>
+<td style="text-align: right;">-1.4%</td>
 </tr>
-<tr>
-<td>Same shape</td>
-<td>Tiny compact</td>
-<td style="text-align: right;">92.0 KiB</td>
-<td style="text-align: right;">189.1 KiB</td>
-<td style="text-align: right;">54.6%</td>
-<td style="text-align: right;">20.9%</td>
-</tr>
-<tr>
+<tr class="odd">
 <td>Same shape</td>
 <td>Aliased</td>
-<td style="text-align: right;">202.8 KiB</td>
-<td style="text-align: right;">191.1 KiB</td>
+<td style="text-align: right;">336.8 KiB</td>
+<td style="text-align: right;">255.1 KiB</td>
 <td style="text-align: right;">0.0%</td>
-<td style="text-align: right;">20.1%</td>
+<td style="text-align: right;">28.9%</td>
 </tr>
-<tr>
+<tr class="even">
+<td>Same shape</td>
+<td>Tiny compact</td>
+<td style="text-align: right;">131.1 KiB</td>
+<td style="text-align: right;">271.5 KiB</td>
+<td style="text-align: right;">61.1%</td>
+<td style="text-align: right;">24.4%</td>
+</tr>
+<tr class="odd">
 <td>Same shape</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">130.0 KiB</td>
-<td style="text-align: right;">229.1 KiB</td>
-<td style="text-align: right;">35.9%</td>
-<td style="text-align: right;">4.2%</td>
+<td style="text-align: right;">169.1 KiB</td>
+<td style="text-align: right;">311.5 KiB</td>
+<td style="text-align: right;">49.8%</td>
+<td style="text-align: right;">13.2%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Same shape</td>
 <td>Duplicated</td>
-<td style="text-align: right;">202.8 KiB</td>
-<td style="text-align: right;">239.0 KiB</td>
+<td style="text-align: right;">336.8 KiB</td>
+<td style="text-align: right;">359.0 KiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Same shape</td>
 <td>Exact-text cache</td>
-<td style="text-align: right;">269.8 KiB</td>
-<td style="text-align: right;">347.5 KiB</td>
-<td style="text-align: right;">-33.0%</td>
-<td style="text-align: right;">-45.4%</td>
+<td style="text-align: right;">403.8 KiB</td>
+<td style="text-align: right;">467.5 KiB</td>
+<td style="text-align: right;">-19.9%</td>
+<td style="text-align: right;">-30.2%</td>
 </tr>
-<tr>
-<td>Identical</td>
-<td>Exact-text cache</td>
-<td style="text-align: right;">67.2 KiB</td>
-<td style="text-align: right;">9.4 KiB</td>
-<td style="text-align: right;">65.9%</td>
-<td style="text-align: right;">96.0%</td>
-</tr>
-<tr>
+<tr class="even">
 <td>Identical</td>
 <td>Aliased</td>
-<td style="text-align: right;">197.0 KiB</td>
-<td style="text-align: right;">72.7 KiB</td>
+<td style="text-align: right;">331.0 KiB</td>
+<td style="text-align: right;">80.8 KiB</td>
 <td style="text-align: right;">0.0%</td>
-<td style="text-align: right;">68.8%</td>
+<td style="text-align: right;">77.1%</td>
 </tr>
-<tr>
+<tr class="odd">
+<td>Identical</td>
+<td>Exact-text cache</td>
+<td style="text-align: right;">67.3 KiB</td>
+<td style="text-align: right;">89.4 KiB</td>
+<td style="text-align: right;">79.7%</td>
+<td style="text-align: right;">74.6%</td>
+</tr>
+<tr class="even">
 <td>Identical</td>
 <td>Tiny compact</td>
-<td style="text-align: right;">91.4 KiB</td>
-<td style="text-align: right;">189.2 KiB</td>
-<td style="text-align: right;">53.6%</td>
-<td style="text-align: right;">18.6%</td>
+<td style="text-align: right;">91.6 KiB</td>
+<td style="text-align: right;">213.2 KiB</td>
+<td style="text-align: right;">72.3%</td>
+<td style="text-align: right;">39.5%</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Identical</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">129.4 KiB</td>
-<td style="text-align: right;">229.2 KiB</td>
-<td style="text-align: right;">34.3%</td>
-<td style="text-align: right;">1.4%</td>
+<td style="text-align: right;">129.6 KiB</td>
+<td style="text-align: right;">253.2 KiB</td>
+<td style="text-align: right;">60.8%</td>
+<td style="text-align: right;">28.2%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Identical</td>
 <td>Duplicated</td>
-<td style="text-align: right;">197.0 KiB</td>
-<td style="text-align: right;">232.5 KiB</td>
+<td style="text-align: right;">331.0 KiB</td>
+<td style="text-align: right;">352.5 KiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
 </tbody>
 </table></div>
+</div>
 <p>The same designs across session counts are in fig. <a
 href="#fig:heap_scaling">7</a>. Small stores carry visible fixed
 overhead, which is why the shipped engine uses more heap than
-duplication at 16 sessions in the same-shape workload, at 579 against
-264 bytes per session. It first uses less at 1,024 sessions on the
-tested grid.</p>
+duplication at 16 sessions in the same-shape workload, at 662 against
+384 bytes per session. It first uses less at 256 sessions on the tested
+grid.</p>
 <figure id="fig:heap_scaling">
 <a class="figure-full-size-link" href="../figures/heap_scaling.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 7, Median V8 heap per session against the number of sessions"><img src="../figures/heap_scaling.png" style="width:92.0%"
 alt="Three panels of per-session heap against sessions, one line per store design. At the largest session count, with a shared prompt, the duplicated store holds 7609 bytes per session and Tiny 5111." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
@@ -1602,13 +1588,14 @@ class="header-section-number">5.7</span> Resident memory falls less than
 the heap</h2>
 <p><em>Tier: measured.</em> What the operating system sees moves in the
 same direction as the heap, by less. At 16,384 sessions with a shared
-prompt, tbl. <a href="#tbl:rss">3</a> shows RSS growing by 196.1 MiB for
-the duplicated store and 157.4 MiB for Tiny, a reduction of 19.7%
+prompt, tbl. <a href="#tbl:rss">3</a> shows RSS growing by 150.1 MiB for
+the duplicated store and 111.6 MiB for Tiny, a reduction of 25.7%
 against 32.1% in the heap. Resident pages also hold allocator slack and
 recently collected garbage, which a heap reading excludes. The aliased
-store again matches Tiny, at 20.1%. Peak RSS over ingestion is 304.1 MiB
-and 269.2 MiB respectively.</p>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 3: Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes."><table id="tbl:rss" style="width:99%;" data-responsive-table="true">
+store again matches Tiny, at 25.8%. Peak RSS over ingestion is 281.3 MiB
+and 242.7 MiB respectively.</p>
+<div id="tbl:rss">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 3: Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes."><table style="width:100%;" data-responsive-table="true">
 <caption>Table 3: Resident set growth while ingesting 16,384 sessions,
 with percentile-bootstrap intervals over processes.</caption>
 <colgroup>
@@ -1619,7 +1606,7 @@ with percentile-bootstrap intervals over processes.</caption>
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Store</th>
 <th style="text-align: right;">RSS growth</th>
 <th>95% interval</th>
@@ -1628,54 +1615,56 @@ with percentile-bootstrap intervals over processes.</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Duplicated</td>
-<td style="text-align: right;">196.1 MiB</td>
-<td>194.4 MiB to 199.7 MiB</td>
+<td style="text-align: right;">150.1 MiB</td>
+<td>150.0 MiB to 150.2 MiB</td>
 <td style="text-align: right;">0.0%</td>
 <td style="text-align: right;">0.0%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">157.4 MiB</td>
-<td>157.2 MiB to 157.7 MiB</td>
-<td style="text-align: right;">19.7%</td>
+<td style="text-align: right;">111.6 MiB</td>
+<td>111.4 MiB to 111.7 MiB</td>
+<td style="text-align: right;">25.7%</td>
 <td style="text-align: right;">32.1%</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Aliased</td>
-<td style="text-align: right;">156.6 MiB</td>
-<td>156.5 MiB to 157.0 MiB</td>
-<td style="text-align: right;">20.1%</td>
+<td style="text-align: right;">111.4 MiB</td>
+<td>111.3 MiB to 111.5 MiB</td>
+<td style="text-align: right;">25.8%</td>
 <td style="text-align: right;">32.1%</td>
 </tr>
 </tbody>
 </table></div>
+</div>
 <h2 data-number="5.8" id="sec:res_latency"><span
 class="header-section-number">5.8</span> Materialization is slower,
 mostly because of one call</h2>
 <p><em>Tier: measured.</em> Reconstructing a session costs time that
 reading it does not. As fig. <a
 href="#fig:materialization_latency">8</a> and tbl. <a
-href="#tbl:latency">4</a> show, the shipped engine takes 1.69× the
-duplicated store’s time with a shared prompt and 11.81× with the same
+href="#tbl:latency">4</a> show, the shipped engine takes 1.01× the
+duplicated store’s time with a shared prompt and 1.62× with the same
 shape and different words. Most of that is <code>structuredClone</code>.
-Without it the ratios are 1.06× and 1.96×. Every condition reproduced
+Without it the ratios are 1.01× and 1.68×. Every condition reproduced
 the original text in 7,680 of 7,680 checks. The in-process path
 therefore provides no latency gain, and a removable implementation
 choice accounts for most of its cost.</p>
 <figure id="fig:materialization_latency">
 <a class="figure-full-size-link" href="../figures/materialization_latency.png" target="_blank" rel="noopener" aria-label="Open full-size Figure 8, Time to turn one stored session back into its full request text, with each store’s ratio to…"><img src="../figures/materialization_latency.png" style="width:92.0%"
-alt="Two panels of medians. With a shared prompt, the shipped engine is 1.69 times the duplicated store and 1.06 times without cloning. With same-shape sessions the ratios are 11.81 and 1.96." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
+alt="Two panels of medians. With a shared prompt, the shipped engine is 1.01 times the duplicated store and 1.01 times without cloning. With same-shape sessions the ratios are 1.62 and 1.68." /><span class="figure-full-size-label" aria-hidden="true">Open full-size figure</span></a>
 <figcaption>Figure 8: Time to turn one stored session
 back into its full request text, with each store’s ratio to the
 duplicated store. Points are medians over independent processes, with
 percentile-bootstrap 95% intervals. Every condition reproduced the
 original text exactly. With a shared prompt, removing
 <code>structuredClone</code> from reconstruction moves the ratio from
-1.69 to 1.06.</figcaption>
+1.01 to 1.01.</figcaption>
 </figure>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 4: Time to materialize one session from each store, as medians over independent processes, with the ratio to th…"><table id="tbl:latency" data-responsive-table="true">
+<div id="tbl:latency">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 4: Time to materialize one session from each store, as medians over independent processes, with the ratio to th…"><table data-responsive-table="true">
 <caption>Table 4: Time to materialize one session from each store, as
 medians over independent processes, with the ratio to the duplicated
 store.</caption>
@@ -1688,7 +1677,7 @@ store.</caption>
 <col style="width: 18%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Workload</th>
 <th>Store</th>
 <th style="text-align: right;">Median</th>
@@ -1698,72 +1687,73 @@ store.</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
+<td>Shared prompt</td>
+<td>Duplicated</td>
+<td style="text-align: right;">8.53 µs</td>
+<td>8.46 µs to 8.57 µs</td>
+<td style="text-align: right;">1.00×</td>
+<td>0.99× to 1.01×</td>
+</tr>
+<tr class="even">
 <td>Shared prompt</td>
 <td>Aliased</td>
-<td style="text-align: right;">1.89 µs</td>
-<td>1.88 µs to 1.90 µs</td>
+<td style="text-align: right;">8.57 µs</td>
+<td>8.49 µs to 8.61 µs</td>
 <td style="text-align: right;">1.00×</td>
-<td>0.97× to 1.07×</td>
+<td>0.99× to 1.01×</td>
 </tr>
-<tr>
-<td>Shared prompt</td>
-<td>Duplicated</td>
-<td style="text-align: right;">1.90 µs</td>
-<td>1.76 µs to 1.94 µs</td>
-<td style="text-align: right;">1.00×</td>
-<td>0.93× to 1.07×</td>
-</tr>
-<tr>
+<tr class="odd">
 <td>Shared prompt</td>
 <td>Tiny without clone</td>
-<td style="text-align: right;">2.01 µs</td>
-<td>1.98 µs to 2.04 µs</td>
-<td style="text-align: right;">1.06×</td>
-<td>1.03× to 1.14×</td>
+<td style="text-align: right;">8.62 µs</td>
+<td>8.58 µs to 8.64 µs</td>
+<td style="text-align: right;">1.01×</td>
+<td>1.00× to 1.02×</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Shared prompt</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">3.21 µs</td>
-<td>3.18 µs to 3.23 µs</td>
-<td style="text-align: right;">1.69×</td>
-<td>1.65× to 1.82×</td>
+<td style="text-align: right;">8.63 µs</td>
+<td>8.61 µs to 8.65 µs</td>
+<td style="text-align: right;">1.01×</td>
+<td>1.01× to 1.02×</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Same shape</td>
 <td>Duplicated</td>
-<td style="text-align: right;">0.15 µs</td>
-<td>0.14 µs to 0.15 µs</td>
+<td style="text-align: right;">0.57 µs</td>
+<td>0.57 µs to 0.58 µs</td>
 <td style="text-align: right;">1.00×</td>
 <td>0.98× to 1.02×</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Same shape</td>
 <td>Aliased</td>
-<td style="text-align: right;">0.15 µs</td>
-<td>0.14 µs to 0.15 µs</td>
-<td style="text-align: right;">1.00×</td>
-<td>0.98× to 1.04×</td>
+<td style="text-align: right;">0.58 µs</td>
+<td>0.58 µs to 0.58 µs</td>
+<td style="text-align: right;">1.02×</td>
+<td>0.98× to 1.02×</td>
 </tr>
-<tr>
-<td>Same shape</td>
-<td>Tiny without clone</td>
-<td style="text-align: right;">0.29 µs</td>
-<td>0.29 µs to 0.29 µs</td>
-<td style="text-align: right;">1.96×</td>
-<td>1.96× to 2.04×</td>
-</tr>
-<tr>
+<tr class="odd">
 <td>Same shape</td>
 <td>Tiny (shipped)</td>
-<td style="text-align: right;">1.72 µs</td>
-<td>1.70 µs to 1.74 µs</td>
-<td style="text-align: right;">11.81×</td>
-<td>11.74× to 12.14×</td>
+<td style="text-align: right;">0.93 µs</td>
+<td>0.92 µs to 0.93 µs</td>
+<td style="text-align: right;">1.62×</td>
+<td>1.57× to 1.63×</td>
+</tr>
+<tr class="even">
+<td>Same shape</td>
+<td>Tiny without clone</td>
+<td style="text-align: right;">0.96 µs</td>
+<td>0.92 µs to 0.97 µs</td>
+<td style="text-align: right;">1.68×</td>
+<td>1.58× to 1.70×</td>
 </tr>
 </tbody>
 </table></div>
+</div>
 <h2 data-number="5.9" id="sec:res_llm"><span
 class="header-section-number">5.9</span> Real models: prefix reuse
 speeds prefill and only prefill</h2>
@@ -1786,7 +1776,8 @@ per-trial medians, and their intervals describe repeatability within one
 process. Reusing a prefix is what a production prefix cache already
 does, so this compares against a baseline without one.</figcaption>
 </figure>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 5: Real-model timing by model and backend. Re-prefill and shared give prefill time per turn without and with a…"><table id="tbl:llm" data-responsive-table="true">
+<div id="tbl:llm">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 5: Real-model timing by model and backend. Re-prefill and shared give prefill time per turn without and with a…"><table data-responsive-table="true">
 <caption>Table 5: Real-model timing by model and backend. Re-prefill and
 shared give prefill time per turn without and with a shared prefix.
 Prefill is their ratio. Decode and both (prefill plus decode) are ratios
@@ -1805,7 +1796,7 @@ a deliberately wrong cache.</caption>
 <col style="width: 11%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Model</th>
 <th>Backend</th>
 <th style="text-align: right;">Re-prefill</th>
@@ -1818,7 +1809,7 @@ a deliberately wrong cache.</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>distilgpt2</td>
 <td>CPU</td>
 <td style="text-align: right;">53.22 ms</td>
@@ -1829,7 +1820,7 @@ a deliberately wrong cache.</caption>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">caught</td>
 </tr>
-<tr>
+<tr class="even">
 <td>distilgpt2</td>
 <td>MPS</td>
 <td style="text-align: right;">22.81 ms</td>
@@ -1840,7 +1831,7 @@ a deliberately wrong cache.</caption>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">caught</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>tiny-gpt2</td>
 <td>CPU</td>
 <td style="text-align: right;">2.03 ms</td>
@@ -1851,7 +1842,7 @@ a deliberately wrong cache.</caption>
 <td style="text-align: right;">16 of 16</td>
 <td style="text-align: right;">missed</td>
 </tr>
-<tr>
+<tr class="even">
 <td>tiny-gpt2</td>
 <td>MPS</td>
 <td style="text-align: right;">1.61 ms</td>
@@ -1864,6 +1855,7 @@ a deliberately wrong cache.</caption>
 </tr>
 </tbody>
 </table></div>
+</div>
 <p>Output equivalence, which the original lab did not check, held:
 greedy tokens matched in 64 of 64 turns, with a worst last-position
 logit difference across runs of 1.4e-4 against a declared tolerance of
@@ -1905,7 +1897,8 @@ alt="Grouped bars of bytes under three accountings. Duplicated holds about 150 M
 predicted to save 84.1%; summed tensor sizes give 84.1% and the device
 allocator 84.4%.</figcaption>
 </figure>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 6: KV residency. Predicted, tensors and allocator are reductions by three accountings. Duplicated and shared ar…"><table id="tbl:residency" data-responsive-table="true">
+<div id="tbl:residency">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 6: KV residency. Predicted, tensors and allocator are reductions by three accountings. Duplicated and shared ar…"><table data-responsive-table="true">
 <caption>Table 6: KV residency. Predicted, tensors and allocator are
 reductions by three accountings. Duplicated and shared are bytes held,
 on the allocator where one exists and otherwise summed tensors. The last
@@ -1922,7 +1915,7 @@ href="#eq:with_weights">4</a>.</caption>
 <col style="width: 12%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Model</th>
 <th>Backend</th>
 <th style="text-align: right;">Predicted</th>
@@ -1934,7 +1927,7 @@ href="#eq:with_weights">4</a>.</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>distilgpt2</td>
 <td>CPU</td>
 <td style="text-align: right;">84.1%</td>
@@ -1944,7 +1937,7 @@ href="#eq:with_weights">4</a>.</caption>
 <td style="text-align: right;">23.9 MiB</td>
 <td style="text-align: right;">27.3%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>distilgpt2</td>
 <td>MPS</td>
 <td style="text-align: right;">84.1%</td>
@@ -1954,7 +1947,7 @@ href="#eq:with_weights">4</a>.</caption>
 <td style="text-align: right;">24.1 MiB</td>
 <td style="text-align: right;">27.3%</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>tiny-gpt2</td>
 <td>CPU</td>
 <td style="text-align: right;">80.9%</td>
@@ -1964,7 +1957,7 @@ href="#eq:with_weights">4</a>.</caption>
 <td style="text-align: right;">0.0 MiB</td>
 <td style="text-align: right;">11.9%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>tiny-gpt2</td>
 <td>MPS</td>
 <td style="text-align: right;">80.9%</td>
@@ -1976,6 +1969,7 @@ href="#eq:with_weights">4</a>.</caption>
 </tr>
 </tbody>
 </table></div>
+</div>
 <p>Counting weights changes the headline. With the 312.5 MiB of weights
 resident under both designs, the reduction for this run is 27.3%, as
 eq. <a href="#eq:with_weights">4</a> predicts.</p>
@@ -1998,7 +1992,7 @@ across them, and the simulation gives the rhyme arm 34.3% less KV memory
 than the cache. That follows from one assumption: that 38.9% of KV
 memory can be held once because that fraction of a JSON record’s bytes
 can. The constant is typed into the simulation, and the JSON cohort
-itself gives 36.4%. The workload’s equivalence check compares lengths,
+itself gives 50.4%. The workload’s equivalence check compares lengths,
 because the rebuilt tokens differ from the originals by construction, so
 it cannot fail.</p>
 <p>The real-model lab tests the assumption on the tensors. Two prompts
@@ -2016,15 +2010,17 @@ has no measurement behind it.</p>
 class="header-section-number">5.13</span> The rhyme gate and the
 companion meters</h2>
 <p><em>Tier: deterministic.</em> The same release gates its pin on a
-four-pillar audit. It refuses a plain wall of repeated records, as it
-says it does, and it passes the same records once they have a nested
-field and state a nesting depth and a drift, because two of its pillars
-read values the caller declares. The gate therefore checks a declaration
-and not a behaviour. The release also adds companion meters outside the
-pin: signature routing (3 comparisons against 15 for a scan), context
-folding (10.0% over a window that drops older turns) and an energy proxy
-built on assumed constants. FractiAI labels them lab meters, and none
-reads a device.</p>
+four-pillar audit rooted at Net Zero (the zero octave) through ascending
+octaves. It refuses a plain wall of repeated records, as it says it
+does. Declaring a nesting depth and a drift on a mid-level nest is not
+enough: without a Net Zero root the recursive pillar fails. A Net Zero →
+ascending-octave cohort with shared organization and different words
+passes all four pillars. two of the pillars still read caller-stated
+depth and drift, but only after the octave ladder is present. The
+release also adds companion meters outside the pin: signature routing (3
+comparisons against 15 for a scan), context folding (10.0% over a window
+that drops older turns) and an energy proxy built on assumed constants.
+FractiAI labels them lab meters, and none reads a device.</p>
 <h2 data-number="5.14" id="sec:res_historical"><span
 class="header-section-number">5.14</span> Historical GPU evidence</h2>
 <p><em>Tier: historical, with an arithmetic check.</em> The 81.4%
@@ -2098,8 +2094,8 @@ repeated keys <span class="citation" data-cites="bruni2017fast">(<a
 href="#ref-bruni2017fast" role="doc-biblioref">Bruni 2017</a>)</span>
 and ordinary references cover repeated values, and the shipped engine
 gives back part of the rest through its per-session wrapper. A tighter
-encoding of the same idea roughly matches plain references, at 20.9%
-against 20.1%, because a session stops storing fields that repeat a
+encoding of the same idea roughly matches plain references, at 24.4%
+against 28.9%, because a session stops storing fields that repeat a
 default. That is the strongest in-process result for the idea, though it
 comes from an ablation and not the shipped engine.</p>
 <p>The question that matters for accelerators is whether two prompts
@@ -2119,7 +2115,7 @@ class="header-section-number">6.4</span> Recommendations</h2>
 <p>For the engine, removing <code>structuredClone</code> from
 reconstruction and dropping the per-session wrapper would recover most
 of the measured latency cost and turn the same-shape heap result from
-4.2% into 20.9%, as the ablations show, and neither changes the idea.
+13.2% into 24.4%, as the ablations show, and neither changes the idea.
 For the kit’s public language, the evidence supports statements of the
 form “sharing a prefix reduced KV residency by this much, on this
 workload, on this hardware, compared with no sharing”. It does not
@@ -2134,11 +2130,11 @@ check that compares tokens.</p>
 class="header-section-number">7</span> Limitations</h1>
 <p><strong>One host, under load.</strong> Measurements come from one
 machine that was running other work, with a one-minute load average of
-4.77 to 18.71 on 14 logical cores. Heap readings are insensitive to
-this, as the controls show. Timings are not, so the timing ratios
-describe this configuration. Medians over isolated processes and
-randomized order reduce the risk of bias but do not remove it, because a
-seemingly innocuous detail of the setup can bias a measurement <span
+0.64 to 18.71 on 4 logical cores. Heap readings are insensitive to this,
+as the controls show. Timings are not, so the timing ratios describe
+this configuration. Medians over isolated processes and randomized order
+reduce the risk of bias but do not remove it, because a seemingly
+innocuous detail of the setup can bias a measurement <span
 class="citation" data-cites="mytkowicz2009producing">(<a
 href="#ref-mytkowicz2009producing" role="doc-biblioref">Mytkowicz et al.
 2009</a>)</span>.</p>
@@ -2212,8 +2208,8 @@ measured here.</p>
 managed runtimes and reporting results: treat the process as the unit of
 replication and use appropriate statistics <span class="citation"
 data-cites="georges2007statistically kalibera2013rigorous">(<a
-href="#ref-georges2007statistically" role="doc-biblioref">Georges et al.
-2007</a>; <a href="#ref-kalibera2013rigorous"
+href="#ref-georges2007statistically" role="doc-biblioref">Georges,
+Buytaert, and Eeckhout 2007</a>; <a href="#ref-kalibera2013rigorous"
 role="doc-biblioref">Kalibera and Jones 2013</a>)</span>, randomize to
 expose setup bias <span class="citation"
 data-cites="mytkowicz2009producing">(<a
@@ -2262,7 +2258,7 @@ class="header-section-number">9.3</span> Bindings for this build</h2>
 <p>The plan hash is
 <code>df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770</code>.
 Measured receipts are bound to source fingerprint
-<code>25fca7c9326662ec43eba34aa3fc8aff360487a2498139abc8daedcb2b5d8ae4</code>,
+<code>58499c4c63f0969fbfc6c90ae6578b5c349d7766d975d6af48ae81a7fe1c7bd1</code>,
 covering 75 files, and verification rejects a receipt whose producer has
 changed. This build’s token catalog holds 207 values, each recording its
 source path in the analysis summary. Historical receipts are bound by
@@ -2293,7 +2289,8 @@ class="header-section-number">10</span> Claim ledger</h1>
 <p>Each public statement below is evaluated by code, from the analysis
 summary. Statuses are computed and can change when the data change.
 “Historical” marks a value recorded on the NVIDIA GeForce GTX 860M.</p>
-<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 7: Public claims and their status under this study’s evidence."><table id="tbl:claims" data-responsive-table="true">
+<div id="tbl:claims">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Scrollable table: Table 7: Public claims and their status under this study’s evidence."><table data-responsive-table="true">
 <caption>Table 7: Public claims and their status under this study’s
 evidence.</caption>
 <colgroup>
@@ -2302,14 +2299,14 @@ evidence.</caption>
 <col style="width: 18%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Claim</th>
 <th>Evidence</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Aggregate representation reduction of 84.5%, clearing the 80%
 gate</td>
 <td>Reproduced to every digit at 84.5%. 3 of 3 alternative aggregates
@@ -2317,36 +2314,36 @@ fall below the gate: equal weight 74.3%, lossless only 77.0%, without
 the anti-pattern baseline 55.5%.</td>
 <td>reproduced with a qualification</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Sharing a system prompt across sessions uses less memory</td>
 <td>At 1,024 sessions the live heap falls 32.8% against the JSON
 prediction of 49.5%. A plain object reference reaches 32.9% with no
 engine.</td>
 <td>reproduced with a qualification</td>
 </tr>
-<tr>
-<td>A rhyme stores about 31% less when sessions share a shape and differ
+<tr class="odd">
+<td>A rhyme stores about 45% less when sessions share a shape and differ
 in words</td>
-<td>True of JSON bytes (31.1%). In the live heap at 1,024 sessions the
-shipped engine saves 4.2%, and a tighter encoding of the same idea
-20.9%, against 20.1% for a plain reference.</td>
+<td>True of JSON bytes (45.0%). In the live heap at 1,024 sessions the
+shipped engine saves 13.2%, and a tighter encoding of the same idea
+24.4%, against 28.9% for a plain reference.</td>
 <td>reproduced with a qualification</td>
 </tr>
-<tr>
+<tr class="even">
 <td>An exact-text cache wins when every session repeats the same
 words</td>
-<td>Reproduced: cache 198 bytes, rhyme 5,572 bytes. The cache is first
-smaller at 40% duplicates on the tested grid.</td>
+<td>Reproduced: cache 332 bytes, rhyme 5,867 bytes. The cache is first
+smaller at 60% duplicates on the tested grid.</td>
 <td>reproduced</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Lower latency from reconstructing a working set</td>
-<td>In process, materializing a session takes 1.69× and 11.81× the
-duplicated store’s time for the two workloads, or 1.06× and 1.96×
+<td>In process, materializing a session takes 1.01× and 1.62× the
+duplicated store’s time for the two workloads, or 1.01× and 1.68×
 without cloning.</td>
 <td>not reproduced</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Real-model prefill speedup of 1.80× (historical, GTX 860M)</td>
 <td>Direction reproduced on this host: 1.34× to 3.50× per turn. Decode
 alone 0.98× to 1.03×; prefill plus decode 1.06× to 1.63×. The tested
@@ -2356,14 +2353,14 @@ catches a cache built from the wrong prefix. On tiny-gpt2 it does not,
 so those turns show nothing.</td>
 <td>reproduced with a qualification</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Real-model train-step speedup of 1.17× (historical, GTX 860M)</td>
 <td>Warmed up and with arms interleaved, this host gives 1.00× to 1.03×,
 with intervals spanning 0.94× to 1.09×. Both arms perform the same steps
 per round; the original lab ran one arm first with no warm-up.</td>
 <td>not reproduced</td>
 </tr>
-<tr>
+<tr class="even">
 <td>GPU allocation falls 81.4%, from 288.00 to 53.60 MiB</td>
 <td>Reproduced to every digit by arithmetic, with no GPU, because the
 value follows from requested buffer sizes and an assumed 15% delta. It
@@ -2371,7 +2368,7 @@ is not a device reading, and no experiment here measures that
 assumption.</td>
 <td>reproduced with a qualification</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nvidia-smi peak falls 72.8%, from 313 to 85 MiB (historical, GTX
 860M)</td>
 <td>Needs NVIDIA hardware; the lab reports not_run on this host
@@ -2380,7 +2377,7 @@ residency 84.4% on the MPS allocator, 27.3% once weights are
 counted.</td>
 <td>not testable on this host</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Host-to-device turn materialization 9.60× faster (historical, GTX
 860M)</td>
 <td>Needs NVIDIA hardware. The copied payload alone is 9.41× smaller
@@ -2388,21 +2385,23 @@ than the conventional one, so the byte count predicts most of the
 speedup recorded in the stored receipts (9.60×).</td>
 <td>not testable on this host</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>A DRAM or accelerator memory reduction of 80% for AI serving</td>
 <td>Not established by any receipt. Key-value residency alone can exceed
 that (84.4% here), but counting weights gives 27.3% here and 50.8% on
 the H100 roofline, and a prefix cache gets the same residency.</td>
 <td>not reproduced</td>
 </tr>
-<tr>
-<td>A four-pillar gate tells a holographic rhyme from a brick wall</td>
-<td>It refuses a plain wall. The same bricks pass once they have a
-nested field and declare a nesting depth and a drift, because recursive
-and self_correcting read values the caller states.</td>
-<td>reproduced with a qualification</td>
+<tr class="even">
+<td>A four-pillar gate tells a holographic rhyme from a brick wall (Net
+Zero → ascending octaves)</td>
+<td>It refuses a plain wall. Declaring a nesting depth and a drift on a
+mid-level nest is not enough without a Net Zero (octave 0) root. A Net
+Zero → ascending-octave cohort passes all four pillars (span
+[0,1,2]).</td>
+<td>reproduced</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>On an H100, a rhyme holds 34.3% less KV memory than a prefix cache
 when wording differs (simulated)</td>
 <td>Measured on distilgpt2, with 12.5% of tokens changed: 14.6% of KV
@@ -2411,7 +2410,7 @@ cells repeat, and resuming from the other prompt’s cache moves logits by
 memory, and its equivalence check compares lengths.</td>
 <td>not reproduced</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Signature routing, context-fold hooks and an energy proxy</td>
 <td>They run and pass: 3 comparisons against 15 for a scan, a fold ratio
 of 10.0% over 6 retained turns, and depth scaled from 8 to 1. These
@@ -2419,7 +2418,7 @@ count comparisons, bytes and joules from assumed constants. None is a
 memory, latency or energy reading from a device.</td>
 <td>reproduced with a qualification</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>tiny benchmark</code> produces receipts on your machine</td>
 <td>False before this work: on a host with no GPU it reported a stored
 laptop receipt as a fresh pass, naming that laptop as the device. Labs
@@ -2430,6 +2429,7 @@ suite’s verdict is incomplete.</td>
 </tr>
 </tbody>
 </table></div>
+</div>
 <hr />
 <h1 class="unnumbered" id="sec:references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
@@ -2437,13 +2437,13 @@ role="list">
 <div id="ref-bang2023gptcache" class="csl-entry" role="listitem">
 Bang, Fu. 2023. <span>“<span>GPTCache</span>: An Open-Source Semantic
 Cache for <span>LLM</span> Applications Enabling Faster Answers and Cost
-Savings.”</span> <em>Proceedings of the 3rd Workshop for Natural
+Savings.”</span> In <em>Proceedings of the 3rd Workshop for Natural
 Language Processing Open Source Software (NLP-OSS 2023)</em>, 212–18. <a
 href="https://doi.org/10.18653/v1/2023.nlposs-1.24">https://doi.org/10.18653/v1/2023.nlposs-1.24</a>.
 </div>
 <div id="ref-bruni2017fast" class="csl-entry" role="listitem">
-Bruni, Camillo. 2017. <em>Fast Properties in <span>V8</span></em>. V8
-project blog. <a
+Bruni, Camillo. 2017. <span>“Fast Properties in <span>V8</span>.”</span>
+V8 project blog. <a
 href="https://v8.dev/blog/fast-properties">https://v8.dev/blog/fast-properties</a>.
 </div>
 <div id="ref-efron1993introduction" class="csl-entry" role="listitem">
@@ -2453,14 +2453,14 @@ href="https://doi.org/10.1007/978-1-4899-4541-9">https://doi.org/10.1007/978-1-4
 </div>
 <div id="ref-filliatre2006typesafe" class="csl-entry" role="listitem">
 Filliâtre, Jean-Christophe, and Sylvain Conchon. 2006. <span>“Type-Safe
-Modular Hash-Consing.”</span> <em>Proceedings of the 2006 Workshop on
+Modular Hash-Consing.”</span> In <em>Proceedings of the 2006 Workshop on
 ML</em>, 12–19. <a
 href="https://doi.org/10.1145/1159876.1159880">https://doi.org/10.1145/1159876.1159880</a>.
 </div>
 <div id="ref-friedman2026template" class="csl-entry" role="listitem">
-Friedman, Daniel Ari. 2026. <em>A Template/ Approach to Reproducible
+Friedman, Daniel Ari. 2026. <span>“A Template/ Approach to Reproducible
 Generative Research: Architecture and Ergonomics from Configuration
-through Publication</em>. Zenodo. <a
+Through Publication.”</span> Zenodo. <a
 href="https://doi.org/10.5281/zenodo.19139090">https://doi.org/10.5281/zenodo.19139090</a>.
 </div>
 <div id="ref-gamma1994design" class="csl-entry" role="listitem">
@@ -2472,21 +2472,21 @@ Addison-Wesley.
 role="listitem">
 Georges, Andy, Dries Buytaert, and Lieven Eeckhout. 2007.
 <span>“Statistically Rigorous <span>Java</span> Performance
-Evaluation.”</span> <em>Proceedings of the 22nd Annual ACM SIGPLAN
+Evaluation.”</span> In <em>Proceedings of the 22nd Annual ACM SIGPLAN
 Conference on Object-Oriented Programming Systems, Languages and
 Applications</em>, 57–76. <a
 href="https://doi.org/10.1145/1297027.1297033">https://doi.org/10.1145/1297027.1297033</a>.
 </div>
 <div id="ref-gim2023promptcache" class="csl-entry" role="listitem">
 Gim, In, Guojun Chen, Seung-seob Lee, Nikhil Sarda, Anurag Khandelwal,
-and Lin Zhong. 2023. <em>Prompt Cache: Modular Attention Reuse for
-Low-Latency Inference</em>. <a
+and Lin Zhong. 2023. <span>“Prompt Cache: Modular Attention Reuse for
+Low-Latency Inference.”</span> <a
 href="https://arxiv.org/abs/2311.04934">https://arxiv.org/abs/2311.04934</a>.
 </div>
 <div id="ref-hoefler2015scientific" class="csl-entry" role="listitem">
 Hoefler, Torsten, and Roberto Belli. 2015. <span>“Scientific
 Benchmarking of Parallel Computing Systems: Twelve Ways to Tell the
-Masses When Reporting Performance Results.”</span> <em>Proceedings of
+Masses When Reporting Performance Results.”</span> In <em>Proceedings of
 the International Conference for High Performance Computing, Networking,
 Storage and Analysis</em>, 1–12. <a
 href="https://doi.org/10.1145/2807591.2807644">https://doi.org/10.1145/2807591.2807644</a>.
@@ -2499,60 +2499,61 @@ href="https://doi.org/10.1080/00031305.1996.10473566">https://doi.org/10.1080/00
 </div>
 <div id="ref-kalibera2013rigorous" class="csl-entry" role="listitem">
 Kalibera, Tomas, and Richard Jones. 2013. <span>“Rigorous Benchmarking
-in Reasonable Time.”</span> <em>Proceedings of the 2013 International
+in Reasonable Time.”</span> In <em>Proceedings of the 2013 International
 Symposium on Memory Management</em>, 63–74. <a
 href="https://doi.org/10.1145/2464157.2464160">https://doi.org/10.1145/2464157.2464160</a>.
 </div>
 <div id="ref-kwon2023efficient" class="csl-entry" role="listitem">
-Kwon, Woosuk, Zhuohan Li, Siyuan Zhuang, et al. 2023. <span>“Efficient
-Memory Management for Large Language Model Serving with
-<span>PagedAttention</span>.”</span> <em>Proceedings of the 29th
+Kwon, Woosuk, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody
+Hao Yu, Joseph Gonzalez, Hao Zhang, and Ion Stoica. 2023.
+<span>“Efficient Memory Management for Large Language Model Serving with
+<span>PagedAttention</span>.”</span> In <em>Proceedings of the 29th
 Symposium on Operating Systems Principles</em>, 611–26. <a
 href="https://doi.org/10.1145/3600006.3613165">https://doi.org/10.1145/3600006.3613165</a>.
 </div>
 <div id="ref-mytkowicz2009producing" class="csl-entry" role="listitem">
 Mytkowicz, Todd, Amer Diwan, Matthias Hauswirth, and Peter F. Sweeney.
-2009. <span>“Producing Wrong Data without Doing Anything Obviously
-Wrong!”</span> <em>Proceedings of the 14th International Conference on
-Architectural Support for Programming Languages and Operating
+2009. <span>“Producing Wrong Data Without Doing Anything Obviously
+Wrong!”</span> In <em>Proceedings of the 14th International Conference
+on Architectural Support for Programming Languages and Operating
 Systems</em>, 265–76. <a
 href="https://doi.org/10.1145/1508244.1508275">https://doi.org/10.1145/1508244.1508275</a>.
 </div>
 <div id="ref-nvidia2026h100" class="csl-entry" role="listitem">
-NVIDIA Corporation. 2026. <em><span>NVIDIA H100</span> Tensor Core
-<span>GPU</span></em>. Product specification page. <a
+NVIDIA Corporation. 2026. <span>“<span>NVIDIA H100</span> Tensor Core
+<span>GPU</span>.”</span> Product specification page. <a
 href="https://www.nvidia.com/en-us/data-center/h100/">https://www.nvidia.com/en-us/data-center/h100/</a>.
 </div>
 <div id="ref-paszke2019pytorch" class="csl-entry" role="listitem">
-<span class="nocase">Paszke, Adam, Sam Gross, Francisco Massa, et
-al.</span> 2019. <em><span>PyTorch</span>: An Imperative Style,
-High-Performance Deep Learning Library</em>. <a
+Paszke, Adam, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury,
+Gregory Chanan, et al. 2019. <span>“<span>PyTorch</span>: An Imperative
+Style, High-Performance Deep Learning Library.”</span> <a
 href="https://arxiv.org/abs/1912.01703">https://arxiv.org/abs/1912.01703</a>.
 </div>
 <div id="ref-radford2019language" class="csl-entry" role="listitem">
 Radford, Alec, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and
-Ilya Sutskever. 2019. <em>Language Models Are Unsupervised Multitask
-Learners</em>. OpenAI technical report. <a
+Ilya Sutskever. 2019. <span>“Language Models Are Unsupervised Multitask
+Learners.”</span> OpenAI technical report. <a
 href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf</a>.
 </div>
 <div id="ref-touvron2023llama" class="csl-entry" role="listitem">
-<span class="nocase">Touvron, Hugo, Louis Martin, Kevin Stone, et
-al.</span> 2023. <em>Llama 2: Open Foundation and Fine-Tuned Chat
-Models</em>. <a
+Touvron, Hugo, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi,
+Yasmine Babaei, et al. 2023. <span>“Llama 2: Open Foundation and
+Fine-Tuned Chat Models.”</span> <a
 href="https://arxiv.org/abs/2307.09288">https://arxiv.org/abs/2307.09288</a>.
 </div>
 <div id="ref-wolf2020transformers" class="csl-entry" role="listitem">
-<span class="nocase">Wolf, Thomas, Lysandre Debut, Victor Sanh, et
-al.</span> 2020. <span>“Transformers: State-of-the-Art Natural Language
-Processing.”</span> <em>Proceedings of the 2020 Conference on Empirical
-Methods in Natural Language Processing: System Demonstrations</em>,
-38–45. <a
+Wolf, Thomas, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement
+Delangue, Anthony Moi, et al. 2020. <span>“Transformers:
+State-of-the-Art Natural Language Processing.”</span> In <em>Proceedings
+of the 2020 Conference on Empirical Methods in Natural Language
+Processing: System Demonstrations</em>, 38–45. <a
 href="https://doi.org/10.18653/v1/2020.emnlp-demos.6">https://doi.org/10.18653/v1/2020.emnlp-demos.6</a>.
 </div>
 <div id="ref-zheng2023sglang" class="csl-entry" role="listitem">
-Zheng, Lianmin, Liangsheng Yin, Zhiqiang Xie, et al. 2023.
-<em><span>SGLang</span>: Efficient Execution of Structured Language
-Model Programs</em>. <a
+Zheng, Lianmin, Liangsheng Yin, Zhiqiang Xie, Chuyue Sun, Jeff Huang,
+Cody Hao Yu, Shiyi Cao, et al. 2023. <span>“<span>SGLang</span>:
+Efficient Execution of Structured Language Model Programs.”</span> <a
 href="https://arxiv.org/abs/2312.07104">https://arxiv.org/abs/2312.07104</a>.
 </div>
 </div>

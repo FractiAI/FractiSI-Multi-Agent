@@ -34,7 +34,7 @@ Workload C's baseline deserves separate attention. Moving from embedded node cop
 
 ## The exact cache overtakes the rhyme as duplicates grow {#sec:res_crossover}
 
-*Tier: deterministic.* With 40 same-shaped sessions and different words, the rhyme stores 5,554 bytes against 8,064 for an exact-text cache, 31.1% less. When all sessions repeat the same words, the cache stores 198 bytes and the rhyme 5,572. The sweep in [@fig:rhyme_crossover] fills in between: the cache is already smaller at 40% duplicates on the tested grid. Reconstruction matched at every point.
+*Tier: deterministic.* With 40 same-shaped sessions and different words, the rhyme stores 7,385 bytes against 13,424 for an exact-text cache, 45.0% less. When all sessions repeat the same words, the cache stores 332 bytes and the rhyme 5,867. The sweep in [@fig:rhyme_crossover] fills in between: the cache is already smaller at 60% duplicates on the tested grid. Reconstruction matched at every point.
 
 ![JSON bytes for 40 same-shaped sessions as a growing share of them repeat one identical record. The rhyme stays nearly flat because it records every session; the exact-text cache improves with every duplicate. Reconstruction matched the original at every point. In-process bytes, not device memory.](../../output/figures/rhyme_crossover.png){#fig:rhyme_crossover width=92%}
 
@@ -48,7 +48,7 @@ Workload C's baseline deserves separate attention. Moving from embedded node cop
 
 ![Reduction relative to the duplicated store at 1,024 sessions: what serialized JSON predicts (open) and what a forced-collection read of the V8 heap shows (filled, median with percentile-bootstrap 95% interval over independent processes). Negative values mean a larger heap than the duplicated store.](../../output/figures/heap_vs_json.png){#fig:heap_vs_json width=92%}
 
-With the same shape and different words, which is the case rhyming exists for, the gap is larger. JSON predicts 35.9% and the heap shows 3.1%. V8's hidden classes already share the repeated keys, and the engine adds a wrapper object and nested delta objects per session. Removing the wrapper recovers most of the difference: the compact ablation reaches 19.8%, level with the aliased store at 20.1%, because each session then holds only the fields that differ. Neither store interns equal nested objects, which would help both. In a live heap the idea roughly matches a plain reference, and the shipped encoding gives that saving back. The exact-text cache is 45.4% larger than duplication here, because it has no hits and keeps a digest per session. When sessions are truly identical it is the smallest store, at 61.6%.
+With the same shape and different words, which is the case rhyming exists for, the gap is larger. JSON predicts 49.8% and the heap shows 13.2%. V8's hidden classes already share the repeated keys, and the engine adds a wrapper object and nested delta objects per session. Removing the wrapper recovers most of the difference: the compact ablation reaches 24.4%, level with the aliased store at 28.9%, because each session then holds only the fields that differ. Neither store interns equal nested objects, which would help both. In a live heap the idea roughly matches a plain reference, and the shipped encoding gives that saving back. The exact-text cache is 30.2% larger than duplication here, because it has no hits and keeps a digest per session. When sessions are truly identical it is the smallest store, at 74.6%.
 
 | Workload | Store | JSON bytes | Heap | JSON reduction | Heap reduction |
 | ---------------- | -------------------- | -----------: | -----------: | -------------------: | -------------------: |
@@ -56,51 +56,51 @@ With the same shape and different words, which is the case rhyming exists for, t
 | Shared prompt | Tiny (shipped) | 2445.8 KiB | 5110.8 KiB | 49.5% | 32.8% |
 | Shared prompt | Duplicated | 4847.2 KiB | 7608.9 KiB | 0.0% | 0.0% |
 | Shared prompt | Exact-text cache | 4914.3 KiB | 7717.0 KiB | -1.4% | -1.4% |
-| Same shape | Aliased | 202.8 KiB | 191.1 KiB | 0.0% | 20.1% |
-| Same shape | Tiny compact | 92.0 KiB | 191.6 KiB | 54.6% | 19.8% |
-| Same shape | Tiny (shipped) | 130.0 KiB | 231.6 KiB | 35.9% | 3.1% |
-| Same shape | Duplicated | 202.8 KiB | 239.0 KiB | 0.0% | 0.0% |
-| Same shape | Exact-text cache | 269.8 KiB | 347.5 KiB | -33.0% | -45.4% |
-| Identical | Aliased | 197.0 KiB | 72.7 KiB | 0.0% | 68.8% |
-| Identical | Exact-text cache | 67.2 KiB | 89.3 KiB | 65.9% | 61.6% |
-| Identical | Tiny compact | 91.4 KiB | 213.0 KiB | 53.6% | 8.4% |
-| Identical | Duplicated | 197.0 KiB | 232.5 KiB | 0.0% | 0.0% |
-| Identical | Tiny (shipped) | 129.4 KiB | 253.0 KiB | 34.3% | -8.8% |
+| Same shape | Aliased | 336.8 KiB | 255.1 KiB | 0.0% | 28.9% |
+| Same shape | Tiny compact | 131.1 KiB | 271.5 KiB | 61.1% | 24.4% |
+| Same shape | Tiny (shipped) | 169.1 KiB | 311.5 KiB | 49.8% | 13.2% |
+| Same shape | Duplicated | 336.8 KiB | 359.0 KiB | 0.0% | 0.0% |
+| Same shape | Exact-text cache | 403.8 KiB | 467.5 KiB | -19.9% | -30.2% |
+| Identical | Aliased | 331.0 KiB | 80.8 KiB | 0.0% | 77.1% |
+| Identical | Exact-text cache | 67.3 KiB | 89.4 KiB | 79.7% | 74.6% |
+| Identical | Tiny compact | 91.6 KiB | 213.2 KiB | 72.3% | 39.5% |
+| Identical | Tiny (shipped) | 129.6 KiB | 253.2 KiB | 60.8% | 28.2% |
+| Identical | Duplicated | 331.0 KiB | 352.5 KiB | 0.0% | 0.0% |
 
 : Representation size and live heap by store at the largest session count, with reductions relative to the duplicated store. {#tbl:heap}
 
-The same designs across session counts are in [@fig:heap_scaling]. Small stores carry visible fixed overhead, which is why the shipped engine uses more heap than duplication at 16 sessions in the same-shape workload, at 574 against 264 bytes per session. It first uses less at 1,024 sessions on the tested grid.
+The same designs across session counts are in [@fig:heap_scaling]. Small stores carry visible fixed overhead, which is why the shipped engine uses more heap than duplication at 16 sessions in the same-shape workload, at 662 against 384 bytes per session. It first uses less at 256 sessions on the tested grid.
 
 ![Median V8 heap per session against the number of sessions, for each store design and workload. Panels use independent vertical scales, because the workloads differ in record size by more than an order of magnitude. The measuring host is reported in the Methods section.](../../output/figures/heap_scaling.png){#fig:heap_scaling width=92%}
 
 ## Resident memory falls less than the heap {#sec:res_rss}
 
-*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.0 MiB for the duplicated store and 111.4 MiB for Tiny, a reduction of 25.7% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.8%. Peak RSS over ingestion is 281.1 MiB and 242.7 MiB respectively.
+*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.1 MiB for the duplicated store and 111.6 MiB for Tiny, a reduction of 25.7% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.8%. Peak RSS over ingestion is 281.3 MiB and 242.7 MiB respectively.
 
 | Store | RSS growth | 95% interval | RSS reduction | Heap reduction |
 | ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |
-| Duplicated | 150.0 MiB | 149.9 MiB to 150.4 MiB | 0.0% | 0.0% |
-| Tiny (shipped) | 111.4 MiB | 111.4 MiB to 111.5 MiB | 25.7% | 32.1% |
-| Aliased | 111.4 MiB | 111.3 MiB to 111.8 MiB | 25.8% | 32.1% |
+| Duplicated | 150.1 MiB | 150.0 MiB to 150.2 MiB | 0.0% | 0.0% |
+| Tiny (shipped) | 111.6 MiB | 111.4 MiB to 111.7 MiB | 25.7% | 32.1% |
+| Aliased | 111.4 MiB | 111.3 MiB to 111.5 MiB | 25.8% | 32.1% |
 
 : Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes. {#tbl:rss}
 
 ## Materialization is slower, mostly because of one call {#sec:res_latency}
 
-*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.02× the duplicated store's time with a shared prompt and 1.65× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.02× and 1.87×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
+*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.01× the duplicated store's time with a shared prompt and 1.62× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.01× and 1.68×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
 
-![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.02 to 1.02.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
+![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.01 to 1.01.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
 
 | Workload | Store | Median | 95% interval | Ratio | 95% interval |
 | ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |
-| Shared prompt | Duplicated | 8.35 µs | 8.34 µs to 8.39 µs | 1.00× | 1.00× to 1.00× |
-| Shared prompt | Aliased | 8.43 µs | 8.38 µs to 8.49 µs | 1.01× | 1.00× to 1.01× |
-| Shared prompt | Tiny without clone | 8.51 µs | 8.48 µs to 8.57 µs | 1.02× | 1.01× to 1.03× |
-| Shared prompt | Tiny (shipped) | 8.52 µs | 8.51 µs to 8.54 µs | 1.02× | 1.02× to 1.02× |
-| Same shape | Duplicated | 0.37 µs | 0.36 µs to 0.37 µs | 1.00× | 0.99× to 1.01× |
-| Same shape | Aliased | 0.38 µs | 0.38 µs to 0.38 µs | 1.04× | 1.04× to 1.05× |
-| Same shape | Tiny (shipped) | 0.60 µs | 0.60 µs to 0.65 µs | 1.65× | 1.64× to 1.77× |
-| Same shape | Tiny without clone | 0.68 µs | 0.61 µs to 0.69 µs | 1.87× | 1.69× to 1.91× |
+| Shared prompt | Duplicated | 8.53 µs | 8.46 µs to 8.57 µs | 1.00× | 0.99× to 1.01× |
+| Shared prompt | Aliased | 8.57 µs | 8.49 µs to 8.61 µs | 1.00× | 0.99× to 1.01× |
+| Shared prompt | Tiny without clone | 8.62 µs | 8.58 µs to 8.64 µs | 1.01× | 1.00× to 1.02× |
+| Shared prompt | Tiny (shipped) | 8.63 µs | 8.61 µs to 8.65 µs | 1.01× | 1.01× to 1.02× |
+| Same shape | Duplicated | 0.57 µs | 0.57 µs to 0.58 µs | 1.00× | 0.98× to 1.02× |
+| Same shape | Aliased | 0.58 µs | 0.58 µs to 0.58 µs | 1.02× | 0.98× to 1.02× |
+| Same shape | Tiny (shipped) | 0.93 µs | 0.92 µs to 0.93 µs | 1.62× | 1.57× to 1.63× |
+| Same shape | Tiny without clone | 0.96 µs | 0.92 µs to 0.97 µs | 1.68× | 1.58× to 1.70× |
 
 : Time to materialize one session from each store, as medians over independent processes, with the ratio to the duplicated store. {#tbl:latency}
 
@@ -146,13 +146,13 @@ Counting weights changes the headline. With the 312.5 MiB of weights resident un
 
 ## A rhyme's KV state does not stand in for another's {#sec:res_rhyme_kv}
 
-*Tier: simulated, then measured.* FractiAI's latest release adds a second simulated workload, in which sessions fill the same organizational slots with different tokens. A prefix cache cannot share across them, and the simulation gives the rhyme arm 34.3% less KV memory than the cache. That follows from one assumption: that 38.9% of KV memory can be held once because that fraction of a JSON record's bytes can. The constant is typed into the simulation, and the JSON cohort itself gives 36.4%. The workload's equivalence check compares lengths, because the rebuilt tokens differ from the originals by construction, so it cannot fail.
+*Tier: simulated, then measured.* FractiAI's latest release adds a second simulated workload, in which sessions fill the same organizational slots with different tokens. A prefix cache cannot share across them, and the simulation gives the rhyme arm 34.3% less KV memory than the cache. That follows from one assumption: that 38.9% of KV memory can be held once because that fraction of a JSON record's bytes can. The constant is typed into the simulation, and the JSON cohort itself gives 50.4%. The workload's equivalence check compares lengths, because the rebuilt tokens differ from the originals by construction, so it cannot fail.
 
 The real-model lab tests the assumption on the tensors. Two prompts match except for 12.5% of their tokens, in evenly spaced slots, which favours sharing more than sessions with different wording would. On `distilgpt2`, 14.6% of key and value cells match within 1%, and all of them lie in one of six layers: the first layer's tensors depend only on a token and its position, and every later layer has already mixed in the changed words. Resuming from the other prompt's cache moves last-position logits by 3.72, which fails the check, although greedy tokens still match in 16 of 16 turns. On this model a rhyme's KV state cannot stand in for another's, and the simulated saving has no measurement behind it.
 
 ## The rhyme gate and the companion meters {#sec:res_gate}
 
-*Tier: deterministic.* The same release gates its pin on a four-pillar audit. It refuses a plain wall of repeated records, as it says it does, and it passes the same records once they have a nested field and state a nesting depth and a drift, because two of its pillars read values the caller declares. The gate therefore checks a declaration and not a behaviour. The release also adds companion meters outside the pin: signature routing (3 comparisons against 15 for a scan), context folding (10.0% over a window that drops older turns) and an energy proxy built on assumed constants. FractiAI labels them lab meters, and none reads a device.
+*Tier: deterministic.* The same release gates its pin on a four-pillar audit rooted at Net Zero (the zero octave) through ascending octaves. It refuses a plain wall of repeated records, as it says it does. Declaring a nesting depth and a drift on a mid-level nest is not enough: without a Net Zero root the recursive pillar fails. A Net Zero → ascending-octave cohort with shared organization and different words passes all four pillars. two of the pillars still read caller-stated depth and drift, but only after the octave ladder is present. The release also adds companion meters outside the pin: signature routing (3 comparisons against 15 for a scan), context folding (10.0% over a window that drops older turns) and an energy proxy built on assumed constants. FractiAI labels them lab meters, and none reads a device.
 
 ## Historical GPU evidence {#sec:res_historical}
 

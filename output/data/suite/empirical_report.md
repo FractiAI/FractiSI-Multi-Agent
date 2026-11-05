@@ -3,8 +3,8 @@
 **Document ID:** `WP-SYNTHOBS-TINY-GATEWAY-RHYMING-TEMPLATES-EGS-2026-11-03`
 **Registry ID:** `synthobs-tiny-gateway-rhyming-templates-2026-11`
 **Seed:** 20261103
-**Generated:** 2026-11-04T23:30:50.283Z
-**Host:** Apple M4 Pro · darwin arm64 · Node v26.13.0
+**Generated:** 2026-11-05T03:02:44.933Z
+**Host:** Intel(R) Xeon(R) Processor · linux x64 · Node v22.23.4
 
 ## Verdict
 

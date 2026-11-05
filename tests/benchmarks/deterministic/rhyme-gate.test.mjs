@@ -8,10 +8,18 @@ test('the gate refuses a plain brick wall, as it says it does', () => {
   assert.ok(plainWall.failed.includes('self_similar'));
 });
 
-test('the same bricks pass once they have a nested field and declare the numbers the gate reads', () => {
+test('declaring nest depth and drift on a mid-level nest is not enough without Net Zero', () => {
   const probe = rhymeGateProbe().wallWithNestedFieldAndDeclaredValues;
+  assert.equal(probe.pass, false);
+  assert.ok(probe.failed.includes('recursive'));
+});
+
+test('a Net Zero → ascending-octave cohort passes the four pillars', () => {
+  const probe = rhymeGateProbe().netZeroOctaveRhyme;
   assert.equal(probe.pass, true);
   assert.deepEqual(probe.failed, []);
+  assert.equal(probe.netZeroRoot, true);
+  assert.deepEqual(probe.octaveSpan, [0, 1, 2]);
 });
 
 test('the byte fraction is computed over the cohort, and differs from the one the simulation hard-codes', () => {

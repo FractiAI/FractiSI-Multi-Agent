@@ -1,6 +1,7 @@
 /**
  * Reference multi-session workload: duplicated sessions, one shared system prompt, and a rhyme cohort.
- * The shared prompt is prefix reuse, not a rhyme. The cohort shares organization and differs in words.
+ * The shared prompt is prefix reuse, not a rhyme. The cohort roots at Net Zero (octave 0) and
+ * nests through ascending octaves with different words.
  * Counts JSON bytes; `tiny benchmark` measures the real heap.
  */
 import { performance } from 'node:perf_hooks';
@@ -8,9 +9,16 @@ import { auditRhyme, brickWallCandidate, measureBytes, reconstruct, registerTemp
 
 const SYSTEM = 'Tiny Footprint shared organizational pattern. Policy v1. '.repeat(8);
 const DEFAULT_SESSIONS = 12;
-const RHYME_TEMPLATE = 'demo_rhyme_v1';
+const RHYME_TEMPLATE = 'demo_rhyme_v2';
 const RHYME_EVIDENCE = { nestDepth: 2, driftBefore: 0.15 };
 const MIN_RHYME_SESSIONS = 2;
+
+const NET_ZERO = Object.freeze({
+  kind: 'session',
+  octave: 0,
+  role: 'origin',
+  equilibrium: true,
+});
 
 /** @param {string | undefined} value */
 export function parseSessionCount(value) {
@@ -41,7 +49,7 @@ export function prefixReuseStore(sessions) {
   return { mode: 'prefix_reuse', ms, bytes, sessions, note: 'identical system string shared once — not a rhyme proof' };
 }
 
-/** Sessions with the same nested organization and different words, against the brick-wall contrast. */
+/** Sessions rooted at Net Zero with nested octave ascent and different words. */
 export function rhymeCohort(sessions) {
   if (sessions < MIN_RHYME_SESSIONS) {
     return { mode: 'holographic_rhyme', status: 'not_run', reason: 'a rhyme needs at least two sessions', sessions };
@@ -50,18 +58,43 @@ export function rhymeCohort(sessions) {
     kind: 'session',
     schema: RHYME_TEMPLATE,
     motion: 'repeat-mirror-recurse-correct',
-    organization: { kind: 'session', role: 'user', octave: 1 },
+    netZero: { ...NET_ZERO },
+    organization: {
+      kind: 'session',
+      role: 'user',
+      octave: 1,
+      organization: {
+        kind: 'session',
+        role: 'lead',
+        octave: 2,
+      },
+    },
     utterance: '',
   };
   const expressions = Array.from({ length: sessions }, (_, i) => ({
     kind: 'session',
     schema: RHYME_TEMPLATE,
     motion: 'repeat-mirror-recurse-correct',
-    organization: { kind: 'session', role: i % 3 === 0 ? 'lead' : 'user', octave: (i % 5) + 1 },
+    netZero: { ...NET_ZERO },
+    organization: {
+      kind: 'session',
+      role: i % 3 === 0 ? 'lead' : 'user',
+      octave: 1,
+      organization: {
+        kind: 'session',
+        role: i % 2 === 0 ? 'lead' : 'peer',
+        octave: 2,
+      },
+    },
     utterance: `demo question ${i} about a different matter`,
   }));
-  const audit = auditRhyme({ pattern, expressions, ...RHYME_EVIDENCE });
-  registerTemplate(RHYME_TEMPLATE, pattern, { expressions, ...RHYME_EVIDENCE, driftAfter: audit.pillars.self_correcting?.driftAfter });
+  const audit = auditRhyme({ pattern, expressions, ...RHYME_EVIDENCE, octaveSpan: [0, 1, 2] });
+  registerTemplate(RHYME_TEMPLATE, pattern, {
+    expressions,
+    ...RHYME_EVIDENCE,
+    octaveSpan: [0, 1, 2],
+    driftAfter: audit.pillars.self_correcting?.driftAfter,
+  });
   const t0 = performance.now();
   const encoded = expressions.map((e) => sessionDelta(RHYME_TEMPLATE, e));
   const rebuilt = encoded.map((e) => reconstruct(RHYME_TEMPLATE, e.delta).value);
@@ -81,6 +114,8 @@ export function rhymeCohort(sessions) {
     exact: rebuilt.every((v, i) => JSON.stringify(v) === JSON.stringify(expressions[i])),
     rhymeAuditPass: audit.pass,
     brickWallPass: auditRhyme(brickWallCandidate(sessions)).pass,
+    netZeroRoot: audit.netZeroRoot === true,
+    octaveSpan: audit.octaveSpan,
     sessions,
   };
 }
@@ -110,6 +145,6 @@ export function demoSummaryLines(result) {
     `[demo] prefix-reuse ${(result.prefixByteReduction * 100).toFixed(1)}% · conventional ${conventional.bytes} B → prefix ${prefixReuse.bytes} B`,
     rhyme.status === 'not_run'
       ? `[demo] rhyme cohort not run: ${rhyme.reason}`
-      : `[demo] rhyme audit ${rhyme.rhymeAuditPass} · brick wall ${rhyme.brickWallPass} · rhyme bytes ${rhyme.rhymeBytes} vs naive ${rhyme.naiveBytes} · exact ${rhyme.exact}`,
+      : `[demo] rhyme audit ${rhyme.rhymeAuditPass} · Net Zero ${rhyme.netZeroRoot} · brick wall ${rhyme.brickWallPass} · rhyme bytes ${rhyme.rhymeBytes} vs naive ${rhyme.naiveBytes} · exact ${rhyme.exact}`,
   ];
 }

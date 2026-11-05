@@ -47,7 +47,7 @@ test('the thin entry points work end to end', () => {
     const demo = run(...entry);
     assert.equal(demo.status, 0, demo.stderr);
     assert.match(demo.stdout, /prefix-reuse/);
-    assert.match(demo.stdout, /rhyme audit true · brick wall false/);
+    assert.match(demo.stdout, /rhyme audit true · Net Zero true · brick wall false/);
   }
   const unknown = run('scripts/tiny.mjs', 'nope');
   assert.equal(unknown.status, 1);

@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.13" />
+  <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>02_formalism.md.web</title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     html {
       color: #1a1a1a;
-      color: light-dark(#1a1a1a, #fdfdfd);
       background-color: #fdfdfd;
-      background-color: light-dark(#fdfdfd, #1a1a1a);
-      color-scheme: light dark;
     }
     body {
       margin: 0 auto;
@@ -39,16 +33,12 @@
     }
     @media print {
       html {
-        color-scheme: light only;
+        background-color: white;
       }
-      html, body, pre, code {
+      body {
         background-color: transparent;
-      }
-      body, a, a:visited, blockquote {
         color: black;
-      }
-      pre, code {
-        padding: 0;
+        font-size: 12pt;
       }
       p, h2, h3 {
         orphans: 3;
@@ -61,14 +51,13 @@
     p {
       margin: 1em 0;
     }
-    a, a:visited {
-      color: inherit;
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
     }
     img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -91,14 +80,10 @@
     blockquote {
       margin: 1em 0 1em 1.7em;
       padding-left: 1em;
-      border-left: 2px solid;
-      border-color: #e6e6e6;
-      border-color: light-dark(#e6e6e6, #4c4c4c);
+      border-left: 2px solid #e6e6e6;
       color: #606060;
-      color: light-dark(#606060, #b6b6b6);
     }
     code {
-      white-space: pre-wrap;
       font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
@@ -118,8 +103,8 @@
      overflow: visible;
     }
     hr {
+      background-color: #1a1a1a;
       border: none;
-      border-top: 1px solid currentColor;
       height: 1px;
       margin: 1em 0;
     }
@@ -136,11 +121,11 @@
     }
     tbody {
       margin-top: 0.5em;
-      border-top: 1px solid currentColor;
-      border-bottom: 1px solid currentColor;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
     }
     th {
-      border-top: 1px solid currentColor;
+      border-top: 1px solid #1a1a1a;
       padding: 0.25em 0.5em 0.25em 0.5em;
     }
     td {
@@ -162,13 +147,10 @@
     #TOC a:not(:hover) {
       text-decoration: none;
     }
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -180,6 +162,7 @@
       vertical-align: middle;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script data-template-mathjax-config>
 window.MathJax = window.MathJax || {};
 window.MathJax.chtml = Object.assign({}, window.MathJax.chtml, {
@@ -243,8 +226,7 @@ window.MathJax.startup = Object.assign({}, window.MathJax.startup, {
   }
 });
 </script>
-<script defer=""
-  type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js" integrity="sha384-2BWc4dVaHADUocwKrUrK9u3iDwHxVMKXWEcoRmUkXYSFKhAsgVAYClu9ydNuo5Oz" crossorigin="anonymous"></script>
+<script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js" integrity="sha384-2BWc4dVaHADUocwKrUrK9u3iDwHxVMKXWEcoRmUkXYSFKhAsgVAYClu9ydNuo5Oz" crossorigin="anonymous"></script>
 
 <link data-template-favicon rel="icon" href="favicon.ico">
 
@@ -674,12 +656,12 @@ S/(S+D)\)</span>.</p>
 </div>
 <div id="prop:saturation" class="proposition">
 <p><strong>Proposition 1.</strong> If the shared bytes are stored once
-with no overhead, then <span class="math display">\[R(n) = f\left(1 -
-\frac{1}{n}\right).\]</span> {#eq:saturation} Hence <span
-class="math inline">\(R(n) &lt; f\)</span> for every <span
-class="math inline">\(n\)</span>, and a target reduction <span
-class="math inline">\(\tau\)</span> is reachable only if <span
-class="math inline">\(f &gt; \tau\)</span>.</p>
+with no overhead, then <span class="math display">\[
+R(n) = f\left(1 - \frac{1}{n}\right).
+\]</span> {#eq:saturation} Hence <span class="math inline">\(R(n) &lt;
+f\)</span> for every <span class="math inline">\(n\)</span>, and a
+target reduction <span class="math inline">\(\tau\)</span> is reachable
+only if <span class="math inline">\(f &gt; \tau\)</span>.</p>
 </div>
 <p>To see this, take <span class="math inline">\(B = n(S+D)\)</span> and
 <span class="math inline">\(T = S + nD\)</span>. Then <span
@@ -696,9 +678,10 @@ as sessions age.</p>
 <p><strong>Definition 3.</strong> Across workloads with sizes <span
 class="math inline">\(B_i\)</span> and <span
 class="math inline">\(T_i\)</span>, the <em>byte-weighted aggregate</em>
-is <span class="math display">\[A = 1 - \frac{\sum_i T_i}{\sum_i B_i} =
-\sum_i w_i R_i, \qquad w_i = \frac{B_i}{\sum_j B_j}.\]</span>
-{#eq:aggregate}</p>
+is <span class="math display">\[
+A = 1 - \frac{\sum_i T_i}{\sum_i B_i} = \sum_i w_i R_i, \qquad w_i =
+\frac{B_i}{\sum_j B_j}.
+\]</span> {#eq:aggregate}</p>
 </div>
 <p>By <span class="citation"
 data-cites="eq:aggregate">[@eq:aggregate]</span>, the aggregate is a
@@ -715,17 +698,17 @@ bytes per token, an accounting the real-model lab checks against the
 tensors themselves. With a prefix of <span
 class="math inline">\(P\)</span> tokens shared by <span
 class="math inline">\(n\)</span> sessions that each add <span
-class="math inline">\(Q\)</span> tokens, <span
-class="math display">\[K_{\mathrm{dup}} = n(P+Q)k, \qquad
-K_{\mathrm{shared}} = (P+nQ)k,\]</span> {#eq:kv} which is <a
-href="#prop:saturation">Proposition 1</a> with <span
-class="math inline">\(S = Pk\)</span> and <span class="math inline">\(D
-= Qk\)</span>. Model weights of <span class="math inline">\(W\)</span>
-bytes are resident under both designs, so the reduction in total
-resident memory is <span class="math display">\[R_W = 1 - \frac{W +
-K_{\mathrm{shared}}}{W + K_{\mathrm{dup}}}.\]</span> {#eq:with_weights}
-The weights dilute the saving, and they dilute it most where the KV
-cache is small relative to the model.</p>
+class="math inline">\(Q\)</span> tokens, <span class="math display">\[
+K_{\mathrm{dup}} = n(P+Q)k, \qquad K_{\mathrm{shared}} = (P+nQ)k,
+\]</span> {#eq:kv} which is <a href="#prop:saturation">Proposition 1</a>
+with <span class="math inline">\(S = Pk\)</span> and <span
+class="math inline">\(D = Qk\)</span>. Model weights of <span
+class="math inline">\(W\)</span> bytes are resident under both designs,
+so the reduction in total resident memory is <span
+class="math display">\[
+R_W = 1 - \frac{W + K_{\mathrm{shared}}}{W + K_{\mathrm{dup}}}.
+\]</span> {#eq:with_weights} The weights dilute the saving, and they
+dilute it most where the KV cache is small relative to the model.</p>
 </main>
 </body>
 </html>

@@ -3,11 +3,14 @@ from typing import Any
 import pytest
 
 from tiny_footprint_labs.llm.kv import (
+    clone_pairs,
     kv_bytes_per_token,
     kv_pairs,
     logical_bytes,
+    rhyme_kv_residency_bytes,
     shared_prefix_reduction,
     slice_suffix,
+    splice_kv_pairs,
 )
 
 
@@ -47,3 +50,26 @@ def test_all_cache_shapes_read_the_same(tiny_model: Any) -> None:
         value_cache = [pairs[0][1]]
 
     assert kv_pairs(KeyValueCache())[0][1] is pairs[0][1]
+
+
+def test_rhyme_kv_residency_shares_matching_cells_once() -> None:
+    report = rhyme_kv_residency_bytes(full_kv_bytes_one_session=1000, matching_cell_fraction=0.25, sessions=4)
+    assert report["sharedSpineBytes"] == 250
+    assert report["privateBytesPerSession"] == 750
+    assert report["naiveBytes"] == 4000
+    assert report["rhymeKvBytes"] == 250 + 4 * 750
+    assert report["reductionVersusNaive"] == pytest.approx(0.25 * (1 - 1 / 4))
+
+
+def test_splice_copies_only_masked_positions() -> None:
+    torch = pytest.importorskip("torch")
+    recipient = [(torch.zeros(1, 1, 4, 2), torch.zeros(1, 1, 4, 2))]
+    donor = [(torch.ones(1, 1, 4, 2), torch.full((1, 1, 4, 2), 2.0))]
+    mask = torch.tensor([False, True, False, True])
+    spliced = splice_kv_pairs(recipient, donor, [mask])
+    assert spliced[0][0][0, 0, 0, 0].item() == 0.0
+    assert spliced[0][0][0, 0, 1, 0].item() == 1.0
+    assert spliced[0][1][0, 0, 3, 0].item() == 2.0
+    # originals untouched
+    assert recipient[0][0][0, 0, 1, 0].item() == 0.0
+    assert clone_pairs(donor)[0][0][0, 0, 0, 0].item() == 1.0

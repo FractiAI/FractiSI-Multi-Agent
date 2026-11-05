@@ -14,7 +14,13 @@ test('an expression ingested through the gateway reconstructs exactly', () => {
 
 test('rhyme evidence, routing and context buffers work through the gateway', () => {
   const gateway = createGateway({ requireRhyme: true });
-  const pattern = { kind: 's', schema: 'v', organization: { kind: 's', role: '' }, text: '' };
+  const pattern = {
+    kind: 's',
+    schema: 'v',
+    netZero: { kind: 's', octave: 0, role: 'origin', equilibrium: true },
+    organization: { kind: 's', role: '', octave: 1, organization: { kind: 's', role: 'lead', octave: 2 } },
+    text: '',
+  };
   const expressions = [{ ...pattern, text: 'a' }, { ...pattern, text: 'b' }];
   assert.throws(() => gateway.registerTemplate({ id: 'flat', pattern: { unit: 'brick', index: 0 } }), /holographic_rhyme_rejected/);
   gateway.registerTemplate({ id: 't', pattern, expressions, nestDepth: 2, driftBefore: 0.15, driftAfter: 0.05 });

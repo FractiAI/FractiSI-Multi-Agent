@@ -153,8 +153,8 @@ Generated from the receipts in [`output/data/`](./output/data/README.md). Measur
 
 - **Representation bytes** (deterministic): the published aggregate reproduces at **84.5%**. It is 74.3% with equal weights and 77.0% over lossless workloads, against a target of 80%.
 - **Live memory** (measured, 1,024 sessions sharing a system prompt): JSON predicts 49.5% and the V8 heap falls **32.8%**. A plain object reference reaches 32.9%.
-- **Same shape, different words** (measured): JSON predicts 35.9% and the shipped engine's heap shows **3.1%**. A tighter encoding of the same idea reaches 19.8%, level with a plain reference at 20.1%.
-- **In-process latency** (measured): materializing a session takes 1.02× to 1.65× the time of reading a duplicated store.
+- **Same shape, different words** (measured): JSON predicts 49.8% and the shipped engine's heap shows **13.2%**. A tighter encoding of the same idea reaches 24.4%, level with a plain reference at 28.9%.
+- **In-process latency** (measured): materializing a session takes 1.01× to 1.62× the time of reading a duplicated store.
 - **Real models** (measured): reusing a shared prefix speeds prefill by **1.34× to 3.50×**, with decode at 0.98× to 1.03×. A production prefix cache provides the same mechanism.
 - **Key-value residency** (measured, `distilgpt2` on MPS): **84.4%** on the device allocator, 27.3% once weights are counted.
 - **Rhymes on real tensors** (measured, `distilgpt2`): with 12.5% of tokens changed, 14.6% of KV cells repeat, and resuming from the other prompt's cache moves logits by 3.72. The simulated 34.3% H100 saving for rhymes has no measurement behind it.
