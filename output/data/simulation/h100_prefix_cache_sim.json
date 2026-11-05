@@ -1,0 +1,176 @@
+{
+  "ok": true,
+  "kind": "simulation",
+  "simulator": "kv-cache residency roofline \u00b7 rhyme vs prefix cache",
+  "notAMeasurement": true,
+  "device": {
+    "name": "NVIDIA H100 SXM 80GB",
+    "memoryClass": "HBM3",
+    "capacityBytes": 85899345920,
+    "peakBandwidthBytesPerSec": 3350000000000.0,
+    "source": "NVIDIA H100 Tensor Core GPU datasheet: 80 GB HBM3, 3.35 TB/s"
+  },
+  "model": {
+    "id": "meta-llama/Llama-2-7b-hf",
+    "parameters": 6738415616,
+    "layers": 32,
+    "kvHeads": 32,
+    "headDim": 128,
+    "dtypeBytes": 2
+  },
+  "workload": {
+    "orgTokens": 2048,
+    "suffixTokens": 128,
+    "sessions": 16,
+    "kvBytesPerToken": 524288,
+    "weightBytes": 13476831232,
+    "rhymeSharedOrgFraction": 0.38888888888888884,
+    "rhymeDeltaOrgFraction": 0.6111111111111112,
+    "rhymeShareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis \u2014 not a measured transformer KV-cache compression factor on H100."
+  },
+  "workloads": {
+    "identicalPrefix": {
+      "id": "identicalPrefix",
+      "title": "Identical exact system/org prefix across sessions",
+      "rhymeDifferentiates": false,
+      "outputEquivalence": {
+        "checked": "reconstructed token ids equal the original ids",
+        "equivalent": true,
+        "sessions": 16,
+        "notGeneratedText": true
+      },
+      "arms": {
+        "naiveRefill": {
+          "kvBytes": 18253611008,
+          "materializeBytes": 18253611008,
+          "residentBytes": 31730442240,
+          "fits": true,
+          "materializeSecondsAtPeak": 0.005448839106865671
+        },
+        "productionPrefixCache": {
+          "kvBytes": 2147483648,
+          "materializeBytes": 2147483648,
+          "exactPrefixHits": 15,
+          "residentBytes": 15624314880,
+          "fits": true,
+          "materializeSecondsAtPeak": 0.0006410398949253731
+        },
+        "tinyFootprintRhyme": {
+          "kvBytes": 2147483648,
+          "materializeBytes": 2147483648,
+          "note": "Identical exact prefix \u2014 Tiny Footprint collapses to prefix-cache residency on this workload.",
+          "sameResidentSetAsPrefixCache": true,
+          "residentBytes": 15624314880,
+          "fits": true,
+          "materializeSecondsAtPeak": 0.0006410398949253731
+        }
+      },
+      "comparison": {
+        "prefixKvReductionVersusNaive": 0.8823529411764706,
+        "tinyKvReductionVersusNaive": 0.8823529411764706,
+        "tinyKvReductionVersusPrefixCache": 0.0,
+        "tinyVersusPrefixCacheResidentBytes": 0,
+        "prefixMaterializeSpeedupVersusNaive": 8.5,
+        "tinyMaterializeSpeedupVersusNaive": 8.5,
+        "tinyMaterializeSpeedupVersusPrefixCache": 1.0
+      }
+    },
+    "rhymingDifferentWording": {
+      "id": "rhymingDifferentWording",
+      "title": "Same organizational slots, different wording (rhyme differentiates)",
+      "rhymeDifferentiates": true,
+      "outputEquivalence": {
+        "checked": "template+delta encoding preserves org+suffix length; structural round-trip",
+        "equivalent": true,
+        "sessions": 16,
+        "notGeneratedText": true,
+        "note": "Originals use unique org tokens; Tiny rebuilds via shared template + deltas (rhyme model), not exact-token identity with naive streams."
+      },
+      "arms": {
+        "naiveRefill": {
+          "kvBytes": 18253611008,
+          "materializeBytes": 18253611008,
+          "residentBytes": 31730442240,
+          "fits": true,
+          "materializeSecondsAtPeak": 0.005448839106865671
+        },
+        "productionPrefixCache": {
+          "kvBytes": 18253611008,
+          "materializeBytes": 18253611008,
+          "exactPrefixHits": 0,
+          "note": "Different wording in organizational slots \u2014 exact-prefix cache cannot share across sessions.",
+          "residentBytes": 31730442240,
+          "fits": true,
+          "materializeSecondsAtPeak": 0.005448839106865671
+        },
+        "tinyFootprintRhyme": {
+          "kvBytes": 11993612288,
+          "materializeBytes": 11993612288,
+          "templateOrgTokens": 796,
+          "deltaOrgTokensPerSession": 1252,
+          "suffixTokensPerSession": 128,
+          "sharedOrgFraction": 0.38888888888888884,
+          "deltaOrgFraction": 0.6111111111111112,
+          "shareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis \u2014 not a measured transformer KV-cache compression factor on H100.",
+          "sameResidentSetAsPrefixCache": false,
+          "residentBytes": 25470443520,
+          "fits": true,
+          "materializeSecondsAtPeak": 0.0035801827725373135
+        }
+      },
+      "comparison": {
+        "prefixKvReductionVersusNaive": 0.0,
+        "tinyKvReductionVersusNaive": 0.34294577205882354,
+        "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+        "tinyVersusPrefixCacheResidentBytes": -6259998720,
+        "prefixMaterializeSpeedupVersusNaive": 1.0,
+        "tinyMaterializeSpeedupVersusNaive": 1.5219443958734042,
+        "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042
+      }
+    }
+  },
+  "arms": {
+    "naiveRefill": {
+      "kvBytes": 18253611008,
+      "materializeBytes": 18253611008,
+      "residentBytes": 31730442240,
+      "fits": true,
+      "materializeSecondsAtPeak": 0.005448839106865671
+    },
+    "productionPrefixCache": {
+      "kvBytes": 18253611008,
+      "materializeBytes": 18253611008,
+      "exactPrefixHits": 0,
+      "note": "Different wording in organizational slots \u2014 exact-prefix cache cannot share across sessions.",
+      "residentBytes": 31730442240,
+      "fits": true,
+      "materializeSecondsAtPeak": 0.005448839106865671
+    },
+    "tinyFootprintRhyme": {
+      "kvBytes": 11993612288,
+      "materializeBytes": 11993612288,
+      "templateOrgTokens": 796,
+      "deltaOrgTokensPerSession": 1252,
+      "suffixTokensPerSession": 128,
+      "sharedOrgFraction": 0.38888888888888884,
+      "deltaOrgFraction": 0.6111111111111112,
+      "shareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis \u2014 not a measured transformer KV-cache compression factor on H100.",
+      "sameResidentSetAsPrefixCache": false,
+      "residentBytes": 25470443520,
+      "fits": true,
+      "materializeSecondsAtPeak": 0.0035801827725373135
+    }
+  },
+  "comparison": {
+    "prefixKvReductionVersusNaive": 0.0,
+    "tinyKvReductionVersusNaive": 0.34294577205882354,
+    "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+    "tinyVersusPrefixCacheResidentBytes": -6259998720,
+    "prefixMaterializeSpeedupVersusNaive": 1.0,
+    "tinyMaterializeSpeedupVersusNaive": 1.5219443958734042,
+    "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042,
+    "identicalPrefixTinyVersusPrefixCacheResidentBytes": 0,
+    "peakBandwidthIsAnUpperBound": true
+  },
+  "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis \u2014 not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory."
+}

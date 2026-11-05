@@ -1,0 +1,54 @@
+[project]
+name = "tiny-footprint-labs"
+version = "0.1.0"
+description = "Python labs and figure generation for the Tiny Footprint Workstation benchmarks."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+figures = ["matplotlib>=3.10"]
+llm = ["torch>=2.6", "transformers>=4.53", "safetensors>=0.5"]
+dev = ["pytest>=8.3", "pytest-cov>=6.0", "ruff>=0.11", "mypy>=1.15", "pyyaml>=6.0", "matplotlib>=3.10"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests/tiny_footprint_labs", "tests/integration"]
+pythonpath = ["src"]
+addopts = "--import-mode=importlib"
+markers = ["llm: needs torch and transformers from the `llm` dependency group"]
+
+[tool.coverage.run]
+source = ["src/tiny_footprint_labs"]
+branch = true
+# Bound to hardware or a heavy optional stack; each runs only where that stack
+# exists. See docs/development/testing.md for what covers them instead.
+omit = ["src/tiny_footprint_labs/gpu_live/cuda.py", "src/tiny_footprint_labs/gpu_live/latency.py", "src/tiny_footprint_labs/gpu_live/lab.py"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["E501", "RUF012"]
+# Scripts put src/ on sys.path before importing from it.
+"scripts/*" = ["E402"]
+# Captions and alternative text are long sentences; wrapping them hurts more than it helps.
+"src/tiny_footprint_labs/figures/*" = ["E501"]
+
+[tool.mypy]
+python_version = "3.13"
+mypy_path = "src"
+packages = ["tiny_footprint_labs"]
+ignore_missing_imports = true
+warn_unused_ignores = true

@@ -1,0 +1,37 @@
+{
+  "authored": {
+    "00_abstract.md": "72eaeb4434da4681464bbc08d6896f16f44b9221bdf055bb932141ea510ad2d2",
+    "01_introduction.md": "764ab1ba8a47e7b81d361b621889a7628e5c847971bde834c52ffdcf0942805c",
+    "02_formalism.md": "cbe428cf3f1c707833dd14d01fd00eceeba8b7d7afb1e181dde112031f73889e",
+    "03_methods.md": "ac5af65b79ce296748ed4fec16d223dcddf1b8d5739377c445d14a8b225344fe",
+    "04_results.md": "d7bb720a56e26557c512fcd0a110e5ad20010103e2b0146b1d79c3193757d3d1",
+    "05_discussion.md": "1c825dcea6161a277f69d189fedb801316da41c7a4071a198e1aa9d72b035795",
+    "06_limitations.md": "5c09c945de81945d548d1786c56f4b4051d47b22f978ca57feda3a715688de2a",
+    "07_related_work.md": "69550f80f7b1eb425c22d07020fde8670ec0e714c0846b82a000cc3e8d546766",
+    "08_reproducibility.md": "169a6656c26c2b4258874daab4823ab5cf3d76cf3875a4b7d97d5f9e8f547799",
+    "99_references.md": "20f4a91ee979db68b8c62777d4518e3a6bd40994562308aa12f827ba621567a0",
+    "S01_claim_ledger.md": "fb94c141895a5548c4d893bfa93f026610e049813a8754dc1473ad5c95414497",
+    "config.yaml": "cd0dd73cdae314e8e6364f1c82147be3efb301b972fd961157f1caad6878e3d8"
+  },
+  "bindings": {
+    "analysisSummary": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2",
+    "figureRegistry": "02e613fc233061d98547e4c4f0dfd23f57903ec2cef8a70b11602701e010b565",
+    "plan": "df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770",
+    "variables": "33a00deaebf69bfdeb1c32c932ed4bc554ff99444e089c2491aae325d92bc217"
+  },
+  "hydrated": {
+    "00_abstract.md": "11c466cdf47a0b885e28c274216ab4078fbec12334894ae0eb92147b73d837c7",
+    "01_introduction.md": "71e5d7c9afa4be4d5e56f1d7c23e53d77eeba7f34b1c98c47a7d8af85badae6a",
+    "02_formalism.md": "cbe428cf3f1c707833dd14d01fd00eceeba8b7d7afb1e181dde112031f73889e",
+    "03_methods.md": "a4a8539314c88e7ee9bcb9b8324eddc550195e8b02514186f536949dcf5cf504",
+    "04_results.md": "25f03dd4d95eb886bfaec77b103e23134e952f3da9d4977b29ec993de6e73f82",
+    "05_discussion.md": "36bd9a387da8ea90ef927e955a01c11e8f149bd92b490f40ff056b6dc020cb34",
+    "06_limitations.md": "4a7d266a8e00a5948e5acfb8c5aa31074033e701822d3eae179559634a2b2030",
+    "07_related_work.md": "69550f80f7b1eb425c22d07020fde8670ec0e714c0846b82a000cc3e8d546766",
+    "08_reproducibility.md": "38c2a0f9b9a6d1aca2ff325a2f8adf867d2a211326fe52b1cc7a2e2d64ebb8b0",
+    "99_references.md": "20f4a91ee979db68b8c62777d4518e3a6bd40994562308aa12f827ba621567a0",
+    "S01_claim_ledger.md": "7257976a441b42633146df74b3d7bbf36810036596f7f33bf488870b4870911e",
+    "config.yaml": "214a2f4e56517d51ccd6d79459134e323aac0e7cf741ca84397a564ad8dc633b"
+  },
+  "schema": "tiny-footprint-hydration/v1"
+}

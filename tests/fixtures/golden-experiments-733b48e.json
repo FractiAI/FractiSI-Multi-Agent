@@ -1,0 +1,559 @@
+{
+  "A": {
+    "id": "A_illustrative_model",
+    "title": "Illustrative 78.7% memory model arithmetic",
+    "remainingPct": 21.3,
+    "reductionPct": 78.69999999999999,
+    "nonWeightCutNeededPct": 94.11764705882354,
+    "approaches80": true,
+    "pass": true,
+    "honesty": "Architectural arithmetic only — not a measured DRAM/HBM result."
+  },
+  "B": {
+    "id": "B_structured_data",
+    "title": "Workload A · structured rhyming-template records",
+    "n": 500,
+    "ratio": 0.5414496185214417,
+    "saved": 41161,
+    "baselineBytes": 76020,
+    "tinyBytes": 34859,
+    "exact": true,
+    "pass": true
+  },
+  "C": {
+    "id": "C_cross_linked",
+    "title": "Workload B · cross-linked shared references",
+    "nNodes": 200,
+    "nEdges": 600,
+    "ratio": 0.8235415179404066,
+    "saved": 1024400,
+    "baselineBytes": 1243896,
+    "tinyBytes": 219496,
+    "pass": true
+  },
+  "D": {
+    "id": "D_eight_node_broadcast",
+    "title": "Workload C · eight-node shared originating story",
+    "ratio": 0.8641549185288119,
+    "saved": 38556,
+    "baselineBytes": 44617,
+    "tinyBytes": 6061,
+    "exact": true,
+    "pass": true
+  },
+  "E": {
+    "id": "E_cross_octave",
+    "title": "Workload D · selective cross-octave reconstruction",
+    "nVectors": 768,
+    "workingN": 4,
+    "ratio": 0.9948120355650975,
+    "saved": 776603,
+    "baselineBytes": 780653,
+    "tinyBytes": 4050,
+    "pass": true
+  },
+  "F": {
+    "id": "F_ai_context_proxy",
+    "title": "Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)",
+    "sessions": 40,
+    "turns": 25,
+    "ratio": 0.4886263942849981,
+    "saved": 93570,
+    "baselineBytes": 191496,
+    "tinyBytes": 97926,
+    "exact": true,
+    "pass": true,
+    "honesty": "Prefix-reuse / shared-identical-system-prompt meter — not a holographic rhyme proof, and not measured GPU KV-cache / HBM for a production LLM server."
+  },
+  "G": {
+    "id": "G_gateway_exactness",
+    "title": "Gateway exact reconstruction (primary + validation seeds)",
+    "primary": {
+      "n": 100,
+      "ok": 100,
+      "exactRate": 1
+    },
+    "validation": {
+      "n": 100,
+      "ok": 100,
+      "exactRate": 1
+    },
+    "pass": true
+  },
+  "R": {
+    "id": "R_holographic_rhyme_gate",
+    "title": "Holographic rhyme gate (four pillars · brick wall fails · rhyme ≠ cache)",
+    "trueAudit": {
+      "pass": true,
+      "pillars": {
+        "repeating": {
+          "pass": true,
+          "n": 40
+        },
+        "self_similar": {
+          "pass": true,
+          "localSignature": "{kind:string,octave:number,role:string}"
+        },
+        "recursive": {
+          "pass": true,
+          "nestDepth": 2
+        },
+        "self_correcting": {
+          "pass": true,
+          "driftBefore": 0.15,
+          "driftAfter": 0.05729490168751577
+        }
+      },
+      "failed": [],
+      "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+    },
+    "brickAudit": {
+      "pass": false,
+      "pillars": {
+        "repeating": {
+          "pass": true,
+          "n": 40
+        },
+        "self_similar": {
+          "pass": false,
+          "reason": "no_local_blueprint_mirroring_whole"
+        },
+        "recursive": {
+          "pass": false,
+          "reason": "nest_depth_below_one"
+        },
+        "self_correcting": {
+          "pass": false,
+          "reason": "drift_correction_not_demonstrated"
+        }
+      },
+      "failed": [
+        "self_similar",
+        "self_correcting",
+        "recursive"
+      ],
+      "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+    },
+    "schemaOnly": {
+      "pass": false,
+      "pillars": {
+        "repeating": {
+          "pass": true,
+          "n": 2
+        },
+        "self_similar": {
+          "pass": false,
+          "reason": "no_local_blueprint_mirroring_whole"
+        },
+        "recursive": {
+          "pass": false,
+          "reason": "nest_depth_below_one"
+        },
+        "self_correcting": {
+          "pass": false,
+          "reason": "drift_correction_not_demonstrated"
+        }
+      },
+      "failed": [
+        "self_similar",
+        "self_correcting",
+        "recursive"
+      ],
+      "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+    },
+    "vsCacheDiffering": {
+      "rhymeBytes": 5554,
+      "cacheBytes": 8064,
+      "equivalent": true
+    },
+    "vsCacheIdentical": {
+      "rhymeBytes": 5572,
+      "cacheBytes": 198,
+      "equivalent": true
+    },
+    "falseMatchRejected": true,
+    "arrayObjectDistinct": true,
+    "nestedFieldDelta": true,
+    "pattern": {
+      "kind": "session",
+      "schema": "rhyme_v1",
+      "motion": "repeat-mirror-recurse-correct",
+      "organization": {
+        "kind": "session",
+        "role": "user",
+        "octave": 1
+      },
+      "utterance": ""
+    },
+    "pass": true,
+    "honesty": "Four-pillar catalog audit for Rhyming Templates. Brick wall / schema-only / exact-text cache are contrast cases. Shared-prefix GPU labs are prefix-reuse meters, not rhyme proofs."
+  },
+  "K": {
+    "id": "K_dynamic_route",
+    "title": "Dynamic structural signature routing (bucket ≪ linear · false-match reject)",
+    "linearCompares": 15,
+    "bucketCompares": 3,
+    "exactHits": 3,
+    "falseMatchRejected": true,
+    "partialTopScore": 1,
+    "candidateCap": 1,
+    "rhymeScoreSample": 1,
+    "pass": true,
+    "honesty": "Structural signature routing + scored partial rhyme — not semantic search, not full pairwise matrix expansion, not automatic discovery without false-match controls."
+  },
+  "L": {
+    "id": "L_context_compress_hooks",
+    "title": "Recursive context-fold hooks + demo meters",
+    "turns": 24,
+    "levels": 6,
+    "maxLevels": 6,
+    "maxBytesPerLevel": 2048,
+    "rawBytes": 87,
+    "foldedBytes": 470,
+    "allRawWouldBe": 522,
+    "foldRatio": 0.09961685823754785,
+    "hooksFired": [
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "encode"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "encode"
+      },
+      {
+        "hook": "nested_delta_fold",
+        "phase": "meter"
+      },
+      {
+        "hook": "octave_scale_cap",
+        "phase": "meter"
+      },
+      {
+        "hook": "working_set_bound",
+        "phase": "meter"
+      }
+    ],
+    "hookMeters": {
+      "nested_delta_fold": {
+        "kind": "nested_delta_fold",
+        "bytes": 29
+      },
+      "octave_scale_cap": {
+        "kind": "octave_scale_cap",
+        "maxDepth": 4,
+        "bytes": 29
+      },
+      "working_set_bound": {
+        "kind": "working_set_bound",
+        "maxBytes": 4096,
+        "bytes": 29,
+        "overBudget": false
+      }
+    },
+    "honesty": "Recursive context-fold hooks and demo meters — not a KV-cache compression product, not infinite lossless context, not measured transformer KV on device.",
+    "exact": true,
+    "pass": true
+  },
+  "M": {
+    "id": "M_energy_proxy_scale",
+    "title": "Energy-proxy substrate scaling (byte-touch joule PROXY)",
+    "baselineDepth": 8,
+    "scaledDepth": 1,
+    "baselineBytes": 1034,
+    "scaledBytes": 259,
+    "baselineJ": 0.0000010434999999999998,
+    "scaledJ": 0.0000026420000000000003,
+    "budgetJ": 1.5652499999999998e-7,
+    "planScale": {
+      "PROXY": true,
+      "scaled": true,
+      "budgetJ": 1.5652499999999998e-7,
+      "plan": {
+        "maxDepth": 1,
+        "candidateCap": 1,
+        "bufferLevels": 1,
+        "bytesTouched": 83,
+        "compares": 0,
+        "reconstructs": 1
+      },
+      "estimate": {
+        "PROXY": true,
+        "joules": 8.32e-7,
+        "wattsIdleProxy": 0,
+        "bytesTouched": 83,
+        "compares": 0,
+        "reconstructs": 1
+      },
+      "steps": [
+        {
+          "lever": "maxDepth",
+          "value": 7
+        },
+        {
+          "lever": "maxDepth",
+          "value": 6
+        },
+        {
+          "lever": "maxDepth",
+          "value": 5
+        },
+        {
+          "lever": "maxDepth",
+          "value": 4
+        },
+        {
+          "lever": "maxDepth",
+          "value": 3
+        },
+        {
+          "lever": "maxDepth",
+          "value": 2
+        },
+        {
+          "lever": "maxDepth",
+          "value": 1
+        },
+        {
+          "lever": "candidateCap",
+          "value": 16
+        },
+        {
+          "lever": "candidateCap",
+          "value": 8
+        },
+        {
+          "lever": "candidateCap",
+          "value": 4
+        },
+        {
+          "lever": "candidateCap",
+          "value": 2
+        },
+        {
+          "lever": "candidateCap",
+          "value": 1
+        },
+        {
+          "lever": "bufferLevels",
+          "value": 3
+        },
+        {
+          "lever": "bufferLevels",
+          "value": 2
+        },
+        {
+          "lever": "bufferLevels",
+          "value": 1
+        }
+      ],
+      "honesty": "Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim."
+    },
+    "pass": true,
+    "honesty": "Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim."
+  },
+  "rhymeDiffering": {
+    "sessions": 40,
+    "shapeHits": 40,
+    "exactTextHits": 0,
+    "equivalent": true,
+    "rhymeAuditPass": true,
+    "naiveBytes": 8064,
+    "cacheBytes": 8064,
+    "rhymeBytes": 5554,
+    "rhymeVersusNaive": 0.31125992063492064,
+    "cacheVersusNaive": 0,
+    "rhymeVersusCache": 0.31125992063492064,
+    "phiEgs": 1.618033988749895
+  },
+  "rhymeIdentical": {
+    "sessions": 40,
+    "shapeHits": 40,
+    "exactTextHits": 39,
+    "equivalent": true,
+    "rhymeAuditPass": true,
+    "naiveBytes": 7881,
+    "cacheBytes": 198,
+    "rhymeBytes": 5572,
+    "rhymeVersusNaive": 0.29298312396903947,
+    "cacheVersusNaive": 0.9748762847354396,
+    "rhymeVersusCache": -27.141414141414142,
+    "phiEgs": 1.618033988749895
+  }
+}

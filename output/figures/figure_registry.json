@@ -1,0 +1,156 @@
+{
+  "fig:aggregate_sensitivity": {
+    "caption": "The aggregate reduction under alternative selections and weightings of the same five workloads. The published aggregate sums bytes, so each workload counts in proportion to its baseline size. Hollow markers fall below the target. All values are deterministic.",
+    "figure_id": "figure_002",
+    "filename": "aggregate_sensitivity.png",
+    "generated_by": "src/tiny_footprint_labs/figures/representation.py",
+    "label": "fig:aggregate_sensitivity",
+    "metadata": {
+      "alt_text": "Lollipop chart of aggregate definitions. Published 84.5% clears the 80% line; equal weighting 74.3%, lossless only 77.0%, and without the anti-pattern baseline 55.5% do not.",
+      "sha256": "b1e788a652ef4cf8a9b8242cd6d24d5604eb8070052f7182a61b19a31eecda64",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:gpu_proxy_sensitivity": {
+    "caption": "The GPU lab's allocation reduction recomputed from its requested buffer sizes, as a function of the assumed per-session delta. The open marker is the value hard-coded in the lab, which reproduces the published figure exactly and needs no GPU. No experiment in this repository measures that fraction.",
+    "figure_id": "figure_005",
+    "filename": "gpu_proxy_sensitivity.png",
+    "generated_by": "src/tiny_footprint_labs/figures/representation.py",
+    "label": "fig:gpu_proxy_sensitivity",
+    "metadata": {
+      "alt_text": "A falling line from 83.6% at a small delta to 62.5% at a delta equal to the whole KV buffer; the lab's assumption sits at 81.4%, and it is below the 80% target by a delta of 25%.",
+      "sha256": "b4f2e8008f6dacecdac2db897013de4d5aa1742f060543a609dfd43b25f1d41a",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:heap_scaling": {
+    "caption": "Median V8 heap per session against the number of sessions, for each store design and workload. Panels use independent vertical scales, because the workloads differ in record size by more than an order of magnitude. The measuring host is reported in the Methods section.",
+    "figure_id": "figure_007",
+    "filename": "heap_scaling.png",
+    "generated_by": "src/tiny_footprint_labs/figures/measured.py",
+    "label": "fig:heap_scaling",
+    "metadata": {
+      "alt_text": "Three panels of per-session heap against sessions, one line per store design. At the largest session count, with a shared prompt, the duplicated store holds 7609 bytes per session and Tiny 5111.",
+      "sha256": "037bb93e3616325edbfb00cbf14317de23304f744968bbeacc02b6e66ddc4371",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:heap_vs_json": {
+    "caption": "Reduction relative to the duplicated store at 1,024 sessions: what serialized JSON predicts (open) and what a forced-collection read of the V8 heap shows (filled, median with percentile-bootstrap 95% interval over independent processes). Negative values mean a larger heap than the duplicated store.",
+    "figure_id": "figure_006",
+    "filename": "heap_vs_json.png",
+    "generated_by": "src/tiny_footprint_labs/figures/measured.py",
+    "label": "fig:heap_vs_json",
+    "metadata": {
+      "alt_text": "Two panels of paired markers. With a shared prompt, Tiny's JSON reduction of 49.5% compares with a heap reduction of 32.8%; plain aliasing reaches 32.9%. With same-shape sessions, Tiny's JSON reduction of 35.9% compares with a heap reduction of 3.1%.",
+      "sha256": "e912b8f166d2e0bcbca48726b7e3703f8706db96dfa830586d39ea9543e2daef",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:kv_residency": {
+    "caption": "Key-value cache held live for 8 sessions of distilbert/distilgpt2 on MPS: 512 shared prefix tokens and 21 tokens per session, by three accountings. Sharing the prefix is predicted to save 84.1%; summed tensor sizes give 84.1% and the device allocator 84.4%.",
+    "figure_id": "figure_010",
+    "filename": "kv_residency.png",
+    "generated_by": "src/tiny_footprint_labs/figures/llm.py",
+    "label": "fig:kv_residency",
+    "metadata": {
+      "alt_text": "Grouped bars of bytes under three accountings. Duplicated holds about 150 MiB and shared about 24 MiB in each.",
+      "sha256": "dfd13ca8b27bb4b7801d8dc66bd4b8a2fb65b6735356e25dbfce79414f0f01b2",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:llm_prefill": {
+    "caption": "Real forward passes: prefill time per turn when the whole prompt is processed again, and when a shared prefix's key-value tensors are reused so only the session's own tokens are processed. Labels give the speedup. Points are medians of per-trial medians, and their intervals describe repeatability within one process. Reusing a prefix is what a production prefix cache already does, so this compares against a baseline without one.",
+    "figure_id": "figure_009",
+    "filename": "llm_prefill.png",
+    "generated_by": "src/tiny_footprint_labs/figures/llm.py",
+    "label": "fig:llm_prefill",
+    "metadata": {
+      "alt_text": "Dumbbells of prefill time per turn for each model and backend, on a log scale. Speedups from reusing the prefix range from 1.3 to 3.5 times.",
+      "sha256": "6613c08e50c2ddf6cb4169db3f0062072ab210a676eaa6853ca933570532376a",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:materialization_latency": {
+    "caption": "Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.02 to 1.02.",
+    "figure_id": "figure_008",
+    "filename": "materialization_latency.png",
+    "generated_by": "src/tiny_footprint_labs/figures/measured.py",
+    "label": "fig:materialization_latency",
+    "metadata": {
+      "alt_text": "Two panels of medians. With a shared prompt, the shipped engine is 1.02 times the duplicated store and 1.02 times without cloning. With same-shape sessions the ratios are 1.65 and 1.87.",
+      "sha256": "f9a3dd87a7e726c74d61165b500c7b6e51e60915873e05ce1fff356bcf70ca2b",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:rhyme_crossover": {
+    "caption": "JSON bytes for 40 same-shaped sessions as a growing share of them repeat one identical record. The rhyme stays nearly flat because it records every session; the exact-text cache improves with every duplicate. Reconstruction matched the original at every point. In-process bytes, not device memory.",
+    "figure_id": "figure_004",
+    "filename": "rhyme_crossover.png",
+    "generated_by": "src/tiny_footprint_labs/figures/representation.py",
+    "label": "fig:rhyme_crossover",
+    "metadata": {
+      "alt_text": "Three lines of bytes against duplicate share. The rhyme is flat near 5.4 KiB; the cache falls from 7.9 KiB to 0.19 KiB, crossing below the rhyme by 40% duplicates.",
+      "sha256": "78357d25da62d3b08586174e361aa726beefbc0e2bed4289a60011612a86c73a",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:session_scaling": {
+    "caption": "Reduction in JSON bytes as the number of sessions sharing one system prompt grows, for four conversation lengths. Markers are measured on the real encoding; dashed lines are the closed form $R(n) = f(1 - 1/n)$, where $f$ is the shared fraction. The reduction saturates at $f$, and $f$ falls as sessions accumulate turns.",
+    "figure_id": "figure_003",
+    "filename": "session_scaling.png",
+    "generated_by": "src/tiny_footprint_labs/figures/representation.py",
+    "label": "fig:session_scaling",
+    "metadata": {
+      "alt_text": "Four rising curves on a log scale of sessions, saturating near 94.3%, 82.1%, 49.5% and 16.5% for progressively longer conversations; predicted lines track the measurements.",
+      "sha256": "f57d3ff09266884df522ee994c5efc17cf123ce69a38180f76b2c9603bf102a4",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  },
+  "fig:vendor_architecture": {
+    "caption": "The product's layered architecture, reproduced unaltered from FractiAI's product kit. This is the vendor's marketing schematic, shown for orientation. Its adjectives (for example secure or observable) are not properties this study tests, and nothing in this figure is evidence.",
+    "figure_id": "figure_000",
+    "filename": "vendor_architecture.jpg",
+    "generated_by": "src/tiny_footprint_labs/figures/vendor.py",
+    "label": "fig:vendor_architecture",
+    "metadata": {
+      "alt_text": "A vendor schematic of five stacked layers: customer AI application, Tiny Footprint integration layer, Tiny Gateway runtime, memory layer, and customer hardware.",
+      "sha256": "393e7af1152ca6a01111064ae24623a878dc472e2a642c57c2b36a7156043088",
+      "source": "media/tiny-footprint-architecture.jpg (sha256 393e7af1152ca6a01111064ae24623a878dc472e2a642c57c2b36a7156043088)",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Introduction"
+  },
+  "fig:workload_reductions": {
+    "caption": "Representation-byte reduction for each registered workload, computed as one minus the Tiny Footprint form's UTF-8 JSON bytes over the conventional arm's. Diamonds show gzip applied to the same conventional JSON (zlib 1.3.1-e00f703). Workload E is hatched because its working set covers one request and is not a lossless representation. These are serialized sizes, not resident memory.",
+    "figure_id": "figure_001",
+    "filename": "workload_reductions.png",
+    "generated_by": "src/tiny_footprint_labs/figures/representation.py",
+    "label": "fig:workload_reductions",
+    "metadata": {
+      "alt_text": "Horizontal bars of reduction by workload: B 54.1%, C 82.4%, D 86.4%, E 99.5%, F 48.9%. gzip reaches further than the bar for B, D, F and less far for C.",
+      "sha256": "ac5109e272e3c136040c2e45edb44faef9cd7f10a8e1f736f2ecfce1bd4e1d6d",
+      "source": "output/data/analysis_summary.json",
+      "summary_sha256": "40768c67e00ef9068d4104600c0f88d470bfa4413f8552df1a37db611614e4d2"
+    },
+    "section": "Results"
+  }
+}

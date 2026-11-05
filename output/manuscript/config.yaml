@@ -1,0 +1,48 @@
+# Manuscript metadata for the template renderer. Tokens are resolved by
+# src/manuscript/hydrate.mjs into output/manuscript/config.yaml.
+paper:
+  title: "Measuring Shared-Representation Memory Claims"
+  subtitle: "A reproducible benchmark of the Tiny Footprint Workstation: representation bytes, live memory, materialization latency and real-model key-value residency"
+  version: "0.1.0"
+  date: "2026-11-05"
+
+authors:
+  - name: "Daniel Ari Friedman"
+    orcid: "0000-0001-6232-9096"
+    email: "daniel@activeinference.institute"
+    affiliation: "Active Inference Institute"
+    corresponding: true
+
+keywords:
+  - "AI serving"
+  - "memory efficiency"
+  - "key-value cache"
+  - "prefix caching"
+  - "benchmarking methodology"
+  - "reproducible research"
+
+metadata:
+  license: "NOASSERTION"
+  language: "en"
+
+publication:
+  release_status: "unreleased"
+  doi: ""
+  version_doi: ""
+  github_repository: "FractiAI/tiny-footprint-workstation"
+  repository_url: "https://github.com/FractiAI/tiny-footprint-workstation"
+  repository_label: "FractiAI/tiny-footprint-workstation"
+
+render:
+  formats:
+    pdf: true
+    html: true
+    slides: false
+    docx: false
+    epub: false
+
+llm:
+  reviews:
+    enabled: false
+  translations:
+    enabled: false

@@ -1,0 +1,16 @@
+export { experimentA_illustrativeModel, illustrativeMemoryModel } from './a-illustrative-model.mjs';
+export { experimentB_structuredData } from './b-structured-data.mjs';
+export { experimentC_crossLinked } from './c-cross-linked.mjs';
+export { experimentD_eightNode } from './d-eight-node.mjs';
+export { experimentE_crossOctave } from './e-cross-octave.mjs';
+export { experimentF_aiContextProxy } from './f-ai-context.mjs';
+export { experimentG_gatewayExactness } from './g-gateway-exactness.mjs';
+export { experimentH_enginePinGate } from './h-engine-pin-gate.mjs';
+export { experimentI_gpuLiveChatStack } from './i-gpu-live-chat.mjs';
+export { experimentJ_gpuLlmReal } from './j-gpu-llm-real.mjs';
+export { experimentK_dynamicRoute } from './k-dynamic-route.mjs';
+export { experimentL_contextCompressHooks } from './l-context-compress.mjs';
+export { experimentM_energyProxyScale } from './m-energy-proxy.mjs';
+export { experimentR_holographicRhymeGate } from './r-holographic-rhyme-gate.mjs';
+export { RHYME_SHARED_ORG_FRACTION, assertH100RhymeSimInvariants, experimentS_h100RhymeVsPrefixSim } from './s-h100-rhyme-sim.mjs';
+export { runAllExperiments, runDeterministicExperiments, VERDICT } from './suite.mjs';

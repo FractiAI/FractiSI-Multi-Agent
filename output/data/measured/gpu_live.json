@@ -1,0 +1,13 @@
+{
+  "detail": "C:\\Windows\\System32\\nvcuda.dll: cannot open shared object file: No such file or directory",
+  "liveRun": false,
+  "ok": false,
+  "planSha256": "df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770",
+  "reason": "nvcuda_unavailable",
+  "sourceFingerprint": {
+    "algorithm": "sha256-of-sorted-file-hashes",
+    "fileCount": 75,
+    "sha256": "09ae257e21c433fdb760c5c3df984bb15b4a14e19e8c2cb96b376981ba6bb793"
+  },
+  "status": "not_run"
+}

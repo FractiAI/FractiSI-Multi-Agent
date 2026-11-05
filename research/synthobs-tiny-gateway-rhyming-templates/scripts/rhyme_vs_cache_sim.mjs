@@ -1,9 +1,6 @@
-/**
- * Print the rhyme-versus-cache comparison.
- * A rhyme matches shape. A cache matches identical text.
- * In-process JSON bytes. Not a GPU measurement.
- */
-import { compareRhymeToCache, differingWordSessions, identicalTextSessions } from '../src/rhyme-vs-cache.mjs';
+#!/usr/bin/env node
+/** Thin orchestrator: print the rhyme-versus-cache comparison. In-process JSON bytes, not a GPU measurement. */
+import { compareRhymeToCache, differingWordSessions, identicalTextSessions } from '../../../src/experiments/rhyme-vs-cache.mjs';
 
 const report = {
   ok: true,

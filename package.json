@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Tiny Footprint IDE Workstation Kit 0.1 — AI Memory Efficiency Developer Kit",
+  "description": "Tiny Footprint IDE Workstation Kit 0.1 \u2014 AI Memory Efficiency Developer Kit",
   "license": "UNLICENSED",
   "author": "FractiAI",
   "homepage": "https://www.ssvibelandiaquestfest24x365.com/tiny-footprint",
@@ -18,13 +18,19 @@
     "tiny": "./scripts/tiny.mjs"
   },
   "scripts": {
-    "test": "node tests/correctness/sdk.test.mjs && node tests/correctness/share-results.test.mjs && node tests/correctness/engine-gate.test.mjs && node tests/correctness/rhyme-vs-cache.test.mjs && node tests/correctness/rhyme-gate.test.mjs && node tests/correctness/h100-rhyme-sim.test.mjs",
+    "test": "node scripts/run_node_tests.mjs",
+    "coverage": "node scripts/run_node_tests.mjs --experimental-test-coverage",
     "doctor": "node scripts/tiny.mjs doctor",
     "install-kit": "node scripts/tiny.mjs install",
     "demo": "node scripts/tiny.mjs demo",
     "benchmark": "node scripts/tiny.mjs benchmark",
     "report": "node scripts/tiny.mjs report",
     "join": "node scripts/tiny.mjs join",
-    "share": "node scripts/tiny.mjs share"
+    "share": "node scripts/tiny.mjs share",
+    "research": "node research/synthobs-tiny-gateway-rhyming-templates/scripts/run_empirical_pipeline.mjs",
+    "research:synthobs-tiny-gateway-rhyming-templates": "npm run research",
+    "pipeline": "node scripts/run_pipeline.mjs",
+    "rebuild": "node scripts/run_pipeline.mjs --rebuild",
+    "verify": "node scripts/verify_project.mjs"
   }
 }

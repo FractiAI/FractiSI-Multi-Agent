@@ -1,0 +1,29 @@
+{
+  "claims": [
+    {
+      "id": "def:reduction",
+      "kind": "citation",
+      "source_path": "docs/manuscript/02_formalism.md",
+      "value": "def:reduction"
+    },
+    {
+      "id": "def:shared_fraction",
+      "kind": "citation",
+      "source_path": "docs/manuscript/02_formalism.md",
+      "value": "def:shared_fraction"
+    },
+    {
+      "id": "prop:saturation",
+      "kind": "citation",
+      "source_path": "docs/manuscript/02_formalism.md",
+      "value": "prop:saturation"
+    },
+    {
+      "id": "def:aggregate",
+      "kind": "citation",
+      "source_path": "docs/manuscript/02_formalism.md",
+      "value": "def:aggregate"
+    }
+  ],
+  "schema": "tiny-footprint-formalism-ledger/v1"
+}

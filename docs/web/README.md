@@ -11,3 +11,10 @@ Open these files in a browser from this folder (double-click or “Open with Liv
 
 Live site: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint  
 Plainspeak live: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/simple
+
+These pages are FractiAI's marketing snapshots, copied from the live site and localized by `scripts/localize-web-docs.mjs`. Figures in them were written by hand from historical receipts, and the pipeline does not update them. For what is reproducible today, see the [results and claim ledger](../benchmarks/RESULTS.md).
+
+| Path | What it is |
+|---|---|
+| [`media/`](media/README.md) | Images used by these pages |
+| `brand-gold-surfaces.css`, `tiny-footprint-product.css` | Page styles |

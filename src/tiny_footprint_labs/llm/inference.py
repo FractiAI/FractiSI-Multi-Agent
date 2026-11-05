@@ -1,0 +1,269 @@
+"""Timing and equivalence for real forward passes with and without a shared prefix.
+
+Both arms use the identical token ids, built by concatenating the tokenized prefix
+and suffix, so tokenizer boundary effects cannot differ between them. Decode is an
+explicit greedy loop rather than ``generate``, because the arms must agree on what
+a cache contains and that loop's meaning does not change between library versions.
+"""
+
+from __future__ import annotations
+
+import random
+import time
+from collections.abc import Sequence
+from typing import Any
+
+from tiny_footprint_labs.common.stats import ratio, summarize_ms
+from tiny_footprint_labs.llm.device import sync_device
+from tiny_footprint_labs.llm.kv import KvPair, as_cache, kv_pairs
+
+ARM_WITHOUT = "without"
+ARM_WITH = "with"
+RHYME_SLOT_EVERY = 8
+KV_RELATIVE_TOLERANCE = 0.01
+
+
+def run_forward(model: Any, input_ids: Any, past_pairs: Sequence[KvPair] | None) -> Any:
+    """One forward pass; the prefix KV, when given, is wrapped in a fresh cache."""
+    import torch
+
+    with torch.no_grad():
+        return model(
+            input_ids=input_ids,
+            past_key_values=None if past_pairs is None else as_cache(past_pairs),
+            use_cache=True,
+        )
+
+
+def greedy_decode(model: Any, first_output: Any, new_tokens: int) -> list[int]:
+    """Greedy decode from a completed prefill."""
+    import torch
+
+    output = first_output
+    tokens: list[int] = []
+    with torch.no_grad():
+        for _ in range(new_tokens):
+            next_id = output.logits[:, -1, :].argmax(dim=-1, keepdim=True)
+            tokens.append(int(next_id.item()))
+            output = model(input_ids=next_id, past_key_values=output.past_key_values, use_cache=True)
+    return tokens
+
+
+def timed_turn(
+    model: Any,
+    backend: str,
+    arm: str,
+    full_ids: Any,
+    suffix_ids: Any,
+    prefix_pairs: Sequence[KvPair],
+    new_tokens: int,
+) -> tuple[float, float]:
+    """Run one turn in one arm and return (prefill ms, decode ms)."""
+    sync_device(backend)
+    start = time.perf_counter()
+    output = run_forward(model, full_ids, None) if arm == ARM_WITHOUT else run_forward(model, suffix_ids, prefix_pairs)
+    _ = output.logits
+    sync_device(backend)
+    prefill_ms = (time.perf_counter() - start) * 1000.0
+
+    start = time.perf_counter()
+    greedy_decode(model, output, new_tokens)
+    sync_device(backend)
+    decode_ms = (time.perf_counter() - start) * 1000.0
+    return prefill_ms, decode_ms
+
+
+def measure_timing(
+    model: Any,
+    backend: str,
+    prefix_ids: Any,
+    suffix_ids_per_turn: Sequence[Any],
+    new_tokens: int,
+    trials: int,
+    warmup: int,
+    seed: int,
+) -> dict[str, Any]:
+    """Time both arms, interleaved in seeded random order to spread drift across them.
+
+    The prefix prefill runs once per trial and is charged to the "with" arm, because
+    that arm has to pay for it exactly once. Per-turn samples exclude it; per-trial
+    totals include it.
+    """
+    import torch
+
+    rng = random.Random(seed)
+    full_ids_per_turn = [torch.cat([prefix_ids, suffix], dim=1) for suffix in suffix_ids_per_turn]
+    calls: dict[str, dict[str, list[float]]] = {arm: {"prefill": [], "decode": []} for arm in (ARM_WITHOUT, ARM_WITH)}
+    totals: dict[str, dict[str, list[float]]] = {arm: {"prefill": [], "decode": []} for arm in (ARM_WITHOUT, ARM_WITH)}
+    prefix_prefill_ms: list[float] = []
+
+    def timed_prefix() -> tuple[float, list[KvPair]]:
+        sync_device(backend)
+        start = time.perf_counter()
+        output = run_forward(model, prefix_ids, None)
+        pairs = kv_pairs(output.past_key_values)
+        sync_device(backend)
+        return (time.perf_counter() - start) * 1000.0, pairs
+
+    _, warm_pairs = timed_prefix()
+    for _ in range(warmup):
+        for arm in (ARM_WITHOUT, ARM_WITH):
+            timed_turn(model, backend, arm, full_ids_per_turn[0], suffix_ids_per_turn[0], warm_pairs, new_tokens)
+
+    for _ in range(trials):
+        prefix_ms, prefix_pairs = timed_prefix()
+        prefix_prefill_ms.append(prefix_ms)
+        trial_total = {arm: {"prefill": 0.0, "decode": 0.0} for arm in (ARM_WITHOUT, ARM_WITH)}
+        trial_total[ARM_WITH]["prefill"] += prefix_ms
+        for full_ids, suffix_ids in zip(full_ids_per_turn, suffix_ids_per_turn, strict=True):
+            order = [ARM_WITHOUT, ARM_WITH]
+            rng.shuffle(order)
+            for arm in order:
+                prefill_ms, decode_ms = timed_turn(model, backend, arm, full_ids, suffix_ids, prefix_pairs, new_tokens)
+                calls[arm]["prefill"].append(prefill_ms)
+                calls[arm]["decode"].append(decode_ms)
+                trial_total[arm]["prefill"] += prefill_ms
+                trial_total[arm]["decode"] += decode_ms
+        for arm in (ARM_WITHOUT, ARM_WITH):
+            totals[arm]["prefill"].append(trial_total[arm]["prefill"])
+            totals[arm]["decode"].append(trial_total[arm]["decode"])
+
+    def arm_report(arm: str) -> dict[str, Any]:
+        return {
+            "prefillCallMs": summarize_ms(calls[arm]["prefill"]),
+            "decodeCallMs": summarize_ms(calls[arm]["decode"]),
+            "prefillBatchMs": summarize_ms(totals[arm]["prefill"]),
+            "decodeBatchMs": summarize_ms(totals[arm]["decode"]),
+            "prefillCallSamplesMs": calls[arm]["prefill"],
+            "prefillBatchSamplesMs": totals[arm]["prefill"],
+            "decodeBatchSamplesMs": totals[arm]["decode"],
+        }
+
+    without = arm_report(ARM_WITHOUT)
+    with_arm = arm_report(ARM_WITH)
+    return {
+        "order": "interleaved within each turn in seeded random order",
+        "withoutTinyFootprint": without,
+        "withTinyFootprint": with_arm,
+        "prefixPrefillMs": summarize_ms(prefix_prefill_ms),
+        "comparison": {
+            "prefillP50Speedup": ratio(without["prefillBatchMs"]["p50Ms"], with_arm["prefillBatchMs"]["p50Ms"]),
+            "prefillCallP50Speedup": ratio(without["prefillCallMs"]["p50Ms"], with_arm["prefillCallMs"]["p50Ms"]),
+            "decodeP50Speedup": ratio(without["decodeBatchMs"]["p50Ms"], with_arm["decodeBatchMs"]["p50Ms"]),
+        },
+    }
+
+
+def _compare_arms(
+    model: Any,
+    cache_prefix_ids: Any,
+    prefix_ids: Any,
+    suffix_ids_per_turn: Sequence[Any],
+    new_tokens: int,
+    tolerance: float,
+) -> dict[str, Any]:
+    """Compare a full prefill of prefix and suffix with a resume from a cache of ``cache_prefix_ids``."""
+    import torch
+
+    output = run_forward(model, cache_prefix_ids, None)
+    prefix_pairs = kv_pairs(output.past_key_values)
+    worst = 0.0
+    token_sequences_equal = 0
+    for suffix_ids in suffix_ids_per_turn:
+        full_ids = torch.cat([prefix_ids, suffix_ids], dim=1)
+        without = run_forward(model, full_ids, None)
+        with_arm = run_forward(model, suffix_ids, prefix_pairs)
+        difference = (without.logits[:, -1, :] - with_arm.logits[:, -1, :]).abs().max().item()
+        worst = max(worst, float(difference))
+        if greedy_decode(model, without, new_tokens) == greedy_decode(model, with_arm, new_tokens):
+            token_sequences_equal += 1
+    turns = len(suffix_ids_per_turn)
+    return {
+        "turns": turns,
+        "worstLogitAbsDifference": worst,
+        "tokenSequencesEqual": token_sequences_equal,
+        "equivalent": worst <= tolerance and token_sequences_equal == turns,
+    }
+
+
+def check_equivalence(
+    model: Any,
+    prefix_ids: Any,
+    suffix_ids_per_turn: Sequence[Any],
+    new_tokens: int,
+    tolerance: float,
+) -> dict[str, Any]:
+    """Compare logits and greedy tokens between the two arms, and test the comparison itself.
+
+    The control resumes from a cache built from the prefix in reverse token order, which
+    no correct server would use. A model whose outputs barely depend on context still
+    compares as equivalent then, and the receipt records that its check shows nothing.
+    """
+    arms = _compare_arms(model, prefix_ids, prefix_ids, suffix_ids_per_turn, new_tokens, tolerance)
+    wrong = _compare_arms(model, prefix_ids.flip(dims=[1]), prefix_ids, suffix_ids_per_turn, new_tokens, tolerance)
+    return {
+        "checked": "last-position logits and greedy tokens, without versus with the shared prefix",
+        "newTokens": new_tokens,
+        "logitTolerance": tolerance,
+        **arms,
+        "control": {
+            "kind": "cache built from the prefix in reverse token order",
+            "worstLogitAbsDifference": wrong["worstLogitAbsDifference"],
+            "tokenSequencesEqual": wrong["tokenSequencesEqual"],
+            "detected": not wrong["equivalent"],
+        },
+    }
+
+
+def rhyming_prefix(prefix_ids: Any, slot_every: int = RHYME_SLOT_EVERY) -> Any:
+    """The same organization with different words: every ``slot_every``-th token is replaced by its neighbor."""
+    changed = prefix_ids.clone()
+    changed[:, ::slot_every] = prefix_ids.roll(-1, dims=1)[:, ::slot_every]
+    return changed
+
+
+def measure_rhyme_sharing(
+    model: Any,
+    prefix_ids: Any,
+    suffix_ids_per_turn: Sequence[Any],
+    new_tokens: int,
+    tolerance: float,
+    rhyme_ids: Any = None,
+) -> dict[str, Any]:
+    """Test whether a rhyme's KV state could stand in for another prompt's.
+
+    Two prompts keep most tokens and differ in a few slots, which favors sharing more
+    than any real pair of sessions would. Each key and value cell, one per layer and
+    position, counts as shareable only if it matches within a relative tolerance. A
+    server would also have to resume from the other prompt's cache, which is tested too.
+    """
+    rhyme_ids = rhyming_prefix(prefix_ids) if rhyme_ids is None else rhyme_ids
+    base = kv_pairs(run_forward(model, prefix_ids, None).past_key_values)
+    rhyme = kv_pairs(run_forward(model, rhyme_ids, None).past_key_values)
+    positions = int(prefix_ids.shape[1])
+    unchanged = (rhyme_ids == prefix_ids)[0]
+    matching_by_layer = []
+    for base_pair, rhyme_pair in zip(base, rhyme, strict=True):
+        matches = unchanged.clone()
+        for original, candidate in zip(base_pair, rhyme_pair, strict=True):
+            difference = (original - candidate).abs().amax(dim=(0, 1, 3))
+            scale = original.abs().amax(dim=(0, 1, 3)).clamp_min(1e-12)
+            matches = matches & (difference / scale <= KV_RELATIVE_TOLERANCE)
+        matching_by_layer.append(int(matches.sum().item()))
+    resumed = _compare_arms(model, rhyme_ids, prefix_ids, suffix_ids_per_turn, new_tokens, tolerance)
+    return {
+        "kind": f"every {RHYME_SLOT_EVERY}th prefix token replaced by its neighbor",
+        "relativeTolerance": KV_RELATIVE_TOLERANCE,
+        "positions": positions,
+        "changedTokens": positions - int(unchanged.sum().item()),
+        "layers": len(base),
+        "matchingPositionsByLayer": matching_by_layer,
+        "matchingCellFraction": sum(matching_by_layer) / (len(base) * positions),
+        "layersWithAnyMatch": sum(1 for count in matching_by_layer if count > 0),
+        "resumeFromRhymingCache": {
+            "worstLogitAbsDifference": resumed["worstLogitAbsDifference"],
+            "tokenSequencesEqual": resumed["tokenSequencesEqual"],
+            "turns": resumed["turns"],
+            "equivalent": resumed["equivalent"],
+        },
+    }

@@ -1,0 +1,18 @@
+domain: systems_benchmarking
+display_name: AI serving memory benchmark
+required_packages:
+  - matplotlib
+  - pytest
+preferred_outputs:
+  - pdf
+  - html
+validation_gates:
+  - experiment_method_design
+  - artifact_manifest
+  - evidence_grounding
+  - render_validation
+figure_types:
+  - sensitivity_analysis
+  - performance_benchmark
+citation_policy: official_or_scholarly
+source_policy: "Prefer the repository's own receipts, primary papers, and official vendor specifications."
