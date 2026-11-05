@@ -9,3 +9,4 @@ benchmarks/reports/gpu_llm_real_lab.json
 .env
 *.pyc
 __pycache__/
+.vercel

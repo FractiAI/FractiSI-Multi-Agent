@@ -3,7 +3,7 @@
   "DOC_ID": "WP-SYNTHOBS-TINY-GATEWAY-RHYMING-TEMPLATES-EGS-2026-11-03",
   "REGISTRY_ID": "synthobs-tiny-gateway-rhyming-templates-2026-11",
   "STUDY_TITLE": "Tiny Gateway: Rhyming Templates and a New Architecture for Memory-Efficient Computing",
-  "generatedAt": "2026-11-03T18:10:07.476Z",
+  "generatedAt": "2026-11-04T21:33:47.826Z",
   "results": {
     "experiments": [
       {
@@ -29,10 +29,10 @@
           "id": "B_structured_data",
           "title": "Workload A · structured rhyming-template records",
           "n": 500,
-          "ratio": 0.5433438568797685,
-          "saved": 41305,
+          "ratio": 0.5414496185214417,
+          "saved": 41161,
           "baselineBytes": 76020,
-          "tinyBytes": 34715,
+          "tinyBytes": 34859,
           "exact": true,
           "pass": true
         }
@@ -46,10 +46,10 @@
           "title": "Workload B · cross-linked shared references",
           "nNodes": 200,
           "nEdges": 600,
-          "ratio": 0.8235809103011827,
-          "saved": 1024449,
+          "ratio": 0.8235415179404066,
+          "saved": 1024400,
           "baselineBytes": 1243896,
-          "tinyBytes": 219447,
+          "tinyBytes": 219496,
           "pass": true
         }
       },
@@ -86,20 +86,20 @@
       },
       {
         "id": "E6_ai_context_proxy",
-        "title": "Workload E/F proxy · shared system prompt + turn deltas",
+        "title": "Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)",
         "pass": true,
         "F": {
           "id": "F_ai_context_proxy",
-          "title": "Workload E/F proxy · shared system prompt + turn deltas",
+          "title": "Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)",
           "sessions": 40,
           "turns": 25,
-          "ratio": 0.4892008188160588,
-          "saved": 93680,
+          "ratio": 0.4886263942849981,
+          "saved": 93570,
           "baselineBytes": 191496,
-          "tinyBytes": 97816,
+          "tinyBytes": 97926,
           "exact": true,
           "pass": true,
-          "honesty": "In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server."
+          "honesty": "Prefix-reuse / shared-identical-system-prompt meter — not a holographic rhyme proof, and not measured GPU KV-cache / HBM for a production LLM server."
         }
       },
       {
@@ -120,6 +120,674 @@
             "exactRate": 1
           },
           "pass": true
+        }
+      },
+      {
+        "id": "E11_holographic_rhyme_gate",
+        "title": "Holographic rhyme gate (four pillars · brick wall fails · rhyme ≠ cache)",
+        "pass": true,
+        "R": {
+          "id": "R_holographic_rhyme_gate",
+          "title": "Holographic rhyme gate (four pillars · brick wall fails · rhyme ≠ cache)",
+          "trueAudit": {
+            "pass": true,
+            "pillars": {
+              "repeating": {
+                "pass": true,
+                "n": 40
+              },
+              "self_similar": {
+                "pass": true,
+                "localSignature": "{kind:string,octave:number,role:string}"
+              },
+              "recursive": {
+                "pass": true,
+                "nestDepth": 2
+              },
+              "self_correcting": {
+                "pass": true,
+                "driftBefore": 0.15,
+                "driftAfter": 0.05729490168751577
+              }
+            },
+            "failed": [],
+            "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+          },
+          "brickAudit": {
+            "pass": false,
+            "pillars": {
+              "repeating": {
+                "pass": true,
+                "n": 40
+              },
+              "self_similar": {
+                "pass": false,
+                "reason": "no_local_blueprint_mirroring_whole"
+              },
+              "recursive": {
+                "pass": false,
+                "reason": "nest_depth_below_one"
+              },
+              "self_correcting": {
+                "pass": false,
+                "reason": "drift_correction_not_demonstrated"
+              }
+            },
+            "failed": [
+              "self_similar",
+              "self_correcting",
+              "recursive"
+            ],
+            "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+          },
+          "schemaOnly": {
+            "pass": false,
+            "pillars": {
+              "repeating": {
+                "pass": true,
+                "n": 2
+              },
+              "self_similar": {
+                "pass": false,
+                "reason": "no_local_blueprint_mirroring_whole"
+              },
+              "recursive": {
+                "pass": false,
+                "reason": "nest_depth_below_one"
+              },
+              "self_correcting": {
+                "pass": false,
+                "reason": "drift_correction_not_demonstrated"
+              }
+            },
+            "failed": [
+              "self_similar",
+              "self_correcting",
+              "recursive"
+            ],
+            "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+          },
+          "vsCacheDiffering": {
+            "rhymeBytes": 5554,
+            "cacheBytes": 8064,
+            "equivalent": true
+          },
+          "vsCacheIdentical": {
+            "rhymeBytes": 5572,
+            "cacheBytes": 198,
+            "equivalent": true
+          },
+          "falseMatchRejected": true,
+          "arrayObjectDistinct": true,
+          "nestedFieldDelta": true,
+          "pattern": {
+            "kind": "session",
+            "schema": "rhyme_v1",
+            "motion": "repeat-mirror-recurse-correct",
+            "organization": {
+              "kind": "session",
+              "role": "user",
+              "octave": 1
+            },
+            "utterance": ""
+          },
+          "pass": true,
+          "honesty": "Four-pillar catalog audit for Rhyming Templates. Brick wall / schema-only / exact-text cache are contrast cases. Shared-prefix GPU labs are prefix-reuse meters, not rhyme proofs."
+        }
+      },
+      {
+        "id": "E12_h100_rhyme_vs_prefix_sim",
+        "title": "H100 simulation · rhyme beats prefix cache when organizational wording differs",
+        "pass": true,
+        "S": {
+          "id": "S_h100_rhyme_vs_prefix_sim",
+          "title": "H100 simulation · rhyme beats prefix cache when organizational wording differs",
+          "report": {
+            "ok": true,
+            "kind": "simulation",
+            "simulator": "kv-cache residency roofline · rhyme vs prefix cache",
+            "notAMeasurement": true,
+            "device": {
+              "name": "NVIDIA H100 SXM 80GB",
+              "memoryClass": "HBM3",
+              "capacityBytes": 85899345920,
+              "peakBandwidthBytesPerSec": 3350000000000,
+              "source": "NVIDIA H100 Tensor Core GPU datasheet: 80 GB HBM3, 3.35 TB/s"
+            },
+            "model": {
+              "id": "meta-llama/Llama-2-7b-hf",
+              "parameters": 6738415616,
+              "layers": 32,
+              "kvHeads": 32,
+              "headDim": 128,
+              "dtypeBytes": 2
+            },
+            "workload": {
+              "orgTokens": 2048,
+              "suffixTokens": 128,
+              "sessions": 16,
+              "kvBytesPerToken": 524288,
+              "weightBytes": 13476831232,
+              "rhymeSharedOrgFraction": 0.38888888888888884,
+              "rhymeDeltaOrgFraction": 0.6111111111111112,
+              "rhymeShareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100."
+            },
+            "workloads": {
+              "identicalPrefix": {
+                "id": "identicalPrefix",
+                "title": "Identical exact system/org prefix across sessions",
+                "rhymeDifferentiates": false,
+                "outputEquivalence": {
+                  "checked": "reconstructed token ids equal the original ids",
+                  "equivalent": true,
+                  "sessions": 16,
+                  "notGeneratedText": true
+                },
+                "arms": {
+                  "naiveRefill": {
+                    "kvBytes": 18253611008,
+                    "materializeBytes": 18253611008,
+                    "residentBytes": 31730442240,
+                    "fits": true,
+                    "materializeSecondsAtPeak": 0.005448839106865671
+                  },
+                  "productionPrefixCache": {
+                    "kvBytes": 2147483648,
+                    "materializeBytes": 2147483648,
+                    "exactPrefixHits": 15,
+                    "residentBytes": 15624314880,
+                    "fits": true,
+                    "materializeSecondsAtPeak": 0.0006410398949253731
+                  },
+                  "tinyFootprintRhyme": {
+                    "kvBytes": 2147483648,
+                    "materializeBytes": 2147483648,
+                    "note": "Identical exact prefix — Tiny Footprint collapses to prefix-cache residency on this workload.",
+                    "sameResidentSetAsPrefixCache": true,
+                    "residentBytes": 15624314880,
+                    "fits": true,
+                    "materializeSecondsAtPeak": 0.0006410398949253731
+                  }
+                },
+                "comparison": {
+                  "prefixKvReductionVersusNaive": 0.8823529411764706,
+                  "tinyKvReductionVersusNaive": 0.8823529411764706,
+                  "tinyKvReductionVersusPrefixCache": 0,
+                  "tinyVersusPrefixCacheResidentBytes": 0,
+                  "prefixMaterializeSpeedupVersusNaive": 8.5,
+                  "tinyMaterializeSpeedupVersusNaive": 8.5,
+                  "tinyMaterializeSpeedupVersusPrefixCache": 1
+                }
+              },
+              "rhymingDifferentWording": {
+                "id": "rhymingDifferentWording",
+                "title": "Same organizational slots, different wording (rhyme differentiates)",
+                "rhymeDifferentiates": true,
+                "outputEquivalence": {
+                  "checked": "template+delta encoding preserves org+suffix length; structural round-trip",
+                  "equivalent": true,
+                  "sessions": 16,
+                  "notGeneratedText": true,
+                  "note": "Originals use unique org tokens; Tiny rebuilds via shared template + deltas (rhyme model), not exact-token identity with naive streams."
+                },
+                "arms": {
+                  "naiveRefill": {
+                    "kvBytes": 18253611008,
+                    "materializeBytes": 18253611008,
+                    "residentBytes": 31730442240,
+                    "fits": true,
+                    "materializeSecondsAtPeak": 0.005448839106865671
+                  },
+                  "productionPrefixCache": {
+                    "kvBytes": 18253611008,
+                    "materializeBytes": 18253611008,
+                    "exactPrefixHits": 0,
+                    "note": "Different wording in organizational slots — exact-prefix cache cannot share across sessions.",
+                    "residentBytes": 31730442240,
+                    "fits": true,
+                    "materializeSecondsAtPeak": 0.005448839106865671
+                  },
+                  "tinyFootprintRhyme": {
+                    "kvBytes": 11993612288,
+                    "materializeBytes": 11993612288,
+                    "templateOrgTokens": 796,
+                    "deltaOrgTokensPerSession": 1252,
+                    "suffixTokensPerSession": 128,
+                    "sharedOrgFraction": 0.38888888888888884,
+                    "deltaOrgFraction": 0.6111111111111112,
+                    "shareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100.",
+                    "sameResidentSetAsPrefixCache": false,
+                    "residentBytes": 25470443520,
+                    "fits": true,
+                    "materializeSecondsAtPeak": 0.0035801827725373135
+                  }
+                },
+                "comparison": {
+                  "prefixKvReductionVersusNaive": 0,
+                  "tinyKvReductionVersusNaive": 0.34294577205882354,
+                  "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+                  "tinyVersusPrefixCacheResidentBytes": -6259998720,
+                  "prefixMaterializeSpeedupVersusNaive": 1,
+                  "tinyMaterializeSpeedupVersusNaive": 1.5219443958734042,
+                  "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042
+                }
+              }
+            },
+            "arms": {
+              "naiveRefill": {
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "residentBytes": 31730442240,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.005448839106865671
+              },
+              "productionPrefixCache": {
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "exactPrefixHits": 0,
+                "note": "Different wording in organizational slots — exact-prefix cache cannot share across sessions.",
+                "residentBytes": 31730442240,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.005448839106865671
+              },
+              "tinyFootprintRhyme": {
+                "kvBytes": 11993612288,
+                "materializeBytes": 11993612288,
+                "templateOrgTokens": 796,
+                "deltaOrgTokensPerSession": 1252,
+                "suffixTokensPerSession": 128,
+                "sharedOrgFraction": 0.38888888888888884,
+                "deltaOrgFraction": 0.6111111111111112,
+                "shareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100.",
+                "sameResidentSetAsPrefixCache": false,
+                "residentBytes": 25470443520,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.0035801827725373135
+              }
+            },
+            "comparison": {
+              "prefixKvReductionVersusNaive": 0,
+              "tinyKvReductionVersusNaive": 0.34294577205882354,
+              "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+              "tinyVersusPrefixCacheResidentBytes": -6259998720,
+              "prefixMaterializeSpeedupVersusNaive": 1,
+              "tinyMaterializeSpeedupVersusNaive": 1.5219443958734042,
+              "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042,
+              "identicalPrefixTinyVersusPrefixCacheResidentBytes": 0,
+              "peakBandwidthIsAnUpperBound": true
+            },
+            "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory.",
+            "liveRun": false,
+            "cached": true
+          },
+          "invariants": {
+            "pass": true,
+            "identicalTie": true,
+            "rhymeBeatsPrefix": true,
+            "fractionLock": true,
+            "latencyProxy": true,
+            "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+            "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042
+          },
+          "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+          "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042,
+          "pass": true,
+          "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory."
+        }
+      },
+      {
+        "id": "E13_dynamic_route",
+        "title": "Dynamic structural signature routing (bucket ≪ linear · false-match reject)",
+        "pass": true,
+        "K": {
+          "id": "K_dynamic_route",
+          "title": "Dynamic structural signature routing (bucket ≪ linear · false-match reject)",
+          "linearCompares": 15,
+          "bucketCompares": 3,
+          "exactHits": 3,
+          "falseMatchRejected": true,
+          "partialTopScore": 1,
+          "candidateCap": 1,
+          "rhymeScoreSample": 1,
+          "pass": true,
+          "honesty": "Structural signature routing + scored partial rhyme — not semantic search, not full pairwise matrix expansion, not automatic discovery without false-match controls."
+        }
+      },
+      {
+        "id": "E14_context_compress_hooks",
+        "title": "Recursive context-fold hooks + demo meters",
+        "pass": true,
+        "L": {
+          "id": "L_context_compress_hooks",
+          "title": "Recursive context-fold hooks + demo meters",
+          "turns": 24,
+          "levels": 6,
+          "maxLevels": 6,
+          "maxBytesPerLevel": 2048,
+          "rawBytes": 87,
+          "foldedBytes": 470,
+          "allRawWouldBe": 522,
+          "foldRatio": 0.09961685823754785,
+          "hooksFired": [
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "encode"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "encode"
+            },
+            {
+              "hook": "nested_delta_fold",
+              "phase": "meter"
+            },
+            {
+              "hook": "octave_scale_cap",
+              "phase": "meter"
+            },
+            {
+              "hook": "working_set_bound",
+              "phase": "meter"
+            }
+          ],
+          "hookMeters": {
+            "nested_delta_fold": {
+              "kind": "nested_delta_fold",
+              "bytes": 29
+            },
+            "octave_scale_cap": {
+              "kind": "octave_scale_cap",
+              "maxDepth": 4,
+              "bytes": 29
+            },
+            "working_set_bound": {
+              "kind": "working_set_bound",
+              "maxBytes": 4096,
+              "bytes": 29,
+              "overBudget": false
+            }
+          },
+          "honesty": "Recursive context-fold hooks and demo meters — not a KV-cache compression product, not infinite lossless context, not measured transformer KV on device.",
+          "exact": true,
+          "pass": true
+        }
+      },
+      {
+        "id": "E15_energy_proxy_scale",
+        "title": "Energy-proxy substrate scaling (byte-touch joule PROXY)",
+        "pass": true,
+        "M": {
+          "id": "M_energy_proxy_scale",
+          "title": "Energy-proxy substrate scaling (byte-touch joule PROXY)",
+          "baselineDepth": 8,
+          "scaledDepth": 1,
+          "baselineBytes": 1034,
+          "scaledBytes": 259,
+          "baselineJ": 0.0000010434999999999998,
+          "scaledJ": 0.0000026420000000000003,
+          "budgetJ": 1.5652499999999998e-7,
+          "planScale": {
+            "PROXY": true,
+            "scaled": true,
+            "budgetJ": 1.5652499999999998e-7,
+            "plan": {
+              "maxDepth": 1,
+              "candidateCap": 1,
+              "bufferLevels": 1,
+              "bytesTouched": 83,
+              "compares": 0,
+              "reconstructs": 1
+            },
+            "estimate": {
+              "PROXY": true,
+              "joules": 8.32e-7,
+              "wattsIdleProxy": 0,
+              "bytesTouched": 83,
+              "compares": 0,
+              "reconstructs": 1
+            },
+            "steps": [
+              {
+                "lever": "maxDepth",
+                "value": 7
+              },
+              {
+                "lever": "maxDepth",
+                "value": 6
+              },
+              {
+                "lever": "maxDepth",
+                "value": 5
+              },
+              {
+                "lever": "maxDepth",
+                "value": 4
+              },
+              {
+                "lever": "maxDepth",
+                "value": 3
+              },
+              {
+                "lever": "maxDepth",
+                "value": 2
+              },
+              {
+                "lever": "maxDepth",
+                "value": 1
+              },
+              {
+                "lever": "candidateCap",
+                "value": 16
+              },
+              {
+                "lever": "candidateCap",
+                "value": 8
+              },
+              {
+                "lever": "candidateCap",
+                "value": 4
+              },
+              {
+                "lever": "candidateCap",
+                "value": 2
+              },
+              {
+                "lever": "candidateCap",
+                "value": 1
+              },
+              {
+                "lever": "bufferLevels",
+                "value": 3
+              },
+              {
+                "lever": "bufferLevels",
+                "value": 2
+              },
+              {
+                "lever": "bufferLevels",
+                "value": 1
+              }
+            ],
+            "honesty": "Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim."
+          },
+          "pass": true,
+          "honesty": "Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim."
         }
       },
       {
@@ -175,47 +843,47 @@
                 "label": "conventional_duplicated_resident_state",
                 "turnMaterializeMs": {
                   "n": 24,
-                  "meanMs": 48.04243752732873,
-                  "p50Ms": 45.13240000233054,
-                  "p95Ms": 61.144300270825624,
-                  "minMs": 40.46750022098422,
-                  "maxMs": 78.63039989024401
+                  "meanMs": 43.524900024446346,
+                  "p50Ms": 43.147899908944964,
+                  "p95Ms": 45.80190032720566,
+                  "minMs": 40.98620032891631,
+                  "maxMs": 50.13710027560592
                 },
                 "sessionBringupMs": {
                   "n": 8,
-                  "meanMs": 5.847049877047539,
-                  "p50Ms": 5.732949823141098,
-                  "p95Ms": 6.243099924176931,
-                  "minMs": 5.478400271385908,
-                  "maxMs": 6.4295995980501175
+                  "meanMs": 6.05657504638657,
+                  "p50Ms": 5.986350122839212,
+                  "p95Ms": 6.270499899983406,
+                  "minMs": 5.509800277650356,
+                  "maxMs": 7.461499888449907
                 }
               },
               "withTinyFootprint": {
                 "label": "shared_pattern_plus_deltas",
                 "turnMaterializeMs": {
                   "n": 24,
-                  "meanMs": 4.031391639728099,
-                  "p50Ms": 4.015800077468157,
-                  "p95Ms": 4.2458996176719666,
-                  "minMs": 3.7660999223589897,
-                  "maxMs": 4.270500037819147
+                  "meanMs": 4.599775013048202,
+                  "p50Ms": 4.496699897572398,
+                  "p95Ms": 5.030000116676092,
+                  "minMs": 4.071800038218498,
+                  "maxMs": 5.74659975245595
                 },
                 "sessionBringupMs": {
                   "n": 8,
-                  "meanMs": 3.137412539217621,
-                  "p50Ms": 3.0049001798033714,
-                  "p95Ms": 3.269399981945753,
-                  "minMs": 2.916400320827961,
-                  "maxMs": 3.883499652147293
+                  "meanMs": 3.116649982985109,
+                  "p50Ms": 3.0023499857634306,
+                  "p95Ms": 3.4620999358594418,
+                  "minMs": 2.9286998324096203,
+                  "maxMs": 3.5286000929772854
                 }
               },
               "comparison": {
-                "turnP50RatioTinyOverConventional": 0.08897820805587094,
-                "bringupP50RatioTinyOverConventional": 0.5241455572616505,
+                "turnP50RatioTinyOverConventional": 0.10421596200653534,
+                "bringupP50RatioTinyOverConventional": 0.501532640783709,
                 "turnFasterWithTinyFootprint": true,
                 "bringupFasterWithTinyFootprint": true,
-                "turnSpeedup": 11.238706890703877,
-                "bringupSpeedup": 1.9078669773037984
+                "turnSpeedup": 9.595459090396252,
+                "bringupSpeedup": 1.993888171340896
               },
               "passLatencyGate": true
             },
@@ -231,7 +899,9 @@
               ]
             },
             "pass80": true,
-            "passLatency": true
+            "passLatency": true,
+            "liveRun": false,
+            "cached": true
           },
           "allocReduction": 0.8138889206780328,
           "smiReduction": 0.7284345047923323,
@@ -249,57 +919,57 @@
               "label": "conventional_duplicated_resident_state",
               "turnMaterializeMs": {
                 "n": 24,
-                "meanMs": 48.04243752732873,
-                "p50Ms": 45.13240000233054,
-                "p95Ms": 61.144300270825624,
-                "minMs": 40.46750022098422,
-                "maxMs": 78.63039989024401
+                "meanMs": 43.524900024446346,
+                "p50Ms": 43.147899908944964,
+                "p95Ms": 45.80190032720566,
+                "minMs": 40.98620032891631,
+                "maxMs": 50.13710027560592
               },
               "sessionBringupMs": {
                 "n": 8,
-                "meanMs": 5.847049877047539,
-                "p50Ms": 5.732949823141098,
-                "p95Ms": 6.243099924176931,
-                "minMs": 5.478400271385908,
-                "maxMs": 6.4295995980501175
+                "meanMs": 6.05657504638657,
+                "p50Ms": 5.986350122839212,
+                "p95Ms": 6.270499899983406,
+                "minMs": 5.509800277650356,
+                "maxMs": 7.461499888449907
               }
             },
             "withTinyFootprint": {
               "label": "shared_pattern_plus_deltas",
               "turnMaterializeMs": {
                 "n": 24,
-                "meanMs": 4.031391639728099,
-                "p50Ms": 4.015800077468157,
-                "p95Ms": 4.2458996176719666,
-                "minMs": 3.7660999223589897,
-                "maxMs": 4.270500037819147
+                "meanMs": 4.599775013048202,
+                "p50Ms": 4.496699897572398,
+                "p95Ms": 5.030000116676092,
+                "minMs": 4.071800038218498,
+                "maxMs": 5.74659975245595
               },
               "sessionBringupMs": {
                 "n": 8,
-                "meanMs": 3.137412539217621,
-                "p50Ms": 3.0049001798033714,
-                "p95Ms": 3.269399981945753,
-                "minMs": 2.916400320827961,
-                "maxMs": 3.883499652147293
+                "meanMs": 3.116649982985109,
+                "p50Ms": 3.0023499857634306,
+                "p95Ms": 3.4620999358594418,
+                "minMs": 2.9286998324096203,
+                "maxMs": 3.5286000929772854
               }
             },
             "comparison": {
-              "turnP50RatioTinyOverConventional": 0.08897820805587094,
-              "bringupP50RatioTinyOverConventional": 0.5241455572616505,
+              "turnP50RatioTinyOverConventional": 0.10421596200653534,
+              "bringupP50RatioTinyOverConventional": 0.501532640783709,
               "turnFasterWithTinyFootprint": true,
               "bringupFasterWithTinyFootprint": true,
-              "turnSpeedup": 11.238706890703877,
-              "bringupSpeedup": 1.9078669773037984
+              "turnSpeedup": 9.595459090396252,
+              "bringupSpeedup": 1.993888171340896
             },
             "passLatencyGate": true
           },
-          "turnP50MsWithout": 45.13240000233054,
-          "turnP50MsWith": 4.015800077468157,
-          "turnP50RatioTinyOverConventional": 0.08897820805587094,
-          "turnSpeedup": 11.238706890703877,
+          "turnP50MsWithout": 43.147899908944964,
+          "turnP50MsWith": 4.496699897572398,
+          "turnP50RatioTinyOverConventional": 0.10421596200653534,
+          "turnSpeedup": 9.595459090396252,
           "pass": true,
           "honesty": "Measured on NVIDIA GeForce GTX 860M via nvidia-smi / cuMemAlloc / cuMemcpyHtoD. This GeForce uses GDDR device memory; datacenter HBM is the operator analogue for the same duplicated-resident-state problem — not identical silicon. Latency is materialization path, not frontier LLM decode.",
-          "interpretation": "Live on NVIDIA GeForce GTX 860M: cuMemAlloc 81.4%; nvidia-smi 72.8%; density 11.85×; turn p50 without 45.13 ms → with Tiny Footprint 4.02 ms (11.24× speedup)."
+          "interpretation": "Live on NVIDIA GeForce GTX 860M: cuMemAlloc 81.4%; nvidia-smi 72.8%; density 11.85×; turn p50 without 43.15 ms → with Tiny Footprint 4.50 ms (9.60× speedup)."
         }
       },
       {
@@ -426,31 +1096,32 @@
       },
       {
         "id": "E9_engine_pin_gate",
-        "title": "Data-gated ENGINE_SHELF pin (80% measured + Tiny Footprint GPU lab)",
+        "title": "Data-gated ENGINE_SHELF pin (80% measured + holographic rhyme gate + Tiny Footprint GPU lab)",
         "pass": true,
         "enginePinRecommended": true,
         "H": {
           "id": "H_engine_pin_gate",
-          "title": "Data-gated ENGINE_SHELF pin (80% measured + Tiny Footprint GPU lab)",
+          "title": "Data-gated ENGINE_SHELF pin (80% measured + holographic rhyme gate + Tiny Footprint GPU lab)",
           "target": 0.8,
-          "aggregateRatio": 0.8450413877455297,
-          "aggregatePct": 84.50413877455297,
-          "ratio": 0.8450413877455297,
-          "saved": 1974593,
+          "aggregateRatio": 0.8449117166991487,
+          "aggregatePct": 84.49117166991486,
+          "ratio": 0.8449117166991487,
+          "saved": 1974290,
           "baselineBytes": 2336682,
-          "tinyBytes": 362089,
+          "tinyBytes": 362392,
           "exactOk": true,
+          "rhymeOk": true,
           "gpuLabPass": true,
           "enginePinRecommended": true,
           "candidateSlot": 52,
           "pass": true,
-          "interpretation": "Aggregate 84.5% ≥ 80% with exactness + Tiny Footprint GPU live-stack lab (alloc 81.4%)."
+          "interpretation": "Aggregate 84.5% ≥ 80% with exactness + holographic rhyme gate + Tiny Footprint GPU live-stack lab (alloc 81.4%)."
         },
-        "interpretation": "Aggregate 84.5% ≥ 80% with exactness + Tiny Footprint GPU live-stack lab (alloc 81.4%)."
+        "interpretation": "Aggregate 84.5% ≥ 80% with exactness + holographic rhyme gate + Tiny Footprint GPU live-stack lab (alloc 81.4%)."
       }
     ],
-    "n_pass": 10,
-    "n_total": 10,
+    "n_pass": 15,
+    "n_total": 15,
     "all_pass": true,
     "A": {
       "id": "A_illustrative_model",
@@ -466,10 +1137,10 @@
       "id": "B_structured_data",
       "title": "Workload A · structured rhyming-template records",
       "n": 500,
-      "ratio": 0.5433438568797685,
-      "saved": 41305,
+      "ratio": 0.5414496185214417,
+      "saved": 41161,
       "baselineBytes": 76020,
-      "tinyBytes": 34715,
+      "tinyBytes": 34859,
       "exact": true,
       "pass": true
     },
@@ -478,10 +1149,10 @@
       "title": "Workload B · cross-linked shared references",
       "nNodes": 200,
       "nEdges": 600,
-      "ratio": 0.8235809103011827,
-      "saved": 1024449,
+      "ratio": 0.8235415179404066,
+      "saved": 1024400,
       "baselineBytes": 1243896,
-      "tinyBytes": 219447,
+      "tinyBytes": 219496,
       "pass": true
     },
     "D": {
@@ -507,16 +1178,16 @@
     },
     "F": {
       "id": "F_ai_context_proxy",
-      "title": "Workload E/F proxy · shared system prompt + turn deltas",
+      "title": "Workload E/F proxy · shared system prompt + turn deltas (prefix-reuse meter)",
       "sessions": 40,
       "turns": 25,
-      "ratio": 0.4892008188160588,
-      "saved": 93680,
+      "ratio": 0.4886263942849981,
+      "saved": 93570,
       "baselineBytes": 191496,
-      "tinyBytes": 97816,
+      "tinyBytes": 97926,
       "exact": true,
       "pass": true,
-      "honesty": "In-process context-representation proxy — not measured GPU KV-cache / HBM for a production LLM server."
+      "honesty": "Prefix-reuse / shared-identical-system-prompt meter — not a holographic rhyme proof, and not measured GPU KV-cache / HBM for a production LLM server."
     },
     "G": {
       "id": "G_gateway_exactness",
@@ -532,6 +1203,649 @@
         "exactRate": 1
       },
       "pass": true
+    },
+    "R": {
+      "id": "R_holographic_rhyme_gate",
+      "title": "Holographic rhyme gate (four pillars · brick wall fails · rhyme ≠ cache)",
+      "trueAudit": {
+        "pass": true,
+        "pillars": {
+          "repeating": {
+            "pass": true,
+            "n": 40
+          },
+          "self_similar": {
+            "pass": true,
+            "localSignature": "{kind:string,octave:number,role:string}"
+          },
+          "recursive": {
+            "pass": true,
+            "nestDepth": 2
+          },
+          "self_correcting": {
+            "pass": true,
+            "driftBefore": 0.15,
+            "driftAfter": 0.05729490168751577
+          }
+        },
+        "failed": [],
+        "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+      },
+      "brickAudit": {
+        "pass": false,
+        "pillars": {
+          "repeating": {
+            "pass": true,
+            "n": 40
+          },
+          "self_similar": {
+            "pass": false,
+            "reason": "no_local_blueprint_mirroring_whole"
+          },
+          "recursive": {
+            "pass": false,
+            "reason": "nest_depth_below_one"
+          },
+          "self_correcting": {
+            "pass": false,
+            "reason": "drift_correction_not_demonstrated"
+          }
+        },
+        "failed": [
+          "self_similar",
+          "self_correcting",
+          "recursive"
+        ],
+        "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+      },
+      "schemaOnly": {
+        "pass": false,
+        "pillars": {
+          "repeating": {
+            "pass": true,
+            "n": 2
+          },
+          "self_similar": {
+            "pass": false,
+            "reason": "no_local_blueprint_mirroring_whole"
+          },
+          "recursive": {
+            "pass": false,
+            "reason": "nest_depth_below_one"
+          },
+          "self_correcting": {
+            "pass": false,
+            "reason": "drift_correction_not_demonstrated"
+          }
+        },
+        "failed": [
+          "self_similar",
+          "self_correcting",
+          "recursive"
+        ],
+        "honesty": "Catalog motion-grammar audit for Rhyming Templates — not a claim that schema match or prefix cache is a rhyme."
+      },
+      "vsCacheDiffering": {
+        "rhymeBytes": 5554,
+        "cacheBytes": 8064,
+        "equivalent": true
+      },
+      "vsCacheIdentical": {
+        "rhymeBytes": 5572,
+        "cacheBytes": 198,
+        "equivalent": true
+      },
+      "falseMatchRejected": true,
+      "arrayObjectDistinct": true,
+      "nestedFieldDelta": true,
+      "pattern": {
+        "kind": "session",
+        "schema": "rhyme_v1",
+        "motion": "repeat-mirror-recurse-correct",
+        "organization": {
+          "kind": "session",
+          "role": "user",
+          "octave": 1
+        },
+        "utterance": ""
+      },
+      "pass": true,
+      "honesty": "Four-pillar catalog audit for Rhyming Templates. Brick wall / schema-only / exact-text cache are contrast cases. Shared-prefix GPU labs are prefix-reuse meters, not rhyme proofs."
+    },
+    "S": {
+      "id": "S_h100_rhyme_vs_prefix_sim",
+      "title": "H100 simulation · rhyme beats prefix cache when organizational wording differs",
+      "report": {
+        "ok": true,
+        "kind": "simulation",
+        "simulator": "kv-cache residency roofline · rhyme vs prefix cache",
+        "notAMeasurement": true,
+        "device": {
+          "name": "NVIDIA H100 SXM 80GB",
+          "memoryClass": "HBM3",
+          "capacityBytes": 85899345920,
+          "peakBandwidthBytesPerSec": 3350000000000,
+          "source": "NVIDIA H100 Tensor Core GPU datasheet: 80 GB HBM3, 3.35 TB/s"
+        },
+        "model": {
+          "id": "meta-llama/Llama-2-7b-hf",
+          "parameters": 6738415616,
+          "layers": 32,
+          "kvHeads": 32,
+          "headDim": 128,
+          "dtypeBytes": 2
+        },
+        "workload": {
+          "orgTokens": 2048,
+          "suffixTokens": 128,
+          "sessions": 16,
+          "kvBytesPerToken": 524288,
+          "weightBytes": 13476831232,
+          "rhymeSharedOrgFraction": 0.38888888888888884,
+          "rhymeDeltaOrgFraction": 0.6111111111111112,
+          "rhymeShareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100."
+        },
+        "workloads": {
+          "identicalPrefix": {
+            "id": "identicalPrefix",
+            "title": "Identical exact system/org prefix across sessions",
+            "rhymeDifferentiates": false,
+            "outputEquivalence": {
+              "checked": "reconstructed token ids equal the original ids",
+              "equivalent": true,
+              "sessions": 16,
+              "notGeneratedText": true
+            },
+            "arms": {
+              "naiveRefill": {
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "residentBytes": 31730442240,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.005448839106865671
+              },
+              "productionPrefixCache": {
+                "kvBytes": 2147483648,
+                "materializeBytes": 2147483648,
+                "exactPrefixHits": 15,
+                "residentBytes": 15624314880,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.0006410398949253731
+              },
+              "tinyFootprintRhyme": {
+                "kvBytes": 2147483648,
+                "materializeBytes": 2147483648,
+                "note": "Identical exact prefix — Tiny Footprint collapses to prefix-cache residency on this workload.",
+                "sameResidentSetAsPrefixCache": true,
+                "residentBytes": 15624314880,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.0006410398949253731
+              }
+            },
+            "comparison": {
+              "prefixKvReductionVersusNaive": 0.8823529411764706,
+              "tinyKvReductionVersusNaive": 0.8823529411764706,
+              "tinyKvReductionVersusPrefixCache": 0,
+              "tinyVersusPrefixCacheResidentBytes": 0,
+              "prefixMaterializeSpeedupVersusNaive": 8.5,
+              "tinyMaterializeSpeedupVersusNaive": 8.5,
+              "tinyMaterializeSpeedupVersusPrefixCache": 1
+            }
+          },
+          "rhymingDifferentWording": {
+            "id": "rhymingDifferentWording",
+            "title": "Same organizational slots, different wording (rhyme differentiates)",
+            "rhymeDifferentiates": true,
+            "outputEquivalence": {
+              "checked": "template+delta encoding preserves org+suffix length; structural round-trip",
+              "equivalent": true,
+              "sessions": 16,
+              "notGeneratedText": true,
+              "note": "Originals use unique org tokens; Tiny rebuilds via shared template + deltas (rhyme model), not exact-token identity with naive streams."
+            },
+            "arms": {
+              "naiveRefill": {
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "residentBytes": 31730442240,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.005448839106865671
+              },
+              "productionPrefixCache": {
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "exactPrefixHits": 0,
+                "note": "Different wording in organizational slots — exact-prefix cache cannot share across sessions.",
+                "residentBytes": 31730442240,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.005448839106865671
+              },
+              "tinyFootprintRhyme": {
+                "kvBytes": 11993612288,
+                "materializeBytes": 11993612288,
+                "templateOrgTokens": 796,
+                "deltaOrgTokensPerSession": 1252,
+                "suffixTokensPerSession": 128,
+                "sharedOrgFraction": 0.38888888888888884,
+                "deltaOrgFraction": 0.6111111111111112,
+                "shareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100.",
+                "sameResidentSetAsPrefixCache": false,
+                "residentBytes": 25470443520,
+                "fits": true,
+                "materializeSecondsAtPeak": 0.0035801827725373135
+              }
+            },
+            "comparison": {
+              "prefixKvReductionVersusNaive": 0,
+              "tinyKvReductionVersusNaive": 0.34294577205882354,
+              "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+              "tinyVersusPrefixCacheResidentBytes": -6259998720,
+              "prefixMaterializeSpeedupVersusNaive": 1,
+              "tinyMaterializeSpeedupVersusNaive": 1.5219443958734042,
+              "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042
+            }
+          }
+        },
+        "arms": {
+          "naiveRefill": {
+            "kvBytes": 18253611008,
+            "materializeBytes": 18253611008,
+            "residentBytes": 31730442240,
+            "fits": true,
+            "materializeSecondsAtPeak": 0.005448839106865671
+          },
+          "productionPrefixCache": {
+            "kvBytes": 18253611008,
+            "materializeBytes": 18253611008,
+            "exactPrefixHits": 0,
+            "note": "Different wording in organizational slots — exact-prefix cache cannot share across sessions.",
+            "residentBytes": 31730442240,
+            "fits": true,
+            "materializeSecondsAtPeak": 0.005448839106865671
+          },
+          "tinyFootprintRhyme": {
+            "kvBytes": 11993612288,
+            "materializeBytes": 11993612288,
+            "templateOrgTokens": 796,
+            "deltaOrgTokensPerSession": 1252,
+            "suffixTokensPerSession": 128,
+            "sharedOrgFraction": 0.38888888888888884,
+            "deltaOrgFraction": 0.6111111111111112,
+            "shareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100.",
+            "sameResidentSetAsPrefixCache": false,
+            "residentBytes": 25470443520,
+            "fits": true,
+            "materializeSecondsAtPeak": 0.0035801827725373135
+          }
+        },
+        "comparison": {
+          "prefixKvReductionVersusNaive": 0,
+          "tinyKvReductionVersusNaive": 0.34294577205882354,
+          "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+          "tinyVersusPrefixCacheResidentBytes": -6259998720,
+          "prefixMaterializeSpeedupVersusNaive": 1,
+          "tinyMaterializeSpeedupVersusNaive": 1.5219443958734042,
+          "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042,
+          "identicalPrefixTinyVersusPrefixCacheResidentBytes": 0,
+          "peakBandwidthIsAnUpperBound": true
+        },
+        "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory.",
+        "liveRun": false,
+        "cached": true
+      },
+      "invariants": {
+        "pass": true,
+        "identicalTie": true,
+        "rhymeBeatsPrefix": true,
+        "fractionLock": true,
+        "latencyProxy": true,
+        "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+        "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042
+      },
+      "tinyKvReductionVersusPrefixCache": 0.34294577205882354,
+      "tinyMaterializeSpeedupVersusPrefixCache": 1.5219443958734042,
+      "pass": true,
+      "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory."
+    },
+    "K": {
+      "id": "K_dynamic_route",
+      "title": "Dynamic structural signature routing (bucket ≪ linear · false-match reject)",
+      "linearCompares": 15,
+      "bucketCompares": 3,
+      "exactHits": 3,
+      "falseMatchRejected": true,
+      "partialTopScore": 1,
+      "candidateCap": 1,
+      "rhymeScoreSample": 1,
+      "pass": true,
+      "honesty": "Structural signature routing + scored partial rhyme — not semantic search, not full pairwise matrix expansion, not automatic discovery without false-match controls."
+    },
+    "L": {
+      "id": "L_context_compress_hooks",
+      "title": "Recursive context-fold hooks + demo meters",
+      "turns": 24,
+      "levels": 6,
+      "maxLevels": 6,
+      "maxBytesPerLevel": 2048,
+      "rawBytes": 87,
+      "foldedBytes": 470,
+      "allRawWouldBe": 522,
+      "foldRatio": 0.09961685823754785,
+      "hooksFired": [
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "encode"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "encode"
+        },
+        {
+          "hook": "nested_delta_fold",
+          "phase": "meter"
+        },
+        {
+          "hook": "octave_scale_cap",
+          "phase": "meter"
+        },
+        {
+          "hook": "working_set_bound",
+          "phase": "meter"
+        }
+      ],
+      "hookMeters": {
+        "nested_delta_fold": {
+          "kind": "nested_delta_fold",
+          "bytes": 29
+        },
+        "octave_scale_cap": {
+          "kind": "octave_scale_cap",
+          "maxDepth": 4,
+          "bytes": 29
+        },
+        "working_set_bound": {
+          "kind": "working_set_bound",
+          "maxBytes": 4096,
+          "bytes": 29,
+          "overBudget": false
+        }
+      },
+      "honesty": "Recursive context-fold hooks and demo meters — not a KV-cache compression product, not infinite lossless context, not measured transformer KV on device.",
+      "exact": true,
+      "pass": true
+    },
+    "M": {
+      "id": "M_energy_proxy_scale",
+      "title": "Energy-proxy substrate scaling (byte-touch joule PROXY)",
+      "baselineDepth": 8,
+      "scaledDepth": 1,
+      "baselineBytes": 1034,
+      "scaledBytes": 259,
+      "baselineJ": 0.0000010434999999999998,
+      "scaledJ": 0.0000026420000000000003,
+      "budgetJ": 1.5652499999999998e-7,
+      "planScale": {
+        "PROXY": true,
+        "scaled": true,
+        "budgetJ": 1.5652499999999998e-7,
+        "plan": {
+          "maxDepth": 1,
+          "candidateCap": 1,
+          "bufferLevels": 1,
+          "bytesTouched": 83,
+          "compares": 0,
+          "reconstructs": 1
+        },
+        "estimate": {
+          "PROXY": true,
+          "joules": 8.32e-7,
+          "wattsIdleProxy": 0,
+          "bytesTouched": 83,
+          "compares": 0,
+          "reconstructs": 1
+        },
+        "steps": [
+          {
+            "lever": "maxDepth",
+            "value": 7
+          },
+          {
+            "lever": "maxDepth",
+            "value": 6
+          },
+          {
+            "lever": "maxDepth",
+            "value": 5
+          },
+          {
+            "lever": "maxDepth",
+            "value": 4
+          },
+          {
+            "lever": "maxDepth",
+            "value": 3
+          },
+          {
+            "lever": "maxDepth",
+            "value": 2
+          },
+          {
+            "lever": "maxDepth",
+            "value": 1
+          },
+          {
+            "lever": "candidateCap",
+            "value": 16
+          },
+          {
+            "lever": "candidateCap",
+            "value": 8
+          },
+          {
+            "lever": "candidateCap",
+            "value": 4
+          },
+          {
+            "lever": "candidateCap",
+            "value": 2
+          },
+          {
+            "lever": "candidateCap",
+            "value": 1
+          },
+          {
+            "lever": "bufferLevels",
+            "value": 3
+          },
+          {
+            "lever": "bufferLevels",
+            "value": 2
+          },
+          {
+            "lever": "bufferLevels",
+            "value": 1
+          }
+        ],
+        "honesty": "Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim."
+      },
+      "pass": true,
+      "honesty": "Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim."
     },
     "I": {
       "id": "I_gpu_live_chat_stack",
@@ -582,47 +1896,47 @@
             "label": "conventional_duplicated_resident_state",
             "turnMaterializeMs": {
               "n": 24,
-              "meanMs": 48.04243752732873,
-              "p50Ms": 45.13240000233054,
-              "p95Ms": 61.144300270825624,
-              "minMs": 40.46750022098422,
-              "maxMs": 78.63039989024401
+              "meanMs": 43.524900024446346,
+              "p50Ms": 43.147899908944964,
+              "p95Ms": 45.80190032720566,
+              "minMs": 40.98620032891631,
+              "maxMs": 50.13710027560592
             },
             "sessionBringupMs": {
               "n": 8,
-              "meanMs": 5.847049877047539,
-              "p50Ms": 5.732949823141098,
-              "p95Ms": 6.243099924176931,
-              "minMs": 5.478400271385908,
-              "maxMs": 6.4295995980501175
+              "meanMs": 6.05657504638657,
+              "p50Ms": 5.986350122839212,
+              "p95Ms": 6.270499899983406,
+              "minMs": 5.509800277650356,
+              "maxMs": 7.461499888449907
             }
           },
           "withTinyFootprint": {
             "label": "shared_pattern_plus_deltas",
             "turnMaterializeMs": {
               "n": 24,
-              "meanMs": 4.031391639728099,
-              "p50Ms": 4.015800077468157,
-              "p95Ms": 4.2458996176719666,
-              "minMs": 3.7660999223589897,
-              "maxMs": 4.270500037819147
+              "meanMs": 4.599775013048202,
+              "p50Ms": 4.496699897572398,
+              "p95Ms": 5.030000116676092,
+              "minMs": 4.071800038218498,
+              "maxMs": 5.74659975245595
             },
             "sessionBringupMs": {
               "n": 8,
-              "meanMs": 3.137412539217621,
-              "p50Ms": 3.0049001798033714,
-              "p95Ms": 3.269399981945753,
-              "minMs": 2.916400320827961,
-              "maxMs": 3.883499652147293
+              "meanMs": 3.116649982985109,
+              "p50Ms": 3.0023499857634306,
+              "p95Ms": 3.4620999358594418,
+              "minMs": 2.9286998324096203,
+              "maxMs": 3.5286000929772854
             }
           },
           "comparison": {
-            "turnP50RatioTinyOverConventional": 0.08897820805587094,
-            "bringupP50RatioTinyOverConventional": 0.5241455572616505,
+            "turnP50RatioTinyOverConventional": 0.10421596200653534,
+            "bringupP50RatioTinyOverConventional": 0.501532640783709,
             "turnFasterWithTinyFootprint": true,
             "bringupFasterWithTinyFootprint": true,
-            "turnSpeedup": 11.238706890703877,
-            "bringupSpeedup": 1.9078669773037984
+            "turnSpeedup": 9.595459090396252,
+            "bringupSpeedup": 1.993888171340896
           },
           "passLatencyGate": true
         },
@@ -638,7 +1952,9 @@
           ]
         },
         "pass80": true,
-        "passLatency": true
+        "passLatency": true,
+        "liveRun": false,
+        "cached": true
       },
       "allocReduction": 0.8138889206780328,
       "smiReduction": 0.7284345047923323,
@@ -656,57 +1972,57 @@
           "label": "conventional_duplicated_resident_state",
           "turnMaterializeMs": {
             "n": 24,
-            "meanMs": 48.04243752732873,
-            "p50Ms": 45.13240000233054,
-            "p95Ms": 61.144300270825624,
-            "minMs": 40.46750022098422,
-            "maxMs": 78.63039989024401
+            "meanMs": 43.524900024446346,
+            "p50Ms": 43.147899908944964,
+            "p95Ms": 45.80190032720566,
+            "minMs": 40.98620032891631,
+            "maxMs": 50.13710027560592
           },
           "sessionBringupMs": {
             "n": 8,
-            "meanMs": 5.847049877047539,
-            "p50Ms": 5.732949823141098,
-            "p95Ms": 6.243099924176931,
-            "minMs": 5.478400271385908,
-            "maxMs": 6.4295995980501175
+            "meanMs": 6.05657504638657,
+            "p50Ms": 5.986350122839212,
+            "p95Ms": 6.270499899983406,
+            "minMs": 5.509800277650356,
+            "maxMs": 7.461499888449907
           }
         },
         "withTinyFootprint": {
           "label": "shared_pattern_plus_deltas",
           "turnMaterializeMs": {
             "n": 24,
-            "meanMs": 4.031391639728099,
-            "p50Ms": 4.015800077468157,
-            "p95Ms": 4.2458996176719666,
-            "minMs": 3.7660999223589897,
-            "maxMs": 4.270500037819147
+            "meanMs": 4.599775013048202,
+            "p50Ms": 4.496699897572398,
+            "p95Ms": 5.030000116676092,
+            "minMs": 4.071800038218498,
+            "maxMs": 5.74659975245595
           },
           "sessionBringupMs": {
             "n": 8,
-            "meanMs": 3.137412539217621,
-            "p50Ms": 3.0049001798033714,
-            "p95Ms": 3.269399981945753,
-            "minMs": 2.916400320827961,
-            "maxMs": 3.883499652147293
+            "meanMs": 3.116649982985109,
+            "p50Ms": 3.0023499857634306,
+            "p95Ms": 3.4620999358594418,
+            "minMs": 2.9286998324096203,
+            "maxMs": 3.5286000929772854
           }
         },
         "comparison": {
-          "turnP50RatioTinyOverConventional": 0.08897820805587094,
-          "bringupP50RatioTinyOverConventional": 0.5241455572616505,
+          "turnP50RatioTinyOverConventional": 0.10421596200653534,
+          "bringupP50RatioTinyOverConventional": 0.501532640783709,
           "turnFasterWithTinyFootprint": true,
           "bringupFasterWithTinyFootprint": true,
-          "turnSpeedup": 11.238706890703877,
-          "bringupSpeedup": 1.9078669773037984
+          "turnSpeedup": 9.595459090396252,
+          "bringupSpeedup": 1.993888171340896
         },
         "passLatencyGate": true
       },
-      "turnP50MsWithout": 45.13240000233054,
-      "turnP50MsWith": 4.015800077468157,
-      "turnP50RatioTinyOverConventional": 0.08897820805587094,
-      "turnSpeedup": 11.238706890703877,
+      "turnP50MsWithout": 43.147899908944964,
+      "turnP50MsWith": 4.496699897572398,
+      "turnP50RatioTinyOverConventional": 0.10421596200653534,
+      "turnSpeedup": 9.595459090396252,
       "pass": true,
       "honesty": "Measured on NVIDIA GeForce GTX 860M via nvidia-smi / cuMemAlloc / cuMemcpyHtoD. This GeForce uses GDDR device memory; datacenter HBM is the operator analogue for the same duplicated-resident-state problem — not identical silicon. Latency is materialization path, not frontier LLM decode.",
-      "interpretation": "Live on NVIDIA GeForce GTX 860M: cuMemAlloc 81.4%; nvidia-smi 72.8%; density 11.85×; turn p50 without 45.13 ms → with Tiny Footprint 4.02 ms (11.24× speedup)."
+      "interpretation": "Live on NVIDIA GeForce GTX 860M: cuMemAlloc 81.4%; nvidia-smi 72.8%; density 11.85×; turn p50 without 43.15 ms → with Tiny Footprint 4.50 ms (9.60× speedup)."
     },
     "J": {
       "id": "J_gpu_llm_real",
@@ -827,24 +2143,25 @@
     },
     "H": {
       "id": "H_engine_pin_gate",
-      "title": "Data-gated ENGINE_SHELF pin (80% measured + Tiny Footprint GPU lab)",
+      "title": "Data-gated ENGINE_SHELF pin (80% measured + holographic rhyme gate + Tiny Footprint GPU lab)",
       "target": 0.8,
-      "aggregateRatio": 0.8450413877455297,
-      "aggregatePct": 84.50413877455297,
-      "ratio": 0.8450413877455297,
-      "saved": 1974593,
+      "aggregateRatio": 0.8449117166991487,
+      "aggregatePct": 84.49117166991486,
+      "ratio": 0.8449117166991487,
+      "saved": 1974290,
       "baselineBytes": 2336682,
-      "tinyBytes": 362089,
+      "tinyBytes": 362392,
       "exactOk": true,
+      "rhymeOk": true,
       "gpuLabPass": true,
       "enginePinRecommended": true,
       "candidateSlot": 52,
       "pass": true,
-      "interpretation": "Aggregate 84.5% ≥ 80% with exactness + Tiny Footprint GPU live-stack lab (alloc 81.4%)."
+      "interpretation": "Aggregate 84.5% ≥ 80% with exactness + holographic rhyme gate + Tiny Footprint GPU live-stack lab (alloc 81.4%)."
     },
     "enginePinRecommended": true,
     "engineShelfSlot": 52,
     "product": "Tiny Footprint",
-    "honesty": "Tiny Gateway · Rhyming Templates / Tiny Footprint: in-process lab + (A) HtoD allocation proxy on GTX 860M and (B) REAL local-GPU LLM lab (sshleifer/tiny-gpt2 via torch-directml) measuring shared-prefix infer + AdamW train with vs without Tiny Footprint. Proxy ≠ model forward. DirectML on laptop GeForce ≠ datacenter HBM / hosted frontier API. Φ_EGS design grammar only. Engine pin is data-gated."
+    "honesty": "Tiny Gateway · Rhyming Templates / Tiny Footprint: holographic rhyme = repeating · self-similar · self-correcting · recursive (four-pillar gate). Signature-bucket routing + recursive context-fold hooks + byte-touch joule PROXY are companion meters (K/L/M) — not semantic retrieval, not a KV-compression product, not wall-socket energy, not solar-synced clocks. In-process lab + (A) HtoD allocation proxy on GTX 860M and (B) REAL local-GPU LLM lab (sshleifer/tiny-gpt2 via torch-directml) measuring shared-prefix infer + AdamW train with vs without Tiny Footprint — those GPU meters are prefix-reuse, not rhyme proofs. Proxy ≠ model forward. DirectML on laptop GeForce ≠ datacenter HBM / hosted frontier API. Φ_EGS design grammar only. Engine pin is data-gated."
   }
 }

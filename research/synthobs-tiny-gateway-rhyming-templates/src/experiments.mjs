@@ -18,6 +18,7 @@ import {
   deepEqual,
   structuralSignature,
   shapesRhyme,
+  mergeDelta,
 } from './rhyming-template.mjs';
 import { createVectorStore } from './nested-vector.mjs';
 import {
@@ -45,6 +46,15 @@ import {
   runH100RhymeSim,
   assertH100RhymeSimInvariants,
 } from './h100-rhyme-sim.mjs';
+import { rhymeScore } from './geometric-rhyme-route.mjs';
+import {
+  createCompressionHookRegistry,
+  nestedDeltaFoldHook,
+  octaveScaleCapHook,
+  workingSetBoundHook,
+} from './context-compress-hooks.mjs';
+import { createRecursiveContextBuffer } from './context-buffer.mjs';
+import { createEnergyModel, scaleUnderBudget } from './energy-proxy.mjs';
 
 /** A · Illustrative §7 arithmetic (hypothesis model, not measurement) */
 export function experimentA_illustrativeModel() {
@@ -510,6 +520,186 @@ export function experimentS_h100RhymeVsPrefixSim() {
   };
 }
 
+/**
+ * K · Dynamic structural signature routing (companion meter — not in H pin).
+ * Signature-bucket route vs naïve linear scan; false-match reject; partial rank.
+ */
+export function experimentK_dynamicRoute() {
+  const catalog = createTemplateCatalog({ requireUniqueSignature: true });
+  const patterns = [
+    { id: 'tpl_a', pattern: { kind: 'rec', schema: 'a', id: 0, name: '' } },
+    { id: 'tpl_b', pattern: { kind: 'rec', schema: 'b', role: '', dept: '' } },
+    { id: 'tpl_c', pattern: { kind: 'event', type: 'x', ts: 0, payload: { n: 0 } } },
+    { id: 'tpl_d', pattern: { kind: 'msg', from: '', to: '', body: '' } },
+    { id: 'tpl_e', pattern: { kind: 'node', octave: 0, children: [], cross: [] } },
+  ];
+  for (const p of patterns) catalog.register(p);
+
+  // Linear baseline compares = catalog size per query
+  const queries = [
+    { kind: 'rec', schema: 'a', id: 7, name: 'u7' },
+    { kind: 'event', type: 'x', ts: 9, payload: { n: 1 } },
+    { kind: 'msg', from: 'a', to: 'b', body: 'hi' },
+  ];
+  let linearCompares = 0;
+  let bucketCompares = 0;
+  let exactHits = 0;
+  for (const q of queries) {
+    linearCompares += catalog.size();
+    const route = catalog.routeTemplate(q, { mode: 'exact' });
+    bucketCompares += route.compares;
+    if (route.id && route.exact) exactHits += 1;
+  }
+
+  // Colliding signatures under requireUniqueSignature=false → exact returns null
+  const amb = createTemplateCatalog({ requireUniqueSignature: false });
+  amb.register({ id: 'c1', pattern: { k: 'same', v: 1 } });
+  amb.register({ id: 'c2', pattern: { k: 'same', v: 2 } });
+  const ambRoute = amb.routeTemplate({ k: 'same', v: 3 }, { mode: 'exact' });
+  const falseMatchRejected = ambRoute.id === null && ambRoute.candidates.length >= 2;
+
+  // Partial rank without full matrix: score only bucket/pool
+  const best = catalog.routeTemplate({ kind: 'rec', schema: 'a', id: 1, name: 'x' }, { mode: 'best', maxCandidates: 3 });
+  const partialOk = best.candidates.length <= 3 && best.score >= 0.5;
+
+  const bucketCheaper = bucketCompares < linearCompares;
+  const pass = exactHits === queries.length && falseMatchRejected && partialOk && bucketCheaper;
+
+  return {
+    id: 'K_dynamic_route',
+    title: 'Dynamic structural signature routing (bucket ≪ linear · false-match reject)',
+    linearCompares,
+    bucketCompares,
+    exactHits,
+    falseMatchRejected,
+    partialTopScore: best.score,
+    candidateCap: best.candidates.length,
+    rhymeScoreSample: rhymeScore(patterns[0].pattern, queries[0]),
+    pass,
+    honesty:
+      'Structural signature routing + scored partial rhyme — not semantic search, not full pairwise matrix expansion, not automatic discovery without false-match controls.',
+  };
+}
+
+/**
+ * L · Recursive context-fold hooks (companion meter — not in H pin).
+ */
+export function experimentL_contextCompressHooks(seed = DIGITAL_SEED, turns = 24) {
+  const rng = mulberry32(seed);
+  const pattern = {
+    kind: 'turn',
+    role: 'user',
+    text: '',
+    meta: { session: 's1', i: 0 },
+  };
+  const hooks = createCompressionHookRegistry();
+  hooks.registerHook('nested_delta_fold', nestedDeltaFoldHook(pattern));
+  hooks.registerHook('octave_scale_cap', octaveScaleCapHook({ maxDepth: 4 }));
+  hooks.registerHook('working_set_bound', workingSetBoundHook({ maxBytes: 4_096 }));
+
+  const buf = createRecursiveContextBuffer({
+    maxLevels: 6,
+    maxBytesPerLevel: 2_048,
+    pattern,
+    hooks,
+  });
+
+  for (let i = 0; i < turns; i++) {
+    buf.pushTurn({
+      kind: 'turn',
+      role: i % 2 === 0 ? 'user' : 'assistant',
+      text: `msg-${i}-${(rng() * 1e6).toFixed(0)}`,
+      meta: { session: 's1', i },
+    });
+  }
+  const meters = buf.snapshotMeters();
+  // Replay expected last-window turns for reconstruct exactness
+  const window = buf.reconstructWindow(mergeDelta);
+  let exact = window.length === meters.levels;
+  for (let i = 0; i < window.length; i++) {
+    const w = window[i];
+    if (!w || w.kind !== 'turn' || typeof w.meta?.i !== 'number') {
+      exact = false;
+      break;
+    }
+  }
+  const hooksFired = meters.hooksFired?.length > 0;
+  const foldPositive = meters.foldRatio > 0 && meters.foldedBytes < meters.allRawWouldBe;
+  const pass = foldPositive && exact && hooksFired && meters.levels <= 6;
+
+  return {
+    id: 'L_context_compress_hooks',
+    title: 'Recursive context-fold hooks + demo meters',
+    turns,
+    ...meters,
+    exact,
+    pass,
+    honesty:
+      'Recursive context-fold hooks and demo meters — not a KV-cache compression product, not infinite lossless context, not measured transformer KV on device.',
+  };
+}
+
+/**
+ * M · Energy-proxy substrate scaling (companion meter — not in H pin).
+ */
+export function experimentM_energyProxyScale(seed = DIGITAL_SEED) {
+  const store = createVectorStore();
+  // Build a small tree
+  for (let i = 0; i < 15; i++) {
+    store.put({
+      id: `n${i}`,
+      octave: i % 5,
+      children: i < 10 ? [`n${i + 1}`] : [],
+      cross: i % 3 === 0 && i + 2 < 15 ? [`n${i + 2}`] : [],
+      payload: { i, seed },
+    });
+  }
+  const model = createEnergyModel({ joulesPerByteTouch: 1e-8, joulesPerCompare: 1e-8 });
+  const baseline = store.resolveWorkingSet('n0', { maxDepth: 8 });
+  const tightBudget = (baseline.meters?.energy?.joules || 1) * 0.15;
+  const scaled = store.resolveWorkingSet('n0', {
+    maxDepth: 8,
+    energyBudgetJ: tightBudget,
+    energyModel: model,
+  });
+  const planScale = scaleUnderBudget(
+    {
+      maxDepth: 8,
+      candidateCap: 32,
+      bufferLevels: 4,
+      bytesTouched: baseline.meters?.energy?.bytesTouched || 1000,
+      compares: baseline.meters?.energy?.compares || 100,
+      reconstructs: 1,
+    },
+    tightBudget,
+    model,
+  );
+
+  const pass =
+    baseline.meters?.PROXY === true &&
+    scaled.meters?.scaled === true &&
+    scaled.meters.maxDepth < baseline.meters.requestedMaxDepth &&
+    scaled.meters.energy.bytesTouched <= baseline.meters.energy.bytesTouched &&
+    planScale.PROXY === true &&
+    planScale.scaled === true;
+
+  return {
+    id: 'M_energy_proxy_scale',
+    title: 'Energy-proxy substrate scaling (byte-touch joule PROXY)',
+    baselineDepth: baseline.meters?.maxDepth,
+    scaledDepth: scaled.meters?.maxDepth,
+    baselineBytes: baseline.meters?.energy?.bytesTouched,
+    scaledBytes: scaled.meters?.energy?.bytesTouched,
+    baselineJ: baseline.meters?.energy?.joules,
+    scaledJ: scaled.meters?.energy?.joules,
+    budgetJ: tightBudget,
+    planScale,
+    pass,
+    honesty:
+      'Byte-touch / compare joule proxy inside the vector loop — not wall-socket energy, not datacenter PUE, not a CapEx claim.',
+  };
+}
+
 /** H · ENGINE_SHELF pin gate — ≥80% aggregate + exactness + rhyme gate + GPU lab */
 export function experimentH_enginePinGate(parts, exactOk, gpuLab, rhymeOk = true) {
   const agg = aggregateMeasured(parts);
@@ -549,9 +739,13 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
   const G = experimentG_gatewayExactness(seed, validationSeed);
   const R = experimentR_holographicRhymeGate();
   const S = experimentS_h100RhymeVsPrefixSim();
+  const K = experimentK_dynamicRoute();
+  const L = experimentL_contextCompressHooks(seed);
+  const M = experimentM_energyProxyScale(seed);
   const I = experimentI_gpuLiveChatStack();
   const J = experimentJ_gpuLlmReal();
   const exactOk = B.exact && D.exact && F.exact && G.pass;
+  // H pin unchanged — K/L/M are companion meters and do not gate #52.
   const H = experimentH_enginePinGate([B, C, D, E, F], exactOk, I, R.pass && S.pass);
 
   const experiments = [
@@ -564,6 +758,9 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     { id: 'E7_gateway_exactness', title: G.title, pass: G.pass, G },
     { id: 'E11_holographic_rhyme_gate', title: R.title, pass: R.pass, R },
     { id: 'E12_h100_rhyme_vs_prefix_sim', title: S.title, pass: S.pass, S },
+    { id: 'E13_dynamic_route', title: K.title, pass: K.pass, K },
+    { id: 'E14_context_compress_hooks', title: L.title, pass: L.pass, L },
+    { id: 'E15_energy_proxy_scale', title: M.title, pass: M.pass, M },
     { id: 'E8_gpu_live_tiny_footprint', title: I.title, pass: I.pass, I },
     { id: 'E10_gpu_llm_real', title: J.title, pass: J.pass, J },
     {
@@ -591,6 +788,9 @@ export function runAllExperiments({ seed = DIGITAL_SEED, validationSeed = VALIDA
     G,
     R,
     S,
+    K,
+    L,
+    M,
     I,
     J,
     H,

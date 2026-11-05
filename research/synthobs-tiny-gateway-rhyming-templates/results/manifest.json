@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "n_pass": 10,
-  "n_total": 10,
-  "aggregateReduction": 0.8450413877455297,
+  "n_pass": 15,
+  "n_total": 15,
+  "aggregateReduction": 0.8449117166991487,
   "enginePinRecommended": true,
   "engineShelfSlot": 52
 }

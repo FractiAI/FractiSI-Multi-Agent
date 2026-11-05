@@ -102,6 +102,38 @@ export function measureBytes(obj) {
   return Buffer.byteLength(json, 'utf8');
 }
 
+const { routeBySignature, rhymeScore, structuralDistance, rankPartialRhymes } = await import(
+  suiteUrl('geometric-rhyme-route.mjs')
+);
+const {
+  createCompressionHookRegistry,
+  nestedDeltaFoldHook,
+  octaveScaleCapHook,
+  workingSetBoundHook,
+} = await import(suiteUrl('context-compress-hooks.mjs'));
+const { createRecursiveContextBuffer } = await import(suiteUrl('context-buffer.mjs'));
+const { createEnergyModel, scaleUnderBudget } = await import(suiteUrl('energy-proxy.mjs'));
+
+export function discover(shape) {
+  return defaultCatalog.findMatch(shape);
+}
+
+export function routeTemplate(shape, opts = {}) {
+  return defaultCatalog.routeTemplate(shape, opts);
+}
+
+export function createContextBuffer(opts = {}) {
+  return createRecursiveContextBuffer(opts);
+}
+
+export function registerCompressionHook(registry, name, handlers) {
+  return registry.registerHook(name, handlers);
+}
+
+export function withEnergyBudget(plan, budgetJ, model) {
+  return scaleUnderBudget(plan, budgetJ, model || createEnergyModel());
+}
+
 export {
   createTemplateCatalog,
   createGateway,
@@ -115,6 +147,17 @@ export {
   brickWallCandidate,
   trueRhymeCandidate,
   FOUR_PILLARS,
+  routeBySignature,
+  rhymeScore,
+  structuralDistance,
+  rankPartialRhymes,
+  createCompressionHookRegistry,
+  nestedDeltaFoldHook,
+  octaveScaleCapHook,
+  workingSetBoundHook,
+  createRecursiveContextBuffer,
+  createEnergyModel,
+  scaleUnderBudget,
 };
 
 // silence unused in some bundlers
