@@ -1,5 +1,9 @@
 <!-- try path -->
 
+## Freemium pricing
+
+See [FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md](./FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) and live [/product/pricing/](/product/pricing/). Community free · Developer Pro $39/mo · Team $149/mo · Enterprise from $12k/yr.
+
 ## FractiSI Multi-Agent platform
 
 As of Workstation **0.2**, Tiny Footprint Multi-Agent is the **core execution technology** inside the unified **FractiSI Multi-Agent** product (coordination, composition, Git awareness, deploy approvals). Commercial tiers (Core / Professional / Enterprise) package capabilities — they are not separate products.

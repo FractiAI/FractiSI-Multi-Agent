@@ -324,16 +324,24 @@ Rendering the PDF needs a [docxology/template](https://github.com/docxology/temp
 
 ---
 
-## Commercial editions (preview)
+## Commercial editions · freemium packaging
 
-- **Community** — this Local Workstation kit, free  
-- **Developer Pro** — proposed $29–49/mo  
-- **Server / Enterprise** — annual by GPU/server  
-- **Cloud Platform** — negotiated  
+Professional infrastructure — not a cheap Cursor/Claude substitute. **Charge for coordinated agent capacity**, not ideas or command counts.
 
-Hub: https://fractisi.vercel.app/product/
+| Edition | Price | Primary customer |
+|---------|------:|------------------|
+| **Community** | Free | Individual developer |
+| **Developer Pro** | **$39 / month** | Professional developer |
+| **Team** | **$149 / month** | Engineering team |
+| **Server / Enterprise** | **From $12,000 / year** | Enterprise |
+| **Cloud Platform** | Custom | Infrastructure provider |
 
-**Product name lock:** customers hear **FractiSI Multi-Agent**. Tiny Footprint is the Layer A core. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs.
+Primary billing metric: **concurrent coordinated agents** (registered agents are generous; human seats are included allowances). Deploy remains **optional**. Community is genuinely useful with no crippled trial.
+
+Full page: [/product/pricing/](./product/pricing/) · [pricing & packaging spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)  
+Hub: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/product/pricing/
+
+**Product name lock:** customers hear **FractiSI Multi-Agent**. Tiny Footprint is the Layer A core. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs. Proposed launch prices — not established market rates; paid tiers sell when features are operational.
 
 ---
 
