@@ -18,6 +18,22 @@
 
 ---
 
+## Pricing plans
+
+**One shared world. Many perspectives. New discoveries. Faster convergence. Better decisions.**
+
+| Edition | Price | What you buy |
+|---------|------:|--------------|
+| **Community** | **Free** | Access to the architecture |
+| **Developer Pro** | **$59 / month** | Personal multi-agent intelligence · up to **8** concurrent agents |
+| **Team** | **$299 / month** | Collective discovery and decisions · up to **32** concurrent agents |
+| **Server / Enterprise** | **From $30,000 / year** | Organizational intelligence infrastructure |
+| **Cloud Platform** | **Custom** | Provider-scale intelligence infrastructure |
+
+Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated agents** + edition capability — not model tokens, not per discovery. Deploy optional. Community is genuinely useful today; paid tiers sell when their workflows are operational. Full packaging: [/product/pricing/](./product/pricing/) · [spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)
+
+---
+
 ## Lab differentiators
 
 ### Why teams visit · full lab differentiators
@@ -338,21 +354,7 @@ Rendering the PDF needs a [docxology/template](https://github.com/docxology/temp
 
 ## Commercial editions · freemium packaging
 
-Professional infrastructure — not a cheap Cursor/Claude substitute. **Charge for coordinated agent capacity**, not ideas or command counts.
-
-| Edition | Price | Primary customer |
-|---------|------:|------------------|
-| **Community** | Free | Individual developer |
-| **Developer Pro** | **$59 / month** | Personal multi-agent intelligence |
-| **Team** | **$299 / month** | Collective discovery and decisions |
-| **Server / Enterprise** | **From $30,000 / year** | Organizational intelligence infrastructure |
-| **Cloud Platform** | Custom | Provider-scale intelligence infrastructure |
-
-Revised November 2026 (was $39 / $149 / $12k) — category is multi-agent **intelligence and convergence**, not coordination plumbing alone. Primary meter: **concurrent coordinated agents** (Pro 8 · Team 32); do not bill per discovery. Deploy **optional**. Community remains genuinely useful.
-
-
-Full page: [/product/pricing/](./product/pricing/) · [pricing & packaging spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)  
-Hub: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/product/pricing/
+Pricing plans are at the **[top of this README](#pricing-plans)**. Full page: [/product/pricing/](./product/pricing/) · [spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) · hub https://fractisi.vercel.app/product/pricing/
 
 **Product name lock:** customers hear **FractiSI Multi-Agent**. Tiny Footprint is the Layer A core. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs. Proposed launch prices — not established market rates; paid tiers sell when features are operational.
 
