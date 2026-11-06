@@ -2,8 +2,13 @@
 
 ### One shared world. Many agents. Coordinated work. Composed results.
 
-**FractiSI** · flagship product **FractiSI Multi-Agent** · Local **Workstation** kit  
-**Core technology:** Tiny Footprint · powered by **Tiny Gateway™**
+**FractiSI Multi-Agent** is FractiSI’s flagship coordination platform for agentic engineering. It sits **beside** Cursor, Claude Code, VS Code, and Git — not another coding assistant, and not a model swap. **Tiny Footprint** (powered by **Tiny Gateway™**) keeps the shared world once; layers above coordinate ownership, compose contributions, and optionally publish behind an approval gate.
+
+**Problems it solves.** Agent fleets still pay a hidden tax: every agent reprints the same context, exact-text caches only help when the words repeat, gzip shrinks copies without removing them, and parallel work collides at merge time. Teams lose density in scarce DRAM/HBM, miss relationships a flat skim never assembles, and spend cycles reconciling branches instead of shipping composed results.
+
+**Why now.** Coding agents, research swarms, and enterprise copilots are moving from one assistant to many agents on one project — while memory bandwidth, GPU residency, and merge friction are already the bottleneck. The window is the shift to multi-agent workloads, not another chat UI. FractiSI sells **coordination and shared-world infrastructure**: denser fleets, faster architectural convergence, and outcomes flat copies / gzip / exact-cache alone do not deliver.
+
+**FractiSI** · Local **Workstation** kit (Community free) · Server and Cloud share the same engine
 
 [![Product](https://img.shields.io/badge/product-FractiSI%20Multi--Agent-c9a227)](./docs/product/PRODUCT.md)
 [![Edition](https://img.shields.io/badge/edition-Community%20FREE-0b1424)](./docs/product/PRODUCT.md)
@@ -13,9 +18,7 @@
 
 ---
 
-## What is FractiSI Multi-Agent?
-
-**FractiSI Multi-Agent** is FractiSI’s flagship installable platform for agentic engineering work. It sits **beside** Cursor, Claude Code, VS Code, and Git — it does not replace them.
+## Lab differentiators
 
 ### Why teams visit · full lab differentiators
 
@@ -29,11 +32,6 @@
 | **Tiny Gateway · DRAM & materialize** | Full / conventional | Aggregate **84.5%** · GPU alloc proxy **81.4%** · materialize **~9.6×** (H100 rhyme-vs-prefix ~34% = simulation only) |
 
 These are the outcomes multi-agent teams come here for. Digital architectural / structured-state labs — not CapEx guarantees, not an LLM bake-off; “80% DRAM for AI serving” not established as CapEx. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [`docs/benchmarks/RESULTS.md`](./docs/benchmarks/RESULTS.md) · [pricing](./product/pricing/).
-
-
-**Tiny Footprint** is the Layer A execution core: one shared world (or shared organizational context) for many agents — template once, per-agent deltas, selective reconstruct. **DRAM concurrency** is the engine inside. Layers B–F add coordination, shared state, composition, Git awareness, and **optional** approval-gated deploy.
-
-Agent fleets default to an expensive habit: **copy the shared world into every agent**, then collide at merge time. Compression shrinks each copy; it does not remove the copies. FractiSI Multi-Agent registers the world once, keeps per-agent difference compact, coordinates ownership, composes contributions into one result, and only publishes when you ask it to.
 
 | | Without FractiSI Multi-Agent | With FractiSI Multi-Agent |
 |--|------------------------------|---------------------------|
