@@ -211,3 +211,54 @@ a:hover { color: #fff; }
 }
 .tf-diff-board .tf-diff-stat .tf-price { font-size: 1.25rem; margin: .25rem 0; }
 .tf-diff-board .tf-diff-foot { margin: 1rem 0 0; font-size: .9rem; color: rgba(232,238,246,.72); }
+
+/* Upfront pricing strip — perceived value */
+.tf-plan-strip {
+  margin: 0 0 1.5rem;
+  padding: 1.15rem 1.2rem 1.25rem;
+  border: 1px solid rgba(201,162,39,.55);
+  background: linear-gradient(120deg, rgba(201,162,39,.18), rgba(8,18,36,.82));
+}
+.tf-plan-strip > h2 {
+  margin: 0 0 .35rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--tf-gold-hi);
+}
+.tf-plan-strip .tf-plan-promise {
+  margin: 0 0 .9rem;
+  color: var(--tf-mist);
+}
+.tf-plan-strip .tf-plans {
+  display: grid;
+  gap: .85rem;
+}
+@media (min-width: 720px) {
+  .tf-plan-strip .tf-plans { grid-template-columns: repeat(5, 1fr); }
+}
+.tf-plan-strip .tf-plan {
+  border-top: 2px solid var(--tf-gold);
+  padding-top: .5rem;
+}
+.tf-plan-strip .tf-plan .name {
+  display: block;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(232,238,246,.65);
+}
+.tf-plan-strip .tf-plan .tf-price {
+  font-size: 1.3rem;
+  margin: .2rem 0;
+}
+.tf-plan-strip .tf-plan.featured .tf-price { font-size: 1.45rem; }
+.tf-plan-strip .tf-plan .buy {
+  display: block;
+  font-size: .85rem;
+  color: rgba(232,238,246,.82);
+  line-height: 1.35;
+}
+.tf-plan-strip .tf-plan-foot {
+  margin: .9rem 0 0;
+  font-size: .9rem;
+  color: rgba(232,238,246,.72);
+}
