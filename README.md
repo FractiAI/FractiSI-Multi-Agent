@@ -63,8 +63,8 @@ Live site: https://fractisi.vercel.app · product: [/product/](https://fractisi.
 **Requirements:** Git · Node.js 18+ · VS Code (or Cursor) · optional NVIDIA GPU + Python for GPU labs
 
 ```bash
-git clone https://github.com/FractiAI/tiny-footprint-workstation.git
-cd tiny-footprint-workstation
+git clone https://github.com/FractiAI/tiny-footprint-multi-agent.git
+cd tiny-footprint-multi-agent
 code .          # or: cursor .
 ```
 
@@ -138,7 +138,7 @@ Details: [docs/product/VALIDATION.md](./docs/product/VALIDATION.md)
 ## Repository layout
 
 ```
-tiny-footprint-workstation/          ← Local kit for Tiny Footprint Multi-Agent
+tiny-footprint-multi-agent/          ← GitHub repo · Local kit for Tiny Footprint Multi-Agent
 ├── src/                  ← all logic, in submodules
 │   ├── core/             ← bytes, statistics, randomness, hashing
 │   ├── engine/           ← Tiny Gateway: templates, vectors, broadcast

@@ -2,7 +2,7 @@
 
 You need Node 18 or newer. Python and a GPU are optional: a lab that needs them reports `not_run` without them.
 
-1. Clone **https://github.com/FractiAI/tiny-footprint-workstation**
+1. Clone **https://github.com/FractiAI/tiny-footprint-multi-agent**
 2. Open the folder in VS Code / Cursor
 3. Run these in order, because `report` reads what `benchmark` wrote:
 

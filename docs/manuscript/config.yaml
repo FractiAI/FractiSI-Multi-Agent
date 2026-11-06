@@ -30,7 +30,7 @@ publication:
   doi: ""
   version_doi: ""
   github_repository: "FractiAI/tiny-footprint-workstation"
-  repository_url: "https://github.com/FractiAI/tiny-footprint-workstation"
+  repository_url: "https://github.com/FractiAI/tiny-footprint-multi-agent"
   repository_label: "FractiAI/tiny-footprint-workstation"
 
 render:

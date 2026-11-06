@@ -1,5 +1,5 @@
 {
-  "name": "tiny-footprint-workstation",
+  "name": "tiny-footprint-multi-agent",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
   "homepage": "https://www.ssvibelandiaquestfest24x365.com/tiny-footprint",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FractiAI/tiny-footprint-workstation.git"
+    "url": "git+https://github.com/FractiAI/tiny-footprint-multi-agent.git"
   },
   "engines": {
     "node": ">=18"
