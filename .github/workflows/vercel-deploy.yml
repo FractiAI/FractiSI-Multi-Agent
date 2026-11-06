@@ -36,7 +36,10 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
-            echo "Missing VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID — skipping deploy."
-            exit 0
+            echo "::error::Missing VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID on FractiAI/FractiSI-Multi-Agent."
+            echo "Production https://fractisi.vercel.app will stay frozen until these secrets are set"
+            echo "(or Vercel Git is reconnected to this repo after the rename) and this workflow re-runs."
+            exit 1
           fi
+          npx vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
           npx vercel@latest deploy --prod --yes --token="$VERCEL_TOKEN"
