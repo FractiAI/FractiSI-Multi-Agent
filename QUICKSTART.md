@@ -1,27 +1,49 @@
 # Quickstart — FractiSI Multi-Agent
 
-**Required:** Git + cloud token (`VERCEL_TOKEN` or `FRACTISI_CLOUD_TOKEN`).
+## What you need
+
+1. **Git**
+2. **Cloud token** — `VERCEL_TOKEN` or `FRACTISI_CLOUD_TOKEN` (create at [vercel.com/account/tokens](https://vercel.com/account/tokens))
+3. **Node.js 18+**
+
+Nothing else for the end-to-end try.
+
+## Install
 
 ```bash
 git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
 cd FractiSI-Multi-Agent
-export VERCEL_TOKEN=…
+```
+
+## Use
+
+```bash
+export VERCEL_TOKEN=…          # or: export FRACTISI_CLOUD_TOKEN=…
 node scripts/tiny.mjs try
 ```
 
-That runs worktrees → compose → git commit → cloud deploy and prints a live URL.
+You get a live preview URL when it finishes (worktrees → compose → git commit → cloud deploy).
 
-Tiny Footprint remains the core execution technology inside FractiSI Multi-Agent.
+## What to expect
 
----
+After `try` you should have:
 
-# Quick start · Tiny Footprint Workstation
+- Parallel **agent worktrees** instead of one crowded working tree  
+- A **composed** contribution set, not two dangling patches  
+- A real **Git commit** of the integrated result  
+- A **live cloud preview URL** from your own token  
 
-You need Node 18 or newer. Python and a GPU are optional: a lab that needs them reports `not_run` without them.
+Ongoing upgrades to your workflow:
 
-1. Clone **https://github.com/FractiAI/FractiSI-Multi-Agent**
-2. Open the folder in VS Code / Cursor
-3. Run these in order, because `report` reads what `benchmark` wrote:
+| Ability | Command / layer |
+|---------|-----------------|
+| See ownership & interference | `status` · coordination |
+| Propose then compose | `propose` → `compose` → `repo integrate` |
+| Approval-gated ship | `deploy create` → `approve` → `run` |
+| Denser shared context | Tiny Footprint demos / benchmarks |
+| Stay in your IDE | Cursor / Claude Code / VS Code adapters |
+
+### Without a cloud token (local only)
 
 ```bash
 node scripts/tiny.mjs doctor
@@ -31,14 +53,16 @@ node scripts/tiny.mjs benchmark
 node scripts/tiny.mjs report
 ```
 
-4. Join industry testing (contact email; optional results share → **valetpru@gmail.com**):
+Deploy and full `try` still need the token.
+
+### Optional
 
 ```bash
-node scripts/tiny.mjs join
+node scripts/tiny.mjs try --prod       # production Vercel deploy
+node scripts/tiny.mjs try --in-place   # use current repo root
+node scripts/tiny.mjs join             # industry testing signup
 ```
 
-5. Open `benchmarks/reports/customer-benchmark.html`
+Full detail: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · product story: [README.md](./README.md).
 
-Read [README.md](./README.md) for product context and honesty rails, and [docs/README.md](./docs/README.md) for everything else.
-
-A lab that cannot run on your machine reports `not_run`. That is expected on a machine with no GPU, and the verdict reads `incomplete`.
+Tiny Footprint remains the Layer A execution core inside FractiSI Multi-Agent.

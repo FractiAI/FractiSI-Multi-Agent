@@ -82,18 +82,30 @@
       <h2>Workstation</h2>
       <figure class="figure">
         <img src="../media/tiny-footprint-workstation.jpg" alt="The Workstation kit opens in an editor on the developer’s own computer.">
-        <figcaption>Clone. Measure shared-world packs. Decide.</figcaption>
+        <figcaption>Clone. Export token. Run try. Open the preview URL.</figcaption>
       </figure>
+      <p><strong>Install and use.</strong> You need Git and a cloud token (<code>VERCEL_TOKEN</code> or <code>FRACTISI_CLOUD_TOKEN</code> from <a href="https://vercel.com/account/tokens">vercel.com/account/tokens</a>). Node 18+. No other API keys.</p>
       <pre><code>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
-cd tiny-footprint-workstation
-export VERCEL_TOKEN=…   # or FRACTISI_CLOUD_TOKEN
+cd FractiSI-Multi-Agent
+export VERCEL_TOKEN=…   # paste once; used only for Vercel deploy
 node scripts/tiny.mjs try
-# or step-by-step:
+# → prints a live preview URL
+
+# local labs without a token:
 node scripts/tiny.mjs doctor
-node scripts/tiny.mjs install
 node scripts/tiny.mjs demo
 node scripts/tiny.mjs benchmark
 node scripts/tiny.mjs report</code></pre>
+      <p>      <h3>What to expect</h3>
+      <ul>
+        <li><strong>Shared-world density</strong> — one context, per-agent deltas (Tiny Footprint core)</li>
+        <li><strong>Coordination</strong> — ownership and interference checks before agents collide</li>
+        <li><strong>Composition</strong> — validate, integrate, roll back into one result</li>
+        <li><strong>Git-aware worktrees</strong> — parallel scoped workspaces without branch chaos</li>
+        <li><strong>Approval-gated deploy</strong> — live preview URL only after you approve</li>
+        <li><strong>Beside your IDE</strong> — Cursor, Claude Code, VS Code stay in place</li>
+      </ul>
+      <p>Full guide: <a href="https://github.com/FractiAI/FractiSI-Multi-Agent#install-and-use-start-here">README · Install and use</a> · <a href="/docs/install/INSTALL.md">INSTALL.md</a>.</p>
       <p>Companion multi-agent labs: <code>git clone https://github.com/FractiAI/tiny-oracle-lob-pilot && npm run multi-agent && npm run shine</code></p>
 
       <p class="honesty">Lab numbers are structured-state / gzip receipts and density arithmetic—not a CapEx guarantee, not a hosted multi-agent bake-off, and not a claim that Tiny replaces general SQL or media codecs. Production fleets need partner measurement. Technical depth: <a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a> · engine peer <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
