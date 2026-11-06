@@ -1,17 +1,22 @@
 # Tiny Footprint Workstation
 
-### More AI from the silicon you already own.
+### One shared world. Many agents.
 
-**FractiSI** · Tiny Footprint · powered by **Tiny Gateway™**
+**FractiSI** · **Tiny Footprint Multi-Agent** · powered by **Tiny Gateway™**
 
 [![Edition](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/product/PRODUCT.md)
 [![Site](https://img.shields.io/badge/site-fractisi.vercel.app-0b1424)](https://fractisi.vercel.app)
+[![Paper](https://img.shields.io/badge/paper-Multi--Agent-0b1424)](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md)
 
 ---
 
-## What is Tiny Footprint?
+## What is Tiny Footprint Multi-Agent?
 
-Tiny Footprint is the memory layer beside frontier serving. Install it **beside** the AI stack you already run—not a GPU swap, not a model rewrite. Exact prefix sharing (what production caches already do) plus organizational rhyme for near-duplicates when the words differ. Open evidence: prefix reuse is the performing mechanism; rhyme has not beaten a plain object reference on live heap in the reproducible study. See [RESULTS.md](./docs/benchmarks/RESULTS.md).
+**Tiny Footprint Multi-Agent** is the flagship product: one shared world (or shared organizational context) for many agents—template once, per-agent deltas, selective reconstruct. DRAM concurrency is the engine inside. Install it **beside** the agent runtime / serving stack you already run.
+
+Multi-agent empirical suite (companion): [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) · `npm run multi-agent` · `npm run shine`
+
+The Workstation also measures classic Tiny Footprint serving memory cases. Exact prefix sharing remains strong when the same words repeat; organizational rhyme extends near-duplicates. See [RESULTS.md](./docs/benchmarks/RESULTS.md) · Multi-Agent paper [docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md).
 
 | | Without Tiny Footprint | With Tiny Footprint |
 |--|------------------------|---------------------|

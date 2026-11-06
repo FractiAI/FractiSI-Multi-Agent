@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tiny Footprint · FractiSI</title>
-  <meta name="description" content="Tiny Footprint is FractiSI’s AI memory-efficiency layer. Install beside the serving stack you already run. Open source. Freemium.">
-  <link rel="stylesheet" href="../css/site.css?v=13">
+  <title>Tiny Footprint Multi-Agent · FractiSI</title>
+  <meta name="description" content="Tiny Footprint Multi-Agent: one shared world for many agents. DRAM concurrency first. Open source. Freemium.">
+  <link rel="stylesheet" href="../css/site.css?v=14">
 </head>
 <body>
   <header class="nav">
@@ -24,53 +24,66 @@
   <img class="banner" src="../media/tiny-footprint-hero.jpg" alt="Tiny Footprint: a gold network converging on a small leaf mark.">
   <main class="wrap">
     <article class="page">
-      <p class="kicker">Product · open source · freemium</p>
-      <h1>Tiny Footprint</h1>
-      <p class="lede">The memory layer beside frontier serving. Install next to the stack you already run—not a new cluster, not a model swap.</p>
-      <p>Community is free. No account. Server and Cloud are commercial editions for fleets that need the same engine at scale. <a href="/open/">Why we stay open →</a></p>
-      <p>Exact prefix sharing remains the win when the same words repeat—production caches already do that. Tiny Footprint widens the bank to organizational rhyme: same structure, different wording—the near-duplicate case exact caches miss. Better utilization of the memory you already bought. Not a larger chip.</p>
+      <p class="kicker">Product · Multi-Agent · open source · freemium</p>
+      <h1>Tiny Footprint Multi-Agent</h1>
+      <p class="lede">One shared world for many agents. Install beside the agent runtime or serving stack you already run—not a new cluster, not a model swap.</p>
+      <p>The multi-agent cloud pays a hidden tax: every agent carries a full copy of the same context. Tiny Footprint Multi-Agent registers that world once, keeps per-agent deltas, and reconstructs views on demand. <a href="/open/">Why we stay open →</a></p>
 
       <figure class="figure">
         <img src="../media/tiny-footprint-architecture.jpg" alt="Tiny Footprint sits between an application and the hardware it already uses.">
-        <figcaption>Your application stays. Tiny Footprint sits beside it. Tiny Gateway is the engine inside.</figcaption>
+        <figcaption>Your agents stay. The shared world is stored once. Tiny Gateway is the engine inside.</figcaption>
       </figure>
+
+      <h2>What it is</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Shared world template</h3>
+          <p>Policies, maps, tools, corpora, simulation state—registered once as the organizational rhyme.</p>
+        </div>
+        <div class="card">
+          <h3>Per-agent deltas</h3>
+          <p>Pose, goals, inventory, local memory. Only what differs from the shared world.</p>
+        </div>
+        <div class="card">
+          <h3>Selective reconstruct</h3>
+          <p>Nested vectors let an agent pull only the scales it needs—runtime DRAM, not just file size.</p>
+        </div>
+      </div>
+
+      <h2>Why DRAM is the engine</h2>
+      <p>Multi-Agent is the product name. <strong>DRAM concurrency</strong> is how it pays: more agents in the same memory budget when the shared world would otherwise be copied N times. Network fan-out and durable template stores are phase-2 adapters—not separate diluted SKUs.</p>
 
       <h2>One engine · three deployment surfaces</h2>
       <div class="cards">
         <div class="card">
           <h3>Local</h3>
-          <p>Developer machine. Community free. Developer Pro proposed at $29–49 / month. Workstation is the path: clone, demo, benchmark yourself.</p>
+          <p>Developer machine. Community free. Workstation path: clone, demo, benchmark multi-agent packs yourself.</p>
         </div>
         <div class="card">
           <h3>Server</h3>
-          <p>Company GPU fleets already serving models. Team and enterprise terms proposed from $199 / month to custom annual. Start on a test cluster.</p>
+          <p>Company GPU / agent hosts. Team and enterprise terms proposed from $199 / month to custom annual.</p>
         </div>
         <div class="card">
           <h3>Cloud</h3>
-          <p>Platform operators. Licensing, OEM, and per-GPU-hour terms negotiated. Partner conversation—not self-serve checkout.</p>
+          <p>Platform operators running agent fleets. Licensing and OEM negotiated—not self-serve checkout.</p>
         </div>
       </div>
-      <figure class="figure">
-        <img src="../media/tiny-footprint-markets.jpg" alt="Local, Server, and Cloud are three markets for one Tiny Footprint engine.">
-        <figcaption>Same engine. Three markets.</figcaption>
-      </figure>
 
-      <h2>What independent measurement shows</h2>
-      <p>Open re-measurement (Apple M4 Pro · small GPT-2-family models · <a href="https://github.com/FractiAI/tiny-footprint-workstation/pull/3">PR #3</a>) is the honesty bar for product claims. Shared prompt prefix is the mechanism that performs. Prefill can run about <b>1.3×–3.5×</b> faster; KV residency can fall about <b>84%</b> (about <b>27%</b> with weights counted). Exact text remains the strong case; rhyme extends the near-dupe case. Historical GeForce DirectML receipts stay labeled historical—not this host, not a datacenter attestation.</p>
-      <div class="metrics" aria-label="Open benchmark study highlights">
-        <div><b>1.3–3.5×</b><span>prefill via shared prefix</span></div>
-        <div><b>~84%</b><span>KV residency cut (no weights)</span></div>
-        <div><b>~27%</b><span>with weights counted</span></div>
-        <div><b>exact+</b><span>cache role: exact and near-dupe</span></div>
+      <h2>What measurement shows so far</h2>
+      <p>Multi-agent labs (synthetic shared worlds): when each agent embeds a full world copy, Tiny’s shared pack still shows large cuts <strong>after gzip</strong>—about <b>~42%</b> residual in smaller-world shine labs, and much larger when the world dominates per-agent state. Resident-byte proxies and 8 GiB density arithmetic show <b>order-of-magnitude more agents</b> in the world-dominated regime. Selective coarse-only nested tasks cut runtime working-set bytes by about <b>~99.5%</b> vs shipping full pyramids.</p>
+      <div class="metrics" aria-label="Multi-Agent lab highlights">
+        <div><b>~42%+</b><span>pack residual after gzip (shared world)</span></div>
+        <div><b>≫10×</b><span>agent density when world ≫ delta</span></div>
+        <div><b>~99.5%</b><span>selective coarse working set</span></div>
+        <div><b>1 product</b><span>Multi-Agent · DRAM engine</span></div>
       </div>
-      <p><a href="https://github.com/FractiAI/tiny-footprint-workstation/blob/feat/reproducible-benchmark-manuscript/docs/benchmarks/RESULTS.md">Results and claim ledger</a> · <a href="/research/#open-evaluation">Evaluation program</a></p>
+      <p><a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a> · <a href="https://github.com/FractiAI/tiny-oracle-lob-pilot">Empirical suite</a> · <a href="/research/#open-evaluation">Evaluation program</a></p>
 
-      <h2>Workstation 0.1</h2>
+      <h2>Workstation</h2>
       <figure class="figure">
         <img src="../media/tiny-footprint-workstation.jpg" alt="The Workstation kit opens in an editor on the developer’s own computer.">
-        <figcaption>Clone. Open. Measure. Decide.</figcaption>
+        <figcaption>Clone. Measure shared-world packs. Decide.</figcaption>
       </figure>
-      <p>First success is local. FractiSI does not operate your machine.</p>
       <pre><code>git clone https://github.com/FractiAI/tiny-footprint-workstation.git
 cd tiny-footprint-workstation
 node scripts/tiny.mjs doctor
@@ -78,18 +91,14 @@ node scripts/tiny.mjs install
 node scripts/tiny.mjs demo
 node scripts/tiny.mjs benchmark
 node scripts/tiny.mjs report</code></pre>
-      <p><a href="https://github.com/FractiAI/tiny-footprint-workstation">github.com/FractiAI/tiny-footprint-workstation</a></p>
+      <p>Companion multi-agent labs: <code>git clone https://github.com/FractiAI/tiny-oracle-lob-pilot && npm run multi-agent && npm run shine</code></p>
 
-      <h2>Partner validation</h2>
-      <p>Infrastructure, cloud, and accelerator teams: join joint measurement on hardware closer to production. Memory and latency both in scope. <a href="mailto:valetpru@gmail.com?subject=Tiny%20Footprint%20validation">valetpru@gmail.com</a>.</p>
-      <p>Supporting papers live in the <a href="/library/">library</a>.</p>
-
-      <p class="honesty">Prices are proposed and can change. Local numbers are not a CapEx guarantee, not an HBM result, and not a hosted frontier-model bake-off. Production fleets need partner measurement. Technical depth: <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway whitepaper</a>.</p>
+      <p class="honesty">Lab numbers are structured-state / gzip receipts and density arithmetic—not a CapEx guarantee, not a hosted multi-agent bake-off, and not a claim that Tiny replaces general SQL or media codecs. Production fleets need partner measurement. Technical depth: <a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a> · engine peer <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <span>FractiSI · Tiny Footprint</span>
+    <span>FractiSI · Tiny Footprint Multi-Agent</span>
     <span><a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a></span>
   </footer>
 </body>
