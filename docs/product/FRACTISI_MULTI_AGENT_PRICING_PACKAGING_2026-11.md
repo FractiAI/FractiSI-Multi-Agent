@@ -213,12 +213,29 @@ Periodically review agent-infrastructure and professional developer pricing (Cur
 
 ---
 
+## Lab evidence · faster convergence + what flat models miss
+
+Community packaging must surface the same Expedition 002 receipts that justify denser fleets. Seed `20261105`. Digital architectural lab (structured-state + relationship-guided retrieval) — **not** live GPU HBM attestation, **not** an LLM multi-agent bake-off.
+
+| Test | Flat / full-copy | FractiSI guided | Commercial meaning |
+|------|------------------|-----------------|--------------------|
+| **E2 · Discovery & solutions** (100 scenarios × 6-hop) | 0/100 solutions · 0/100 chain discovery · 0/100 anomalies | **100/100** solutions · chains · anomalies | Shared-world guidance sees relationships and answers the flat skim never assembles in budget |
+| **E2 · Architectural convergence** | 6 propagation rounds · mean 40 ops | **3 rounds (−50%)** · mean 6 ops (**−85%**) | Faster convergence on the answer path under the same constrained budget |
+| **E1 · Resource vs full-copy** | Full per-agent copy | Dup cut **89.6%–99.2%** · speedup **36.91×–62.41×** | Agent density per infrastructure budget |
+
+Receipts: [`expedition-002/empirical_report.md`](./expedition-002/empirical_report.md) · paper [`FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md`](./FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md) · brochure `/docs/web/expedition-002-brochure.html`.
+
+Honesty: selective reconstruction may be slower than direct shared lookup; **LLM collective intelligence — not demonstrated**.
+
+---
+
 ## Related surfaces
 
 - Product hub: `/product/`  
 - Pricing page: `/product/pricing/`  
 - Install (deploy optional): [`../install/INSTALL.md`](../install/INSTALL.md)  
 - Root README commercial section  
+- Expedition 002 lab board + paper  
 - Platform architecture paper  
 
 → ∞^∞

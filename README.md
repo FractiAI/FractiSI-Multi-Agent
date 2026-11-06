@@ -338,6 +338,16 @@ Professional infrastructure — not a cheap Cursor/Claude substitute. **Charge f
 
 Primary billing metric: **concurrent coordinated agents** (registered agents are generous; human seats are included allowances). Deploy remains **optional**. Community is genuinely useful with no crippled trial.
 
+### Lab evidence · Expedition 002 (why denser fleets pay)
+
+| Test | Flat / full-copy | FractiSI guided |
+|------|------------------|-----------------|
+| **Discovery & solutions** (100 × 6-hop) | **0 / 100** | **100 / 100** |
+| **Architectural convergence** | 6 rounds · 40 ops | **3 rounds (−50%)** · **6 ops (−85%)** |
+| **Resource vs full-copy** | Full copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** speedup |
+
+Flat skim never assembles the chain — so it never sees the anomaly or the solution. Guided shared-world reconstruction recovers both and converges in fewer rounds. Digital architectural lab (seed `20261105`); **not** an LLM bake-off; LLM collective intelligence not yet demonstrated. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [pricing page lab board](./product/pricing/).
+
 Full page: [/product/pricing/](./product/pricing/) · [pricing & packaging spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)  
 Hub: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/product/pricing/
 
