@@ -1,0 +1,111 @@
+{
+  "docId": "WP-FRACTISI-EXPEDITION-002-BEYOND-MEMORY-EGS-2026-11-05",
+  "registryId": "synthobs-fractisi-expedition-002-beyond-memory-2026-11",
+  "generatedAt": "2026-11-06T09:32:47.454Z",
+  "seed": 20261105,
+  "results": {
+    "all_pass": true,
+    "n_pass": 2,
+    "n_total": 2,
+    "E1": {
+      "id": "E1_resource_microbench",
+      "pass": true,
+      "rows": [
+        {
+          "nAgents": 10,
+          "fullPeak": 1036835,
+          "convPeak": 107460,
+          "tinyPeak": 107460,
+          "fullMs": 3.0193790000000007,
+          "convMs": 0.05786000000000158,
+          "tinyMs": 0.08179999999999765,
+          "fullHits": 1000,
+          "convHits": 1000,
+          "tinyHits": 1000,
+          "identicalResults": true,
+          "dupCutVsFull": 0.8963576653951689,
+          "speedupVsFull": 36.91172371638248,
+          "selectiveSlowdownVsConv": 0.41375734531620156
+        },
+        {
+          "nAgents": 50,
+          "fullPeak": 5184181,
+          "convPeak": 123012,
+          "tinyPeak": 123012,
+          "fullMs": 11.961037999999999,
+          "convMs": 0.2146669999999986,
+          "tinyMs": 0.20669399999999882,
+          "fullHits": 5000,
+          "convHits": 5000,
+          "tinyHits": 5000,
+          "identicalResults": true,
+          "dupCutVsFull": 0.9762716618111906,
+          "speedupVsFull": 57.868336768363214,
+          "selectiveSlowdownVsConv": -0.03714124667508201
+        },
+        {
+          "nAgents": 100,
+          "fullPeak": 10368350,
+          "convPeak": 142441,
+          "tinyPeak": 142441,
+          "fullMs": 24.539749999999998,
+          "convMs": 0.4125279999999947,
+          "tinyMs": 0.39322099999999693,
+          "fullHits": 10000,
+          "convHits": 10000,
+          "tinyHits": 10000,
+          "identicalResults": true,
+          "dupCutVsFull": 0.9862619413889384,
+          "speedupVsFull": 62.40701793647895,
+          "selectiveSlowdownVsConv": -0.04680167164410176
+        },
+        {
+          "nAgents": 250,
+          "fullPeak": 25921047,
+          "convPeak": 200797,
+          "tinyPeak": 200797,
+          "fullMs": 47.46646399999999,
+          "convMs": 1.0322350000000142,
+          "tinyMs": 1.0332740000000058,
+          "fullHits": 25000,
+          "convHits": 25000,
+          "tinyHits": 25000,
+          "identicalResults": true,
+          "dupCutVsFull": 0.9922535150682764,
+          "speedupVsFull": 45.93792546797821,
+          "selectiveSlowdownVsConv": 0.0010065537401768854
+        }
+      ],
+      "summary": {
+        "dupCutMin": 0.8963576653951689,
+        "dupCutMax": 0.9922535150682764,
+        "largeCutMin": 0.9862619413889384,
+        "speedupMin": 36.91172371638248,
+        "speedupMax": 62.40701793647895,
+        "selectiveSlowdownMin": -0.04680167164410176,
+        "selectiveSlowdownMax": 0.41375734531620156
+      }
+    },
+    "E2": {
+      "id": "E2_discovery_collective",
+      "pass": true,
+      "scenarios": 100,
+      "flat": {
+        "chainDiscoveryRate": 0,
+        "solutionRate": 0,
+        "anomalyRate": 0,
+        "meanOps": 40,
+        "propagationRounds": 6
+      },
+      "fractisi": {
+        "chainDiscoveryRate": 1,
+        "solutionRate": 1,
+        "anomalyRate": 1,
+        "meanOps": 6,
+        "propagationRounds": 3
+      },
+      "opsReduction": 0.85,
+      "roundsReduction": 0.5
+    }
+  }
+}
