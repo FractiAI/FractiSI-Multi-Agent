@@ -1,28 +1,31 @@
-# Tiny Footprint · Product
+# Tiny Footprint Multi-Agent · Product
 
-**Less Memory. Lower Latency. More AI Performance.**  
-Powered by Tiny Gateway™ · FractiAI
+**One shared world. Many agents.**  
+Powered by Tiny Gateway™ · FractiSI / FractiAI
 
 ## What it is
 
-Software installed **alongside** the customer’s existing AI—not a new computer, not a stack replacement. Tiny Footprint helps that AI use memory more efficiently and potentially respond faster.
+**Tiny Footprint Multi-Agent** is the flagship product: software installed **alongside** the agent runtime or serving stack you already run—not a new computer, not a stack replacement. One shared world (or shared organizational context) for many agents; per-agent deltas; selective reconstruct. **DRAM concurrency** is the engine inside.
 
 ## One engine · three editions
 
 | Edition | Customer | Installed on | Pricing |
 |---------|----------|--------------|---------|
 | **Local · Workstation Kit** | Developers / researchers | Personal computer | Free / Pro subscription |
-| **Server** | Enterprises | Company GPU servers | Annual license |
+| **Server** | Enterprises | Company GPU / agent hosts | Annual license |
 | **Cloud · Platform** | Cloud / GPU operators | Provider infrastructure | Negotiated |
 
 ## Central idea
 
-Without Tiny Footprint, each session often retains full shared context independently.  
-With Tiny Footprint, common structures are shared once; each session keeps compact differences; selective reconstruction builds the working set.
+Without Tiny Footprint, each agent often retains a full copy of the shared world.  
+With Tiny Footprint Multi-Agent, the world is registered once; each agent keeps compact differences; selective reconstruction builds the working set.
+
+Paper: [TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./TINY_FOOTPRINT_MULTI_AGENT_2026-11.md) · Empirical suite: [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot)
 
 ## First download
 
 This repository is **Workstation 0.1** — the starting point for all three markets.
 
-Commercial hub: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint  
-Simple breakdown: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/simple
+Commercial hub: https://fractisi.vercel.app/product/  
+Multi-Agent paper: https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/  
+Plainspeak (in-repo): [docs/web/simple.html](../web/simple.html)
