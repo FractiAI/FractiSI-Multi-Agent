@@ -527,3 +527,63 @@ pre {
 .diff-stat p { margin: .35rem 0 0; font-size: .92rem; }
 .diff-board .foot { grid-column: 1 / -1; margin: .35rem 0 0; font-size: .9rem; color: rgba(247,244,236,.72); }
 .diff-board a { color: #f3e6c0; }
+
+/* Upfront pricing strip — perceived value */
+.plan-strip {
+  margin: 1rem 0 1.5rem;
+  padding: 1.1rem 1.15rem 1.2rem;
+  border: 1px solid rgba(201,162,39,.5);
+  background: linear-gradient(120deg, #14120e 0%, #0b1220 55%, #1a1510 100%);
+  color: #f7f4ec;
+}
+.plan-strip h2 {
+  margin: 0 0 .35rem;
+  font-size: 1.25rem;
+  color: #f3e6c0;
+  font-family: var(--sans);
+}
+.plan-strip .promise {
+  margin: 0 0 .9rem;
+  font-size: .95rem;
+  color: rgba(247,244,236,.85);
+}
+.plan-strip .plans {
+  display: grid;
+  gap: .75rem;
+}
+@media (min-width: 720px) {
+  .plan-strip .plans { grid-template-columns: repeat(5, 1fr); }
+}
+.plan-strip .plan {
+  border-top: 2px solid #c9a227;
+  padding-top: .55rem;
+}
+.plan-strip .plan .name {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(247,244,236,.65);
+  font-family: var(--sans);
+}
+.plan-strip .plan .amt {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #c9a227;
+  margin: .2rem 0;
+  font-family: var(--sans);
+}
+.plan-strip .plan .buy {
+  display: block;
+  font-size: .85rem;
+  color: rgba(247,244,236,.8);
+  line-height: 1.35;
+}
+.plan-strip .plan.featured .amt { font-size: 1.5rem; }
+.plan-strip .foot {
+  margin: .85rem 0 0;
+  font-size: .88rem;
+  color: rgba(247,244,236,.7);
+}
+.plan-strip a { color: #f3e6c0; }
