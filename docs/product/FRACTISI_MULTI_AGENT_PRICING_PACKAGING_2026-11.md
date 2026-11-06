@@ -215,7 +215,7 @@ Periodically review agent-infrastructure and professional developer pricing (Cur
 
 ## Surface priority · differentiators first
 
-Product and pricing surfaces lead with Expedition 002 differentiators (sees what flat models miss · converges faster · agent density per infra budget) **above** edition tables. Visitors arrive for multi-agent results; packaging follows the proof board.
+Product and pricing surfaces lead with the **full** differentiator board (flat skim · full-copy density · **gzip residual** · **exact-text / prefix cache** · Tiny Gateway DRAM/materialize · Exp 002 discovery/convergence) **above** edition tables. Visitors arrive for multi-agent results; packaging follows the proof board.
 
 ## Lab evidence · faster convergence + what flat models miss
 
@@ -226,6 +226,9 @@ Community packaging must surface the same Expedition 002 receipts that justify d
 | **E2 · Discovery & solutions** (100 scenarios × 6-hop) | 0/100 solutions · 0/100 chain discovery · 0/100 anomalies | **100/100** solutions · chains · anomalies | Shared-world guidance sees relationships and answers the flat skim never assembles in budget |
 | **E2 · Architectural convergence** | 6 propagation rounds · mean 40 ops | **3 rounds (−50%)** · mean 6 ops (**−85%**) | Faster convergence on the answer path under the same constrained budget |
 | **E1 · Resource vs full-copy** | Full per-agent copy | Dup cut **89.6%–99.2%** · speedup **36.91×–62.41×** | Agent density per infrastructure budget |
+| **Gzip residual (shared pack)** | Naive per-agent copies + gzip | **~42%+** residual (smaller world); **~98%** world-dominated | Compression shrinks copies — does not remove cross-copy tax |
+| **Exact-text cache (same shape)** | Exact-text **6,704 B** | Rhyme **4,758 B** (exact wins identical text only) | Organizational near-dupes vs identical-prefix cache |
+| **Tiny Gateway DRAM / materialize** | Conventional / full | Aggregate **84.5%** · alloc proxy **81.4%** · materialize **~9.6×** | Engine shelf receipts; H100 ~34% = simulation |
 
 Receipts: [`expedition-002/empirical_report.md`](./expedition-002/empirical_report.md) · paper [`FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md`](./FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md) · brochure `/docs/web/expedition-002-brochure.html`.
 

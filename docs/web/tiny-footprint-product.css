@@ -209,5 +209,5 @@ a:hover { color: #fff; }
   border-radius: 0;
   box-shadow: none;
 }
-.tf-diff-board .tf-diff-stat .tf-price { font-size: 1.45rem; margin: .25rem 0; }
+.tf-diff-board .tf-diff-stat .tf-price { font-size: 1.25rem; margin: .25rem 0; }
 .tf-diff-board .tf-diff-foot { margin: 1rem 0 0; font-size: .9rem; color: rgba(232,238,246,.72); }

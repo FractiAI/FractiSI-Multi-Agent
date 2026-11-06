@@ -17,15 +17,19 @@
 
 **FractiSI Multi-Agent** is FractiSI’s flagship installable platform for agentic engineering work. It sits **beside** Cursor, Claude Code, VS Code, and Git — it does not replace them.
 
-### Why teams visit · Expedition 002 lab differentiators
+### Why teams visit · full lab differentiators
 
-| Differentiator | Flat / full-copy | FractiSI guided |
-|------|------------------|-----------------|
-| **Sees what flat models miss** (100 × 6-hop) | **0 / 100** solutions · chains · anomalies | **100 / 100** |
+| Differentiator | Baseline | FractiSI / Tiny Footprint |
+|------|----------|---------------------------|
+| **Sees what flat models miss** (Exp 002 · 100 × 6-hop) | Flat skim **0 / 100** | Guided **100 / 100** |
 | **Converges on answers faster** | 6 rounds · 40 ops | **3 rounds (−50%)** · **6 ops (−85%)** |
-| **Agent density per infra budget** | Full per-agent copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** |
+| **Density vs full per-agent copy** | Full copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** · selective ~**99.5%** |
+| **Still wins after gzip** | Naive per-agent copies + gzip | **~42%+** residual (smaller world); **~98%** when world dominates — compression shrinks copies, does not remove them |
+| **Beats exact-text cache when words differ** | Exact-text cache **6,704 B** (40 same-shape sessions) | Rhyme **4,758 B** (exact cache still wins identical text) |
+| **Tiny Gateway · DRAM & materialize** | Full / conventional | Aggregate **84.5%** · GPU alloc proxy **81.4%** · materialize **~9.6×** (H100 rhyme-vs-prefix ~34% = simulation only) |
 
-These are the outcomes multi-agent teams come here for. Digital architectural lab (seed `20261105`) — not an LLM bake-off; LLM collective intelligence not yet demonstrated. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [pricing](./product/pricing/).
+These are the outcomes multi-agent teams come here for. Digital architectural / structured-state labs — not CapEx guarantees, not an LLM bake-off; “80% DRAM for AI serving” not established as CapEx. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [`docs/benchmarks/RESULTS.md`](./docs/benchmarks/RESULTS.md) · [pricing](./product/pricing/).
+
 
 **Tiny Footprint** is the Layer A execution core: one shared world (or shared organizational context) for many agents — template once, per-agent deltas, selective reconstruct. **DRAM concurrency** is the engine inside. Layers B–F add coordination, shared state, composition, Git awareness, and **optional** approval-gated deploy.
 

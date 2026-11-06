@@ -32,25 +32,40 @@
       <h1>One shared world.<br>Many agents.<br>Composed work.</h1>
       <p class="lede">FractiSI Multi-Agent stops fleets from reprinting the same context and tripping over each other. Tiny Footprint keeps the world once; coordination, composition, Git awareness, and approval-gated deploy turn parallel agents into one shippable result.</p>
 
-      <div class="diff-board" role="region" aria-label="Why teams visit — lab differentiators">
-        <h2>Why teams visit · multi-agent differentiators</h2>
-        <p class="why">Expedition 002 lab (seed <code>20261105</code>): relationship-guided shared world vs flat skim. The outcomes multi-agent teams come here for.</p>
+      <div class="diff-board" role="region" aria-label="Why teams visit — full lab differentiators">
+        <h2>Why teams visit · full lab differentiators</h2>
+        <p class="why">Multi-agent teams come for results vs <strong>flat skim</strong>, <strong>full-copy</strong>, <strong>gzip-only</strong>, and <strong>exact-text / prefix cache</strong>. Receipts below — architectural / structured-state labs unless noted.</p>
         <div class="diff-stat">
           <span class="label">Sees what flat models miss</span>
           <span class="num">100 / 100 vs 0 / 100</span>
-          <p>Guided chains, anomalies, solutions. Flat skim: zero.</p>
+          <p>Expedition 002 · guided shared-world recovery finds chains, anomalies, solutions. Flat skim under the same budget: zero.</p>
         </div>
         <div class="diff-stat">
           <span class="label">Converges on answers faster</span>
           <span class="num">−50% rounds · −85% ops</span>
-          <p>3 rounds vs 6; mean 6 ops vs 40.</p>
+          <p>3 propagation rounds vs 6; mean 6 ops vs 40 on the same constrained discovery path.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Agent density per infra budget</span>
+          <span class="label">Density vs full per-agent copy</span>
           <span class="num">36.91× – 62.41×</span>
-          <p>Dup cut 89.6%–99.2% vs full per-agent copy.</p>
+          <p>Dup cut 89.6%–99.2% vs reprinting the world into every agent. Selective coarse-only ~99.5% fewer runtime bytes.</p>
         </div>
-        <p class="foot">Architectural lab — not an LLM bake-off. <a href="/product/pricing/">Pricing</a> · <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Paper</a></p>
+        <div class="diff-stat">
+          <span class="label">Still wins after gzip</span>
+          <span class="num">~42%+ residual</span>
+          <p>Shared pack vs naive per-agent copies — about ~42% residual after gzip in smaller-world labs; ~98% when the world dominates. Compression shrinks copies; it does not remove the cross-copy tax.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Beats exact-text cache when words differ</span>
+          <span class="num">4,758 vs 6,704 B</span>
+          <p>40 same-shape / different-words sessions: rhyme templates beat exact-text cache. Exact cache wins only identical text (332 B vs rhyme 5,867 B). Prefix reuse already helps exact prompts in production.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Tiny Gateway · DRAM &amp; materialize</span>
+          <span class="num">84.5% · 81.4% · ~9.6×</span>
+          <p>Aggregate representation cut 84.5% (≈80% research gate) · GPU alloc proxy 81.4% (288→53.6 MiB) · turn materialize ~9.6×. H100 rhyme-vs-prefix ~34% is simulation only.</p>
+        </div>
+        <p class="foot">Honesty: digital architectural labs + structured-state / gzip receipts — not CapEx guarantees, not an LLM multi-agent bake-off, not “80% DRAM for AI serving” as established. LLM collective intelligence not demonstrated. Reproduce: <a href="/docs/product/expedition-002/">Exp 002</a> · <a href="/docs/benchmarks/RESULTS.md">RESULTS.md</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a> · <a href="/product/pricing/">pricing</a>.</p>
       </div>
 
       <p>Try path: <strong>Git + cloud token</strong> → <code>node scripts/tiny.mjs try</code> → live preview URL. Runs beside Cursor, Claude Code, and VS Code.</p>
@@ -60,18 +75,6 @@
   </section>
 
   <main class="wrap">
-        <div class="diff-stat">
-          <span class="label">Converges on answers faster</span>
-          <span class="num">−50% rounds · −85% ops</span>
-          <p>3 propagation rounds vs 6; mean 6 ops vs 40. Same constrained discovery — fewer steps to the answer path.</p>
-        </div>
-        <div class="diff-stat">
-          <span class="label">Agent density per infra budget</span>
-          <span class="num">36.91× – 62.41×</span>
-          <p>Vs full per-agent copy; dup cut 89.6%–99.2%. More coordinated agents in the same memory envelope.</p>
-        </div>
-        <p class="foot">Digital architectural lab — not an LLM bake-off; not live GPU HBM attestation. Reproduce: <a href="/docs/product/expedition-002/">receipts</a> · <a href="/library/papers/fractisi-expedition-002-beyond-memory/">paper</a> · <a href="/product/pricing/">pricing</a>. LLM collective intelligence not yet demonstrated.</p>
-      </div>
 
     <section class="shots">
       <a href="/product/">
