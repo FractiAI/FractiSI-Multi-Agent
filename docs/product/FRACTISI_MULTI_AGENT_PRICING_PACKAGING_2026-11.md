@@ -213,6 +213,10 @@ Periodically review agent-infrastructure and professional developer pricing (Cur
 
 ---
 
+## Surface priority · differentiators first
+
+Product and pricing surfaces lead with Expedition 002 differentiators (sees what flat models miss · converges faster · agent density per infra budget) **above** edition tables. Visitors arrive for multi-agent results; packaging follows the proof board.
+
 ## Lab evidence · faster convergence + what flat models miss
 
 Community packaging must surface the same Expedition 002 receipts that justify denser fleets. Seed `20261105`. Digital architectural lab (structured-state + relationship-guided retrieval) — **not** live GPU HBM attestation, **not** an LLM multi-agent bake-off.

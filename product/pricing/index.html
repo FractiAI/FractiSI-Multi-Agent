@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FractiSI Multi-Agent · Freemium Pricing &amp; Packaging</title>
-  <meta name="description" content="FractiSI Multi-Agent freemium pricing: Community free, Developer Pro $39/mo, Team $149/mo, Enterprise from $12k/yr. Charge for coordinated agent capacity — not ideas or command counts.">
+  <meta name="description" content="FractiSI Multi-Agent: 100/100 vs 0/100 discovery vs flat skim, ~50% fewer rounds to converge, 36–62× vs full-copy. Freemium: Community free · Pro $39 · Team $149 · Enterprise from $12k/yr.">
   <link rel="stylesheet" href="../../css/site.css?v=16">
   <style>
     .price-grid { display:grid; gap:1.25rem; margin:1.5rem 0 2rem; }
@@ -33,6 +33,20 @@
     .metric-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem; }
     .metric-table th, .metric-table td { border-bottom: 1px solid rgba(255,255,255,.12); padding: .55rem .4rem; text-align: left; vertical-align: top; }
     .badge { display:inline-block; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:#0b1424; background:#c9a227; padding:.15rem .45rem; border-radius:2px; margin-left:.35rem; }
+    .diff-board {
+      display:grid; gap:1rem; margin:1.25rem 0 1.75rem;
+      padding:1.15rem 1.2rem 1.25rem;
+      border:1px solid rgba(201,162,39,.55);
+      background: linear-gradient(135deg, rgba(201,162,39,.12), rgba(11,20,36,.65));
+    }
+    @media (min-width: 800px) { .diff-board { grid-template-columns: repeat(3, 1fr); } }
+    .diff-board h2 { grid-column: 1 / -1; margin: 0 0 .15rem; font-size:1.35rem; }
+    .diff-board .why { grid-column: 1 / -1; margin: 0 0 .35rem; color: rgba(247,244,236,.85); }
+    .diff-stat { border-left: 3px solid #c9a227; padding: .15rem 0 .15rem .85rem; }
+    .diff-stat .num { display:block; font-size:1.55rem; font-weight:700; color:#c9a227; line-height:1.2; margin:.2rem 0; }
+    .diff-stat .label { display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(247,244,236,.65); }
+    .diff-stat p { margin:.35rem 0 0; font-size:.92rem; }
+    .diff-board .foot { grid-column: 1 / -1; margin:.35rem 0 0; font-size:.9rem; color:rgba(247,244,236,.72); }
   </style>
 </head>
 <body>
@@ -55,9 +69,30 @@
     <article class="page">
       <p class="kicker">Commercial · Freemium · proposed launch pricing</p>
       <h1>FractiSI Multi-Agent: Freemium Pricing &amp; Packaging</h1>
-      <p class="lede">Professional infrastructure with a genuinely useful Community edition — not a low-cost alternative to Cursor, Claude Code, or other agent platforms.</p>
-      <p><strong>Commercial principle:</strong> charge for the <em>capacity to coordinate productive agent fleets</em>, not for access to the underlying idea or how many times someone runs a command. Value rises with workload size and complexity: more agents, one shared world, composed outcomes.</p>
-      <p>FractiSI is not another AI coding assistant. It is the <strong>coordination and shared-world infrastructure</strong> that makes denser, more productive agent fleets possible. Customers should pay for that — and for <strong>agent density per infrastructure budget</strong>.</p>
+      <p class="lede">Here for multi-agent results: converge faster, see what flat models miss, denser fleets on the same infrastructure budget — then pick an edition.</p>
+
+      <div class="diff-board" role="region" aria-label="Why teams visit — lab differentiators">
+        <h2>Why teams visit · Expedition 002 lab differentiators</h2>
+        <p class="why">Relationship-guided shared world vs flat skim under the same budget (seed <code>20261105</code>). These are the outcomes people bring multi-agent workloads here to find.</p>
+        <div class="diff-stat">
+          <span class="label">Sees what flat models miss</span>
+          <span class="num">100 / 100 vs 0 / 100</span>
+          <p>Guided recovery finds chains, anomalies, and solutions. Flat skim: zero — if you never assemble the chain, you never see the answer.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Converges on answers faster</span>
+          <span class="num">−50% rounds · −85% ops</span>
+          <p>3 propagation rounds vs 6; mean 6 ops vs 40. Same constrained discovery — fewer steps to the answer path.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Agent density per infra budget</span>
+          <span class="num">36.91× – 62.41×</span>
+          <p>Vs full per-agent copy; dup cut 89.6%–99.2%. More coordinated agents in the same memory envelope.</p>
+        </div>
+        <p class="foot">Digital architectural lab — not an LLM bake-off; not live GPU HBM attestation. Reproduce: <a href="/docs/product/expedition-002/">expedition-002 receipts</a> · <a href="/library/papers/fractisi-expedition-002-beyond-memory/">paper</a> · <a href="/docs/web/expedition-002-brochure.html">brochure</a>. LLM collective intelligence not yet demonstrated.</p>
+      </div>
+
+      <p><strong>Commercial principle:</strong> charge for the <em>capacity to coordinate productive agent fleets</em>, not for the idea or command counts. FractiSI is coordination and shared-world infrastructure — not a low-cost Cursor/Claude substitute. Primary meter: <strong>concurrent coordinated agents</strong>.</p>
 
       <h2>Recommended pricing</h2>
       <p>Four commercial tiers (three paid + free), plus Cloud Platform. <em>Proposed launch prices — not established market rates.</em></p>
@@ -151,33 +186,6 @@
           <p><a href="mailto:valetpru@gmail.com?subject=FractiSI%20Cloud%20Platform">Partner inquiry</a></p>
         </div>
       </div>
-
-      <h2>Lab evidence · faster convergence + what flat models miss</h2>
-      <p>Community buyers should see the same receipts that justify denser fleets. <strong>FractiSI Research Expedition 002</strong> (seed <code>20261105</code>) ran a digital architectural lab — relationship-guided shared-world reconstruction vs a flat skim under the same budget. Not an LLM bake-off; not live GPU HBM attestation.</p>
-      <table class="metric-table">
-        <thead><tr><th>Test</th><th>Flat / full-copy</th><th>FractiSI guided</th><th>What it shows</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><strong>E2 · Discovery &amp; solutions</strong> (100 scenarios × 6-hop chains)</td>
-            <td>0 / 100 solutions · 0 / 100 chain discovery · 0 / 100 anomalies</td>
-            <td><strong>100 / 100</strong> solutions · chains · anomalies</td>
-            <td>Shared-world guidance recovers relationships and answers the flat skim never assembles within budget — capability, not only storage.</td>
-          </tr>
-          <tr>
-            <td><strong>E2 · Architectural convergence</strong> (propagation rounds / ops)</td>
-            <td>6 rounds · mean 40 ops</td>
-            <td><strong>3 rounds (−50%)</strong> · mean 6 ops (−85%)</td>
-            <td>Fewer propagation rounds and ops to complete the same constrained discovery — faster convergence on the answer path.</td>
-          </tr>
-          <tr>
-            <td><strong>E1 · Resource vs full-copy</strong></td>
-            <td>Full per-agent copy</td>
-            <td>Dup cut <strong>89.6%–99.2%</strong> · speedup <strong>36.91×–62.41×</strong></td>
-            <td>Shared representation + selective reconstruction shrinks duplicated state and wall time vs copying the world per agent.</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>Reproduce locally: kit <code>docs/product/expedition-002/</code> · paper <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a> · brochure <a href="/docs/web/expedition-002-brochure.html">suite board</a>. Selective reconstruction can be slower than a direct shared lookup; LLM collective intelligence is <strong>not</strong> yet demonstrated.</p>
 
       <h2>Why these prices</h2>
       <p>The market is professional developer infrastructure and agentic engineering — not inexpensive plugins. Cursor Premium (~$30), Copilot Pro+ (~$39), Claude Pro (~$20), and team seats (~$20–30+/user) sell AI experiences or productivity. FractiSI sells <strong>coordination infrastructure independent of which models or IDEs you use</strong>. That is a separate subscription.</p>
