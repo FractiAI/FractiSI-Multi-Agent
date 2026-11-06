@@ -47,7 +47,7 @@ Open in a browser from `docs/web/`:
 | **Print / PDF brochure** | [docs/web/commercial-brochure-print.html](./docs/web/commercial-brochure-print.html) |
 | **Product hub snapshot** | [docs/web/product-hub.html](./docs/web/product-hub.html) |
 
-Live site: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint · plainspeak: `/tiny-footprint/simple`
+Live site: https://fractisi.vercel.app · product: [/product/](https://fractisi.vercel.app/product/) · Multi-Agent paper: [/library/papers/tiny-footprint-multi-agent/](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/)
 
 ---
 
@@ -194,7 +194,7 @@ Rendering the PDF needs a [docxology/template](https://github.com/docxology/temp
 - **Server / Enterprise** — annual by GPU/server  
 - **Cloud Platform** — negotiated  
 
-Hub pricing: https://www.ssvibelandiaquestfest24x365.com/tiny-footprint/local
+Hub: https://fractisi.vercel.app/product/
 
 ---
 
@@ -205,7 +205,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 ## Support
 
 - Contact / validation / shared results: **valetpru@gmail.com**  
-- SING 13 monorepo mirror: `products/tiny-footprint-workstation/` in [psw.vibelandia.sing13](https://github.com/FractiAI/psw.vibelandia.sing13)
+- SING 13 monorepo mirror: `tiny-footprint-workstation/` in [psw.vibelandia.sing13](https://github.com/FractiAI/psw.vibelandia.sing13)
 
 → ∞^∞
 
@@ -213,6 +213,8 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 
 ## FractiSI site
 
-Marketing site for FractiSI (product hub, research, library, company, recruit) lives at the repo root and deploys to https://fractisi.vercel.app.
+Marketing site for FractiSI — **Tiny Footprint Multi-Agent** product hub, research, library, open, company, recruit — lives at the repo root and deploys to https://fractisi.vercel.app (also mirrored to [FractiAI/fractisi](https://github.com/FractiAI/fractisi)).
 
+- Product: `/product/`
+- Multi-Agent paper: `/library/papers/tiny-footprint-multi-agent/`
 - Recruit: `/recruit/`
