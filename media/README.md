@@ -1,15 +1,14 @@
-# Media
+# FractiSI site media
 
-FractiAI's product images. The manuscript reproduces the architecture schematic as a labelled vendor figure.
+Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = Layer A core).
 
-## Contents
+| File | Role |
+|------|------|
+| `fractisi-hero.jpg` | Home / product hero — shared-world intelligence & convergence |
+| `fractisi-markets.jpg` | Local · Server · Cloud — one engine |
+| `fractisi-architecture.jpg` | Platform stack beside runtimes you already run |
+| `fractisi-workstation.jpg` | Workstation try path · shared world · approval gate |
 
-| Path | What it is |
-|---|---|
-| [`el-cortez.jpg`](el-cortez.jpg) | Website image, used by the FractiSI site |
-| [`founders.png`](founders.png) | Website image, used by the FractiSI site |
-| [`library-hero.jpg`](library-hero.jpg) | Website image, used by the library page |
-| [`tiny-footprint-architecture.jpg`](tiny-footprint-architecture.jpg) | The layered architecture schematic |
-| [`tiny-footprint-hero.jpg`](tiny-footprint-hero.jpg) | The product hero image |
-| [`tiny-footprint-markets.jpg`](tiny-footprint-markets.jpg) | The three markets |
-| [`tiny-footprint-workstation.jpg`](tiny-footprint-workstation.jpg) | The workstation kit |
+Legacy filenames `tiny-footprint-*.jpg` are kept as identical copies for older links.
+
+Voice lock: *One shared world. Many perspectives. New discoveries. Faster convergence.*
