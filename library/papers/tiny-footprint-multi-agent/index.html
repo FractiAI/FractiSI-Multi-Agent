@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tiny Footprint Multi-Agent · FractiSI Library</title>
-  <meta name="description" content="Tiny Footprint Multi-Agent paper: shared worlds for concurrent agents. Empirical receipts after gzip.">
-  <link rel="stylesheet" href="../../../css/site.css?v=14">
+  <title>FractiSI Multi-Agent · FractiSI Library</title>
+  <meta name="description" content="FractiSI Multi-Agent paper: shared worlds for concurrent agents. Empirical receipts after gzip.">
+  <link rel="stylesheet" href="../../../css/site.css?v=18">
 </head>
 <body>
 <header class="nav">
@@ -22,7 +22,7 @@
 </header>
 <main class="wrap">
 <article class="page">
-<h1>Tiny Footprint Multi-Agent: Shared Worlds for Concurrent Agents</h1>
+<h1>FractiSI Multi-Agent: Shared Worlds for Concurrent Agents</h1>
 
 <p><strong>Research / product paper · Version 1.0 · 5 November 2026</strong>  </p>
 <p><strong>Operator:</strong> SynthOBS Autonomous Agent · Syntheverse Sandbox  </p>
@@ -38,7 +38,7 @@
 <tr><th>Tier</th><th>Claims</th><th>Does not claim</th></tr>
 <tr><td>Architecture</td><td>Shared world template + per-agent deltas implementable; selective reconstruct of agent views</td><td>That every multi-agent framework already ships this</td></tr>
 <tr><td>Empirical (this suite)</td><td>JSON structured-state lab: pack size vs naive per-agent world copies; gzip residual; resident-byte proxy; 8 GiB density arithmetic</td><td>Live GPU HBM RSS; production LangGraph/AutoGen bake-off; global internet measurement</td></tr>
-<tr><td>Product</td><td>Tiny Footprint Multi-Agent names the commercial wedge</td><td>CapEx guarantee; replacement for H.264/SQL HCC as general compressors</td></tr>
+<tr><td>Product</td><td>FractiSI Multi-Agent names the commercial wedge</td><td>CapEx guarantee; replacement for H.264/SQL HCC as general compressors</td></tr>
 </table>
 
 <p><strong>Evidence classification:</strong> digital lab + product architecture. Not a fab campaign; not a third-party cloud attestation.</p>
@@ -49,11 +49,11 @@
 
 <p>Multi-agent AI systems—and the broader pattern of many workers sharing one organizational context—default to an expensive habit: <strong>copy the shared world into every agent</strong>. Compression (gzip/zstd) shrinks each copy; it does not remove <strong>cross-agent duplication</strong>.</p>
 
-<p><strong>Tiny Footprint Multi-Agent</strong> applies Tiny Gateway’s rhyming-template spine: register the shared world once, keep per-agent deltas, reconstruct an agent view on demand. Nested vectors allow agents to pull only the scales they need.</p>
+<p><strong>FractiSI Multi-Agent</strong> applies Tiny Gateway’s rhyming-template spine: register the shared world once, keep per-agent deltas, reconstruct an agent view on demand. Nested vectors allow agents to pull only the scales they need.</p>
 
 <p><strong>Findings (executed suite).</strong> Across a 36-case sweep (rhyme × agent count × world size), median pack residual <strong>after gzip</strong> was <strong>~98%</strong> vs naive duplication when the shared world dominates agent state. A smaller-world shine lab earlier measured <strong>~42%</strong> residual after gzip. Flagship scaled case (256 agents, large shared world): resident shared-state proxy cut <strong>~99%</strong>; density arithmetic on an 8 GiB budget shows <strong>order-of-magnitude more agents</strong> when world ≫ per-agent state. Selective nested-vector coarse-only tasks cut runtime working-set bytes by <strong>~99.5%</strong> vs shipping full pyramids.</p>
 
-<p><strong>Product stance.</strong> One product: <strong>Tiny Footprint Multi-Agent</strong>, with <strong>DRAM concurrency</strong> as the primary runtime. SQL/network shared-context adapters later—not separate diluted SKUs.</p>
+<p><strong>Product stance.</strong> One product: <strong>FractiSI Multi-Agent</strong>; <strong>Tiny Footprint</strong> is Layer A; <strong>DRAM concurrency</strong> is the primary runtime. SQL/network shared-context adapters later—not separate diluted SKUs.</p>
 
 <hr>
 
@@ -98,7 +98,7 @@ npm run shine
 
 <table>
 <tr><th>Do</th><th>Don’t</th></tr>
-<tr><td>Lead with **Tiny Footprint Multi-Agent**</td><td>Four SKUs: DRAM / SQL / Networking / Agents</td></tr>
+<tr><td>Lead with **FractiSI Multi-Agent**</td><td>Four SKUs: DRAM / SQL / Networking / Agents</td></tr>
 <tr><td>Keep **DRAM** as the engine inside Multi-Agent</td><td>Kill DRAM language</td></tr>
 <tr><td>Phase-2 adapters: network fan-out, durable template store</td><td>Generic “beat zstd everywhere” marketing</td></tr>
 </table>
@@ -111,7 +111,7 @@ npm run shine
 
 <h2>6. Document ID</h2>
 
-<p><code>WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11</code> · FractiSI · Tiny Footprint Multi-Agent · SynthOBS Autonomous Agent · Syntheverse Sandbox · → ∞^∞</p>
+<p><code>WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11</code> · FractiSI · FractiSI Multi-Agent · SynthOBS Autonomous Agent · Syntheverse Sandbox · → ∞^∞</p>
 <p class="honesty">Hosted library rendering of the Multi-Agent paper. Source: <a href="https://github.com/FractiAI/tiny-oracle-lob-pilot">tiny-oracle-lob-pilot</a> · <a href="/product/">Product</a>.</p>
 </article>
 </main>

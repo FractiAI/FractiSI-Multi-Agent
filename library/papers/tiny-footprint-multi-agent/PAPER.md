@@ -1,4 +1,4 @@
-# Tiny Footprint Multi-Agent: Shared Worlds for Concurrent Agents
+# FractiSI Multi-Agent: Shared Worlds for Concurrent Agents
 
 **Research / product paper · Version 1.0 · 5 November 2026**  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
@@ -14,7 +14,7 @@
 |---|---|---|
 | Architecture | Shared world template + per-agent deltas implementable; selective reconstruct of agent views | That every multi-agent framework already ships this |
 | Empirical (this suite) | JSON structured-state lab: pack size vs naive per-agent world copies; gzip residual; resident-byte proxy; 8 GiB density arithmetic | Live GPU HBM RSS; production LangGraph/AutoGen bake-off; global internet measurement |
-| Product | Tiny Footprint Multi-Agent names the commercial wedge | CapEx guarantee; replacement for H.264/SQL HCC as general compressors |
+| Product | FractiSI Multi-Agent names the commercial wedge | CapEx guarantee; replacement for H.264/SQL HCC as general compressors |
 
 **Evidence classification:** digital lab + product architecture. Not a fab campaign; not a third-party cloud attestation.
 
@@ -24,11 +24,11 @@
 
 Multi-agent AI systems—and the broader pattern of many workers sharing one organizational context—default to an expensive habit: **copy the shared world into every agent**. Compression (gzip/zstd) shrinks each copy; it does not remove **cross-agent duplication**.
 
-**Tiny Footprint Multi-Agent** applies Tiny Gateway’s rhyming-template spine: register the shared world once, keep per-agent deltas, reconstruct an agent view on demand. Nested vectors allow agents to pull only the scales they need.
+**FractiSI Multi-Agent** applies Tiny Gateway’s rhyming-template spine: register the shared world once, keep per-agent deltas, reconstruct an agent view on demand. Nested vectors allow agents to pull only the scales they need.
 
 **Findings (executed suite).** Across a 36-case sweep (rhyme × agent count × world size), median pack residual **after gzip** was **~98%** vs naive duplication when the shared world dominates agent state. A smaller-world shine lab earlier measured **~42%** residual after gzip. Flagship scaled case (256 agents, large shared world): resident shared-state proxy cut **~99%**; density arithmetic on an 8 GiB budget shows **order-of-magnitude more agents** when world ≫ per-agent state. Selective nested-vector coarse-only tasks cut runtime working-set bytes by **~99.5%** vs shipping full pyramids.
 
-**Product stance.** One product: **Tiny Footprint Multi-Agent**, with **DRAM concurrency** as the primary runtime. SQL/network shared-context adapters later—not separate diluted SKUs.
+**Product stance.** One product: **FractiSI Multi-Agent**, with **DRAM concurrency** as the primary runtime. SQL/network shared-context adapters later—not separate diluted SKUs.
 
 ---
 
@@ -72,7 +72,7 @@ npm run shine
 
 | Do | Don’t |
 |---|---|
-| Lead with **Tiny Footprint Multi-Agent** | Four SKUs: DRAM / SQL / Networking / Agents |
+| Lead with **FractiSI Multi-Agent** | Four SKUs: DRAM / SQL / Networking / Agents |
 | Keep **DRAM** as the engine inside Multi-Agent | Kill DRAM language |
 | Phase-2 adapters: network fan-out, durable template store | Generic “beat zstd everywhere” marketing |
 
@@ -84,4 +84,4 @@ Always qualify: lab proxies; partner measurement required for production fleets.
 
 ## 6. Document ID
 
-`WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11` · FractiSI · Tiny Footprint Multi-Agent · SynthOBS Autonomous Agent · Syntheverse Sandbox · → ∞^∞
+`WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11` · FractiSI · FractiSI Multi-Agent · SynthOBS Autonomous Agent · Syntheverse Sandbox · → ∞^∞

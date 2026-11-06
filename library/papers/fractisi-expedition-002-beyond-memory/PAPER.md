@@ -1,13 +1,13 @@
 # FractiSI Research Expedition 002 · Beyond Memory Savings
 
-**Testing Whether Tiny Footprint Multi-Agent Improves Speed, Accuracy, Convergence, Discovery, and Collective Problem-Solving**
+**Testing Whether FractiSI Multi-Agent Improves Speed, Accuracy, Convergence, Discovery, and Collective Problem-Solving**
 
 **Preliminary Experimental Abstract / Technical Paper · Version 1.0 · 5 November 2026**  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
 **Document ID:** `WP-FRACTISI-EXPEDITION-002-BEYOND-MEMORY-EGS-2026-11-05`  
 **Registry ID:** `synthobs-fractisi-expedition-002-beyond-memory-2026-11`  
 **Expedition:** FractiSI Research Expedition 002 · Infinite Octave adjacency  
-**Product:** Tiny Footprint Multi-Agent · kit [`FractiAI/FractiSI-Multi-Agent`](https://github.com/FractiAI/FractiSI-Multi-Agent)  
+**Product:** FractiSI Multi-Agent · kit [`FractiAI/FractiSI-Multi-Agent`](https://github.com/FractiAI/FractiSI-Multi-Agent)  
 **Suite:** `research/synthobs-fractisi-expedition-002-beyond-memory/`  
 **Engine spine:** Tiny Gateway · Rhyming Templates · nested vectors · selective reconstruction  
 
@@ -19,7 +19,7 @@
 |---|---|---|
 | Architecture | Shared world once + agent deltas + relationship-guided reconstruct is implementable as a lab harness | That every multi-agent framework already ships this |
 | Empirical (this suite) | Structured-state resource microbench vs full copies; constrained multi-hop discovery under fixed retrieval budget | Live GPU HBM RSS; production LangGraph/AutoGen bake-off; LLM reasoning superiority |
-| Product | Tiny Footprint Multi-Agent is the commercial surface for shared-world concurrency | CapEx guarantee; universal selective-reconstruction latency win |
+| Product | FractiSI Multi-Agent is the commercial surface for shared-world concurrency | CapEx guarantee; universal selective-reconstruction latency win |
 | Brochure program map | Eight application families are research priorities | That every brochure concurrency figure is independently receipted in this suite |
 
 **Evidence classification:** digital architectural lab + product research expedition. Application companion — **not** ENGINE_SHELF. Not an LLM-agent trial.
@@ -30,7 +30,7 @@
 
 Multi-agent AI systems increasingly require populations of specialized agents to work from overlapping information about the same changing environment. Conventional implementations can duplicate substantial portions of shared context, increasing memory requirements, data movement, synchronization overhead, and infrastructure costs. Efficient storage alone does not establish that an agent population can reason, coordinate, or solve problems better.
 
-**Tiny Footprint Multi-Agent** investigates an alternative architecture in which shared information is represented once, agent-specific changes are maintained as deltas, and task-relevant information can be selectively reconstructed through structured relationships. The broader architecture incorporates Rhyming Templates, nested vectors, multiscale organization, and dynamic reconstruction.
+**FractiSI Multi-Agent** investigates an alternative architecture in which shared information is represented once, agent-specific changes are maintained as deltas, and task-relevant information can be selectively reconstructed through structured relationships. The broader architecture incorporates Rhyming Templates, nested vectors, multiscale organization, and dynamic reconstruction.
 
 **Central research question:** Can reorganizing shared information enable a population of agents to produce more useful collective intelligence per unit of infrastructure?
 
