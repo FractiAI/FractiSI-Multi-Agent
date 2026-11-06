@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolvePython } from '../../labs/python-runner.mjs';
+import { checkCloud, checkGit } from '../../platform/prereqs.mjs';
 
 export function doctor(ctx) {
   const { log, config, root, shareTo } = ctx;
@@ -23,5 +24,9 @@ export function doctor(ctx) {
   else log('gpu: nvidia-smi not available (GPU labs will report not_run; CPU benchmarks still work)');
   log(`share recipient: ${shareTo}`);
   log('doctor complete');
+  const git = checkGit(ctx.root);
+  const cloud = checkCloud(process.env);
+  log(`git · ${git.ok ? git.version : git.error}${git.inRepo ? ' · repo OK' : ' · not in a repo (try will use sandbox)'}`);
+  log(`cloud · ${cloud.ok ? cloud.provider + ' token OK' : 'token missing — set FRACTISI_CLOUD_TOKEN or VERCEL_TOKEN'}`);
   return 0;
 }

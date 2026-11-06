@@ -12,6 +12,8 @@ export function createStore(opts = {}) {
     tasks: new Map(),
     contributions: new Map(),
     compositions: new Map(),
+    releases: new Map(),
+    commits: [],
     events: [],
   };
 
@@ -22,6 +24,8 @@ export function createStore(opts = {}) {
       tasks: [...state.tasks.values()],
       contributions: [...state.contributions.values()],
       compositions: [...state.compositions.values()],
+      releases: [...state.releases.values()],
+      commits: state.commits.slice(-200),
       events: state.events.slice(-500),
     };
   }
@@ -33,14 +37,15 @@ export function createStore(opts = {}) {
     state.tasks = new Map((data.tasks || []).map((t) => [t.id, t]));
     state.contributions = new Map((data.contributions || []).map((c) => [c.id, c]));
     state.compositions = new Map((data.compositions || []).map((c) => [c.id, c]));
+    state.releases = new Map((data.releases || []).map((r) => [r.id, r]));
+    state.commits = Array.isArray(data.commits) ? data.commits.slice(-200) : [];
     state.events = Array.isArray(data.events) ? data.events.slice(-500) : [];
   }
 
   function persist() {
     if (!opts.path) return null;
     fs.mkdirSync(path.dirname(opts.path), { recursive: true });
-    const json = JSON.stringify(snapshot(), null, 2);
-    fs.writeFileSync(opts.path, json);
+    fs.writeFileSync(opts.path, JSON.stringify(snapshot(), null, 2));
     return opts.path;
   }
 
@@ -58,12 +63,5 @@ export function createStore(opts = {}) {
     return event;
   }
 
-  return {
-    state,
-    snapshot,
-    loadSnapshot,
-    persist,
-    restore,
-    emit,
-  };
+  return { state, snapshot, loadSnapshot, persist, restore, emit };
 }

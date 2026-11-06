@@ -11,3 +11,7 @@ export { AGENT_MESSAGE_FIELDS, adapters, getAdapter, normalizeAgentMessage, inge
 export { TIERS, resolveTier, hasCapability, featureMatrix } from './entitlements.mjs';
 export { createPlatform } from './create-platform.mjs';
 export { runComparativeBench } from './comparative-bench.mjs';
+
+export { resolveCloudToken, cloudPrereqMessage } from './cloud.mjs';
+export { checkTryPrereqs, checkGit, checkCloud } from './prereqs.mjs';
+export { runTryFlow } from './try-flow.mjs';
