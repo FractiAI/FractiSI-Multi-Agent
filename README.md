@@ -15,7 +15,7 @@
 
 ## Install and use (start here)
 
-You need **exactly two things** for the full end-to-end try (coordinate agents → compose → git commit → cloud preview):
+For the **sandbox demo with a live preview**, you need **Git + a cloud token**. For **real workloads**, Git alone is enough — **deploy is optional** (`--deploy` only when you want a preview):
 
 | What | Why |
 |------|-----|
@@ -87,6 +87,34 @@ After Git + token and `node scripts/tiny.mjs try`, you are not just running a he
 
 That is the whole product path for first use. More detail: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · [QUICKSTART.md](./QUICKSTART.md).
 
+
+### Real workloads (your repo — deploy optional)
+
+Not every agentic job should hit the cloud. On a **real project**, Git is enough:
+
+```bash
+# from YOUR project (or pass --repo)
+node /path/to/FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --repo "$PWD"
+# or after cloning the kit beside your repo:
+# node ../FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --repo "$PWD"
+```
+
+That captures dirty files (or `.fractisi/worktrees/*` edits), composes them, and makes a **local git commit**. No `VERCEL_TOKEN` required.
+
+Optional cloud preview — only when you want it:
+
+```bash
+export VERCEL_TOKEN=…
+node scripts/tiny.mjs try --workload --deploy --repo "$PWD"
+```
+
+Prepare Cursor/Claude worktrees first:
+
+```bash
+node scripts/tiny.mjs try --workload --prepare --repo "$PWD"
+# edit in .fractisi/worktrees/<agent>, then re-run without --prepare
+```
+
 ### Useful follow-ups
 
 ```bash
@@ -103,7 +131,8 @@ Optional flags: `node scripts/tiny.mjs try --prod` (production deploy) · `try -
 
 - **Your token stays yours.** It is read from the environment for Vercel API calls only. It is not written into the git commit by `try`.
 - **Your remotes stay yours.** Cursor, Claude Code, VS Code, GitHub/GitLab, and CI are unchanged; FractiSI coordinates beside them.
-- **Local-only path.** If you skip the cloud token, you can still run `doctor` / `demo` / `benchmark` / `report`. Deploy and the full `try` path need the token.
+- **Deploy is optional.** Real workloads: `try --workload` composes + commits locally. Add `--deploy` only when you want a cloud preview. Sandbox demo still defaults to deploy; pass `--no-deploy` to skip.
+- **Local labs.** Without any token you can still run `doctor` / `demo` / `benchmark` / `report`.
 - **Tiny Footprint** is Layer A (shared world + deltas). Layers B–F add coordination, composition, Git awareness, and deploy approvals.
 
 ---

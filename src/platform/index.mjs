@@ -15,3 +15,11 @@ export { runComparativeBench } from './comparative-bench.mjs';
 export { resolveCloudToken, cloudPrereqMessage } from './cloud.mjs';
 export { checkTryPrereqs, checkGit, checkCloud } from './prereqs.mjs';
 export { runTryFlow } from './try-flow.mjs';
+export { runRealWorkloadFlow } from './real-workload-flow.mjs';
+export {
+  listDirtyPaths,
+  readRepoFiles,
+  partitionPaths,
+  captureWorkingTree,
+  captureAgentWorktrees,
+} from './workload-capture.mjs';

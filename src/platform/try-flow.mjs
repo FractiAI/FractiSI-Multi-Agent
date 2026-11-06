@@ -13,7 +13,12 @@ export async function runTryFlow(opts = {}) {
   const env = opts.env || process.env;
 
   const prereqs = checkTryPrereqs(cwd, env);
-  if (!prereqs.ok) {
+  const skipDeploy = Boolean(opts.skipDeploy || opts.noDeploy);
+  // Cloud token required only when this run will deploy
+  if (!prereqs.git?.ok) {
+    return { ok: false, stage: 'prereqs', prereqs };
+  }
+  if (!skipDeploy && !prereqs.cloud?.ok) {
     return { ok: false, stage: 'prereqs', prereqs };
   }
 
@@ -91,6 +96,20 @@ export async function runTryFlow(opts = {}) {
     return { ok: false, stage: 'git_integrate', integrated };
   }
   log(`git · committed ${integrated.sha?.slice(0, 7)} · files ${integrated.written.join(', ')}`);
+
+  if (opts.skipDeploy || opts.noDeploy) {
+    platform.persist();
+    log('deploy · skipped (optional — pass cloud token path without --no-deploy to publish)');
+    return {
+      ok: true,
+      sandbox,
+      agents: [alpha.id, beta.id],
+      compositionId: composed.composition.id,
+      sha: integrated.sha,
+      deployed: false,
+      prereqs,
+    };
+  }
 
   const rc = platform.deploy.createReleaseCandidate(composed.composition.id, {
     checks: ['try-flow-validated'],
