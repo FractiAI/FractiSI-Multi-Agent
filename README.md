@@ -64,7 +64,7 @@ Live site: https://fractisi.vercel.app · product: [/product/](https://fractisi.
 
 ```bash
 git clone https://github.com/FractiAI/tiny-footprint-multi-agent.git
-cd tiny-footprint-workstation
+cd tiny-footprint-multi-agent
 code .          # or: cursor .
 ```
 
