@@ -128,9 +128,9 @@ Enterprises running FractiSI on **their own** servers / agent hosts. **What they
 
 ### Cloud Platform — custom licensing
 
-Hyperscalers, GPU providers, and large-scale agent infrastructure operators. **What they buy: intelligence infrastructure at provider scale.**
+Hyperscalers, GPU providers, and large-scale operators. **What they buy: custom license + support** to run FractiSI on **their** cloud — not FractiSI-hosted infrastructure.
 
-- Provider-scale shared-world infrastructure  
+- Provider-scale shared-world software license  
 - Multi-tenant agent coordination  
 - Distributed discovery and convergence  
 - Infrastructure licensing  
@@ -161,7 +161,7 @@ Do **not** charge per discovery, hypothesis, or convergence round — that would
 | Developer Pro | Personal multi-agent intelligence |
 | Team | Collective discovery and decision-making |
 | Enterprise | License + support on customer infrastructure |
-| Cloud | Intelligence infrastructure at provider scale |
+| Cloud · Custom | License + support on customer / provider cloud (FractiSI does not host) |
 
 ---
 
