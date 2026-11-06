@@ -1,59 +1,60 @@
-<!-- try path -->
+# FractiSI Multi-Agent · Product
+
+**Product name lock:** customers hear **FractiSI Multi-Agent**. **Tiny Footprint** is the Layer A execution core (powered by **Tiny Gateway™**). DRAM concurrency is the engine. SQL/network adapters are later — not separate diluted SKUs.
+
+## Positioning
+
+One shared world. Many perspectives. New discoveries. Faster convergence. Better decisions.
+
+FractiSI Multi-Agent is shared-world **intelligence and coordination** infrastructure for agent fleets — beside the IDE/runtime you already run. It is not a low-cost Cursor/Claude substitute.
 
 ## Freemium pricing
 
-See [FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md](./FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) and live [/product/pricing/](/product/pricing/). Community free · Developer Pro **$59/mo** · Team **$299/mo** · Enterprise from **$30k/yr** · Cloud custom. Multi-agent intelligence and convergence platform (revised Nov 2026).
+See [FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md](./FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) and live [/product/pricing/](/product/pricing/).
 
-## FractiSI Multi-Agent platform
-
-As of Workstation **0.2**, Tiny Footprint Multi-Agent is the **core execution technology** inside the unified **FractiSI Multi-Agent** product (coordination, composition, Git awareness, deploy approvals). Commercial tiers (Core / Professional / Enterprise) package capabilities — they are not separate products.
-
-See [architecture assessment](../architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md).
-
-# Tiny Footprint Multi-Agent · Product
+| Edition | Price | What you buy |
+|---------|------:|--------------|
+| **Community** | Free | Access to the architecture |
+| **Developer Pro** | **$59 / month** | Personal multi-agent intelligence · up to 8 concurrent |
+| **Team** | **$299 / month** | Collective discovery and decisions · up to 32 concurrent |
+| **Server / Enterprise** | **From $30,000 / year** | Organizational intelligence infrastructure |
+| **Cloud Platform** | Custom | Provider-scale intelligence infrastructure |
 
 ## Install and use
 
-**Required:** Git + cloud token (`VERCEL_TOKEN` / `FRACTISI_CLOUD_TOKEN`) + Node 18+.
+**Real workload (recommended):** Git + Node 18+. **Optional cloud preview:** add `VERCEL_TOKEN` / `FRACTISI_CLOUD_TOKEN`.
 
 ```bash
 git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
 cd FractiSI-Multi-Agent
-export VERCEL_TOKEN=…
-node scripts/tiny.mjs try
+node scripts/tiny.mjs try --workload --repo "$PWD"
+# Optional preview: add --deploy and VERCEL_TOKEN
 ```
 
-**What to expect:** shared-world density (Tiny Footprint), coordination, composition, Git worktrees, approval-gated live preview — beside Cursor / Claude Code / VS Code.
+**What to expect:** shared-world density (Tiny Footprint), coordination, composition, Git worktrees, optional approval-gated live preview — beside Cursor / Claude Code / VS Code.
 
-Full guide: [../install/INSTALL.md](../install/INSTALL.md) · README “Install and use (start here)”.
+Full guide: [../install/INSTALL.md](../install/INSTALL.md) · root README.
 
+## Platform (Workstation 0.2)
 
-**One shared world. Many agents.**  
-Powered by Tiny Gateway™ · FractiSI / FractiAI
+Layers A–F: Tiny Footprint execution · coordination · shared state · composition · Git awareness · optional deploy.
 
-## What it is
-
-**FractiSI Multi-Agent** is the flagship product: software installed **alongside** the agent runtime or serving stack you already run—not a new computer, not a stack replacement. One shared world (or shared organizational context) for many agents; per-agent deltas; selective reconstruct. **DRAM concurrency** is the engine inside.
+See [architecture assessment](../architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md) · platform paper [/library/papers/fractisi-multi-agent-platform/](/library/papers/fractisi-multi-agent-platform/).
 
 ## One engine · three editions
 
-| Edition | Customer | Installed on | Pricing |
-|---------|----------|--------------|---------|
-| **Local · Workstation Kit** | Developers / researchers | Personal computer | Free / Pro subscription |
-| **Server** | Enterprises | Company GPU / agent hosts | Annual license |
-| **Cloud · Platform** | Cloud / GPU operators | Provider infrastructure | Negotiated |
+| Edition | Customer | Installed on |
+|---------|----------|--------------|
+| **Local · Workstation** | Developers / researchers | Personal computer |
+| **Server** | Enterprises | Company GPU / agent hosts |
+| **Cloud · Platform** | Cloud / GPU operators | Provider infrastructure |
 
 ## Central idea
 
-Without Tiny Footprint, each agent often retains a full copy of the shared world.  
-With Tiny Footprint Multi-Agent, the world is registered once; each agent keeps compact differences; selective reconstruction builds the working set.
+Without FractiSI Multi-Agent, each agent often retains a full copy of the shared world, then collides at merge. With it, the world is registered once (Tiny Footprint); each agent keeps compact differences; selective reconstruction builds the working set; coordination and composition produce one shippable result.
 
-Paper: [TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./TINY_FOOTPRINT_MULTI_AGENT_2026-11.md) · Empirical suite: [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot)
+Shared-world / gzip / density companion paper: [/library/papers/tiny-footprint-multi-agent/](/library/papers/tiny-footprint-multi-agent/) · Empirical suite: [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot)
 
-## First download
+Commercial hub: https://fractisi.vercel.app/product/
 
-This repository is **Workstation 0.2** — the starting point for all three markets.
-
-Commercial hub: https://fractisi.vercel.app/product/  
-Multi-Agent paper: https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/  
-Plainspeak (in-repo): [docs/web/simple.html](../web/simple.html)
+→ ∞^∞

@@ -1,13 +1,24 @@
 {
   "@context": "https://w3id.org/codemeta/3.0",
   "@type": "SoftwareSourceCode",
-  "name": "Tiny Footprint Workstation",
-  "description": "Developer kit for storing shared AI-serving state once, with a reproducible benchmark pipeline.",
+  "name": "FractiSI Multi-Agent Workstation",
+  "description": "FractiSI Multi-Agent workstation kit \u2014 shared-world intelligence and convergence for agent fleets; Tiny Footprint Layer A core; reproducible benchmarks.",
   "version": "0.1.0",
   "codeRepository": "https://github.com/FractiAI/FractiSI-Multi-Agent",
-  "programmingLanguage": ["JavaScript", "Python"],
+  "programmingLanguage": [
+    "JavaScript",
+    "Python"
+  ],
   "author": [
-    { "@type": "Organization", "name": "FractiAI" },
-    { "@type": "Person", "givenName": "Daniel Ari", "familyName": "Friedman", "@id": "https://orcid.org/0000-0001-6232-9096" }
+    {
+      "@type": "Organization",
+      "name": "FractiAI"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Daniel Ari",
+      "familyName": "Friedman",
+      "@id": "https://orcid.org/0000-0001-6232-9096"
+    }
   ]
 }

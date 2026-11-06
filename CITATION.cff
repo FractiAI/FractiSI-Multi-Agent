@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: If you use this software, please cite it using the metadata from this file.
-title: Tiny Footprint Workstation
+title: FractiSI Multi-Agent Workstation
 type: software
 version: 0.1.0
-abstract: Developer kit for storing shared AI-serving state once, with a reproducible benchmark pipeline.
+abstract: FractiSI Multi-Agent workstation kit — shared-world intelligence and convergence for agent fleets; Tiny Footprint Layer A core; reproducible benchmarks.
 authors:
   - name: FractiAI
   - family-names: Friedman
