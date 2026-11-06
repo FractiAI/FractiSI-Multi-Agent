@@ -20,7 +20,7 @@
   <main>
     <p class="kicker">FractiSI Multi-Agent</p>
     <h1>Administrative status</h1>
-    <p>Local Workstation admin surface. Load status from <code>.fractisi/state.json</code> after <code>node scripts/tiny.mjs init</code>.</p>
+    <p>Local Workstation admin surface. Full try path: Git + <code>VERCEL_TOKEN</code> → <code>node scripts/tiny.mjs try</code>. Then load status from <code>.fractisi/state.json</code> (or after <code>init</code>).</p>
     <div class="panel">
       <p><strong>Capabilities</strong></p>
       <ul>
@@ -30,7 +30,8 @@
         <li>Git awareness</li>
         <li>Deploy approvals (Enterprise)</li>
       </ul>
-      <p>CLI: <code>node scripts/tiny.mjs status --json</code></p>
+      <p>CLI: <code>node scripts/tiny.mjs try</code> · <code>status --json</code></p>
+      <p>What to expect: shared-world density, coordination, composition, Git worktrees, approval-gated preview.</p>
       <p><a href="/product/">Product</a> · <a href="/library/">Library</a> · <a href="/docs/install/INSTALL.md">Install</a></p>
     </div>
   </main>

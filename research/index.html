@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research · FractiSI</title>
-  <meta name="description" content="FractiSI research: open evaluation for Tiny Footprint Multi-Agent. Public receipts. Partner measurement on production-class silicon.">
+  <meta name="description" content="FractiSI research: open evaluation for FractiSI Multi-Agent. Public receipts. Partner measurement on production-class silicon.">
   <link rel="stylesheet" href="../css/site.css?v=14">
 </head>
 <body>
@@ -17,7 +17,7 @@
       <a href="/open/">Open</a>
       <a href="/company/">Company</a>
       <a href="/recruit/">Recruit</a>
-      <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get Workstation</a>
+      <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
     </nav>
   </header>
 
@@ -40,13 +40,16 @@
           <h2>Run it locally</h2>
           <p>Community free. No account. Compare conventional serving with Tiny Footprint on your hardware. FractiSI does not operate the box.</p>
           <pre><code>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
-cd tiny-footprint-workstation
+cd FractiSI-Multi-Agent
+export VERCEL_TOKEN=…
+node scripts/tiny.mjs try
+# local labs:
 node scripts/tiny.mjs doctor
 node scripts/tiny.mjs install
 node scripts/tiny.mjs demo
 node scripts/tiny.mjs benchmark
 node scripts/tiny.mjs report</code></pre>
-          <a class="solid" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get Workstation 0.1</a>
+          <a class="solid" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
         </div>
         <div>
           <h2>Join partner measurement</h2>
@@ -84,7 +87,7 @@ node scripts/tiny.mjs report</code></pre>
       <p class="kicker">Method</p>
       <h2>Public receipts gate product claims.</h2>
       <p class="lede">FractiAI publishes open empirical labs. FractiSI repeats only claims those labs already carry.</p>
-      <p><strong>Tiny Footprint Multi-Agent</strong> is the product surface of Tiny Gateway for concurrent agents—shared world once, per-agent deltas, selective reconstruct. Documented. Versioned. Runnable. Not a claim that a catalog constant replaces laboratory physics.</p>
+      <p><strong>FractiSI Multi-Agent</strong> is the flagship product surface — Tiny Footprint / Tiny Gateway at Layer A (shared world once, per-agent deltas, selective reconstruct), plus coordination, composition, Git awareness, and approval-gated deploy. Documented. Versioned. Runnable. Not a claim that a catalog constant replaces laboratory physics.</p>
 
       <h2>What local labs measured</h2>
       <p>Laptop GeForce via DirectML: allocation proxy ~81.4% cut; tiny-gpt2 microbench ~1.80× prefill, ~1.37× generate, ~1.17× train step; in-process suite aggregate ~84.5% against an 80% research target. Those sentences stay tied to that hardware.</p>
