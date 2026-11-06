@@ -6,7 +6,9 @@ This is the user-facing install guide. After you provide **Git** and a **cloud t
 
 | Required for | Need |
 |--------------|------|
-| Full `try` (compose + commit + **live preview**) | Git + Node 18+ + `VERCEL_TOKEN` or `FRACTISI_CLOUD_TOKEN` |
+| Real workload compose + commit | Git + Node 18+ (**no** cloud token) |
+| Real workload + optional preview | above + `--deploy` + `VERCEL_TOKEN` / `FRACTISI_CLOUD_TOKEN` |
+| Sandbox `try` with live preview | Git + Node 18+ + cloud token |
 | Local demos / benchmarks only | Git + Node 18+ (no cloud token) |
 
 **Not required:** Cursor API key, Claude key, OpenAI key, GitHub fine-grained PAT (unless you push remotes yourself), Docker.
@@ -33,6 +35,35 @@ cd FractiSI-Multi-Agent
 ```
 
 Optional: `code .` or `cursor .` to open the Workstation in an IDE.
+
+
+## Real workloads — deploy optional
+
+Daniel (or any operator) can run FractiSI on an **existing git project**. Cloud publish is **not** required.
+
+```bash
+node scripts/tiny.mjs try --workload --repo /path/to/his-project
+```
+
+What happens without `--deploy`:
+
+1. Registers Cursor/Claude-shaped agents and opens worktrees under `.fractisi/worktrees/`
+2. Captures dirty files (or worktree edits)
+3. Composes + validates
+4. **Git-commits** the integrated result into *his* repo
+
+Optional preview:
+
+```bash
+export VERCEL_TOKEN=…
+node scripts/tiny.mjs try --workload --deploy --repo /path/to/his-project
+```
+
+Prepare-only (no changes yet):
+
+```bash
+node scripts/tiny.mjs try --workload --prepare --repo /path/to/his-project
+```
 
 ## Use — full product path
 

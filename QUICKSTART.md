@@ -15,7 +15,15 @@ git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
 cd FractiSI-Multi-Agent
 ```
 
-## Use
+## Real workload (your repo — no cloud required)
+
+```bash
+node scripts/tiny.mjs try --workload --repo "$PWD"
+```
+
+Compose + git commit only. Add `--deploy` only if you want a Vercel preview.
+
+## Sandbox demo use
 
 ```bash
 export VERCEL_TOKEN=…          # or: export FRACTISI_CLOUD_TOKEN=…

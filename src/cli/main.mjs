@@ -22,12 +22,13 @@ import { tryPlatform } from './commands/try.mjs';
 import { deploy } from './commands/deploy.mjs';
 import { propose } from './commands/propose.mjs';
 import { repo } from './commands/repo.mjs';
+import { capture } from './commands/capture.mjs';
 import { createContext } from './context.mjs';
 
 export const COMMANDS = Object.freeze({
   doctor, install, demo, benchmark, report, integrate, join, share,
   init, status, agents, compose, 'coord-bench': coordBench,
-  try: tryPlatform, deploy, propose, repo,
+  try: tryPlatform, deploy, propose, repo, capture,
 });
 
 /** @param {string[]} [argv] */
@@ -36,7 +37,7 @@ export async function main(argv = process.argv) {
   const command = COMMANDS[name];
   if (!command) {
     console.error(`Unknown command: ${name}`);
-    console.error('Commands: doctor | install | init | try | status | agents | propose | compose | repo | deploy | demo | benchmark | coord-bench | report | integrate | join | share');
+    console.error('Commands: doctor | install | init | try | capture | status | agents | propose | compose | repo | deploy | demo | benchmark | coord-bench | report | integrate | join | share');
     return 1;
   }
   return (await command(createContext({ argv }))) ?? 0;
