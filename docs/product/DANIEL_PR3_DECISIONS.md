@@ -1,6 +1,6 @@
 # FractiAI decisions on PR #3 (Daniel’s study)
 
-Reply context for [PR #3](https://github.com/FractiAI/tiny-footprint-multi-agent/pull/3).
+Reply context for [PR #3](https://github.com/FractiAI/FractiSI-Multi-Agent/pull/3).
 
 ## What we accept from the study
 

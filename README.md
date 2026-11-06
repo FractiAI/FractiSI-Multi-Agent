@@ -5,10 +5,10 @@
 **FractiSI** · flagship product **FractiSI Multi-Agent** · Local **Workstation** kit  
 **Core technology:** Tiny Footprint · powered by **Tiny Gateway™**
 
-[![Product](https://img.shields.io/badge/product-Tiny%20Footprint%20Multi--Agent-c9a227)](./docs/product/PRODUCT.md)
+[![Product](https://img.shields.io/badge/product-FractiSI%20Multi--Agent-c9a227)](./docs/product/PRODUCT.md)
 [![Edition](https://img.shields.io/badge/edition-Community%20FREE-0b1424)](./docs/product/PRODUCT.md)
 [![Site](https://img.shields.io/badge/site-fractisi.vercel.app-0b1424)](https://fractisi.vercel.app)
-[![Paper](https://img.shields.io/badge/paper-Multi--Agent-0b1424)](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md)
+[![Paper](https://img.shields.io/badge/paper-Platform-0b1424)](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md)
 [![Lab](https://img.shields.io/badge/lab-empirical%20suite-444)](https://github.com/FractiAI/tiny-oracle-lob-pilot)
 
 
@@ -94,8 +94,8 @@ Live site: https://fractisi.vercel.app · product: [/product/](https://fractisi.
 **Requirements:** Git · Node.js 18+ · VS Code (or Cursor) · optional NVIDIA GPU + Python for GPU labs
 
 ```bash
-git clone https://github.com/FractiAI/tiny-footprint-multi-agent.git
-cd tiny-footprint-multi-agent
+git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
+cd FractiSI-Multi-Agent
 code .          # or: cursor .
 ```
 
@@ -169,7 +169,7 @@ Details: [docs/product/VALIDATION.md](./docs/product/VALIDATION.md)
 ## Repository layout
 
 ```
-tiny-footprint-multi-agent/          ← GitHub repo · Local kit for Tiny Footprint Multi-Agent
+FractiSI-Multi-Agent/               ← GitHub repo · FractiSI Multi-Agent kit (Tiny Footprint core)
 ├── src/                  ← all logic, in submodules
 │   ├── core/             ← bytes, statistics, randomness, hashing
 │   ├── engine/           ← Tiny Gateway: templates, vectors, broadcast

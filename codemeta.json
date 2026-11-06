@@ -4,7 +4,7 @@
   "name": "Tiny Footprint Workstation",
   "description": "Developer kit for storing shared AI-serving state once, with a reproducible benchmark pipeline.",
   "version": "0.1.0",
-  "codeRepository": "https://github.com/FractiAI/tiny-footprint-multi-agent",
+  "codeRepository": "https://github.com/FractiAI/FractiSI-Multi-Agent",
   "programmingLanguage": ["JavaScript", "Python"],
   "author": [
     { "@type": "Organization", "name": "FractiAI" },

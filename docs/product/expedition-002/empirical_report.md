@@ -5,7 +5,7 @@
 **Expedition:** FractiSI Research Expedition 2 · Beyond Memory Savings
 **Seed:** 20261105
 **Generated:** 2026-11-06T09:32:47.454Z
-**Product kit:** FractiAI/tiny-footprint-multi-agent
+**Product kit:** FractiAI/FractiSI-Multi-Agent
 
 ## Verdict
 

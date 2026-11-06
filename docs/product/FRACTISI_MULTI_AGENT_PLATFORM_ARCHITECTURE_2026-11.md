@@ -8,7 +8,7 @@
 **Core technology:** Tiny Footprint (Tiny Gateway™)  
 **Pin:** Application companion · **not** ENGINE_SHELF  
 **Date:** 2026-11-06  
-**Kit:** [FractiAI/tiny-footprint-multi-agent](https://github.com/FractiAI/tiny-footprint-multi-agent) · Workstation 0.2
+**Kit:** [FractiAI/FractiSI-Multi-Agent](https://github.com/FractiAI/FractiSI-Multi-Agent) · Workstation 0.2
 
 ---
 
@@ -80,5 +80,5 @@ Customers keep Cursor, Claude Code, VS Code, Git, GitHub/GitLab, and CI/CD.
 | Field | Value |
 |---|---|
 | Status | Application companion architecture |
-| Suite / kit | `FractiAI/tiny-footprint-multi-agent` · `src/platform/` |
+| Suite / kit | `FractiAI/FractiSI-Multi-Agent` · `src/platform/` |
 | Assessment | kit `docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md` |

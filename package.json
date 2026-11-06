@@ -6,10 +6,10 @@
   "description": "FractiSI Multi-Agent \u2014 Tiny Footprint execution + coordination/composition platform (Workstation kit)",
   "license": "UNLICENSED",
   "author": "FractiAI",
-  "homepage": "https://www.ssvibelandiaquestfest24x365.com/tiny-footprint",
+  "homepage": "https://fractisi.vercel.app",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FractiAI/tiny-footprint-multi-agent.git"
+    "url": "git+https://github.com/FractiAI/FractiSI-Multi-Agent.git"
   },
   "engines": {
     "node": ">=18"

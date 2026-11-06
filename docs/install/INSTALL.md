@@ -10,8 +10,8 @@ No other API keys are required for the try path.
 ## One command
 
 ```bash
-git clone https://github.com/FractiAI/tiny-footprint-multi-agent.git
-cd tiny-footprint-multi-agent
+git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
+cd FractiSI-Multi-Agent
 export VERCEL_TOKEN=…          # or FRACTISI_CLOUD_TOKEN
 node scripts/tiny.mjs try
 ```

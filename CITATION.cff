@@ -10,7 +10,7 @@ authors:
     given-names: Daniel Ari
     orcid: 0000-0001-6232-9096
     affiliation: Active Inference Institute
-repository-code: https://github.com/FractiAI/tiny-footprint-multi-agent
+repository-code: https://github.com/FractiAI/FractiSI-Multi-Agent
 keywords:
   - AI serving
   - memory efficiency
