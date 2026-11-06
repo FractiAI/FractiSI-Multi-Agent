@@ -1,0 +1,7 @@
+{
+  "product": "FractiSI Multi-Agent",
+  "company": "FractiSI",
+  "coreTechnology": "Tiny Footprint",
+  "note": "Commercial tiers package capabilities of one architecture.",
+  "tiers": ["core", "professional", "enterprise"]
+}

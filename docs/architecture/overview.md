@@ -43,7 +43,9 @@ flowchart TD
 |---|---|
 | [`src/core`](../../src/core/README.md) | Bytes, statistics, seeded randomness, hashing, formats, paths |
 | [`src/engine`](../../src/engine/README.md) | Tiny Gateway: templates, vectors, broadcast, the gateway |
+| [`src/platform`](../../src/platform/README.md) | FractiSI Multi-Agent coordination, composition, Git, deploy |
 | [`src/sdk`](../../src/sdk/README.md) | The public facade |
+
 | [`src/experiments`](../../src/experiments/README.md) | The registered suite, one module per experiment |
 | [`src/labs`](../../src/labs/README.md) | Adapters that run the Python labs and report what actually ran |
 | [`src/tiny_footprint_labs`](../../src/tiny_footprint_labs/README.md) | Python labs and figures |

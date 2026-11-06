@@ -1,3 +1,9 @@
+## FractiSI Multi-Agent platform
+
+As of Workstation **0.2**, Tiny Footprint Multi-Agent is the **core execution technology** inside the unified **FractiSI Multi-Agent** product (coordination, composition, Git awareness, deploy approvals). Commercial tiers (Core / Professional / Enterprise) package capabilities — they are not separate products.
+
+See [architecture assessment](../architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md).
+
 # Tiny Footprint Multi-Agent · Product
 
 **One shared world. Many agents.**  

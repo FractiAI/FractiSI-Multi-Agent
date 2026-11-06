@@ -35,3 +35,7 @@ output/.pipeline/
 # Session-local agent caches
 .claude/
 graft/
+
+# FractiSI local platform state
+.fractisi/
+

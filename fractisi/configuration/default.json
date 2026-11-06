@@ -1,0 +1,25 @@
+{
+  "product": "FractiSI Multi-Agent",
+  "company": "FractiSI",
+  "coreTechnology": "Tiny Footprint",
+  "tier": "professional",
+  "capabilities": {
+    "tinyFootprintExecution": true,
+    "coordination": true,
+    "sharedState": true,
+    "composition": true,
+    "gitIntegration": true,
+    "deploy": false,
+    "monitoring": true
+  },
+  "agents": {
+    "defaultPermissions": ["read", "propose"],
+    "maxConcurrent": 25,
+    "preferScopedWorkspaces": true,
+    "useGitWorktrees": false
+  },
+  "adapters": ["cursor", "claude-code", "vscode", "openai", "native"],
+  "persistence": {
+    "statePath": ".fractisi/state.json"
+  }
+}
