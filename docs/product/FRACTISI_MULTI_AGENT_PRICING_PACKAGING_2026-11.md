@@ -112,7 +112,7 @@ Engineering organizations, research teams, and agent fleets. **What they buy: co
 
 ### Enterprise · Server / Enterprise — from $30,000 / year
 
-Enterprises operating large, distributed agent ecosystems. **What they buy: organizational intelligence infrastructure.**
+Enterprises running FractiSI on **their own** servers / agent hosts. **What they buy: production license + support** — not FractiSI-hosted infrastructure.
 
 - Everything in Team  
 - Dedicated server infrastructure  
@@ -160,7 +160,7 @@ Do **not** charge per discovery, hypothesis, or convergence round — that would
 | Community | Access to the architecture |
 | Developer Pro | Personal multi-agent intelligence |
 | Team | Collective discovery and decision-making |
-| Enterprise | Organizational intelligence infrastructure |
+| Enterprise | License + support on customer infrastructure |
 | Cloud | Intelligence infrastructure at provider scale |
 
 ---
@@ -172,7 +172,7 @@ Do **not** charge per discovery, hypothesis, or convergence round — that would
 3. **Don’t charge per agent registration or per discovery** — concurrent capacity + edition capability.  
 4. **Don’t make deployment mandatory** — local compose + Git stay useful without cloud.  
 5. **Don’t charge for roadmap promises** — sell Pro/Team/Enterprise when corresponding workflows are operational, reproducible, and supported. Lab results alone do not establish that every proposed paid feature is already implemented.  
-6. **Enterprise must earn its contract** — private deploy, governance, support, and capacity.  
+6. **Enterprise must earn its contract** — license + support for customer-owned deploy, governance, and capacity (FractiSI does not host the servers).  
 
 ---
 
