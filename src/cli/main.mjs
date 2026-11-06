@@ -13,9 +13,17 @@ import { integrate } from './commands/integrate.mjs';
 import { join } from './commands/join.mjs';
 import { report } from './commands/report.mjs';
 import { share } from './commands/share.mjs';
+import { init } from './commands/init.mjs';
+import { status } from './commands/status.mjs';
+import { agents } from './commands/agents.mjs';
+import { compose } from './commands/compose.mjs';
+import { coordBench } from './commands/coord-bench.mjs';
 import { createContext } from './context.mjs';
 
-export const COMMANDS = Object.freeze({ doctor, install, demo, benchmark, report, integrate, join, share });
+export const COMMANDS = Object.freeze({
+  doctor, install, demo, benchmark, report, integrate, join, share,
+  init, status, agents, compose, 'coord-bench': coordBench,
+});
 
 /** @param {string[]} [argv] */
 export async function main(argv = process.argv) {
@@ -23,7 +31,7 @@ export async function main(argv = process.argv) {
   const command = COMMANDS[name];
   if (!command) {
     console.error(`Unknown command: ${name}`);
-    console.error('Commands: doctor | install | demo | benchmark [--full] | report [--share] | integrate | join | share');
+    console.error('Commands: doctor | install | demo | benchmark [--full] | report [--share] | integrate | join | share | init | status | agents | compose | coord-bench [--full]');
     return 1;
   }
   return (await command(createContext({ argv }))) ?? 0;

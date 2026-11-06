@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FractiSI Multi-Agent · Admin</title>
+  <link rel="stylesheet" href="/css/site.css" />
+  <style>
+    :root { --ink:#0b1424; --gold:#c9a227; --paper:#f4f1ea; }
+    body { margin:0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background:linear-gradient(160deg,#0b1424,#1a2740 45%,#102033); color:#f7f4ec; }
+    main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    h1 { font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600; letter-spacing: -0.02em; }
+    .kicker { color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; }
+    .panel { margin-top: 1.5rem; padding: 1rem 1.1rem; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+    code { color: #f0d78c; }
+    a { color: #f0d78c; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">FractiSI Multi-Agent</p>
+    <h1>Administrative status</h1>
+    <p>Local Workstation admin surface. Load status from <code>.fractisi/state.json</code> after <code>node scripts/tiny.mjs init</code>.</p>
+    <div class="panel">
+      <p><strong>Capabilities</strong></p>
+      <ul>
+        <li>Tiny Footprint execution</li>
+        <li>Coordination &amp; shared state</li>
+        <li>Composition &amp; conflict detection</li>
+        <li>Git awareness</li>
+        <li>Deploy approvals (Enterprise)</li>
+      </ul>
+      <p>CLI: <code>node scripts/tiny.mjs status --json</code></p>
+      <p><a href="/product/">Product</a> · <a href="/library/">Library</a> · <a href="/docs/install/INSTALL.md">Install</a></p>
+    </div>
+  </main>
+</body>
+</html>

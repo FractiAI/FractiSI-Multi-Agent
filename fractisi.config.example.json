@@ -1,0 +1,16 @@
+{
+  "product": "FractiSI Multi-Agent",
+  "tier": "professional",
+  "projectRoot": ".",
+  "capabilities": {
+    "coordination": true,
+    "composition": true,
+    "gitIntegration": true,
+    "deploy": false
+  },
+  "agents": {
+    "defaultPermissions": ["read", "propose"],
+    "maxConcurrent": 25
+  },
+  "adapters": ["cursor", "claude-code", "vscode", "openai"]
+}

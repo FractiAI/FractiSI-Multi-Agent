@@ -1,14 +1,37 @@
-# Tiny Footprint Multi-Agent
+# FractiSI Multi-Agent
 
-### One shared world. Many agents.
+### One shared world. Many agents. Coordinated work. Composed results.
 
-**FractiSI** · flagship product · Local **Workstation** kit · powered by **Tiny Gateway™**
+**FractiSI** · flagship product **FractiSI Multi-Agent** · Local **Workstation** kit  
+**Core technology:** Tiny Footprint · powered by **Tiny Gateway™**
 
 [![Product](https://img.shields.io/badge/product-Tiny%20Footprint%20Multi--Agent-c9a227)](./docs/product/PRODUCT.md)
 [![Edition](https://img.shields.io/badge/edition-Community%20FREE-0b1424)](./docs/product/PRODUCT.md)
 [![Site](https://img.shields.io/badge/site-fractisi.vercel.app-0b1424)](https://fractisi.vercel.app)
 [![Paper](https://img.shields.io/badge/paper-Multi--Agent-0b1424)](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md)
 [![Lab](https://img.shields.io/badge/lab-empirical%20suite-444)](https://github.com/FractiAI/tiny-oracle-lob-pilot)
+
+
+## Platform layers (Workstation 0.2)
+
+| Layer | What it does |
+|-------|----------------|
+| **A · Tiny Footprint execution** | Shared templates, agent deltas, selective reconstruct |
+| **B · Coordination** | Agent registry, task ownership, interference detection |
+| **C · Shared state** | Project / module / contribution representation |
+| **D · Composition** | Evaluate, validate, integrate, rollback contributions |
+| **E · Git awareness** | Inspect repos; scoped workspaces (optional worktrees) |
+| **F · Deploy capability** | Release candidates with mandatory approval |
+
+```bash
+node scripts/tiny.mjs init
+node scripts/tiny.mjs agents register worker-1 cursor
+node scripts/tiny.mjs status
+node scripts/tiny.mjs coord-bench
+```
+
+Architecture assessment: [docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md](./docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md) · Install: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · API: [docs/reference/platform-api.md](./docs/reference/platform-api.md)
+
 
 ---
 

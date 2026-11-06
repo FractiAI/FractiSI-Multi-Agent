@@ -1,9 +1,9 @@
 {
-  "name": "tiny-footprint-multi-agent",
-  "version": "0.1.0",
+  "name": "fractisi-multi-agent",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Tiny Footprint IDE Workstation Kit 0.1 \u2014 AI Memory Efficiency Developer Kit",
+  "description": "FractiSI Multi-Agent \u2014 Tiny Footprint execution + coordination/composition platform (Workstation kit)",
   "license": "UNLICENSED",
   "author": "FractiAI",
   "homepage": "https://www.ssvibelandiaquestfest24x365.com/tiny-footprint",
@@ -15,7 +15,8 @@
     "node": ">=18"
   },
   "bin": {
-    "tiny": "./scripts/tiny.mjs"
+    "tiny": "./scripts/tiny.mjs",
+    "fractisi": "./scripts/tiny.mjs"
   },
   "scripts": {
     "test": "node scripts/run_node_tests.mjs",
@@ -31,6 +32,9 @@
     "research:synthobs-tiny-gateway-rhyming-templates": "npm run research",
     "pipeline": "node scripts/run_pipeline.mjs",
     "rebuild": "node scripts/run_pipeline.mjs --rebuild",
-    "verify": "node scripts/verify_project.mjs"
+    "verify": "node scripts/verify_project.mjs",
+    "coord-bench": "node scripts/tiny.mjs coord-bench",
+    "init": "node scripts/tiny.mjs init",
+    "status": "node scripts/tiny.mjs status"
   }
 }

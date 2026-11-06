@@ -1,0 +1,11 @@
+# Optional self-hosted FractiSI Multi-Agent sidecar.
+# Mount a customer repository and run CLI commands without replacing their IDE.
+services:
+  fractisi:
+    build: .
+    working_dir: /workspace
+    volumes:
+      - ./:/opt/fractisi:ro
+      - ${FRACTISI_PROJECT:-.}:/workspace
+    entrypoint: ["node", "/opt/fractisi/scripts/tiny.mjs"]
+    command: ["status"]

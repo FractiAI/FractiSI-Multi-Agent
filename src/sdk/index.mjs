@@ -1,6 +1,7 @@
 /**
- * Tiny Footprint SDK, Workstation 0.1. Wires to the Tiny Gateway rhyming-template engine.
- * The context and energy exports are in-process lab meters, not device claims.
+ * FractiSI Multi-Agent SDK (Workstation). Tiny Footprint remains the execution core
+ * (Tiny Gateway rhyming templates). Platform coordination exports live alongside.
+ * Context/energy exports are in-process lab meters, not device claims.
  */
 import { createRecursiveContextBuffer } from '../engine/context/buffer.mjs';
 import { createCompressionHookRegistry, nestedDeltaFoldHook, octaveScaleCapHook, workingSetBoundHook } from '../engine/context/hooks.mjs';
@@ -11,9 +12,20 @@ import { deepEqual, encodeExpression, reconstructExpression, reconstructExpressi
 import { FOUR_PILLARS, auditRhyme, brickWallCandidate, isRhyme, trueRhymeCandidate } from '../engine/rhyming/gate.mjs';
 import { rankPartialRhymes, rhymeScore, routeBySignature, structuralDistance } from '../engine/rhyming/route.mjs';
 import { shapesRhyme, structuralSignature } from '../engine/rhyming/shape.mjs';
+import {
+  COMPANY as FRACTISI_COMPANY,
+  CORE_TECHNOLOGY,
+  PRODUCT as FRACTISI_PRODUCT,
+  PRODUCT_VERSION as FRACTISI_VERSION,
+  createPlatform,
+  featureMatrix,
+  runComparativeBench,
+} from '../platform/index.mjs';
 
+/** @deprecated Prefer FRACTISI_PRODUCT; retained for Workstation compatibility. */
 export const PRODUCT = 'Tiny Footprint';
 export const VERSION = '0.1.0';
+export { FRACTISI_COMPANY, FRACTISI_PRODUCT, FRACTISI_VERSION, CORE_TECHNOLOGY, createPlatform, featureMatrix, runComparativeBench };
 
 const defaultCatalog = createTemplateCatalog();
 

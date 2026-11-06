@@ -11,6 +11,7 @@ import { listFiles } from './files.mjs';
 export const LAYERS = Object.freeze([
   ['core'],
   ['engine', 'labs'],
+  ['platform'],
   ['experiments', 'sdk'],
   ['benchmarks', 'workloads'],
   ['analysis'],
