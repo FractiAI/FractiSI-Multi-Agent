@@ -343,12 +343,12 @@ Professional infrastructure — not a cheap Cursor/Claude substitute. **Charge f
 | Edition | Price | Primary customer |
 |---------|------:|------------------|
 | **Community** | Free | Individual developer |
-| **Developer Pro** | **$39 / month** | Professional developer |
-| **Team** | **$149 / month** | Engineering team |
-| **Server / Enterprise** | **From $12,000 / year** | Enterprise |
-| **Cloud Platform** | Custom | Infrastructure provider |
+| **Developer Pro** | **$59 / month** | Personal multi-agent intelligence |
+| **Team** | **$299 / month** | Collective discovery and decisions |
+| **Server / Enterprise** | **From $30,000 / year** | Organizational intelligence infrastructure |
+| **Cloud Platform** | Custom | Provider-scale intelligence infrastructure |
 
-Primary billing metric: **concurrent coordinated agents** (registered agents are generous; human seats are included allowances). Deploy remains **optional**. Community is genuinely useful with no crippled trial.
+Revised November 2026 (was $39 / $149 / $12k) — category is multi-agent **intelligence and convergence**, not coordination plumbing alone. Primary meter: **concurrent coordinated agents** (Pro 8 · Team 32); do not bill per discovery. Deploy **optional**. Community remains genuinely useful.
 
 
 Full page: [/product/pricing/](./product/pricing/) · [pricing & packaging spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)  

@@ -2,7 +2,7 @@
 
 ## Freemium pricing
 
-See [FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md](./FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) and live [/product/pricing/](/product/pricing/). Community free · Developer Pro $39/mo · Team $149/mo · Enterprise from $12k/yr.
+See [FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md](./FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) and live [/product/pricing/](/product/pricing/). Community free · Developer Pro **$59/mo** · Team **$299/mo** · Enterprise from **$30k/yr** · Cloud custom. Multi-agent intelligence and convergence platform (revised Nov 2026).
 
 ## FractiSI Multi-Agent platform
 
