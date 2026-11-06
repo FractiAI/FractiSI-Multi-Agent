@@ -347,7 +347,7 @@ Rendering the PDF needs a [docxology/template](https://github.com/docxology/temp
 
 Hub: https://fractisi.vercel.app/product/
 
-**Product name lock:** customers hear **Tiny Footprint Multi-Agent**. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs.
+**Product name lock:** customers hear **FractiSI Multi-Agent**. Tiny Footprint is the Layer A core. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs.
 
 ---
 
@@ -366,7 +366,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 
 ## FractiSI site
 
-Marketing site for **Tiny Footprint Multi-Agent** — product hub, research, library, open, company, recruit — lives at the repo root and deploys to https://fractisi.vercel.app (also mirrored to [FractiAI/fractisi](https://github.com/FractiAI/fractisi)).
+Marketing site for **FractiSI Multi-Agent** — product hub, research, library, open, company, recruit — lives at the repo root and deploys to https://fractisi.vercel.app (also mirrored to [FractiAI/fractisi](https://github.com/FractiAI/fractisi)).
 
 - Product: `/product/`
 - Multi-Agent paper: `/library/papers/tiny-footprint-multi-agent/`
