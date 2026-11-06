@@ -1,7 +1,7 @@
 # FractiSI Multi-Agent · Freemium Pricing & Packaging
 
 **Document ID:** `FRACTISI-MULTI-AGENT-PRICING-PACKAGING-2026-11`  
-**Status:** Proposed launch pricing · commercial specification  
+**Status:** Proposed launch pricing · commercial specification · **revised November 2026**  
 **Product:** FractiSI Multi-Agent  
 **Live page:** [`/product/pricing/`](../../product/pricing/index.html) · site https://fractisi.vercel.app/product/pricing/
 
@@ -9,185 +9,197 @@
 
 ## Positioning
 
-FractiSI is a **professional infrastructure product** with a genuinely useful Community edition — not a low-cost alternative to Cursor, Claude Code, or other agent platforms.
+FractiSI is a **multi-agent intelligence and convergence platform** — not merely shared-memory and agent-coordination infrastructure, and not a low-cost alternative to Cursor, Claude Code, or other agent platforms.
 
-**Commercial principle:** charge for the **capacity to coordinate productive agent fleets**, not for access to the underlying idea or the number of times someone runs a command.
+**Commercial promise:**
 
-FractiSI creates value by allowing more agents to work against **one shared world**, coordinate contributions, and produce **integrated outcomes**. Commercial value increases with the **size and complexity of the workload**.
+> One shared world. Many perspectives. New discoveries. Faster convergence. Better decisions.
 
-**Recommended positioning line:** FractiSI is not another AI coding assistant. It is the coordination and shared-world infrastructure that makes larger, more productive agent fleets possible.
+FractiSI is the shared-world intelligence and coordination infrastructure that enables agent fleets to move beyond independent answers toward collective discovery, composed understanding, and validated outcomes. Powered by Tiny Footprint and Tiny Gateway™.
 
-**Strategic metric:** agent density per infrastructure budget — more productive agents on the same memory, compute, and operating budget.
+**Commercial principle:** charge for **coordinated intelligence capacity** — the ability to run productive agent fleets that discover relationships flat approaches miss and converge on validated decisions with fewer rounds and operations — not for the underlying idea, command counts, discoveries, hypotheses, or model tokens.
+
+**Strategic metric:** agent density and collective intelligence per infrastructure budget.
+
+| Edition | Previous proposal | **Revised proposal** |
+|---------|------------------:|---------------------:|
+| Community | Free | **Free** |
+| Developer Pro | $39 / month | **$59 / month** |
+| Team | $149 / month | **$299 / month** |
+| Server / Enterprise | From $12,000 / year | **From $30,000 / year** |
+| Cloud Platform | Custom | **Custom** |
+
+These are **proposed commercial prices**, not validated willingness-to-pay figures or established market rates.
+
+---
+
+## Why the new pricing is justified
+
+Previous packaging was largely the value of coordinating agents and reducing duplicated infrastructure. Expedition 002 and related labs add discovery and convergence value:
+
+| Value dimension | What FractiSI delivers |
+|-----------------|------------------------|
+| Infrastructure efficiency | Less duplicated shared-world representation |
+| Agent density | Potentially more agents within a fixed resource budget |
+| Discovery | Relationships that independent flat exploration misses |
+| Convergence | Fewer rounds and operations to reach answers |
+| Decision quality | Composed evidence and validated outcomes |
+| Productivity | Less duplicated investigation and reconciliation |
+
+**Expedition 002 laboratory highlights** (experiment-specific — not guarantees for every workload):
+
+| Result | Meaning |
+|--------|---------|
+| **100/100** guided discoveries | vs **0/100** flat skim (100 × 6-hop) |
+| **−50%** decision rounds | 3 vs 6 |
+| **−85%** operations | 6 vs 40 |
+| **36.91×–62.41×** density | laboratory duplication-reduction arithmetic |
+| **~42%+** residual after gzip | compression shrinks copies; does not remove the tax |
+| Rhyme **4,758 B** vs exact-text cache **6,704 B** | when words differ (exact cache still wins identical text) |
 
 ---
 
 ## Recommended pricing (four tiers + Cloud)
 
-These are **proposed launch prices**, not claims of established market rates.
+### Free · Community — open-source foundation · $0
 
-| Edition | Price | Primary customer |
-|---------|------:|------------------|
-| **Community** | Free · $0 | Individual developer / researcher |
-| **Developer Pro** | **$39 / month** | Professional developer |
-| **Team** | **$149 / month** | Engineering team |
-| **Server / Enterprise** | **From $12,000 / year** | Enterprise |
-| **Cloud Platform** | Custom | Hyperscaler / GPU operator / large agent platform |
-
-### Free · Community — open-source entry point
-
-For individual developers, researchers, and experimentation.
+Individual developers, researchers, and innovators. **What they buy: access to the architecture.**
 
 - Local workstation installation  
-- Tiny Footprint execution core  
-- Shared-world registration and reconstruction  
-- Basic agent registry and coordination  
-- Local composition and validation  
-- Git integration  
-- Local benchmarks and reports  
-- Community documentation  
+- Tiny Footprint shared-world engine  
+- Basic agent registration and coordination  
+- Shared state and contribution composition  
+- Basic validation and Git integration  
+- Local benchmarks and discovery experiments  
+- Reproducible laboratory tools  
+- Community support  
 
 **No artificial expiration or crippled trial.**
 
-### Paid · Developer Pro — $39 / month
+### Paid · Developer Pro — $59 / month
 
-For developers running serious multi-agent workloads.
+Professional developers and individual agent architects. **What they buy: personal multi-agent intelligence.**
 
 - Everything in Community  
-- Up to **8** registered agents  
-- Up to **4** concurrent coordinated agents  
-- Multiple project workspaces  
-- Advanced interference detection  
-- Composition policies and validation gates  
-- Rollback and contribution history  
-- Advanced workload analytics  
-- Benchmark comparisons and exportable receipts  
-- Priority updates and professional support  
+- Up to **8** concurrent coordinated agents  
+- Multi-project shared worlds  
+- Cross-agent relationship discovery  
+- Guided convergence workflows  
+- Contradiction detection and resolution  
+- Hypothesis generation and validation workflows  
+- Adaptive task coordination  
+- Advanced composition and rollback  
+- Decision and discovery receipts  
+- Advanced benchmarking  
+- Professional support  
 
-### Paid · Team — $149 / month
+### Paid · Team — $299 / month
 
-For engineering teams coordinating shared agent fleets.
+Engineering organizations, research teams, and agent fleets. **What they buy: collective discovery and decision-making.**
 
 - Everything in Developer Pro  
-- Up to **32** registered agents  
-- Up to **16** concurrent coordinated agents  
-- Shared team workspaces  
-- Team-level permissions and ownership  
-- Cross-project coordination  
-- Centralized policies and audit receipts  
+- Up to **32** concurrent coordinated agents  
+- Shared organizational worlds  
+- Cross-project discovery  
+- Distributed hypothesis investigation  
+- Team-wide knowledge composition  
+- Adaptive agent allocation  
+- Decision convergence analytics  
+- Evidence and provenance tracking  
+- Team permissions and governance  
 - Approval-gated integration and deployment  
-- Team analytics and utilization reporting  
-- Team administration and priority support  
+- Priority support  
 
-### Enterprise · Server / Enterprise — from $12,000 / year
+### Enterprise · Server / Enterprise — from $30,000 / year
 
-For companies operating substantial agent infrastructure.
+Enterprises operating large, distributed agent ecosystems. **What they buy: organizational intelligence infrastructure.**
 
 - Everything in Team  
-- Dedicated server deployment  
-- Custom agent capacity  
-- Organization-wide shared-world infrastructure  
-- Enterprise identity and access integration  
-- Advanced governance and auditability  
-- Deployment and integration controls  
-- Private support and onboarding  
-- Custom service-level agreements  
+- Dedicated server infrastructure  
+- Custom concurrent agent capacity  
+- Organization-wide shared-world architecture  
+- Cross-departmental intelligence coordination  
+- Enterprise identity and access controls  
+- Advanced audit and governance  
+- Private deployment  
+- Custom integration  
 - Architecture and capacity planning  
+- Enterprise support and SLA options  
 
-### Cloud Platform — custom pricing
+### Cloud Platform — custom licensing
 
-For hyperscalers, GPU operators, infrastructure providers, and large agent platforms.
+Hyperscalers, GPU providers, and large-scale agent infrastructure operators. **What they buy: intelligence infrastructure at provider scale.**
 
-- Provider-scale agent coordination  
-- Multi-tenant shared-world architecture  
-- Custom capacity and infrastructure economics  
-- Integration and licensing arrangements  
-- Enterprise-wide or infrastructure-wide deployment  
-
----
-
-## Why these prices
-
-The competitive market is **professional developer infrastructure and agentic engineering** — not inexpensive plugins.
-
-| Comparable product | Published pricing (reference) |
-|--------------------|-------------------------------|
-| Cursor Premium | ~$30 / month |
-| GitHub Copilot Pro+ | ~$39 / month |
-| Claude Pro | ~$20 / month |
-| Claude Team Standard | ~$20–25 / user / month |
-| Cursor Teams | ~$30+ / user / month |
-
-**Distinction:** Cursor and Claude primarily sell AI development experiences and model usage. GitHub sells developer productivity and agent access. **FractiSI sells the infrastructure that coordinates work across agents**, independently of which models or IDEs are used. That justifies a separate infrastructure subscription.
-
-Do **not** price FractiSI at $9 or $19 as a lure. **$39** places Developer Pro beside established professional developer products; **$149** Team sells organizational capability, not a cheap multi-seat bundle.
+- Provider-scale shared-world infrastructure  
+- Multi-tenant agent coordination  
+- Distributed discovery and convergence  
+- Infrastructure licensing  
+- Custom capacity and commercial agreements  
 
 ---
 
-## Pricing metric: coordinated agent capacity
+## Pricing metric: coordinated intelligence capacity
 
-Do **not** make human seats the primary pricing unit. Economic value tracks how many agents work **concurrently** in a coordinated shared world.
+Retain **concurrent coordinated agents** as the primary capacity meter. Add a second commercial dimension: **coordinated intelligence capacity** (shared worlds, discovery/convergence workloads, governance and deploy requirements).
 
 | Metric | Commercial treatment |
 |--------|----------------------|
 | Human operators | Included allowance by edition |
-| Registered agents | Generous allowance; not the main billing unit |
-| **Concurrent coordinated agents** | **Primary capacity dimension** |
+| Concurrent coordinated agents | **Primary capacity dimension** |
+| Shared worlds / discovery–convergence workloads | Capability by edition — **not** billed per discovery, hypothesis, or round |
+| Organizational governance & deploy | Team / Enterprise / Cloud |
 
-An organization may have 100 registered agents and only 12 working simultaneously — charging for all 100 discourages adoption without reflecting demand. Concurrent coordination capacity is what customers should scale.
+Do **not** charge per discovery, hypothesis, or convergence round — that would discourage the behavior that differentiates FractiSI. Sell **capacity and capability**.
 
 ---
 
-## What differentiates each paid edition
+## Edition progression (what customers buy)
 
-| Stage | Edition | Responsibility |
-|-------|---------|----------------|
-| Discover and build | Community | Download, install, experiment, benchmark, real local workloads |
-| Operate | Developer Pro | Larger fleet, multiple projects, interference, reliable composition |
-| Govern | Team | Multi-person fleets, ownership, policies, integration/release control |
-| Institutionalize | Enterprise | Own infra, identity, governance, capacity, deployment, SLAs |
-
-Natural progression: individual adoption → professional use → organizational coordination → infrastructure licensing.
+| Edition | What customers are buying |
+|---------|---------------------------|
+| Community | Access to the architecture |
+| Developer Pro | Personal multi-agent intelligence |
+| Team | Collective discovery and decision-making |
+| Enterprise | Organizational intelligence infrastructure |
+| Cloud | Intelligence infrastructure at provider scale |
 
 ---
 
 ## Packaging rules
 
-1. **Community must be genuinely useful** — do not cripple Tiny Footprint, withhold the core engine, or require a credit card. Community demonstrates the architecture and permits meaningful local workloads.  
-2. **Don’t charge for model tokens** — customers bring Cursor, Claude Code, OpenAI, or other access; provider bills stay separate. FractiSI charges for coordination infrastructure.  
-3. **Don’t charge per agent registration** — charge by concurrent coordinated capacity and organizational capabilities.  
-4. **Don’t make deployment mandatory** — local execution, composition, and Git integration remain useful without a cloud subscription.  
-5. **Make enterprise licensing valuable** — private deployment, governance, controls, support, and capacity justify larger contracts.
+1. **Community is genuinely useful** — no crippled Tiny Footprint, no withheld core, no credit card to try.  
+2. **Don’t charge for model tokens** — BYOK IDEs and providers stay separate.  
+3. **Don’t charge per agent registration or per discovery** — concurrent capacity + edition capability.  
+4. **Don’t make deployment mandatory** — local compose + Git stay useful without cloud.  
+5. **Don’t charge for roadmap promises** — sell Pro/Team/Enterprise when corresponding workflows are operational, reproducible, and supported. Lab results alone do not establish that every proposed paid feature is already implemented.  
+6. **Enterprise must earn its contract** — private deploy, governance, support, and capacity.  
 
 ---
 
-## Launch-stage adjustment (honesty)
+## Surface priority · differentiators first
 
-There is a distinction between the **commercial architecture** and what **Workstation 0.2** can currently substantiate. Documentation honestly notes that adapters do not yet automatically drive live Cursor or Claude sessions; some organizational controls remain planned platform work.
+Product and pricing surfaces lead with the **full** differentiator board (flat skim · full-copy density · gzip residual · exact-text / prefix cache · Tiny Gateway DRAM/materialize · Exp 002 discovery/convergence) **above** edition tables. Visitors arrive for multi-agent intelligence results; packaging follows the proof board.
 
-**Launch sequence**
+## Lab evidence · faster convergence + what flat models miss
 
-1. Keep the four-tier (+ Cloud) commercial structure.  
-2. Make **Community** available immediately.  
-3. Introduce **Developer Pro** when paid-only features are operational and tested.  
-4. Introduce **Team** when multi-user administration and governance work.  
-5. Sell **Enterprise** through validated deployment and integration contracts.  
-6. **Don’t charge customers for roadmap promises.**  
+| Test | Flat / full-copy | FractiSI guided | Commercial meaning |
+|------|------------------|-----------------|--------------------|
+| **E2 · Discovery & solutions** (100 × 6-hop) | 0/100 | **100/100** | Shared-world guidance sees what flat skim never assembles |
+| **E2 · Architectural convergence** | 6 rounds · 40 ops | **3 (−50%)** · **6 ops (−85%)** | Faster path to answers under the same budget |
+| **E1 · Resource vs full-copy** | Full copy | Dup **89.6%–99.2%** · **36.91×–62.41×** | Agent density per infrastructure budget |
+| **Gzip residual (shared pack)** | Naive copies + gzip | **~42%+** / **~98%** world-dominated | Compression does not remove the cross-copy tax |
+| **Exact-text cache (same shape)** | Cache **6,704 B** | Rhyme **4,758 B** | Near-dupes vs identical-prefix cache |
+| **Tiny Gateway DRAM / materialize** | Conventional | **84.5%** · **81.4%** · **~9.6×** | Engine shelf; H100 ~34% = simulation |
 
-Benchmark evidence must keep laboratory qualifications; customers should reproduce results on their own machines.
+Receipts: [`expedition-002/empirical_report.md`](./expedition-002/empirical_report.md) · [`../benchmarks/RESULTS.md`](../benchmarks/RESULTS.md).
 
 ---
 
-## Annual pricing and expansion
+## Annual & competitive watch
 
-Offer annual commitments at the **same effective monthly rate** initially (no heavy discount theater). Annual customers receive:
+Annual commitments at the **same effective monthly rate** initially (no discount theater). Annual customers receive defined support, capacity planning, priority updates, architecture review, and predictable renewal.
 
-- Defined support relationship  
-- Capacity planning  
-- Priority product updates  
-- Annual architecture review  
-- Predictable renewal pricing  
-
-Reserve the right to introduce additional **concurrent-agent capacity packs** as real workloads establish economics.
+Periodically review agent-infrastructure and professional developer pricing. Adjust proposed launch prices only with documented rationale.
 
 ---
 
@@ -197,42 +209,11 @@ Runtime labels in `src/platform/entitlements.mjs`:
 
 | Commercial edition | Entitlement id | Notes |
 |--------------------|----------------|-------|
-| Community | `community` (alias `core`) | Unrestricted local discovery; no paid gates required |
-| Developer Pro | `developer_pro` (alias `professional`) | Capacity + pro tooling gates when activated |
-| Team | `team` | Multi-user / governance gates when activated |
-| Server / Enterprise | `enterprise` | Self-host, RBAC, deploy, audit |
-| Cloud Platform | `cloud` | Provider-scale packaging label |
-
-Billing architecture (subscriptions, seats vs concurrent capacity meters, upgrade path) lives with this spec; enforcement ships when the corresponding paid features are product-ready.
-
----
-
-## Competitive watch
-
-Periodically review agent-infrastructure and professional developer pricing (Cursor, Copilot, Claude Team, emerging coordination layers). Adjust proposed launch prices only with documented rationale — never to race a $9 floor.
-
----
-
-## Surface priority · differentiators first
-
-Product and pricing surfaces lead with the **full** differentiator board (flat skim · full-copy density · **gzip residual** · **exact-text / prefix cache** · Tiny Gateway DRAM/materialize · Exp 002 discovery/convergence) **above** edition tables. Visitors arrive for multi-agent results; packaging follows the proof board.
-
-## Lab evidence · faster convergence + what flat models miss
-
-Community packaging must surface the same Expedition 002 receipts that justify denser fleets. Seed `20261105`. Digital architectural lab (structured-state + relationship-guided retrieval) — **not** live GPU HBM attestation, **not** an LLM multi-agent bake-off.
-
-| Test | Flat / full-copy | FractiSI guided | Commercial meaning |
-|------|------------------|-----------------|--------------------|
-| **E2 · Discovery & solutions** (100 scenarios × 6-hop) | 0/100 solutions · 0/100 chain discovery · 0/100 anomalies | **100/100** solutions · chains · anomalies | Shared-world guidance sees relationships and answers the flat skim never assembles in budget |
-| **E2 · Architectural convergence** | 6 propagation rounds · mean 40 ops | **3 rounds (−50%)** · mean 6 ops (**−85%**) | Faster convergence on the answer path under the same constrained budget |
-| **E1 · Resource vs full-copy** | Full per-agent copy | Dup cut **89.6%–99.2%** · speedup **36.91×–62.41×** | Agent density per infrastructure budget |
-| **Gzip residual (shared pack)** | Naive per-agent copies + gzip | **~42%+** residual (smaller world); **~98%** world-dominated | Compression shrinks copies — does not remove cross-copy tax |
-| **Exact-text cache (same shape)** | Exact-text **6,704 B** | Rhyme **4,758 B** (exact wins identical text only) | Organizational near-dupes vs identical-prefix cache |
-| **Tiny Gateway DRAM / materialize** | Conventional / full | Aggregate **84.5%** · alloc proxy **81.4%** · materialize **~9.6×** | Engine shelf receipts; H100 ~34% = simulation |
-
-Receipts: [`expedition-002/empirical_report.md`](./expedition-002/empirical_report.md) · paper [`FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md`](./FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md) · brochure `/docs/web/expedition-002-brochure.html`.
-
-Honesty: selective reconstruction may be slower than direct shared lookup; **LLM collective intelligence — not demonstrated**.
+| Community | `community` (alias `core`) | Unrestricted local discovery |
+| Developer Pro | `developer_pro` (alias `professional`) | Up to 8 concurrent; intelligence workflows when activated |
+| Team | `team` | Up to 32 concurrent; collective discovery / governance when activated |
+| Server / Enterprise | `enterprise` | From $30k/yr; custom capacity |
+| Cloud Platform | `cloud` | Provider-scale |
 
 ---
 
@@ -242,7 +223,6 @@ Honesty: selective reconstruction may be slower than direct shared lookup; **LLM
 - Pricing page: `/product/pricing/`  
 - Install (deploy optional): [`../install/INSTALL.md`](../install/INSTALL.md)  
 - Root README commercial section  
-- Expedition 002 lab board + paper  
-- Platform architecture paper  
+- Expedition 002 + Tiny Gateway receipts  
 
 → ∞^∞

@@ -5,7 +5,8 @@
  *
  * Spec: docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md
  * Primary pricing metric: concurrent coordinated agents (not human seats,
- * not per-registration fees, not model tokens).
+ * not per-registration fees, not model tokens, not per-discovery).
+ * Category: multi-agent intelligence & convergence (revised Nov 2026).
  */
 
 export const TIERS = Object.freeze({
@@ -37,10 +38,10 @@ export const TIERS = Object.freeze({
   developer_pro: {
     id: 'developer_pro',
     label: 'Developer Pro',
-    price: { amount: 39, currency: 'USD', period: 'month' },
+    price: { amount: 59, currency: 'USD', period: 'month' },
     capacity: {
-      registeredAgents: 8,
-      concurrentCoordinatedAgents: 4,
+      registeredAgents: null,
+      concurrentCoordinatedAgents: 8,
       humanOperators: 1,
     },
     capabilities: [
@@ -73,10 +74,10 @@ export const TIERS = Object.freeze({
   team: {
     id: 'team',
     label: 'Team',
-    price: { amount: 149, currency: 'USD', period: 'month' },
+    price: { amount: 299, currency: 'USD', period: 'month' },
     capacity: {
-      registeredAgents: 32,
-      concurrentCoordinatedAgents: 16,
+      registeredAgents: null,
+      concurrentCoordinatedAgents: 32,
       humanOperators: null,
     },
     capabilities: [
@@ -117,7 +118,7 @@ export const TIERS = Object.freeze({
   enterprise: {
     id: 'enterprise',
     label: 'Server / Enterprise',
-    price: { amount: 12000, currency: 'USD', period: 'year', from: true },
+    price: { amount: 30000, currency: 'USD', period: 'year', from: true },
     capacity: {
       registeredAgents: null, // custom
       concurrentCoordinatedAgents: null,
@@ -225,6 +226,7 @@ export function featureMatrix() {
   return {
     product: 'FractiSI Multi-Agent',
     pricingMetric: 'concurrent_coordinated_agents',
+    pricingCategory: 'multi_agent_intelligence_convergence',
     tiers: tierIds,
     prices: Object.fromEntries(
       tierIds.map((id) => [id, TIERS[id].price]),

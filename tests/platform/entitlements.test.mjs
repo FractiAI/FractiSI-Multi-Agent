@@ -12,8 +12,9 @@ test('tiers are packaging labels with cumulative capabilities', () => {
   const matrix = featureMatrix();
   assert.ok(matrix.matrix.composition_engine.developer_pro);
   assert.equal(matrix.pricingMetric, 'concurrent_coordinated_agents');
-  assert.equal(TIERS.developer_pro.price.amount, 39);
-  assert.equal(TIERS.team.price.amount, 149);
-  assert.equal(TIERS.developer_pro.capacity.concurrentCoordinatedAgents, 4);
-  assert.equal(TIERS.team.capacity.concurrentCoordinatedAgents, 16);
+  assert.equal(TIERS.developer_pro.price.amount, 59);
+  assert.equal(TIERS.team.price.amount, 299);
+  assert.equal(TIERS.enterprise.price.amount, 30000);
+  assert.equal(TIERS.developer_pro.capacity.concurrentCoordinatedAgents, 8);
+  assert.equal(TIERS.team.capacity.concurrentCoordinatedAgents, 32);
 });
