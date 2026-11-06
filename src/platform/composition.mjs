@@ -30,6 +30,7 @@ export function createCompositionEngine(store, opts = {}) {
       paths: [...new Set((input.paths || []).map(String))],
       summary: input.summary || '',
       diff: input.diff || null,
+      files: input.files && typeof input.files === 'object' ? { ...input.files } : {},
       interfacesTouched: [...new Set((input.interfacesTouched || []).map(String))],
       dependsOn: [...new Set((input.dependsOn || []).map(String))],
       parentIds: [...new Set((input.parentIds || []).map(String))],

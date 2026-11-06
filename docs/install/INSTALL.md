@@ -1,55 +1,52 @@
-# Install FractiSI Multi-Agent (plug-and-play)
+# Try FractiSI Multi-Agent
 
-FractiSI installs **beside** your existing IDE and coding agents. You keep Cursor, Claude Code, VS Code, Git, GitHub/GitLab, and CI/CD.
+**Required credentials (only these two):**
 
-## Quick path
+1. **Git** — installed, and you are in a git repository (or we create a sandbox under `.fractisi/try-sandbox`)
+2. **Cloud token** — `FRACTISI_CLOUD_TOKEN` or `VERCEL_TOKEN`
+
+No other API keys are required for the try path.
+
+## One command
 
 ```bash
 git clone https://github.com/FractiAI/tiny-footprint-multi-agent.git
 cd tiny-footprint-multi-agent
-node scripts/tiny.mjs doctor
-node scripts/tiny.mjs install
+export VERCEL_TOKEN=…          # or FRACTISI_CLOUD_TOKEN
+node scripts/tiny.mjs try
+```
+
+What `try` does:
+
+1. Checks Git + cloud token
+2. Opens agent worktrees
+3. Proposes two non-overlapping contributions
+4. Composes + validates
+5. Commits the integrated result with Git
+6. Approves a release and deploys it with your cloud token
+7. Prints the live preview URL
+
+## Manual path (same prerequisites)
+
+```bash
+export VERCEL_TOKEN=…
 node scripts/tiny.mjs init
-node scripts/tiny.mjs agents register worker-1 cursor
-node scripts/tiny.mjs status
+node scripts/tiny.mjs agents register alice native
+node scripts/tiny.mjs agents register bob native
+node scripts/tiny.mjs propose <aliceId> agents/alice/note.txt "hello"
+node scripts/tiny.mjs propose <bobId> agents/bob/note.txt "hello"
+node scripts/tiny.mjs compose
+node scripts/tiny.mjs repo integrate
+node scripts/tiny.mjs deploy create
+node scripts/tiny.mjs deploy approve <releaseId>
+node scripts/tiny.mjs deploy run <releaseId>
 ```
 
-Optional coordination bench:
+## Optional flags
 
-```bash
-node scripts/tiny.mjs coord-bench
-node scripts/tiny.mjs coord-bench --full
-```
-
-## Connect an existing repository
-
-```bash
-cd /path/to/your/repo
-node /path/to/tiny-footprint-multi-agent/scripts/tiny.mjs init .
-```
-
-This writes:
-
-- `.fractisi/fractisi.config.json`
-- `.fractisi/state.json`
-
-## Configuration
-
-Copy [`fractisi.config.example.json`](../../fractisi.config.example.json) or use `fractisi/configuration/default.json`.
-
-Tiers (`core` | `professional` | `enterprise`) are commercial capability packs of the **same** platform — not separate products.
-
-## Docker (self-hosted)
-
-```bash
-docker compose run --rm fractisi doctor
-docker compose run --rm fractisi status
-```
+- `node scripts/tiny.mjs try --prod` — production Vercel deploy
+- `node scripts/tiny.mjs try --in-place` — use the current repo root instead of `.fractisi/try-sandbox`
 
 ## What stays yours
 
-- Your IDE and agent product
-- Your Git remotes and branch policies
-- Your CI/CD and deploy systems
-
-FractiSI coordinates in the background and composes contributions when safe.
+Cursor, Claude Code, VS Code, GitHub/GitLab remotes, and your CI stay in place. FractiSI coordinates and deploys through Git + your cloud token.

@@ -26,7 +26,7 @@ export function agents(ctx) {
     const framework = ctx.argv[5] || 'native';
     const agent = platform.coordination.agents.register({ name, framework });
     platform.coordination.agents.setStatus(agent.id, 'active');
-    platform.git.allocateScopedWorkspace(agent.id, { cwd: root });
+    platform.git.allocateScopedWorkspace(agent.id, { cwd: root, useWorktree: true });
     platform.persist();
     ctx.log(`registered · ${agent.id} (${framework})`);
     return 0;

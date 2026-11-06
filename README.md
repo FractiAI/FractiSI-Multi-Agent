@@ -24,6 +24,13 @@
 | **F · Deploy capability** | Release candidates with mandatory approval |
 
 ```bash
+export VERCEL_TOKEN=…   # or FRACTISI_CLOUD_TOKEN — only cloud credential needed
+node scripts/tiny.mjs try
+```
+
+Prerequisites: **Git** + **cloud token**. That is the full try path (worktrees → compose → git commit → cloud deploy).
+
+```bash
 node scripts/tiny.mjs init
 node scripts/tiny.mjs agents register worker-1 cursor
 node scripts/tiny.mjs status

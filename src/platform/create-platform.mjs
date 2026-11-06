@@ -23,7 +23,7 @@ export function createPlatform(opts = {}) {
   const coordination = createCoordinationEngine(store, opts);
   const composition = createCompositionEngine(store, opts);
   const git = createGitIntegration(store, opts);
-  const deploy = createDeployPipeline(store);
+  const deploy = createDeployPipeline(store, opts);
   const tier = resolveTier(opts.tier || 'professional');
 
   if (opts.project) coordination.connectProject(opts.project);
