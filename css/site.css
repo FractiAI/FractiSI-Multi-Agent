@@ -640,3 +640,88 @@ pre {
   color: rgba(247,244,236,.7);
 }
 .plan-strip a { color: #f3e6c0; }
+
+/* Print-ready commercial surfaces */
+@media print {
+  .announce,
+  .nav,
+  .site-footer .nav-links,
+  .nav-links a.button {
+    /* keep nav wordmark readable in print */
+  }
+  .announce { display: none; }
+  .nav {
+    position: static;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    backdrop-filter: none;
+  }
+  .nav-links a.button {
+    background: transparent;
+    color: inherit;
+    border: 1px solid #333;
+    border-radius: 0;
+    padding: 0.2rem 0.45rem;
+  }
+  body {
+    background: #fff;
+    color: #111;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  a { color: inherit; text-decoration: underline; }
+  .stage {
+    display: block;
+    min-height: 0;
+    page-break-inside: avoid;
+  }
+  .stage-visual,
+  .banner,
+  .shots img,
+  .figure img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    page-break-inside: avoid;
+  }
+  .plan-strip,
+  .diff-board,
+  .price-card {
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid #333 !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .plan-strip h2,
+  .plan-strip .promise,
+  .plan-strip .foot,
+  .plan-strip a,
+  .diff-board h2,
+  .diff-board .why,
+  .diff-board .foot,
+  .diff-board a,
+  .diff-stat .label,
+  .diff-stat p,
+  .price-card,
+  .price-card h3,
+  .price-card li,
+  .price-card .who,
+  .price-card a {
+    color: #111 !important;
+  }
+  .plan-strip .plan .amt,
+  .diff-stat .num,
+  .price-card .amt {
+    color: #0b1220 !important;
+  }
+  .plan-strip .plans { grid-template-columns: repeat(2, 1fr) !important; }
+  .diff-board { grid-template-columns: 1fr 1fr !important; }
+  .shots { grid-template-columns: 1fr !important; }
+  pre, code { white-space: pre-wrap; word-break: break-word; }
+  .site-footer { border-top: 1px solid #ccc; color: #333; }
+  .honesty { border-top: 1px solid #ccc; padding-top: 0.75rem; font-size: 9pt; color: #333; }
+}
