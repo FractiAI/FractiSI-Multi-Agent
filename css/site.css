@@ -440,11 +440,14 @@ pre {
   .stage-visual {
     order: -1;
     width: 100%;
-    min-height: 220px;
-    height: min(52vw, 280px);
-    max-height: 300px;
-    /* Crop to the wordmark/leaf in the hero art (baked-in text sits left in the file) */
-    object-position: 22% 42%;
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    /* Full FractiSI Multi-Agent hero art must fit — do not crop baked-in messaging */
+    object-fit: contain;
+    object-position: center top;
+    background: #0b1220;
   }
   .stage-copy {
     padding: 2rem 1.25rem 2.4rem;
@@ -493,9 +496,15 @@ pre {
     text-align: center;
   }
   .shots img {
-    height: 12rem;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
     margin-left: auto;
     margin-right: auto;
+    background: #0b1220;
   }
   .list a.row {
     grid-template-columns: 1fr;
@@ -508,9 +517,11 @@ pre {
   .banner {
     width: 100%;
     max-width: 100%;
-    height: min(42vh, 280px);
-    object-fit: cover;
-    object-position: center;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    background: #0b1220;
   }
   .figure {
     text-align: center;
@@ -518,13 +529,23 @@ pre {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    overflow: hidden;
   }
   .figure img {
     width: 100%;
     max-width: 100%;
     height: auto;
+    max-height: none;
+    object-fit: contain;
     margin-left: auto;
     margin-right: auto;
+  }
+  .portrait {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 22rem;
+    object-fit: cover;
   }
   .plan-strip,
   .diff-board {

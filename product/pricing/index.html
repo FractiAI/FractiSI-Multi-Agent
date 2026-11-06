@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FractiSI Multi-Agent · Freemium Pricing &amp; Packaging</title>
   <meta name="description" content="FractiSI Multi-Agent intelligence platform: Community free · Developer Pro $59/mo · Team $299/mo · Enterprise from $30k/yr. Discovery, convergence, density — not just coordination.">
-  <link rel="stylesheet" href="../../css/site.css?v=19">
+  <link rel="stylesheet" href="../../css/site.css?v=20">
   <style>
     .price-grid { display:grid; gap:1.25rem; margin:1.5rem 0 2rem; }
     @media (min-width: 900px) {
@@ -13,12 +13,13 @@
       .price-grid .span-2 { grid-column: 1 / -1; }
     }
     .price-card {
-      border: 1px solid rgba(201,162,39,.35);
-      background: rgba(11,20,36,.55);
+      border: 1px solid rgba(201,162,39,.45);
+      background: #0b1220;
+      color: #f7f4ec;
       padding: 1.25rem 1.35rem 1.4rem;
       border-radius: 4px;
     }
-    .price-card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
+    .price-card h3 { margin: 0 0 .35rem; font-size: 1.15rem; color: #f3e6c0; }
     .price-card .amt {
       font-size: 1.75rem;
       font-weight: 700;
@@ -27,26 +28,30 @@
     }
     .price-card .amt small { font-size: .85rem; font-weight: 500; color: rgba(247,244,236,.75); }
     .price-card ul { margin: 0; padding-left: 1.1rem; }
-    .price-card li { margin: .35rem 0; }
-    .price-card .who { color: rgba(247,244,236,.75); font-size: .95rem; margin: 0 0 .75rem; }
+    .price-card li { margin: .35rem 0; color: #f7f4ec; }
+    .price-card .who { color: rgba(247,244,236,.78); font-size: .95rem; margin: 0 0 .75rem; }
+    .price-card a { color: #f3e6c0; }
     .price-card.featured { box-shadow: inset 0 0 0 1px #c9a227; }
     .metric-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem; }
     .metric-table th, .metric-table td { border-bottom: 1px solid rgba(255,255,255,.12); padding: .55rem .4rem; text-align: left; vertical-align: top; }
     .badge { display:inline-block; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:#0b1424; background:#c9a227; padding:.15rem .45rem; border-radius:2px; margin-left:.35rem; }
+    /* Solid navy — translucent gold/navy over cream page made light text unreadable */
     .diff-board {
       display:grid; gap:1rem; margin:1.25rem 0 1.75rem;
       padding:1.15rem 1.2rem 1.25rem;
       border:1px solid rgba(201,162,39,.55);
-      background: linear-gradient(135deg, rgba(201,162,39,.12), rgba(11,20,36,.65));
+      background: #0b1220;
+      color: #f7f4ec;
     }
     @media (min-width: 800px) { .diff-board { grid-template-columns: repeat(3, 1fr); } }
-    .diff-board h2 { grid-column: 1 / -1; margin: 0 0 .15rem; font-size:1.35rem; }
-    .diff-board .why { grid-column: 1 / -1; margin: 0 0 .35rem; color: rgba(247,244,236,.85); }
+    .diff-board h2 { grid-column: 1 / -1; margin: 0 0 .15rem; font-size:1.35rem; color:#f3e6c0; font-family: var(--sans); }
+    .diff-board .why { grid-column: 1 / -1; margin: 0 0 .35rem; color: rgba(247,244,236,.9); }
     .diff-stat { border-left: 3px solid #c9a227; padding: .15rem 0 .15rem .85rem; }
     .diff-stat .num { display:block; font-size:1.55rem; font-weight:700; color:#c9a227; line-height:1.2; margin:.2rem 0; }
-    .diff-stat .label { display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(247,244,236,.65); }
-    .diff-stat p { margin:.35rem 0 0; font-size:.92rem; }
-    .diff-board .foot { grid-column: 1 / -1; margin:.35rem 0 0; font-size:.9rem; color:rgba(247,244,236,.72); }
+    .diff-stat .label { display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(247,244,236,.72); }
+    .diff-stat p { margin:.35rem 0 0; font-size:.92rem; color:#f7f4ec; }
+    .diff-board .foot { grid-column: 1 / -1; margin:.35rem 0 0; font-size:.9rem; color:rgba(247,244,236,.78); }
+    .diff-board a { color: #f3e6c0; }
   </style>
 </head>
 <body>
