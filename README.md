@@ -1,38 +1,45 @@
-# Tiny Footprint Workstation
+# Tiny Footprint Multi-Agent
 
 ### One shared world. Many agents.
 
-**FractiSI** · **Tiny Footprint Multi-Agent** · powered by **Tiny Gateway™**
+**FractiSI** · flagship product · Local **Workstation** kit · powered by **Tiny Gateway™**
 
-[![Edition](https://img.shields.io/badge/edition-Community%20FREE-c9a227)](./docs/product/PRODUCT.md)
+[![Product](https://img.shields.io/badge/product-Tiny%20Footprint%20Multi--Agent-c9a227)](./docs/product/PRODUCT.md)
+[![Edition](https://img.shields.io/badge/edition-Community%20FREE-0b1424)](./docs/product/PRODUCT.md)
 [![Site](https://img.shields.io/badge/site-fractisi.vercel.app-0b1424)](https://fractisi.vercel.app)
 [![Paper](https://img.shields.io/badge/paper-Multi--Agent-0b1424)](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md)
+[![Lab](https://img.shields.io/badge/lab-empirical%20suite-444)](https://github.com/FractiAI/tiny-oracle-lob-pilot)
 
 ---
 
 ## What is Tiny Footprint Multi-Agent?
 
-**Tiny Footprint Multi-Agent** is the flagship product: one shared world (or shared organizational context) for many agents—template once, per-agent deltas, selective reconstruct. DRAM concurrency is the engine inside. Install it **beside** the agent runtime / serving stack you already run.
+**Tiny Footprint Multi-Agent** is FractiSI’s product: one shared world (or shared organizational context) for many agents — template once, per-agent deltas, selective reconstruct. **DRAM concurrency** is the engine inside. Install it **beside** the agent runtime / serving stack you already run.
 
-Multi-agent empirical suite (companion): [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) · `npm run multi-agent` · `npm run shine`
+Agent fleets default to an expensive habit: **copy the shared world into every agent**. Compression shrinks each copy; it does not remove the copies. This kit is the Local / Workstation edition of that product.
 
-The Workstation also measures classic Tiny Footprint serving memory cases. Exact prefix sharing remains strong when the same words repeat; organizational rhyme extends near-duplicates. See [RESULTS.md](./docs/benchmarks/RESULTS.md) · Multi-Agent paper [docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md).
+| | Without Tiny Footprint Multi-Agent | With Tiny Footprint Multi-Agent |
+|--|------------------------------------|--------------------------------|
+| Shared context | Reprinted per agent / session | Registered once |
+| Per-agent state | Full world + local | Compact deltas |
+| Goal | — | Less resident memory · higher agent density |
 
-| | Without Tiny Footprint | With Tiny Footprint |
-|--|------------------------|---------------------|
-| Sessions | Each may retain full shared context | Shared representation once |
-| State | Shared info reprinted per session | Compact session deltas |
-| Goal | — | Less resident memory · lower preparation latency |
+**Empirical companion:** [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) · `npm run multi-agent` · `npm run shine`  
+**Paper:** [docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md) · live: [fractisi.vercel.app/library/papers/tiny-footprint-multi-agent](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/)
 
-**One Tiny Gateway engine · three commercial editions**
+The Workstation also measures classic serving-memory cases (exact prefix sharing, organizational rhyme). See [RESULTS.md](./docs/benchmarks/RESULTS.md).
+
+---
+
+## One engine · three commercial editions
 
 | Edition | Who | Where it runs |
 |---------|-----|----------------|
-| **Local (this repo)** | Developers & researchers | Your IDE / workstation |
-| **Server** | Enterprises | Company GPU servers |
+| **Local (this repo)** | Developers & researchers | Your IDE / workstation — Community free |
+| **Server** | Enterprises | Company GPU / agent hosts |
 | **Cloud** | Hyperscale / GPU clouds | Provider infrastructure |
 
-Product story: [product](./docs/product/PRODUCT.md) · [plain language](./docs/product/SIMPLE.md) · [technology](./docs/research/TECH.md) · [whitepaper](./docs/research/TECH_PAPER.md)
+Product story: [PRODUCT.md](./docs/product/PRODUCT.md) · [plain language](./docs/product/SIMPLE.md) · [technology](./docs/research/TECH.md) · [whitepaper](./docs/research/TECH_PAPER.md)
 
 Evidence: [results and claim ledger](./docs/benchmarks/RESULTS.md) · [reproducible study (PDF)](./output/pdf/tiny-footprint-workstation_combined.pdf) · [all documentation](./docs/README.md)
 
@@ -81,9 +88,25 @@ Optional real-model lab: `uv sync --group llm`, then `TINY_FOOTPRINT_FORCE_LLM_L
 
 ---
 
+## Multi-Agent lab (companion suite)
+
+For the flagship shared-world vs naive per-agent copies sweep (gzip residual honesty):
+
+```bash
+git clone https://github.com/FractiAI/tiny-oracle-lob-pilot.git
+cd tiny-oracle-lob-pilot
+npm test
+npm run multi-agent
+npm run shine
+```
+
+Labeled highlights: smaller-world packs still show **~42%** residual after gzip vs naive copies; world-dominated sweeps go much higher; selective nested coarse-only tasks cut runtime working-set bytes by **~99.5%**. Always keep the after-gzip / lab-proxy qualifier.
+
+---
+
 ## Join the industry-wide testing initiative
 
-We invite infrastructure teams, cloud operators, accelerator partners, and AI-serving engineers to validate Tiny Footprint on real hardware.
+We invite infrastructure teams, cloud operators, accelerator partners, and AI-serving engineers to validate Tiny Footprint Multi-Agent on real hardware.
 
 ```bash
 node scripts/tiny.mjs join
@@ -115,7 +138,7 @@ Details: [docs/product/VALIDATION.md](./docs/product/VALIDATION.md)
 ## Repository layout
 
 ```
-tiny-footprint-workstation/
+tiny-footprint-workstation/          ← Local kit for Tiny Footprint Multi-Agent
 ├── src/                  ← all logic, in submodules
 │   ├── core/             ← bytes, statistics, randomness, hashing
 │   ├── engine/           ← Tiny Gateway: templates, vectors, broadcast
@@ -151,6 +174,19 @@ Every folder has a `README.md` for people and an `AGENTS.md` for agents.
 
 ## What the evidence shows
 
+### Multi-Agent product receipts (companion lab)
+
+From [tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) (`npm run multi-agent` · `npm run shine`):
+
+| Evidence | Number | Meaning |
+|----------|-------:|---------|
+| Smaller-world shared pack vs naive copies | **~42%** residual after gzip | Compression alone leaves a large cross-copy tax |
+| Sweep median when world dominates | **~98%** residual after gzip | World ≫ per-agent state |
+| Selective nested coarse-only task | **~99.5%** less runtime bytes | Nested vectors as DRAM/runtime win |
+| Flagship 256 agents · large world | **~99%** resident proxy · **≫10×** density arithmetic | Lab proxies — not live HBM attestation |
+
+### Workstation serving-memory receipts (this kit)
+
 <!-- BEGIN GENERATED EVIDENCE -->
 **In short:** sharing a prompt prefix across sessions is the one thing here that performs, and production prefix caches already do it. The rhyming engine does not beat a plain object reference in memory, and it is slower to rebuild a session. [The results page](./docs/benchmarks/RESULTS.md) has the short answer with its numbers.
 
@@ -168,7 +204,7 @@ Generated from the receipts in [`output/data/`](./output/data/README.md). Measur
 
 Your `tiny benchmark` and `tiny report` produce receipts for **your** machine. These figures are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations.
 
-**H100 simulation (not live silicon):** when sessions share organization but not exact wording, a production prefix cache cannot share and the Tiny Footprint template+delta residency hypothesis cuts KV about **34%** versus that prefix cache (~**1.52×** materialize bandwidth proxy on the published H100 SXM profile). When the exact prefix is identical, Tiny matches the prefix cache. The real-tensor line above shows what a measurement found.
+**H100 simulation (not live silicon):** when sessions share organization but not exact wording, a production prefix cache cannot share and the Tiny Footprint Multi-Agent template+delta residency hypothesis cuts KV about **34%** versus that prefix cache (~**1.52×** materialize bandwidth proxy on the published H100 SXM profile). When the exact prefix is identical, Tiny matches the prefix cache. The real-tensor line above shows what a measurement found.
 
 ### Reproduce it
 
@@ -189,12 +225,14 @@ Rendering the PDF needs a [docxology/template](https://github.com/docxology/temp
 
 ## Commercial editions (preview)
 
-- **Community** — this kit, free  
+- **Community** — this Local Workstation kit, free  
 - **Developer Pro** — proposed $29–49/mo  
 - **Server / Enterprise** — annual by GPU/server  
 - **Cloud Platform** — negotiated  
 
 Hub: https://fractisi.vercel.app/product/
+
+**Product name lock:** customers hear **Tiny Footprint Multi-Agent**. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs.
 
 ---
 
@@ -213,7 +251,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 
 ## FractiSI site
 
-Marketing site for FractiSI — **Tiny Footprint Multi-Agent** product hub, research, library, open, company, recruit — lives at the repo root and deploys to https://fractisi.vercel.app (also mirrored to [FractiAI/fractisi](https://github.com/FractiAI/fractisi)).
+Marketing site for **Tiny Footprint Multi-Agent** — product hub, research, library, open, company, recruit — lives at the repo root and deploys to https://fractisi.vercel.app (also mirrored to [FractiAI/fractisi](https://github.com/FractiAI/fractisi)).
 
 - Product: `/product/`
 - Multi-Agent paper: `/library/papers/tiny-footprint-multi-agent/`
