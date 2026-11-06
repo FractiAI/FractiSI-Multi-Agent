@@ -8,132 +8,33 @@
 [![Product](https://img.shields.io/badge/product-FractiSI%20Multi--Agent-c9a227)](./docs/product/PRODUCT.md)
 [![Edition](https://img.shields.io/badge/edition-Community%20FREE-0b1424)](./docs/product/PRODUCT.md)
 [![Site](https://img.shields.io/badge/site-fractisi.vercel.app-0b1424)](https://fractisi.vercel.app)
-[![Paper](https://img.shields.io/badge/paper-Platform-0b1424)](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md)
+[![Paper](https://img.shields.io/badge/paper-Platform-0b1424)](./docs/product/FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_2026-11.md)
 [![Lab](https://img.shields.io/badge/lab-empirical%20suite-444)](https://github.com/FractiAI/tiny-oracle-lob-pilot)
 
 ---
 
-## Install and use (start here)
+## What is FractiSI Multi-Agent?
 
-For the **sandbox demo with a live preview**, you need **Git + a cloud token**. For **real workloads**, Git alone is enough — **deploy is optional** (`--deploy` only when you want a preview):
+**FractiSI Multi-Agent** is FractiSI’s flagship installable platform for agentic engineering work. It sits **beside** Cursor, Claude Code, VS Code, and Git — it does not replace them.
 
-| What | Why |
-|------|-----|
-| **Git** | Creates scoped agent workspaces and commits the composed result |
-| **Cloud token** | Deploys the preview (`VERCEL_TOKEN` or `FRACTISI_CLOUD_TOKEN`) |
+**Tiny Footprint** is the Layer A execution core: one shared world (or shared organizational context) for many agents — template once, per-agent deltas, selective reconstruct. **DRAM concurrency** is the engine inside. Layers B–F add coordination, shared state, composition, Git awareness, and **optional** approval-gated deploy.
 
-Also need **Node.js 18+** on the machine that runs the CLI. No Cursor key, no Claude key, no OpenAI key, no password vault — only Git + that cloud token.
+Agent fleets default to an expensive habit: **copy the shared world into every agent**, then collide at merge time. Compression shrinks each copy; it does not remove the copies. FractiSI Multi-Agent registers the world once, keeps per-agent difference compact, coordinates ownership, composes contributions into one result, and only publishes when you ask it to.
 
-### 1. Get a cloud token (once)
+| | Without FractiSI Multi-Agent | With FractiSI Multi-Agent |
+|--|------------------------------|---------------------------|
+| Shared context | Reprinted per agent / session | Registered once (Tiny Footprint) |
+| Parallel work | Branch-per-agent / silent overlap | Scoped worktrees + interference checks |
+| Integration | Merge archaeology | Compose → validate → integrate → rollback |
+| Ship | Often “whoever pushes first” | Approval-gated release (**optional** cloud preview) |
+| Goal | — | Denser fleets · less duplicated effort · composed outcomes |
 
-1. Sign in at [vercel.com](https://vercel.com) (free hobby account is enough for preview deploys).
-2. Open **Account Settings → Tokens** → create a token (scope: your account / team).
-3. Copy it somewhere private. You will paste it into your shell only; this kit does **not** upload the token anywhere except to Vercel’s deploy API when you run `try` / `deploy`.
+**Empirical companion:** [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) · `npm run multi-agent` · `npm run shine`  
+**Platform architecture:** [docs/product/FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_2026-11.md](./docs/product/FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_2026-11.md)  
+**Tiny Footprint product paper:** [docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md) · live: [fractisi.vercel.app/library/papers/tiny-footprint-multi-agent](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/)  
+**Expedition 002 · Beyond Memory:** [docs/product/FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md](./docs/product/FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md) · [library](https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/) · [brochure](https://fractisi.vercel.app/docs/web/expedition-002-brochure.html)
 
-Optional alias: `export FRACTISI_CLOUD_TOKEN=…` works the same as `VERCEL_TOKEN`.
-
-### 2. Install (clone)
-
-```bash
-git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
-cd FractiSI-Multi-Agent
-```
-
-Open the folder in Cursor / VS Code if you want an IDE — not required for `try`.
-
-### 3. Use (one command)
-
-```bash
-export VERCEL_TOKEN=…          # paste the token from step 1
-node scripts/tiny.mjs try
-```
-
-When it finishes you should see a **live preview URL**. Open it in a browser.
-
-What `try` does, in order:
-
-1. Checks that Git and a cloud token are present  
-2. Opens agent worktrees  
-3. Proposes two non-overlapping contributions  
-4. Composes and validates them  
-5. Commits the integrated result with Git  
-6. Approves a release and deploys it with **your** token  
-7. Prints the preview URL  
-
-### What to expect
-
-After Git + token and `node scripts/tiny.mjs try`, you are not just running a hello-world script. You get a **coordinated multi-agent workstation** sitting beside the tools you already use:
-
-| You get | Why it matters in real work |
-|---------|-----------------------------|
-| **One shared world, not N full copies** | Tiny Footprint (Layer A) keeps shared context once and stores per-agent deltas — denser agent fleets on the same machine budget |
-| **Agents that do not trip over each other** | Coordination (Layer B) registers agents, tracks task ownership, and flags overlapping paths before merge day goes sideways |
-| **Composed results, not a pile of branches** | Composition (Layer D) evaluates, validates, integrates, and can roll back contributions into one coherent outcome |
-| **Git-aware scoped workspaces** | Layer E opens worktrees / scoped spaces so agents can work in parallel without forcing a branch-per-agent chaos tax |
-| **Deploy only after approval** | Layer F builds a release candidate; nothing ships until composition validates and you approve — then your cloud token publishes a live preview |
-| **Beside Cursor / Claude Code / VS Code** | Adapters normalize those runtimes onto one interface. Your IDE, remotes, and CI stay yours |
-
-**Concrete `try` outcome:** two agent contributions land in worktrees, get composed, land as a real Git commit, and deploy to a **live preview URL** you can open in a browser.
-
-**Day-two workflow upgrades** (same kit, after the first try):
-
-- `status` / `agents register` — see who owns what before work starts  
-- `propose` → `compose` → `repo integrate` — hand-driven composition when you want the steering wheel  
-- `deploy create` → `approve` → `run` — repeatable release path with an approval gate  
-- `demo` / `benchmark` / `report` — Tiny Footprint memory/density labs on *your* machine (no token required)  
-- Core / Professional / Enterprise packs — same architecture; entitlements label how wide the fleet and adapters go  
-
-**Honest limits (so expectations stay sharp):** lab receipts are measured on structured-state / in-process suites unless a receipt says otherwise. `try` is a real Git + Vercel path, not a claim of GPU HBM CapEx savings or a frontier LLM bake-off. Selective reconstruction can trade latency for density. Production fleets still need partner measurement on your hardware.
-
-That is the whole product path for first use. More detail: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · [QUICKSTART.md](./QUICKSTART.md).
-
-
-### Real workloads (your repo — deploy optional)
-
-Not every agentic job should hit the cloud. On a **real project**, Git is enough:
-
-```bash
-# from YOUR project (or pass --repo)
-node /path/to/FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --repo "$PWD"
-# or after cloning the kit beside your repo:
-# node ../FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --repo "$PWD"
-```
-
-That captures dirty files (or `.fractisi/worktrees/*` edits), composes them, and makes a **local git commit**. No `VERCEL_TOKEN` required.
-
-Optional cloud preview — only when you want it:
-
-```bash
-export VERCEL_TOKEN=…
-node scripts/tiny.mjs try --workload --deploy --repo "$PWD"
-```
-
-Prepare Cursor/Claude worktrees first:
-
-```bash
-node scripts/tiny.mjs try --workload --prepare --repo "$PWD"
-# edit in .fractisi/worktrees/<agent>, then re-run without --prepare
-```
-
-### Useful follow-ups
-
-```bash
-node scripts/tiny.mjs doctor     # hardware / deps check
-node scripts/tiny.mjs status     # platform / agents / tasks
-node scripts/tiny.mjs demo       # Tiny Footprint multi-session sample
-node scripts/tiny.mjs benchmark  # conventional vs Tiny on this machine
-node scripts/tiny.mjs report     # HTML/JSON receipts
-```
-
-Optional flags: `node scripts/tiny.mjs try --prod` (production deploy) · `try --in-place` (use current repo instead of `.fractisi/try-sandbox`).
-
-### Transparency
-
-- **Your token stays yours.** It is read from the environment for Vercel API calls only. It is not written into the git commit by `try`.
-- **Your remotes stay yours.** Cursor, Claude Code, VS Code, GitHub/GitLab, and CI are unchanged; FractiSI coordinates beside them.
-- **Deploy is optional.** Real workloads: `try --workload` composes + commits locally. Add `--deploy` only when you want a cloud preview. Sandbox demo still defaults to deploy; pass `--no-deploy` to skip.
-- **Local labs.** Without any token you can still run `doctor` / `demo` / `benchmark` / `report`.
-- **Tiny Footprint** is Layer A (shared world + deltas). Layers B–F add coordination, composition, Git awareness, and deploy approvals.
+This kit is the **Local / Workstation** edition (Community free). Server and Cloud editions share the same engine.
 
 ---
 
@@ -146,37 +47,119 @@ Optional flags: `node scripts/tiny.mjs try --prod` (production deploy) · `try -
 | **C · Shared state** | Project / module / contribution representation |
 | **D · Composition** | Evaluate, validate, integrate, rollback contributions |
 | **E · Git awareness** | Inspect repos; scoped workspaces (optional worktrees) |
-| **F · Deploy capability** | Release candidates with mandatory approval |
+| **F · Deploy capability** | Release candidates with mandatory approval — **use only when the workload should publish** |
 
-```bash
-node scripts/tiny.mjs init
-node scripts/tiny.mjs agents register worker-1 cursor
-node scripts/tiny.mjs status
-node scripts/tiny.mjs coord-bench
-```
-
-Architecture assessment: [docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md](./docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md) · Install: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · API: [docs/reference/platform-api.md](./docs/reference/platform-api.md)
-
+Architecture: [docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md](./docs/architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md) · Install detail: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · API: [docs/reference/platform-api.md](./docs/reference/platform-api.md)
 
 ---
 
-## What is FractiSI Multi-Agent?
+## Install and use (start here)
 
-**FractiSI Multi-Agent** is FractiSI’s flagship product. **Tiny Footprint** is the Layer A execution core: one shared world for many agents — template once, per-agent deltas, selective reconstruct — with coordination, composition, Git awareness, and deploy on top. **DRAM concurrency** is the engine inside. Install it **beside** the agent runtime / serving stack you already run.
+**Requirements**
 
-Agent fleets default to an expensive habit: **copy the shared world into every agent**. Compression shrinks each copy; it does not remove the copies. This kit is the Local / Workstation edition of that product.
+| Path | Need |
+|------|------|
+| **Real workload** on your project (recommended) | **Git** + Node.js 18+ |
+| **Optional cloud preview** | above + `VERCEL_TOKEN` or `FRACTISI_CLOUD_TOKEN` |
+| **Sandbox demo with live URL** | Git + Node 18+ + cloud token |
 
-| | Without FractiSI Multi-Agent | With FractiSI Multi-Agent |
-|--|------------------------------------|--------------------------------|
-| Shared context | Reprinted per agent / session | Registered once |
-| Per-agent state | Full world + local | Compact deltas |
-| Goal | — | Less resident memory · higher agent density |
+No Cursor key, no Claude key, no OpenAI key, no password vault for the platform path.
 
-**Empirical companion:** [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) · `npm run multi-agent` · `npm run shine`  
-**Paper:** [docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md) · live: [fractisi.vercel.app/library/papers/tiny-footprint-multi-agent](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/)  
-**Expedition 002 · Beyond Memory:** [docs/product/FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md](./docs/product/FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md) · [library paper](https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/) · [brochure](https://fractisi.vercel.app/docs/web/expedition-002-brochure.html)
+### Install (clone the kit once)
 
-The Workstation also measures classic serving-memory cases (exact prefix sharing, organizational rhyme). See [RESULTS.md](./docs/benchmarks/RESULTS.md).
+```bash
+git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
+cd FractiSI-Multi-Agent
+```
+
+Open in Cursor / VS Code if you want — not required for CLI.
+
+### Path A · Real workload on *your* repo (deploy optional)
+
+Use this when you want FractiSI on an actual agentic project (Cursor / Claude Code sessions, real files). **Cloud deploy is optional** — not every workload should publish.
+
+```bash
+# from YOUR project directory
+node /path/to/FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --repo "$PWD"
+```
+
+What happens (no token):
+
+1. Wires `.fractisi/` into your repo and opens Cursor/Claude-shaped agent worktrees  
+2. Captures dirty files (or edits under `.fractisi/worktrees/<agent>`)  
+3. Composes + validates contributions  
+4. **Git-commits** the integrated result into *your* repository  
+
+Optional — only if this workload should get a preview URL:
+
+```bash
+export VERCEL_TOKEN=…          # or FRACTISI_CLOUD_TOKEN · vercel.com/account/tokens
+node /path/to/FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --deploy --repo "$PWD"
+```
+
+Prepare worktrees before agents edit:
+
+```bash
+node /path/to/FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --prepare --repo "$PWD"
+# Point Cursor / Claude Code at .fractisi/worktrees/<agent>, make real edits, then:
+node /path/to/FractiSI-Multi-Agent/scripts/tiny.mjs try --workload --repo "$PWD"
+```
+
+Guide written into your repo: `.fractisi/REAL_WORKLOAD.md`.
+
+### Path B · Sandbox demo (kit-local)
+
+Quick platform smoke test inside the kit clone (defaults to deploy; skip with `--no-deploy`):
+
+```bash
+export VERCEL_TOKEN=…          # omit if using --no-deploy
+node scripts/tiny.mjs try
+# or: node scripts/tiny.mjs try --no-deploy
+```
+
+Sandbox `try` opens two native agents, composes hello contributions, commits, and (unless `--no-deploy`) publishes a preview with **your** token.
+
+### What to expect
+
+After a real-workload or sandbox try, you get a **coordinated multi-agent workstation** beside the tools you already use:
+
+| You get | Why it matters in real work |
+|---------|-----------------------------|
+| **One shared world, not N full copies** | Tiny Footprint keeps shared context once and stores per-agent deltas — denser fleets on the same machine budget |
+| **Agents that do not trip over each other** | Coordination registers agents, tracks ownership, flags overlapping paths before merge day goes sideways |
+| **Composed results, not a pile of branches** | Composition evaluates, validates, integrates, and can roll back into one coherent outcome |
+| **Git-aware scoped workspaces** | Worktrees / scoped spaces so agents work in parallel without a branch-per-agent chaos tax |
+| **Deploy only when you ask** | Layer F builds an approval-gated release candidate. Real workloads skip cloud by default; pass `--deploy` for a preview |
+| **Beside Cursor / Claude Code / VS Code** | Message adapters normalize those runtimes. Your IDE, remotes, and CI stay yours |
+
+**Day-two commands**
+
+```bash
+node scripts/tiny.mjs status
+node scripts/tiny.mjs agents register worker-1 cursor
+node scripts/tiny.mjs capture --all --repo "$PWD"
+node scripts/tiny.mjs propose <agentId> path/to/file --file ./local
+node scripts/tiny.mjs compose
+node scripts/tiny.mjs repo integrate
+node scripts/tiny.mjs deploy create    # optional
+node scripts/tiny.mjs deploy approve <id>
+node scripts/tiny.mjs deploy run <id>
+node scripts/tiny.mjs doctor
+node scripts/tiny.mjs demo
+node scripts/tiny.mjs benchmark
+node scripts/tiny.mjs report
+```
+
+**Honest limits:** lab receipts are structured-state / in-process unless a receipt says otherwise. Real-workload `try` performs real Git commits on your repo; `--deploy` performs a real Vercel publish when a token is present. Adapters normalize messages — they do not yet auto-drive live Cursor/Claude sessions. Not a GPU HBM CapEx guarantee or frontier LLM bake-off.
+
+Full install guide: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · [QUICKSTART.md](./QUICKSTART.md)
+
+### Transparency
+
+- **Your token stays yours.** Used only for Vercel API calls when you opt into `--deploy` / sandbox deploy. Never committed by `try`.  
+- **Your remotes stay yours.** FractiSI coordinates beside Cursor, Claude Code, VS Code, GitHub/GitLab, and CI.  
+- **Deploy is optional.** Real workloads compose + commit locally by default.  
+- **Tiny Footprint** is Layer A. Layers B–F are the platform around it.
 
 ---
 
@@ -194,8 +177,6 @@ Evidence: [results and claim ledger](./docs/benchmarks/RESULTS.md) · [reproduci
 
 ### Brochures & plainspeak (in this repo)
 
-Open in a browser from `docs/web/`:
-
 | Doc | Path |
 |-----|------|
 | **Plainspeak** | [docs/web/simple.html](./docs/web/simple.html) |
@@ -207,34 +188,32 @@ Live site: https://fractisi.vercel.app · product: [/product/](https://fractisi.
 
 ---
 
-## IDE labs (after Install and use)
+## IDE labs (Tiny Footprint)
 
-Full product path is above under **Install and use (start here)** — Git + cloud token → `node scripts/tiny.mjs try`.
-
-For local Tiny Footprint labs in an IDE (no cloud token required):
+Local memory/density labs inside the kit (no cloud token):
 
 ```bash
 code .          # or: cursor .
-node scripts/tiny.mjs doctor      # hardware / deps check
-node scripts/tiny.mjs install     # verify kit
-node scripts/tiny.mjs demo        # multi-session sample
-node scripts/tiny.mjs benchmark   # conventional vs Tiny
-node scripts/tiny.mjs report      # write HTML/JSON receipts
+node scripts/tiny.mjs doctor
+node scripts/tiny.mjs install
+node scripts/tiny.mjs demo
+node scripts/tiny.mjs benchmark
+node scripts/tiny.mjs report
 ```
 
-`benchmark` writes results for this machine only. A lab that cannot run here reports `not_run`, and the suite's verdict reads `incomplete`.
+`benchmark` writes results for this machine only. A lab that cannot run here reports `not_run`; verdict reads `incomplete`.
 
-`npm test` runs the whole Node test suite and repository gates without touching your receipts.
+`npm test` runs the Node suite and repository gates without touching your receipts.
 
-VS Code tasks are preconfigured under `.vscode/tasks.json` (Terminal → Run Task → `tiny: …`).
+VS Code tasks: `.vscode/tasks.json` (Terminal → Run Task → `tiny: …`).
 
-Optional real-model lab: `uv sync --group llm`, then `TINY_FOOTPRINT_FORCE_LLM_LAB=1 node scripts/tiny.mjs benchmark`. It runs on CPU, Apple MPS, NVIDIA and DirectML. The original Windows environment is pinned in `research/synthobs-tiny-gateway-rhyming-templates/requirements-directml.txt`.
+Optional real-model lab: `uv sync --group llm`, then `TINY_FOOTPRINT_FORCE_LLM_LAB=1 node scripts/tiny.mjs benchmark` (CPU, Apple MPS, NVIDIA, DirectML). Windows DirectML pin: `research/synthobs-tiny-gateway-rhyming-templates/requirements-directml.txt`.
 
 ---
 
 ## Multi-Agent lab (companion suite)
 
-For the flagship shared-world vs naive per-agent copies sweep (gzip residual honesty):
+Shared-world vs naive per-agent copies (gzip residual honesty):
 
 ```bash
 git clone https://github.com/FractiAI/tiny-oracle-lob-pilot.git
@@ -244,7 +223,7 @@ npm run multi-agent
 npm run shine
 ```
 
-Labeled highlights: smaller-world packs still show **~42%** residual after gzip vs naive copies; world-dominated sweeps go much higher; selective nested coarse-only tasks cut runtime working-set bytes by **~99.5%**. Always keep the after-gzip / lab-proxy qualifier.
+Labeled highlights: smaller-world packs still show **~42%** residual after gzip vs naive copies; world-dominated sweeps go much higher; selective nested coarse-only tasks cut runtime working-set bytes by **~99.5%**. Keep the after-gzip / lab-proxy qualifier.
 
 ---
 
@@ -256,24 +235,19 @@ We invite infrastructure teams, cloud operators, accelerator partners, and AI-se
 node scripts/tiny.mjs join
 ```
 
-You will enter name, email, organization, role, and hardware interest.
-
 ### Share your results (opt-in)
 
-When you **select share**, the kit packages your latest benchmark receipts (plus hostname, platform, and Node version) and **opens a message to `valetpru@gmail.com`** for the validation desk. The message holds a summary. A mail link cannot attach files, so attach the JSON packet whose path the kit prints before you send it. With SMTP configured on Windows, the kit sends it and attaches the packet itself. If you decline, `join` sends only your contact details and hardware interest.
+When you **select share**, the kit packages latest benchmark receipts (plus hostname, platform, Node version) and **opens mail to `valetpru@gmail.com`**. Attach the JSON packet path the kit prints (mailto cannot attach files). With SMTP on Windows, the kit can send + attach. Decline → contact details only.
 
 ```bash
-# during join — answer "y" to share results
 node scripts/tiny.mjs join
-
-# or anytime after a benchmark
 node scripts/tiny.mjs report --share
 node scripts/tiny.mjs share
 ```
 
-- Default: opens your system mail client with a prefilled message to **valetpru@gmail.com** (plus a local share packet under `benchmarks/reports/share-packets/`).
-- Optional silent SMTP (Windows): set `TINY_FOOTPRINT_SMTP_HOST`, `TINY_FOOTPRINT_SMTP_USER`, `TINY_FOOTPRINT_SMTP_PASS`, `TINY_FOOTPRINT_SMTP_FROM`.
-- Override recipient only if needed: `TINY_FOOTPRINT_SHARE_EMAIL` (default remains `valetpru@gmail.com`).
+- Default recipient: **valetpru@gmail.com** (packet under `benchmarks/reports/share-packets/`)  
+- Optional SMTP (Windows): `TINY_FOOTPRINT_SMTP_HOST`, `TINY_FOOTPRINT_SMTP_USER`, `TINY_FOOTPRINT_SMTP_PASS`, `TINY_FOOTPRINT_SMTP_FROM`  
+- Override: `TINY_FOOTPRINT_SHARE_EMAIL`  
 
 Details: [docs/product/VALIDATION.md](./docs/product/VALIDATION.md)
 
@@ -282,33 +256,16 @@ Details: [docs/product/VALIDATION.md](./docs/product/VALIDATION.md)
 ## Repository layout
 
 ```
-FractiSI-Multi-Agent/               ← GitHub repo · FractiSI Multi-Agent kit (Tiny Footprint core)
-├── src/                  ← all logic, in submodules
-│   ├── core/             ← bytes, statistics, randomness, hashing
-│   ├── engine/           ← Tiny Gateway: templates, vectors, broadcast
-│   ├── sdk/              ← public facade
-│   ├── experiments/      ← registered suite, one module per experiment
-│   ├── labs/             ← adapters that report only what ran now
-│   ├── benchmarks/       ← deterministic and measured tiers
-│   ├── analysis/         ← one summary; computed claim ledger
-│   ├── manuscript/       ← tokens, hydration, hard-coded-value gate
-│   ├── pipeline/         ← stage graph, binding to docxology/template
-│   ├── verification/     ← re-derives artifacts, compares with disk
-│   ├── gates/            ← repository structure rules
+FractiSI-Multi-Agent/          ← GitHub repo · FractiSI Multi-Agent kit (Tiny Footprint core)
+├── src/
+│   ├── core/ engine/ sdk/ experiments/ labs/ benchmarks/
+│   ├── analysis/ manuscript/ pipeline/ verification/ gates/
+│   ├── platform/         ← Multi-Agent layers A–F · try / workload / deploy
 │   ├── cli/ share/ reporting/ workloads/ docs_tools/
-│   └── tiny_footprint_labs/   ← Python: real-model lab, GPU lab, figures
-├── tests/                ← mirrors src/ one to one
-├── scripts/              ← thin entry points
-├── benchmarks/           ← protocol (plan.json); your receipts under reports/
-├── output/               ← generated receipts, figures, hydrated manuscript, PDF
-├── docs/                 ← start at docs/README.md
-│   ├── manuscript/       ← the study's source, rendered by docxology/template
-│   └── architecture/ benchmarks/ development/ product/ reference/ research/ web/
-├── research/synthobs-tiny-gateway-rhyming-templates/   ← history, receipts, old paths
-├── tiny-footprint/       ← public SDK path, adapters, configuration
-├── tiny-gateway/         ← engine pointer
-├── workloads/            ← demo entry point
-├── media/                ← product and website images
+│   └── tiny_footprint_labs/
+├── tests/ scripts/ benchmarks/ output/ docs/
+├── research/synthobs-tiny-gateway-rhyming-templates/
+├── tiny-footprint/ tiny-gateway/ workloads/ media/
 └── index.html, company/, css/, library/, open/, product/, recruit/   ← FractiSI website
 ```
 
@@ -348,7 +305,7 @@ Generated from the receipts in [`output/data/`](./output/data/README.md). Measur
 
 Your `tiny benchmark` and `tiny report` produce receipts for **your** machine. These figures are **not** CapEx guarantees, **not** datacenter HBM identity, and **not** hosted frontier-vendor attestations.
 
-**H100 simulation (not live silicon):** when sessions share organization but not exact wording, a production prefix cache cannot share and the Tiny Footprint Multi-Agent template+delta residency hypothesis cuts KV about **34%** versus that prefix cache (~**1.52×** materialize bandwidth proxy on the published H100 SXM profile). When the exact prefix is identical, Tiny matches the prefix cache. The real-tensor line above shows what a measurement found.
+**H100 simulation (not live silicon):** when sessions share organization but not exact wording, a production prefix cache cannot share and the Tiny Footprint template+delta residency hypothesis cuts KV about **34%** versus that prefix cache (~**1.52×** materialize bandwidth proxy on the published H100 SXM profile). When the exact prefix is identical, Tiny matches the prefix cache. The real-tensor line above shows what a measurement found.
 
 ### Reproduce it
 
@@ -387,7 +344,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 ## Support
 
 - Contact / validation / shared results: **valetpru@gmail.com**  
-- SING 13 monorepo mirror: `tiny-footprint-workstation/` in [psw.vibelandia.sing13](https://github.com/FractiAI/psw.vibelandia.sing13)
+- SING 13 monorepo mirror: `products/tiny-footprint-workstation/` in [psw.vibelandia.sing13](https://github.com/FractiAI/psw.vibelandia.sing13)
 
 → ∞^∞
 
@@ -398,5 +355,6 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for local checks and change rules. Repo
 Marketing site for **FractiSI Multi-Agent** — product hub, research, library, open, company, recruit — lives at the repo root and deploys to https://fractisi.vercel.app (also mirrored to [FractiAI/fractisi](https://github.com/FractiAI/fractisi)).
 
 - Product: `/product/`
-- Multi-Agent paper: `/library/papers/tiny-footprint-multi-agent/`
+- Platform paper: `/library/papers/fractisi-multi-agent-platform/` (when published on site)
+- Multi-Agent / Tiny Footprint paper: `/library/papers/tiny-footprint-multi-agent/`
 - Recruit: `/recruit/`
