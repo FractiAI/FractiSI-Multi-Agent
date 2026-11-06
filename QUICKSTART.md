@@ -1,8 +1,25 @@
+# Quickstart — FractiSI Multi-Agent
+
+**Required:** Git + cloud token (`VERCEL_TOKEN` or `FRACTISI_CLOUD_TOKEN`).
+
+```bash
+git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
+cd FractiSI-Multi-Agent
+export VERCEL_TOKEN=…
+node scripts/tiny.mjs try
+```
+
+That runs worktrees → compose → git commit → cloud deploy and prints a live URL.
+
+Tiny Footprint remains the core execution technology inside FractiSI Multi-Agent.
+
+---
+
 # Quick start · Tiny Footprint Workstation
 
 You need Node 18 or newer. Python and a GPU are optional: a lab that needs them reports `not_run` without them.
 
-1. Clone **https://github.com/FractiAI/tiny-footprint-multi-agent**
+1. Clone **https://github.com/FractiAI/FractiSI-Multi-Agent**
 2. Open the folder in VS Code / Cursor
 3. Run these in order, because `report` reads what `benchmark` wrote:
 
