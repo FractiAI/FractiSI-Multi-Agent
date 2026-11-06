@@ -172,7 +172,6 @@ h1 {
 .page h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
 .page h2 { font-weight: 500; font-size: 1.7rem; margin: 2.2rem 0 0.4rem; }
 .page p { margin: 0.7rem 0; }
-.figure { margin: 1.5rem 0; }
 .figure figcaption {
   font-family: var(--sans);
   font-size: 0.85rem;
@@ -272,9 +271,23 @@ pre {
 .banner {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: min(72vh, 640px);
   object-fit: cover;
+  object-position: center;
   background: #0b1220;
+}
+.figure {
+  margin: 1.5rem 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+.figure img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 .portrait {
   width: 100%;
@@ -492,12 +505,31 @@ pre {
   .list time {
     width: 100%;
   }
+  .banner {
+    width: 100%;
+    max-width: 100%;
+    height: min(42vh, 280px);
+    object-fit: cover;
+    object-position: center;
+  }
   .figure {
     text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
   .figure img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
+  }
+  .plan-strip,
+  .diff-board {
+    max-width: 100%;
+    overflow-x: auto;
   }
   .site-footer {
     justify-content: center;
