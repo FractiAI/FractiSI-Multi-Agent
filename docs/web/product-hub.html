@@ -44,27 +44,42 @@
 
   <main class="tf-wrap">
 
-    <section class="tf-diff-board" role="region" aria-label="Why teams visit — lab differentiators">
-      <h2>Why teams visit · multi-agent differentiators</h2>
-      <p class="tf-diff-why">Expedition 002 lab (seed <code>20261105</code>): relationship-guided shared world vs flat skim under the same budget. These are the results people bring multi-agent workloads here to find.</p>
+    <section class="tf-diff-board" role="region" aria-label="Why teams visit — full lab differentiators">
+      <h2>Why teams visit · full lab differentiators</h2>
+      <p class="tf-diff-why">Results vs <strong>flat skim</strong>, <strong>full-copy</strong>, <strong>gzip-only</strong>, and <strong>exact-text / prefix cache</strong> — what multi-agent teams come here to find.</p>
       <div class="tf-diff-stats">
         <div class="tf-diff-stat">
           <strong>Sees what flat models miss</strong>
           <p class="tf-price">100 / 100 vs 0 / 100</p>
-          <p>Guided recovery finds chains, anomalies, and solutions. Flat skim: zero — if you never assemble the chain, you never see the answer.</p>
+          <p>Expedition 002 · guided recovery finds chains, anomalies, solutions. Flat skim: zero.</p>
         </div>
         <div class="tf-diff-stat">
           <strong>Converges on answers faster</strong>
           <p class="tf-price">−50% rounds · −85% ops</p>
-          <p>3 propagation rounds vs 6; mean 6 ops vs 40. Same constrained discovery — fewer steps to the answer path.</p>
+          <p>3 rounds vs 6; mean 6 ops vs 40 on the same constrained discovery path.</p>
         </div>
         <div class="tf-diff-stat">
-          <strong>Agent density per infra budget</strong>
+          <strong>Density vs full per-agent copy</strong>
           <p class="tf-price">36.91× – 62.41×</p>
-          <p>Vs full per-agent copy; dup cut 89.6%–99.2%. More coordinated agents in the same memory envelope.</p>
+          <p>Dup cut 89.6%–99.2%. Selective coarse-only ~99.5% fewer runtime bytes.</p>
+        </div>
+        <div class="tf-diff-stat">
+          <strong>Still wins after gzip</strong>
+          <p class="tf-price">~42%+ residual</p>
+          <p>Shared pack vs naive copies — ~42% residual after gzip (smaller world); ~98% when world dominates. Compression shrinks copies; it does not remove the cross-copy tax.</p>
+        </div>
+        <div class="tf-diff-stat">
+          <strong>Beats exact-text cache when words differ</strong>
+          <p class="tf-price">4,758 vs 6,704 B</p>
+          <p>40 same-shape sessions: rhyme beats exact-text cache. Exact cache wins only identical text. Prefix reuse already helps exact prompts in production.</p>
+        </div>
+        <div class="tf-diff-stat">
+          <strong>Tiny Gateway · DRAM &amp; materialize</strong>
+          <p class="tf-price">84.5% · 81.4% · ~9.6×</p>
+          <p>Aggregate cut 84.5% · GPU alloc proxy 81.4% · materialize ~9.6×. H100 rhyme-vs-prefix ~34% is simulation only.</p>
         </div>
       </div>
-      <p class="tf-diff-foot">Digital architectural lab — not an LLM bake-off; not live GPU HBM attestation. <a href="./expedition-002-brochure.html">Ship blog</a> · <a href="https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/">Paper</a> · <a href="https://fractisi.vercel.app/product/pricing/">Pricing</a>. LLM collective intelligence not yet demonstrated.</p>
+      <p class="tf-diff-foot">Architectural / structured-state labs — not CapEx guarantees, not an LLM bake-off, not established “80% DRAM for AI serving.” <a href="./expedition-002-brochure.html">Exp 002</a> · <a href="https://fractisi.vercel.app/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a> · <a href="https://fractisi.vercel.app/product/pricing/">Pricing</a>.</p>
     </section>
 
     <h2>The simplest way to understand Tiny Footprint</h2>
