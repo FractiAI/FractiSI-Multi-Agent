@@ -188,3 +188,26 @@ a:hover { color: #fff; }
 @media (max-width: 640px) {
   .tf-hero { min-height: 70vh; }
 }
+
+/* Expedition 002 differentiator board — lead product surfaces */
+.tf-diff-board {
+  margin: 0 0 1.75rem;
+  padding: 1.15rem 1.2rem 1.3rem;
+  border: 1px solid rgba(201,162,39,.55);
+  background: linear-gradient(135deg, rgba(201,162,39,.14), rgba(8,18,36,.75));
+}
+.tf-diff-board > h2 { margin: 0 0 .35rem; font-size: clamp(1.25rem, 3vw, 1.55rem); color: var(--tf-gold-hi); }
+.tf-diff-board .tf-diff-why { margin: 0 0 1rem; color: var(--tf-mist); }
+.tf-diff-board .tf-diff-stats { display: grid; gap: 1rem; }
+@media (min-width: 800px) {
+  .tf-diff-board .tf-diff-stats { grid-template-columns: repeat(3, 1fr); }
+}
+.tf-diff-board .tf-diff-stat {
+  border-left: 3px solid var(--tf-gold);
+  padding: .15rem 0 .15rem .85rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+.tf-diff-board .tf-diff-stat .tf-price { font-size: 1.45rem; margin: .25rem 0; }
+.tf-diff-board .tf-diff-foot { margin: 1rem 0 0; font-size: .9rem; color: rgba(232,238,246,.72); }

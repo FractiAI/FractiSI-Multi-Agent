@@ -17,6 +17,16 @@
 
 **FractiSI Multi-Agent** is FractiSI’s flagship installable platform for agentic engineering work. It sits **beside** Cursor, Claude Code, VS Code, and Git — it does not replace them.
 
+### Why teams visit · Expedition 002 lab differentiators
+
+| Differentiator | Flat / full-copy | FractiSI guided |
+|------|------------------|-----------------|
+| **Sees what flat models miss** (100 × 6-hop) | **0 / 100** solutions · chains · anomalies | **100 / 100** |
+| **Converges on answers faster** | 6 rounds · 40 ops | **3 rounds (−50%)** · **6 ops (−85%)** |
+| **Agent density per infra budget** | Full per-agent copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** |
+
+These are the outcomes multi-agent teams come here for. Digital architectural lab (seed `20261105`) — not an LLM bake-off; LLM collective intelligence not yet demonstrated. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [pricing](./product/pricing/).
+
 **Tiny Footprint** is the Layer A execution core: one shared world (or shared organizational context) for many agents — template once, per-agent deltas, selective reconstruct. **DRAM concurrency** is the engine inside. Layers B–F add coordination, shared state, composition, Git awareness, and **optional** approval-gated deploy.
 
 Agent fleets default to an expensive habit: **copy the shared world into every agent**, then collide at merge time. Compression shrinks each copy; it does not remove the copies. FractiSI Multi-Agent registers the world once, keeps per-agent difference compact, coordinates ownership, composes contributions into one result, and only publishes when you ask it to.
@@ -338,15 +348,6 @@ Professional infrastructure — not a cheap Cursor/Claude substitute. **Charge f
 
 Primary billing metric: **concurrent coordinated agents** (registered agents are generous; human seats are included allowances). Deploy remains **optional**. Community is genuinely useful with no crippled trial.
 
-### Lab evidence · Expedition 002 (why denser fleets pay)
-
-| Test | Flat / full-copy | FractiSI guided |
-|------|------------------|-----------------|
-| **Discovery & solutions** (100 × 6-hop) | **0 / 100** | **100 / 100** |
-| **Architectural convergence** | 6 rounds · 40 ops | **3 rounds (−50%)** · **6 ops (−85%)** |
-| **Resource vs full-copy** | Full copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** speedup |
-
-Flat skim never assembles the chain — so it never sees the anomaly or the solution. Guided shared-world reconstruction recovers both and converges in fewer rounds. Digital architectural lab (seed `20261105`); **not** an LLM bake-off; LLM collective intelligence not yet demonstrated. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [pricing page lab board](./product/pricing/).
 
 Full page: [/product/pricing/](./product/pricing/) · [pricing & packaging spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)  
 Hub: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/product/pricing/
