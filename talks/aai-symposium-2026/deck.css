@@ -95,6 +95,34 @@ button:hover { border-color: var(--gold); color: var(--gold); }
   padding: 0.12rem 0.35rem;
   border-radius: 0.25rem;
 }
+.ide-cue {
+  margin: 1.4rem 0 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--gold);
+  background: rgba(214, 194, 122, 0.08);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  max-width: 46rem;
+  line-height: 1.45;
+}
+.ide-cue span {
+  display: inline-block;
+  margin-right: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+.ide-cue code {
+  font-size: 0.88rem;
+  color: var(--gold);
+  background: #0b1220;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+}
+.ide-cue em { color: var(--gold); font-style: italic; }
 
 .deck {
   min-height: calc(100vh - 5.6rem);

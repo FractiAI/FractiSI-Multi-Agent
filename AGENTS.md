@@ -10,7 +10,7 @@ If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo
 node scripts/tiny.mjs testdrive
 ```
 
-Narrate the PROBLEM → FRACTISI sections as they print. The tour demonstrates today’s multi-agent pains (N copies, gzip-only, exact cache, **discovery**, **convergence**, merge collisions, scarce density) and how FractiSI addresses each. No cloud token.
+Narrate the PROBLEM → FRACTISI sections as they print. Prefer `testdrive primer` then `testdrive 1`…`7` to match symposium slides. The tour demonstrates today’s multi-agent pains (N copies, gzip-only, exact cache, **discovery**, **convergence**, merge collisions, scarce density) and how FractiSI addresses each. No cloud token for the Test Drive. Close with Community (free) setup: GitHub for commits; cloud deploy is paid (Team+).
 
 ## Commands
 

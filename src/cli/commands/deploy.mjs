@@ -1,8 +1,15 @@
-/** FractiSI Deploy CLI: create | approve | run | list */
+/** FractiSI Deploy CLI: create | approve | run | list — paid editions only. */
 import { loadPlatform } from '../load-platform.mjs';
 import { checkCloud } from '../../platform/prereqs.mjs';
+import { canDeploy, deployPaidMessage, resolveOperatorTier } from '../../platform/operator-tier.mjs';
 
 export function deploy(ctx) {
+  const tier = resolveOperatorTier(ctx);
+  if (!canDeploy(tier)) {
+    for (const line of deployPaidMessage(tier)) ctx.log(line);
+    return 2;
+  }
+
   const sub = ctx.argv[3] || 'list';
   const platform = loadPlatform(ctx);
   const cloud = checkCloud(process.env);

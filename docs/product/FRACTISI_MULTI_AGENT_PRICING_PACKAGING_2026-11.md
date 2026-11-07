@@ -209,9 +209,9 @@ Runtime labels in `src/platform/entitlements.mjs`:
 
 | Commercial edition | Entitlement id | Notes |
 |--------------------|----------------|-------|
-| Community | `community` (alias `core`) | Unrestricted local discovery |
-| Developer Pro | `developer_pro` (alias `professional`) | Up to 8 concurrent; intelligence workflows when activated |
-| Team | `team` | Up to 32 concurrent; collective discovery / governance when activated |
+| Community | `community` (alias `core`) | Unrestricted local discovery · Git commits · **no cloud deploy** |
+| Developer Pro | `developer_pro` (alias `professional`) | Up to 8 concurrent; intelligence workflows when activated · **no cloud deploy** |
+| Team | `team` | Up to 32 concurrent; collective discovery / governance · **`approval_gated_deploy` unlocks** |
 | Server / Enterprise | `enterprise` | From $30k/yr; custom capacity |
 | Cloud Platform | `cloud` | Provider-scale |
 

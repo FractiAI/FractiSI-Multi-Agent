@@ -8,6 +8,9 @@ test('tiers are packaging labels with cumulative capabilities', () => {
   assert.equal(resolveTier('professional').id, 'developer_pro');
   assert.equal(hasCapability('enterprise', 'deployment_integration'), true);
   assert.equal(hasCapability('community', 'deployment_integration'), false);
+  assert.equal(hasCapability('community', 'approval_gated_deploy'), false);
+  assert.equal(hasCapability('developer_pro', 'approval_gated_deploy'), false);
+  assert.equal(hasCapability('team', 'approval_gated_deploy'), true);
   assert.equal(hasCapability('developer_pro', 'composition_engine'), true);
   const matrix = featureMatrix();
   assert.ok(matrix.matrix.composition_engine.developer_pro);
