@@ -5,5 +5,22 @@
     "api/testdrive.js": {
       "includeFiles": "src/**"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/test-drive/self-paced",
+      "destination": "/test-drive/",
+      "permanent": true
+    },
+    {
+      "source": "/test-drive/self-paced/",
+      "destination": "/test-drive/",
+      "permanent": true
+    },
+    {
+      "source": "/test-drive/self-paced/:path*",
+      "destination": "/test-drive/",
+      "permanent": true
+    }
+  ]
 }

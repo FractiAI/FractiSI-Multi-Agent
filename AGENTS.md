@@ -10,7 +10,9 @@ If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo
 node scripts/tiny.mjs testdrive
 ```
 
-Open with the **architecture primer in plain English inside Test Drive** (`/test-drive/self-paced/#primer` — do not send the audience to the product page for first listen): Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F. Self-paced UI = content + Run + Previous/Next. Active Inference: **possible rhyme** (humans as agents) — not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize Rhyming Templates (3) and selective reconstruction (4–5). Layer F deploy is paid (Team+).
+**One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
+
+Open with the **primer** (`/test-drive/#primer`): include the locked **rhyme** definition — four pillars (repeating · self-similar · self-correcting · recursive) from Net Zero up Infinite Octaves; not exact-text / prefix / schema alone (`src/testdrive/rhyme-definition.mjs` · `src/engine/rhyming/gate.mjs`). Ladder: Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F. Symposium “possible rhyme with Active Inference” = kinship only — not the software gate, not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize lab 3 (rhyme gate) and 4–5. Layer F deploy is paid (Team+).
 
 ## Commands
 

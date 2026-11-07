@@ -68,12 +68,12 @@ function printStep(out) {
   say(['', `  ▸ live lab · ${out.ms} ms`, '']);
   for (const line of s.lines) console.log(`  ${line}`);
   if (s.next) {
-    say(['', `  IDE / self-paced next: node scripts/tiny.mjs testdrive ${s.next}`, '']);
+    say(['', `  Next: node scripts/tiny.mjs testdrive ${s.next}`, '']);
   } else {
     say([
       '',
-      '  Tour complete · Community signup on the closing talk slide / self-paced finish.',
-      '  Self-paced: https://fractisi.vercel.app/test-drive/self-paced/',
+      '  Tour complete · Community signup on the closing talk slide / Test Drive finish.',
+      '  Test Drive: https://fractisi.vercel.app/test-drive/',
       '',
     ]);
   }
@@ -93,7 +93,7 @@ function listSteps() {
     '  node scripts/tiny.mjs testdrive           # full tour',
     '  node scripts/tiny.mjs testdrive primer',
     '  node scripts/tiny.mjs testdrive 1 … 7',
-    '  Self-paced (no IDE): https://fractisi.vercel.app/test-drive/self-paced/',
+    '  Test Drive (browser): https://fractisi.vercel.app/test-drive/',
     '',
   ]);
   for (const s of listTestDriveSteps()) {
@@ -136,7 +136,7 @@ export async function testdrive(ctx) {
   say([
     '  Product tour: primer → Tiny Footprint → Rhyming Templates → selective reconstruct',
     '  → coordination/composition → density / Git / paid deploy.',
-    '  Self-paced twin: https://fractisi.vercel.app/test-drive/self-paced/',
+    '  Test Drive: https://fractisi.vercel.app/test-drive/',
     '',
   ]);
   for (const key of ['primer', '1', '2', '3', '4', '5', '6', '7']) {

@@ -1,9 +1,14 @@
 /**
  * FractiSI Multi-Agent · architecture primer (canonical copy).
- * Shared by Test Drive (CLI / API / self-paced) and the product page.
+ * Shared by Test Drive (CLI / API) and the product page.
  *
  * Voice: frontier product engineering — concrete, short, locked names.
+ * Rhyme definition: src/testdrive/rhyme-definition.mjs ← gate.mjs + holographic-rhyme paper.
  */
+
+import { RHYME_DEFINITION, rhymeDefinitionLines } from './rhyme-definition.mjs';
+
+export { RHYME_DEFINITION, rhymeDefinitionLines };
 
 export const ARCHITECTURE_PRIMER = Object.freeze({
   title: 'FractiSI Multi-Agent · stack map',
@@ -21,13 +26,13 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
       id: 'net-zero',
       name: 'Net Zero (octave 0)',
       body:
-        'Root of the shared world. Active equilibrium, not empty void. Rhymes and nested structure hang from here.',
+        'Root of the shared world. Active equilibrium, not empty void. A holographic rhyme must root here; mid-octave nests without Net Zero fail the gate.',
     },
     {
       id: 'phi',
       name: 'Φ_EGS ≈ 1.618',
       body:
-        'Nesting / scale-bridge constant used as design grammar. Not ℏ, c, or G. Not a theory of mind.',
+        'Nesting / scale-bridge constant used as design grammar for recursive octave ascent. Not ℏ, c, or G. Not a theory of mind.',
     },
     {
       id: 'octaves',
@@ -42,10 +47,16 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
         'Entry constraints: domain, task, what may cross into the shared world before templates bind data.',
     },
     {
-      id: 'trees',
-      name: 'Recursive trees · holographic rhyme',
+      id: 'rhyme',
+      name: 'Holographic rhyme (four-pillar gate)',
       body:
-        'Hierarchical context with four pillars: repeating, self-similar, self-correcting, recursive. Schema match or text prefix alone is not a rhyme.',
+        `${RHYME_DEFINITION.lede} ${RHYME_DEFINITION.gate} Pillars: repeating · self-similar · self-correcting · recursive. Not a rhyme: exact-text / prefix cache alone, schema-key match alone, brick-wall repetition, or mid-octave nest without Net Zero.`,
+    },
+    {
+      id: 'trees',
+      name: 'Recursive trees',
+      body:
+        'Hierarchical context that carries rhyme across scale once the four-pillar gate passes. Schema match or text prefix alone is still not a rhyme.',
     },
     {
       id: 'polygons',
@@ -69,15 +80,14 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
       id: 'synthesis',
       name: 'Product surface',
       body:
-        'Rhyming Templates → Tiny Gateway™ → Tiny Footprint → Layers B–F (coordinate, shared state, compose, Git, paid deploy) → FractiSI Multi-Agent beside Cursor, Claude Code, VS Code, and Git.',
+        'Rhyming Templates (patterns under the rhyme gate) → Tiny Gateway™ → Tiny Footprint → Layers B–F (coordinate, shared state, compose, Git, paid deploy) → FractiSI Multi-Agent beside Cursor, Claude Code, VS Code, and Git.',
     },
   ]),
-  activeInference:
-    'Possible structural rhyme with Active Inference: many agents — including humans — act in one shared world without each reprinting a private full copy. Kinship for joint experiments — not framework identity.',
+  activeInference: RHYME_DEFINITION.symposiumKinship,
   chain:
-    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent',
+    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent',
   honesty:
-    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
+    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
 });
 
 /** Plain-text lines for CLI / API results panels. */
@@ -96,10 +106,12 @@ export function architecturePrimerLines() {
     lines.push(`    ${s.body}`);
     lines.push('');
   }
-  lines.push('  Active Inference (possible rhyme)');
+  lines.push(...rhymeDefinitionLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
+  lines.push('');
+  lines.push('  Symposium kinship (separate word use)');
   lines.push(`    ${p.activeInference}`);
   lines.push('');
-  lines.push('  Next: labs 1–7. Same runners as the CLI. No account. No cloud token for the walkthrough.');
+  lines.push('  Next: labs 1–7. Same runners as the CLI. No account. No cloud token for the Test Drive.');
   return lines;
 }
 

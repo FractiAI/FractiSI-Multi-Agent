@@ -216,8 +216,11 @@ function run3() {
   const lines = [
     'TINY GATEWAY · RHYMING TEMPLATES',
     '',
-    '  Holographic rhyme (four pillars): repeating · self-similar · self-correcting · recursive',
-    '  Rooted at Net Zero (octave 0), nested through Infinite Octaves — not exact-text match.',
+    '  What we mean by rhyme (locked):',
+    '  A holographic rhyme passes four pillars — repeating · self-similar · self-correcting · recursive —',
+    '  rooted at Net Zero (octave 0) and ascending Infinite Octaves.',
+    '  Not a rhyme: exact-text / prefix cache alone · schema-key match alone · brick-wall repetition ·',
+    '  mid-octave nest without Net Zero.',
     '',
     `  Sessions:              ${rhymeCmp.sessions} (same organization, different words)`,
     `  Exact-text cache hits: ${rhymeCmp.exactTextHits} duplicate texts`,
@@ -227,7 +230,7 @@ function run3() {
     `  Rhyme vs exact cache:  ${pct(rhymeCmp.rhymeVersusCache)} smaller than exact cache`,
     `  Exact rebuild:         ${rhymeCmp.equivalent}`,
     '',
-    '  → Exact / prefix cache needs identical words. Rhyming Templates reuse organization.',
+    '  → Exact / prefix cache needs identical words. Rhyming Templates reuse organization under the gate.',
   ];
   if (rhyme?.status === 'ran') {
     lines.push(
@@ -236,13 +239,13 @@ function run3() {
     );
   }
   return base(m, {
-    problem: 'Exact-text and prefix caches only help when the words match.',
+    problem: 'Exact-text and prefix caches only help when the words match — and that is not our rhyme gate.',
     opportunity:
-      'Tiny Gateway Rhyming Templates share Infinite Octave organization when wording differs.',
+      'Tiny Gateway Rhyming Templates share organization when wording differs, under the four-pillar holographic rhyme gate.',
     fractisi: [
       'Component: Tiny Gateway™ Rhyming Templates (engine under Tiny Footprint).',
-      'Grammar: holographic rhyme from Net Zero up the Infinite Octaves ladder.',
-      'Honesty: rhyme expands the cache bank for organizational near-dupes — not “rhyme beats every prefix cache on live heap.”',
+      'Rhyme: four pillars from Net Zero up Infinite Octaves — see /library/papers/holographic-rhyme/.',
+      'Honesty: expands organizational near-dupe reuse — not “rhyme beats every prefix cache on live heap.”',
     ],
     lines,
     metrics: {
