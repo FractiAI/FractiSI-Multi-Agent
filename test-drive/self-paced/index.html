@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Walkthrough · FractiSI Multi-Agent Test Drive</title>
   <meta name="description" content="Trainer-guided FractiSI Multi-Agent walkthrough — plain primer, live labs, Previous / Next.">
-  <link rel="stylesheet" href="/css/site.css?v=32">
+  <link rel="stylesheet" href="/css/site.css?v=33">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <style>
     :root {
       --td-ink: #1a1916;
@@ -214,18 +215,22 @@
       background: #ffffff;
       transform: translateY(-1px);
     }
-    .btn.btn-run {
+    .btn.btn-run,
+    .btn.btn-next {
       background: #1a1916;
       color: #fbf9f4;
       border-color: #1a1916;
       min-width: 9.5rem;
     }
     .btn.btn-run:hover:not(:disabled),
-    .btn.btn-run:focus-visible:not(:disabled) {
+    .btn.btn-run:focus-visible:not(:disabled),
+    .btn.btn-next:hover:not(:disabled),
+    .btn.btn-next:focus-visible:not(:disabled) {
       background: #2a2824;
       color: #ffffff;
     }
     .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn { touch-action: manipulation; position: relative; z-index: 1; }
     .status {
       font-family: var(--sans);
       font-size: 0.88rem;
@@ -235,15 +240,13 @@
 
     .results-wrap {
       margin-top: 0.95rem;
-      display: none;
     }
-    .results-wrap.is-open { display: block; animation: lesson-in 0.3s ease; }
     .results-label {
       font-family: var(--sans);
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(244, 241, 234, 0.7);
+      color: var(--td-muted);
       margin: 0 0 0.45rem;
     }
     .results {
@@ -256,9 +259,11 @@
       font-size: 0.82rem;
       line-height: 1.5;
       white-space: pre-wrap;
+      min-height: 6.5rem;
       max-height: 22rem;
       overflow: auto;
     }
+    .results.is-empty { color: #9a958c; }
     .takeaway {
       margin: 0.85rem 0 0;
       padding: 0.85rem 0.95rem;
@@ -387,12 +392,12 @@
         <p class="lab-title">Measure</p>
         <p class="lab-hint" id="lab-hint">Runs the same kit as the CLI.</p>
         <div class="actions">
-          <button type="button" class="btn btn-run" id="btn-run">Run</button>
+          <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run</button>
           <span class="status" id="status"></span>
         </div>
         <div class="results-wrap" id="results-wrap">
           <p class="results-label">Output</p>
-          <pre class="results" id="results"></pre>
+          <pre class="results is-empty" id="results">Press Run to measure this step.</pre>
           <div class="takeaway" id="takeaway"></div>
           <p class="honesty" id="honesty"></p>
         </div>
@@ -412,9 +417,9 @@
 
   <nav class="bottom-nav" aria-label="Lesson navigation">
     <div class="bottom-nav-inner">
-      <button type="button" class="btn" id="btn-prev">← Previous</button>
+      <button type="button" class="btn" id="btn-prev" data-action="prev">← Previous</button>
       <span class="center-hint">Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs</span>
-      <button type="button" class="btn btn-run" id="btn-next">Next →</button>
+      <button type="button" class="btn btn-next" id="btn-next" data-action="next">Next →</button>
     </div>
   </nav>
 
@@ -681,21 +686,30 @@
       btnPrev.disabled = index === 0;
       btnNext.textContent = index >= total - 1 ? 'Finish' : 'Next →';
 
-      resultsWrap.classList.remove('is-open');
-      resultsEl.textContent = '';
+      resultsEl.classList.add('is-empty');
+      resultsEl.textContent = 'Press Run to measure this step.';
       takeawayEl.classList.remove('is-open');
       takeawayEl.innerHTML = '';
       honestyEl.textContent = '';
       statusEl.textContent = '';
       finishEl.classList.remove('is-open');
 
-      lessonEl.classList.remove('lesson');
-      void lessonEl.offsetWidth;
-      lessonEl.classList.add('lesson');
-
       renderDots();
       history.replaceState(null, '', '#' + s.id);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goNext() {
+      if (index >= STEPS.length - 1) {
+        finishEl.classList.add('is-open');
+        finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+      show(ORDER[index + 1]);
+    }
+
+    function goPrev() {
+      if (index > 0) show(ORDER[index - 1]);
     }
 
     async function runLab() {
@@ -703,7 +717,7 @@
       running = true;
       btnRun.disabled = true;
       statusEl.textContent = 'Running…';
-      resultsWrap.classList.add('is-open');
+      resultsEl.classList.remove('is-empty');
       resultsEl.textContent = '▸ measuring…';
       takeawayEl.classList.remove('is-open');
       try {
@@ -731,8 +745,9 @@
         done.add(id);
         saveDone();
         renderDots();
-        resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (err) {
+        resultsEl.classList.remove('is-empty');
         resultsEl.textContent = 'Could not run this lab.\n' + String(err.message || err) + '\n\nYou can still continue with Next / Previous.';
         statusEl.textContent = 'Error — navigation still works';
       } finally {
@@ -741,25 +756,31 @@
       }
     }
 
-    btnRun.addEventListener('click', runLab);
-    btnPrev.addEventListener('click', () => { if (index > 0) show(ORDER[index - 1]); });
-    btnNext.addEventListener('click', () => {
-      if (index >= STEPS.length - 1) {
-        finishEl.classList.add('is-open');
-        finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        return;
+    // Delegated clicks — survives focus quirks and avoids dual .btn-run confusion.
+    document.addEventListener('click', (e) => {
+      const t = e.target && e.target.closest ? e.target.closest('[data-action]') : null;
+      if (!t) return;
+      const action = t.getAttribute('data-action');
+      if (action === 'run') {
+        e.preventDefault();
+        runLab();
+      } else if (action === 'next') {
+        e.preventDefault();
+        goNext();
+      } else if (action === 'prev') {
+        e.preventDefault();
+        goPrev();
       }
-      show(ORDER[index + 1]);
     });
 
     window.addEventListener('keydown', (e) => {
       if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
       if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
         e.preventDefault();
-        btnNext.click();
+        goNext();
       } else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') {
         e.preventDefault();
-        btnPrev.click();
+        goPrev();
       } else if (e.key === 'r' || e.key === 'R') {
         e.preventDefault();
         runLab();
