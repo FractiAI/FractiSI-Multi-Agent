@@ -9,6 +9,11 @@ import { runMultiSessionDemo } from '../workloads/multi-session.mjs';
 import { compareRhymeToCache, differingWordSessions } from '../experiments/rhyme-vs-cache.mjs';
 import { runDiscoveryConvergenceBenchmark } from '../experiments/expedition-002-discovery.mjs';
 import { runComparativeBench } from '../platform/comparative-bench.mjs';
+import {
+  ARCHITECTURE_PRIMER,
+  architecturePrimerFractisiBullets,
+  architecturePrimerLines,
+} from './architecture-primer.mjs';
 
 function pct(x) {
   return `${(Number(x) * 100).toFixed(1)}%`;
@@ -26,10 +31,10 @@ export const STEP_CATALOG = Object.freeze([
   {
     id: 'primer',
     n: 0,
-    title: 'FractiSI Multi-Agent · product cold start',
-    short: 'Active Inference rhyme · Infinite Octaves → Layers A–F',
-    layer: 'Product map · Active Inference rhyme',
-    component: 'FractiSI Multi-Agent · Tiny Footprint · Tiny Gateway™',
+    title: ARCHITECTURE_PRIMER.title,
+    short: 'Net Zero · Φ · octaves · trees · polygons · wave · awareness → product',
+    layer: ARCHITECTURE_PRIMER.kicker,
+    component: 'Infinite Possibilities Lattice → Tiny Gateway → FractiSI Multi-Agent',
   },
   {
     id: '1',
@@ -114,8 +119,7 @@ function base(meta, fields) {
     lines: fields.lines || [],
     metrics: fields.metrics || {},
     next: NEXT[meta.id],
-    honesty:
-      'Architectural / structured-state FractiSI labs — Tiny Footprint / Tiny Gateway / platform layers. Not CapEx guarantees. Not an LLM multi-agent bake-off. Infinite Octaves = filing / scale grammar, not infinite physical tiers. “Possible rhyme” with Active Inference (humans as agents in a shared world) is an interdisciplinary invitation — not framework identity.',
+    honesty: ARCHITECTURE_PRIMER.honesty,
   };
 }
 
@@ -128,52 +132,14 @@ function meta(id) {
 function runPrimer() {
   const m = meta('primer');
   return base(m, {
-    fractisi: [
-      'Active Inference rhyme (possible, not identity): humans are agents too — operators in the same shared world as software agents',
-      'Product: FractiSI Multi-Agent — shared-world intelligence & coordination beside Cursor / Claude Code / VS Code / Git',
-      'Grammar: Infinite Octaves — Net Zero (octave 0) → ascending octave ladder for nested organization',
-      'Engine: Tiny Gateway™ — Rhyming Templates · nested vectors · selective reconstruction',
-      'Layer A: Tiny Footprint — shared world once · agent deltas · denser fleets',
-      'Layers B–F: Coordination · Shared state · Composition · Git awareness · Deploy (paid on Team+)',
-    ],
-    lines: [
-      'FRACTISI MULTI-AGENT · product map',
-      '',
-      '  Active Inference Symposium framing',
-      '    · FractiSI Multi-Agent is offered as a possible rhyme with Active Inference:',
-      '      many agents — including humans — operating in one shared world,',
-      '      each keeping different observations, beliefs, and actions,',
-      '      without every participant reprinting a private full copy of that world.',
-      '    · “Rhyme” means structural kinship for joint experiments — not equivalence.',
-      '',
-      '  FractiSI Multi-Agent is not another coding assistant or model swap.',
-      '  It is the coordination platform around a shared computational world',
-      '  where human and software agents can both participate.',
-      '',
-      '  Infinite Octaves (grammar)',
-      '    · Net Zero = octave 0 origin / equilibrium',
-      '    · Ascending octaves = nested self-similar organization',
-      '    · Holographic rhyme = repeating · self-similar · self-correcting · recursive',
-      '',
-      '  Tiny Gateway™ (engine spine)',
-      '    · Rhyming Templates — organizational reuse when wording differs',
-      '    · Nested vectors — pull only the scales you need',
-      '    · Selective reconstruction — build the working set on demand',
-      '',
-      '  Tiny Footprint (Layer A · memory / execution productization)',
-      '    · Register the shared world once; keep agent deltas',
-      '',
-      '  Platform layers (Workstation 0.2)',
-      '    A Execution (Tiny Footprint) · B Coordination · C Shared state',
-      '    D Composition · E Git awareness · F Deploy (paid)',
-      '',
-      '  Self-paced: each next step runs a live lab for that layer/component.',
-      '  No FractiSI account. No cloud token for this walkthrough.',
-    ],
+    fractisi: architecturePrimerFractisiBullets(),
+    lines: architecturePrimerLines(),
     metrics: {
       mode: 'primer',
+      architecture: ARCHITECTURE_PRIMER.steps.map((s) => s.id),
       layers: ['A', 'B', 'C', 'D', 'E', 'F'],
       activeInferenceRhyme: 'possible_not_identity',
+      chain: ARCHITECTURE_PRIMER.chain,
     },
   });
 }
