@@ -16,7 +16,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
   title: 'FractiSI Multi-Agent · stack map',
   kicker: 'Architecture primer',
   lede:
-    'FractiSI Multi-Agent keeps one shared world for many agents (and human operators) instead of N private full copies. The ladder below is the shipped naming — then the labs measure it.',
+    'FractiSI Multi-Agent keeps one shared world for many agents (and human operators) instead of N private full copies. Learn Net Zero and rhyme first; the product map is short; then labs run the kit.',
   steps: Object.freeze([
     {
       id: 'generative',

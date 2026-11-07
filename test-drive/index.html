@@ -358,6 +358,14 @@
       padding: 0.05rem 0.28rem;
       color: var(--td-muted);
     }
+
+    .is-hidden { display: none !important; }
+    .teach-continue {
+      margin: 1.1rem 0 0;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--td-muted);
+    }
   </style>
 </head>
 <body>
@@ -375,7 +383,7 @@
     <div class="progress-rail" aria-label="Lesson progress">
       <div class="progress-top">
         <span id="progress-label">Lesson 01 · Primer</span>
-        <span class="eta" id="progress-eta">~15 min total</span>
+        <span class="eta" id="progress-eta">4 primer pages · 7 labs</span>
       </div>
       <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
       <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump to lesson"></div>
@@ -387,8 +395,10 @@
       <p class="promise" id="promise"></p>
       <div class="teach" id="teach"></div>
 
-      <section class="lab-panel" aria-label="Live lab">
-        <p class="lab-title">Measure</p>
+      <p class="teach-continue is-hidden" id="teach-continue">Use <strong>Next →</strong> when this page is clear. Labs with a live Run panel start after the primer.</p>
+
+      <section class="lab-panel is-hidden" id="lab-panel" aria-label="Live lab">
+        <p class="lab-title" id="lab-title">Live lab</p>
         <p class="lab-hint" id="lab-hint">Runs the same kit as the CLI.</p>
         <div class="actions">
           <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run</button>
@@ -396,7 +406,7 @@
         </div>
         <div class="results-wrap" id="results-wrap">
           <p class="results-label">Output</p>
-          <pre class="results is-empty" id="results">Press Run to measure this step.</pre>
+          <pre class="results is-empty" id="results">Press Run to execute this lab.</pre>
           <div class="takeaway" id="takeaway"></div>
           <p class="honesty" id="honesty"></p>
         </div>
@@ -426,57 +436,123 @@
     const STEPS = [
       {
         id: 'primer',
+        mode: 'teach',
         n: 0,
-        title: 'Stack map',
-        promise: 'Names you will see in the labs — then we measure.',
-        runLabel: 'Print stack map',
-        labHint: 'Dumps the canonical ladder into the output panel.',
-        takeaway: 'Shared world → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy.',
+        primerIndex: 1,
+        primerTotal: 4,
+        title: 'One shared world',
+        promise: 'Cold start in four short pages — no meters yet.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">Premise</p>
-            <p>Default multi-agent setups give each agent a private full copy of context. FractiSI Multi-Agent keeps one shared world and specializes around it.</p>
+            <p class="label">The problem</p>
+            <p>Most multi-agent setups give every agent a <strong>private full copy</strong> of the same context. Ten agents → ten reprints of the world before specialized work starts. Humans in the loop get treated the same way: another private dump.</p>
           </div>
           <div class="teach-block">
-            <p class="label">Ladder</p>
-            <ol class="ladder">
-              <li><span class="n">01</span><span><strong>Generative possibility</strong> — what can be filed, nested, reused.</span></li>
-              <li><span class="n">02</span><span><strong>Net Zero (octave 0)</strong> — active-equilibrium root (defined below).</span></li>
-              <li><span class="n">03</span><span><strong>Φ ≈ 1.618</strong> — nesting scale (design grammar, not physics).</span></li>
-              <li><span class="n">04</span><span><strong>Infinite Octaves</strong> — nesting depth / filing map.</span></li>
-              <li><span class="n">05</span><span><strong>Boundary nodes</strong> — what may enter.</span></li>
-              <li><span class="n">06</span><span><strong>Holographic rhyme</strong> — four-pillar gate (defined after Net Zero).</span></li>
-              <li><span class="n">07</span><span><strong>Recursive trees</strong> — hierarchy that carries rhyme across scale.</span></li>
-              <li><span class="n">08</span><span><strong>Eight-node / honeycomb</strong> — one story, eight ports.</span></li>
-              <li><span class="n">09</span><span><strong>Wave · vectors · interference</strong> — activation, working sets, collision marks.</span></li>
-              <li><span class="n">10</span><span><strong>Awareness</strong> — what each participant holds (not consciousness).</span></li>
-              <li><span class="n">11</span><span><strong>Product</strong> — Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy.</span></li>
-            </ol>
+            <p class="label">FractiSI Multi-Agent</p>
+            <p>Keep <strong>one shared world</strong>. Agents (and people) hold only what they need on top of it. That is the product idea. Everything else in this Test Drive — Net Zero, rhyme, Tiny Footprint, Coordination — is how that idea is named and measured.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">What you will leave with</p>
+            <p>Working meaning for <strong>Net Zero</strong> and <strong>rhyme</strong>, a short product map, then seven live labs that run the same kit as the CLI. No account. No cloud token for the Test Drive.</p>
+          </div>
+        `,
+      },
+      {
+        id: 'primer-net-zero',
+        mode: 'teach',
+        n: 0,
+        primerIndex: 2,
+        primerTotal: 4,
+        title: 'Net Zero',
+        promise: 'Balanced zero, not nothing zero — define this before rhyme.',
+        teach: `
+          <div class="teach-block notice">
+            <p class="label">Punch line</p>
+            <p><strong>Balanced zero, not nothing zero.</strong></p>
+          </div>
+          <div class="teach-block">
+            <p class="label">What it is</p>
+            <p><strong>Net Zero (octave 0)</strong> is the active-equilibrium root of the shared world. Opposing contributions cancel into a viable operating band while work continues — cancel-to-balance under continuous activity. Stillness is not required. Here <strong>Goldilocks ≡ Net Zero</strong>: the “just right” band files as the same living balance.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Why it matters here</p>
+            <p>Octave 0 is home base. Nested structure and holographic rhymes hang from this balanced root. A mid-level nest with no Net Zero root is not a rhyme in this product.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What we mean by Net Zero</p>
-            <p><strong>Balanced zero, not nothing zero.</strong> <strong>Net Zero (octave 0)</strong> is the active-equilibrium root of the shared world — cancel-to-balance under continuous activity — not empty void, blank null, or a dead stop. Opposing contributions cancel into a viable operating band while work continues. Here <strong>Goldilocks ≡ Net Zero</strong>: the “just right” band files as the same active equilibrium. Stillness is not required.</p>
-            <p style="margin-top:0.75rem">Octave 0 is home base. Rhymes hang from this balanced root. <strong>Not Net Zero here:</strong> nothing zero (void / blank null) · dead stillness · climate-policy “net zero” slogans · certified zero-watt SI · GR singularity proofs.</p>
+            <p class="label">Not Net Zero here</p>
+            <p>Nothing zero (empty void / blank null) · dead stillness · climate-policy “net zero” slogans · certified zero-watt Super Intelligence · GR singularity proofs.</p>
           </div>
+        `,
+      },
+      {
+        id: 'primer-rhyme',
+        mode: 'teach',
+        n: 0,
+        primerIndex: 3,
+        primerTotal: 4,
+        title: 'Holographic rhyme',
+        promise: 'Organization grammar rooted at Net Zero — not “sounds alike.”',
+        teach: `
           <div class="teach-block notice">
-            <p class="label">What we mean by rhyme</p>
-            <p>A <strong>holographic rhyme</strong> is organization / motion grammar under Infinite Octaves — not “sounds alike,” not exact-text match, not a prefix-cache hit. It passes only when <strong>all four pillars</strong> hold, rooted at <strong>Net Zero (octave 0)</strong> — the active-equilibrium home base above — and ascending octaves:</p>
+            <p class="label">After Net Zero</p>
+            <p>A <strong>holographic rhyme</strong> is motion / organization grammar under Infinite Octaves. It is not a synonym for “sounds alike,” not exact-text match, and not a prefix-cache hit.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Gate — all four pillars required</p>
+            <p>Rooted at <strong>Net Zero (octave 0)</strong> — balanced zero — and ascending Infinite Octaves:</p>
             <ol class="ladder">
-              <li><span class="n">·</span><span><strong>Repeating</strong> — same organization across multiple expressions (shared shape; words may differ).</span></li>
+              <li><span class="n">·</span><span><strong>Repeating</strong> — same organization across expressions (shape; words may differ).</span></li>
               <li><span class="n">·</span><span><strong>Self-similar</strong> — local blueprint mirrors the whole.</span></li>
-              <li><span class="n">·</span><span><strong>Self-correcting</strong> — drift dampens toward Net Zero (active equilibrium).</span></li>
-              <li><span class="n">·</span><span><strong>Recursive</strong> — nests from Net Zero up the octave ladder (not a dead loop; mid-octave-only fails).</span></li>
+              <li><span class="n">·</span><span><strong>Self-correcting</strong> — drift dampens toward Net Zero.</span></li>
+              <li><span class="n">·</span><span><strong>Recursive</strong> — nests from Net Zero up the octave ladder (mid-octave-only fails).</span></li>
             </ol>
-            <p style="margin-top:0.75rem"><strong>Not a rhyme:</strong> exact-text / prefix alone · schema-key match alone · brick-wall repetition · mid-octave nest without Net Zero. <strong>Rhyming Templates</strong> are patterns that pass this gate. Papers: <a href="/library/papers/holographic-rhyme/">holographic rhyme</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Not a rhyme</p>
+            <p>Exact-text / prefix alone · schema-key match alone · brick-wall repetition · mid-octave nest without Net Zero.</p>
           </div>
           <div class="teach-block">
-            <p class="label">Symposium kinship (different use of the word)</p>
-            <p>“Possible rhyme with Active Inference” means structural kinship for joint experiments — shared world, many agents including humans. Not the four-pillar software gate. Not framework identity.</p>
+            <p class="label">Product name</p>
+            <p><strong>Rhyming Templates</strong> (Tiny Gateway) are reusable patterns that pass this gate — so differently worded sessions can share organization. Papers: <a href="/library/papers/holographic-rhyme/">holographic rhyme</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Symposium wording (different sense)</p>
+            <p>“Possible rhyme with Active Inference” = structural kinship for joint experiments (shared world, humans as agents too). Not this software gate. Not framework identity.</p>
+          </div>
+        `,
+      },
+      {
+        id: 'primer-map',
+        mode: 'teach',
+        n: 0,
+        primerIndex: 4,
+        primerTotal: 4,
+        title: 'Product map',
+        promise: 'Names you will meet in the labs — keep this short.',
+        teach: `
+          <div class="teach-block notice">
+            <p class="label">Working picture</p>
+            <p>Generative possibility → <strong>Net Zero</strong> (balanced zero) → nesting scale (Φ) → <strong>Infinite Octaves</strong> → <strong>holographic rhyme</strong> → <strong>Rhyming Templates / Tiny Gateway</strong> → <strong>Tiny Footprint</strong> → Coordination · Shared state · Composition → Git awareness → Deploy (paid).</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">What the labs will do</p>
+            <ol class="ladder">
+              <li><span class="n">1–2</span><span><strong>Tiny Footprint</strong> — shared world vs N copies (then after gzip).</span></li>
+              <li><span class="n">3</span><span><strong>Rhyme vs exact cache</strong> — four-pillar gate on differing words.</span></li>
+              <li><span class="n">4–5</span><span><strong>Selective reconstruction</strong> — discovery and convergence.</span></li>
+              <li><span class="n">6</span><span><strong>Coordination · Shared state · Composition</strong> — ownership before blind merge.</span></li>
+              <li><span class="n">7</span><span><strong>Density · Git awareness · Deploy</strong> — Community free; Deploy paid.</span></li>
+            </ol>
+          </div>
+          <div class="teach-block">
+            <p class="label">Next</p>
+            <p>Hit <strong>Next →</strong> for Lab 1. Each lab has a short teach block, then a <strong>Run</strong> that executes the same kit as <code>node scripts/tiny.mjs testdrive</code>.</p>
           </div>
         `,
       },
       {
         id: '1',
+        mode: 'lab',
         n: 1,
         title: 'Shared world vs N copies',
         promise: 'Tiny Footprint: one world, per-agent deltas.',
@@ -493,13 +569,14 @@
             <p>Register the world once. Agents keep local deltas only. Density for everything above.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
+            <p class="label">What Run shows</p>
             <p>Total bytes: full-copy fleet vs shared world + deltas.</p>
           </div>
         `,
       },
       {
         id: '2',
+        mode: 'lab',
         n: 2,
         title: 'Gzip is not sharing',
         promise: 'Compression shrinks copies. It does not remove N-copy structure.',
@@ -516,13 +593,14 @@
             <p>Share the world, then optionally compress. Architecture leads; compression is polish.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
+            <p class="label">What Run shows</p>
             <p>Post-gzip residual between N copies and shared-world pack.</p>
           </div>
         `,
       },
       {
         id: '3',
+        mode: 'lab',
         n: 3,
         title: 'Rhyme vs exact cache',
         promise: 'Four-pillar rhyme gate vs exact-text / prefix cache.',
@@ -535,21 +613,22 @@
             <p>Exact-text and prefix caches help only when the words match. That is useful — and it is not our rhyme definition.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Rhyme gate (locked)</p>
-            <p>Define Net Zero first (active equilibrium / Goldilocks ≡ Net Zero — not void, not freeze). Then four pillars from Net Zero up Infinite Octaves. Failures: prefix alone, schema alone, brick wall, mid-octave without Net Zero. <a href="/library/papers/holographic-rhyme/">Paper</a>.</p>
+            <p class="label">You already locked</p>
+            <p>Net Zero = balanced zero. Rhyme = four pillars from Net Zero up Infinite Octaves. Failures: prefix alone, schema alone, brick wall, mid-octave without Net Zero.</p>
           </div>
           <div class="teach-block">
             <p class="label">Tiny Gateway</p>
             <p>Rhyming Templates are reusable patterns that pass that gate — share organization when wording differs, then reconstruct selectively.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
-            <p>Store size: naive vs exact cache vs Rhyming Template on same-organization / different-words sessions · four-pillar audit on the reference cohort.</p>
+            <p class="label">What Run shows</p>
+            <p>Store size: naive vs exact cache vs Rhyming Template on same-organization / different-words sessions.</p>
           </div>
         `,
       },
       {
         id: '4',
+        mode: 'lab',
         n: 4,
         title: 'Discovery under budget',
         promise: 'Flat skim vs selective reconstruction on multi-hop chains.',
@@ -566,13 +645,14 @@
             <p>Follow nested relational edges in the shared world.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
+            <p class="label">What Run shows</p>
             <p>This lab: 100/100 guided vs 0/100 flat skim.</p>
           </div>
         `,
       },
       {
         id: '5',
+        mode: 'lab',
         n: 5,
         title: 'Convergence cost',
         promise: 'Same path, fewer rounds and ops.',
@@ -589,13 +669,14 @@
             <p>Selective reconstruction converges earlier on the same discovery structure.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
+            <p class="label">What Run shows</p>
             <p>Round Δ and op Δ versus baseline.</p>
           </div>
         `,
       },
       {
         id: '6',
+        mode: 'lab',
         n: 6,
         title: 'Ownership before merge',
         promise: 'Parallel work without coordination collides.',
@@ -612,13 +693,14 @@
             <p>Ownership, shared state, composition before ship.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
-            <p>Coord-bench contrast: arm A vs coordinated arm.</p>
+            <p class="label">What Run shows</p>
+            <p>Coord-bench contrast: conventional branches vs coordinated composition.</p>
           </div>
         `,
       },
       {
         id: '7',
+        mode: 'lab',
         n: 7,
         title: 'Density · Git · deploy',
         promise: 'More agents in budget. Git on Community. Deploy is paid.',
@@ -635,15 +717,15 @@
             <p>Tiny Footprint density; Git awareness on Community; Deploy on Team · Enterprise · Cloud (paid).</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">Metric</p>
-            <p>Agents per budget + entitlement boundary for deploy.</p>
+            <p class="label">What Run shows</p>
+            <p>Agents per budget + entitlement boundary for Deploy.</p>
           </div>
         `,
       },
     ];
 
     const ORDER = STEPS.map((s) => s.id);
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v1';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v2';
     const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
     let index = 0;
     let running = false;
@@ -655,6 +737,9 @@
     const titleEl = document.getElementById('title');
     const promiseEl = document.getElementById('promise');
     const teachEl = document.getElementById('teach');
+    const teachContinue = document.getElementById('teach-continue');
+    const labPanel = document.getElementById('lab-panel');
+    const labTitle = document.getElementById('lab-title');
     const labHint = document.getElementById('lab-hint');
     const btnRun = document.getElementById('btn-run');
     const btnPrev = document.getElementById('btn-prev');
@@ -665,12 +750,20 @@
     const takeawayEl = document.getElementById('takeaway');
     const honestyEl = document.getElementById('honesty');
     const finishEl = document.getElementById('finish');
-    const lessonEl = document.getElementById('lesson');
+    const centerHint = document.querySelector('.bottom-nav .center-hint');
 
     function current() { return STEPS[index]; }
+    function isTeach(s) { return (s.mode || 'lab') === 'teach'; }
 
     function saveDone() {
       localStorage.setItem(DONE_KEY, JSON.stringify([...done]));
+    }
+
+    function kindLabel(s) {
+      if (isTeach(s) && s.primerIndex) {
+        return 'Primer ' + s.primerIndex + ' / ' + s.primerTotal;
+      }
+      return s.n === 0 ? 'Primer' : 'Lab ' + s.n;
     }
 
     function renderDots() {
@@ -678,7 +771,7 @@
       STEPS.forEach((s, i) => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.title = (s.n === 0 ? 'Primer' : 'Lab ' + s.n) + ': ' + s.title;
+        b.title = kindLabel(s) + ': ' + s.title;
         b.setAttribute('aria-label', b.title);
         if (i === index) b.classList.add('is-active');
         if (done.has(s.id) || i < index) b.classList.add('is-done');
@@ -693,7 +786,8 @@
       const s = current();
       const total = STEPS.length;
       const lessonNo = String(index + 1).padStart(2, '0');
-      const kind = s.n === 0 ? 'Primer' : 'Lab ' + s.n;
+      const kind = kindLabel(s);
+      const teach = isTeach(s);
 
       progressLabel.textContent = 'Lesson ' + lessonNo + ' · ' + kind;
       progressFill.style.width = ((index + 1) / total * 100).toFixed(1) + '%';
@@ -701,19 +795,35 @@
       titleEl.textContent = s.title;
       promiseEl.textContent = s.promise;
       teachEl.innerHTML = s.teach;
-      labHint.textContent = s.labHint;
-      btnRun.textContent = s.runLabel;
       btnPrev.disabled = index === 0;
       btnNext.textContent = index >= total - 1 ? 'Finish' : 'Next →';
 
-      resultsEl.classList.add('is-empty');
-      resultsEl.textContent = 'Press Run to measure this step.';
-      takeawayEl.classList.remove('is-open');
-      takeawayEl.innerHTML = '';
-      honestyEl.textContent = '';
-      statusEl.textContent = '';
-      finishEl.classList.remove('is-open');
+      if (teach) {
+        labPanel.classList.add('is-hidden');
+        teachContinue.classList.remove('is-hidden');
+        if (centerHint) {
+          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · no Run on primer pages';
+        }
+        done.add(s.id);
+        saveDone();
+      } else {
+        labPanel.classList.remove('is-hidden');
+        teachContinue.classList.add('is-hidden');
+        labTitle.textContent = 'Live lab';
+        labHint.textContent = s.labHint || '';
+        btnRun.textContent = s.runLabel || 'Run';
+        if (centerHint) {
+          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs';
+        }
+        resultsEl.classList.add('is-empty');
+        resultsEl.textContent = 'Press Run to execute this lab.';
+        takeawayEl.classList.remove('is-open');
+        takeawayEl.innerHTML = '';
+        honestyEl.textContent = '';
+        statusEl.textContent = '';
+      }
 
+      finishEl.classList.remove('is-open');
       renderDots();
       history.replaceState(null, '', '#' + s.id);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -734,11 +844,15 @@
 
     async function runLab() {
       if (running) return;
+      if (isTeach(current())) {
+        goNext();
+        return;
+      }
       running = true;
       btnRun.disabled = true;
       statusEl.textContent = 'Running…';
       resultsEl.classList.remove('is-empty');
-      resultsEl.textContent = '▸ measuring…';
+      resultsEl.textContent = '▸ running…';
       takeawayEl.classList.remove('is-open');
       try {
         const id = current().id;
@@ -752,7 +866,7 @@
         const step = data.step;
         const header = [
           step.title,
-          'Layer: ' + step.layer,
+          'Surface: ' + step.layer,
           'Component: ' + step.component,
           'Ran in ' + data.ms + ' ms',
           '',

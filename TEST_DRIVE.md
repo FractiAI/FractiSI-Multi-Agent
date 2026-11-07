@@ -46,7 +46,7 @@ Then live labs:
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
-**Browser:** https://fractisi.vercel.app/test-drive/ — teaching → Run → Previous / Next (keys ← → and R). Live results via `/api/testdrive`.
+**Browser:** https://fractisi.vercel.app/test-drive/ — four primer pages (no Run / no Measure panel) → seven live labs with Run. Keys ← →; **R** runs labs only. Live results via `/api/testdrive`.
 
 ## Human one-liner
 
