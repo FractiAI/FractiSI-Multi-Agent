@@ -1,4 +1,9 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true
+  "trailingSlash": true,
+  "functions": {
+    "api/testdrive.js": {
+      "includeFiles": "src/**"
+    }
+  }
 }

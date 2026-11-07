@@ -1,6 +1,10 @@
 # Quickstart — FractiSI Multi-Agent
 
-## IDE Test Drive (recommended for symposium / first try)
+## Self-paced Test Drive (no IDE)
+
+Open https://fractisi.vercel.app/test-drive/self-paced/ — course-style steps with a **Run** button on each demonstration. Live results print on the page (`/api/testdrive`). No account. No cloud token.
+
+## IDE Test Drive (symposium stations)
 
 1. Clone `https://github.com/FractiAI/FractiSI-Multi-Agent`
 2. Ask your IDE: **Do the FractiSI Multi-Agent test drive.**
@@ -13,6 +17,7 @@ Match a live talk slide:
 node scripts/tiny.mjs testdrive primer
 node scripts/tiny.mjs testdrive 1   # … through 7
 ```
+
 
 ## Community (free) · sign up & set up
 

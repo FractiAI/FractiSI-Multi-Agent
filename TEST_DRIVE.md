@@ -10,6 +10,8 @@ A **slide-aligned walkthrough**: cold-start FractiSI primer → today’s multi-
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
+**Self-paced (no IDE):** https://fractisi.vercel.app/test-drive/self-paced/ — each step has a Run button; live results print on the page via `/api/testdrive`.
+
 ## Human one-liner
 
 > Clone `https://github.com/FractiAI/FractiSI-Multi-Agent` and ask your IDE:  
