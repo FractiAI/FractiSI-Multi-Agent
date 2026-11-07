@@ -155,7 +155,7 @@ function run1() {
       'Mechanism: shared templates + per-agent deltas + selective reconstruct.',
     ],
     lines: [
-      'LAYER A · TINY FOOTPRINT',
+      'TINY FOOTPRINT',
       '',
       `  Conventional (N full copies):  ${multi.conventional.bytes} B across ${multi.conventional.sessions} sessions`,
       `  Tiny Footprint shared+deltas: ${multi.prefixReuse.bytes} B`,
@@ -196,7 +196,7 @@ function run2() {
       'Claim discipline: gzip residual is structural — not “compression theater.”',
     ],
     lines: [
-      'LAYER A · TINY FOOTPRINT AFTER GZIP',
+      'TINY FOOTPRINT · AFTER GZIP',
       '',
       `  Conventional JSON:     ${rawConv} B  → gzip ${gzConv} B`,
       `  Tiny Footprint JSON:   ${rawShared} B  → gzip ${gzShared} B`,
