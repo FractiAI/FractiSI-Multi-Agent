@@ -4,17 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="Give your IDE the FractiSI-Multi-Agent repo link and ask it to do the test drive.">
+  <meta name="description" content="Give your IDE the FractiSI repo and ask it to run the Test Drive — a walkthrough of today’s multi-agent problems and how FractiSI Multi-Agent addresses them.">
   <link rel="stylesheet" href="../css/site.css?v=27">
   <style>
-    .board {
-      max-width: 40rem;
-      margin: 2rem auto 0;
-    }
+    .board { max-width: 42rem; margin: 2rem auto 0; }
     .card {
       border: 1px solid var(--line);
       background: var(--paper);
-      padding: 1.5rem 1.4rem 1.6rem;
+      padding: 1.35rem 1.3rem 1.45rem;
       margin: 0 0 1rem;
     }
     .card .n {
@@ -23,15 +20,13 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.45rem;
     }
-    .card h2 {
-      margin: 0 0 0.65rem;
-      font-size: 1.45rem;
-      font-weight: 500;
-    }
-    .card p { margin: 0 0 0.85rem; color: var(--muted); }
-    .card code, .card .box {
+    .card h2 { margin: 0 0 0.55rem; font-size: 1.4rem; font-weight: 500; }
+    .card p { margin: 0 0 0.75rem; color: var(--muted); }
+    .card ol { margin: 0.25rem 0 0.85rem; padding-left: 1.2rem; color: var(--ink); }
+    .card li { margin: 0.35rem 0; }
+    .box {
       display: block;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 0.92rem;
@@ -42,14 +37,9 @@
       word-break: break-all;
       line-height: 1.45;
     }
-    .say {
-      font-size: 1.15rem;
-      color: var(--ink) !important;
-      font-style: italic;
-    }
+    .say { font-style: italic; font-size: 1.1rem; color: #f4f1ea; }
     .go {
       display: inline-block;
-      margin-top: 0.35rem;
       font-family: var(--sans);
       font-weight: 650;
       text-decoration: none;
@@ -62,7 +52,7 @@
       font-family: var(--sans);
       font-size: 0.92rem;
       color: var(--muted);
-      margin-top: 1.25rem;
+      margin-top: 1.1rem;
     }
     .foot-links a { color: var(--accent); font-weight: 650; }
   </style>
@@ -82,30 +72,38 @@
   <main class="wrap">
     <article class="page board">
       <p class="kicker">Test Drive · AAI Symposium</p>
-      <h1>One ask for your IDE</h1>
-      <p class="lede">Give your IDE our repo. Ask it to run the Test Drive. That’s it.</p>
+      <h1>Problems today. FractiSI next.</h1>
+      <p class="lede">Give your IDE our repo. Ask it to run the Test Drive. It walks five multi-agent pains — then demonstrates how FractiSI Multi-Agent addresses each one.</p>
 
       <div class="card">
-        <p class="n">1 · Repo</p>
-        <h2>Paste this link</h2>
-        <p>Into Cursor, Claude Code, VS Code, or any coding agent.</p>
-        <code>https://github.com/FractiAI/FractiSI-Multi-Agent</code>
+        <p class="n">Do this</p>
+        <h2>One ask</h2>
+        <p>Paste into Cursor, Claude Code, or VS Code:</p>
+        <code class="box">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
+        <p style="margin-top:0.85rem">Then say:</p>
+        <p class="box say">Do the FractiSI Multi-Agent test drive.</p>
         <p style="margin-top:0.85rem;margin-bottom:0">
           <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open repo →</a>
         </p>
       </div>
 
       <div class="card">
-        <p class="n">2 · Prompt</p>
-        <h2>Say this</h2>
-        <p class="say box">Do the FractiSI Multi-Agent test drive.</p>
-        <p>Your IDE reads <code>TEST_DRIVE.md</code> and runs <code>node scripts/tiny.mjs testdrive</code> — local doctor, demo, and benchmark. No FractiSI account. No cloud token.</p>
+        <p class="n">What your IDE will walk</p>
+        <h2>Five problems → five demonstrations</h2>
+        <ol>
+          <li><strong>Every agent reprints the world</strong> → shared world once, deltas only</li>
+          <li><strong>Gzip without removing copies</strong> → share first; gzip second</li>
+          <li><strong>Exact cache misses different words</strong> → rhyming templates</li>
+          <li><strong>Merge collisions</strong> → coordination + composition</li>
+          <li><strong>Scarce agent density</strong> → smaller footprint, more agents in budget</li>
+        </ol>
+        <p style="margin:0">It runs <code>node scripts/tiny.mjs testdrive</code> and narrates each step. No account. No cloud token.</p>
       </div>
 
       <div class="card">
-        <p class="n">3 · Optional</p>
-        <h2>Watch the talk</h2>
-        <p>While the agent works, open the presentation.</p>
+        <p class="n">While it runs</p>
+        <h2>Optional · watch the talk</h2>
+        <p>Same story on slides.</p>
         <a class="go" href="/talks/aai-symposium-2026/">Presentation →</a>
       </div>
 
@@ -114,7 +112,7 @@
         · <a href="/product/">Product</a>
         · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
       </p>
-      <p class="honesty">The Test Drive is a local architectural exercise on your machine — not a CapEx guarantee.</p>
+      <p class="honesty">Local architectural / structured-state demos on your machine — not CapEx guarantees.</p>
     </article>
   </main>
 

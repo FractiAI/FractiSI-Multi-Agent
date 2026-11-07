@@ -2,45 +2,53 @@
 
 **For IDE agents (Cursor, Claude Code, VS Code Copilot, etc.)**
 
-If a human opens this repository and asks you to **do the FractiSI Multi-Agent test drive**, follow this file and stop when it is done.
+If a human opens this repository and asks you to **do the FractiSI Multi-Agent test drive**, follow this file.
 
-## Goal
+## What this Test Drive is
 
-Run the local Test Drive end-to-end on their machine. No FractiSI account. No cloud token required.
+A **guided walkthrough**: today’s multi-agent problems → how FractiSI Multi-Agent addresses each one → a **local demonstration** you run on their machine.
 
-## Steps (do these)
+No FractiSI account. No cloud token.
 
-1. Confirm you are in the `FractiSI-Multi-Agent` repo root (clone from `https://github.com/FractiAI/FractiSI-Multi-Agent` if needed).
-2. Require **Node.js 18+** and **Git**. If missing, tell the human how to install them, then continue.
-3. Run:
+## Human one-liner
+
+> Clone `https://github.com/FractiAI/FractiSI-Multi-Agent` and ask your IDE:  
+> **Do the FractiSI Multi-Agent test drive.**
+
+## What you must run
 
 ```bash
 node scripts/tiny.mjs testdrive
 ```
 
-That single command runs: `doctor` → `install` → `demo` → `benchmark` → `report`.
+That command narrates and demonstrates:
 
-4. Show the human a short summary of what passed (or the first failure and how to fix it).
-5. Point them at:
-   - Product: https://fractisi.vercel.app/product/
-   - Talk: https://fractisi.vercel.app/talks/aai-symposium-2026/
-   - Hub: https://fractisi.vercel.app/test-drive/
+| # | Today’s problem | FractiSI demonstration |
+|---|-----------------|------------------------|
+| 1 | Every agent reprints the shared world | Conventional N copies vs shared world + deltas |
+| 2 | Gzip shrinks copies but does not remove them | Gzip on conventional JSON vs shared-world JSON |
+| 3 | Exact-text cache fails when words differ | Rhyming templates vs exact-text cache (40 sessions) |
+| 4 | Parallel agents collide at merge | Comparative coordination bench (conventional vs FractiSI) |
+| 5 | Fleets stay small under scarce context | Local representation / density benchmark suite |
+
+## Your job as the IDE agent
+
+1. Clone or open `FractiSI-Multi-Agent` (Node 18+, Git).
+2. Run `node scripts/tiny.mjs testdrive`.
+3. **Walk the human through the terminal output** — for each PROBLEM section, restate the pain in plain language; for each FRACTISI section, point at the measured numbers that just printed.
+4. When it finishes, summarize the five problems and five answers in a short closing note.
+5. Offer links: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/talks/aai-symposium-2026/ · https://fractisi.vercel.app/test-drive/
 
 ## Do not
 
-- Do not require a Vercel / cloud token for the default Test Drive.
-- Do not invent product claims beyond what the command output and `README.md` / `docs/` already say.
-- Do not skip failing steps — stop and explain.
+- Skip the narrative — the point is problem → solution, not a silent benchmark dump.
+- Require a Vercel token for the default Test Drive.
+- Upgrade lab numbers into CapEx guarantees or production fleet claims.
+- Stop early on “pin withheld” / GPU `not_run` if the problem tour already printed — explain those as host limits, not tour failure.
 
-## Optional (only if the human asks)
+## Optional (only if asked)
 
 ```bash
 node scripts/tiny.mjs try --workload --repo "$PWD"
-# cloud preview with THEIR token:
-export VERCEL_TOKEN=…
-node scripts/tiny.mjs try
+export VERCEL_TOKEN=… && node scripts/tiny.mjs try
 ```
-
-## Human one-liner
-
-> Clone `https://github.com/FractiAI/FractiSI-Multi-Agent` and ask your IDE: **Do the FractiSI Multi-Agent test drive.**
