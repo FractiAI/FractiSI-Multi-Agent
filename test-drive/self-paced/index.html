@@ -4,138 +4,84 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Self-paced Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="Self-paced FractiSI Multi-Agent Test Drive — Infinite Octaves, Tiny Gateway Rhyming Templates, Tiny Footprint, Layers A–F. Run each live demo in the browser.">
-  <link rel="stylesheet" href="../../css/site.css?v=29">
+  <meta name="description" content="Self-paced FractiSI Multi-Agent Test Drive — plain primer, then live labs with Run, Previous, and Next.">
+  <link rel="stylesheet" href="/css/site.css?v=30">
   <style>
-    .course { max-width: 64rem; margin: 1.5rem auto 3rem; padding: 0 1.25rem; }
-    .course-grid {
-      display: grid;
-      grid-template-columns: minmax(12rem, 16rem) 1fr;
-      gap: 1.5rem;
-      align-items: start;
+    .walk {
+      max-width: 40rem;
+      margin: 1.75rem auto 3rem;
+      padding: 0 1.25rem;
     }
-    @media (max-width: 800px) { .course-grid { grid-template-columns: 1fr; } }
-    .rail {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      padding: 1rem 0.85rem;
-      position: sticky;
-      top: 4.5rem;
-    }
-    .rail h2 {
-      margin: 0 0 0.75rem;
+    .walk .progress {
       font-family: var(--sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 650;
-    }
-    .rail button {
-      display: block;
-      width: 100%;
-      text-align: left;
-      font-family: var(--sans);
-      font-size: 0.82rem;
-      line-height: 1.35;
-      padding: 0.55rem 0.6rem;
-      margin: 0 0 0.35rem;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--ink);
-      cursor: pointer;
-    }
-    .rail button small {
-      display: block;
-      margin-top: 0.15rem;
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 400;
-    }
-    .rail button:hover { border-color: var(--line); background: #fff; }
-    .rail button.is-active { border-color: var(--accent); background: #fff; font-weight: 650; }
-    .rail button.is-done::after { content: " ✓"; color: var(--accent); font-weight: 700; }
-    .stage {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      padding: 1.4rem 1.35rem 1.55rem;
-    }
-    .stage .kicker {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.4rem;
-    }
-    .stage h1 {
-      margin: 0 0 0.35rem;
-      font-size: clamp(1.45rem, 3vw, 1.9rem);
-      font-weight: 500;
-    }
-    .component {
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 0 0 1rem;
-    }
-    .pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.85rem;
-      margin: 0 0 1rem;
-    }
-    @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
-    .pair .box {
-      border: 1px solid var(--line);
-      padding: 0.85rem 0.9rem;
-      background: #fff;
-    }
-    .pair .label {
-      font-family: var(--sans);
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.55rem;
       font-weight: 650;
     }
-    .pair p { margin: 0; color: var(--muted); font-size: 1rem; }
-    .fractisi { margin: 0 0 1.1rem; padding: 0; list-style: none; }
-    .fractisi li {
-      margin: 0.4rem 0;
-      padding-left: 0.9rem;
-      border-left: 3px solid var(--accent);
+    .walk h1 {
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.55rem, 3.5vw, 2rem);
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .walk .component {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0 0 1.1rem;
+    }
+    .walk .body p {
+      margin: 0 0 0.85rem;
       color: var(--ink);
-      font-size: 0.98rem;
+      font-size: 1.08rem;
+    }
+    .walk .body .label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 650;
+      margin: 1rem 0 0.3rem;
+    }
+    .walk .body ul {
+      margin: 0.35rem 0 1rem;
+      padding-left: 1.15rem;
+    }
+    .walk .body li {
+      margin: 0.45rem 0;
+      color: var(--ink);
+      font-size: 1.02rem;
     }
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem;
+      gap: 0.6rem;
       align-items: center;
-      margin: 0 0 1rem;
+      margin: 1.25rem 0 0.75rem;
     }
-    .run {
+    .btn {
       font-family: var(--sans);
       font-weight: 650;
-      border: 0;
-      background: var(--ink);
-      color: var(--bg);
-      padding: 0.65rem 1.05rem;
-      border-radius: 999px;
+      font-size: 0.95rem;
+      border-radius: 0.35rem;
+      padding: 0.65rem 1rem;
       cursor: pointer;
-    }
-    .run:disabled { opacity: 0.55; cursor: wait; }
-    .run-next {
-      font-family: var(--sans);
-      font-weight: 650;
       border: 1px solid var(--ink);
       background: transparent;
       color: var(--ink);
-      padding: 0.6rem 0.95rem;
-      border-radius: 999px;
-      cursor: pointer;
+    }
+    .btn-run {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
     .status {
       font-family: var(--sans);
@@ -144,7 +90,7 @@
       min-height: 1.2em;
     }
     .results {
-      margin: 0;
+      margin: 0.5rem 0 0;
       background: #14120e;
       color: #f4f1ea;
       padding: 1rem 1.05rem;
@@ -152,41 +98,32 @@
       font-size: 0.84rem;
       line-height: 1.5;
       white-space: pre-wrap;
-      min-height: 10rem;
+      min-height: 7rem;
       overflow: auto;
     }
     .results.is-empty { color: #9a958c; }
-    .lede { color: var(--muted); max-width: 44rem; }
-    .stack-strip {
+    .nav-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin: 0.85rem 0 1.1rem;
-      font-family: var(--sans);
-      font-size: 0.78rem;
-    }
-    .stack-strip span {
-      border: 1px solid var(--line);
-      background: #fff;
-      padding: 0.28rem 0.55rem;
-      color: var(--ink);
-    }
-    .modes {
-      display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 0.75rem;
-      margin: 0.5rem 0 1.1rem;
-      font-family: var(--sans);
-      font-size: 0.92rem;
+      margin: 1.35rem 0 0;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--line);
     }
-    .modes a { color: var(--accent); font-weight: 650; text-decoration: none; }
-    .modes a:hover { text-decoration: underline; }
     .honesty {
       margin-top: 1rem;
       font-family: var(--sans);
       font-size: 0.85rem;
       color: var(--muted);
     }
+    .finish {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      font-size: 1.02rem;
+    }
+    .finish a { color: var(--accent); font-weight: 650; }
   </style>
 </head>
 <body>
@@ -201,214 +138,220 @@
     </nav>
   </header>
 
-  <main class="course">
-    <p class="kicker">Online course style · self-paced · live labs</p>
-    <h1 style="margin:0 0 0.4rem;font-size:clamp(1.8rem,4vw,2.35rem);font-weight:500">FractiSI Multi-Agent Test Drive</h1>
-    <p class="lede">Start with the <strong>architecture primer</strong>: Generative possibility · Net Zero · Φ<sub>EGS</sub> · Infinite Octaves · Boundary nodes · Recursive trees · 3D Hexagon / eight-node · Wave–Node–Fq · Awareness → Tiny Gateway → Tiny Footprint → Layers A–F. Offered as a <strong>possible rhyme with Active Inference</strong> (humans as agents in a shared world). Same primer on the <a href="/product/#architecture-primer">product page</a>.</p>
-    <div class="stack-strip" aria-label="Architecture stack">
-      <span>Generative possibility</span>
-      <span>Net Zero</span>
-      <span>Φ_EGS</span>
-      <span>Infinite Octaves</span>
-      <span>Boundary nodes</span>
-      <span>Recursive trees</span>
-      <span>Eight-node · hex</span>
-      <span>Wave–Node–Fq</span>
-      <span>Awareness</span>
-      <span>Tiny Gateway™</span>
-      <span>Tiny Footprint · A–F</span>
+  <main class="walk" id="walk">
+    <p class="progress" id="progress">Step …</p>
+    <h1 id="title">Loading…</h1>
+    <p class="component" id="component"></p>
+    <div class="body" id="body"></div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-run" id="btn-run">Run this lab</button>
+      <span class="status" id="status"></span>
     </div>
-    <p class="modes">
-      <a href="/test-drive/">IDE follow-along hub</a>
-      · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>
-      · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint paper</a>
+    <pre class="results is-empty" id="results" hidden>Results appear here after you run the lab.</pre>
+    <p class="honesty" id="honesty"></p>
+    <div class="finish" id="finish" hidden>
+      You finished the walkthrough. Try it on your machine (Community is free) or see editions.
+      <br><a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub repo</a>
       · <a href="/product/pricing/">Pricing</a>
-    </p>
+    </div>
 
-    <div class="course-grid">
-      <aside class="rail" aria-label="Test Drive steps">
-        <h2>Product steps</h2>
-        <div id="rail"></div>
-      </aside>
-
-      <section class="stage" aria-live="polite">
-        <p class="kicker" id="step-kicker">Step</p>
-        <h1 id="step-title">Loading…</h1>
-        <p class="component" id="step-component"></p>
-        <div class="pair" id="pair" hidden>
-          <div class="box">
-            <p class="label">Problem</p>
-            <p id="step-problem"></p>
-          </div>
-          <div class="box">
-            <p class="label">Opportunity</p>
-            <p id="step-opportunity"></p>
-          </div>
-        </div>
-        <ul class="fractisi" id="step-fractisi"></ul>
-        <div class="actions">
-          <button type="button" class="run" id="btn-run">Run this lab</button>
-          <button type="button" class="run-next" id="btn-next" hidden>Next step →</button>
-          <span class="status" id="status"></span>
-        </div>
-        <pre class="results is-empty" id="results">Results appear here after you run the lab.</pre>
-        <p class="honesty" id="honesty"></p>
-      </section>
+    <div class="nav-row">
+      <button type="button" class="btn" id="btn-prev">← Previous</button>
+      <button type="button" class="btn" id="btn-next">Next →</button>
     </div>
   </main>
 
   <footer class="site-footer">
     <span>FractiSI · Self-paced Test Drive</span>
-    <span><a href="/test-drive/">IDE hub</a> · <a href="/library/">Library</a></span>
+    <span><a href="/test-drive/">Test Drive hub</a></span>
   </footer>
 
-  <script>
-    const FALLBACK = [
-      { id: 'primer', n: 0, title: 'Architecture primer · FractiSI Multi-Agent', short: 'Net Zero · Φ · octaves · trees · eight-node · wave · awareness → product',
-        layer: 'From generative possibility to product layers', component: 'Generative possibility → Tiny Gateway → FractiSI Multi-Agent',
-        problem: '', opportunity: '',
-        fractisi: [
-          'Generative possibility — locked Tiny Gateway stack start (open lattice Soft Story)',
-          'Net Zero (octave 0) — active equilibrium origin for rhymes and shared worlds',
-          'Φ_EGS ≈ 1.618 — golden-ratio nesting / scale-bridge grammar (not awareness ontology)',
-          'Infinite Octaves · Boundary nodes · Recursive trees / holographic rhyme',
-          '3D Hexagon / eight-node · honeycomb · Wave–Node–Fq / nested vectors / interference',
-          'Awareness (human grip Soft Story) → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F',
-        ] },
-      { id: '1', n: 1, title: 'Layer A · Tiny Footprint shared world', short: 'Shared world once · agent deltas',
-        layer: 'A · Tiny Footprint execution', component: 'Tiny Footprint · templates + deltas · selective reconstruct',
-        problem: 'Without Layer A, every agent reprints a full copy of the shared world.',
-        opportunity: 'Tiny Footprint registers the world once; agents keep only local deltas.',
-        fractisi: ['Component: Tiny Footprint (Layer A execution core, powered by Tiny Gateway™).'] },
-      { id: '2', n: 2, title: 'Layer A · after gzip, architecture still matters', short: 'Gzip residual · share first',
-        layer: 'A · Tiny Footprint execution', component: 'Tiny Footprint shared-world pack (vs N full copies)',
-        problem: 'Gzip / pack compression shrinks copies — it does not remove N-copy structure.',
-        opportunity: 'Tiny Footprint shares the world first; compression becomes optional polish.',
-        fractisi: ['Component: Tiny Footprint shared-world pack (Layer A).'] },
-      { id: '3', n: 3, title: 'Tiny Gateway · Rhyming Templates vs exact cache', short: 'Holographic rhyme · Net Zero → octaves',
-        layer: 'A · Tiny Gateway™ engine', component: 'Rhyming Templates · Infinite Octaves · four-pillar holographic rhyme',
-        problem: 'Exact-text and prefix caches only help when the words match.',
-        opportunity: 'Tiny Gateway Rhyming Templates share Infinite Octave organization when wording differs.',
-        fractisi: [
-          'Component: Tiny Gateway™ Rhyming Templates.',
-          'Grammar: holographic rhyme from Net Zero up the Infinite Octaves ladder.',
-        ] },
-      { id: '4', n: 4, title: 'Selective reconstruction · discovery', short: 'Relationship-guided recovery',
-        layer: 'A · nested vectors · selective reconstruct', component: 'Tiny Gateway selective reconstruction · Expedition 002 E2',
-        problem: 'Flat skim under a fixed budget never assembles multi-hop chains buried in noise.',
-        opportunity: 'Tiny Gateway selective reconstruction follows relationship edges across the shared world.',
-        fractisi: ['Component: selective reconstruction + nested relational structure (Tiny Gateway spine).'] },
-      { id: '5', n: 5, title: 'Selective reconstruction · convergence', short: 'Fewer rounds & ops',
-        layer: 'A · nested vectors · selective reconstruct', component: 'Tiny Gateway guided path · Expedition 002 E2',
-        problem: 'Collectives burn too many ops and propagation rounds before a composed answer.',
-        opportunity: 'The same selective-reconstruction path converges with fewer rounds and ops.',
-        fractisi: ['Component: Tiny Gateway guided reconstruction (Expedition 002 convergence meters).'] },
-      { id: '6', n: 6, title: 'Layers B–D · coordination + composition', short: 'Ownership · compose · no blind merge',
-        layer: 'B · Coordination · C · Shared state · D · Composition', component: 'FractiSI platform · coord-bench arms A vs C',
-        problem: 'Parallel agents collide at merge when isolation meets a blind integrate.',
-        opportunity: 'Layers B–D coordinate ownership and compose contributions before ship.',
-        fractisi: ['Components: Coordination (B) · Shared state (C) · Composition (D).'] },
-      { id: '7', n: 7, title: 'Density · Layers E–F · Community', short: 'More agents · Git · paid deploy',
-        layer: 'A density · E Git · F Deploy (paid)', component: 'Tiny Footprint density · Git awareness · approval-gated deploy',
-        problem: 'Duplicated context burns the budget before specialized agent work begins.',
-        opportunity: 'Tiny Footprint density + Git awareness; cloud deploy unlocks as paid Layer F.',
-        fractisi: [
-          'Layer A density — more agents inside the same representation budget.',
-          'Layer E Git awareness — commits on your repo (Community).',
-          'Layer F Deploy — paid (Team · Enterprise · Cloud).',
-        ] },
+  <script type="module">
+    /**
+     * Cold first-listen copy lives here so the walkthrough works even if the API is slow.
+     * Live Run still hits /api/testdrive for measured lab output.
+     */
+    const STEPS = [
+      {
+        id: 'primer',
+        n: 0,
+        title: 'How FractiSI Multi-Agent fits together',
+        component: 'Architecture primer · first listen',
+        runLabel: 'Show the ladder',
+        bodyHtml: `
+          <p>You are about to walk a multi-agent stack built so many helpers — software agents and people — can work in one shared world instead of each keeping a full private copy.</p>
+          <p>Read the ladder once in plain English, then press <strong>Show the ladder</strong> for the same map as live text. After that, use <strong>Next</strong> for the labs.</p>
+          <p class="label">The ladder</p>
+          <ul>
+            <li><strong>Generative possibility</strong> — an open field of processes and patterns you can file, nest, and reuse (not infinite computers; not a second brand).</li>
+            <li><strong>Net Zero (octave 0)</strong> — home base where the shared world roots.</li>
+            <li><strong>Φ<sub>EGS</sub> ≈ 1.618</strong> — a nesting scale so layers stay tidy as they deepen (design grammar, not physics or mind).</li>
+            <li><strong>Infinite Octaves</strong> — how deep the nesting goes; “infinite” means filing depth, not infinite measured physics.</li>
+            <li><strong>Boundary nodes</strong> — the front door: what may enter the shared world.</li>
+            <li><strong>Recursive trees · holographic rhyme</strong> — nested context that repeats and self-corrects across scale; a text prefix alone is not a rhyme.</li>
+            <li><strong>3D Hexagon / eight-node · honeycomb</strong> — one story, eight connection ports so helpers plug in without reprinting the whole world.</li>
+            <li><strong>Wave–Node–Fq · nested vectors · interference</strong> — which template is active, what each agent holds, and when paths would collide.</li>
+            <li><strong>Awareness</strong> — what each participant (human or software) is holding about the shared world — not a claim of machine consciousness.</li>
+            <li><strong>Product</strong> — Rhyming Templates → Tiny Gateway™ → Tiny Footprint (Layer A) → Layers B–F → FractiSI Multi-Agent.</li>
+          </ul>
+          <p>Possible rhyme with Active Inference: many agents — including humans — act in one shared world without each reprinting a private full copy. “Rhyme” means kinship for experiments, not “we are that framework.”</p>
+        `,
+      },
+      {
+        id: '1',
+        n: 1,
+        title: 'Share the world once',
+        component: 'Layer A · Tiny Footprint',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Without Layer A, every agent reprints a full copy of the shared world — like every coworker photocopying the whole project folder for themselves.</p>
+          <p class="label">Opportunity</p>
+          <p>Tiny Footprint registers the world once. Each agent keeps only its local deltas. Run the lab to see the byte contrast.</p>
+        `,
+      },
+      {
+        id: '2',
+        n: 2,
+        title: 'Gzip helps — architecture still matters',
+        component: 'Layer A · Tiny Footprint pack',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Compression shrinks copies. It does not remove the “N people each keep a full copy” structure.</p>
+          <p class="label">Opportunity</p>
+          <p>Share the world first. Then compression is optional polish. Run the lab for the residual after gzip.</p>
+        `,
+      },
+      {
+        id: '3',
+        n: 3,
+        title: 'Rhyme when the words differ',
+        component: 'Tiny Gateway™ · Rhyming Templates',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Exact-text and prefix caches only help when the wording matches. Real teams rephrase the same job all day.</p>
+          <p class="label">Opportunity</p>
+          <p>Rhyming Templates share organization across Infinite Octaves when the words change. Run the lab to compare rhyme vs exact cache.</p>
+        `,
+      },
+      {
+        id: '4',
+        n: 4,
+        title: 'Find what flat skim misses',
+        component: 'Selective reconstruction · discovery',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Under a fixed budget, flat skim never assembles multi-hop chains buried in noise.</p>
+          <p class="label">Opportunity</p>
+          <p>Selective reconstruction follows relationship edges across the shared world. Run the lab for the discovery score.</p>
+        `,
+      },
+      {
+        id: '5',
+        n: 5,
+        title: 'Converge with fewer rounds',
+        component: 'Selective reconstruction · convergence',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Collectives burn too many ops and rounds before a composed answer.</p>
+          <p class="label">Opportunity</p>
+          <p>The same guided path converges with fewer rounds and ops. Run the lab for the meters.</p>
+        `,
+      },
+      {
+        id: '6',
+        n: 6,
+        title: 'Coordinate before you merge',
+        component: 'Layers B–D · coordination · shared state · composition',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Parallel agents collide at merge when isolation meets a blind integrate.</p>
+          <p class="label">Opportunity</p>
+          <p>Layers B–D coordinate ownership and compose contributions before ship. Run the lab for the coordination contrast.</p>
+        `,
+      },
+      {
+        id: '7',
+        n: 7,
+        title: 'Density, Git, and paid deploy',
+        component: 'Layer A density · E Git · F Deploy',
+        runLabel: 'Run this lab',
+        bodyHtml: `
+          <p class="label">Problem</p>
+          <p>Duplicated context burns the budget before specialized agent work begins.</p>
+          <p class="label">Opportunity</p>
+          <p>Tiny Footprint density fits more agents in the same representation budget. Git awareness (Layer E) is free on Community. Cloud deploy (Layer F) unlocks as paid Team · Enterprise · Cloud.</p>
+        `,
+      },
     ];
 
-    let STEPS = FALLBACK.slice();
-    const DONE_KEY = 'fractisi-testdrive-selfpaced-done-v2';
-    const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
-    let current = 'primer';
+    const ORDER = STEPS.map((s) => s.id);
+    let index = 0;
     let running = false;
 
-    const rail = document.getElementById('rail');
+    const progressEl = document.getElementById('progress');
+    const titleEl = document.getElementById('title');
+    const componentEl = document.getElementById('component');
+    const bodyEl = document.getElementById('body');
+    const btnRun = document.getElementById('btn-run');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
     const statusEl = document.getElementById('status');
     const resultsEl = document.getElementById('results');
-    const btnRun = document.getElementById('btn-run');
-    const btnNext = document.getElementById('btn-next');
+    const honestyEl = document.getElementById('honesty');
+    const finishEl = document.getElementById('finish');
 
-    function saveDone() {
-      localStorage.setItem(DONE_KEY, JSON.stringify([...done]));
+    function current() {
+      return STEPS[index];
     }
 
-    function renderRail() {
-      rail.innerHTML = '';
-      for (const s of STEPS) {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.dataset.id = s.id;
-        b.innerHTML = (s.n === 0 ? 'Primer' : 'Step ' + s.n) + ' · ' + s.short +
-          '<small>' + (s.layer || '') + '</small>';
-        if (s.id === current) b.classList.add('is-active');
-        if (done.has(s.id)) b.classList.add('is-done');
-        b.addEventListener('click', () => selectStep(s.id));
-        rail.appendChild(b);
-      }
+    function show(id) {
+      const i = ORDER.indexOf(id);
+      index = i >= 0 ? i : 0;
+      const s = current();
+      const total = STEPS.length;
+      const label = s.n === 0 ? 'Primer' : 'Lab ' + s.n;
+      progressEl.textContent = label + ' · ' + (index + 1) + ' of ' + total;
+      titleEl.textContent = s.title;
+      componentEl.textContent = s.component;
+      bodyEl.innerHTML = s.bodyHtml;
+      btnRun.textContent = s.runLabel || 'Run this lab';
+      btnPrev.disabled = index === 0;
+      btnNext.textContent = index >= STEPS.length - 1 ? 'Finish' : 'Next →';
+      resultsEl.hidden = true;
+      resultsEl.classList.add('is-empty');
+      resultsEl.textContent = 'Results appear here after you run the lab.';
+      statusEl.textContent = '';
+      honestyEl.textContent = '';
+      finishEl.hidden = true;
+      history.replaceState(null, '', '#' + s.id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function selectStep(id, { clearResults = true } = {}) {
-      current = id;
-      const s = STEPS.find((x) => x.id === id) || FALLBACK[0];
-      document.getElementById('step-kicker').textContent = s.layer || (s.n === 0 ? 'Product map' : 'Step ' + s.n);
-      document.getElementById('step-title').textContent = s.title;
-      document.getElementById('step-component').textContent = s.component || '';
-      const pair = document.getElementById('pair');
-      if (s.problem) {
-        pair.hidden = false;
-        document.getElementById('step-problem').textContent = s.problem;
-        document.getElementById('step-opportunity').textContent = s.opportunity;
-      } else {
-        pair.hidden = true;
-      }
-      const ul = document.getElementById('step-fractisi');
-      ul.innerHTML = '';
-      for (const line of (s.fractisi || [])) {
-        const li = document.createElement('li');
-        li.textContent = line;
-        ul.appendChild(li);
-      }
-      btnNext.hidden = true;
-      btnNext.textContent = 'Next step →';
-      document.getElementById('honesty').textContent = '';
-      if (clearResults) {
-        resultsEl.textContent = 'Results appear here after you run the lab.';
-        resultsEl.classList.add('is-empty');
-        statusEl.textContent = '';
-      }
-      renderRail();
-      history.replaceState(null, '', '#' + id);
-    }
-
-    async function runCurrent() {
+    async function runLab() {
       if (running) return;
       running = true;
       btnRun.disabled = true;
-      statusEl.textContent = 'Running live FractiSI lab…';
+      statusEl.textContent = 'Running…';
+      resultsEl.hidden = false;
       resultsEl.classList.remove('is-empty');
       resultsEl.textContent = '▸ measuring…';
       try {
-        const res = await fetch('/api/testdrive?step=' + encodeURIComponent(current), {
+        const id = current().id;
+        const res = await fetch('/api/testdrive?step=' + encodeURIComponent(id), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ step: current }),
+          body: JSON.stringify({ step: id }),
         });
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error(data.detail || data.error || ('HTTP ' + res.status));
         const step = data.step;
-        // Prefer live API narrative for problem/opportunity/fractisi after first run
-        const local = STEPS.find((x) => x.id === current);
-        if (local && step.problem) {
-          local.problem = step.problem;
-          local.opportunity = step.opportunity;
-          local.fractisi = step.fractisi;
-          local.layer = step.layer;
-          local.component = step.component;
-          selectStep(current, { clearResults: false });
-        }
         const header = [
           step.title,
           'Layer: ' + step.layer,
@@ -416,52 +359,33 @@
           'Ran in ' + data.ms + ' ms',
           '',
         ];
-        resultsEl.textContent = header.concat(step.lines).join('\n');
-        document.getElementById('honesty').textContent = step.honesty || '';
-        done.add(current);
-        saveDone();
-        statusEl.textContent = 'Done.';
-        if (step.next) {
-          btnNext.hidden = false;
-          btnNext.dataset.next = step.next;
-        } else {
-          btnNext.hidden = false;
-          btnNext.dataset.next = '';
-          btnNext.textContent = 'Finish · Community pricing →';
-        }
-        renderRail();
+        resultsEl.textContent = header.concat(step.lines || []).join('\n');
+        honestyEl.textContent = step.honesty || '';
+        statusEl.textContent = 'Done · ' + data.ms + ' ms';
       } catch (err) {
         resultsEl.textContent = 'Could not run this lab.\n' + String(err.message || err);
-        statusEl.textContent = 'Error';
+        statusEl.textContent = 'Error — you can still use Next / Previous';
       } finally {
         running = false;
         btnRun.disabled = false;
       }
     }
 
-    btnRun.addEventListener('click', runCurrent);
+    btnRun.addEventListener('click', runLab);
+    btnPrev.addEventListener('click', () => {
+      if (index > 0) show(ORDER[index - 1]);
+    });
     btnNext.addEventListener('click', () => {
-      const n = btnNext.dataset.next;
-      if (!n) { location.href = '/product/pricing/'; return; }
-      selectStep(n);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (index >= STEPS.length - 1) {
+        finishEl.hidden = false;
+        finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+      show(ORDER[index + 1]);
     });
 
-    fetch('/api/testdrive?step=list')
-      .then((r) => r.json())
-      .then((j) => {
-        if (j && j.ok && Array.isArray(j.steps) && j.steps.length) {
-          STEPS = j.steps.map((api) => {
-            const fb = FALLBACK.find((f) => f.id === api.id) || {};
-            return { ...fb, ...api, fractisi: fb.fractisi || [], problem: fb.problem || '', opportunity: fb.opportunity || '' };
-          });
-        }
-      })
-      .catch(() => {})
-      .finally(() => {
-        const hash = (location.hash || '').replace(/^#/, '');
-        selectStep(STEPS.some((s) => s.id === hash) ? hash : 'primer');
-      });
+    const hash = (location.hash || '').replace(/^#/, '');
+    show(ORDER.includes(hash) ? hash : 'primer');
   </script>
 </body>
 </html>

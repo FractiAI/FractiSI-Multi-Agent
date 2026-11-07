@@ -40,6 +40,7 @@ test('each step returns structured live results naming components', () => {
   assert.match(primer, /Active Inference/);
   assert.match(primer, /including humans/);
   assert.match(primer, /possible rhyme|Possible Active Inference/);
+  assert.match(primer, /shared world|Home base|plain English/i);
   const rhyme = runTestDriveStep(3).step.lines.join('\n');
   assert.match(rhyme, /RHYMING TEMPLATES|Rhyming Template/i);
   assert.match(rhyme, /Net Zero/);
