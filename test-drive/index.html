@@ -266,83 +266,83 @@
 
   <section class="td-hero" aria-label="Test Drive hero">
     <div class="td-hero-inner">
-      <p class="brand">FractiSI · Multi-Agent Test Drive</p>
-      <h1>Learn the stack by running it.</h1>
-      <p class="lede">A guided walkthrough for first-time visitors: plain English first, then live labs that show what shared-world multi-agent architecture actually does.</p>
+      <p class="brand">FractiSI Multi-Agent</p>
+      <h1>Run the product. Read the receipts.</h1>
+      <p class="lede">Eight steps. One shared-world stack. Live numbers from the same kit we ship — not slides about agents, measurements of them.</p>
       <div class="td-cta-row">
-        <a class="td-cta" href="/test-drive/self-paced/#primer">Start the walkthrough →</a>
-        <a class="td-ghost" href="#paths">Prefer your IDE?</a>
+        <a class="td-cta" href="/test-drive/self-paced/#primer">Start Test Drive →</a>
+        <a class="td-ghost" href="#paths">Run it in your IDE</a>
       </div>
-      <p class="td-meta">8 steps · about 15 minutes · no account · no cloud token</p>
+      <p class="td-meta">~15 minutes · no account · no cloud token · deploy stays paid</p>
     </div>
   </section>
 
   <main class="td-body">
-    <section class="td-section" aria-labelledby="leave-knowing">
-      <p class="kicker">What you will leave knowing</p>
-      <h2 id="leave-knowing">Three ideas. Then proof.</h2>
+    <section class="td-section" aria-labelledby="why">
+      <p class="kicker">Why this exists</p>
+      <h2 id="why">Most multi-agent demos hide the cost.</h2>
       <ul class="td-beats">
         <li>
-          <strong>One shared world</strong>
-          <span>Many helpers — agents and people — work from the same map instead of each reprinting a private copy.</span>
+          <strong>Copies</strong>
+          <span>Default fleets reprint the whole context per agent. Tiny Footprint keeps one world and per-agent deltas.</span>
         </li>
         <li>
-          <strong>Rhyme beats exact text</strong>
-          <span>When wording changes, structure can still be reused. That is the Tiny Gateway move.</span>
+          <strong>Caches</strong>
+          <span>Exact-text cache dies when wording changes. Tiny Gateway Rhyming Templates reuse structure anyway.</span>
         </li>
         <li>
-          <strong>Coordinate before you merge</strong>
-          <span>Ownership and composition sit above raw parallel chat, so fleets do not collide at the end.</span>
+          <strong>Merges</strong>
+          <span>Parallel chat without ownership collides at the end. Layers B–D coordinate, then compose.</span>
         </li>
       </ul>
     </section>
 
     <section class="td-paths" id="paths" aria-label="How to take the Test Drive">
       <div class="td-path-primary">
-        <p class="tag">Recommended · in browser</p>
-        <h2>Self-paced walkthrough</h2>
-        <p>Start with a cold primer in everyday language. Each lab then shows a short lesson, a Run button, live results, and Previous / Next. Stay on one page — nothing is gated behind the product brief.</p>
-        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Start with the primer →</a>
+        <p class="tag">Browser</p>
+        <h2>Interactive Test Drive</h2>
+        <p>Primer, then seven labs. Each step: short brief, Run, live output, Next. No product-page detour.</p>
+        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Open walkthrough →</a>
       </div>
       <div class="td-path-secondary">
-        <p class="tag">Optional · in your IDE</p>
-        <h2>Same labs from Cursor or Claude Code</h2>
-        <p>Clone the kit, then ask your agent to run the Test Drive — or step the CLI yourself.</p>
+        <p class="tag">IDE</p>
+        <h2>Same runners in Cursor / Claude Code</h2>
+        <p>Point your agent at the repo, or step the CLI.</p>
         <code class="td-code">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
         <code class="td-code say">Do the FractiSI Multi-Agent test drive.</code>
         <code class="td-code">node scripts/tiny.mjs testdrive primer
 node scripts/tiny.mjs testdrive 1
 … through 7</code>
-        <a class="td-btn-dark" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open the repo →</a>
+        <a class="td-btn-dark" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub →</a>
       </div>
     </section>
 
     <section class="td-section" aria-labelledby="outline">
-      <p class="kicker">Lesson outline</p>
-      <h2 id="outline">Primer, then seven live labs</h2>
-      <p>Each lab names a real product piece. Numbers come from the same runners as the CLI.</p>
+      <p class="kicker">Sequence</p>
+      <h2 id="outline">What you will run</h2>
+      <p>Identical step IDs in the browser API and <code>testdrive</code> CLI.</p>
       <ol class="td-outline">
-        <li><div><strong>How the stack fits together</strong><em>Plain ladder: Net Zero → Tiny Gateway → Tiny Footprint · Layers B–F</em></div></li>
-        <li><div><strong>Share the world once</strong><em>Tiny Footprint vs N full copies</em></div></li>
-        <li><div><strong>Gzip is not architecture</strong><em>Compression residual after sharing</em></div></li>
-        <li><div><strong>Rhyme when words differ</strong><em>Rhyming Templates vs exact cache</em></div></li>
-        <li><div><strong>Find what flat skim misses</strong><em>Discovery score · selective reconstruction</em></div></li>
-        <li><div><strong>Converge with fewer rounds</strong><em>Ops and rounds on the guided path</em></div></li>
-        <li><div><strong>Coordinate before merge</strong><em>Layers B–D ownership and composition</em></div></li>
-        <li><div><strong>Density, Git, deploy</strong><em>More agents · free Git · paid Layer F</em></div></li>
+        <li><div><strong>Stack map</strong><em>Net Zero → Tiny Gateway → Tiny Footprint → B–F</em></div></li>
+        <li><div><strong>Shared world vs N copies</strong><em>Tiny Footprint density</em></div></li>
+        <li><div><strong>After gzip</strong><em>Compression residual</em></div></li>
+        <li><div><strong>Rhyme vs exact cache</strong><em>Rhyming Templates</em></div></li>
+        <li><div><strong>Discovery</strong><em>Selective reconstruction · 100/100 vs 0/100</em></div></li>
+        <li><div><strong>Convergence</strong><em>Rounds and ops</em></div></li>
+        <li><div><strong>Coordination</strong><em>Ownership · compose · B–D</em></div></li>
+        <li><div><strong>Density · Git · deploy</strong><em>Community vs paid Layer F</em></div></li>
       </ol>
       <p style="margin-top:1.25rem">
-        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Begin lesson 01 →</a>
+        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Start →</a>
       </p>
     </section>
 
     <p class="td-foot">
-      <a href="/talks/aai-symposium-2026/">Symposium talk</a>
-      · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>
-      · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint paper</a>
+      <a href="/talks/aai-symposium-2026/">Talk</a>
+      · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>
+      · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint</a>
       · <a href="/product/pricing/">Pricing</a>
     </p>
-    <p class="honesty">Architectural / structured-state labs. Infinite Octaves is filing and scale grammar, not infinite physical tiers. Not CapEx guarantees. Active Inference is offered as a possible rhyme, not identity.</p>
+    <p class="honesty">In-process architectural labs. Not CapEx guarantees. Infinite Octaves = nesting/filing depth, not infinite physics tiers. Active Inference named only as a possible structural rhyme.</p>
   </main>
 
   <footer class="site-footer">
