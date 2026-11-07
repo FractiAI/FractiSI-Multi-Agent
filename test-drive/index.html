@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="Give your IDE the FractiSI repo and ask it to run the Test Drive — a walkthrough of today’s multi-agent problems and how FractiSI Multi-Agent addresses them.">
+  <meta name="description" content="FractiSI Multi-Agent Test Drive — cold-start primer, then one problem/opportunity step at a time with IDE commands. Community free; deploy is paid.">
   <link rel="stylesheet" href="../css/site.css?v=27">
   <style>
     .board { max-width: 42rem; margin: 2rem auto 0; }
@@ -72,8 +72,8 @@
   <main class="wrap">
     <article class="page board">
       <p class="kicker">Test Drive · AAI Symposium</p>
-      <h1>Problems today. FractiSI next.</h1>
-      <p class="lede">Give your IDE our repo. Ask it to run the Test Drive. It walks five multi-agent pains — then demonstrates how FractiSI Multi-Agent addresses each one.</p>
+      <h1>Primer. Then each problem.</h1>
+      <p class="lede">Paste the repo into your IDE. On each talk slide, run the step it names — cold-start primer, then one problem/opportunity at a time.</p>
 
       <div class="card">
         <p class="n">Do this</p>
@@ -82,6 +82,10 @@
         <code class="box">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
         <p style="margin-top:0.85rem">Then say:</p>
         <p class="box say">Do the FractiSI Multi-Agent test drive.</p>
+        <p style="margin-top:0.85rem">Or follow the live slide:</p>
+        <code class="box">node scripts/tiny.mjs testdrive primer
+node scripts/tiny.mjs testdrive 1
+… through 7</code>
         <p style="margin-top:0.85rem;margin-bottom:0">
           <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open repo →</a>
         </p>
@@ -89,24 +93,33 @@
 
       <div class="card">
         <p class="n">What your IDE will walk</p>
-        <h2>Seven problems → seven demonstrations</h2>
+        <h2>Primer + seven problem/opportunity steps</h2>
         <ol>
-          <li><strong>Every agent reprints the world</strong> → shared world once, deltas only</li>
-          <li><strong>Gzip without removing copies</strong> → share first; gzip second</li>
-          <li><strong>Exact cache misses different words</strong> → rhyming templates</li>
-          <li><strong>Flat skim misses discoveries</strong> → relationship-guided recovery (100/100 vs 0/100)</li>
-          <li><strong>Too many rounds to converge</strong> → −50% rounds · −85% ops on the constrained path</li>
+          <li><strong>Cold start</strong> — what FractiSI Multi-Agent is</li>
+          <li><strong>N copies of one world</strong> → shared world + deltas</li>
+          <li><strong>Gzip without removing copies</strong> → share first</li>
+          <li><strong>Exact cache when words differ</strong> → rhyming templates</li>
+          <li><strong>Flat skim misses discoveries</strong> → 100/100 vs 0/100</li>
+          <li><strong>Too many rounds to converge</strong> → −50% rounds · −85% ops</li>
           <li><strong>Merge collisions</strong> → coordination + composition</li>
-          <li><strong>Scarce agent density</strong> → smaller footprint, more agents in budget</li>
+          <li><strong>Scarce agent density</strong> → smaller footprint</li>
         </ol>
-        <p style="margin:0">It runs <code>node scripts/tiny.mjs testdrive</code> and narrates each step. No account. No cloud token.</p>
+        <p style="margin:0">No FractiSI account. No cloud token for the Test Drive.</p>
       </div>
 
       <div class="card">
-        <p class="n">While it runs</p>
-        <h2>Optional · watch the talk</h2>
-        <p>Same story on slides.</p>
-        <a class="go" href="/talks/aai-symposium-2026/">Presentation →</a>
+        <p class="n">After the talk</p>
+        <h2>Community (free) · then paid deploy</h2>
+        <ol>
+          <li><strong>Sign up</strong> — keep the GitHub clone. That is Community.</li>
+          <li><strong>GitHub</strong> — required for Git commits on your work.</li>
+          <li><strong>Cloud token</strong> — <code>VERCEL_TOKEN</code> / <code>FRACTISI_CLOUD_TOKEN</code> when you unlock deploy.</li>
+          <li><strong>Deploy is paid</strong> — Team · Enterprise · Cloud. Community composes and commits locally only.</li>
+        </ol>
+        <p style="margin:0">
+          <a class="go" href="/product/pricing/">Pricing →</a>
+          &nbsp; <a class="go" href="/talks/aai-symposium-2026/">Talk slides →</a>
+        </p>
       </div>
 
       <p class="foot-links">
@@ -114,7 +127,7 @@
         · <a href="/product/">Product</a>
         · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
       </p>
-      <p class="honesty">Local architectural / structured-state demos on your machine — not CapEx guarantees.</p>
+      <p class="honesty">Local architectural / structured-state demos on your machine — not CapEx guarantees. Cloud deploy is a commercial feature.</p>
     </article>
   </main>
 

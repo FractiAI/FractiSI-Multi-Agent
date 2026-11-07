@@ -1,9 +1,12 @@
 /**
- * FractiSI Multi-Agent Test Drive — problem → solution walkthrough.
+ * FractiSI Multi-Agent Test Drive — slide-aligned steps.
  *
- * For IDE agents / symposium audience: narrate today's multi-agent pain,
- * then run a local demo that shows how FractiSI Multi-Agent addresses it.
- * No cloud token required.
+ *   node scripts/tiny.mjs testdrive           # full tour
+ *   node scripts/tiny.mjs testdrive list
+ *   node scripts/tiny.mjs testdrive primer    # cold start (step 0)
+ *   node scripts/tiny.mjs testdrive 1 … 7     # one problem/opportunity
+ *
+ * IDE agents: run the step named on the current symposium slide.
  */
 import { gzipSync } from 'node:zlib';
 import { doctor } from './doctor.mjs';
@@ -33,85 +36,133 @@ function gzipJsonBytes(value) {
   return gzipSync(Buffer.from(JSON.stringify(value), 'utf8')).length;
 }
 
-function problem(n, title, body) {
+function banner(title, subtitle) {
+  say([
+    '',
+    '╔══════════════════════════════════════════════════════════════╗',
+    `║  ${title.padEnd(60)}║`,
+    subtitle ? `║  ${subtitle.padEnd(60)}║` : null,
+    '╚══════════════════════════════════════════════════════════════╝',
+    '',
+  ].filter(Boolean));
+}
+
+function problemOpportunity(n, problem, opportunity) {
   hr();
   say([
-    `PROBLEM ${n} · ${title}`,
+    `STEP ${n} · PROBLEM & OPPORTUNITY`,
     '',
-    ...body.map((b) => `  ${b}`),
+    `  Problem:      ${problem}`,
+    `  Opportunity:  ${opportunity}`,
   ]);
 }
 
-function solution(title, body) {
-  say([
-    '',
-    `FRACTISI MULTI-AGENT · ${title}`,
-    '',
-    ...body.map((b) => `  ${b}`),
-  ]);
+function fractisi(lines) {
+  say(['', '  FRACTISI MULTI-AGENT', '', ...lines.map((b) => `  ${b}`)]);
 }
 
 function measure(label) {
   say(['', `  ▸ measuring · ${label}…`, '']);
 }
 
-/** @param {ReturnType<import('../context.mjs').createContext>} ctx */
-export async function testdrive(ctx) {
-  const { log } = ctx;
+function nextCue(n) {
+  if (n >= 7) {
+    say([
+      '',
+      '  IDE next: talk closes on Community signup — GitHub for commits; cloud token + paid plan for deploy.',
+      '  Optional full rerun: node scripts/tiny.mjs testdrive',
+      '',
+    ]);
+    return;
+  }
+  say(['', `  IDE next: node scripts/tiny.mjs testdrive ${n + 1}`, '']);
+}
 
-  say([
-    '',
-    '╔══════════════════════════════════════════════════════════════╗',
-    '║  FractiSI Multi-Agent · Test Drive                           ║',
-    '║  Multi-agent problem & opportunity → how FractiSI answers   ║',
-    '╚══════════════════════════════════════════════════════════════╝',
-    '',
-    '  Audience path: give your IDE this repo and ask it to run this',
-    '  Test Drive. Local only — no FractiSI account, no cloud token.',
-    '',
-    '  Product: https://fractisi.vercel.app/product/',
-    '  Talk:    https://fractisi.vercel.app/talks/aai-symposium-2026/',
-  ]);
-
+async function ensureSetup(ctx) {
+  if (ctx._testdriveSetupDone) return 0;
   hr();
-  say(['SETUP · workstation check']);
+  say(['SETUP · workstation check (once per session)']);
   const d = (await doctor(ctx)) ?? 0;
   if (d !== 0) return d;
   const i = (await install(ctx)) ?? 0;
   if (i !== 0) return i;
+  ctx._testdriveSetupDone = true;
+  return 0;
+}
 
-  // ── 1 · duplicated world ──────────────────────────────────────────
-  problem(1, 'Every agent reprints the shared world', [
-    'Today: five agents on one project often each retrieve, summarize, and',
-    'carry overlapping copies of the same repo / policies / maps / context.',
-    'Result: duplicated information, repeated retrieval, and version drift.',
+/** Step 0 — cold start primer */
+async function stepPrimer(ctx) {
+  banner('Test Drive · Step 0', 'Cold start primer · FractiSI Multi-Agent');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+
+  hr();
+  say([
+    'PRIMER · What FractiSI Multi-Agent is',
+    '',
+    '  FractiSI Multi-Agent is a shared-world coordination architecture for',
+    '  agent fleets — not another foundation model, not a Cursor/Claude Code',
+    '  replacement. It sits beside the tools you already run.',
+    '',
+    '  Stack (cold start):',
+    '    1. Shared computational world — one underlying project/environment',
+    '    2. Tiny Footprint / Tiny Gateway — compact access; deltas, not N copies',
+    '    3. Agents — different models, tools, roles on that shared world',
+    '    4. Coordination + composition — ownership, conflicts, composed results',
+    '',
+    '  What it is for:',
+    '    · denser fleets without reprinting the world per agent',
+    '    · discovery flat skim misses under a fixed budget',
+    '    · faster architectural convergence (fewer rounds/ops)',
+    '    · composed work instead of merge chaos',
+    '',
+    '  Honesty: demos below are architectural / structured-state labs on your',
+    '  machine — not CapEx guarantees, not an LLM multi-agent bake-off.',
+    '',
+    '  Product: https://fractisi.vercel.app/product/',
+    '  Talk:    https://fractisi.vercel.app/talks/aai-symposium-2026/',
   ]);
-  solution('Shared world once · per-agent difference only', [
-    'FractiSI registers the shared computational world once. Agents keep',
-    'objectives and local deltas — they do not each own a full reprint.',
+  nextCue(0);
+  return 0;
+}
+
+async function step1(ctx) {
+  banner('Test Drive · Step 1', 'N copies of one world');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    1,
+    'Every agent reprints overlapping copies of the same world.',
+    'One shared world; specialized agents keep only what differs.',
+  );
+  fractisi([
+    'Register the shared world once. Agents keep objectives and local deltas.',
   ]);
   measure('conventional full copies vs shared-prefix store');
   const multi = runMultiSessionDemo(12);
-  const conv = multi.conventional;
-  const shared = multi.prefixReuse;
+  ctx._testdriveMulti = multi;
   say([
-    `  Conventional (N full copies):  ${conv.bytes} B across ${conv.sessions} sessions`,
-    `  Shared world + deltas:         ${shared.bytes} B`,
+    `  Conventional (N full copies):  ${multi.conventional.bytes} B across ${multi.conventional.sessions} sessions`,
+    `  Shared world + deltas:         ${multi.prefixReuse.bytes} B`,
     `  Reduction vs full copies:      ${pct(multi.prefixByteReduction)}`,
     '',
     '  → Same sessions. One shared system pattern instead of N reprints.',
   ]);
+  nextCue(1);
+  return 0;
+}
 
-  // ── 2 · gzip is not enough ────────────────────────────────────────
-  problem(2, 'Gzip shrinks copies — it does not remove them', [
-    'Today: teams compress duplicated context and call it solved.',
-    'Compression lowers bytes per copy; it does not remove the cross-copy tax.',
-  ]);
-  solution('Stop paying N copies before you compress', [
-    'Share the world first. Then compression is optional polish — not the architecture.',
-  ]);
+async function step2(ctx) {
+  banner('Test Drive · Step 2', 'Gzip is not an architecture');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    2,
+    'Gzip shrinks copies — it does not remove the cross-copy tax.',
+    'Share the world first; compression becomes optional polish.',
+  );
+  fractisi(['Stop paying N copies before you compress.']);
   measure('gzip on conventional JSON vs shared-world JSON');
-  // Reconstruct payload shapes comparable to the stores
   const SYSTEM = 'Tiny Footprint shared organizational pattern. Policy v1. '.repeat(8);
   const conventionalPayload = Array.from({ length: 12 }, (_, s) => ({
     system: SYSTEM,
@@ -131,15 +182,22 @@ export async function testdrive(ctx) {
     '',
     '  → Gzip helps both arms. Sharing the world removes the N-copy structure.',
   ]);
+  nextCue(2);
+  return 0;
+}
 
-  // ── 3 · exact cache fails when words differ ───────────────────────
-  problem(3, 'Exact-text cache only helps when the words match', [
-    'Today: prefix / exact caches win on identical prompts.',
-    'Same-shape sessions with different wording miss the cache and duplicate again.',
-  ]);
-  solution('Rhyming templates · same shape, different words', [
-    'Tiny Footprint / Tiny Gateway stores the organizational rhyme once and',
-    'keeps per-session expressions — even when the utterance text differs.',
+async function step3(ctx) {
+  banner('Test Drive · Step 3', 'Exact cache vs rhyme');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    3,
+    'Exact-text / prefix cache only helps when the words match.',
+    'Same-shape sessions with different wording can still share structure.',
+  );
+  fractisi([
+    'Rhyming templates store organization once; keep per-session expressions',
+    'even when utterance text differs.',
   ]);
   measure('40 same-shape / different-words sessions · rhyme vs exact-text cache');
   const rhymeCmp = compareRhymeToCache(differingWordSessions(40));
@@ -154,7 +212,7 @@ export async function testdrive(ctx) {
     '',
     '  → When words differ, rhyme still shares structure. Exact cache mostly cannot.',
   ]);
-  // Also show the multi-session rhyme cohort from the reference demo
+  const multi = ctx._testdriveMulti || runMultiSessionDemo(12);
   const rhyme = multi.holographicRhyme;
   if (rhyme.status === 'ran') {
     say([
@@ -162,20 +220,26 @@ export async function testdrive(ctx) {
       `  (${pct(rhyme.byteReduction)} · audit ${rhyme.rhymeAuditPass} · exact ${rhyme.exact})`,
     ]);
   }
+  nextCue(3);
+  return 0;
+}
 
-  // ── 4 · discovery ─────────────────────────────────────────────────
-  problem(4, 'Flat skim misses distributed discoveries', [
-    'Today: agents (or a flat shared dump) pull a fixed context budget of records.',
-    'Hidden multi-hop relationships are buried in noise — the budget expires before',
-    'the chain is assembled. Flat approaches see pieces; they miss the solution.',
-  ]);
-  solution('Relationship-guided reconstruction over the shared world', [
-    'FractiSI-style guided retrieval follows explicit next-hop edges across the',
-    'shared world, recovering distributed chains a flat skim never completes',
-    'under the same information budget. (Expedition 002 · E2 architectural lab.)',
+async function step4(ctx) {
+  banner('Test Drive · Step 4', 'Discovery');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    4,
+    'Flat skim misses distributed multi-hop discoveries inside a fixed budget.',
+    'Relationship-guided recovery finds chains flat approaches never assemble.',
+  );
+  fractisi([
+    'Guided reconstruction follows next-hop edges across the shared world.',
+    'Expedition 002 · E2 architectural lab (not an LLM bake-off).',
   ]);
   measure('100 × 6-hop scenarios · flat skim vs relationship-guided');
   const e2 = runDiscoveryConvergenceBenchmark();
+  ctx._testdriveE2 = e2;
   say([
     `  Scenarios:                 ${e2.scenarios} (six-hop hidden chains)`,
     `  Flat skim discoveries:     ${e2.flat.discoveries} / ${e2.scenarios}`,
@@ -184,21 +248,26 @@ export async function testdrive(ctx) {
     `  FractiSI solutions:        ${e2.fractisi.solutions} / ${e2.scenarios}`,
     `  Lab pass (100/100 vs 0/100): ${e2.pass}`,
     '',
-    '  → Same information, same budget. Guided shared-world recovery finds what flat skim misses.',
-    '    Controlled procedures — not an LLM multi-agent bake-off.',
+    '  → Same information, same budget. Guided recovery finds what flat skim misses.',
   ]);
+  nextCue(4);
+  return 0;
+}
 
-  // ── 5 · convergence ───────────────────────────────────────────────
-  problem(5, 'Collectives take too many rounds to converge', [
-    'Today: even when the answer exists in the corpus, getting there costs many',
-    'coordination / propagation rounds and information-processing ops.',
-    'Teams burn budget before a composed decision lands.',
+async function step5(ctx) {
+  banner('Test Drive · Step 5', 'Convergence');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    5,
+    'Collectives burn too many rounds and ops before a composed answer lands.',
+    'Fewer modeled rounds and ops on the same constrained discovery path.',
+  );
+  fractisi([
+    'Relationship-guided reconstruction collapses hop-chasing.',
+    'Faster architectural convergence — not LLM dialogue-turn claims.',
   ]);
-  solution('Fewer ops and rounds on the same constrained path', [
-    'Relationship-guided reconstruction collapses hop-chasing into fewer modeled',
-    'propagation rounds and far fewer ops — faster architectural convergence',
-    'under the same discovery topology. (Same E2 receipt as Problem 4.)',
-  ]);
+  const e2 = ctx._testdriveE2 || runDiscoveryConvergenceBenchmark();
   measure('ops and propagation rounds · flat vs FractiSI-guided');
   say([
     `  Flat mean ops / scenario:           ${e2.flat.meanOps.toFixed(1)}`,
@@ -208,17 +277,23 @@ export async function testdrive(ctx) {
     `  FractiSI propagation rounds:        ${e2.fractisi.propagationRounds}`,
     `  Rounds reduction:                   ${pct(e2.roundsReduction)}`,
     '',
-    '  → −50% rounds · −85% ops on this constrained path (architectural lab, not LLM dialogue turns).',
+    '  → −50% rounds · −85% ops on this constrained path.',
   ]);
+  nextCue(5);
+  return 0;
+}
 
-  // ── 6 · merge collisions ──────────────────────────────────────────
-  problem(6, 'Parallel agents collide at merge time', [
-    'Today: each agent works in isolation, then everyone reconciles overlapping edits.',
-    'More agents can mean more merge conflicts and less useful completed work.',
-  ]);
-  solution('Coordinate ownership · compose contributions', [
-    'FractiSI Multi-Agent adds coordination and composition on top of the shared world',
-    'so overlapping work is visible before a blind merge.',
+async function step6(ctx) {
+  banner('Test Drive · Step 6', 'Merge collisions');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    6,
+    'Parallel agents collide at merge time as fleets grow.',
+    'Coordinate ownership and compose contributions before blind merge.',
+  );
+  fractisi([
+    'Coordination + composition on the shared world makes overlap visible early.',
   ]);
   measure('comparative arms · conventional branches vs FractiSI coordination');
   const bench = runComparativeBench({ agentCounts: [5, 10, 25], runs: 3 });
@@ -236,53 +311,121 @@ export async function testdrive(ctx) {
     '  → Same tasks. Coordination changes conflict and completion shape.',
     '    (In-process simulation — not a production CapEx claim.)',
   ]);
+  nextCue(6);
+  return 0;
+}
 
-  // ── 7 · density / representation ──────────────────────────────────
-  problem(7, 'Fleets stay small because context is scarce', [
-    'Today: DRAM/HBM and context budgets cap how many agents you can afford.',
-    'Duplication burns the budget before specialized work begins.',
-  ]);
-  solution('Higher agent density from a smaller shared footprint', [
-    'Tiny Footprint cuts duplicated representation so more agents fit the same budget.',
-    'Running the local benchmark suite next (architectural / structured-state labs).',
+async function step7(ctx) {
+  banner('Test Drive · Step 7', 'Agent density');
+  const setup = await ensureSetup(ctx);
+  if (setup !== 0) return setup;
+  problemOpportunity(
+    7,
+    'Fleets stay small because duplicated context burns the budget first.',
+    'Higher agent density inside the same infrastructure budget.',
+  );
+  fractisi([
+    'Tiny Footprint cuts duplicated representation so more agents fit.',
+    'Local benchmark suite next (architectural / structured-state labs).',
   ]);
   measure('local benchmark suite');
   const b = (await benchmark(ctx)) ?? 0;
   if (b !== 0) {
-    log('benchmark finished with non-zero status (often expected when GPU labs are not_run on this host)');
+    ctx.log('benchmark finished with non-zero status (often expected when GPU labs are not_run)');
   }
   const r = (await report(ctx)) ?? 0;
   if (r !== 0) return r;
 
-  // ── close ─────────────────────────────────────────────────────────
   hr();
   say([
     'TEST DRIVE COMPLETE',
     '',
-    '  You walked seven problems of today’s multi-agent stacks:',
-    '    1. N full copies of one world',
-    '    2. Gzip without removing copies',
-    '    3. Exact cache missing different words',
-    '    4. Flat skim missing distributed discoveries',
-    '    5. Too many rounds / ops to converge',
-    '    6. Merge collisions without coordination',
-    '    7. Scarce density under duplicated context',
+    '  Primer + seven problem/opportunity demonstrations:',
+    '    0. Cold start · what FractiSI Multi-Agent is',
+    '    1. N copies → shared world + deltas',
+    '    2. Gzip-only → share first',
+    '    3. Exact cache miss → rhyming templates',
+    '    4. Flat skim miss → guided discovery 100/100 vs 0/100',
+    '    5. Slow convergence → −50% rounds · −85% ops',
+    '    6. Merge collisions → coordination + composition',
+    '    7. Scarce density → smaller footprint',
     '',
-    '  FractiSI Multi-Agent addresses them with:',
-    '    · a shared computational world (Tiny Footprint / Tiny Gateway)',
-    '    · rhyming templates when shape matches and words differ',
-    '    · relationship-guided discovery and faster architectural convergence',
-    '    · coordination + composition for overlapping work',
-    '    · denser fleets inside the same infrastructure budget',
+    '  COMMUNITY (FREE) · sign up & set up',
+    '    1. Keep this GitHub clone — that is Community signup.',
+    '    2. GitHub / Git — required for commits on your work.',
+    '    3. Cloud token (VERCEL_TOKEN / FRACTISI_CLOUD_TOKEN) — when you unlock paid deploy.',
+    '    4. Cloud deploy is paid: Team · Enterprise · Cloud (not Community).',
     '',
-    '  Paper: https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/',
-    '  Next:',
-    '    Product  https://fractisi.vercel.app/product/',
-    '    Talk     https://fractisi.vercel.app/talks/aai-symposium-2026/',
-    '    Blog     https://fractisi.vercel.app/blog/aai-symposium-2026/',
-    '    Optional cloud try (YOUR token): node scripts/tiny.mjs try',
+    '  Pricing  https://fractisi.vercel.app/product/pricing/',
+    '  Talk     https://fractisi.vercel.app/talks/aai-symposium-2026/',
+    '  Product  https://fractisi.vercel.app/product/',
+    '  Paper    https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/',
     '',
   ]);
+  return 0;
+}
 
+export const TESTDRIVE_STEPS = Object.freeze({
+  primer: { id: 'primer', n: 0, title: 'Cold start primer', run: stepPrimer },
+  0: { id: 'primer', n: 0, title: 'Cold start primer', run: stepPrimer },
+  1: { id: '1', n: 1, title: 'N copies of one world', run: step1 },
+  2: { id: '2', n: 2, title: 'Gzip is not an architecture', run: step2 },
+  3: { id: '3', n: 3, title: 'Exact cache vs rhyme', run: step3 },
+  4: { id: '4', n: 4, title: 'Discovery', run: step4 },
+  5: { id: '5', n: 5, title: 'Convergence', run: step5 },
+  6: { id: '6', n: 6, title: 'Merge collisions', run: step6 },
+  7: { id: '7', n: 7, title: 'Agent density', run: step7 },
+});
+
+function listSteps() {
+  banner('Test Drive · steps', 'Aligned to symposium slides');
+  say([
+    '  node scripts/tiny.mjs testdrive           # full tour (primer → 7)',
+    '  node scripts/tiny.mjs testdrive primer    # step 0',
+    '  node scripts/tiny.mjs testdrive 1 … 7     # one slide step',
+    '  node scripts/tiny.mjs testdrive list',
+    '',
+    '  0  Cold start primer · FractiSI Multi-Agent',
+    '  1  Problem/opportunity · N copies of one world',
+    '  2  Problem/opportunity · Gzip without removing copies',
+    '  3  Problem/opportunity · Exact cache when words differ',
+    '  4  Problem/opportunity · Flat skim misses discoveries',
+    '  5  Problem/opportunity · Too many rounds to converge',
+    '  6  Problem/opportunity · Merge collisions',
+    '  7  Problem/opportunity · Scarce agent density',
+    '',
+  ]);
+  return 0;
+}
+
+/** @param {ReturnType<import('../context.mjs').createContext>} ctx */
+export async function testdrive(ctx) {
+  const arg = (ctx.argv[3] || '').toLowerCase();
+
+  if (arg === 'list' || arg === 'help' || arg === '--help') {
+    return listSteps();
+  }
+
+  if (arg && TESTDRIVE_STEPS[arg]) {
+    return TESTDRIVE_STEPS[arg].run(ctx);
+  }
+
+  if (arg) {
+    console.error(`Unknown testdrive step: ${arg}`);
+    listSteps();
+    return 1;
+  }
+
+  // Full tour
+  banner('FractiSI Multi-Agent · Test Drive', 'Primer → seven problem/opportunity demos');
+  say([
+    '  Audience: match each symposium slide with the step it names.',
+    '  Or run one step: node scripts/tiny.mjs testdrive <primer|1-7>',
+    '',
+  ]);
+  for (const key of ['primer', '1', '2', '3', '4', '5', '6', '7']) {
+    const code = await TESTDRIVE_STEPS[key].run(ctx);
+    if (code !== 0) return code;
+  }
   return 0;
 }

@@ -30,7 +30,7 @@
 | **Server / Enterprise** | **From $30,000 / year** | Organizational intelligence infrastructure |
 | **Cloud Platform** | **Custom** | Provider-scale intelligence infrastructure |
 
-Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated agents** + edition capability — not model tokens, not per discovery. Deploy optional. Community is genuinely useful today; paid tiers sell when their workflows are operational. Full packaging: [/product/pricing/](./product/pricing/) · [spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)
+Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated agents** + edition capability — not model tokens, not per discovery. **Cloud deploy is paid** (Team · Enterprise · Cloud). Community is free and useful for local work + Git commits. Full packaging: [/product/pricing/](./product/pricing/) · [spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)
 
 ---
 
@@ -157,7 +157,7 @@ After a real-workload or sandbox try, you get a **coordinated multi-agent workst
 | **Agents that do not trip over each other** | Coordination registers agents, tracks ownership, flags overlapping paths before merge day goes sideways |
 | **Composed results, not a pile of branches** | Composition evaluates, validates, integrates, and can roll back into one coherent outcome |
 | **Git-aware scoped workspaces** | Worktrees / scoped spaces so agents work in parallel without a branch-per-agent chaos tax |
-| **Deploy only when you ask** | Layer F builds an approval-gated release candidate. Real workloads skip cloud by default; pass `--deploy` for a preview |
+| **Deploy is paid** | Layer F approval-gated publish unlocks on Team · Enterprise · Cloud (`FRACTISI_EDITION` + cloud token). Community composes and commits only |
 | **Beside Cursor / Claude Code / VS Code** | Message adapters normalize those runtimes. Your IDE, remotes, and CI stay yours |
 
 **Day-two commands**

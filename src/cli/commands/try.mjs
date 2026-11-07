@@ -1,23 +1,34 @@
 /**
  * Try FractiSI Multi-Agent.
  *
- * Default sandbox demo: Git + cloud token → worktrees → compose → commit → deploy.
- * Real workload (`--workload`): Git only by default (compose + commit on your repo).
- * Cloud deploy is optional — pass `--deploy` when you want a preview URL.
+ * Community (free): Git → worktrees → compose → commit. No cloud deploy.
+ * Paid (Team · Enterprise · Cloud): optional deploy with cloud token.
+ * Real workload (`--workload`): Git only by default; `--deploy` is paid + token.
  */
 import { checkTryPrereqs, checkGit } from '../../platform/prereqs.mjs';
 import { resolveCloudToken } from '../../platform/cloud.mjs';
 import { runTryFlow } from '../../platform/try-flow.mjs';
 import { runRealWorkloadFlow } from '../../platform/real-workload-flow.mjs';
 import { resolveProjectRoot } from '../project-root.mjs';
+import { canDeploy, deployPaidMessage, resolveOperatorTier } from '../../platform/operator-tier.mjs';
 
 export async function tryPlatform(ctx) {
   const workload = ctx.flag('--workload');
   const prepare = ctx.flag('--prepare');
   const inPlace = ctx.flag('--in-place');
   const prod = ctx.flag('--prod');
-  // Deploy is opt-in for real workloads; opt-out for sandbox via --no-deploy
-  const wantDeploy = workload ? ctx.flag('--deploy') : !ctx.flag('--no-deploy');
+  const tier = resolveOperatorTier(ctx);
+  const paidDeploy = canDeploy(tier);
+  // Deploy is a paid feature (Team · Enterprise · Cloud). Community: compose + Git only.
+  const askedDeploy = workload ? ctx.flag('--deploy') : !ctx.flag('--no-deploy');
+  if (askedDeploy && !paidDeploy) {
+    if (workload || ctx.flag('--deploy') || ctx.flag('--prod')) {
+      for (const line of deployPaidMessage(tier)) ctx.log(line);
+      return 2;
+    }
+    ctx.log('try · Community — compose + Git commit only (cloud deploy is paid)');
+  }
+  const wantDeploy = askedDeploy && paidDeploy;
   const repoRoot = resolveProjectRoot(ctx, { workload });
 
   if (workload) {
@@ -39,7 +50,11 @@ export async function tryPlatform(ctx) {
         return 2;
       }
     } else {
-      ctx.log('try · real workload · deploy skipped (pass --deploy for a cloud preview)');
+      ctx.log(
+        paidDeploy
+          ? 'try · real workload · deploy skipped (pass --deploy for a cloud preview)'
+          : 'try · real workload · deploy skipped (paid feature — Team · Enterprise · Cloud)',
+      );
     }
 
     ctx.log(`try · real workload · repo ${repoRoot}`);
