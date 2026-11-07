@@ -4,74 +4,252 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="FractiSI Multi-Agent Test Drive — Infinite Octaves, Tiny Gateway Rhyming Templates, Tiny Footprint, Layers A–F. Self-paced or IDE.">
-  <link rel="stylesheet" href="/css/site.css?v=31">
+  <meta name="description" content="Guided FractiSI Multi-Agent Test Drive — plain primer, seven live labs, browser or IDE. ~15 minutes.">
+  <link rel="stylesheet" href="/css/site.css?v=32">
   <style>
-    .board { max-width: 42rem; margin: 2rem auto 0; }
-    .card {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      padding: 1.35rem 1.3rem 1.45rem;
-      margin: 0 0 1rem;
+    .td-hero {
+      position: relative;
+      min-height: min(88vh, 44rem);
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(244,241,234,0.15) 0%, rgba(244,241,234,0.92) 72%, var(--bg) 100%),
+        linear-gradient(115deg, #1f3d34 0%, #14120e 48%, #2a2418 100%);
     }
-    .card .n {
+    .td-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/media/fractisi-hero.jpg?v=21");
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.42;
+      animation: td-drift 28s ease-in-out infinite alternate;
+    }
+    @keyframes td-drift {
+      from { transform: scale(1.04) translate3d(0, 0, 0); }
+      to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+    }
+    .td-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 42rem;
+      padding: 5.5rem 1.5rem 3.25rem;
+      margin: 0 auto 0 0;
+      margin-left: max(1.5rem, calc((100% - 68rem) / 2 + 1.5rem));
+      color: #fbf9f4;
+    }
+    .td-hero .brand {
       font-family: var(--sans);
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin: 0 0 1.1rem;
+      opacity: 0;
+      animation: td-rise 0.7s ease forwards 0.05s;
+    }
+    .td-hero h1 {
+      color: #fbf9f4;
+      font-size: clamp(2.35rem, 6vw, 3.85rem);
+      max-width: 14ch;
+      margin: 0 0 1rem;
+      opacity: 0;
+      animation: td-rise 0.75s ease forwards 0.16s;
+    }
+    .td-hero .lede {
+      color: rgba(251, 249, 244, 0.88);
+      font-size: 1.15rem;
+      max-width: 34rem;
+      margin: 0 0 1.65rem;
+      opacity: 0;
+      animation: td-rise 0.75s ease forwards 0.28s;
+    }
+    .td-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1.1rem;
+      align-items: center;
+      opacity: 0;
+      animation: td-rise 0.75s ease forwards 0.4s;
+    }
+    .td-cta,
+    .td-cta:link,
+    .td-cta:visited {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--sans);
+      font-weight: 650;
+      font-size: 1rem;
+      text-decoration: none;
+      background: #fbf9f4;
+      color: #1a1916;
+      padding: 0.72rem 1.15rem;
+      border-radius: 0.35rem;
+      border: 1px solid #fbf9f4;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+    .td-cta:hover,
+    .td-cta:focus-visible {
+      background: #ffffff;
+      color: #1a1916;
+      transform: translateY(-1px);
+    }
+    .td-ghost,
+    .td-ghost:link,
+    .td-ghost:visited {
+      font-family: var(--sans);
+      font-weight: 650;
+      color: #fbf9f4;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(251,249,244,0.45);
+      padding-bottom: 0.1rem;
+    }
+    .td-ghost:hover { border-bottom-color: #fbf9f4; }
+    .td-meta {
+      margin-top: 1.35rem;
+      font-family: var(--sans);
+      font-size: 0.86rem;
+      color: rgba(251,249,244,0.72);
+      opacity: 0;
+      animation: td-rise 0.75s ease forwards 0.52s;
+    }
+    @keyframes td-rise {
+      from { opacity: 0; transform: translateY(0.7rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .td-body { max-width: 68rem; margin: 0 auto; padding: 2.75rem 1.5rem 3.5rem; }
+    .td-section { margin: 0 0 2.75rem; max-width: 40rem; }
+    .td-section h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 500;
+    }
+    .td-section p { margin: 0 0 0.85rem; color: var(--muted); }
+    .td-beats {
+      list-style: none;
+      margin: 1.1rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+    .td-beats li {
+      padding: 0 0 0 1rem;
+      border-left: 3px solid var(--accent);
+    }
+    .td-beats strong {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+    }
+    .td-beats span { color: var(--muted); font-size: 1.02rem; }
+
+    .td-paths {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem 2rem;
+      align-items: start;
+      margin: 0 0 2.75rem;
+    }
+    @media (max-width: 820px) {
+      .td-paths { grid-template-columns: 1fr; }
+      .td-hero-inner { margin-left: 1.5rem; padding-right: 1.5rem; }
+    }
+    .td-path-primary {
+      padding: 1.5rem 0 0;
+      border-top: 1px solid var(--line);
+    }
+    .td-path-primary .tag,
+    .td-path-secondary .tag {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
+      font-weight: 650;
       margin: 0 0 0.45rem;
     }
-    .card h2 { margin: 0 0 0.55rem; font-size: 1.4rem; font-weight: 500; }
-    .card p { margin: 0 0 0.75rem; color: var(--muted); }
-    .card ol { margin: 0.25rem 0 0.85rem; padding-left: 1.2rem; color: var(--ink); }
-    .card li { margin: 0.35rem 0; }
-    .box {
+    .td-path-primary h2,
+    .td-path-secondary h2 {
+      margin: 0 0 0.55rem;
+      font-size: 1.55rem;
+      font-weight: 500;
+    }
+    .td-path-primary p,
+    .td-path-secondary p { color: var(--muted); margin: 0 0 1rem; }
+    .td-path-secondary {
+      padding: 1.5rem 0 0;
+      border-top: 1px solid var(--line);
+    }
+    .td-code {
       display: block;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       background: #14120e;
       color: #f4f1ea;
       padding: 0.85rem 1rem;
       border-radius: 0.3rem;
       word-break: break-all;
       line-height: 1.45;
+      margin: 0 0 0.75rem;
     }
-    .say { font-style: italic; font-size: 1.1rem; color: #f4f1ea; }
-    .go,
-    .go:link,
-    .go:visited,
-    .go:hover,
-    .go:active,
-    .go:focus-visible {
+    .td-code.say { font-family: var(--serif); font-style: italic; font-size: 1.05rem; word-break: normal; }
+    .td-btn-dark,
+    .td-btn-dark:link,
+    .td-btn-dark:visited {
       display: inline-block;
       font-family: var(--sans);
       font-weight: 650;
       text-decoration: none;
       background: #1a1916;
       color: #fbf9f4;
-      padding: 0.55rem 0.95rem;
-      border-radius: 999px;
+      padding: 0.62rem 1rem;
+      border-radius: 0.35rem;
     }
-    .go:hover,
-    .go:focus-visible {
+    .td-btn-dark:hover,
+    .td-btn-dark:focus-visible {
       background: #2a2824;
       color: #ffffff;
     }
-    .foot-links {
+    .td-outline {
+      list-style: none;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      counter-reset: tdstep;
+    }
+    .td-outline li {
+      counter-increment: tdstep;
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: 0.65rem;
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .td-outline li:last-child { border-bottom: 1px solid var(--line); }
+    .td-outline li::before {
+      content: counter(tdstep, decimal-leading-zero);
       font-family: var(--sans);
-      font-size: 0.92rem;
+      font-size: 0.78rem;
+      font-weight: 650;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+    .td-outline strong { font-family: var(--sans); font-size: 0.98rem; color: var(--ink); }
+    .td-outline em { font-style: normal; color: var(--muted); display: block; margin-top: 0.15rem; font-size: 0.98rem; }
+    .td-foot {
+      font-family: var(--sans);
+      font-size: 0.9rem;
       color: var(--muted);
-      margin-top: 1.1rem;
     }
-    .foot-links a { color: var(--accent); font-weight: 650; }
-    .strip {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin: 0.75rem 0 0; font-family: var(--sans); font-size: 0.75rem;
-    }
-    .strip span {
-      border: 1px solid var(--line); background: #fff; padding: 0.25rem 0.5rem;
-    }
+    .td-foot a { color: var(--accent); font-weight: 650; text-decoration: none; }
+    .td-foot a:hover { text-decoration: underline; }
+    .honesty { margin-top: 1.25rem; }
   </style>
 </head>
 <body>
@@ -80,79 +258,96 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
       <a href="/test-drive/">Test Drive</a>
-      <a href="/test-drive/self-paced/">Self-paced</a>
+      <a href="/test-drive/self-paced/">Walkthrough</a>
       <a href="/talks/aai-symposium-2026/">Talk</a>
       <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a>
     </nav>
   </header>
 
-  <main class="wrap">
-    <article class="page board">
-      <p class="kicker">Test Drive · AAI Symposium</p>
-      <h1>Walk the real architecture.</h1>
-      <p class="lede">Start with a plain-language primer inside the walkthrough — no detour to the product page. Then run live labs: shared world · rhyme vs cache · discovery · convergence · coordination · density / Git / deploy. Possible Active Inference rhyme — humans as agents in a shared world.</p>
-
-      <div class="card" style="margin-top:1.25rem">
-        <p class="n">No IDE needed</p>
-        <h2>Self-paced walkthrough</h2>
-        <p>Primer in plain English, then each lab: content, a Run button, Previous / Next. Live results stay on the page.</p>
-        <p style="margin-bottom:0">
-          <a class="go" href="/test-drive/self-paced/#primer">Start with the primer →</a>
-        </p>
+  <section class="td-hero" aria-label="Test Drive hero">
+    <div class="td-hero-inner">
+      <p class="brand">FractiSI · Multi-Agent Test Drive</p>
+      <h1>Learn the stack by running it.</h1>
+      <p class="lede">A guided walkthrough for first-time visitors: plain English first, then live labs that show what shared-world multi-agent architecture actually does.</p>
+      <div class="td-cta-row">
+        <a class="td-cta" href="/test-drive/self-paced/#primer">Start the walkthrough →</a>
+        <a class="td-ghost" href="#paths">Prefer your IDE?</a>
       </div>
+      <p class="td-meta">8 steps · about 15 minutes · no account · no cloud token</p>
+    </div>
+  </section>
 
-      <div class="card">
-        <p class="n">IDE station</p>
-        <h2>One ask</h2>
-        <p>Paste into Cursor, Claude Code, or VS Code:</p>
-        <code class="box">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
-        <p style="margin-top:0.85rem">Then say:</p>
-        <p class="box say">Do the FractiSI Multi-Agent test drive.</p>
-        <p style="margin-top:0.85rem">Or match the live slide:</p>
-        <code class="box">node scripts/tiny.mjs testdrive primer
+  <main class="td-body">
+    <section class="td-section" aria-labelledby="leave-knowing">
+      <p class="kicker">What you will leave knowing</p>
+      <h2 id="leave-knowing">Three ideas. Then proof.</h2>
+      <ul class="td-beats">
+        <li>
+          <strong>One shared world</strong>
+          <span>Many helpers — agents and people — work from the same map instead of each reprinting a private copy.</span>
+        </li>
+        <li>
+          <strong>Rhyme beats exact text</strong>
+          <span>When wording changes, structure can still be reused. That is the Tiny Gateway move.</span>
+        </li>
+        <li>
+          <strong>Coordinate before you merge</strong>
+          <span>Ownership and composition sit above raw parallel chat, so fleets do not collide at the end.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="td-paths" id="paths" aria-label="How to take the Test Drive">
+      <div class="td-path-primary">
+        <p class="tag">Recommended · in browser</p>
+        <h2>Self-paced walkthrough</h2>
+        <p>Start with a cold primer in everyday language. Each lab then shows a short lesson, a Run button, live results, and Previous / Next. Stay on one page — nothing is gated behind the product brief.</p>
+        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Start with the primer →</a>
+      </div>
+      <div class="td-path-secondary">
+        <p class="tag">Optional · in your IDE</p>
+        <h2>Same labs from Cursor or Claude Code</h2>
+        <p>Clone the kit, then ask your agent to run the Test Drive — or step the CLI yourself.</p>
+        <code class="td-code">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
+        <code class="td-code say">Do the FractiSI Multi-Agent test drive.</code>
+        <code class="td-code">node scripts/tiny.mjs testdrive primer
 node scripts/tiny.mjs testdrive 1
 … through 7</code>
-        <p style="margin-top:0.85rem;margin-bottom:0">
-          <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open repo →</a>
-        </p>
+        <a class="td-btn-dark" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open the repo →</a>
       </div>
+    </section>
 
-      <div class="card">
-        <p class="n">What you will walk</p>
-        <h2>Product steps</h2>
-        <ol>
-          <li><strong>Primer</strong> — Generative possibility · Net Zero · Φ · Octaves · Boundary · Trees · Eight-node · Wave · Awareness → product</li>
-          <li><strong>Layer A</strong> — Tiny Footprint shared world + deltas</li>
-          <li><strong>Layer A</strong> — after gzip, architecture still matters</li>
-          <li><strong>Tiny Gateway</strong> — Rhyming Templates vs exact cache (Net Zero → octaves)</li>
-          <li><strong>Selective reconstruction</strong> — discovery 100/100 vs 0/100</li>
-          <li><strong>Selective reconstruction</strong> — convergence −50% rounds · −85% ops</li>
-          <li><strong>Layers B–D</strong> — coordination · shared state · composition</li>
-          <li><strong>Density · E · F</strong> — more agents · Git · paid deploy</li>
-        </ol>
-        <p style="margin:0">No FractiSI account. No cloud token for the Test Drive itself. Layer F deploy is paid.</p>
-      </div>
-
-      <div class="card">
-        <p class="n">While it runs</p>
-        <h2>Optional · watch the talk</h2>
-        <p>Same product story on slides.</p>
-        <a class="go" href="/talks/aai-symposium-2026/">Presentation →</a>
-      </div>
-
-      <p class="foot-links">
-        <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>
-        · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint paper</a>
-        · <a href="/product/pricing/">Pricing</a>
-        · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+    <section class="td-section" aria-labelledby="outline">
+      <p class="kicker">Lesson outline</p>
+      <h2 id="outline">Primer, then seven live labs</h2>
+      <p>Each lab names a real product piece. Numbers come from the same runners as the CLI.</p>
+      <ol class="td-outline">
+        <li><div><strong>How the stack fits together</strong><em>Plain ladder: Net Zero → Tiny Gateway → Layers A–F</em></div></li>
+        <li><div><strong>Share the world once</strong><em>Tiny Footprint vs N full copies</em></div></li>
+        <li><div><strong>Gzip is not architecture</strong><em>Compression residual after sharing</em></div></li>
+        <li><div><strong>Rhyme when words differ</strong><em>Rhyming Templates vs exact cache</em></div></li>
+        <li><div><strong>Find what flat skim misses</strong><em>Discovery score · selective reconstruction</em></div></li>
+        <li><div><strong>Converge with fewer rounds</strong><em>Ops and rounds on the guided path</em></div></li>
+        <li><div><strong>Coordinate before merge</strong><em>Layers B–D ownership and composition</em></div></li>
+        <li><div><strong>Density, Git, deploy</strong><em>More agents · free Git · paid Layer F</em></div></li>
+      </ol>
+      <p style="margin-top:1.25rem">
+        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Begin lesson 01 →</a>
       </p>
-      <p class="honesty">Architectural / structured-state labs — Infinite Octaves is filing/scale grammar, not infinite physical tiers. Not CapEx guarantees.</p>
-    </article>
+    </section>
+
+    <p class="td-foot">
+      <a href="/talks/aai-symposium-2026/">Symposium talk</a>
+      · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>
+      · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint paper</a>
+      · <a href="/product/pricing/">Pricing</a>
+    </p>
+    <p class="honesty">Architectural / structured-state labs. Infinite Octaves is filing and scale grammar, not infinite physical tiers. Not CapEx guarantees. Active Inference is offered as a possible rhyme, not identity.</p>
   </main>
 
   <footer class="site-footer">
     <span>FractiSI · Test Drive</span>
-    <span><a href="/test-drive/self-paced/">Self-paced</a> · <a href="/talks/aai-symposium-2026/">Talk</a></span>
+    <span><a href="/test-drive/self-paced/">Walkthrough</a> · <a href="/talks/aai-symposium-2026/">Talk</a></span>
   </footer>
 </body>
 </html>
