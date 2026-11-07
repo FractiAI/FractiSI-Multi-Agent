@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FractiSI at the Applied Active Inference Symposium · Blog · FractiSI</title>
+  <meta name="description" content="FractiSI Multi-Agent presents a 30-minute shared-world architecture test drive at the Applied Active Inference Symposium, November 12–13, 2026. Follow along from your IDE.">
+  <link rel="stylesheet" href="../../css/site.css?v=26">
+  <style>
+    .cta-box {
+      margin: 1.4rem 0;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .cta-box h2 { margin: 0 0 0.45rem; font-size: 1.25rem; font-weight: 500; }
+    .cta-box p { margin: 0.35rem 0; }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.9rem;
+      margin-top: 0.85rem;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+    }
+    .cta-row a.pill {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/test-drive/">Test Drive</a>
+      <a href="/blog/">Blog</a>
+      <a href="/research/">Research</a>
+      <a href="/library/">Library</a>
+      <a href="/open/">Open</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/talks/aai-symposium-2026/">Open the talk</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="page">
+      <p class="kicker">Symposium · November 12–13, 2026</p>
+      <h1>FractiSI at the Applied Active Inference Symposium</h1>
+      <p class="lede">We are bringing FractiSI Multi-Agent to an online research gathering that cares about agents that perceive, infer, learn, and act — and we are making the entire test drive runnable for anyone with a laptop.</p>
+      <p style="font-family:var(--sans);font-size:0.9rem;color:var(--muted);margin:0.5rem 0 1.2rem">FractiSI · Applied Active Inference Symposium 2026 · online</p>
+
+      <div class="cta-box">
+        <h2>Start here</h2>
+        <p>The full Test Drive lives on this site: follow-along stations, live presentation, and links into product, papers, and evaluation.</p>
+        <div class="cta-row">
+          <a class="pill" href="/test-drive/">Open the Test Drive →</a>
+          <a href="/talks/aai-symposium-2026/">Live presentation deck</a>
+          <a href="/product/">FractiSI Multi-Agent product</a>
+          <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub Workstation kit</a>
+        </div>
+      </div>
+
+      <h2>Why this symposium</h2>
+      <p>The Applied Active Inference Symposium gathers people who treat agents as systems that must keep a grip on a changing world — not only as chat sessions that answer one prompt at a time. That is a natural room for FractiSI. Our work comes from the computational-architecture side of a related problem: how do many specialized agents share one underlying project or environment without each independently reconstructing overlapping copies of it?</p>
+      <p>When fleets grow, the tax is easy to miss. Agents reprint context. Exact-text caches help only when the words match. Gzip shrinks copies without removing the cross-copy cost. Merge time becomes a negotiation among divergent private worlds. Teams feel that as slower coordination, thinner agent density on the same hardware budget, and more reconciliation work before anyone can trust a composed result.</p>
+      <p>FractiSI Multi-Agent is our product answer: one shared computational world, many specialized participants, coordinated work, composed results. Tiny Footprint — powered by Tiny Gateway — is the Layer A core that keeps the shared world compact. The platform layers above sit beside Cursor, Claude Code, VS Code, and Git. We are not shipping another coding assistant. We are shipping a coordination architecture for agentic engineering, with the same architectural question open to domains beyond software.</p>
+
+      <h2>What we are presenting</h2>
+      <p>On <strong>November 12–13, 2026</strong> we deliver a <strong>30-minute</strong> talk:</p>
+      <p><em>FractiSI Multi-Agent — One Shared World. Many Agents. Coordinated Work. Composed Results.</em><br>
+      A Shared-World Architecture for Multi-Agent Intelligence.</p>
+      <p>The presentation walks through the problem of duplicated worlds, the FractiSI architecture, why density and collective outcomes matter more than “smaller data” alone, what a fair experimental comparison should measure, application sketches in software engineering and in domains such as air-traffic and defense coordination (named as investigation areas, not claimed solutions), and an invitation to Active Inference researchers for interdisciplinary experiments that do not pretend the frameworks are interchangeable.</p>
+      <p>The live deck includes speaker notes, keyboard navigation, and print/PDF export. Gold links on the slides open product pages, papers, and runnable commands in a new tab so the room can follow without losing the talk.</p>
+
+      <h2>The Test Drive is on the FractiSI site</h2>
+      <p>Participation should not stop at watching. The entire Test Drive is published here so symposium attendees — and anyone who finds this later — can click through the site and execute demos from an IDE station.</p>
+      <ul>
+        <li><strong>Browser station</strong> — open the <a href="/talks/aai-symposium-2026/">presentation</a>, <a href="/product/">product brief</a>, <a href="/library/">library</a>, and <a href="/research/#open-evaluation">open evaluation</a> while listening.</li>
+        <li><strong>IDE Station A</strong> — clone <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">FractiSI-Multi-Agent</a>.</li>
+        <li><strong>IDE Station B</strong> — run local <code>doctor</code> → <code>demo</code> → <code>benchmark</code> → <code>report</code> with no cloud token.</li>
+        <li><strong>IDE Station C</strong> — optional end-to-end <code>try</code> with your own Vercel token; the preview URL is yours.</li>
+      </ul>
+      <p>Commands and a slide→link map live on the <a href="/test-drive/">Test Drive hub</a>. Stay in Cursor, VS Code, or Claude Code. FractiSI does not need to operate your box for you to verify the local path.</p>
+
+      <h2>What we hope the conversation yields</h2>
+      <p>We want fair comparisons, not theater. Memory wins that slow work or hurt accuracy are not wins. Shared substrates that become bottlenecks, erase private agent context, or cannot represent disagreement are not finished architectures. The talk names those questions in public because they are the work.</p>
+      <p>If you work on Active Inference, multi-agent systems, or agent infrastructure, we would rather compare instruments than trade slogans. Join <a href="/research/#open-evaluation">open evaluation</a>, clone the kit, or write us after the session. If the architecture is useful, it will survive contact with other people’s workloads. If it is not, we would rather learn that with you than discover it alone.</p>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="/test-drive/">Test Drive hub</a> — follow-along stations for the symposium</li>
+        <li><a href="/talks/aai-symposium-2026/">Presentation deck</a> — 16 slides · 30 minutes · speaker notes</li>
+        <li><a href="/product/">FractiSI Multi-Agent</a> — product brief, editions, lab differentiators</li>
+        <li><a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a> · <a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a></li>
+        <li><a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a> · <a href="/open/">Why we choose to stay open source</a> · <a href="/blog/">Blog index</a></li>
+      </ul>
+
+      <p class="honesty">This note announces symposium participation and points at runnable materials on fractisi.vercel.app. Lab figures elsewhere on the site are FractiSI architectural / structured-state measurements unless labeled otherwise — not CapEx guarantees, not a claim that Active Inference and FractiSI are the same framework, and not a claim that mission-critical aviation or defense requirements are already solved.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>FractiSI · Blog</span>
+    <span><a href="/blog/">All posts</a> · <a href="/test-drive/">Test Drive</a> · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a></span>
+  </footer>
+</body>
+</html>
