@@ -6,14 +6,18 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ## What this Test Drive is
 
-A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack, framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too**, operating in a shared world alongside software agents (structural kinship for joint experiments — **not** framework identity).
+A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack. Primer = full architecture synthesis (also on [`/product/#architecture-primer`](https://fractisi.vercel.app/product/#architecture-primer)). Framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too** in a shared world (**not** framework identity).
 
-1. **Shared world · many agents (including humans)** — Active Inference rhyme invite  
-2. **Infinite Octaves** grammar — Net Zero (octave 0) → ascending nested organization  
-3. **Holographic rhyme** — repeating · self-similar · self-correcting · recursive  
-4. **Tiny Gateway™** — Rhyming Templates · nested vectors · selective reconstruction  
-5. **Tiny Footprint (Layer A)** — shared world once · agent deltas  
-6. **Layers B–F** — Coordination · Shared state · Composition · Git awareness · Deploy (paid)
+**Primer spine:** Infinite Possibilities Lattice → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees → Polygons-in-circle (hex / eight-node) → Wave–Node–Fq / nested & interference vectors → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent
+
+Then live labs:
+
+1. **Layer A · Tiny Footprint** — shared world + deltas  
+2. **Layer A** after gzip  
+3. **Tiny Gateway · Rhyming Templates** vs exact cache (Net Zero → octaves)  
+4–5. **Selective reconstruction** — discovery / convergence  
+6. **Layers B–D** — coordination · shared state · composition  
+7. **Density · E Git · F deploy (paid)**
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
