@@ -13,6 +13,7 @@ import { report } from './report.mjs';
 import { runComparativeBench } from '../../platform/comparative-bench.mjs';
 import { runMultiSessionDemo } from '../../workloads/multi-session.mjs';
 import { compareRhymeToCache, differingWordSessions } from '../../experiments/rhyme-vs-cache.mjs';
+import { runDiscoveryConvergenceBenchmark } from '../../experiments/expedition-002-discovery.mjs';
 
 function say(lines) {
   for (const line of lines) console.log(line);
@@ -162,8 +163,56 @@ export async function testdrive(ctx) {
     ]);
   }
 
-  // ── 4 · merge collisions ──────────────────────────────────────────
-  problem(4, 'Parallel agents collide at merge time', [
+  // ── 4 · discovery ─────────────────────────────────────────────────
+  problem(4, 'Flat skim misses distributed discoveries', [
+    'Today: agents (or a flat shared dump) pull a fixed context budget of records.',
+    'Hidden multi-hop relationships are buried in noise — the budget expires before',
+    'the chain is assembled. Flat approaches see pieces; they miss the solution.',
+  ]);
+  solution('Relationship-guided reconstruction over the shared world', [
+    'FractiSI-style guided retrieval follows explicit next-hop edges across the',
+    'shared world, recovering distributed chains a flat skim never completes',
+    'under the same information budget. (Expedition 002 · E2 architectural lab.)',
+  ]);
+  measure('100 × 6-hop scenarios · flat skim vs relationship-guided');
+  const e2 = runDiscoveryConvergenceBenchmark();
+  say([
+    `  Scenarios:                 ${e2.scenarios} (six-hop hidden chains)`,
+    `  Flat skim discoveries:     ${e2.flat.discoveries} / ${e2.scenarios}`,
+    `  Flat skim solutions:       ${e2.flat.solutions} / ${e2.scenarios}`,
+    `  FractiSI discoveries:      ${e2.fractisi.discoveries} / ${e2.scenarios}`,
+    `  FractiSI solutions:        ${e2.fractisi.solutions} / ${e2.scenarios}`,
+    `  Lab pass (100/100 vs 0/100): ${e2.pass}`,
+    '',
+    '  → Same information, same budget. Guided shared-world recovery finds what flat skim misses.',
+    '    Controlled procedures — not an LLM multi-agent bake-off.',
+  ]);
+
+  // ── 5 · convergence ───────────────────────────────────────────────
+  problem(5, 'Collectives take too many rounds to converge', [
+    'Today: even when the answer exists in the corpus, getting there costs many',
+    'coordination / propagation rounds and information-processing ops.',
+    'Teams burn budget before a composed decision lands.',
+  ]);
+  solution('Fewer ops and rounds on the same constrained path', [
+    'Relationship-guided reconstruction collapses hop-chasing into fewer modeled',
+    'propagation rounds and far fewer ops — faster architectural convergence',
+    'under the same discovery topology. (Same E2 receipt as Problem 4.)',
+  ]);
+  measure('ops and propagation rounds · flat vs FractiSI-guided');
+  say([
+    `  Flat mean ops / scenario:           ${e2.flat.meanOps.toFixed(1)}`,
+    `  FractiSI mean ops / scenario:       ${e2.fractisi.meanOps.toFixed(1)}`,
+    `  Ops reduction:                      ${pct(e2.opsReduction)}`,
+    `  Flat propagation rounds (6-hop):    ${e2.flat.propagationRounds}`,
+    `  FractiSI propagation rounds:        ${e2.fractisi.propagationRounds}`,
+    `  Rounds reduction:                   ${pct(e2.roundsReduction)}`,
+    '',
+    '  → −50% rounds · −85% ops on this constrained path (architectural lab, not LLM dialogue turns).',
+  ]);
+
+  // ── 6 · merge collisions ──────────────────────────────────────────
+  problem(6, 'Parallel agents collide at merge time', [
     'Today: each agent works in isolation, then everyone reconciles overlapping edits.',
     'More agents can mean more merge conflicts and less useful completed work.',
   ]);
@@ -188,8 +237,8 @@ export async function testdrive(ctx) {
     '    (In-process simulation — not a production CapEx claim.)',
   ]);
 
-  // ── 5 · density / representation ──────────────────────────────────
-  problem(5, 'Fleets stay small because context is scarce', [
+  // ── 7 · density / representation ──────────────────────────────────
+  problem(7, 'Fleets stay small because context is scarce', [
     'Today: DRAM/HBM and context budgets cap how many agents you can afford.',
     'Duplication burns the budget before specialized work begins.',
   ]);
@@ -199,7 +248,6 @@ export async function testdrive(ctx) {
   ]);
   measure('local benchmark suite');
   const b = (await benchmark(ctx)) ?? 0;
-  // benchmark may return non-zero if GPU labs not_run / pin withheld — still show tour
   if (b !== 0) {
     log('benchmark finished with non-zero status (often expected when GPU labs are not_run on this host)');
   }
@@ -211,19 +259,23 @@ export async function testdrive(ctx) {
   say([
     'TEST DRIVE COMPLETE',
     '',
-    '  You walked five problems of today’s multi-agent stacks:',
+    '  You walked seven problems of today’s multi-agent stacks:',
     '    1. N full copies of one world',
     '    2. Gzip without removing copies',
     '    3. Exact cache missing different words',
-    '    4. Merge collisions without coordination',
-    '    5. Scarce density under duplicated context',
+    '    4. Flat skim missing distributed discoveries',
+    '    5. Too many rounds / ops to converge',
+    '    6. Merge collisions without coordination',
+    '    7. Scarce density under duplicated context',
     '',
     '  FractiSI Multi-Agent addresses them with:',
     '    · a shared computational world (Tiny Footprint / Tiny Gateway)',
     '    · rhyming templates when shape matches and words differ',
+    '    · relationship-guided discovery and faster architectural convergence',
     '    · coordination + composition for overlapping work',
     '    · denser fleets inside the same infrastructure budget',
     '',
+    '  Paper: https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/',
     '  Next:',
     '    Product  https://fractisi.vercel.app/product/',
     '    Talk     https://fractisi.vercel.app/talks/aai-symposium-2026/',

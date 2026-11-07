@@ -27,24 +27,26 @@ That command narrates and demonstrates:
 |---|-----------------|------------------------|
 | 1 | Every agent reprints the shared world | Conventional N copies vs shared world + deltas |
 | 2 | Gzip shrinks copies but does not remove them | Gzip on conventional JSON vs shared-world JSON |
-| 3 | Exact-text cache fails when words differ | Rhyming templates vs exact-text cache (40 sessions) |
-| 4 | Parallel agents collide at merge | Comparative coordination bench (conventional vs FractiSI) |
-| 5 | Fleets stay small under scarce context | Local representation / density benchmark suite |
+| 3 | Exact-text cache fails when words differ | Rhyming templates vs exact-text cache |
+| 4 | **Flat skim misses distributed discoveries** | Expedition 002 E2 · 100/100 vs 0/100 guided discovery |
+| 5 | **Collectives take too many rounds to converge** | Same E2 · −50% rounds · −85% ops |
+| 6 | Parallel agents collide at merge | Comparative coordination bench |
+| 7 | Fleets stay small under scarce context | Local representation / density benchmark suite |
 
 ## Your job as the IDE agent
 
 1. Clone or open `FractiSI-Multi-Agent` (Node 18+, Git).
 2. Run `node scripts/tiny.mjs testdrive`.
-3. **Walk the human through the terminal output** — for each PROBLEM section, restate the pain in plain language; for each FRACTISI section, point at the measured numbers that just printed.
-4. When it finishes, summarize the five problems and five answers in a short closing note.
-5. Offer links: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/talks/aai-symposium-2026/ · https://fractisi.vercel.app/test-drive/
+3. **Walk the human through the terminal output** — for each PROBLEM section, restate the pain; for each FRACTISI section, point at the measured numbers. Emphasize **discovery (4)** and **convergence (5)** — they are capability wins, not only memory wins.
+4. When it finishes, summarize all seven problems and answers in a short closing note.
+5. Offer links: https://fractisi.vercel.app/product/ · https://fractisi.vercel.app/talks/aai-symposium-2026/ · https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/ · https://fractisi.vercel.app/test-drive/
 
 ## Do not
 
-- Skip the narrative — the point is problem → solution, not a silent benchmark dump.
+- Skip the narrative — especially discovery and convergence.
 - Require a Vercel token for the default Test Drive.
-- Upgrade lab numbers into CapEx guarantees or production fleet claims.
-- Stop early on “pin withheld” / GPU `not_run` if the problem tour already printed — explain those as host limits, not tour failure.
+- Claim LLM multi-agent superiority — E2 is a controlled architectural lab.
+- Upgrade lab numbers into CapEx guarantees.
 
 ## Optional (only if asked)
 
