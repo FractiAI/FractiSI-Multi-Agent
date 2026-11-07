@@ -63,7 +63,7 @@ export async function testdrive(ctx) {
     '',
     '╔══════════════════════════════════════════════════════════════╗',
     '║  FractiSI Multi-Agent · Test Drive                           ║',
-    '║  Today’s multi-agent pain → how FractiSI addresses it        ║',
+    '║  Multi-agent problem & opportunity → how FractiSI answers   ║',
     '╚══════════════════════════════════════════════════════════════╝',
     '',
     '  Audience path: give your IDE this repo and ask it to run this',
