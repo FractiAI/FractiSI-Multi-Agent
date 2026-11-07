@@ -4,252 +4,360 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="Guided FractiSI Multi-Agent Test Drive — plain primer, seven live labs, browser or IDE. ~15 minutes.">
-  <link rel="stylesheet" href="/css/site.css?v=32">
+  <meta name="description" content="FractiSI Multi-Agent Test Drive — one track: stack map, live labs, Previous / Next. Optional IDE CLI and speaker deck.">
+  <link rel="stylesheet" href="/css/site.css?v=34">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <style>
-    .td-hero {
-      position: relative;
-      min-height: min(88vh, 44rem);
-      display: grid;
-      align-items: end;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
+    :root {
+      --td-ink: #1a1916;
+      --td-paper: #fbf9f4;
+      --td-mist: #f4f1ea;
+      --td-line: #ddd6c8;
+      --td-forest: #1f3d34;
+      --td-muted: #5e5a53;
+      --td-console: #14120e;
+    }
+
+    body {
       background:
-        linear-gradient(180deg, rgba(244,241,234,0.15) 0%, rgba(244,241,234,0.92) 72%, var(--bg) 100%),
-        linear-gradient(115deg, #1f3d34 0%, #14120e 48%, #2a2418 100%);
+        radial-gradient(1200px 480px at 12% -10%, rgba(31, 61, 52, 0.08), transparent 60%),
+        radial-gradient(900px 420px at 90% 0%, rgba(214, 194, 122, 0.12), transparent 55%),
+        var(--td-mist);
     }
-    .td-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("/media/fractisi-hero.jpg?v=21");
-      background-size: cover;
-      background-position: center 30%;
-      opacity: 0.42;
-      animation: td-drift 28s ease-in-out infinite alternate;
+
+    .lesson-shell {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 6.5rem;
     }
-    @keyframes td-drift {
-      from { transform: scale(1.04) translate3d(0, 0, 0); }
-      to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+
+    .progress-rail {
+      position: sticky;
+      top: 3.55rem;
+      z-index: 3;
+      margin: 0 -1.25rem 1.35rem;
+      padding: 0.75rem 1.25rem 0.85rem;
+      background: rgba(244, 241, 234, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--td-line);
     }
-    .td-hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 42rem;
-      padding: 5.5rem 1.5rem 3.25rem;
-      margin: 0 auto 0 0;
-      margin-left: max(1.5rem, calc((100% - 68rem) / 2 + 1.5rem));
-      color: #fbf9f4;
-    }
-    .td-hero .brand {
-      font-family: var(--sans);
-      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
-      font-weight: 650;
-      letter-spacing: -0.03em;
-      margin: 0 0 1.1rem;
-      opacity: 0;
-      animation: td-rise 0.7s ease forwards 0.05s;
-    }
-    .td-hero h1 {
-      color: #fbf9f4;
-      font-size: clamp(2.35rem, 6vw, 3.85rem);
-      max-width: 14ch;
-      margin: 0 0 1rem;
-      opacity: 0;
-      animation: td-rise 0.75s ease forwards 0.16s;
-    }
-    .td-hero .lede {
-      color: rgba(251, 249, 244, 0.88);
-      font-size: 1.15rem;
-      max-width: 34rem;
-      margin: 0 0 1.65rem;
-      opacity: 0;
-      animation: td-rise 0.75s ease forwards 0.28s;
-    }
-    .td-cta-row {
+    .progress-top {
       display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: 0.55rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+    }
+    .progress-top .eta { color: var(--td-muted); letter-spacing: 0.04em; text-transform: none; font-weight: 500; }
+    .progress-track {
+      height: 0.28rem;
+      background: #e7e0d3;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--td-forest);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+    .progress-dots {
+      display: flex;
+      gap: 0.35rem;
+      margin-top: 0.55rem;
       flex-wrap: wrap;
-      gap: 0.85rem 1.1rem;
-      align-items: center;
-      opacity: 0;
-      animation: td-rise 0.75s ease forwards 0.4s;
     }
-    .td-cta,
-    .td-cta:link,
-    .td-cta:visited {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: var(--sans);
-      font-weight: 650;
-      font-size: 1rem;
-      text-decoration: none;
-      background: #fbf9f4;
-      color: #1a1916;
-      padding: 0.72rem 1.15rem;
-      border-radius: 0.35rem;
-      border: 1px solid #fbf9f4;
-      transition: transform 0.18s ease, background 0.18s ease;
+    .progress-dots button {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      border: 0;
+      padding: 0;
+      background: #d5cec0;
+      cursor: pointer;
     }
-    .td-cta:hover,
-    .td-cta:focus-visible {
-      background: #ffffff;
-      color: #1a1916;
-      transform: translateY(-1px);
+    .progress-dots button.is-done { background: var(--td-forest); }
+    .progress-dots button.is-active {
+      background: var(--td-ink);
+      box-shadow: 0 0 0 3px rgba(26, 25, 22, 0.14);
+      transform: scale(1.15);
     }
-    .td-ghost,
-    .td-ghost:link,
-    .td-ghost:visited {
-      font-family: var(--sans);
-      font-weight: 650;
-      color: #fbf9f4;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(251,249,244,0.45);
-      padding-bottom: 0.1rem;
+
+    .lesson {
+      animation: lesson-in 0.38s ease;
     }
-    .td-ghost:hover { border-bottom-color: #fbf9f4; }
-    .td-meta {
-      margin-top: 1.35rem;
-      font-family: var(--sans);
-      font-size: 0.86rem;
-      color: rgba(251,249,244,0.72);
-      opacity: 0;
-      animation: td-rise 0.75s ease forwards 0.52s;
-    }
-    @keyframes td-rise {
-      from { opacity: 0; transform: translateY(0.7rem); }
+    @keyframes lesson-in {
+      from { opacity: 0; transform: translateY(0.55rem); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .td-body { max-width: 68rem; margin: 0 auto; padding: 2.75rem 1.5rem 3.5rem; }
-    .td-section { margin: 0 0 2.75rem; max-width: 40rem; }
-    .td-section h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.55rem, 3vw, 2rem);
-      font-weight: 500;
-    }
-    .td-section p { margin: 0 0 0.85rem; color: var(--muted); }
-    .td-beats {
-      list-style: none;
-      margin: 1.1rem 0 0;
-      padding: 0;
-      display: grid;
-      gap: 1rem;
-    }
-    .td-beats li {
-      padding: 0 0 0 1rem;
-      border-left: 3px solid var(--accent);
-    }
-    .td-beats strong {
-      display: block;
+    .eyebrow {
       font-family: var(--sans);
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-      color: var(--ink);
-    }
-    .td-beats span { color: var(--muted); font-size: 1.02rem; }
-
-    .td-paths {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.5rem 2rem;
-      align-items: start;
-      margin: 0 0 2.75rem;
-    }
-    @media (max-width: 820px) {
-      .td-paths { grid-template-columns: 1fr; }
-      .td-hero-inner { margin-left: 1.5rem; padding-right: 1.5rem; }
-    }
-    .td-path-primary {
-      padding: 1.5rem 0 0;
-      border-top: 1px solid var(--line);
-    }
-    .td-path-primary .tag,
-    .td-path-secondary .tag {
-      font-family: var(--sans);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--td-forest);
       font-weight: 650;
-      margin: 0 0 0.45rem;
-    }
-    .td-path-primary h2,
-    .td-path-secondary h2 {
       margin: 0 0 0.55rem;
-      font-size: 1.55rem;
+    }
+    .lesson h1 {
+      margin: 0 0 0.55rem;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
       font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
     }
-    .td-path-primary p,
-    .td-path-secondary p { color: var(--muted); margin: 0 0 1rem; }
-    .td-path-secondary {
-      padding: 1.5rem 0 0;
-      border-top: 1px solid var(--line);
+    .promise {
+      font-size: 1.12rem;
+      color: var(--td-muted);
+      margin: 0 0 1.35rem;
+      max-width: 36rem;
     }
-    .td-code {
-      display: block;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.88rem;
-      background: #14120e;
-      color: #f4f1ea;
-      padding: 0.85rem 1rem;
-      border-radius: 0.3rem;
-      word-break: break-all;
+
+    .teach {
+      display: grid;
+      gap: 1rem;
+      margin: 0 0 1.4rem;
+    }
+    .teach-block .label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+      margin: 0 0 0.35rem;
+    }
+    .teach-block p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.55;
+      color: var(--td-ink);
+    }
+    .teach-block.notice {
+      border-left: 3px solid var(--td-forest);
+      padding-left: 0.95rem;
+    }
+
+    .ladder {
+      margin: 0.35rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+    }
+    .ladder li {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0.55rem;
+      align-items: start;
+      font-size: 1.02rem;
       line-height: 1.45;
-      margin: 0 0 0.75rem;
     }
-    .td-code.say { font-family: var(--serif); font-style: italic; font-size: 1.05rem; word-break: normal; }
-    .td-btn-dark,
-    .td-btn-dark:link,
-    .td-btn-dark:visited {
-      display: inline-block;
+    .ladder .n {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 650;
+      color: var(--td-forest);
+      padding-top: 0.2rem;
+    }
+    .ladder strong { font-family: var(--sans); font-weight: 650; }
+
+    .lab-panel {
+      margin: 1.5rem 0 0;
+      padding: 1.15rem 1.15rem 1.2rem;
+      background: var(--td-paper);
+      border: 1px solid var(--td-line);
+      border-radius: 0.45rem;
+      box-shadow: 0 10px 30px rgba(26, 25, 22, 0.04);
+    }
+    .lab-panel .lab-title {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+      margin: 0 0 0.35rem;
+    }
+    .lab-panel .lab-hint {
+      margin: 0 0 0.95rem;
+      color: var(--td-muted);
+      font-size: 0.98rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .btn {
       font-family: var(--sans);
       font-weight: 650;
-      text-decoration: none;
+      font-size: 0.95rem;
+      border-radius: 0.35rem;
+      padding: 0.68rem 1.05rem;
+      cursor: pointer;
+      border: 1px solid var(--td-ink);
+      background: var(--td-paper);
+      color: var(--td-ink);
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+    .btn:hover:not(:disabled),
+    .btn:focus-visible:not(:disabled) {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+    .btn.btn-run,
+    .btn.btn-next {
       background: #1a1916;
       color: #fbf9f4;
-      padding: 0.62rem 1rem;
-      border-radius: 0.35rem;
+      border-color: #1a1916;
+      min-width: 9.5rem;
     }
-    .td-btn-dark:hover,
-    .td-btn-dark:focus-visible {
+    .btn.btn-run:hover:not(:disabled),
+    .btn.btn-run:focus-visible:not(:disabled),
+    .btn.btn-next:hover:not(:disabled),
+    .btn.btn-next:focus-visible:not(:disabled) {
       background: #2a2824;
       color: #ffffff;
     }
-    .td-outline {
-      list-style: none;
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn { touch-action: manipulation; position: relative; z-index: 1; }
+    .status {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--td-muted);
+      min-height: 1.2em;
+    }
+
+    .results-wrap {
+      margin-top: 0.95rem;
+    }
+    .results-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-muted);
+      margin: 0 0 0.45rem;
+    }
+    .results {
+      margin: 0;
+      background: var(--td-console);
+      color: #f4f1ea;
+      padding: 1rem 1.05rem;
+      border-radius: 0.35rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      min-height: 6.5rem;
+      max-height: 22rem;
+      overflow: auto;
+    }
+    .results.is-empty { color: #9a958c; }
+    .takeaway {
       margin: 0.85rem 0 0;
-      padding: 0;
-      counter-reset: tdstep;
+      padding: 0.85rem 0.95rem;
+      background: rgba(31, 61, 52, 0.08);
+      border-radius: 0.35rem;
+      font-size: 1.02rem;
+      color: var(--td-ink);
+      display: none;
     }
-    .td-outline li {
-      counter-increment: tdstep;
-      display: grid;
-      grid-template-columns: 2.2rem 1fr;
-      gap: 0.65rem;
-      padding: 0.7rem 0;
-      border-top: 1px solid var(--line);
-      align-items: baseline;
+    .takeaway.is-open { display: block; animation: lesson-in 0.3s ease; }
+    .takeaway strong {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      margin-bottom: 0.3rem;
     }
-    .td-outline li:last-child { border-bottom: 1px solid var(--line); }
-    .td-outline li::before {
-      content: counter(tdstep, decimal-leading-zero);
+    .honesty {
+      margin-top: 0.85rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--td-muted);
+    }
+
+    .finish {
+      display: none;
+      margin: 1.35rem 0 0;
+      padding: 1.25rem 1.2rem;
+      background: var(--td-paper);
+      border: 1px solid var(--td-line);
+      border-radius: 0.45rem;
+    }
+    .finish.is-open { display: block; animation: lesson-in 0.35s ease; }
+    .finish h2 {
+      margin: 0 0 0.45rem;
+      font-size: 1.45rem;
+      font-weight: 500;
+    }
+    .finish p { margin: 0 0 0.9rem; color: var(--td-muted); }
+    .finish-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .finish a.btn-run {
+      text-decoration: none;
+      display: inline-block;
+    }
+    .finish a.btn-secondary {
+      font-family: var(--sans);
+      font-weight: 650;
+      color: var(--td-forest);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 61, 52, 0.35);
+      padding: 0.68rem 0.1rem;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background: rgba(251, 249, 244, 0.94);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--td-line);
+      padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
+    }
+    .bottom-nav-inner {
+      max-width: 44rem;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .bottom-nav .center-hint {
       font-family: var(--sans);
       font-size: 0.78rem;
-      font-weight: 650;
-      color: var(--accent);
-      letter-spacing: 0.04em;
+      color: var(--td-muted);
+      text-align: center;
+      flex: 1;
     }
-    .td-outline strong { font-family: var(--sans); font-size: 0.98rem; color: var(--ink); }
-    .td-outline em { font-style: normal; color: var(--muted); display: block; margin-top: 0.15rem; font-size: 0.98rem; }
-    .td-foot {
+    @media (max-width: 560px) {
+      .bottom-nav .center-hint { display: none; }
+      .btn { flex: 1; text-align: center; }
+    }
+
+    .kbd {
       font-family: var(--sans);
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: 0.7rem;
+      border: 1px solid var(--td-line);
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.28rem;
+      color: var(--td-muted);
     }
-    .td-foot a { color: var(--accent); font-weight: 650; text-decoration: none; }
-    .td-foot a:hover { text-decoration: underline; }
-    .honesty { margin-top: 1.25rem; }
   </style>
 </head>
 <body>
@@ -257,97 +365,445 @@
     <a class="wordmark" href="/">FractiSI</a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
-      <a href="/test-drive/">Test Drive</a>
-      <a href="/test-drive/self-paced/">Walkthrough</a>
-      <a href="/talks/aai-symposium-2026/">Talk</a>
+      <a href="/test-drive/" aria-current="page">Test Drive</a>
+      <a href="/blog/">Blog</a>
       <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a>
     </nav>
   </header>
 
-  <section class="td-hero" aria-label="Test Drive hero">
-    <div class="td-hero-inner">
-      <p class="brand">FractiSI Multi-Agent</p>
-      <h1>Run the product. Read the receipts.</h1>
-      <p class="lede">Eight steps. One shared-world stack. Live numbers from the same kit we ship — not slides about agents, measurements of them.</p>
-      <div class="td-cta-row">
-        <a class="td-cta" href="/test-drive/self-paced/#primer">Start Test Drive →</a>
-        <a class="td-ghost" href="#paths">Run it in your IDE</a>
+  <div class="lesson-shell">
+    <div class="progress-rail" aria-label="Lesson progress">
+      <div class="progress-top">
+        <span id="progress-label">Lesson 01 · Primer</span>
+        <span class="eta" id="progress-eta">~15 min total</span>
       </div>
-      <p class="td-meta">~15 minutes · no account · no cloud token · deploy stays paid</p>
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump to lesson"></div>
     </div>
-  </section>
 
-  <main class="td-body">
-    <section class="td-section" aria-labelledby="why">
-      <p class="kicker">Why this exists</p>
-      <h2 id="why">Most multi-agent demos hide the cost.</h2>
-      <ul class="td-beats">
-        <li>
-          <strong>Copies</strong>
-          <span>Default fleets reprint the whole context per agent. Tiny Footprint keeps one world and per-agent deltas.</span>
-        </li>
-        <li>
-          <strong>Caches</strong>
-          <span>Exact-text cache dies when wording changes. Tiny Gateway Rhyming Templates reuse structure anyway.</span>
-        </li>
-        <li>
-          <strong>Merges</strong>
-          <span>Parallel chat without ownership collides at the end. Layers B–D coordinate, then compose.</span>
-        </li>
-      </ul>
-    </section>
+    <article class="lesson" id="lesson" aria-live="polite">
+      <p class="eyebrow" id="eyebrow">Lesson</p>
+      <h1 id="title">Loading…</h1>
+      <p class="promise" id="promise"></p>
+      <div class="teach" id="teach"></div>
 
-    <section class="td-paths" id="paths" aria-label="How to take the Test Drive">
-      <div class="td-path-primary">
-        <p class="tag">Browser</p>
-        <h2>Interactive Test Drive</h2>
-        <p>Primer, then seven labs. Each step: short brief, Run, live output, Next. No product-page detour.</p>
-        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Open walkthrough →</a>
-      </div>
-      <div class="td-path-secondary">
-        <p class="tag">IDE</p>
-        <h2>Same runners in Cursor / Claude Code</h2>
-        <p>Point your agent at the repo, or step the CLI.</p>
-        <code class="td-code">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
-        <code class="td-code say">Do the FractiSI Multi-Agent test drive.</code>
-        <code class="td-code">node scripts/tiny.mjs testdrive primer
-node scripts/tiny.mjs testdrive 1
-… through 7</code>
-        <a class="td-btn-dark" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub →</a>
-      </div>
-    </section>
+      <section class="lab-panel" aria-label="Live lab">
+        <p class="lab-title">Measure</p>
+        <p class="lab-hint" id="lab-hint">Runs the same kit as the CLI.</p>
+        <div class="actions">
+          <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run</button>
+          <span class="status" id="status"></span>
+        </div>
+        <div class="results-wrap" id="results-wrap">
+          <p class="results-label">Output</p>
+          <pre class="results is-empty" id="results">Press Run to measure this step.</pre>
+          <div class="takeaway" id="takeaway"></div>
+          <p class="honesty" id="honesty"></p>
+        </div>
+      </section>
 
-    <section class="td-section" aria-labelledby="outline">
-      <p class="kicker">Sequence</p>
-      <h2 id="outline">What you will run</h2>
-      <p>Identical step IDs in the browser API and <code>testdrive</code> CLI.</p>
-      <ol class="td-outline">
-        <li><div><strong>Stack map</strong><em>Net Zero → Tiny Gateway → Tiny Footprint → B–F</em></div></li>
-        <li><div><strong>Shared world vs N copies</strong><em>Tiny Footprint density</em></div></li>
-        <li><div><strong>After gzip</strong><em>Compression residual</em></div></li>
-        <li><div><strong>Rhyme vs exact cache</strong><em>Rhyming Templates</em></div></li>
-        <li><div><strong>Discovery</strong><em>Selective reconstruction · 100/100 vs 0/100</em></div></li>
-        <li><div><strong>Convergence</strong><em>Rounds and ops</em></div></li>
-        <li><div><strong>Coordination</strong><em>Ownership · compose · B–D</em></div></li>
-        <li><div><strong>Density · Git · deploy</strong><em>Community vs paid Layer F</em></div></li>
-      </ol>
-      <p style="margin-top:1.25rem">
-        <a class="td-btn-dark" href="/test-drive/self-paced/#primer">Start →</a>
-      </p>
-    </section>
+      <section class="finish" id="finish" aria-label="Test Drive complete">
+        <h2>Test Drive complete.</h2>
+        <p>Same track in an IDE: clone the kit and run <code>node scripts/tiny.mjs testdrive</code> (or ask your agent to do the Test Drive). Deploy remains Layer F (paid).</p>
+        <div class="finish-actions">
+          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub →</a>
+          <a class="btn-secondary" href="/product/pricing/">Pricing</a>
+          <a class="btn-secondary" href="/talks/aai-symposium-2026/">Speaker deck (optional)</a>
+        </div>
+      </section>
+    </article>
+  </div>
 
-    <p class="td-foot">
-      <a href="/talks/aai-symposium-2026/">Talk</a>
-      · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>
-      · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint</a>
-      · <a href="/product/pricing/">Pricing</a>
-    </p>
-    <p class="honesty">In-process architectural labs. Not CapEx guarantees. Infinite Octaves = nesting/filing depth, not infinite physics tiers. Active Inference named only as a possible structural rhyme.</p>
-  </main>
+  <nav class="bottom-nav" aria-label="Lesson navigation">
+    <div class="bottom-nav-inner">
+      <button type="button" class="btn" id="btn-prev" data-action="prev">← Previous</button>
+      <span class="center-hint">Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs</span>
+      <button type="button" class="btn btn-next" id="btn-next" data-action="next">Next →</button>
+    </div>
+  </nav>
 
-  <footer class="site-footer">
-    <span>FractiSI · Test Drive</span>
-    <span><a href="/test-drive/self-paced/">Walkthrough</a> · <a href="/talks/aai-symposium-2026/">Talk</a></span>
-  </footer>
+  <script type="module">
+    const STEPS = [
+      {
+        id: 'primer',
+        n: 0,
+        title: 'Stack map',
+        promise: 'Names you will see in the labs — then we measure.',
+        runLabel: 'Print stack map',
+        labHint: 'Dumps the canonical ladder into the output panel.',
+        takeaway: 'Shared world → Tiny Gateway → Tiny Footprint → B–F.',
+        teach: `
+          <div class="teach-block notice">
+            <p class="label">Premise</p>
+            <p>Default multi-agent setups give each agent a private full copy of context. FractiSI Multi-Agent keeps one shared world and specializes around it.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Ladder</p>
+            <ol class="ladder">
+              <li><span class="n">01</span><span><strong>Generative possibility</strong> — what can be filed, nested, reused.</span></li>
+              <li><span class="n">02</span><span><strong>Net Zero</strong> — root of the shared world (and of every true rhyme).</span></li>
+              <li><span class="n">03</span><span><strong>Φ ≈ 1.618</strong> — nesting scale (design grammar, not physics).</span></li>
+              <li><span class="n">04</span><span><strong>Infinite Octaves</strong> — nesting depth / filing map.</span></li>
+              <li><span class="n">05</span><span><strong>Boundary nodes</strong> — what may enter.</span></li>
+              <li><span class="n">06</span><span><strong>Holographic rhyme</strong> — four-pillar gate (defined below).</span></li>
+              <li><span class="n">07</span><span><strong>Recursive trees</strong> — hierarchy that carries rhyme across scale.</span></li>
+              <li><span class="n">08</span><span><strong>Eight-node / honeycomb</strong> — one story, eight ports.</span></li>
+              <li><span class="n">09</span><span><strong>Wave · vectors · interference</strong> — activation, working sets, collision marks.</span></li>
+              <li><span class="n">10</span><span><strong>Awareness</strong> — what each participant holds (not consciousness).</span></li>
+              <li><span class="n">11</span><span><strong>Product</strong> — Rhyming Templates → Tiny Gateway → Tiny Footprint → B–F.</span></li>
+            </ol>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What we mean by rhyme</p>
+            <p>A <strong>holographic rhyme</strong> is organization / motion grammar under Infinite Octaves — not “sounds alike,” not exact-text match, not a prefix-cache hit. It passes only when <strong>all four pillars</strong> hold, rooted at <strong>Net Zero (octave 0)</strong> and ascending octaves:</p>
+            <ol class="ladder">
+              <li><span class="n">·</span><span><strong>Repeating</strong> — same organization across multiple expressions (shared shape; words may differ).</span></li>
+              <li><span class="n">·</span><span><strong>Self-similar</strong> — local blueprint mirrors the whole.</span></li>
+              <li><span class="n">·</span><span><strong>Self-correcting</strong> — drift dampens toward Net Zero.</span></li>
+              <li><span class="n">·</span><span><strong>Recursive</strong> — nests from Net Zero up the octave ladder (not a dead loop; mid-octave-only fails).</span></li>
+            </ol>
+            <p style="margin-top:0.75rem"><strong>Not a rhyme:</strong> exact-text / prefix alone · schema-key match alone · brick-wall repetition · mid-octave nest without Net Zero. <strong>Rhyming Templates</strong> are patterns that pass this gate. Papers: <a href="/library/papers/holographic-rhyme/">holographic rhyme</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Symposium kinship (different use of the word)</p>
+            <p>“Possible rhyme with Active Inference” means structural kinship for joint experiments — shared world, many agents including humans. Not the four-pillar software gate. Not framework identity.</p>
+          </div>
+        `,
+      },
+      {
+        id: '1',
+        n: 1,
+        title: 'Shared world vs N copies',
+        promise: 'Tiny Footprint: one world, per-agent deltas.',
+        runLabel: 'Run',
+        labHint: 'Byte contrast: N full copies vs shared + deltas.',
+        takeaway: 'Stop reprinting the world per agent.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Each agent carries a full private copy of shared context. Cost scales with fleet size before any specialized work starts.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Tiny Footprint</p>
+            <p>Register the world once. Agents keep local deltas only. Density for everything above.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>Total bytes: full-copy fleet vs shared world + deltas.</p>
+          </div>
+        `,
+      },
+      {
+        id: '2',
+        n: 2,
+        title: 'Gzip is not sharing',
+        promise: 'Compression shrinks copies. It does not remove N-copy structure.',
+        runLabel: 'Run',
+        labHint: 'Residual gap after gzip on N copies vs shared pack.',
+        takeaway: 'Share first. Compress second.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Gzip / pack helps bandwidth. It still assumes each agent owns a full copy.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Tiny Footprint</p>
+            <p>Share the world, then optionally compress. Architecture leads; compression is polish.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>Post-gzip residual between N copies and shared-world pack.</p>
+          </div>
+        `,
+      },
+      {
+        id: '3',
+        n: 3,
+        title: 'Rhyme vs exact cache',
+        promise: 'Four-pillar rhyme gate vs exact-text / prefix cache.',
+        runLabel: 'Run',
+        labHint: 'Differing-word sessions: Rhyming Templates under the gate vs exact cache.',
+        takeaway: 'Organization under the gate — not identical strings.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Exact-text and prefix caches help only when the words match. That is useful — and it is not our rhyme definition.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Rhyme gate (locked)</p>
+            <p>Repeating · self-similar · self-correcting · recursive, from Net Zero up Infinite Octaves. Failures: prefix alone, schema alone, brick wall, mid-octave without Net Zero. <a href="/library/papers/holographic-rhyme/">Paper</a>.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Tiny Gateway</p>
+            <p>Rhyming Templates are reusable patterns that pass that gate — share organization when wording differs, then reconstruct selectively.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>Store size: naive vs exact cache vs Rhyming Template on same-organization / different-words sessions · four-pillar audit on the reference cohort.</p>
+          </div>
+        `,
+      },
+      {
+        id: '4',
+        n: 4,
+        title: 'Discovery under budget',
+        promise: 'Flat skim vs selective reconstruction on multi-hop chains.',
+        runLabel: 'Run',
+        labHint: 'Discovery score: guided path vs flat skim.',
+        takeaway: 'Walk relationships — do not only skim text.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Budgeted flat skim fails to assemble buried multi-hop chains.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Selective reconstruction</p>
+            <p>Follow nested relational edges in the shared world.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>This lab: 100/100 guided vs 0/100 flat skim.</p>
+          </div>
+        `,
+      },
+      {
+        id: '5',
+        n: 5,
+        title: 'Convergence cost',
+        promise: 'Same path, fewer rounds and ops.',
+        runLabel: 'Run',
+        labHint: 'Rounds and operations vs unconstrained collective.',
+        takeaway: 'Guided reconstruction thrash less.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Unconstrained collectives spend rounds and ops before a composed answer.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Guided path</p>
+            <p>Selective reconstruction converges earlier on the same discovery structure.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>Round Δ and op Δ versus baseline.</p>
+          </div>
+        `,
+      },
+      {
+        id: '6',
+        n: 6,
+        title: 'Ownership before merge',
+        promise: 'Parallel work without coordination collides.',
+        runLabel: 'Run',
+        labHint: 'Isolated parallel vs coordinated composition (B–D).',
+        takeaway: 'Coordinate → share state → compose → then merge.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Isolated agents + blind integrate = merge collisions.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Layers B–D</p>
+            <p>Ownership, shared state, composition before ship.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>Coord-bench contrast: arm A vs coordinated arm.</p>
+          </div>
+        `,
+      },
+      {
+        id: '7',
+        n: 7,
+        title: 'Density · Git · deploy',
+        promise: 'More agents in budget. Git on Community. Deploy is paid.',
+        runLabel: 'Run',
+        labHint: 'Density meters + free Git vs paid Layer F.',
+        takeaway: 'Community: local + Git. Layer F: paid deploy.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">Default</p>
+            <p>Duplicated context eats the representation budget first.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">Product seats</p>
+            <p>Tiny Footprint density; Layer E Git on Community; Layer F cloud deploy on Team · Enterprise · Cloud.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">Metric</p>
+            <p>Agents per budget + entitlement boundary for deploy.</p>
+          </div>
+        `,
+      },
+    ];
+
+    const ORDER = STEPS.map((s) => s.id);
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v1';
+    const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
+    let index = 0;
+    let running = false;
+
+    const progressLabel = document.getElementById('progress-label');
+    const progressFill = document.getElementById('progress-fill');
+    const progressDots = document.getElementById('progress-dots');
+    const eyebrow = document.getElementById('eyebrow');
+    const titleEl = document.getElementById('title');
+    const promiseEl = document.getElementById('promise');
+    const teachEl = document.getElementById('teach');
+    const labHint = document.getElementById('lab-hint');
+    const btnRun = document.getElementById('btn-run');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const statusEl = document.getElementById('status');
+    const resultsWrap = document.getElementById('results-wrap');
+    const resultsEl = document.getElementById('results');
+    const takeawayEl = document.getElementById('takeaway');
+    const honestyEl = document.getElementById('honesty');
+    const finishEl = document.getElementById('finish');
+    const lessonEl = document.getElementById('lesson');
+
+    function current() { return STEPS[index]; }
+
+    function saveDone() {
+      localStorage.setItem(DONE_KEY, JSON.stringify([...done]));
+    }
+
+    function renderDots() {
+      progressDots.innerHTML = '';
+      STEPS.forEach((s, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.title = (s.n === 0 ? 'Primer' : 'Lab ' + s.n) + ': ' + s.title;
+        b.setAttribute('aria-label', b.title);
+        if (i === index) b.classList.add('is-active');
+        if (done.has(s.id) || i < index) b.classList.add('is-done');
+        b.addEventListener('click', () => show(s.id));
+        progressDots.appendChild(b);
+      });
+    }
+
+    function show(id) {
+      const i = ORDER.indexOf(id);
+      index = i >= 0 ? i : 0;
+      const s = current();
+      const total = STEPS.length;
+      const lessonNo = String(index + 1).padStart(2, '0');
+      const kind = s.n === 0 ? 'Primer' : 'Lab ' + s.n;
+
+      progressLabel.textContent = 'Lesson ' + lessonNo + ' · ' + kind;
+      progressFill.style.width = ((index + 1) / total * 100).toFixed(1) + '%';
+      eyebrow.textContent = kind + ' · FractiSI Multi-Agent';
+      titleEl.textContent = s.title;
+      promiseEl.textContent = s.promise;
+      teachEl.innerHTML = s.teach;
+      labHint.textContent = s.labHint;
+      btnRun.textContent = s.runLabel;
+      btnPrev.disabled = index === 0;
+      btnNext.textContent = index >= total - 1 ? 'Finish' : 'Next →';
+
+      resultsEl.classList.add('is-empty');
+      resultsEl.textContent = 'Press Run to measure this step.';
+      takeawayEl.classList.remove('is-open');
+      takeawayEl.innerHTML = '';
+      honestyEl.textContent = '';
+      statusEl.textContent = '';
+      finishEl.classList.remove('is-open');
+
+      renderDots();
+      history.replaceState(null, '', '#' + s.id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goNext() {
+      if (index >= STEPS.length - 1) {
+        finishEl.classList.add('is-open');
+        finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+      show(ORDER[index + 1]);
+    }
+
+    function goPrev() {
+      if (index > 0) show(ORDER[index - 1]);
+    }
+
+    async function runLab() {
+      if (running) return;
+      running = true;
+      btnRun.disabled = true;
+      statusEl.textContent = 'Running…';
+      resultsEl.classList.remove('is-empty');
+      resultsEl.textContent = '▸ measuring…';
+      takeawayEl.classList.remove('is-open');
+      try {
+        const id = current().id;
+        const res = await fetch('/api/testdrive?step=' + encodeURIComponent(id), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ step: id }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) throw new Error(data.detail || data.error || ('HTTP ' + res.status));
+        const step = data.step;
+        const header = [
+          step.title,
+          'Layer: ' + step.layer,
+          'Component: ' + step.component,
+          'Ran in ' + data.ms + ' ms',
+          '',
+        ];
+        resultsEl.textContent = header.concat(step.lines || []).join('\n');
+        honestyEl.textContent = step.honesty || '';
+        takeawayEl.innerHTML = '<strong>Result</strong>' + (current().takeaway || '');
+        takeawayEl.classList.add('is-open');
+        statusEl.textContent = 'Done · ' + data.ms + ' ms';
+        done.add(id);
+        saveDone();
+        renderDots();
+        resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        resultsEl.classList.remove('is-empty');
+        resultsEl.textContent = 'Could not run this lab.\n' + String(err.message || err) + '\n\nYou can still continue with Next / Previous.';
+        statusEl.textContent = 'Error — navigation still works';
+      } finally {
+        running = false;
+        btnRun.disabled = false;
+      }
+    }
+
+    // Delegated clicks — survives focus quirks and avoids dual .btn-run confusion.
+    document.addEventListener('click', (e) => {
+      const t = e.target && e.target.closest ? e.target.closest('[data-action]') : null;
+      if (!t) return;
+      const action = t.getAttribute('data-action');
+      if (action === 'run') {
+        e.preventDefault();
+        runLab();
+      } else if (action === 'next') {
+        e.preventDefault();
+        goNext();
+      } else if (action === 'prev') {
+        e.preventDefault();
+        goPrev();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+      if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
+        e.preventDefault();
+        goNext();
+      } else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') {
+        e.preventDefault();
+        goPrev();
+      } else if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault();
+        runLab();
+      }
+    });
+
+    const hash = (location.hash || '').replace(/^#/, '');
+    show(ORDER.includes(hash) ? hash : 'primer');
+  </script>
 </body>
 </html>
