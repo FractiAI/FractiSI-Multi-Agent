@@ -5,10 +5,10 @@ import {
   architecturePrimerLines,
 } from '../../src/testdrive/architecture-primer.mjs';
 
-test('architecture primer includes the full synthesis spine', () => {
+test('architecture primer includes the full synthesis spine with locked names', () => {
   const ids = ARCHITECTURE_PRIMER.steps.map((s) => s.id);
   for (const need of [
-    'ipl',
+    'generative',
     'net-zero',
     'phi',
     'octaves',
@@ -21,20 +21,26 @@ test('architecture primer includes the full synthesis spine', () => {
   ]) {
     assert.ok(ids.includes(need), `missing ${need}`);
   }
-  assert.match(ARCHITECTURE_PRIMER.chain, /Infinite Possibilities Lattice/);
+  assert.match(ARCHITECTURE_PRIMER.chain, /Generative possibility/);
   assert.match(ARCHITECTURE_PRIMER.chain, /Net Zero/);
   assert.match(ARCHITECTURE_PRIMER.chain, /Φ_EGS/);
   assert.match(ARCHITECTURE_PRIMER.chain, /Boundary nodes/);
   assert.match(ARCHITECTURE_PRIMER.chain, /Recursive trees/);
-  assert.match(ARCHITECTURE_PRIMER.chain, /Polygons-in-circle/);
+  assert.match(ARCHITECTURE_PRIMER.chain, /3D Hexagon \/ eight-node/);
   assert.match(ARCHITECTURE_PRIMER.chain, /Wave–Node–Fq/);
   assert.match(ARCHITECTURE_PRIMER.chain, /Awareness/);
   assert.match(ARCHITECTURE_PRIMER.chain, /FractiSI Multi-Agent/);
   assert.match(ARCHITECTURE_PRIMER.activeInference, /including humans/);
+  assert.equal(
+    ARCHITECTURE_PRIMER.steps[0].name,
+    'Generative possibility',
+    'stack start must be locked Generative possibility, not an invented brand',
+  );
 });
 
 test('primer lines are printable for CLI/API', () => {
   const lines = architecturePrimerLines();
   assert.ok(lines.length > 20);
   assert.ok(lines.some((l) => /Net Zero/.test(l)));
+  assert.ok(lines.some((l) => /Generative possibility/.test(l)));
 });

@@ -34,7 +34,7 @@ export const STEP_CATALOG = Object.freeze([
     title: ARCHITECTURE_PRIMER.title,
     short: 'Net Zero · Φ · octaves · trees · polygons · wave · awareness → product',
     layer: ARCHITECTURE_PRIMER.kicker,
-    component: 'Infinite Possibilities Lattice → Tiny Gateway → FractiSI Multi-Agent',
+    component: 'Generative possibility → Tiny Gateway → FractiSI Multi-Agent',
   },
   {
     id: '1',

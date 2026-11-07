@@ -8,7 +8,7 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack. Primer = full architecture synthesis (also on [`/product/#architecture-primer`](https://fractisi.vercel.app/product/#architecture-primer)). Framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too** in a shared world (**not** framework identity).
 
-**Primer spine:** Infinite Possibilities Lattice → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees → Polygons-in-circle (hex / eight-node) → Wave–Node–Fq / nested & interference vectors → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent
+**Primer spine (locked):** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent
 
 Then live labs:
 

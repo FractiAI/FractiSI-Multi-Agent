@@ -10,7 +10,7 @@ If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo
 node scripts/tiny.mjs testdrive
 ```
 
-Open with the **architecture primer** (also on `/product/#architecture-primer`): Infinite Possibilities Lattice → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees → Polygons-in-circle (hex/eight-node) → Wave–Node–Fq / nested & interference vectors → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F. Active Inference Symposium framing: **possible rhyme** — humans are agents too in a shared world (not framework identity). Prefer `testdrive primer` then `1`…`7` (or `/test-drive/self-paced/`). Emphasize Rhyming Templates (3) and selective reconstruction (4–5). Layer F deploy is paid (Team+).
+Open with the **architecture primer** (also on `/product/#architecture-primer`): Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F. Do not invent “Infinite Possibilities Lattice” as a product brand — use locked Generative possibility / Infinite Octaves. Active Inference: **possible rhyme** (humans as agents) — not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize Rhyming Templates (3) and selective reconstruction (4–5). Layer F deploy is paid (Team+).
 
 ## Commands
 
