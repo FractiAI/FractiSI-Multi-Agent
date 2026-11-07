@@ -10,7 +10,7 @@ If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo
 node scripts/tiny.mjs testdrive
 ```
 
-Narrate the **product stack** as it prints: Infinite Octaves · holographic rhyme · Tiny Gateway Rhyming Templates · Tiny Footprint (Layer A) · Layers B–F. Prefer `testdrive primer` then `testdrive 1`…`7` (or point humans to `/test-drive/self-paced/`). Emphasize Rhyming Templates (step 3) and selective-reconstruction discovery/convergence (4–5). No cloud token for the Test Drive. Close with Community setup; Layer F deploy is paid (Team+).
+Open with the Active Inference Symposium framing: FractiSI Multi-Agent is a **possible rhyme** with Active Inference — **humans are agents too** in a shared world (not framework identity). Then narrate the product stack: Infinite Octaves · holographic rhyme · Tiny Gateway Rhyming Templates · Tiny Footprint (Layer A) · Layers B–F. Prefer `testdrive primer` then `testdrive 1`…`7` (or `/test-drive/self-paced/`). Emphasize Rhyming Templates (step 3) and selective-reconstruction discovery/convergence (4–5). No cloud token for the Test Drive. Close with Community setup; Layer F deploy is paid (Team+).
 
 ## Commands
 

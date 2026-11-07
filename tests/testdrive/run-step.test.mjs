@@ -30,6 +30,10 @@ test('each step returns structured live results naming components', () => {
   assert.match(primer, /Rhyming Templates/);
   assert.match(primer, /Tiny Footprint/);
   assert.match(primer, /Layers B–F|Layer A/);
+  assert.match(primer, /Active Inference/);
+  assert.match(primer, /including humans/);
+  assert.match(primer, /possible rhyme/);
+  assert.match(primer, /not equivalence/);
   const rhyme = runTestDriveStep(3).step.lines.join('\n');
   assert.match(rhyme, /RHYMING TEMPLATES|Rhyming Template/i);
   assert.match(rhyme, /Net Zero/);
