@@ -36,6 +36,9 @@ test('architecture primer includes the full synthesis spine with locked names', 
     'Generative possibility',
     'stack start must be locked Generative possibility, not an invented brand',
   );
+  assert.match(ARCHITECTURE_PRIMER.title, /fits together/i);
+  assert.match(ARCHITECTURE_PRIMER.lede, /shared world/i);
+  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /Home base/i);
 });
 
 test('primer lines are printable for CLI/API', () => {
@@ -43,4 +46,5 @@ test('primer lines are printable for CLI/API', () => {
   assert.ok(lines.length > 20);
   assert.ok(lines.some((l) => /Net Zero/.test(l)));
   assert.ok(lines.some((l) => /Generative possibility/.test(l)));
+  assert.ok(lines.some((l) => /plain English|shared world|Home base|first listen/i.test(l) || /HOW FRACTISI/.test(l)));
 });

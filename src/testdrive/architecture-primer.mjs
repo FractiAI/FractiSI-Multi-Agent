@@ -2,89 +2,85 @@
  * FractiSI Multi-Agent · architecture primer (canonical copy).
  * Shared by Test Drive (CLI / API / self-paced) and the product page.
  *
- * Locked productization ladder (TECH_PAPER / Tiny Gateway):
- *   Generative possibility → processes → Infinite Octaves →
- *   3D Hexagon / eight-node broadcast → Rhyming Templates → nested vectors →
- *   Tiny Gateway → Tiny Footprint → FractiSI Multi-Agent Layers A–F
- *
- * Deeper grammar (language-radar / engine shelf) nested in the primer:
- *   Net Zero · Φ_EGS · Boundary nodes · Recursive trees · Honeycomb hex ·
- *   Wave–Node–Fq · Awareness (human grip Soft Story; MFA ≠ consciousness)
+ * Voice: cold first listen — plain English, everyday stakes, locked names.
+ * Locked ladder: Generative possibility → Net Zero → Φ_EGS → Infinite Octaves →
+ * Boundary → trees / rhyme → 3D Hexagon / eight-node → Wave–Node–Fq → Awareness →
+ * Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent
  */
 
 export const ARCHITECTURE_PRIMER = Object.freeze({
-  title: 'Architecture primer · FractiSI Multi-Agent',
-  kicker: 'From generative possibility to product layers',
+  title: 'How FractiSI Multi-Agent fits together',
+  kicker: 'Architecture primer · first listen',
   lede:
-    'FractiSI Multi-Agent sits on the Infinite Octaves architecture. The stack below is the synthesis — catalog grammar that productizes as Tiny Gateway™, Tiny Footprint (Layer A), and platform Layers B–F. Offered also as a possible rhyme with Active Inference: humans are agents too, in a shared world.',
+    'You are about to walk a multi-agent stack built so many helpers — software agents and people — can work in one shared world instead of each keeping a full private copy. The names below are the real product ladder. Read them once in plain English, then run the labs.',
   steps: Object.freeze([
     {
       id: 'generative',
       name: 'Generative possibility',
       body:
-        'Locked stack start (Tiny Gateway TECH_PAPER): the generative field of processes and patterns that can be filed, nested, and reused — Soft Story talk for an open lattice of organizational possibility. Not infinite compute; not a second product brand.',
+        'Start here: an open field of processes and patterns you can file, nest, and reuse. It is Soft Story talk for “what can be organized,” not a claim of infinite computers and not a second product brand.',
     },
     {
       id: 'net-zero',
       name: 'Net Zero (octave 0)',
       body:
-        'Active equilibrium origin — not an inert void. Holographic rhymes and shared worlds root here. Without a Net Zero root, the recursive pillar of a holographic rhyme fails the gate.',
+        'Home base. The shared world roots here — an active balance point, not an empty void. If there is no Net Zero root, later “rhymes” across the stack do not hold.',
     },
     {
       id: 'phi',
-      name: 'Golden-ratio scaling · Φ_EGS',
+      name: 'Golden-ratio scaling · Φ_EGS ≈ 1.618',
       body:
-        'Φ_EGS ≈ 1.618 — nesting / Golden Spiral scale-bridge design grammar (El Gran Sol’s Fractal constant as catalog key). Not a substitute for ℏ, c, or G; not a physical memory constant; not an awareness ontology.',
+        'A nesting scale we use so layers stay tidy as they deepen — design grammar for how big sits inside bigger. It is not a stand-in for physics constants, and it is not a theory of mind.',
     },
     {
       id: 'octaves',
       name: 'Infinite Octaves',
       body:
-        'Engine brand + recursive / holographic nesting depth — ascending octave ladder from Net Zero. Digits × Octaves 01–99 = practical Story-depth filing map. Guest catalog: Infinite Octave Omniversal Lattice Catalog. “Infinite” names nesting depth, not infinite measured physics tiers.',
+        'How deep the nesting goes — like drawers stacked above Net Zero. “Infinite” names depth of filing, not infinite measured physics. Digits × Octaves 01–99 is a practical map for story depth.',
     },
     {
       id: 'boundary',
       name: 'Boundary nodes',
       body:
-        'Domain, task, and entry declarations with constraints — where a shared world meets a participant (Tiny Gateway language-radar: Boundary Node → Recursive Tree → …). Bounds what may enter before trees and templates bind data.',
+        'The front door. They declare what domain, task, and constraints may enter before trees and templates bind data. A shared world needs a clear edge so agents do not dump everything in.',
     },
     {
       id: 'trees',
       name: 'Recursive trees · holographic rhyme',
       body:
-        'Nested hierarchical context under Φ — holographic rhyme trees with four pillars: repeating · self-similar · self-correcting · recursive, rooted at Net Zero through ascending octaves. Schema match or prefix reuse alone is not a rhyme. Selective reconstruction walks these trees.',
+        'Nested context under that scale — trees that repeat, stay self-similar, self-correct, and recurse from Net Zero up the octaves. Matching a schema or a text prefix alone is not a rhyme; a real rhyme carries structure across scale.',
     },
     {
       id: 'polygons',
-      name: '3D Hexagon / eight-node · honeycomb · polygons-in-circle',
+      name: '3D Hexagon / eight-node · honeycomb',
       body:
-        'Locked product step: 3D Hexagon / eight-node broadcast — one originating story, eight connection ports (not subject categories). Honeycomb = axial hex pathway graph (language-radar). Polygon-spin clocks appear in TRGM companions. Formal hexagon–circle Soft Story geometry remains an open novelty — not claimed as shipped proof.',
+        'One originating story with eight connection ports so helpers plug in without each reprinting the whole world. Honeycomb paths carry work between ports. Formal “hexagon in a circle” geometry stays an open Soft Story — not shipped proof.',
     },
     {
       id: 'wave',
       name: 'Wave–Node–Fq · nested vectors · interference',
       body:
-        'Wave–Node–Fq activation / phase / template selector; nested vectors carry hierarchy, cross-links, and selective working sets; Layer B interference detection marks path/ownership overlap so agents do not silently collide. Keep these three uses distinct.',
+        'Three distinct jobs: waves pick which template is active; nested vectors carry hierarchy and the small working set each agent needs; interference marks when paths or ownership would collide so agents do not silently overwrite each other.',
     },
     {
       id: 'awareness',
-      name: 'Awareness (human grip Soft Story)',
+      name: 'Awareness',
       body:
-        'What each participant keeps as its grip on the shared world: observations, beliefs, actions, ownership — including human operators. Attention → awareness → downstream activation is catalog grammar (MFA ≠ phenomenal consciousness). Do not upgrade Φ or Tiny Gateway into awareness physics. Git awareness is Layer E repo grip.',
+        'What each participant — human or software — is holding about the shared world: observations, beliefs, actions, ownership. Catalog grammar for attention → grip → downstream action. Not a claim of machine consciousness. Git awareness later is simply “what the repo knows” (Layer E).',
     },
     {
       id: 'synthesis',
-      name: 'Synthesis → product',
+      name: 'What becomes the product',
       body:
-        'Rhyming Templates under the four-pillar gate → Tiny Gateway™ (templates · nested vectors · selective reconstruction) → Tiny Footprint (Layer A shared world + deltas) → Layers B–F (Coordination · Shared state · Composition · Git · Deploy paid) → FractiSI Multi-Agent beside Cursor / Claude Code / VS Code / Git.',
+        'Rhyming Templates pass a four-pillar gate → Tiny Gateway™ (templates, nested vectors, selective reconstruction) → Tiny Footprint (Layer A: world once, deltas per agent) → Layers B–F (coordinate, share state, compose, Git, paid deploy) → FractiSI Multi-Agent beside tools like Cursor, Claude Code, VS Code, and Git.',
     },
   ]),
   activeInference:
-    'Possible Active Inference rhyme: many agents — including humans — operate in one shared world with different observations, beliefs, and actions, without each reprinting a private full copy. “Rhyme” = structural kinship for joint experiments — not framework identity.',
+    'Possible rhyme with Active Inference: many agents — including humans — act in one shared world with different observations and moves, without each reprinting a private full copy. “Rhyme” means structural kinship for joint experiments — not “we are that framework.”',
   chain:
     'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent',
   honesty:
-    'Catalog / architectural grammar and in-process labs — not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as ℏ/c/G or awareness ontology. Formal hexagon–circle geometry open. Eight-node / Exp 002 / Tiny Gateway #52 are architectural labs — not production HBM proof. MFA ≠ phenomenal consciousness.',
+    'This primer is catalog / architecture talk plus in-process labs. It is not CapEx guarantees, a Theory of Everything, Active Inference identity, infinite physical octave tiers, or Φ as physics or awareness. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 is not production HBM proof.',
 });
 
 /** Plain-text lines for CLI / API results panels. */
@@ -95,7 +91,7 @@ export function architecturePrimerLines() {
     '',
     `  ${p.lede}`,
     '',
-    `  Chain: ${p.chain}`,
+    `  Ladder: ${p.chain}`,
     '',
   ];
   for (const s of p.steps) {
@@ -103,14 +99,14 @@ export function architecturePrimerLines() {
     lines.push(`    ${s.body}`);
     lines.push('');
   }
-  lines.push('  Active Inference Symposium');
+  lines.push('  Active Inference (possible rhyme)');
   lines.push(`    ${p.activeInference}`);
   lines.push('');
-  lines.push('  Self-paced labs next name each product component as they run.');
-  lines.push('  No FractiSI account. No cloud token for the walkthrough.');
+  lines.push('  Next: run the self-paced labs. Each step names a real product piece and shows live numbers.');
+  lines.push('  No FractiSI account. No cloud token for this walkthrough.');
   return lines;
 }
 
 export function architecturePrimerFractisiBullets() {
-  return ARCHITECTURE_PRIMER.steps.map((s) => `${s.name} — ${s.body.split('—')[0].trim().replace(/\.$/, '')}`);
+  return ARCHITECTURE_PRIMER.steps.map((s) => `${s.name} — ${s.body}`);
 }
