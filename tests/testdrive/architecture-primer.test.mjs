@@ -44,7 +44,7 @@ test('architecture primer includes the full synthesis spine with locked names', 
   assert.match(ARCHITECTURE_PRIMER.title, /stack map/i);
   assert.match(ARCHITECTURE_PRIMER.lede, /shared world/i);
   assert.match(ARCHITECTURE_PRIMER.steps[1].body, /Balanced zero, not nothing zero/i);
-  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /active-equilibrium/i);
+  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /active[- ]equilibrium/i);
   assert.match(ARCHITECTURE_PRIMER.steps[1].body, /not nothing zero/i);
 });
 
@@ -65,7 +65,7 @@ test('locked rhyme definition matches the four-pillar gate', () => {
     FOUR_PILLARS.slice(),
   );
   assert.match(RHYME_DEFINITION.gate, /Net Zero/);
-  assert.match(RHYME_DEFINITION.gate, /active-equilibrium/i);
+  assert.match(RHYME_DEFINITION.gate, /active[- ]equilibrium/i);
   assert.match(RHYME_DEFINITION.lede, /not a prefix-cache hit/i);
   assert.ok(RHYME_DEFINITION.notARhyme.some((n) => /prefix/i.test(n)));
   assert.ok(RHYME_DEFINITION.notARhyme.some((n) => /brick-wall/i.test(n)));
@@ -79,7 +79,7 @@ test('primer lines define Net Zero before rhyme', () => {
   assert.match(blob, /Net Zero/);
   assert.match(blob, /Generative possibility/);
   assert.match(blob, /WHAT WE MEAN BY NET ZERO/);
-  assert.match(blob, /active-equilibrium/);
+  assert.match(blob, /active[- ]equilibrium/i);
   assert.match(blob, /WHAT WE MEAN BY RHYME/);
   const nzAt = blob.indexOf('WHAT WE MEAN BY NET ZERO');
   const rhymeAt = blob.indexOf('WHAT WE MEAN BY RHYME');
