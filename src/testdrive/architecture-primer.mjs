@@ -27,7 +27,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
     {
       id: 'net-zero',
       name: NET_ZERO_DEFINITION.name,
-      body: `${NET_ZERO_DEFINITION.lede} ${NET_ZERO_DEFINITION.body} ${NET_ZERO_DEFINITION.productRole}`,
+      body: `${NET_ZERO_DEFINITION.punch} ${NET_ZERO_DEFINITION.lede} ${NET_ZERO_DEFINITION.body} ${NET_ZERO_DEFINITION.productRole}`,
     },
     {
       id: 'phi',
@@ -88,7 +88,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
   chain:
     'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent',
   honesty:
-    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Net Zero ≠ dead stillness / climate slogan. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
+    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Net Zero = balanced zero ≠ nothing zero / climate slogan. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
 });
 
 /** Plain-text lines for CLI / API results panels. */

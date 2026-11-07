@@ -14,9 +14,9 @@ Framed for the Applied Active Inference Symposium as **structural kinship** (“
 
 Canonical: `src/testdrive/net-zero-definition.mjs` · singularity-crystal / Goldilocks≡Net Zero / Topology of the Void peers.
 
-**Net Zero (octave 0)** is the **active-equilibrium** root of the shared world — cancel-to-balance under continuous activity, not an empty void and not a dead stop. Opposing contributions cancel into a viable operating band while work continues. Here **Goldilocks ≡ Net Zero** (viable band = active equilibrium). Stillness is not required. Rhymes and nested structure hang from octave 0.
+**Balanced zero, not nothing zero.** **Net Zero (octave 0)** is the **active-equilibrium** root of the shared world — cancel-to-balance under continuous activity — not empty void, blank null, or a dead stop. Opposing contributions cancel into a viable operating band while work continues. Here **Goldilocks ≡ Net Zero** (viable band = active equilibrium). Stillness is not required. Rhymes hang from this balanced root.
 
-**Not Net Zero here:** empty void · dead stillness · climate-policy “net zero” slogans · certified zero-watt SI · GR singularity proofs.
+**Not Net Zero here:** nothing zero (void / blank null) · dead stillness · climate-policy “net zero” slogans · certified zero-watt SI · GR singularity proofs.
 
 ### What we mean by rhyme (locked)
 
