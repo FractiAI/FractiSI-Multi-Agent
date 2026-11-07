@@ -1,6 +1,8 @@
 /**
  * Shared Test Drive step runners — CLI, self-paced web, and /api/testdrive.
- * Returns structured results (no doctor/install; safe for serverless).
+ * Narrative locked to the real FractiSI Multi-Agent product stack:
+ * Infinite Octaves · holographic rhyme · Tiny Gateway Rhyming Templates ·
+ * Tiny Footprint (Layer A) · Layers B–F (coordination → deploy).
  */
 import { gzipSync } from 'node:zlib';
 import { runMultiSessionDemo } from '../workloads/multi-session.mjs';
@@ -20,17 +22,71 @@ function utf8Bytes(value) {
   return Buffer.byteLength(JSON.stringify(value), 'utf8');
 }
 
-/** @typedef {{ id: string, n: number, title: string, problem: string, opportunity: string, fractisi: string[], lines: string[], metrics?: Record<string, unknown>, next?: string }} StepResult */
-
 export const STEP_CATALOG = Object.freeze([
-  { id: 'primer', n: 0, title: 'Cold start primer', short: 'What FractiSI is' },
-  { id: '1', n: 1, title: 'One world, many copies', short: 'N copies → shared + deltas' },
-  { id: '2', n: 2, title: 'Gzip is not an architecture', short: 'Share first, then compress' },
-  { id: '3', n: 3, title: 'Exact cache vs rhyme', short: 'When words differ' },
-  { id: '4', n: 4, title: 'Discovery', short: 'Flat skim misses' },
-  { id: '5', n: 5, title: 'Convergence', short: 'Fewer rounds & ops' },
-  { id: '6', n: 6, title: 'Merge collisions', short: 'Coordinate & compose' },
-  { id: '7', n: 7, title: 'Agent density', short: 'More agents in budget' },
+  {
+    id: 'primer',
+    n: 0,
+    title: 'FractiSI Multi-Agent · product cold start',
+    short: 'Product stack · Infinite Octaves → Layers A–F',
+    layer: 'Product map',
+    component: 'FractiSI Multi-Agent · Tiny Footprint · Tiny Gateway™',
+  },
+  {
+    id: '1',
+    n: 1,
+    title: 'Layer A · Tiny Footprint shared world',
+    short: 'Shared world once · agent deltas',
+    layer: 'A · Tiny Footprint execution',
+    component: 'Tiny Footprint · templates + deltas · selective reconstruct',
+  },
+  {
+    id: '2',
+    n: 2,
+    title: 'Layer A · after gzip, architecture still matters',
+    short: 'Gzip residual · share first',
+    layer: 'A · Tiny Footprint execution',
+    component: 'Tiny Footprint shared-world pack (vs N full copies)',
+  },
+  {
+    id: '3',
+    n: 3,
+    title: 'Tiny Gateway · Rhyming Templates vs exact cache',
+    short: 'Holographic rhyme · Net Zero → octaves',
+    layer: 'A · Tiny Gateway™ engine',
+    component: 'Rhyming Templates · Infinite Octaves · four-pillar holographic rhyme',
+  },
+  {
+    id: '4',
+    n: 4,
+    title: 'Selective reconstruction · discovery',
+    short: 'Relationship-guided recovery',
+    layer: 'A · nested vectors · selective reconstruct',
+    component: 'Tiny Gateway selective reconstruction · Expedition 002 E2',
+  },
+  {
+    id: '5',
+    n: 5,
+    title: 'Selective reconstruction · convergence',
+    short: 'Fewer rounds & ops',
+    layer: 'A · nested vectors · selective reconstruct',
+    component: 'Tiny Gateway guided path · Expedition 002 E2',
+  },
+  {
+    id: '6',
+    n: 6,
+    title: 'Layers B–D · coordination + composition',
+    short: 'Ownership · compose · no blind merge',
+    layer: 'B · Coordination · C · Shared state · D · Composition',
+    component: 'FractiSI platform · coord-bench arms A vs C',
+  },
+  {
+    id: '7',
+    n: 7,
+    title: 'Density · Layers E–F · Community',
+    short: 'More agents · Git · paid deploy',
+    layer: 'A density · E Git · F Deploy (paid)',
+    component: 'Tiny Footprint density · Git awareness · approval-gated deploy',
+  },
 ]);
 
 const NEXT = Object.freeze({
@@ -49,6 +105,9 @@ function base(meta, fields) {
     id: meta.id,
     n: meta.n,
     title: meta.title,
+    short: meta.short,
+    layer: meta.layer,
+    component: meta.component,
     problem: fields.problem || '',
     opportunity: fields.opportunity || '',
     fractisi: fields.fractisi || [],
@@ -56,7 +115,7 @@ function base(meta, fields) {
     metrics: fields.metrics || {},
     next: NEXT[meta.id],
     honesty:
-      'Architectural / structured-state lab on the FractiSI server — not a CapEx guarantee, not an LLM bake-off.',
+      'Architectural / structured-state FractiSI labs — Tiny Footprint / Tiny Gateway / platform layers. Not CapEx guarantees. Not an LLM multi-agent bake-off. Infinite Octaves = filing / scale grammar, not infinite physical tiers.',
   };
 }
 
@@ -70,20 +129,39 @@ function runPrimer() {
   const m = meta('primer');
   return base(m, {
     fractisi: [
-      'Shared computational world — one project / environment',
-      'Tiny Footprint / Tiny Gateway — deltas, not N copies',
-      'Agents — models, tools, roles on that world',
-      'Coordination + composition — ownership, conflicts, results',
+      'Product: FractiSI Multi-Agent — shared-world intelligence & coordination beside Cursor / Claude Code / VS Code / Git',
+      'Grammar: Infinite Octaves — Net Zero (octave 0) → ascending octave ladder for nested organization',
+      'Engine: Tiny Gateway™ — Rhyming Templates · nested vectors · selective reconstruction',
+      'Layer A: Tiny Footprint — shared world once · per-agent deltas · denser fleets',
+      'Layers B–F: Coordination · Shared state · Composition · Git awareness · Deploy (paid on Team+)',
     ],
     lines: [
-      'FractiSI Multi-Agent is shared-world coordination for agent fleets.',
-      'Not another foundation model. Not a Cursor / Claude Code replacement.',
-      'It sits beside the tools you already run.',
+      'FRACTISI MULTI-AGENT · product map',
       '',
-      'This self-paced walkthrough runs each demonstration live and prints the numbers.',
-      'No IDE required. No FractiSI account. No cloud token.',
+      '  FractiSI Multi-Agent is not another coding assistant or model swap.',
+      '  It is the coordination platform around a shared computational world.',
+      '',
+      '  Infinite Octaves (grammar)',
+      '    · Net Zero = octave 0 origin / equilibrium',
+      '    · Ascending octaves = nested self-similar organization',
+      '    · Holographic rhyme = repeating · self-similar · self-correcting · recursive',
+      '',
+      '  Tiny Gateway™ (engine spine)',
+      '    · Rhyming Templates — organizational reuse when wording differs',
+      '    · Nested vectors — pull only the scales you need',
+      '    · Selective reconstruction — build the working set on demand',
+      '',
+      '  Tiny Footprint (Layer A · memory / execution productization)',
+      '    · Register the shared world once; keep agent deltas',
+      '',
+      '  Platform layers (Workstation 0.2)',
+      '    A Execution (Tiny Footprint) · B Coordination · C Shared state',
+      '    D Composition · E Git awareness · F Deploy (paid)',
+      '',
+      '  Self-paced: each next step runs a live lab for that layer/component.',
+      '  No FractiSI account. No cloud token for this walkthrough.',
     ],
-    metrics: { mode: 'primer' },
+    metrics: { mode: 'primer', layers: ['A', 'B', 'C', 'D', 'E', 'F'] },
   });
 }
 
@@ -91,21 +169,27 @@ function run1() {
   const m = meta('1');
   const multi = runMultiSessionDemo(12);
   return base(m, {
-    problem: 'Every agent reprints overlapping copies of the same world.',
-    opportunity: 'One shared world; specialized agents keep only what differs.',
-    fractisi: ['Register the shared world once. Agents keep objectives and local deltas.'],
+    problem: 'Without Layer A, every agent reprints a full copy of the shared world.',
+    opportunity: 'Tiny Footprint registers the world once; agents keep only local deltas.',
+    fractisi: [
+      'Component: Tiny Footprint (Layer A execution core, powered by Tiny Gateway™).',
+      'Mechanism: shared templates + per-agent deltas + selective reconstruct.',
+    ],
     lines: [
-      `Conventional (N full copies):  ${multi.conventional.bytes} B across ${multi.conventional.sessions} sessions`,
-      `Shared world + deltas:         ${multi.prefixReuse.bytes} B`,
-      `Reduction vs full copies:      ${pct(multi.prefixByteReduction)}`,
+      'LAYER A · TINY FOOTPRINT',
       '',
-      '→ Same sessions. One shared system pattern instead of N reprints.',
+      `  Conventional (N full copies):  ${multi.conventional.bytes} B across ${multi.conventional.sessions} sessions`,
+      `  Tiny Footprint shared+deltas: ${multi.prefixReuse.bytes} B`,
+      `  Reduction vs full copies:      ${pct(multi.prefixByteReduction)}`,
+      '',
+      '  → Same sessions. Layer A stops paying N reprints of one world.',
     ],
     metrics: {
       conventionalBytes: multi.conventional.bytes,
       sharedBytes: multi.prefixReuse.bytes,
       reduction: multi.prefixByteReduction,
       sessions: multi.conventional.sessions,
+      component: 'tiny_footprint',
     },
   });
 }
@@ -126,17 +210,22 @@ function run2() {
   const rawConv = utf8Bytes(conventionalPayload);
   const rawShared = utf8Bytes(sharedPayload);
   return base(m, {
-    problem: 'Gzip shrinks copies — it does not remove the cross-copy tax.',
-    opportunity: 'Share the world first; compression becomes optional polish.',
-    fractisi: ['Stop paying N copies before you compress.'],
-    lines: [
-      `Conventional JSON:     ${rawConv} B  → gzip ${gzConv} B`,
-      `Shared-world JSON:     ${rawShared} B  → gzip ${gzShared} B`,
-      `Shared still ahead after gzip: ${gzShared < gzConv ? 'yes' : 'no'} (${gzConv - gzShared} B less)`,
-      '',
-      '→ Gzip helps both arms. Sharing the world removes the N-copy structure.',
+    problem: 'Gzip / pack compression shrinks copies — it does not remove N-copy structure.',
+    opportunity: 'Tiny Footprint shares the world first; compression becomes optional polish.',
+    fractisi: [
+      'Component: Tiny Footprint shared-world pack (Layer A).',
+      'Claim discipline: gzip residual is structural — not “compression theater.”',
     ],
-    metrics: { rawConv, gzConv, rawShared, gzShared, sharedAhead: gzShared < gzConv },
+    lines: [
+      'LAYER A · TINY FOOTPRINT AFTER GZIP',
+      '',
+      `  Conventional JSON:     ${rawConv} B  → gzip ${gzConv} B`,
+      `  Tiny Footprint JSON:   ${rawShared} B  → gzip ${gzShared} B`,
+      `  Shared still ahead after gzip: ${gzShared < gzConv ? 'yes' : 'no'} (${gzConv - gzShared} B less)`,
+      '',
+      '  → Architecture (share once) beats “just gzip the N copies.”',
+    ],
+    metrics: { rawConv, gzConv, rawShared, gzShared, sharedAhead: gzShared < gzConv, component: 'tiny_footprint' },
   });
 }
 
@@ -146,27 +235,35 @@ function run3() {
   const multi = runMultiSessionDemo(12);
   const rhyme = multi.holographicRhyme;
   const lines = [
-    `Sessions:              ${rhymeCmp.sessions} (same shape, different words)`,
-    `Exact-text cache hits: ${rhymeCmp.exactTextHits} duplicate texts`,
-    `Naive store:           ${rhymeCmp.naiveBytes} B`,
-    `Exact-text cache:      ${rhymeCmp.cacheBytes} B`,
-    `Rhyme store:           ${rhymeCmp.rhymeBytes} B`,
-    `Rhyme vs cache:        ${pct(rhymeCmp.rhymeVersusCache)} smaller than exact cache`,
-    `Exact rebuild:         ${rhymeCmp.equivalent}`,
+    'TINY GATEWAY · RHYMING TEMPLATES',
     '',
-    '→ When words differ, rhyme still shares structure. Exact cache mostly cannot.',
+    '  Holographic rhyme (four pillars): repeating · self-similar · self-correcting · recursive',
+    '  Rooted at Net Zero (octave 0), nested through Infinite Octaves — not exact-text match.',
+    '',
+    `  Sessions:              ${rhymeCmp.sessions} (same organization, different words)`,
+    `  Exact-text cache hits: ${rhymeCmp.exactTextHits} duplicate texts`,
+    `  Naive store:           ${rhymeCmp.naiveBytes} B`,
+    `  Exact-text cache:      ${rhymeCmp.cacheBytes} B`,
+    `  Rhyming Template store:${rhymeCmp.rhymeBytes} B`,
+    `  Rhyme vs exact cache:  ${pct(rhymeCmp.rhymeVersusCache)} smaller than exact cache`,
+    `  Exact rebuild:         ${rhymeCmp.equivalent}`,
+    '',
+    '  → Exact / prefix cache needs identical words. Rhyming Templates reuse organization.',
   ];
   if (rhyme?.status === 'ran') {
     lines.push(
-      `Reference demo rhyme cohort: ${rhyme.rhymeBytes} B vs naive ${rhyme.naiveBytes} B`,
-      `(${pct(rhyme.byteReduction)} · audit ${rhyme.rhymeAuditPass} · exact ${rhyme.exact})`,
+      `  Reference rhyme cohort: ${rhyme.rhymeBytes} B vs naive ${rhyme.naiveBytes} B`,
+      `  (${pct(rhyme.byteReduction)} · four-pillar audit ${rhyme.rhymeAuditPass} · exact ${rhyme.exact})`,
     );
   }
   return base(m, {
-    problem: 'Exact-text / prefix cache only helps when the words match.',
-    opportunity: 'Same-shape sessions with different wording can still share structure.',
+    problem: 'Exact-text and prefix caches only help when the words match.',
+    opportunity:
+      'Tiny Gateway Rhyming Templates share Infinite Octave organization when wording differs.',
     fractisi: [
-      'Rhyming templates store organization once; keep per-session expressions even when utterance text differs.',
+      'Component: Tiny Gateway™ Rhyming Templates (engine under Tiny Footprint).',
+      'Grammar: holographic rhyme from Net Zero up the Infinite Octaves ladder.',
+      'Honesty: rhyme expands the cache bank for organizational near-dupes — not “rhyme beats every prefix cache on live heap.”',
     ],
     lines,
     metrics: {
@@ -176,6 +273,7 @@ function run3() {
       cacheBytes: rhymeCmp.cacheBytes,
       rhymeBytes: rhymeCmp.rhymeBytes,
       rhymeVersusCache: rhymeCmp.rhymeVersusCache,
+      component: 'tiny_gateway_rhyming_templates',
     },
   });
 }
@@ -184,27 +282,31 @@ function run4() {
   const m = meta('4');
   const e2 = runDiscoveryConvergenceBenchmark();
   return base(m, {
-    problem: 'Flat skim misses distributed multi-hop discoveries inside a fixed budget.',
-    opportunity: 'Relationship-guided recovery finds chains flat approaches never assemble.',
+    problem: 'Flat skim under a fixed budget never assembles multi-hop chains buried in noise.',
+    opportunity:
+      'Tiny Gateway selective reconstruction follows relationship edges across the shared world.',
     fractisi: [
-      'Guided reconstruction follows next-hop edges across the shared world.',
-      'Expedition 002 · E2 architectural lab (not an LLM bake-off).',
+      'Component: selective reconstruction + nested relational structure (Tiny Gateway spine).',
+      'Lab: Expedition 002 · E2 — architectural discovery, not an LLM bake-off.',
     ],
     lines: [
-      `Scenarios:                 ${e2.scenarios} (six-hop hidden chains)`,
-      `Flat skim discoveries:     ${e2.flat.discoveries} / ${e2.scenarios}`,
-      `Flat skim solutions:       ${e2.flat.solutions} / ${e2.scenarios}`,
-      `FractiSI discoveries:      ${e2.fractisi.discoveries} / ${e2.scenarios}`,
-      `FractiSI solutions:        ${e2.fractisi.solutions} / ${e2.scenarios}`,
-      `Lab pass (100/100 vs 0/100): ${e2.pass}`,
+      'TINY GATEWAY · SELECTIVE RECONSTRUCTION · DISCOVERY',
       '',
-      '→ Same information, same budget. Guided recovery finds what flat skim misses.',
+      `  Scenarios:                 ${e2.scenarios} (six-hop hidden chains)`,
+      `  Flat skim discoveries:     ${e2.flat.discoveries} / ${e2.scenarios}`,
+      `  Flat skim solutions:       ${e2.flat.solutions} / ${e2.scenarios}`,
+      `  FractiSI discoveries:      ${e2.fractisi.discoveries} / ${e2.scenarios}`,
+      `  FractiSI solutions:        ${e2.fractisi.solutions} / ${e2.scenarios}`,
+      `  Lab pass (100/100 vs 0/100): ${e2.pass}`,
+      '',
+      '  → Same information, same budget. Guided reconstruction finds what flat skim misses.',
     ],
     metrics: {
       scenarios: e2.scenarios,
       flatDiscoveries: e2.flat.discoveries,
       fractisiDiscoveries: e2.fractisi.discoveries,
       pass: e2.pass,
+      component: 'selective_reconstruction',
     },
   });
 }
@@ -213,27 +315,30 @@ function run5() {
   const m = meta('5');
   const e2 = runDiscoveryConvergenceBenchmark();
   return base(m, {
-    problem: 'Collectives burn too many rounds and ops before a composed answer lands.',
-    opportunity: 'Fewer modeled rounds and ops on the same constrained discovery path.',
+    problem: 'Collectives burn too many ops and propagation rounds before a composed answer.',
+    opportunity: 'The same selective-reconstruction path converges with fewer rounds and ops.',
     fractisi: [
-      'Relationship-guided reconstruction collapses hop-chasing.',
-      'Faster architectural convergence — not LLM dialogue-turn claims.',
+      'Component: Tiny Gateway guided reconstruction (Expedition 002 convergence meters).',
+      'Claim discipline: architectural rounds/ops — not LLM dialogue-turn claims.',
     ],
     lines: [
-      `Flat mean ops / scenario:           ${e2.flat.meanOps.toFixed(1)}`,
-      `FractiSI mean ops / scenario:       ${e2.fractisi.meanOps.toFixed(1)}`,
-      `Ops reduction:                      ${pct(e2.opsReduction)}`,
-      `Flat propagation rounds (6-hop):    ${e2.flat.propagationRounds}`,
-      `FractiSI propagation rounds:        ${e2.fractisi.propagationRounds}`,
-      `Rounds reduction:                   ${pct(e2.roundsReduction)}`,
+      'TINY GATEWAY · SELECTIVE RECONSTRUCTION · CONVERGENCE',
       '',
-      '→ −50% rounds · −85% ops on this constrained path.',
+      `  Flat mean ops / scenario:           ${e2.flat.meanOps.toFixed(1)}`,
+      `  FractiSI mean ops / scenario:       ${e2.fractisi.meanOps.toFixed(1)}`,
+      `  Ops reduction:                      ${pct(e2.opsReduction)}`,
+      `  Flat propagation rounds (6-hop):    ${e2.flat.propagationRounds}`,
+      `  FractiSI propagation rounds:        ${e2.fractisi.propagationRounds}`,
+      `  Rounds reduction:                   ${pct(e2.roundsReduction)}`,
+      '',
+      '  → −50% rounds · −85% ops on this constrained Infinite-Octave-adjacent path.',
     ],
     metrics: {
       opsReduction: e2.opsReduction,
       roundsReduction: e2.roundsReduction,
       flatOps: e2.flat.meanOps,
       fractisiOps: e2.fractisi.meanOps,
+      component: 'selective_reconstruction',
     },
   });
 }
@@ -241,7 +346,14 @@ function run5() {
 function run6() {
   const m = meta('6');
   const bench = runComparativeBench({ agentCounts: [5, 10, 25], runs: 3 });
-  const lines = [];
+  const lines = [
+    'LAYERS B–D · COORDINATION · SHARED STATE · COMPOSITION',
+    '',
+    '  B Coordination — agent registry, ownership, interference detection',
+    '  C Shared state — project / task / contribution store',
+    '  D Composition — validate, integrate, rollback contributions',
+    '',
+  ];
   const summary = {};
   for (const n of [5, 10, 25]) {
     const rows = bench.results.filter((r) => r.agents === n);
@@ -252,53 +364,60 @@ function run6() {
     const cUseful = avg('C', 'usefulCompletedTasks');
     const cComp = avg('C', 'successfulCompositions');
     lines.push(
-      `n=${n} agents`,
-      `  Conventional (A): conflicts ${aConflicts.toFixed(1)} · useful tasks ${aUseful.toFixed(1)}`,
-      `  FractiSI (C):     conflicts ${cConflicts.toFixed(1)} · useful ${cUseful.toFixed(1)} · compositions ${cComp.toFixed(1)}`,
+      `  n=${n} agents`,
+      `    Arm A conventional branches: conflicts ${aConflicts.toFixed(1)} · useful ${aUseful.toFixed(1)}`,
+      `    Arm C FractiSI B–D:           conflicts ${cConflicts.toFixed(1)} · useful ${cUseful.toFixed(1)} · compositions ${cComp.toFixed(1)}`,
     );
     summary[`n${n}`] = { aConflicts, cConflicts, aUseful, cUseful, cComp };
   }
   lines.push(
     '',
-    '→ Same tasks. Coordination changes conflict and completion shape.',
-    '  (In-process simulation — not a production CapEx claim.)',
+    '  → Layer A alone densifies. Layers B–D change how fleets collide and compose.',
+    '    (In-process platform simulation — not a production CapEx claim.)',
   );
   return base(m, {
-    problem: 'Parallel agents collide at merge time as fleets grow.',
-    opportunity: 'Coordinate ownership and compose contributions before blind merge.',
-    fractisi: ['Coordination + composition on the shared world makes overlap visible early.'],
+    problem: 'Parallel agents collide at merge when isolation meets a blind integrate.',
+    opportunity: 'Layers B–D coordinate ownership and compose contributions before ship.',
+    fractisi: [
+      'Components: Coordination (B) · Shared state (C) · Composition (D).',
+      'Beside IDE tools you already run — Cursor / Claude Code / VS Code / Git.',
+    ],
     lines,
-    metrics: summary,
+    metrics: { ...summary, component: 'platform_bcd' },
   });
 }
 
 function run7() {
   const m = meta('7');
-  // Browser/serverless-friendly density demo (full GPU suite stays CLI-only).
   const multi = runMultiSessionDemo(24);
   const budget = multi.conventional.bytes;
   const conventionalAgents = multi.conventional.sessions;
-  const sharedAgentsFit = Math.floor(budget / Math.max(1, multi.prefixReuse.bytes / multi.prefixReuse.sessions));
+  const bytesPerShared = multi.prefixReuse.bytes / Math.max(1, multi.prefixReuse.sessions);
+  const sharedAgentsFit = Math.floor(budget / Math.max(1, bytesPerShared));
   const densityGain = sharedAgentsFit / conventionalAgents;
   return base(m, {
-    problem: 'Fleets stay small because duplicated context burns the budget first.',
-    opportunity: 'Higher agent density inside the same infrastructure budget.',
+    problem: 'Duplicated context burns the budget before specialized agent work begins.',
+    opportunity: 'Tiny Footprint density + Git awareness; cloud deploy unlocks as paid Layer F.',
     fractisi: [
-      'Tiny Footprint cuts duplicated representation so more agents fit.',
-      'Self-paced density demo (full local GPU suite remains CLI: testdrive 7).',
+      'Layer A density — more agents inside the same representation budget.',
+      'Layer E Git awareness — commits / worktrees on your repo (Community).',
+      'Layer F Deploy — approval-gated publish; paid (Team · Enterprise · Cloud).',
     ],
     lines: [
-      `Budget (conventional 24-session pack): ${budget} B`,
-      `Conventional agents in that pack:     ${conventionalAgents}`,
-      `Shared-world agents fitting same budget (approx): ${sharedAgentsFit}`,
-      `Density gain vs full-copy pack:       ${densityGain.toFixed(1)}×`,
-      `Shared pack size:                     ${multi.prefixReuse.bytes} B`,
+      'DENSITY · LAYER E GIT · LAYER F DEPLOY',
       '',
-      '→ Same information budget. Smaller shared representation → more agents.',
+      `  Budget (conventional 24-session pack): ${budget} B`,
+      `  Conventional agents in that pack:     ${conventionalAgents}`,
+      `  Tiny Footprint agents in same budget: ${sharedAgentsFit}`,
+      `  Density gain:                         ${densityGain.toFixed(1)}×`,
+      `  Shared pack size:                     ${multi.prefixReuse.bytes} B`,
       '',
-      'COMMUNITY (FREE)',
-      '  Keep the GitHub clone · GitHub for commits · cloud deploy is paid (Team+).',
-      '  Pricing: https://fractisi.vercel.app/product/pricing/',
+      '  Community (free)',
+      '    · GitHub clone = signup · Layer A–E local path · Git commits',
+      '    · Cloud token + FRACTISI_EDITION unlock Layer F deploy (paid)',
+      '',
+      '  Pricing  https://fractisi.vercel.app/product/pricing/',
+      '  Papers   Tiny Gateway Rhyming Templates · Tiny Footprint Multi-Agent · Exp 002',
     ],
     metrics: {
       budgetBytes: budget,
@@ -306,6 +425,7 @@ function run7() {
       sharedAgentsFit,
       densityGain,
       sharedBytes: multi.prefixReuse.bytes,
+      component: 'density_ef',
     },
   });
 }
