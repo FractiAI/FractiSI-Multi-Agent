@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FractiSI Multi-Agent · Applied Active Inference Symposium 2026</title>
+  <meta name="description" content="30-minute test drive: One Shared World. Many Agents. Coordinated Work. Composed Results. Applied Active Inference Symposium, November 12–13, 2026.">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div class="chrome" aria-label="Deck controls">
+    <a class="brand" href="/">FractiSI</a>
+    <span class="meta">Applied Active Inference Symposium · Nov 12–13, 2026 · 30 min</span>
+    <div class="controls">
+      <button type="button" id="btn-notes" title="Toggle speaker notes (N)">Notes</button>
+      <button type="button" id="btn-prev" title="Previous (←)">←</button>
+      <span id="progress" aria-live="polite">1 / 16</span>
+      <button type="button" id="btn-next" title="Next (→ or Space)">→</button>
+    </div>
+  </div>
+
+  <main id="deck" class="deck" tabindex="0">
+
+    <!-- 1 -->
+    <section class="slide is-active" data-part="I" data-time="1.5 min" aria-label="Slide 1">
+      <p class="part">Part I · Introduction and context</p>
+      <h1>Welcome</h1>
+      <p class="tagline">FractiSI Multi-Agent<br>One Shared World. Many Agents. Coordinated Work. Composed Results.</p>
+      <ul class="bullets">
+        <li>Thank you to the Active Inference Institute</li>
+        <li>Coordination of many AI agents over a shared, changing problem</li>
+        <li>Not only more capable agents — a shared computational world</li>
+        <li>Efficiency, coordination, speed, accuracy, density</li>
+      </ul>
+      <aside class="notes">
+        <p>Thank you to the Active Inference Institute for inviting us to participate in this symposium.</p>
+        <p>The purpose of this gathering is to bring together people exploring Active Inference and related approaches to understanding and building systems that can perceive, infer, learn, and act in complex environments.</p>
+        <p>Our work with FractiSI Multi-Agent approaches a related challenge from the computational architecture side. We’ve been exploring how to coordinate increasing numbers of AI agents that must work together on a shared, continuously changing problem.</p>
+        <p>What we discovered is that the challenge isn’t simply making individual agents more capable. It is also how we represent and coordinate the shared world in which those agents operate.</p>
+        <p>Today I’d like to introduce FractiSI Multi-Agent and present the architecture and experiments we’ve developed around that problem. In particular, we’ll look at what happens when multiple agents can operate over a shared computational world rather than repeatedly maintaining overlapping representations of it.</p>
+        <p>We’ll examine not only resource efficiency, but whether this architectural change can improve coordination, speed, accuracy, convergence, and ultimately the number of useful agents we can support within a given computational budget.</p>
+        <p>So this is both an introduction to FractiSI Multi-Agent and an invitation to explore whether this approach offers a useful contribution to the broader problem of building systems capable of coordinated inference and action. Let’s begin with the problem that led us there.</p>
+      </aside>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" data-part="I" data-time="1.5 min" aria-label="Slide 2">
+      <p class="part">Part I · Introduction and context</p>
+      <h1>The multi-agent opportunity</h1>
+      <ul class="bullets">
+        <li>From one assistant → specialized agent collectives</li>
+        <li>Researchers, planners, programmers, reviewers, analysts, safety</li>
+        <li>More agents → share, coordinate, avoid duplication, compose</li>
+        <li>Hidden tax: the same world reproduced in every context</li>
+      </ul>
+      <p class="punch">Intelligence at the agent level can raise collective overhead.</p>
+      <aside class="notes">
+        <p>AI is moving beyond individual assistants toward systems of specialized agents. Instead of asking one model to perform every task, we can distribute work among multiple agents. We can have researchers, planners, programmers, reviewers, analysts, safety monitors, and specialized domain experts. Each agent can bring different capabilities to the problem.</p>
+        <p>This is a powerful direction. But as we increase the number of agents, we introduce another challenge. Those agents must share information, coordinate their activities, understand changes, avoid duplicating work, and combine their contributions into useful results. The more complex the problem becomes, the more important coordination becomes.</p>
+        <p>And there is an architectural issue hiding underneath all of this. Many of these agents are working on the same underlying information. Yet our systems frequently reproduce that information across their individual contexts and memories. We are increasing intelligence at the agent level, but we may also be increasing the overhead required to coordinate the collective. That is the problem FractiSI addresses.</p>
+      </aside>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-part="I" data-time="2 min" aria-label="Slide 3">
+      <p class="part">Part I · Introduction and context</p>
+      <h1>One world, many copies</h1>
+      <div class="two">
+        <div>
+          <p class="label">Five agents · one project</p>
+          <ul class="bullets tight">
+            <li>Investigate · architecture · code · test · security</li>
+            <li>Same repo, files, deps, tests, issues</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">Conventional overhead</p>
+          <ul class="bullets tight">
+            <li>Duplicated information</li>
+            <li>Repeated retrieval</li>
+            <li>Message chatter</li>
+            <li>Version drift · reconcile tax</li>
+          </ul>
+        </div>
+      </div>
+      <p class="punch">Many agents. One underlying project. Why reconstruct it N times?</p>
+      <aside class="notes">
+        <p>Imagine five agents working on the same software engineering project. One investigates a problem. One examines the architecture. One writes code. One tests the implementation. One reviews security. They have different responsibilities, but they are all dealing with the same repository.</p>
+        <p>They need to understand many of the same things: the current files and their relationships, the architecture, dependencies, existing functionality, recent modifications, test results, outstanding issues.</p>
+        <p>In a conventional architecture, each agent may independently retrieve, reconstruct, summarize, and maintain overlapping portions of this information. They then exchange messages to keep one another informed. This creates several kinds of overhead: duplicated information; repeated retrieval and processing; communication overhead; the possibility that agents operate on different versions of what they believe is happening; and additional work to reconcile those differences.</p>
+        <p>The fundamental observation is simple: there may be many agents, but there is only one underlying project. Why should every agent have to independently reconstruct so much of it?</p>
+      </aside>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" data-part="II" data-time="2 min" aria-label="Slide 4">
+      <p class="part">Part II · The FractiSI architecture</p>
+      <h1>A different architectural approach</h1>
+      <div class="compare">
+        <div class="col">
+          <p class="label">Conventional</p>
+          <p>One world,<br><strong>many independently maintained representations</strong></p>
+        </div>
+        <div class="col accent">
+          <p class="label">FractiSI</p>
+          <p>One shared world,<br><strong>many specialized participants</strong></p>
+        </div>
+      </div>
+      <p class="punch">Agents keep objectives and local context. The shared substrate is not recopied for each.</p>
+      <aside class="notes">
+        <p>This is where FractiSI enters the picture. FractiSI separates the shared computational world from the individual agents operating within it. Instead of treating every agent as an independent container for its own overlapping representation of the environment, we establish a shared substrate.</p>
+        <p>Agents access the information relevant to their responsibilities. They maintain their own objectives, reasoning, specialized knowledge, and working context. But the underlying shared information does not need to be independently recreated for each agent.</p>
+        <p>Think of it this way — conventional approach: one world, many independently maintained representations. FractiSI approach: one shared world, many specialized participants. This is not about making every agent identical. It is about allowing different agents to operate over common information without requiring each one to own a separate copy of everything. The architecture is designed to make that distinction practical.</p>
+      </aside>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-part="II" data-time="2 min" aria-label="Slide 5">
+      <p class="part">Part II · The FractiSI architecture</p>
+      <h1>How FractiSI Multi-Agent works</h1>
+      <ol class="stack">
+        <li><strong>Shared computational world</strong> — common substrate</li>
+        <li><strong>Tiny Footprint · Tiny Gateway</strong> — compact access &amp; coordination</li>
+        <li><strong>Agents</strong> — models, tools, instructions, roles</li>
+      </ol>
+      <ul class="bullets">
+        <li>Shared state ≠ agent-private objectives, reasoning, local context</li>
+        <li>Coordination for changes, dependencies, composed results</li>
+      </ul>
+      <aside class="notes">
+        <p>The product has several architectural elements. At the foundation is the shared computational world. Above that is Tiny Footprint, powered by Tiny Gateway. Tiny Gateway provides the compact access and coordination mechanism through which agents interact with the shared substrate. Above that are the agents.</p>
+        <p>These agents can use different models, different tools, different instructions, and different specialized capabilities. They can be assigned different responsibilities. They can work independently where appropriate and coordinate when their work intersects.</p>
+        <p>The important architectural distinction is that the shared information is maintained as a common resource rather than repeatedly reconstructed as separate agent-owned representations. We also need to distinguish shared state from agent-specific state. An agent’s objectives, private reasoning, local working context, and individual decisions do not automatically become shared. The architecture needs to preserve those distinctions.</p>
+        <p>So we have three important elements: shared computational state; agent-specific perspectives and responsibilities; and coordination mechanisms for managing changes, dependencies, and composed results. That is the foundation of FractiSI Multi-Agent.</p>
+      </aside>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-part="II" data-time="2 min" aria-label="Slide 6">
+      <p class="part">Part II · The FractiSI architecture</p>
+      <h1>Tiny Footprint &amp; Tiny Gateway</h1>
+      <ul class="bullets">
+        <li>Not compression theater — less duplicated representation</li>
+        <li>Adding agents reuses world infrastructure already present</li>
+        <li>Inference and compute still cost; the world-copy tax need not</li>
+      </ul>
+      <p class="punch">Keep the shared world small while participants grow.</p>
+      <aside class="notes">
+        <p>Let’s look a little more closely at Tiny Gateway. The objective of Tiny Footprint is not simply to compress information. It is to reduce the amount of duplicated computational representation required when multiple agents work with overlapping information. Tiny Gateway provides the mechanism for accessing and working with that shared structure.</p>
+        <p>This changes the economics of adding agents. In a conventional architecture, adding an agent may introduce another collection of context, retrieval, memory, and synchronization requirements. In a shared-world architecture, additional agents can reuse infrastructure and information that already exist.</p>
+        <p>That doesn’t mean adding agents is free. Every agent still consumes model inference, computation, and potentially additional communication. And shared infrastructure itself has costs. But we have an opportunity to reduce the incremental cost associated with duplicating the world each agent needs to understand.</p>
+        <p>This is why we call it Tiny Footprint. We want the shared world to remain small while the number and capabilities of its participants can grow.</p>
+      </aside>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-part="II" data-time="1.5 min" aria-label="Slide 7">
+      <p class="part">Part II · The FractiSI architecture</p>
+      <h1>Not another coding assistant</h1>
+      <div class="two">
+        <div>
+          <p class="label">Not</p>
+          <ul class="bullets tight">
+            <li>Another foundation model</li>
+            <li>A Cursor / Claude Code / VS Code replacement</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">Is</p>
+          <ul class="bullets tight">
+            <li>Coordination architecture beside those tools</li>
+            <li>Shared environment for multi-agent engineering</li>
+          </ul>
+        </div>
+      </div>
+      <p class="punch">Different layer: how many capable agents work the same complex project.</p>
+      <aside class="notes">
+        <p>I want to clarify what FractiSI Multi-Agent is and what it isn’t. FractiSI is not another foundation model. It is not intended to replace Cursor, Claude Code, VS Code, or Git. Those tools provide valuable capabilities for developing software. FractiSI operates alongside them.</p>
+        <p>It is a coordination architecture for multi-agent engineering. The agents can use the models and tools they already work with. FractiSI provides the shared computational environment in which their work can be coordinated.</p>
+        <p>This distinction matters because we are not trying to win by creating another individual coding assistant. We’re addressing a different layer of the problem: how do we make many capable agents work together efficiently on the same complex project? And the same architectural question extends beyond software engineering.</p>
+      </aside>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" data-part="III" data-time="2 min" aria-label="Slide 8">
+      <p class="part">Part III · Why the architecture matters</p>
+      <h1>Beyond smaller data</h1>
+      <ul class="bullets">
+        <li>Goal: greater <em>agent density</em> in a fixed budget</li>
+        <li>More specialization · more frequent coordination · finer task split</li>
+        <li>Collective stays on the same current information</li>
+      </ul>
+      <p class="punch">Not only cheaper agents — larger, more capable collectives made practical.</p>
+      <aside class="notes">
+        <p>This is probably the most important distinction in our work. The opportunity is not simply smaller data. It is greater agent density within a fixed infrastructure budget.</p>
+        <p>Consider what happens if we reduce the resources required to maintain overlapping representations of the same world. We may be able to support more agents. Those agents may be able to specialize more deeply. We may be able to increase the frequency of coordination. We may be able to assign more tasks to specialized agents rather than asking a small number of agents to perform everything. And we may be able to keep more of the collective working against the same current information.</p>
+        <p>This leads to a larger possibility. An architectural improvement that initially looks like a memory or storage optimization could change the number of agents we can practically deploy. And that can change the kinds of multi-agent systems we can afford to build.</p>
+        <p>The important distinction is: we are not just trying to make existing agents cheaper. We are trying to make larger and more capable agent collectives practical.</p>
+      </aside>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-part="III" data-time="2 min" aria-label="Slide 9">
+      <p class="part">Part III · Why the architecture matters</p>
+      <h1>What should we measure?</h1>
+      <div class="grid4">
+        <div><p class="label">Resources</p><p>Memory · storage · CPU · tokens · communication</p></div>
+        <div><p class="label">Operations</p><p>Time · latency · throughput · redundancy · coordination</p></div>
+        <div><p class="label">Quality</p><p>Accuracy · completeness · consistency · conflicts · correctness</p></div>
+        <div><p class="label">Scale &amp; collective</p><p>Agent count · density · convergence · composed results</p></div>
+      </div>
+      <p class="punch">A memory win that slows work or hurts accuracy is not an improvement.</p>
+      <aside class="notes">
+        <p>We need to evaluate this architecture against meaningful outcomes. A memory benchmark alone isn’t sufficient. If we use less memory but take longer to complete a task, we haven’t necessarily improved the system. Likewise, if we support more agents but produce less accurate results, that isn’t a meaningful improvement.</p>
+        <p>So our evaluation needs multiple dimensions: resource consumption; operational performance; quality; scalability; and collective performance — time to convergence, quality of composed results, ability to handle interdependent tasks.</p>
+        <p>We want to know whether FractiSI provides an advantage in the actual work being performed. Not simply whether it stores information more efficiently.</p>
+      </aside>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-part="III" data-time="2 min" aria-label="Slide 10">
+      <p class="part">Part III · Why the architecture matters</p>
+      <h1>The experimental comparison</h1>
+      <ul class="bullets">
+        <li>Hold task, information, models, tools, roles constant</li>
+        <li>Independent variable: conventional copies vs shared substrate</li>
+        <li>Ask: duplication · chatter · time · accuracy · conflicts · scale</li>
+        <li>Test 3 vs 30 vs 100 · overlap · rapid change · disagreement</li>
+      </ul>
+      <p class="punch">Fair, reproducible comparison — not a demo designed to favor ourselves.</p>
+      <aside class="notes">
+        <p>Our experimental approach is to compare two architectures: a conventional multi-agent system and a FractiSI shared-world system. We want to hold the task, information, models, tools, and agent responsibilities as consistent as possible. The architectural difference becomes the independent variable.</p>
+        <p>In the conventional system, agents maintain and exchange their respective representations. In FractiSI, agents work through the shared computational substrate. We then evaluate the outcomes.</p>
+        <p>Important questions: Does FractiSI reduce duplicated information? Communication overhead? Task completion time? Preserve or improve accuracy? Improve conflict resolution? And how does performance change as we increase the number of agents?</p>
+        <p>We need to test at multiple scales. A system with three agents may show very different behavior from one with thirty or one hundred agents. We also need to test situations where agents modify overlapping information, where information changes rapidly, and where agents disagree. A shared-world architecture must demonstrate that it can manage those conditions reliably. The goal is a fair, reproducible comparison—not a demonstration designed to favor our own architecture.</p>
+      </aside>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-part="IV" data-time="2 min" aria-label="Slide 11">
+      <p class="part">Part IV · Applications</p>
+      <h1>Example · software engineering</h1>
+      <ul class="bullets">
+        <li>Twenty agents: architecture, research, code, test, security, docs, perf, integration</li>
+        <li>Interdependent: one change ripples; ownership and conflicts must be explicit</li>
+        <li>Shared project state as the computational environment</li>
+      </ul>
+      <p class="punch">Agentic engineering without each agent rebuilding the whole project.</p>
+      <aside class="notes">
+        <p>Let’s return to software engineering because it is an immediately understandable application. Imagine a team of twenty AI agents working on a major software project — architecture, research, coding, testing, security, documentation, performance, integration. Each has a specialized responsibility. But their work is interconnected.</p>
+        <p>A change to one component may affect several others. A test result may change priorities. A security finding may require modifications to code written by another agent. A new architectural decision may affect the entire project.</p>
+        <p>With conventional approaches, we need to coordinate these dependencies across agent contexts and messages. With FractiSI, we want the project state to become a shared computational environment. Agents can work against relevant portions of that environment. Their changes and findings can become available to the other participants according to the coordination rules. Ownership, dependencies, and conflicting modifications need to be managed explicitly.</p>
+        <p>The result we are pursuing is a development environment where many agents can contribute to the same project without each needing to reconstruct the entire project independently. This is why FractiSI is particularly relevant to agentic engineering.</p>
+      </aside>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-part="IV" data-time="2 min" aria-label="Slide 12">
+      <p class="part">Part IV · Applications</p>
+      <h1>Example · air traffic &amp; defense</h1>
+      <ul class="bullets">
+        <li>Many specialists · one evolving environment</li>
+        <li>Weather, trajectories, conflicts, routes, safety, airports</li>
+        <li>Defense: sensors, analysts, logistics, ops — shared situational picture</li>
+      </ul>
+      <p class="punch">Reliability, security, audit, latency, human authority — open research, not claimed solved.</p>
+      <aside class="notes">
+        <p>Now let’s move beyond software. Consider air traffic coordination. There are aircraft, flight plans, weather systems, airports, controllers, safety constraints, and changing conditions. Different agents could monitor different aspects of the situation — weather, trajectories, potential conflicts, alternative routes, safety constraints, airport operations. They have different responsibilities, but they are working within the same evolving airspace.</p>
+        <p>The same principle applies to defense and situational awareness. Different sensors, analysts, intelligence systems, logistics teams, and operational agents may contribute different information about a shared operational environment. The architecture could provide a common computational substrate through which those participants work.</p>
+        <p>There are important additional requirements in these domains: reliability, security, access controls, auditability, latency guarantees, and human authority over consequential decisions. We aren’t claiming that FractiSI has already solved those mission-critical requirements. We’re identifying these as important application areas where shared-world coordination deserves rigorous investigation.</p>
+        <p>The underlying architectural problem is similar: many specialized participants; one changing environment; interdependent decisions.</p>
+      </aside>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide" data-part="V" data-time="2 min" aria-label="Slide 13">
+      <p class="part">Part V · Connection to the symposium</p>
+      <h1>Connecting to Active Inference</h1>
+      <ul class="bullets">
+        <li>Shared environment · different observations, beliefs, preferences, actions</li>
+        <li>What is represented once? What stays agent-specific?</li>
+        <li>Updates, uncertainty, disagreement, coordinated action</li>
+      </ul>
+      <p class="punch">Interdisciplinary experiment space — not a claim the frameworks are interchangeable.</p>
+      <aside class="notes">
+        <p>I’d like to return briefly to the broader interests of this symposium. Our work is focused on computational architecture for multi-agent coordination. The Active Inference community brings an important perspective on agents operating in environments through perception, inference, and action. We see a useful area for exploration at the intersection of these interests.</p>
+        <p>Consider multiple agents operating in a shared environment. Each may have different observations, beliefs, preferences and objectives, and selected actions. The question for FractiSI is how the computational representation of their shared environment can support those activities.</p>
+        <p>What information should be represented once? What should remain agent-specific? How should updates become available? How should agents deal with uncertainty, conflicting information, and different interpretations? And how can the architecture support coordinated action without eliminating individual perspectives?</p>
+        <p>These are questions we believe are worth exploring with researchers and practitioners working on Active Inference and related approaches. We see this as an opportunity for interdisciplinary experimentation, not a claim that the two frameworks are interchangeable.</p>
+      </aside>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide" data-part="V" data-time="1.5 min" aria-label="Slide 14">
+      <p class="part">Part V · Connection to the symposium</p>
+      <h1>Does sharing the world change what agents can do?</h1>
+      <ul class="bullets">
+        <li>Efficiency vs possibility</li>
+        <li>More specialists · finer monitors · more simultaneous coordination</li>
+        <li>Larger collectives may unlock capabilities small fleets cannot</li>
+      </ul>
+      <p class="punch">Does the architecture change the feasible design space?</p>
+      <aside class="notes">
+        <p>This brings us to the question behind the entire project. Does sharing the world simply make multi-agent systems more efficient? Or can it change what those systems can actually do?</p>
+        <p>Suppose we can reduce the cost of adding agents. We might support more specialized participants, distribute responsibilities more finely, allow agents to monitor different aspects continuously, coordinate more activities simultaneously, and make larger collectives economically practical. And those larger collectives could have capabilities that are difficult to achieve with a small number of agents.</p>
+        <p>This is the distinction between optimization and possibility. We don’t want to stop at asking whether we can make an existing multi-agent system smaller or faster. We want to investigate whether changing its underlying architecture changes the feasible design space — the possibility of more intelligence working together, within the same computational budget.</p>
+      </aside>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide" data-part="VI" data-time="1.5 min" aria-label="Slide 15">
+      <p class="part">Part VI · Conclusion and invitation</p>
+      <h1>What we need to learn</h1>
+      <ul class="bullets">
+        <li>Partitioning · ownership · privacy · bottleneck risk</li>
+        <li>Simultaneous changes · disagreement · agent failure</li>
+        <li>Real workloads · credible alternatives · open methodology</li>
+      </ul>
+      <p class="punch">These are central design questions — not peripheral engineering details.</p>
+      <aside class="notes">
+        <p>There are still important questions to answer. How should shared state be partitioned? How should ownership and permissions work? What information should remain private to individual agents? How do we prevent a shared substrate from becoming a bottleneck? How do we handle simultaneous changes? How do we represent disagreement? How does the architecture behave when agents fail or produce incorrect information? And how do these choices affect the quality of collective outcomes?</p>
+        <p>These are not peripheral engineering details. They are central to making a shared-world architecture useful. We want to evaluate the system in real applications, with realistic workloads, and against credible alternatives. We also want to make the architecture and experimental methodology accessible so that others can reproduce and challenge our findings. There is much more to discover.</p>
+      </aside>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide" data-part="VI" data-time="1 min" aria-label="Slide 16">
+      <p class="part">Part VI · Conclusion and invitation</p>
+      <h1>One shared world. Many agents.</h1>
+      <p class="closing">
+        Coordinated work.<br>
+        Composed results.
+      </p>
+      <ul class="bullets">
+        <li>Architecture connecting agents matters</li>
+        <li>FractiSI Multi-Agent: shared world as a first-class layer</li>
+        <li>Invitation: compare, experiment, challenge</li>
+      </ul>
+      <p class="thanks">Thank you · <a href="https://fractisi.vercel.app/">fractisi.vercel.app</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a> · valetpru@gmail.com</p>
+      <aside class="notes">
+        <p>Let me leave you with the central idea. We are entering a period in which AI systems will increasingly consist of many agents working together. Those agents will have different capabilities, different perspectives, and different responsibilities. But increasingly, they will be working on the same problems, in the same environments, with overlapping information.</p>
+        <p>We believe the architecture connecting those agents matters enormously. FractiSI Multi-Agent is our attempt to make that shared computational world a first-class part of multi-agent architecture.</p>
+        <p>One shared world. Many agents. Coordinated work. Composed results. We’d welcome the opportunity to explore the architecture, compare approaches, and develop experiments with this community. Thank you.</p>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer class="notes-panel" id="notes-panel" hidden>
+    <div class="notes-head">
+      <strong>Speaker notes</strong>
+      <span id="notes-time"></span>
+    </div>
+    <div id="notes-body"></div>
+  </footer>
+
+  <script src="deck.js"></script>
+</body>
+</html>
