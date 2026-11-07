@@ -1,4 +1,4 @@
-/** Layer A/B — agent registration, lifecycle, capacity, permissions. */
+/** Tiny Footprint / coordination — agent registration, lifecycle, capacity, permissions. */
 import { randomUUID } from 'node:crypto';
 
 const STATUSES = new Set(['registered', 'active', 'paused', 'completed', 'failed', 'revoked']);

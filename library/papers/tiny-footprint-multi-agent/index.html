@@ -53,7 +53,7 @@
 
 <p><strong>Findings (executed suite).</strong> Across a 36-case sweep (rhyme × agent count × world size), median pack residual <strong>after gzip</strong> was <strong>~98%</strong> vs naive duplication when the shared world dominates agent state. A smaller-world shine lab earlier measured <strong>~42%</strong> residual after gzip. Flagship scaled case (256 agents, large shared world): resident shared-state proxy cut <strong>~99%</strong>; density arithmetic on an 8 GiB budget shows <strong>order-of-magnitude more agents</strong> when world ≫ per-agent state. Selective nested-vector coarse-only tasks cut runtime working-set bytes by <strong>~99.5%</strong> vs shipping full pyramids.</p>
 
-<p><strong>Product stance.</strong> One product: <strong>FractiSI Multi-Agent</strong>; <strong>Tiny Footprint</strong> is Layer A; <strong>DRAM concurrency</strong> is the primary runtime. SQL/network shared-context adapters later—not separate diluted SKUs.</p>
+<p><strong>Product stance.</strong> One product: <strong>FractiSI Multi-Agent</strong>; <strong>Tiny Footprint</strong> is the shared-world execution core; <strong>DRAM concurrency</strong> is the primary runtime. SQL/network shared-context adapters later—not separate diluted SKUs.</p>
 
 <hr>
 

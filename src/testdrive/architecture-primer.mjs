@@ -5,7 +5,7 @@
  * Voice: cold first listen — plain English, everyday stakes, locked names.
  * Locked ladder: Generative possibility → Net Zero → Φ_EGS → Infinite Octaves →
  * Boundary → trees / rhyme → 3D Hexagon / eight-node → Wave–Node–Fq → Awareness →
- * Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent
+ * Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent
  */
 
 export const ARCHITECTURE_PRIMER = Object.freeze({
@@ -72,13 +72,13 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
       id: 'synthesis',
       name: 'What becomes the product',
       body:
-        'Rhyming Templates pass a four-pillar gate → Tiny Gateway™ (templates, nested vectors, selective reconstruction) → Tiny Footprint (Layer A: world once, deltas per agent) → Layers B–F (coordinate, share state, compose, Git, paid deploy) → FractiSI Multi-Agent beside tools like Cursor, Claude Code, VS Code, and Git.',
+        'Rhyming Templates pass a four-pillar gate → Tiny Gateway™ (templates, nested vectors, selective reconstruction) → Tiny Footprint (world once, deltas per agent) → Layers B–F (coordinate, share state, compose, Git, paid deploy) → FractiSI Multi-Agent beside tools like Cursor, Claude Code, VS Code, and Git.',
     },
   ]),
   activeInference:
     'Possible rhyme with Active Inference: many agents — including humans — act in one shared world with different observations and moves, without each reprinting a private full copy. “Rhyme” means structural kinship for joint experiments — not “we are that framework.”',
   chain:
-    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent',
+    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent',
   honesty:
     'This primer is catalog / architecture talk plus in-process labs. It is not CapEx guarantees, a Theory of Everything, Active Inference identity, infinite physical octave tiers, or Φ as physics or awareness. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 is not production HBM proof.',
 });

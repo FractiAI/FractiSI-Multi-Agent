@@ -140,4 +140,4 @@ Cursor, Claude Code, VS Code, GitHub/GitLab remotes, and your CI stay in place. 
 
 ## Honesty
 
-`try` is an in-process platform demo that performs real Git worktree/commit operations and a real Vercel deploy when a token is present. It is not a claim about GPU HBM CapEx or a multi-vendor LLM bake-off. Tiny Footprint (ENGINE_SHELF peer in the research corpus) remains Layer A inside this product.
+`try` is an in-process platform demo that performs real Git worktree/commit operations and a real Vercel deploy when a token is present. It is not a claim about GPU HBM CapEx or a multi-vendor LLM bake-off. Tiny Footprint (ENGINE_SHELF peer in the research corpus) remains the shared-world execution core inside this product.

@@ -12,4 +12,4 @@ node scripts/tiny.mjs try
 ```
 
 What to expect: agent worktrees → compose → git commit → live preview URL.  
-Tiny Footprint stays Layer A inside FractiSI Multi-Agent.
+Tiny Footprint stays the shared-world execution core inside FractiSI Multi-Agent.

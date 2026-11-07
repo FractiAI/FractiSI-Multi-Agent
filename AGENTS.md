@@ -10,7 +10,7 @@ If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo
 node scripts/tiny.mjs testdrive
 ```
 
-Open with the **architecture primer in plain English inside Test Drive** (`/test-drive/self-paced/#primer` — do not send the audience to the product page for first listen): Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F. Self-paced UI = content + Run + Previous/Next. Active Inference: **possible rhyme** (humans as agents) — not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize Rhyming Templates (3) and selective reconstruction (4–5). Layer F deploy is paid (Team+).
+Open with the **architecture primer in plain English inside Test Drive** (`/test-drive/self-paced/#primer` — do not send the audience to the product page for first listen): Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F. Self-paced UI = content + Run + Previous/Next. Active Inference: **possible rhyme** (humans as agents) — not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize Rhyming Templates (3) and selective reconstruction (4–5). Layer F deploy is paid (Team+).
 
 ## Commands
 
