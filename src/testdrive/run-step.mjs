@@ -137,7 +137,14 @@ function runPrimer() {
     metrics: {
       mode: 'primer',
       architecture: ARCHITECTURE_PRIMER.steps.map((s) => s.id),
-      layers: ['A', 'B', 'C', 'D', 'E', 'F'],
+      surfaces: [
+        'Tiny Footprint',
+        'Coordination',
+        'Shared state',
+        'Composition',
+        'Git awareness',
+        'Deploy',
+      ],
       activeInferenceRhyme: 'possible_not_identity',
       chain: ARCHITECTURE_PRIMER.chain,
     },
