@@ -52,12 +52,20 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav-links a { text-decoration: none; }
 .nav-links a:hover { text-decoration: underline; }
-.nav-links a.button {
+.nav-links a.button,
+.nav-links a.button:link,
+.nav-links a.button:visited {
   text-decoration: none;
-  background: var(--ink);
-  color: var(--bg);
+  background: #1a1916;
+  color: #fbf9f4;
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
+}
+.nav-links a.button:hover,
+.nav-links a.button:focus-visible {
+  background: #2a2824;
+  color: #ffffff;
+  text-decoration: none;
 }
 .announce {
   margin: 0;

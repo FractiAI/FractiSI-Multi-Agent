@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
   <meta name="description" content="FractiSI Multi-Agent Test Drive — Infinite Octaves, Tiny Gateway Rhyming Templates, Tiny Footprint, Layers A–F. Self-paced or IDE.">
-  <link rel="stylesheet" href="../css/site.css?v=29">
+  <link rel="stylesheet" href="/css/site.css?v=31">
   <style>
     .board { max-width: 42rem; margin: 2rem auto 0; }
     .card {
@@ -38,15 +38,25 @@
       line-height: 1.45;
     }
     .say { font-style: italic; font-size: 1.1rem; color: #f4f1ea; }
-    .go {
+    .go,
+    .go:link,
+    .go:visited,
+    .go:hover,
+    .go:active,
+    .go:focus-visible {
       display: inline-block;
       font-family: var(--sans);
       font-weight: 650;
       text-decoration: none;
-      background: var(--ink);
-      color: var(--bg);
+      background: #1a1916;
+      color: #fbf9f4;
       padding: 0.55rem 0.95rem;
       border-radius: 999px;
+    }
+    .go:hover,
+    .go:focus-visible {
+      background: #2a2824;
+      color: #ffffff;
     }
     .foot-links {
       font-family: var(--sans);

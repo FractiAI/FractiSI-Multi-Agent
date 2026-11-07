@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Self-paced Test Drive · FractiSI Multi-Agent</title>
   <meta name="description" content="Self-paced FractiSI Multi-Agent Test Drive — plain primer, then live labs with Run, Previous, and Next.">
-  <link rel="stylesheet" href="/css/site.css?v=30">
+  <link rel="stylesheet" href="/css/site.css?v=31">
   <style>
     .walk {
       max-width: 40rem;
@@ -70,14 +70,26 @@
       border-radius: 0.35rem;
       padding: 0.65rem 1rem;
       cursor: pointer;
-      border: 1px solid var(--ink);
-      background: transparent;
-      color: var(--ink);
+      border: 1px solid #1a1916;
+      background: #fbf9f4;
+      color: #1a1916;
     }
-    .btn-run {
-      background: var(--ink);
-      color: var(--bg);
-      border-color: var(--ink);
+    .btn:hover:not(:disabled),
+    .btn:focus-visible:not(:disabled) {
+      background: #ffffff;
+      color: #1a1916;
+    }
+    .btn.btn-run,
+    .btn.btn-run:link,
+    .btn.btn-run:visited {
+      background: #1a1916;
+      color: #fbf9f4;
+      border-color: #1a1916;
+    }
+    .btn.btn-run:hover:not(:disabled),
+    .btn.btn-run:focus-visible:not(:disabled) {
+      background: #2a2824;
+      color: #ffffff;
     }
     .btn:disabled {
       opacity: 0.5;
