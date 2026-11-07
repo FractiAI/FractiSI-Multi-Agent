@@ -157,7 +157,7 @@ After a real-workload or sandbox try, you get a **coordinated multi-agent workst
 | **Agents that do not trip over each other** | Coordination registers agents, tracks ownership, flags overlapping paths before merge day goes sideways |
 | **Composed results, not a pile of branches** | Composition evaluates, validates, integrates, and can roll back into one coherent outcome |
 | **Git-aware scoped workspaces** | Worktrees / scoped spaces so agents work in parallel without a branch-per-agent chaos tax |
-| **Deploy is paid** | Layer F approval-gated publish unlocks on Team · Enterprise · Cloud (`FRACTISI_EDITION` + cloud token). Community composes and commits only |
+| **Deploy is paid** | Deploy approval-gated publish unlocks on Team · Enterprise · Cloud (`FRACTISI_EDITION` + cloud token). Community composes and commits only |
 | **Beside Cursor / Claude Code / VS Code** | Message adapters normalize those runtimes. Your IDE, remotes, and CI stay yours |
 
 **Day-two commands**
@@ -187,7 +187,7 @@ Full install guide: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · [QUI
 - **Your token stays yours.** Used only for Vercel API calls when you opt into `--deploy` / sandbox deploy. Never committed by `try`.  
 - **Your remotes stay yours.** FractiSI coordinates beside Cursor, Claude Code, VS Code, GitHub/GitLab, and CI.  
 - **Deploy is optional.** Real workloads compose + commit locally by default.  
-- **Tiny Footprint** is the shared-world execution core. Layers B–F are the platform around it.
+- **Tiny Footprint** is the shared-world execution core. Coordination · Shared state · Composition · Git awareness · Deploy are the platform around it.
 
 ---
 
@@ -288,7 +288,7 @@ FractiSI-Multi-Agent/          ← GitHub repo · FractiSI Multi-Agent kit (Tiny
 ├── src/
 │   ├── core/ engine/ sdk/ experiments/ labs/ benchmarks/
 │   ├── analysis/ manuscript/ pipeline/ verification/ gates/
-│   ├── platform/         ← Multi-Agent layers A–F · try / workload / deploy
+│   ├── platform/         ← Multi-Agent Tiny Footprint · Coordination · Shared state · Composition · Git awareness · Deploy · try / workload / deploy
 │   ├── cli/ share/ reporting/ workloads/ docs_tools/
 │   └── tiny_footprint_labs/
 ├── tests/ scripts/ benchmarks/ output/ docs/

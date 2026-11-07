@@ -2,7 +2,7 @@
  * Shared Test Drive step runners — CLI, self-paced web, and /api/testdrive.
  * Narrative locked to the real FractiSI Multi-Agent product stack:
  * Infinite Octaves · holographic rhyme · Tiny Gateway Rhyming Templates ·
- * Tiny Footprint · Layers B–F (coordination → deploy).
+ * Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy.
  */
 import { gzipSync } from 'node:zlib';
 import { runMultiSessionDemo } from '../workloads/multi-session.mjs';
@@ -79,18 +79,18 @@ export const STEP_CATALOG = Object.freeze([
   {
     id: '6',
     n: 6,
-    title: 'Layers B–D · coordination + composition',
+    title: 'Coordination · Shared state · Composition',
     short: 'Ownership · compose · no blind merge',
-    layer: 'B · Coordination · C · Shared state · D · Composition',
-    component: 'FractiSI platform · coord-bench arms A vs C',
+    layer: 'Coordination · Shared state · Composition',
+    component: 'FractiSI platform · coord-bench isolated vs coordinated',
   },
   {
     id: '7',
     n: 7,
-    title: 'Density · Layers E–F · Community',
+    title: 'Density · Git awareness · Deploy',
     short: 'More agents · Git · paid deploy',
-    layer: 'Tiny Footprint density · E Git · F Deploy (paid)',
-    component: 'Tiny Footprint density · Git awareness · approval-gated deploy',
+    layer: 'Tiny Footprint density · Git awareness · Deploy (paid)',
+    component: 'Tiny Footprint density · Git awareness · approval-gated Deploy',
   },
 ]);
 
@@ -329,11 +329,11 @@ function run6() {
   const m = meta('6');
   const bench = runComparativeBench({ agentCounts: [5, 10, 25], runs: 3 });
   const lines = [
-    'LAYERS B–D · COORDINATION · SHARED STATE · COMPOSITION',
+    'COORDINATION · SHARED STATE · COMPOSITION',
     '',
-    '  B Coordination — agent registry, ownership, interference detection',
-    '  C Shared state — project / task / contribution store',
-    '  D Composition — validate, integrate, rollback contributions',
+    '  Coordination — agent registry, ownership, interference detection',
+    '  Shared state — project / task / contribution store',
+    '  Composition — validate, integrate, rollback contributions',
     '',
   ];
   const summary = {};
@@ -347,25 +347,25 @@ function run6() {
     const cComp = avg('C', 'successfulCompositions');
     lines.push(
       `  n=${n} agents`,
-      `    Arm A conventional branches: conflicts ${aConflicts.toFixed(1)} · useful ${aUseful.toFixed(1)}`,
-      `    Arm C FractiSI B–D:           conflicts ${cConflicts.toFixed(1)} · useful ${cUseful.toFixed(1)} · compositions ${cComp.toFixed(1)}`,
+      `    Conventional branches: conflicts ${aConflicts.toFixed(1)} · useful ${aUseful.toFixed(1)}`,
+      `    FractiSI coordinated:  conflicts ${cConflicts.toFixed(1)} · useful ${cUseful.toFixed(1)} · compositions ${cComp.toFixed(1)}`,
     );
     summary[`n${n}`] = { aConflicts, cConflicts, aUseful, cUseful, cComp };
   }
   lines.push(
     '',
-    '  → Tiny Footprint alone densifies. Layers B–D change how fleets collide and compose.',
+    '  → Tiny Footprint densifies. Coordination · Shared state · Composition change how fleets collide and compose.',
     '    (In-process platform simulation — not a production CapEx claim.)',
   );
   return base(m, {
     problem: 'Parallel agents collide at merge when isolation meets a blind integrate.',
-    opportunity: 'Layers B–D coordinate ownership and compose contributions before ship.',
+    opportunity: 'Coordination, Shared state, and Composition own paths and compose contributions before ship.',
     fractisi: [
-      'Components: Coordination (B) · Shared state (C) · Composition (D).',
+      'Components: Coordination · Shared state · Composition.',
       'Beside IDE tools you already run — Cursor / Claude Code / VS Code / Git.',
     ],
     lines,
-    metrics: { ...summary, component: 'platform_bcd' },
+    metrics: { ...summary, component: 'platform_coord_compose' },
   });
 }
 
@@ -379,14 +379,14 @@ function run7() {
   const densityGain = sharedAgentsFit / conventionalAgents;
   return base(m, {
     problem: 'Duplicated context burns the budget before specialized agent work begins.',
-    opportunity: 'Tiny Footprint density + Git awareness; cloud deploy unlocks as paid Layer F.',
+    opportunity: 'Tiny Footprint density + Git awareness; cloud Deploy unlocks on paid editions.',
     fractisi: [
       'Tiny Footprint density — more agents inside the same representation budget.',
-      'Layer E Git awareness — commits / worktrees on your repo (Community).',
-      'Layer F Deploy — approval-gated publish; paid (Team · Enterprise · Cloud).',
+      'Git awareness — commits / worktrees on your repo (Community).',
+      'Deploy — approval-gated publish; paid (Team · Enterprise · Cloud).',
     ],
     lines: [
-      'DENSITY · LAYER E GIT · LAYER F DEPLOY',
+      'DENSITY · GIT AWARENESS · DEPLOY',
       '',
       `  Budget (conventional 24-session pack): ${budget} B`,
       `  Conventional agents in that pack:     ${conventionalAgents}`,
@@ -395,8 +395,8 @@ function run7() {
       `  Shared pack size:                     ${multi.prefixReuse.bytes} B`,
       '',
       '  Community (free)',
-      '    · GitHub clone = signup · Tiny Footprint · Layers B–E local path · Git commits',
-      '    · Cloud token + FRACTISI_EDITION unlock Layer F deploy (paid)',
+      '    · GitHub clone = signup · Tiny Footprint · Coordination · Shared state · Composition · Git awareness',
+      '    · Cloud token + FRACTISI_EDITION unlock Deploy (paid)',
       '',
       '  Pricing  https://fractisi.vercel.app/product/pricing/',
       '  Papers   Tiny Gateway Rhyming Templates · Tiny Footprint Multi-Agent · Exp 002',
@@ -407,7 +407,7 @@ function run7() {
       sharedAgentsFit,
       densityGain,
       sharedBytes: multi.prefixReuse.bytes,
-      component: 'density_ef',
+      component: 'density_git_deploy',
     },
   });
 }

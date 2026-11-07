@@ -37,7 +37,7 @@ Full guide: [../install/INSTALL.md](../install/INSTALL.md) · root README.
 
 ## Platform (Workstation 0.2)
 
-Tiny Footprint · Layers B–F: Tiny Footprint execution · coordination · shared state · composition · Git awareness · optional deploy.
+Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy: Tiny Footprint execution · coordination · shared state · composition · Git awareness · optional deploy.
 
 See [architecture assessment](../architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md) · platform paper [/library/papers/fractisi-multi-agent-platform/](/library/papers/fractisi-multi-agent-platform/).
 

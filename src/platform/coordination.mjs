@@ -1,5 +1,5 @@
 /**
- * Layer B — FractiSI Coordination Engine.
+ * Coordination — FractiSI Coordination Engine.
  * Tracks active agents, shared project state, overlapping work, and safe concurrency.
  * Does not require a Git branch/worktree per agent.
  */

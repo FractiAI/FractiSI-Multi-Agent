@@ -25,7 +25,7 @@ A **holographic rhyme** passes **all four pillars**, rooted at **Net Zero (octav
 
 **Rhyming Templates** = reusable patterns under that gate (Tiny Gateway).
 
-**Primer ladder:** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent.
+**Primer ladder:** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent.
 
 Then live labs:
 
@@ -33,7 +33,7 @@ Then live labs:
 2. **Tiny Footprint** after gzip  
 3. **Tiny Gateway · Rhyming Templates** vs exact cache (four-pillar gate)  
 4–5. **Selective reconstruction** — discovery / convergence  
-6. **Layers B–D** — coordination · shared state · composition  
+6. **Coordination · Shared state · Composition** — coordination · shared state · composition  
 7. **Density · E Git · F deploy (paid)**
 
 No FractiSI account. No cloud token for the Test Drive itself.
@@ -66,12 +66,12 @@ node scripts/tiny.mjs testdrive 1
 | 2 | **Tiny Footprint** after gzip | Gzip residual |
 | 3 | **Rhyming Templates** vs exact cache | Four-pillar gate + store bytes |
 | 4–5 | Selective reconstruction | Discovery / convergence |
-| 6 | Layers B–D | Coordination |
+| 6 | Coordination · Shared state · Composition | Coordination |
 | 7 | Density · Git · deploy | Entitlements |
 
 ## While you run
 
-1. Name components out loud — Infinite Octaves, holographic rhyme (four pillars), Rhyming Templates, Tiny Gateway, Tiny Footprint, Layers B–F.  
+1. Name components out loud — Infinite Octaves, holographic rhyme (four pillars), Rhyming Templates, Tiny Gateway, Tiny Footprint, Coordination · Shared state · Composition · Git awareness · Deploy.  
 2. Run `testdrive` (full) or the step on the current card.  
 3. Offer links: Test Drive · Tiny Gateway paper · holographic rhyme paper · Tiny Footprint paper · pricing.  
 4. Do **not** require a Vercel token for the default Test Drive.  

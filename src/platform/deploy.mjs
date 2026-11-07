@@ -1,5 +1,5 @@
 /**
- * Layer F — FractiSI Deploy.
+ * Deploy — FractiSI Deploy.
  * Requires: validated composition + operator approval + cloud token.
  * Never deploys unvalidated or unauthorized changes.
  */

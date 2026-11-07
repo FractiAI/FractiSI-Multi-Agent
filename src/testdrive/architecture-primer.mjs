@@ -74,18 +74,18 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
       id: 'awareness',
       name: 'Awareness',
       body:
-        'What each participant holds about the shared world (observations, beliefs, actions, ownership). Not phenomenal consciousness. Git awareness = Layer E repo state.',
+        'What each participant holds about the shared world (observations, beliefs, actions, ownership). Not phenomenal consciousness. Git awareness = repo grip (commits / worktrees).',
     },
     {
       id: 'synthesis',
       name: 'Product surface',
       body:
-        'Rhyming Templates (patterns under the rhyme gate) → Tiny Gateway™ → Tiny Footprint → Layers B–F (coordinate, shared state, compose, Git, paid deploy) → FractiSI Multi-Agent beside Cursor, Claude Code, VS Code, and Git.',
+        'Rhyming Templates (under the rhyme gate) → Tiny Gateway™ → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy (paid) → FractiSI Multi-Agent beside Cursor, Claude Code, VS Code, and Git.',
     },
   ]),
   activeInference: RHYME_DEFINITION.symposiumKinship,
   chain:
-    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent',
+    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent',
   honesty:
     'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
 });

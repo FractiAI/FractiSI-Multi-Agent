@@ -12,7 +12,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-Open with the **primer** (`/test-drive/#primer`): include the locked **rhyme** definition — four pillars (repeating · self-similar · self-correcting · recursive) from Net Zero up Infinite Octaves; not exact-text / prefix / schema alone (`src/testdrive/rhyme-definition.mjs` · `src/engine/rhyming/gate.mjs`). Ladder: Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F. Symposium “possible rhyme with Active Inference” = kinship only — not the software gate, not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize lab 3 (rhyme gate) and 4–5. Layer F deploy is paid (Team+).
+Open with the **primer** (`/test-drive/#primer`): include the locked **rhyme** definition — four pillars (repeating · self-similar · self-correcting · recursive) from Net Zero up Infinite Octaves; not exact-text / prefix / schema alone (`src/testdrive/rhyme-definition.mjs` · `src/engine/rhyming/gate.mjs`). Ladder: Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy. Symposium “possible rhyme with Active Inference” = kinship only — not the software gate, not identity. Prefer `testdrive primer` then `1`…`7`. Emphasize lab 3 (rhyme gate) and 4–5. Deploy is paid (Team+).
 
 ## Commands
 

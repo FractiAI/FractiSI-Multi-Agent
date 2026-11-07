@@ -1,5 +1,5 @@
 /**
- * Layer E — Git and version management for FractiSI Multi-Agent.
+ * Git awareness — Git and version management for FractiSI Multi-Agent.
  * Improves multi-agent workflow above Git; does not replace Git.
  */
 import { spawnSync } from 'node:child_process';
