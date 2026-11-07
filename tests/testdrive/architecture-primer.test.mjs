@@ -43,15 +43,18 @@ test('architecture primer includes the full synthesis spine with locked names', 
   );
   assert.match(ARCHITECTURE_PRIMER.title, /stack map/i);
   assert.match(ARCHITECTURE_PRIMER.lede, /shared world/i);
+  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /Balanced zero, not nothing zero/i);
   assert.match(ARCHITECTURE_PRIMER.steps[1].body, /active-equilibrium/i);
-  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /not an empty void/i);
+  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /not nothing zero/i);
 });
 
 test('locked Net Zero definition precedes rhyme and matches catalog peers', () => {
-  assert.match(NET_ZERO_DEFINITION.lede, /active-equilibrium/i);
+  assert.equal(NET_ZERO_DEFINITION.punch, 'Balanced zero, not nothing zero.');
+  assert.match(NET_ZERO_DEFINITION.lede, /balanced zero/i);
+  assert.match(NET_ZERO_DEFINITION.lede, /not nothing zero/i);
   assert.match(NET_ZERO_DEFINITION.body, /Goldilocks/i);
   assert.ok(NET_ZERO_DEFINITION.notNetZero.some((n) => /climate/i.test(n)));
-  assert.ok(NET_ZERO_DEFINITION.notNetZero.some((n) => /stillness|void/i.test(n)));
+  assert.ok(NET_ZERO_DEFINITION.notNetZero.some((n) => /Nothing zero/i.test(n)));
   assert.match(NET_ZERO_DEFINITION.productRole, /Rhymes/i);
 });
 
