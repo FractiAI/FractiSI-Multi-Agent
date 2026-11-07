@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="FractiSI Multi-Agent Test Drive — cold-start primer, then one problem/opportunity step at a time with IDE commands. Community free; deploy is paid.">
-  <link rel="stylesheet" href="../css/site.css?v=27">
+  <meta name="description" content="FractiSI Multi-Agent Test Drive — Infinite Octaves, Tiny Gateway Rhyming Templates, Tiny Footprint, Layers A–F. Self-paced or IDE.">
+  <link rel="stylesheet" href="../css/site.css?v=29">
   <style>
     .board { max-width: 42rem; margin: 2rem auto 0; }
     .card {
@@ -55,6 +55,13 @@
       margin-top: 1.1rem;
     }
     .foot-links a { color: var(--accent); font-weight: 650; }
+    .strip {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 0.75rem 0 0; font-family: var(--sans); font-size: 0.75rem;
+    }
+    .strip span {
+      border: 1px solid var(--line); background: #fff; padding: 0.25rem 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -63,7 +70,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
       <a href="/test-drive/">Test Drive</a>
-      <a href="/blog/">Blog</a>
+      <a href="/test-drive/self-paced/">Self-paced</a>
       <a href="/talks/aai-symposium-2026/">Talk</a>
       <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a>
     </nav>
@@ -72,13 +79,17 @@
   <main class="wrap">
     <article class="page board">
       <p class="kicker">Test Drive · AAI Symposium</p>
-      <h1>Primer. Then each problem.</h1>
-      <p class="lede">Two ways to take the same tour: run it live in the browser (self-paced), or follow along in an IDE station.</p>
+      <h1>Walk the real product stack.</h1>
+      <p class="lede">Infinite Octaves → Tiny Gateway Rhyming Templates → Tiny Footprint (Layer A) → Layers B–F. Same tour in the browser or in an IDE.</p>
+      <div class="strip" aria-label="Stack">
+        <span>Infinite Octaves</span><span>Holographic rhyme</span><span>Tiny Gateway™</span>
+        <span>Rhyming Templates</span><span>Tiny Footprint</span><span>Layers A–F</span>
+      </div>
 
-      <div class="card">
+      <div class="card" style="margin-top:1.25rem">
         <p class="n">No IDE needed</p>
         <h2>Self-paced walkthrough</h2>
-        <p>Course-style steps with a Run button on each demonstration. Results print on the page — primer through density.</p>
+        <p>Course-style steps. Press Run on each lab. Live results name the component that just ran.</p>
         <p style="margin-bottom:0">
           <a class="go" href="/test-drive/self-paced/">Start self-paced →</a>
         </p>
@@ -91,7 +102,7 @@
         <code class="box">https://github.com/FractiAI/FractiSI-Multi-Agent</code>
         <p style="margin-top:0.85rem">Then say:</p>
         <p class="box say">Do the FractiSI Multi-Agent test drive.</p>
-        <p style="margin-top:0.85rem">Or follow the live slide:</p>
+        <p style="margin-top:0.85rem">Or match the live slide:</p>
         <code class="box">node scripts/tiny.mjs testdrive primer
 node scripts/tiny.mjs testdrive 1
 … through 7</code>
@@ -101,48 +112,41 @@ node scripts/tiny.mjs testdrive 1
       </div>
 
       <div class="card">
-        <p class="n">What your IDE will walk</p>
-        <h2>Primer + seven problem/opportunity steps</h2>
+        <p class="n">What you will walk</p>
+        <h2>Product steps</h2>
         <ol>
-          <li><strong>Cold start</strong> — what FractiSI Multi-Agent is</li>
-          <li><strong>N copies of one world</strong> → shared world + deltas</li>
-          <li><strong>Gzip without removing copies</strong> → share first</li>
-          <li><strong>Exact cache when words differ</strong> → rhyming templates</li>
-          <li><strong>Flat skim misses discoveries</strong> → 100/100 vs 0/100</li>
-          <li><strong>Too many rounds to converge</strong> → −50% rounds · −85% ops</li>
-          <li><strong>Merge collisions</strong> → coordination + composition</li>
-          <li><strong>Scarce agent density</strong> → smaller footprint</li>
+          <li><strong>Primer</strong> — Infinite Octaves · Tiny Gateway · Tiny Footprint · Layers A–F</li>
+          <li><strong>Layer A</strong> — Tiny Footprint shared world + deltas</li>
+          <li><strong>Layer A</strong> — after gzip, architecture still matters</li>
+          <li><strong>Tiny Gateway</strong> — Rhyming Templates vs exact cache (Net Zero → octaves)</li>
+          <li><strong>Selective reconstruction</strong> — discovery 100/100 vs 0/100</li>
+          <li><strong>Selective reconstruction</strong> — convergence −50% rounds · −85% ops</li>
+          <li><strong>Layers B–D</strong> — coordination · shared state · composition</li>
+          <li><strong>Density · E · F</strong> — more agents · Git · paid deploy</li>
         </ol>
-        <p style="margin:0">No FractiSI account. No cloud token for the Test Drive.</p>
+        <p style="margin:0">No FractiSI account. No cloud token for the Test Drive itself. Layer F deploy is paid.</p>
       </div>
 
       <div class="card">
-        <p class="n">After the talk</p>
-        <h2>Community (free) · then paid deploy</h2>
-        <ol>
-          <li><strong>Sign up</strong> — keep the GitHub clone. That is Community.</li>
-          <li><strong>GitHub</strong> — required for Git commits on your work.</li>
-          <li><strong>Cloud token</strong> — <code>VERCEL_TOKEN</code> / <code>FRACTISI_CLOUD_TOKEN</code> when you unlock deploy.</li>
-          <li><strong>Deploy is paid</strong> — Team · Enterprise · Cloud. Community composes and commits locally only.</li>
-        </ol>
-        <p style="margin:0">
-          <a class="go" href="/product/pricing/">Pricing →</a>
-          &nbsp; <a class="go" href="/talks/aai-symposium-2026/">Talk slides →</a>
-        </p>
+        <p class="n">While it runs</p>
+        <h2>Optional · watch the talk</h2>
+        <p>Same product story on slides.</p>
+        <a class="go" href="/talks/aai-symposium-2026/">Presentation →</a>
       </div>
 
       <p class="foot-links">
-        <a href="/blog/aai-symposium-2026/">Blog</a>
-        · <a href="/product/">Product</a>
+        <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>
+        · <a href="/library/papers/tiny-footprint-multi-agent/">Tiny Footprint paper</a>
+        · <a href="/product/pricing/">Pricing</a>
         · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
       </p>
-      <p class="honesty">Local architectural / structured-state demos on your machine — not CapEx guarantees. Cloud deploy is a commercial feature.</p>
+      <p class="honesty">Architectural / structured-state labs — Infinite Octaves is filing/scale grammar, not infinite physical tiers. Not CapEx guarantees.</p>
     </article>
   </main>
 
   <footer class="site-footer">
     <span>FractiSI · Test Drive</span>
-    <span><a href="/talks/aai-symposium-2026/">Talk</a></span>
+    <span><a href="/test-drive/self-paced/">Self-paced</a> · <a href="/talks/aai-symposium-2026/">Talk</a></span>
   </footer>
 </body>
 </html>
