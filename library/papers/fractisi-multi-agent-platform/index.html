@@ -1,20 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FractiSI Multi-Agent Platform Architecture</title>
-  <link rel="stylesheet" href="/css/site.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FractiSI Multi-Agent — Architecture Assessment (Phase 1) · FractiSI Library</title>
+  <meta name="description" content="FractiSI Multi-Agent platform architecture — Tiny Footprint core with coordination, composition, Git awareness, and approval-gated deploy.">
+  <link rel="stylesheet" href="/css/site.css?v=24">
 </head>
 <body>
-  <main class="wrap">
-    <p class="kicker">FractiSI · Library</p>
-    <h1>FractiSI Multi-Agent Platform Architecture</h1>
-    <p>Evolution of FractiSI Multi-Agent into the FractiSI Multi-Agent coordination and composition platform. Workstation 0.2.</p>
-    <p><a href="./PAPER.md">Assessment / paper</a> ·
-       <a href="/docs/install/INSTALL.md">Install</a> ·
-       <a href="/docs/reference/platform-api.md">Platform API</a> ·
-       <a href="/product/admin/">Admin</a></p>
-  </main>
+<header class="nav">
+  <a class="wordmark" href="/">FractiSI</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/product/">Product</a>
+    <a href="/product/pricing/">Pricing</a>
+    <a href="/research/">Research</a>
+    <a href="/library/">Library</a>
+    <a href="/open/">Open</a>
+    <a href="/company/">Company</a>
+    <a href="/recruit/">Recruit</a>
+    <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
+  </nav>
+</header>
+<main class="wrap">
+<article class="paper">
+<p class="kicker">FractiSI · Library</p>
+<h1>FractiSI Multi-Agent — Architecture Assessment (Phase 1)</h1>
+<p class="paper-actions"><a href="/library/">← Library</a> · <a href="/product/">Product</a> · <a href="/product/pricing/">Pricing</a></p>
+<header class="paper-masthead">
+<p><strong>Date:</strong> 2026-11-06</p>
+<p><strong>Company:</strong> FractiSI</p>
+<p><strong>Flagship product:</strong> FractiSI Multi-Agent</p>
+<p><strong>Core technology:</strong> Tiny Footprint (Tiny Gateway™)</p>
+<p><strong>Edition:</strong> Workstation kit evolution (not a greenfield rewrite)</p>
+</header>
+<h2>Current architecture map</h2>
+<table>
+<tr><th>Layer</th><th>Location</th><th>Status before this evolution</th></tr>
+<tr><td>A · Agent execution / memory</td><td><code>src/engine/<em></code>, <code>src/sdk/</em></code>, <code>tiny-footprint/sdk</code></td><td>Shipped — templates, deltas, selective reconstruct, rhyme gate, vectors, broadcast</td></tr>
+<tr><td>B · Coordination</td><td>—</td><td>Missing</td></tr>
+<tr><td>C · Shared project state</td><td>In-process Maps only for templates</td><td>Missing project/task ownership model</td></tr>
+<tr><td>D · Composition</td><td>—</td><td>Missing</td></tr>
+<tr><td>E · Git / versioning</td><td>None (Git used only as host tooling)</td><td>Missing</td></tr>
+<tr><td>F · Test / deploy</td><td>Benchmark + manuscript pipeline only</td><td>Missing product deploy capability</td></tr>
+<tr><td>Install UX</td><td>`node scripts/tiny.mjs doctor</td><td>install</td><td>demo</td><td>benchmark</td><td>report`</td><td>Partial — verify-only install</td></tr>
+<tr><td>External agents</td><td>Adapters README (planned)</td><td>Missing concrete adapters</td></tr>
+</table>
+<h2>Existing capabilities retained</h2>
+<ul>
+<li>Tiny Gateway rhyming templates, codec, catalog, gate</li>
+<li>Nested vectors / selective working sets</li>
+<li>Eight-node shared broadcast demo</li>
+<li>Multi-session workload demo</li>
+<li>Deterministic + measured benchmark pipeline</li>
+<li>Zero npm-dependency Node kit</li>
+<li>FractiSI static marketing site</li>
+<li>Expedition 002 discovery receipts (product docs)</li>
+</ul>
+<h2>Gaps addressed by this evolution</h2>
+<ul>
+<li>Agent registration, lifecycle, permissions, capacity</li>
+<li>Shared project representation + task ownership + dependencies</li>
+<li>Conflict / interference detection (path + interface markers)</li>
+<li>Composition engine with proposed→validated→integrated→deployed states</li>
+<li>Git awareness and scoped workspaces (virtual by default; optional worktrees)</li>
+<li>Deploy approvals (never unvalidated)</li>
+<li>Adapter interface for Cursor / Claude Code / VS Code / OpenAI</li>
+<li>Commercial tiers as entitlements of one product</li>
+<li>Plug-and-play <code>init</code> + config templates + Docker self-host option</li>
+<li>Comparative A/B/C coordination benchmark (measured simulation)</li>
+</ul>
+<h2>Reusable components extended (not replaced)</h2>
+<ul>
+<li><code>src/engine/gateway.mjs</code> — execution core inside <code>createPlatform()</code></li>
+<li><code>src/sdk/index.mjs</code> — now also exports <code>createPlatform</code></li>
+<li><code>src/cli/*</code> — additive commands (<code>init</code>, <code>status</code>, <code>agents</code>, <code>compose</code>, <code>coord-bench</code>)</li>
+<li>Layer gate — new <code>platform</code> layer between <code>engine</code> and <code>sdk</code></li>
+</ul>
+<h2>Target architecture</h2>
+<pre><code>External agents (Cursor / Claude Code / VS Code / OpenAI)
+        │ adapters
+        ▼
+FractiSI Coordination Engine (B) ── Shared project state (C)
+        │                                    │
+        ▼                                    ▼
+Composition Engine (D) ◄──────── Git awareness (E)
+        │
+        ▼
+Validation / FractiSI Deploy (F)
+        │
+Tiny Footprint execution (A) · Tiny Gateway</code></pre>
+<h2>Implementation priorities</h2>
+<ul>
+<li>Platform foundation in <code>src/platform/</code> (complete in this change set)</li>
+<li>CLI + config + admin surface</li>
+<li>Comparative bench receipts</li>
+<li>SING13 architecture paper / ship-blog companion (catalog sync)</li>
+<li>Deeper IDE connectors and live LLM agent trials (remaining)</li>
+</ul>
+<h2>Risks</h2>
+<table>
+<tr><th>Risk</th><th>Mitigation</th></tr>
+<tr><td>Overclaiming multi-agent intelligence</td><td>Honesty rails; architectural sims labeled</td></tr>
+<tr><td>Breaking layer gates / golden fixtures</td><td>Additive layer; no engine golden changes</td></tr>
+<tr><td>Competing product names</td><td>Single product: FractiSI Multi-Agent; Tiny Footprint = core tech</td></tr>
+<tr><td>Git replacement temptation</td><td>Git integration is awareness + workflow above Git</td></tr>
+<tr><td>Stale SING13 <code>products/</code> mirror</td><td>Prefer standalone kit as source of truth</td></tr>
+</table>
+<h2>Known limitations / remaining work</h2>
+<ul>
+<li>Adapters normalize messages; they do not yet drive live Cursor/Claude sessions.</li>
+<li>Composition semantic analysis is marker/heuristic-based, not full program analysis.</li>
+<li>Deploy connectors are approval-gated stubs (no cloud provider ship in this phase).</li>
+<li>Comparative bench is an in-process measured simulation — not GPU/$ production cost.</li>
+<li>100-agent runs are supported in code paths but heavy host timing varies; default bench uses 5/10/25 (+50 with <code>--full</code>).</li>
+</ul>
+<p class="honesty">Architecture assessment for FractiSI Multi-Agent. Lab and product claims stay within honesty rails in companion papers.</p>
+
+</article>
+</main>
+<footer class="site-footer">
+  <span>FractiSI · Library</span>
+  <span>
+    <a href="/library/">All papers</a>
+    · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+    · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+  </span>
+</footer>
 </body>
 </html>
