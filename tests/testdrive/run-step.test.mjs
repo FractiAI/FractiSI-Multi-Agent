@@ -7,7 +7,7 @@ test('catalog lists primer through 7 with product layers', () => {
   assert.equal(steps.length, 8);
   assert.equal(steps[0].id, 'primer');
   assert.match(steps[0].title, /Architecture primer|FractiSI Multi-Agent/);
-  assert.match(steps[0].component, /Infinite Possibilities Lattice|Tiny Gateway/);
+  assert.match(steps[0].component, /Generative possibility|Tiny Gateway/);
   assert.match(steps[3].component, /Rhyming Templates/);
   assert.match(steps[3].short, /Net Zero|octaves/i);
   assert.match(steps[6].layer, /Coordination/);
@@ -26,13 +26,13 @@ test('each step returns structured live results naming components', () => {
     assert.ok(typeof out.ms === 'number');
   }
   const primer = runTestDriveStep('primer').step.lines.join('\n');
-  assert.match(primer, /Infinite Possibilities Lattice/);
+  assert.match(primer, /Generative possibility/);
   assert.match(primer, /Net Zero/);
   assert.match(primer, /Φ_EGS|1\.618/);
   assert.match(primer, /Infinite Octaves/);
   assert.match(primer, /Boundary nodes/);
   assert.match(primer, /Recursive trees/);
-  assert.match(primer, /Polygons within a circle|Polygons-in-circle/);
+  assert.match(primer, /3D Hexagon|eight-node/);
   assert.match(primer, /Wave/);
   assert.match(primer, /Awareness/);
   assert.match(primer, /Rhyming Templates/);
