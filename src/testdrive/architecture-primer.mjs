@@ -3,12 +3,14 @@
  * Shared by Test Drive (CLI / API) and the product page.
  *
  * Voice: frontier product engineering — concrete, short, locked names.
- * Rhyme definition: src/testdrive/rhyme-definition.mjs ← gate.mjs + holographic-rhyme paper.
+ * Net Zero first: src/testdrive/net-zero-definition.mjs ← singularity crystal + Goldilocks≡Net Zero.
+ * Then rhyme: src/testdrive/rhyme-definition.mjs ← gate.mjs + holographic-rhyme paper.
  */
 
+import { NET_ZERO_DEFINITION, netZeroDefinitionLines } from './net-zero-definition.mjs';
 import { RHYME_DEFINITION, rhymeDefinitionLines } from './rhyme-definition.mjs';
 
-export { RHYME_DEFINITION, rhymeDefinitionLines };
+export { NET_ZERO_DEFINITION, netZeroDefinitionLines, RHYME_DEFINITION, rhymeDefinitionLines };
 
 export const ARCHITECTURE_PRIMER = Object.freeze({
   title: 'FractiSI Multi-Agent · stack map',
@@ -24,9 +26,8 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
     },
     {
       id: 'net-zero',
-      name: 'Net Zero (octave 0)',
-      body:
-        'Root of the shared world. Active equilibrium, not empty void. A holographic rhyme must root here; mid-octave nests without Net Zero fail the gate.',
+      name: NET_ZERO_DEFINITION.name,
+      body: `${NET_ZERO_DEFINITION.lede} ${NET_ZERO_DEFINITION.body} ${NET_ZERO_DEFINITION.productRole}`,
     },
     {
       id: 'phi',
@@ -38,7 +39,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
       id: 'octaves',
       name: 'Infinite Octaves',
       body:
-        'Nesting depth above Net Zero. Digits × Octaves 01–99 is a filing map. “Infinite” = depth of organization, not infinite measured physics tiers.',
+        `Nesting depth above ${NET_ZERO_DEFINITION.shortName}. Digits × Octaves 01–99 is a filing map. “Infinite” = depth of organization, not infinite measured physics tiers.`,
     },
     {
       id: 'boundary',
@@ -50,7 +51,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
       id: 'rhyme',
       name: 'Holographic rhyme (four-pillar gate)',
       body:
-        `${RHYME_DEFINITION.lede} ${RHYME_DEFINITION.gate} Pillars: repeating · self-similar · self-correcting · recursive. Not a rhyme: exact-text / prefix cache alone, schema-key match alone, brick-wall repetition, or mid-octave nest without Net Zero.`,
+        `${RHYME_DEFINITION.lede} ${RHYME_DEFINITION.gate} Pillars: repeating · self-similar · self-correcting · recursive. Not a rhyme: exact-text / prefix cache alone, schema-key match alone, brick-wall repetition, or mid-octave nest without ${NET_ZERO_DEFINITION.shortName}.`,
     },
     {
       id: 'trees',
@@ -87,7 +88,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
   chain:
     'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent',
   honesty:
-    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
+    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Net Zero ≠ dead stillness / climate slogan. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
 });
 
 /** Plain-text lines for CLI / API results panels. */
@@ -106,6 +107,9 @@ export function architecturePrimerLines() {
     lines.push(`    ${s.body}`);
     lines.push('');
   }
+  // Define Net Zero before the rhyme gate that roots on it.
+  lines.push(...netZeroDefinitionLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
+  lines.push('');
   lines.push(...rhymeDefinitionLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
   lines.push('');
   lines.push('  Symposium kinship (separate word use)');
