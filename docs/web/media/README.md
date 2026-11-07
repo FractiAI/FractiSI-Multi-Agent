@@ -1,6 +1,6 @@
 # FractiSI site media
 
-Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = Layer A core).
+Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = shared-world execution core).
 
 | File | Role |
 |------|------|

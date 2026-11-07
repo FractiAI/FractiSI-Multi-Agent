@@ -83,4 +83,4 @@ node scripts/tiny.mjs join             # industry testing signup
 
 Full detail: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · product story: [README.md](./README.md).
 
-Tiny Footprint remains the Layer A execution core inside FractiSI Multi-Agent.
+Tiny Footprint remains the shared-world execution core inside FractiSI Multi-Agent.

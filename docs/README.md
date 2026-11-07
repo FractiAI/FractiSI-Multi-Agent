@@ -1,6 +1,6 @@
 # Documentation · FractiSI Multi-Agent
 
-**FractiSI Multi-Agent** is the flagship product. **Tiny Footprint** is the Layer A execution core (shared world once, per-agent deltas). This folder holds the product story, architecture, install guide, benchmark method and results, manuscript, and contributor guides.
+**FractiSI Multi-Agent** is the flagship product. **Tiny Footprint** is the shared-world execution core (shared world once, per-agent deltas). This folder holds the product story, architecture, install guide, benchmark method and results, manuscript, and contributor guides.
 
 **Root product README (rich):** [`../README.md`](../README.md)
 

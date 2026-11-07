@@ -1,6 +1,6 @@
 # FractiSI Multi-Agent · Product
 
-**Product name lock:** customers hear **FractiSI Multi-Agent**. **Tiny Footprint** is the Layer A execution core (powered by **Tiny Gateway™**). DRAM concurrency is the engine. SQL/network adapters are later — not separate diluted SKUs.
+**Product name lock:** customers hear **FractiSI Multi-Agent**. **Tiny Footprint** is the shared-world execution core (powered by **Tiny Gateway™**). DRAM concurrency is the engine. SQL/network adapters are later — not separate diluted SKUs.
 
 ## Positioning
 
@@ -37,7 +37,7 @@ Full guide: [../install/INSTALL.md](../install/INSTALL.md) · root README.
 
 ## Platform (Workstation 0.2)
 
-Layers A–F: Tiny Footprint execution · coordination · shared state · composition · Git awareness · optional deploy.
+Tiny Footprint · Layers B–F: Tiny Footprint execution · coordination · shared state · composition · Git awareness · optional deploy.
 
 See [architecture assessment](../architecture/FRACTISI_MULTI_AGENT_PLATFORM_ASSESSMENT_2026-11.md) · platform paper [/library/papers/fractisi-multi-agent-platform/](/library/papers/fractisi-multi-agent-platform/).
 

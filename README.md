@@ -70,7 +70,7 @@ This kit is the **Local / Workstation** edition (Community free). Server and Clo
 
 | Layer | What it does |
 |-------|----------------|
-| **A · Tiny Footprint execution** | Shared templates, agent deltas, selective reconstruct |
+| **Tiny Footprint execution** | Shared templates, agent deltas, selective reconstruct |
 | **B · Coordination** | Agent registry, task ownership, interference detection |
 | **C · Shared state** | Project / module / contribution representation |
 | **D · Composition** | Evaluate, validate, integrate, rollback contributions |
@@ -187,7 +187,7 @@ Full install guide: [docs/install/INSTALL.md](./docs/install/INSTALL.md) · [QUI
 - **Your token stays yours.** Used only for Vercel API calls when you opt into `--deploy` / sandbox deploy. Never committed by `try`.  
 - **Your remotes stay yours.** FractiSI coordinates beside Cursor, Claude Code, VS Code, GitHub/GitLab, and CI.  
 - **Deploy is optional.** Real workloads compose + commit locally by default.  
-- **Tiny Footprint** is Layer A. Layers B–F are the platform around it.
+- **Tiny Footprint** is the shared-world execution core. Layers B–F are the platform around it.
 
 ---
 
@@ -356,7 +356,7 @@ Rendering the PDF needs a [docxology/template](https://github.com/docxology/temp
 
 Pricing plans are at the **[top of this README](#pricing-plans)**. Full page: [/product/pricing/](./product/pricing/) · [spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md) · hub https://fractisi.vercel.app/product/pricing/
 
-**Product name lock:** customers hear **FractiSI Multi-Agent**. Tiny Footprint is the Layer A core. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs. Proposed launch prices — not established market rates; paid tiers sell when features are operational.
+**Product name lock:** customers hear **FractiSI Multi-Agent**. Tiny Footprint is the shared-world execution core. DRAM is the engine. SQL/network are later adapters — not separate diluted SKUs. Proposed launch prices — not established market rates; paid tiers sell when features are operational.
 
 ---
 

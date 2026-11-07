@@ -2,7 +2,7 @@
  * Shared Test Drive step runners — CLI, self-paced web, and /api/testdrive.
  * Narrative locked to the real FractiSI Multi-Agent product stack:
  * Infinite Octaves · holographic rhyme · Tiny Gateway Rhyming Templates ·
- * Tiny Footprint (Layer A) · Layers B–F (coordination → deploy).
+ * Tiny Footprint · Layers B–F (coordination → deploy).
  */
 import { gzipSync } from 'node:zlib';
 import { runMultiSessionDemo } from '../workloads/multi-session.mjs';
@@ -39,17 +39,17 @@ export const STEP_CATALOG = Object.freeze([
   {
     id: '1',
     n: 1,
-    title: 'Layer A · Tiny Footprint shared world',
+    title: 'Tiny Footprint · shared world',
     short: 'Shared world once · agent deltas',
-    layer: 'A · Tiny Footprint execution',
+    layer: 'Tiny Footprint execution',
     component: 'Tiny Footprint · templates + deltas · selective reconstruct',
   },
   {
     id: '2',
     n: 2,
-    title: 'Layer A · after gzip, architecture still matters',
+    title: 'Tiny Footprint · after gzip, architecture still matters',
     short: 'Gzip residual · share first',
-    layer: 'A · Tiny Footprint execution',
+    layer: 'Tiny Footprint execution',
     component: 'Tiny Footprint shared-world pack (vs N full copies)',
   },
   {
@@ -57,7 +57,7 @@ export const STEP_CATALOG = Object.freeze([
     n: 3,
     title: 'Tiny Gateway · Rhyming Templates vs exact cache',
     short: 'Holographic rhyme · Net Zero → octaves',
-    layer: 'A · Tiny Gateway™ engine',
+    layer: 'Tiny Gateway™ engine',
     component: 'Rhyming Templates · Infinite Octaves · four-pillar holographic rhyme',
   },
   {
@@ -65,7 +65,7 @@ export const STEP_CATALOG = Object.freeze([
     n: 4,
     title: 'Selective reconstruction · discovery',
     short: 'Relationship-guided recovery',
-    layer: 'A · nested vectors · selective reconstruct',
+    layer: 'Tiny Gateway · nested vectors · selective reconstruct',
     component: 'Tiny Gateway selective reconstruction · Expedition 002 E2',
   },
   {
@@ -73,7 +73,7 @@ export const STEP_CATALOG = Object.freeze([
     n: 5,
     title: 'Selective reconstruction · convergence',
     short: 'Fewer rounds & ops',
-    layer: 'A · nested vectors · selective reconstruct',
+    layer: 'Tiny Gateway · nested vectors · selective reconstruct',
     component: 'Tiny Gateway guided path · Expedition 002 E2',
   },
   {
@@ -89,7 +89,7 @@ export const STEP_CATALOG = Object.freeze([
     n: 7,
     title: 'Density · Layers E–F · Community',
     short: 'More agents · Git · paid deploy',
-    layer: 'A density · E Git · F Deploy (paid)',
+    layer: 'Tiny Footprint density · E Git · F Deploy (paid)',
     component: 'Tiny Footprint density · Git awareness · approval-gated deploy',
   },
 ]);
@@ -148,10 +148,10 @@ function run1() {
   const m = meta('1');
   const multi = runMultiSessionDemo(12);
   return base(m, {
-    problem: 'Without Layer A, every agent reprints a full copy of the shared world.',
+    problem: 'Without Tiny Footprint, every agent reprints a full copy of the shared world.',
     opportunity: 'Tiny Footprint registers the world once; agents keep only local deltas.',
     fractisi: [
-      'Component: Tiny Footprint (Layer A execution core, powered by Tiny Gateway™).',
+      'Component: Tiny Footprint (execution core, powered by Tiny Gateway™).',
       'Mechanism: shared templates + per-agent deltas + selective reconstruct.',
     ],
     lines: [
@@ -161,7 +161,7 @@ function run1() {
       `  Tiny Footprint shared+deltas: ${multi.prefixReuse.bytes} B`,
       `  Reduction vs full copies:      ${pct(multi.prefixByteReduction)}`,
       '',
-      '  → Same sessions. Layer A stops paying N reprints of one world.',
+      '  → Same sessions. Tiny Footprint stops paying N reprints of one world.',
     ],
     metrics: {
       conventionalBytes: multi.conventional.bytes,
@@ -192,7 +192,7 @@ function run2() {
     problem: 'Gzip / pack compression shrinks copies — it does not remove N-copy structure.',
     opportunity: 'Tiny Footprint shares the world first; compression becomes optional polish.',
     fractisi: [
-      'Component: Tiny Footprint shared-world pack (Layer A).',
+      'Component: Tiny Footprint shared-world pack.',
       'Claim discipline: gzip residual is structural — not “compression theater.”',
     ],
     lines: [
@@ -351,7 +351,7 @@ function run6() {
   }
   lines.push(
     '',
-    '  → Layer A alone densifies. Layers B–D change how fleets collide and compose.',
+    '  → Tiny Footprint alone densifies. Layers B–D change how fleets collide and compose.',
     '    (In-process platform simulation — not a production CapEx claim.)',
   );
   return base(m, {
@@ -378,7 +378,7 @@ function run7() {
     problem: 'Duplicated context burns the budget before specialized agent work begins.',
     opportunity: 'Tiny Footprint density + Git awareness; cloud deploy unlocks as paid Layer F.',
     fractisi: [
-      'Layer A density — more agents inside the same representation budget.',
+      'Tiny Footprint density — more agents inside the same representation budget.',
       'Layer E Git awareness — commits / worktrees on your repo (Community).',
       'Layer F Deploy — approval-gated publish; paid (Team · Enterprise · Cloud).',
     ],
@@ -392,7 +392,7 @@ function run7() {
       `  Shared pack size:                     ${multi.prefixReuse.bytes} B`,
       '',
       '  Community (free)',
-      '    · GitHub clone = signup · Layer A–E local path · Git commits',
+      '    · GitHub clone = signup · Tiny Footprint · Layers B–E local path · Git commits',
       '    · Cloud token + FRACTISI_EDITION unlock Layer F deploy (paid)',
       '',
       '  Pricing  https://fractisi.vercel.app/product/pricing/',

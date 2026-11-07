@@ -8,12 +8,12 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack. Primer = plain-English first listen **inside** the Test Drive ([`/test-drive/self-paced/#primer`](https://fractisi.vercel.app/test-drive/self-paced/#primer)) — do not send the audience to the product page for it. Framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too** in a shared world (**not** framework identity).
 
-**Primer (plain English, inside Test Drive):** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent. Self-paced opens on `/test-drive/self-paced/#primer` — do not send the audience to the product page for the primer.
+**Primer (plain English, inside Test Drive):** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers B–F → FractiSI Multi-Agent. Self-paced opens on `/test-drive/self-paced/#primer` — do not send the audience to the product page for the primer.
 
 Then live labs:
 
-1. **Layer A · Tiny Footprint** — shared world + deltas  
-2. **Layer A** after gzip  
+1. **Tiny Footprint** — shared world + deltas  
+2. **Tiny Footprint** after gzip  
 3. **Tiny Gateway · Rhyming Templates** vs exact cache (Net Zero → octaves)  
 4–5. **Selective reconstruction** — discovery / convergence  
 6. **Layers B–D** — coordination · shared state · composition  
@@ -44,9 +44,9 @@ node scripts/tiny.mjs testdrive list
 
 | Step | Product focus | Live lab |
 |------|---------------|----------|
-| 0 | Product map · Infinite Octaves → Layers A–F | Primer narrative |
-| 1 | **Layer A · Tiny Footprint** shared world + deltas | N copies vs shared+deltas |
-| 2 | **Layer A** after gzip | Gzip residual |
+| 0 | Product map · Infinite Octaves → Tiny Footprint · Layers B–F | Primer narrative |
+| 1 | **Tiny Footprint** shared world + deltas | N copies vs shared+deltas |
+| 2 | **Tiny Footprint** after gzip | Gzip residual |
 | 3 | **Tiny Gateway · Rhyming Templates** vs exact cache | Rhyme vs exact-text (Net Zero → octaves) |
 | 4 | **Selective reconstruction · discovery** | Exp 002 E2 · 100/100 vs 0/100 |
 | 5 | **Selective reconstruction · convergence** | −50% rounds · −85% ops |
@@ -64,7 +64,7 @@ node scripts/tiny.mjs testdrive list
 
 1. Clone or open `FractiSI-Multi-Agent` (Node 18+, Git).  
 2. Run `testdrive` (full) or the step on the current slide / self-paced card.  
-3. **Name the components out loud** as they print — Infinite Octaves, Rhyming Templates, Tiny Gateway, Tiny Footprint, Layers A–F.  
+3. **Name the components out loud** as they print — Infinite Octaves, Rhyming Templates, Tiny Gateway, Tiny Footprint, Tiny Footprint · Layers B–F.  
 4. Emphasize step 3 (rhyme) and steps 4–5 (discovery / convergence).  
 5. Close with Community setup and paid Layer F deploy.  
 6. Offer links: self-paced · talk · Tiny Gateway paper · Tiny Footprint paper · pricing · Exp 002.
