@@ -6,7 +6,7 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ## What this Test Drive is
 
-A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack. Primer = full architecture synthesis (also on [`/product/#architecture-primer`](https://fractisi.vercel.app/product/#architecture-primer)). Framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too** in a shared world (**not** framework identity).
+A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack. Primer = plain-English first listen **inside** the Test Drive ([`/test-drive/self-paced/#primer`](https://fractisi.vercel.app/test-drive/self-paced/#primer)) — do not send the audience to the product page for it. Framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too** in a shared world (**not** framework identity).
 
 **Primer (plain English, inside Test Drive):** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Recursive trees / holographic rhyme → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Layers A–F → FractiSI Multi-Agent. Self-paced opens on `/test-drive/self-paced/#primer` — do not send the audience to the product page for the primer.
 
