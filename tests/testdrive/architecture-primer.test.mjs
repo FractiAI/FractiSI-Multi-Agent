@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   ARCHITECTURE_PRIMER,
   architecturePrimerLines,
+  NET_ZERO_DEFINITION,
   RHYME_DEFINITION,
 } from '../../src/testdrive/architecture-primer.mjs';
 import { FOUR_PILLARS } from '../../src/engine/rhyming/gate.mjs';
@@ -42,7 +43,16 @@ test('architecture primer includes the full synthesis spine with locked names', 
   );
   assert.match(ARCHITECTURE_PRIMER.title, /stack map/i);
   assert.match(ARCHITECTURE_PRIMER.lede, /shared world/i);
-  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /Root of the shared world/i);
+  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /active-equilibrium/i);
+  assert.match(ARCHITECTURE_PRIMER.steps[1].body, /not an empty void/i);
+});
+
+test('locked Net Zero definition precedes rhyme and matches catalog peers', () => {
+  assert.match(NET_ZERO_DEFINITION.lede, /active-equilibrium/i);
+  assert.match(NET_ZERO_DEFINITION.body, /Goldilocks/i);
+  assert.ok(NET_ZERO_DEFINITION.notNetZero.some((n) => /climate/i.test(n)));
+  assert.ok(NET_ZERO_DEFINITION.notNetZero.some((n) => /stillness|void/i.test(n)));
+  assert.match(NET_ZERO_DEFINITION.productRole, /Rhymes/i);
 });
 
 test('locked rhyme definition matches the four-pillar gate', () => {
@@ -52,19 +62,25 @@ test('locked rhyme definition matches the four-pillar gate', () => {
     FOUR_PILLARS.slice(),
   );
   assert.match(RHYME_DEFINITION.gate, /Net Zero/);
+  assert.match(RHYME_DEFINITION.gate, /active-equilibrium/i);
   assert.match(RHYME_DEFINITION.lede, /not a prefix-cache hit/i);
   assert.ok(RHYME_DEFINITION.notARhyme.some((n) => /prefix/i.test(n)));
   assert.ok(RHYME_DEFINITION.notARhyme.some((n) => /brick-wall/i.test(n)));
   assert.match(RHYME_DEFINITION.symposiumKinship, /not framework identity/i);
 });
 
-test('primer lines are printable for CLI/API and define rhyme', () => {
+test('primer lines define Net Zero before rhyme', () => {
   const lines = architecturePrimerLines();
   const blob = lines.join('\n');
   assert.ok(lines.length > 20);
   assert.match(blob, /Net Zero/);
   assert.match(blob, /Generative possibility/);
+  assert.match(blob, /WHAT WE MEAN BY NET ZERO/);
+  assert.match(blob, /active-equilibrium/);
   assert.match(blob, /WHAT WE MEAN BY RHYME/);
+  const nzAt = blob.indexOf('WHAT WE MEAN BY NET ZERO');
+  const rhymeAt = blob.indexOf('WHAT WE MEAN BY RHYME');
+  assert.ok(nzAt >= 0 && rhymeAt > nzAt, 'Net Zero definition must print before rhyme');
   assert.match(blob, /Repeating/);
   assert.match(blob, /Self-similar/);
   assert.match(blob, /Self-correcting/);

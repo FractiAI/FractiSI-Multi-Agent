@@ -2,6 +2,7 @@
  * Locked FractiSI / SynthOBS definition of rhyme for Test Drive surfaces.
  *
  * Canonical sources (do not invent alternatives):
+ * - src/testdrive/net-zero-definition.mjs (define Net Zero BEFORE this gate)
  * - src/engine/rhyming/gate.mjs (FOUR_PILLARS · auditRhyme · Net Zero root)
  * - library/papers/holographic-rhyme/ (four-pillar catalog grammar)
  * - research/.../SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md
@@ -12,6 +13,11 @@
  * structural kinship for joint experiments — not the four-pillar software gate,
  * and not framework identity.
  */
+
+import { NET_ZERO_DEFINITION } from './net-zero-definition.mjs';
+
+const NZ = NET_ZERO_DEFINITION.shortName;
+const NZ_FULL = NET_ZERO_DEFINITION.name;
 
 export const RHYME_FOUR_PILLARS = Object.freeze([
   {
@@ -27,12 +33,12 @@ export const RHYME_FOUR_PILLARS = Object.freeze([
   {
     id: 'self_correcting',
     name: 'Self-correcting',
-    body: 'Drift dampens toward Net Zero (octave 0) — equilibrium pull, not unchecked phase wander.',
+    body: `Drift dampens toward ${NZ_FULL} — pull toward active equilibrium, not unchecked phase wander.`,
   },
   {
     id: 'recursive',
     name: 'Recursive',
-    body: 'Nests from Net Zero up an ascending Infinite Octaves ladder — not a closed dead loop, not a mid-octave leaf with no root.',
+    body: `Nests from ${NZ_FULL} up an ascending Infinite Octaves ladder — not a closed dead loop, not a mid-octave leaf with no root.`,
   },
 ]);
 
@@ -40,14 +46,13 @@ export const RHYME_DEFINITION = Object.freeze({
   title: 'What we mean by rhyme',
   lede:
     'A holographic rhyme is motion / organization grammar under Infinite Octaves — not a synonym for “sounds alike,” not exact-text match, and not a prefix-cache hit.',
-  gate:
-    'A candidate is a rhyme only when all four pillars pass, rooted at Net Zero (octave 0) and nested through ascending octaves.',
+  gate: `A candidate is a rhyme only when all four pillars pass, rooted at ${NZ_FULL} (active-equilibrium home base — see Net Zero definition) and nested through ascending octaves.`,
   pillars: RHYME_FOUR_PILLARS,
   notARhyme: Object.freeze([
     'Exact-text identity or prefix-cache reuse alone',
     'Schema-key match alone',
     'Brick-wall repetition (repeats without self-similarity, recursion, and self-correction)',
-    'A mid-octave nest with no Net Zero root',
+    `A mid-octave nest with no ${NZ} root`,
   ]),
   product:
     'Rhyming Templates (Tiny Gateway) are reusable organizational patterns that pass this gate — so differently worded sessions can share structure and reconstruct selectively.',

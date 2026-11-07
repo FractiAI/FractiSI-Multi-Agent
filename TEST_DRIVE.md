@@ -10,15 +10,23 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 Framed for the Applied Active Inference Symposium as **structural kinship** (“possible rhyme”) with Active Inference: **humans are agents too** in a shared world (**not** framework identity, **not** the four-pillar software gate).
 
+### What we mean by Net Zero (locked · define before rhyme)
+
+Canonical: `src/testdrive/net-zero-definition.mjs` · singularity-crystal / Goldilocks≡Net Zero / Topology of the Void peers.
+
+**Net Zero (octave 0)** is the **active-equilibrium** root of the shared world — cancel-to-balance under continuous activity, not an empty void and not a dead stop. Opposing contributions cancel into a viable operating band while work continues. Here **Goldilocks ≡ Net Zero** (viable band = active equilibrium). Stillness is not required. Rhymes and nested structure hang from octave 0.
+
+**Not Net Zero here:** empty void · dead stillness · climate-policy “net zero” slogans · certified zero-watt SI · GR singularity proofs.
+
 ### What we mean by rhyme (locked)
 
 Canonical gate: `src/engine/rhyming/gate.mjs` · papers `/library/papers/holographic-rhyme/` · `/library/papers/tiny-gateway-rhyming-templates/`.
 
-A **holographic rhyme** passes **all four pillars**, rooted at **Net Zero (octave 0)** and ascending **Infinite Octaves**:
+A **holographic rhyme** passes **all four pillars**, rooted at **Net Zero (octave 0)** — the active-equilibrium home base above — and ascending **Infinite Octaves**:
 
 1. **Repeating** — same organization across expressions (shape; words may differ)
 2. **Self-similar** — local blueprint mirrors the whole
-3. **Self-correcting** — drift dampens toward Net Zero
+3. **Self-correcting** — drift dampens toward Net Zero (active equilibrium)
 4. **Recursive** — nests from Net Zero up the octave ladder
 
 **Not a rhyme:** exact-text / prefix alone · schema-key match alone · brick-wall repetition · mid-octave nest without Net Zero.
@@ -33,8 +41,8 @@ Then live labs:
 2. **Tiny Footprint** after gzip  
 3. **Tiny Gateway · Rhyming Templates** vs exact cache (four-pillar gate)  
 4–5. **Selective reconstruction** — discovery / convergence  
-6. **Coordination · Shared state · Composition** — coordination · shared state · composition  
-7. **Density · E Git · F deploy (paid)**
+6. **Coordination · Shared state · Composition**  
+7. **Density · Git awareness · Deploy (paid)**
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
