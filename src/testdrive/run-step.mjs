@@ -27,8 +27,8 @@ export const STEP_CATALOG = Object.freeze([
     id: 'primer',
     n: 0,
     title: 'FractiSI Multi-Agent · product cold start',
-    short: 'Product stack · Infinite Octaves → Layers A–F',
-    layer: 'Product map',
+    short: 'Active Inference rhyme · Infinite Octaves → Layers A–F',
+    layer: 'Product map · Active Inference rhyme',
     component: 'FractiSI Multi-Agent · Tiny Footprint · Tiny Gateway™',
   },
   {
@@ -115,7 +115,7 @@ function base(meta, fields) {
     metrics: fields.metrics || {},
     next: NEXT[meta.id],
     honesty:
-      'Architectural / structured-state FractiSI labs — Tiny Footprint / Tiny Gateway / platform layers. Not CapEx guarantees. Not an LLM multi-agent bake-off. Infinite Octaves = filing / scale grammar, not infinite physical tiers.',
+      'Architectural / structured-state FractiSI labs — Tiny Footprint / Tiny Gateway / platform layers. Not CapEx guarantees. Not an LLM multi-agent bake-off. Infinite Octaves = filing / scale grammar, not infinite physical tiers. “Possible rhyme” with Active Inference (humans as agents in a shared world) is an interdisciplinary invitation — not framework identity.',
   };
 }
 
@@ -129,17 +129,26 @@ function runPrimer() {
   const m = meta('primer');
   return base(m, {
     fractisi: [
+      'Active Inference rhyme (possible, not identity): humans are agents too — operators in the same shared world as software agents',
       'Product: FractiSI Multi-Agent — shared-world intelligence & coordination beside Cursor / Claude Code / VS Code / Git',
       'Grammar: Infinite Octaves — Net Zero (octave 0) → ascending octave ladder for nested organization',
       'Engine: Tiny Gateway™ — Rhyming Templates · nested vectors · selective reconstruction',
-      'Layer A: Tiny Footprint — shared world once · per-agent deltas · denser fleets',
+      'Layer A: Tiny Footprint — shared world once · agent deltas · denser fleets',
       'Layers B–F: Coordination · Shared state · Composition · Git awareness · Deploy (paid on Team+)',
     ],
     lines: [
       'FRACTISI MULTI-AGENT · product map',
       '',
+      '  Active Inference Symposium framing',
+      '    · FractiSI Multi-Agent is offered as a possible rhyme with Active Inference:',
+      '      many agents — including humans — operating in one shared world,',
+      '      each keeping different observations, beliefs, and actions,',
+      '      without every participant reprinting a private full copy of that world.',
+      '    · “Rhyme” means structural kinship for joint experiments — not equivalence.',
+      '',
       '  FractiSI Multi-Agent is not another coding assistant or model swap.',
-      '  It is the coordination platform around a shared computational world.',
+      '  It is the coordination platform around a shared computational world',
+      '  where human and software agents can both participate.',
       '',
       '  Infinite Octaves (grammar)',
       '    · Net Zero = octave 0 origin / equilibrium',
@@ -161,7 +170,11 @@ function runPrimer() {
       '  Self-paced: each next step runs a live lab for that layer/component.',
       '  No FractiSI account. No cloud token for this walkthrough.',
     ],
-    metrics: { mode: 'primer', layers: ['A', 'B', 'C', 'D', 'E', 'F'] },
+    metrics: {
+      mode: 'primer',
+      layers: ['A', 'B', 'C', 'D', 'E', 'F'],
+      activeInferenceRhyme: 'possible_not_identity',
+    },
   });
 }
 

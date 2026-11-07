@@ -6,13 +6,14 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ## What this Test Drive is
 
-A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack:
+A **product-aligned walkthrough** of the real FractiSI Multi-Agent stack, framed for the Applied Active Inference Symposium as a **possible rhyme** with Active Inference: **humans are agents too**, operating in a shared world alongside software agents (structural kinship for joint experiments — **not** framework identity).
 
-1. **Infinite Octaves** grammar — Net Zero (octave 0) → ascending nested organization  
-2. **Holographic rhyme** — repeating · self-similar · self-correcting · recursive  
-3. **Tiny Gateway™** — Rhyming Templates · nested vectors · selective reconstruction  
-4. **Tiny Footprint (Layer A)** — shared world once · agent deltas  
-5. **Layers B–F** — Coordination · Shared state · Composition · Git awareness · Deploy (paid)
+1. **Shared world · many agents (including humans)** — Active Inference rhyme invite  
+2. **Infinite Octaves** grammar — Net Zero (octave 0) → ascending nested organization  
+3. **Holographic rhyme** — repeating · self-similar · self-correcting · recursive  
+4. **Tiny Gateway™** — Rhyming Templates · nested vectors · selective reconstruction  
+5. **Tiny Footprint (Layer A)** — shared world once · agent deltas  
+6. **Layers B–F** — Coordination · Shared state · Composition · Git awareness · Deploy (paid)
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
