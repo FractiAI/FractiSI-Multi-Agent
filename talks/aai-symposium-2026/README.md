@@ -17,14 +17,7 @@
 
 ## Audience follow-along (IDE stations)
 
-Share **[/test-drive/](/test-drive/)** at the start of the talk. Links on the deck open in a new tab.
-
-| Station | What they do |
-|---------|----------------|
-| A | `git clone` the Workstation kit |
-| B | `doctor` → `demo` → `benchmark` → `report` (no cloud token) |
-| C | Optional `node scripts/tiny.mjs try` with their own Vercel token |
-| Browser | Click product / papers / research while listening |
+Share **[/test-drive/](/test-drive/)** — a 1 · 2 · 3 dashboard: open the talk, clone the kit, run the local demo. Deck links open in a new tab.
 
 ## Parts
 

@@ -3,67 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FractiSI Multi-Agent Test Drive · Follow along</title>
-  <meta name="description" content="Follow along with the Applied Active Inference Symposium talk. Click site links and run FractiSI Multi-Agent demos from your IDE station.">
-  <link rel="stylesheet" href="../css/site.css?v=26">
+  <title>Test Drive · FractiSI Multi-Agent</title>
+  <meta name="description" content="FractiSI Multi-Agent Test Drive — three steps: open the talk, clone the kit, run the demo.">
+  <link rel="stylesheet" href="../css/site.css?v=27">
   <style>
-    .station {
-      border: 1px solid var(--line);
+    .dash {
+      display: grid;
+      gap: 1rem;
+      margin: 1.75rem 0 2rem;
+    }
+    @media (min-width: 900px) {
+      .dash { grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
+    }
+    .step {
       background: var(--paper);
-      padding: 1.1rem 1.2rem 1.25rem;
-      margin: 1rem 0;
+      border: 1px solid var(--line);
+      padding: 1.35rem 1.25rem 1.45rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
-    .station h3 { margin: 0 0 0.35rem; font-size: 1.25rem; font-weight: 500; }
-    .station .req {
+    .step .n {
       font-family: var(--sans);
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin: 0 0 0.75rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.55rem;
     }
-    .station pre, .cmd {
+    .step h2 {
+      margin: 0 0 0.55rem;
+      font-size: 1.55rem;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+    .step p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.4;
+      flex: 1;
+    }
+    .step pre {
+      margin: 0 0 1rem;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
       background: #14120e;
       color: #f4f1ea;
-      padding: 0.85rem 1rem;
+      padding: 0.75rem 0.85rem;
       overflow-x: auto;
-      margin: 0.55rem 0;
-      border-radius: 0.35rem;
-      line-height: 1.45;
+      border-radius: 0.3rem;
     }
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem 0.85rem;
-      margin: 0.85rem 0 0;
-      font-family: var(--sans);
-      font-size: 0.95rem;
-    }
-    .cta-row a.pill {
+    .step a.go {
       display: inline-block;
+      align-self: flex-start;
+      font-family: var(--sans);
+      font-weight: 650;
+      font-size: 0.95rem;
+      text-decoration: none;
       background: var(--ink);
       color: var(--bg);
-      text-decoration: none;
-      padding: 0.45rem 0.85rem;
+      padding: 0.55rem 0.95rem;
       border-radius: 999px;
-      font-weight: 650;
     }
-    .cta-row a.ghost {
-      color: var(--accent);
-      font-weight: 650;
-    }
-    .map td, .map th {
-      border-top: 1px solid var(--line);
-      padding: 0.55rem 0.35rem;
-      text-align: left;
-      vertical-align: top;
-      font-size: 0.98rem;
-    }
-    .map th {
+    .step a.go:hover { opacity: 0.9; }
+    .more {
       font-family: var(--sans);
-      font-size: 0.8rem;
-      color: var(--accent);
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0;
     }
+    .more a { color: var(--accent); font-weight: 650; }
   </style>
 </head>
 <body>
@@ -71,132 +82,61 @@
     <a class="wordmark" href="/">FractiSI</a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
-      <a href="/product/pricing/">Pricing</a>
       <a href="/test-drive/">Test Drive</a>
       <a href="/blog/">Blog</a>
       <a href="/research/">Research</a>
       <a href="/library/">Library</a>
-      <a href="/open/">Open</a>
-      <a href="/company/">Company</a>
-      <a class="button" href="/talks/aai-symposium-2026/" target="_blank" rel="noopener">Open the talk</a>
+      <a class="button" href="/talks/aai-symposium-2026/">Open the talk</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <article class="page">
-      <p class="kicker">Test Drive · Applied Active Inference Symposium · Nov 12–13, 2026</p>
-      <h1>Follow along from your IDE</h1>
-      <p class="lede">One Shared World. Many Agents. Coordinated Work. Composed Results.</p>
-      <p>Audience with a laptop or IDE station: keep this page open beside the talk. Click the site links as the speaker advances. Run the demos below in your own terminal — no FractiSI account required for the local path.</p>
+    <article class="page" style="max-width:58rem;margin:0 auto">
+      <p class="kicker">Test Drive · AAI Symposium · Nov 12–13, 2026</p>
+      <h1>FractiSI Multi-Agent</h1>
+      <p class="lede">One shared world. Many agents. Follow along in three steps.</p>
 
-      <div class="cta-row">
-        <a class="pill" href="/talks/aai-symposium-2026/" target="_blank" rel="noopener">Live deck →</a>
-        <a class="ghost" href="/blog/aai-symposium-2026/">Symposium blog post</a>
-        <a class="ghost" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Clone on GitHub</a>
-        <a class="ghost" href="/product/" target="_blank" rel="noopener">Product brief</a>
-        <a class="ghost" href="/library/" target="_blank" rel="noopener">Library</a>
-        <a class="ghost" href="/research/#open-evaluation" target="_blank" rel="noopener">Join evaluation</a>
-      </div>
+      <div class="dash" role="list">
+        <section class="step" role="listitem" id="step-1">
+          <p class="n">Step 1</p>
+          <h2>Open the talk</h2>
+          <p>Watch the 30-minute presentation. Links on the slides open in a new tab.</p>
+          <a class="go" href="/talks/aai-symposium-2026/" target="_blank" rel="noopener">Presentation →</a>
+        </section>
 
-      <h2>Station map · click with the talk</h2>
-      <table class="map">
-        <thead>
-          <tr><th>When the talk covers…</th><th>Open / run</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Problem · one world, many copies</td>
-            <td><a href="/product/" target="_blank" rel="noopener">/product/</a> · architecture figure</td>
-          </tr>
-          <tr>
-            <td>FractiSI architecture · Tiny Footprint</td>
-            <td><a href="/library/papers/tiny-footprint-multi-agent/" target="_blank" rel="noopener">Multi-Agent paper</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/" target="_blank" rel="noopener">Tiny Gateway</a></td>
-          </tr>
-          <tr>
-            <td>What to measure · experiments</td>
-            <td><a href="/library/papers/fractisi-expedition-002-beyond-memory/" target="_blank" rel="noopener">Expedition 002</a> · <a href="/research/" target="_blank" rel="noopener">/research/</a></td>
-          </tr>
-          <tr>
-            <td>Software engineering application</td>
-            <td>Station A–C below (doctor → demo → benchmark)</td>
-          </tr>
-          <tr>
-            <td>Invitation · collaborate</td>
-            <td><a href="/research/#open-evaluation" target="_blank" rel="noopener">Open evaluation</a> · <a href="/open/" target="_blank" rel="noopener">Why open source</a></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2 id="station-a">IDE Station A · clone (2 minutes)</h2>
-      <div class="station">
-        <h3>Get the Workstation kit</h3>
-        <p class="req">Needs: Git · Node.js 18+</p>
-        <pre>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
+        <section class="step" role="listitem" id="step-2">
+          <p class="n">Step 2</p>
+          <h2>Clone the kit</h2>
+          <p>Git + Node 18+. Open the repo in Cursor, VS Code, or Claude Code.</p>
+          <pre>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
 cd FractiSI-Multi-Agent</pre>
-        <div class="cta-row">
-          <a class="pill" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open repo</a>
-          <a class="ghost" href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/QUICKSTART.md" target="_blank" rel="noopener">QUICKSTART.md</a>
-        </div>
-      </div>
+          <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub →</a>
+        </section>
 
-      <h2 id="station-b">IDE Station B · local demos (no cloud token)</h2>
-      <div class="station">
-        <h3>Doctor → demo → benchmark → report</h3>
-        <p class="req">Runs on your machine. No Vercel token. Stay in Cursor / VS Code / Claude Code.</p>
-        <pre>node scripts/tiny.mjs doctor
-node scripts/tiny.mjs install
+        <section class="step" role="listitem" id="step-3">
+          <p class="n">Step 3</p>
+          <h2>Run the demo</h2>
+          <p>No cloud token. Local doctor → demo → benchmark on your machine.</p>
+          <pre>node scripts/tiny.mjs doctor
 node scripts/tiny.mjs demo
-node scripts/tiny.mjs benchmark
-node scripts/tiny.mjs report</pre>
-        <p>Or one-shot workload compose against this repo (no cloud deploy):</p>
-        <pre>node scripts/tiny.mjs try --workload --repo "$PWD"</pre>
-        <div class="cta-row">
-          <a class="pill" href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/QUICKSTART.md" target="_blank" rel="noopener">Command reference</a>
-          <a class="ghost" href="/product/" target="_blank" rel="noopener">What you just exercised</a>
-        </div>
+node scripts/tiny.mjs benchmark</pre>
+          <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/QUICKSTART.md" target="_blank" rel="noopener">Commands →</a>
+        </section>
       </div>
 
-      <h2 id="station-c">IDE Station C · live preview (optional cloud)</h2>
-      <div class="station">
-        <h3>End-to-end try with your own token</h3>
-        <p class="req">Needs a personal <a href="https://vercel.com/account/tokens" target="_blank" rel="noopener">Vercel token</a>. Preview URL is yours — FractiSI does not host your fleet.</p>
-        <pre>export VERCEL_TOKEN=…   # or FRACTISI_CLOUD_TOKEN
-node scripts/tiny.mjs try</pre>
-        <p>Expect: agent worktrees → compose → git commit → live preview URL from <em>your</em> token.</p>
-        <div class="cta-row">
-          <a class="pill" href="https://vercel.com/account/tokens" target="_blank" rel="noopener">Create token</a>
-          <a class="ghost" href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/install/INSTALL.md" target="_blank" rel="noopener">Install docs</a>
-        </div>
-      </div>
-
-      <h2>Browser Station · no IDE required</h2>
-      <div class="station">
-        <h3>Click through while listening</h3>
-        <p class="req">Phone or laptop browser is enough.</p>
-        <div class="cta-row">
-          <a class="pill" href="/talks/aai-symposium-2026/" target="_blank" rel="noopener">Talk deck</a>
-          <a class="ghost" href="/product/" target="_blank" rel="noopener">Product</a>
-          <a class="ghost" href="/product/pricing/" target="_blank" rel="noopener">Pricing</a>
-          <a class="ghost" href="/library/papers/fractisi-expedition-002-beyond-memory/" target="_blank" rel="noopener">Exp 002</a>
-          <a class="ghost" href="/library/papers/tiny-footprint-multi-agent/" target="_blank" rel="noopener">Multi-Agent paper</a>
-          <a class="ghost" href="/research/#open-evaluation" target="_blank" rel="noopener">Evaluation signup</a>
-        </div>
-      </div>
-
-      <h2>After the talk</h2>
-      <ul>
-        <li>Share a receipt or question: <a href="mailto:valetpru@gmail.com?subject=AAI%20Symposium%20Test%20Drive">valetpru@gmail.com</a></li>
-        <li>Partner measurement: <a href="/research/#open-evaluation">open evaluation</a></li>
-        <li>Founding CEO seat: <a href="/recruit/">/recruit/</a></li>
-      </ul>
-
-      <p class="honesty">Local demos are architectural / structured-state exercises on your machine. Cloud <code>try</code> uses your token and your preview — not FractiSI-operated infrastructure. Symposium claims stay proportionate to published lab receipts; mission-critical aviation/defense requirements are investigation areas, not claimed solved.</p>
+      <p class="more">
+        <a href="/blog/aai-symposium-2026/">Blog note</a>
+        · <a href="/product/">Product</a>
+        · <a href="/research/#open-evaluation">Evaluation</a>
+        · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </p>
+      <p class="honesty">Local demos are architectural exercises on your machine — not CapEx guarantees.</p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <span>FractiSI · Test Drive · Follow along</span>
-    <span><a href="/talks/aai-symposium-2026/">Talk</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a></span>
+    <span>FractiSI · Test Drive</span>
+    <span><a href="/talks/aai-symposium-2026/">Talk</a> · <a href="/blog/">Blog</a></span>
   </footer>
 </body>
 </html>
