@@ -7,7 +7,7 @@
  *   node scripts/tiny.mjs testdrive 1 … 7     # one product-layer demo
  *
  * Narrative source of truth: src/testdrive/run-step.mjs
- * (Infinite Octaves · Tiny Gateway Rhyming Templates · Tiny Footprint · Layers B–F)
+ * (Infinite Octaves · Tiny Gateway Rhyming Templates · Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy)
  */
 import { doctor } from './doctor.mjs';
 import { install } from './install.mjs';
@@ -88,7 +88,7 @@ async function runOne(ctx, id) {
 }
 
 function listSteps() {
-  banner('Test Drive · steps', 'Product-aligned · Infinite Octaves → Tiny Footprint · Layers B–F');
+  banner('Test Drive · steps', 'Product-aligned · Infinite Octaves → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy');
   say([
     '  node scripts/tiny.mjs testdrive           # full tour',
     '  node scripts/tiny.mjs testdrive primer',
@@ -132,7 +132,7 @@ export async function testdrive(ctx) {
     return 1;
   }
 
-  banner('FractiSI Multi-Agent · Test Drive', 'Infinite Octaves · Tiny Gateway · Tiny Footprint · Layers B–F');
+  banner('FractiSI Multi-Agent · Test Drive', 'Infinite Octaves · Tiny Gateway · Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy');
   say([
     '  Product tour: primer → Tiny Footprint → Rhyming Templates → selective reconstruct',
     '  → coordination/composition → density / Git / paid deploy.',

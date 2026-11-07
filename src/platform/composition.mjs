@@ -1,5 +1,5 @@
 /**
- * Layer D — Composition Engine.
+ * Composition — FractiSI Composition Engine.
  * Distinguishes proposed → accepted → validated → integrated → deployed.
  * Path-disjoint changes are not auto-merged; semantic/interface markers still apply.
  */

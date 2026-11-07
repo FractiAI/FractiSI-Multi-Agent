@@ -52,7 +52,7 @@ node scripts/tiny.mjs try
 | `configuration/` | FractiSI Multi-Agent config templates |
 | `sdk/` | Package SDK entry points |
 | `../scripts/tiny.mjs` | CLI (`try`, `capture`, `compose`, `deploy`, …) |
-| `../src/platform/` | Tiny Footprint · Layers B–F implementation |
+| `../src/platform/` | Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy implementation |
 | `../tiny-footprint/` | Tiny Footprint core surface |
 | `../product/` | Marketing product hub (site) |
 
