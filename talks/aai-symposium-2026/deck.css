@@ -52,16 +52,57 @@ button:hover { border-color: var(--gold); color: var(--gold); }
   letter-spacing: -0.02em;
 }
 .meta { color: var(--muted); flex: 1; text-align: center; }
-.controls { display: flex; align-items: center; gap: 0.45rem; }
+.controls { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; justify-content: flex-end; }
+.chip {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+}
+.chip:hover { border-color: var(--gold); background: rgba(214, 194, 122, 0.08); }
 #progress { min-width: 4.5rem; text-align: center; color: var(--gold); }
+.audience-banner {
+  margin: 0;
+  padding: 0.55rem 1rem;
+  background: #121a2b;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.audience-banner a { font-weight: 650; }
+.follow {
+  margin: 1.35rem 0 0;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  background: rgba(18, 26, 43, 0.9);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--muted);
+  max-width: 46rem;
+  line-height: 1.45;
+}
+.follow a { font-weight: 650; }
+.follow code {
+  font-size: 0.82rem;
+  color: var(--ink);
+  background: #0b1220;
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.25rem;
+}
 
 .deck {
-  min-height: calc(100vh - 3.2rem);
+  min-height: calc(100vh - 5.6rem);
   outline: none;
 }
 .slide {
   display: none;
-  min-height: calc(100vh - 3.2rem);
+  min-height: calc(100vh - 5.6rem);
   padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 5vw, 4.5rem) 4rem;
   max-width: 68rem;
   margin: 0 auto;

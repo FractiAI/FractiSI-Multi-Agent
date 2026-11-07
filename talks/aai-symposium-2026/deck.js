@@ -37,6 +37,10 @@
   document.getElementById("btn-notes").addEventListener("click", toggleNotes);
 
   window.addEventListener("keydown", (e) => {
+    const tag = (e.target && e.target.tagName) || "";
+    if (tag === "A" || tag === "INPUT" || tag === "TEXTAREA" || tag === "BUTTON") {
+      if (e.key === " " && tag === "A") return; // let focused links activate
+    }
     if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
       e.preventDefault();
       next();

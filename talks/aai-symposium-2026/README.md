@@ -15,6 +15,17 @@
 3. Toggle speaker notes with `N` (full script per slide; time budgets shown).
 4. Print / PDF export works from the browser (each slide on its own page).
 
+## Audience follow-along (IDE stations)
+
+Share **[/test-drive/](/test-drive/)** at the start of the talk. Links on the deck open in a new tab.
+
+| Station | What they do |
+|---------|----------------|
+| A | `git clone` the Workstation kit |
+| B | `doctor` → `demo` → `benchmark` → `report` (no cloud token) |
+| C | Optional `node scripts/tiny.mjs try` with their own Vercel token |
+| Browser | Click product / papers / research while listening |
+
 ## Parts
 
 | Part | Slides | Theme |

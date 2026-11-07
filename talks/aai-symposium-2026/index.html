@@ -12,12 +12,19 @@
     <a class="brand" href="/">FractiSI</a>
     <span class="meta">Applied Active Inference Symposium · Nov 12–13, 2026 · 30 min</span>
     <div class="controls">
+      <a class="chip" href="/test-drive/" target="_blank" rel="noopener">Follow along</a>
+      <a class="chip" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="/product/" target="_blank" rel="noopener">Product</a>
       <button type="button" id="btn-notes" title="Toggle speaker notes (N)">Notes</button>
       <button type="button" id="btn-prev" title="Previous (←)">←</button>
       <span id="progress" aria-live="polite">1 / 16</span>
       <button type="button" id="btn-next" title="Next (→ or Space)">→</button>
     </div>
   </div>
+  <p class="audience-banner">
+    Audience with an IDE: open <a href="/test-drive/" target="_blank" rel="noopener">/test-drive/</a> and run Station A–C while we talk.
+    Browser-only: click the gold links on each slide — they open in a new tab.
+  </p>
 
   <main id="deck" class="deck" tabindex="0">
 
@@ -32,6 +39,11 @@
         <li>Not only more capable agents — a shared computational world</li>
         <li>Efficiency, coordination, speed, accuracy, density</li>
       </ul>
+      <p class="follow">Audience now ·
+        <a href="/test-drive/" target="_blank" rel="noopener">Follow-along hub</a> ·
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Clone kit</a> ·
+        <a href="/product/" target="_blank" rel="noopener">Product</a>
+      </p>
       <aside class="notes">
         <p>Thank you to the Active Inference Institute for inviting us to participate in this symposium.</p>
         <p>The purpose of this gathering is to bring together people exploring Active Inference and related approaches to understanding and building systems that can perceive, infer, learn, and act in complex environments.</p>
@@ -84,6 +96,10 @@
         </div>
       </div>
       <p class="punch">Many agents. One underlying project. Why reconstruct it N times?</p>
+      <p class="follow">Try it ·
+        <a href="/product/" target="_blank" rel="noopener">Product architecture</a> ·
+        <a href="/test-drive/#station-b" target="_blank" rel="noopener">Station B · local demo</a>
+      </p>
       <aside class="notes">
         <p>Imagine five agents working on the same software engineering project. One investigates a problem. One examines the architecture. One writes code. One tests the implementation. One reviews security. They have different responsibilities, but they are all dealing with the same repository.</p>
         <p>They need to understand many of the same things: the current files and their relationships, the architecture, dependencies, existing functionality, recent modifications, test results, outstanding issues.</p>
@@ -127,6 +143,11 @@
         <li>Shared state ≠ agent-private objectives, reasoning, local context</li>
         <li>Coordination for changes, dependencies, composed results</li>
       </ul>
+      <p class="follow">Open ·
+        <a href="/library/papers/tiny-footprint-multi-agent/" target="_blank" rel="noopener">Multi-Agent paper</a> ·
+        <a href="/library/papers/tiny-gateway-rhyming-templates/" target="_blank" rel="noopener">Tiny Gateway</a> ·
+        <a href="/library/papers/fractisi-multi-agent-platform/" target="_blank" rel="noopener">Platform architecture</a>
+      </p>
       <aside class="notes">
         <p>The product has several architectural elements. At the foundation is the shared computational world. Above that is Tiny Footprint, powered by Tiny Gateway. Tiny Gateway provides the compact access and coordination mechanism through which agents interact with the shared substrate. Above that are the agents.</p>
         <p>These agents can use different models, different tools, different instructions, and different specialized capabilities. They can be assigned different responsibilities. They can work independently where appropriate and coordinate when their work intersects.</p>
@@ -145,6 +166,11 @@
         <li>Inference and compute still cost; the world-copy tax need not</li>
       </ul>
       <p class="punch">Keep the shared world small while participants grow.</p>
+      <p class="follow">Run ·
+        <a href="/test-drive/" target="_blank" rel="noopener">Station B commands</a> ·
+        <code>node scripts/tiny.mjs demo</code> ·
+        <code>node scripts/tiny.mjs benchmark</code>
+      </p>
       <aside class="notes">
         <p>Let’s look a little more closely at Tiny Gateway. The objective of Tiny Footprint is not simply to compress information. It is to reduce the amount of duplicated computational representation required when multiple agents work with overlapping information. Tiny Gateway provides the mechanism for accessing and working with that shared structure.</p>
         <p>This changes the economics of adding agents. In a conventional architecture, adding an agent may introduce another collection of context, retrieval, memory, and synchronization requirements. In a shared-world architecture, additional agents can reuse infrastructure and information that already exist.</p>
@@ -174,6 +200,11 @@
         </div>
       </div>
       <p class="punch">Different layer: how many capable agents work the same complex project.</p>
+      <p class="follow">Beside your IDE ·
+        <a href="/product/" target="_blank" rel="noopener">Product</a> ·
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Workstation kit</a> ·
+        <a href="/product/pricing/" target="_blank" rel="noopener">Editions</a>
+      </p>
       <aside class="notes">
         <p>I want to clarify what FractiSI Multi-Agent is and what it isn’t. FractiSI is not another foundation model. It is not intended to replace Cursor, Claude Code, VS Code, or Git. Those tools provide valuable capabilities for developing software. FractiSI operates alongside them.</p>
         <p>It is a coordination architecture for multi-agent engineering. The agents can use the models and tools they already work with. FractiSI provides the shared computational environment in which their work can be coordinated.</p>
@@ -228,6 +259,11 @@
         <li>Test 3 vs 30 vs 100 · overlap · rapid change · disagreement</li>
       </ul>
       <p class="punch">Fair, reproducible comparison — not a demo designed to favor ourselves.</p>
+      <p class="follow">Receipts ·
+        <a href="/library/papers/fractisi-expedition-002-beyond-memory/" target="_blank" rel="noopener">Expedition 002</a> ·
+        <a href="/research/" target="_blank" rel="noopener">Research</a> ·
+        <a href="/test-drive/" target="_blank" rel="noopener">Run benchmark locally</a>
+      </p>
       <aside class="notes">
         <p>Our experimental approach is to compare two architectures: a conventional multi-agent system and a FractiSI shared-world system. We want to hold the task, information, models, tools, and agent responsibilities as consistent as possible. The architectural difference becomes the independent variable.</p>
         <p>In the conventional system, agents maintain and exchange their respective representations. In FractiSI, agents work through the shared computational substrate. We then evaluate the outcomes.</p>
@@ -246,6 +282,10 @@
         <li>Shared project state as the computational environment</li>
       </ul>
       <p class="punch">Agentic engineering without each agent rebuilding the whole project.</p>
+      <p class="follow">IDE now ·
+        <a href="/test-drive/" target="_blank" rel="noopener">Station A–C</a> ·
+        <code>node scripts/tiny.mjs try --workload --repo "$PWD"</code>
+      </p>
       <aside class="notes">
         <p>Let’s return to software engineering because it is an immediately understandable application. Imagine a team of twenty AI agents working on a major software project — architecture, research, coding, testing, security, documentation, performance, integration. Each has a specialized responsibility. But their work is interconnected.</p>
         <p>A change to one component may affect several others. A test result may change priorities. A security finding may require modifications to code written by another agent. A new architectural decision may affect the entire project.</p>
@@ -317,6 +357,11 @@
         <li>Real workloads · credible alternatives · open methodology</li>
       </ul>
       <p class="punch">These are central design questions — not peripheral engineering details.</p>
+      <p class="follow">Reproduce with us ·
+        <a href="/research/#open-evaluation" target="_blank" rel="noopener">Open evaluation</a> ·
+        <a href="/test-drive/#station-b" target="_blank" rel="noopener">Local benchmark station</a> ·
+        <a href="/open/" target="_blank" rel="noopener">Open source posture</a>
+      </p>
       <aside class="notes">
         <p>There are still important questions to answer. How should shared state be partitioned? How should ownership and permissions work? What information should remain private to individual agents? How do we prevent a shared substrate from becoming a bottleneck? How do we handle simultaneous changes? How do we represent disagreement? How does the architecture behave when agents fail or produce incorrect information? And how do these choices affect the quality of collective outcomes?</p>
         <p>These are not peripheral engineering details. They are central to making a shared-world architecture useful. We want to evaluate the system in real applications, with realistic workloads, and against credible alternatives. We also want to make the architecture and experimental methodology accessible so that others can reproduce and challenge our findings. There is much more to discover.</p>
@@ -336,7 +381,13 @@
         <li>FractiSI Multi-Agent: shared world as a first-class layer</li>
         <li>Invitation: compare, experiment, challenge</li>
       </ul>
-      <p class="thanks">Thank you · <a href="https://fractisi.vercel.app/">fractisi.vercel.app</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a> · valetpru@gmail.com</p>
+      <p class="follow">Keep going ·
+        <a href="/test-drive/" target="_blank" rel="noopener">Follow-along hub</a> ·
+        <a href="/research/#open-evaluation" target="_blank" rel="noopener">Join evaluation</a> ·
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="/open/" target="_blank" rel="noopener">Why open source</a>
+      </p>
+      <p class="thanks">Thank you · <a href="https://fractisi.vercel.app/" target="_blank" rel="noopener">fractisi.vercel.app</a> · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a></p>
       <aside class="notes">
         <p>Let me leave you with the central idea. We are entering a period in which AI systems will increasingly consist of many agents working together. Those agents will have different capabilities, different perspectives, and different responsibilities. But increasingly, they will be working on the same problems, in the same environments, with overlapping information.</p>
         <p>We believe the architecture connecting those agents matters enormously. FractiSI Multi-Agent is our attempt to make that shared computational world a first-class part of multi-agent architecture.</p>
