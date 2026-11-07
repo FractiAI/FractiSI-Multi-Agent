@@ -21,7 +21,7 @@ Then live labs:
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
-**Self-paced (no IDE):** https://fractisi.vercel.app/test-drive/self-paced/ — each step has a Run button; live results via `/api/testdrive`.
+**Self-paced (no IDE):** https://fractisi.vercel.app/test-drive/self-paced/ — trainer-style lessons: plain teaching → Run → takeaway → Previous / Next (keys ← → and R). Live results via `/api/testdrive`. Hub: https://fractisi.vercel.app/test-drive/
 
 ## Human one-liner
 

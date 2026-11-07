@@ -3,139 +3,356 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Self-paced Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="Self-paced FractiSI Multi-Agent Test Drive — plain primer, then live labs with Run, Previous, and Next.">
-  <link rel="stylesheet" href="/css/site.css?v=31">
+  <title>Walkthrough · FractiSI Multi-Agent Test Drive</title>
+  <meta name="description" content="Trainer-guided FractiSI Multi-Agent walkthrough — plain primer, live labs, Previous / Next.">
+  <link rel="stylesheet" href="/css/site.css?v=32">
   <style>
-    .walk {
-      max-width: 40rem;
-      margin: 1.75rem auto 3rem;
-      padding: 0 1.25rem;
+    :root {
+      --td-ink: #1a1916;
+      --td-paper: #fbf9f4;
+      --td-mist: #f4f1ea;
+      --td-line: #ddd6c8;
+      --td-forest: #1f3d34;
+      --td-muted: #5e5a53;
+      --td-console: #14120e;
     }
-    .walk .progress {
+
+    body {
+      background:
+        radial-gradient(1200px 480px at 12% -10%, rgba(31, 61, 52, 0.08), transparent 60%),
+        radial-gradient(900px 420px at 90% 0%, rgba(214, 194, 122, 0.12), transparent 55%),
+        var(--td-mist);
+    }
+
+    .lesson-shell {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 6.5rem;
+    }
+
+    .progress-rail {
+      position: sticky;
+      top: 3.55rem;
+      z-index: 3;
+      margin: 0 -1.25rem 1.35rem;
+      padding: 0.75rem 1.25rem 0.85rem;
+      background: rgba(244, 241, 234, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--td-line);
+    }
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: 0.55rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+    }
+    .progress-top .eta { color: var(--td-muted); letter-spacing: 0.04em; text-transform: none; font-weight: 500; }
+    .progress-track {
+      height: 0.28rem;
+      background: #e7e0d3;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--td-forest);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+    .progress-dots {
+      display: flex;
+      gap: 0.35rem;
+      margin-top: 0.55rem;
+      flex-wrap: wrap;
+    }
+    .progress-dots button {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      border: 0;
+      padding: 0;
+      background: #d5cec0;
+      cursor: pointer;
+    }
+    .progress-dots button.is-done { background: var(--td-forest); }
+    .progress-dots button.is-active {
+      background: var(--td-ink);
+      box-shadow: 0 0 0 3px rgba(26, 25, 22, 0.14);
+      transform: scale(1.15);
+    }
+
+    .lesson {
+      animation: lesson-in 0.38s ease;
+    }
+    @keyframes lesson-in {
+      from { opacity: 0; transform: translateY(0.55rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+      margin: 0 0 0.55rem;
+    }
+    .lesson h1 {
+      margin: 0 0 0.55rem;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+    .promise {
+      font-size: 1.12rem;
+      color: var(--td-muted);
+      margin: 0 0 1.35rem;
+      max-width: 36rem;
+    }
+
+    .teach {
+      display: grid;
+      gap: 1rem;
+      margin: 0 0 1.4rem;
+    }
+    .teach-block .label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+      margin: 0 0 0.35rem;
+    }
+    .teach-block p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.55;
+      color: var(--td-ink);
+    }
+    .teach-block.notice {
+      border-left: 3px solid var(--td-forest);
+      padding-left: 0.95rem;
+    }
+
+    .ladder {
+      margin: 0.35rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+    }
+    .ladder li {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0.55rem;
+      align-items: start;
+      font-size: 1.02rem;
+      line-height: 1.45;
+    }
+    .ladder .n {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 650;
+      color: var(--td-forest);
+      padding-top: 0.2rem;
+    }
+    .ladder strong { font-family: var(--sans); font-weight: 650; }
+
+    .lab-panel {
+      margin: 1.5rem 0 0;
+      padding: 1.15rem 1.15rem 1.2rem;
+      background: var(--td-paper);
+      border: 1px solid var(--td-line);
+      border-radius: 0.45rem;
+      box-shadow: 0 10px 30px rgba(26, 25, 22, 0.04);
+    }
+    .lab-panel .lab-title {
       font-family: var(--sans);
       font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.55rem;
+      color: var(--td-forest);
       font-weight: 650;
+      margin: 0 0 0.35rem;
     }
-    .walk h1 {
-      margin: 0 0 0.45rem;
-      font-size: clamp(1.55rem, 3.5vw, 2rem);
-      font-weight: 500;
-      line-height: 1.25;
-    }
-    .walk .component {
-      font-family: var(--sans);
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin: 0 0 1.1rem;
-    }
-    .walk .body p {
-      margin: 0 0 0.85rem;
-      color: var(--ink);
-      font-size: 1.08rem;
-    }
-    .walk .body .label {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 650;
-      margin: 1rem 0 0.3rem;
-    }
-    .walk .body ul {
-      margin: 0.35rem 0 1rem;
-      padding-left: 1.15rem;
-    }
-    .walk .body li {
-      margin: 0.45rem 0;
-      color: var(--ink);
-      font-size: 1.02rem;
+    .lab-panel .lab-hint {
+      margin: 0 0 0.95rem;
+      color: var(--td-muted);
+      font-size: 0.98rem;
     }
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.65rem;
       align-items: center;
-      margin: 1.25rem 0 0.75rem;
     }
     .btn {
       font-family: var(--sans);
       font-weight: 650;
       font-size: 0.95rem;
       border-radius: 0.35rem;
-      padding: 0.65rem 1rem;
+      padding: 0.68rem 1.05rem;
       cursor: pointer;
-      border: 1px solid #1a1916;
-      background: #fbf9f4;
-      color: #1a1916;
+      border: 1px solid var(--td-ink);
+      background: var(--td-paper);
+      color: var(--td-ink);
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
     }
     .btn:hover:not(:disabled),
     .btn:focus-visible:not(:disabled) {
       background: #ffffff;
-      color: #1a1916;
+      transform: translateY(-1px);
     }
-    .btn.btn-run,
-    .btn.btn-run:link,
-    .btn.btn-run:visited {
+    .btn.btn-run {
       background: #1a1916;
       color: #fbf9f4;
       border-color: #1a1916;
+      min-width: 9.5rem;
     }
     .btn.btn-run:hover:not(:disabled),
     .btn.btn-run:focus-visible:not(:disabled) {
       background: #2a2824;
       color: #ffffff;
     }
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
     .status {
       font-family: var(--sans);
       font-size: 0.88rem;
-      color: var(--muted);
+      color: var(--td-muted);
       min-height: 1.2em;
     }
+
+    .results-wrap {
+      margin-top: 0.95rem;
+      display: none;
+    }
+    .results-wrap.is-open { display: block; animation: lesson-in 0.3s ease; }
+    .results-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 234, 0.7);
+      margin: 0 0 0.45rem;
+    }
     .results {
-      margin: 0.5rem 0 0;
-      background: #14120e;
+      margin: 0;
+      background: var(--td-console);
       color: #f4f1ea;
       padding: 1rem 1.05rem;
+      border-radius: 0.35rem;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       line-height: 1.5;
       white-space: pre-wrap;
-      min-height: 7rem;
+      max-height: 22rem;
       overflow: auto;
     }
-    .results.is-empty { color: #9a958c; }
-    .nav-row {
+    .takeaway {
+      margin: 0.85rem 0 0;
+      padding: 0.85rem 0.95rem;
+      background: rgba(31, 61, 52, 0.08);
+      border-radius: 0.35rem;
+      font-size: 1.02rem;
+      color: var(--td-ink);
+      display: none;
+    }
+    .takeaway.is-open { display: block; animation: lesson-in 0.3s ease; }
+    .takeaway strong {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      margin-bottom: 0.3rem;
+    }
+    .honesty {
+      margin-top: 0.85rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--td-muted);
+    }
+
+    .finish {
+      display: none;
+      margin: 1.35rem 0 0;
+      padding: 1.25rem 1.2rem;
+      background: var(--td-paper);
+      border: 1px solid var(--td-line);
+      border-radius: 0.45rem;
+    }
+    .finish.is-open { display: block; animation: lesson-in 0.35s ease; }
+    .finish h2 {
+      margin: 0 0 0.45rem;
+      font-size: 1.45rem;
+      font-weight: 500;
+    }
+    .finish p { margin: 0 0 0.9rem; color: var(--td-muted); }
+    .finish-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .finish a.btn-run {
+      text-decoration: none;
+      display: inline-block;
+    }
+    .finish a.btn-secondary {
+      font-family: var(--sans);
+      font-weight: 650;
+      color: var(--td-forest);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 61, 52, 0.35);
+      padding: 0.68rem 0.1rem;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background: rgba(251, 249, 244, 0.94);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--td-line);
+      padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
+    }
+    .bottom-nav-inner {
+      max-width: 44rem;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       gap: 0.75rem;
-      margin: 1.35rem 0 0;
-      padding-top: 1.1rem;
-      border-top: 1px solid var(--line);
+      align-items: center;
     }
-    .honesty {
-      margin-top: 1rem;
+    .bottom-nav .center-hint {
       font-family: var(--sans);
-      font-size: 0.85rem;
-      color: var(--muted);
+      font-size: 0.78rem;
+      color: var(--td-muted);
+      text-align: center;
+      flex: 1;
     }
-    .finish {
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      font-size: 1.02rem;
+    @media (max-width: 560px) {
+      .bottom-nav .center-hint { display: none; }
+      .btn { flex: 1; text-align: center; }
     }
-    .finish a { color: var(--accent); font-weight: 650; }
+
+    .kbd {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      border: 1px solid var(--td-line);
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.28rem;
+      color: var(--td-muted);
+    }
   </style>
 </head>
 <body>
@@ -144,183 +361,305 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
       <a href="/test-drive/">Test Drive</a>
-      <a href="/test-drive/self-paced/">Self-paced</a>
+      <a href="/test-drive/self-paced/">Walkthrough</a>
       <a href="/talks/aai-symposium-2026/">Talk</a>
       <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a>
     </nav>
   </header>
 
-  <main class="walk" id="walk">
-    <p class="progress" id="progress">Step …</p>
-    <h1 id="title">Loading…</h1>
-    <p class="component" id="component"></p>
-    <div class="body" id="body"></div>
-
-    <div class="actions">
-      <button type="button" class="btn btn-run" id="btn-run">Run this lab</button>
-      <span class="status" id="status"></span>
-    </div>
-    <pre class="results is-empty" id="results" hidden>Results appear here after you run the lab.</pre>
-    <p class="honesty" id="honesty"></p>
-    <div class="finish" id="finish" hidden>
-      You finished the walkthrough. Try it on your machine (Community is free) or see editions.
-      <br><a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub repo</a>
-      · <a href="/product/pricing/">Pricing</a>
+  <div class="lesson-shell">
+    <div class="progress-rail" aria-label="Lesson progress">
+      <div class="progress-top">
+        <span id="progress-label">Lesson 01 · Primer</span>
+        <span class="eta" id="progress-eta">~15 min total</span>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump to lesson"></div>
     </div>
 
-    <div class="nav-row">
+    <article class="lesson" id="lesson" aria-live="polite">
+      <p class="eyebrow" id="eyebrow">Lesson</p>
+      <h1 id="title">Loading…</h1>
+      <p class="promise" id="promise"></p>
+      <div class="teach" id="teach"></div>
+
+      <section class="lab-panel" aria-label="Live lab">
+        <p class="lab-title">Live lab</p>
+        <p class="lab-hint" id="lab-hint">Run to measure this step on the FractiSI kit.</p>
+        <div class="actions">
+          <button type="button" class="btn btn-run" id="btn-run">Run this lab</button>
+          <span class="status" id="status"></span>
+        </div>
+        <div class="results-wrap" id="results-wrap">
+          <p class="results-label">Live output</p>
+          <pre class="results" id="results"></pre>
+          <div class="takeaway" id="takeaway"></div>
+          <p class="honesty" id="honesty"></p>
+        </div>
+      </section>
+
+      <section class="finish" id="finish" aria-label="Walkthrough complete">
+        <h2>You finished the Test Drive.</h2>
+        <p>You walked the primer and the live labs. Next: try the Community kit on your machine, or skim editions if you are evaluating for a team.</p>
+        <div class="finish-actions">
+          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Open GitHub kit →</a>
+          <a class="btn-secondary" href="/product/pricing/">See editions</a>
+          <a class="btn-secondary" href="/talks/aai-symposium-2026/">Watch the talk</a>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Lesson navigation">
+    <div class="bottom-nav-inner">
       <button type="button" class="btn" id="btn-prev">← Previous</button>
-      <button type="button" class="btn" id="btn-next">Next →</button>
+      <span class="center-hint">Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs</span>
+      <button type="button" class="btn btn-run" id="btn-next">Next →</button>
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <span>FractiSI · Self-paced Test Drive</span>
-    <span><a href="/test-drive/">Test Drive hub</a></span>
-  </footer>
+  </nav>
 
   <script type="module">
-    /**
-     * Cold first-listen copy lives here so the walkthrough works even if the API is slow.
-     * Live Run still hits /api/testdrive for measured lab output.
-     */
     const STEPS = [
       {
         id: 'primer',
         n: 0,
         title: 'How FractiSI Multi-Agent fits together',
-        component: 'Architecture primer · first listen',
+        promise: 'Before any numbers: one plain map of the stack — so the labs that follow make sense on first listen.',
         runLabel: 'Show the ladder',
-        bodyHtml: `
-          <p>You are about to walk a multi-agent stack built so many helpers — software agents and people — can work in one shared world instead of each keeping a full private copy.</p>
-          <p>Read the ladder once in plain English, then press <strong>Show the ladder</strong> for the same map as live text. After that, use <strong>Next</strong> for the labs.</p>
-          <p class="label">The ladder</p>
-          <ul>
-            <li><strong>Generative possibility</strong> — an open field of processes and patterns you can file, nest, and reuse (not infinite computers; not a second brand).</li>
-            <li><strong>Net Zero (octave 0)</strong> — home base where the shared world roots.</li>
-            <li><strong>Φ<sub>EGS</sub> ≈ 1.618</strong> — a nesting scale so layers stay tidy as they deepen (design grammar, not physics or mind).</li>
-            <li><strong>Infinite Octaves</strong> — how deep the nesting goes; “infinite” means filing depth, not infinite measured physics.</li>
-            <li><strong>Boundary nodes</strong> — the front door: what may enter the shared world.</li>
-            <li><strong>Recursive trees · holographic rhyme</strong> — nested context that repeats and self-corrects across scale; a text prefix alone is not a rhyme.</li>
-            <li><strong>3D Hexagon / eight-node · honeycomb</strong> — one story, eight connection ports so helpers plug in without reprinting the whole world.</li>
-            <li><strong>Wave–Node–Fq · nested vectors · interference</strong> — which template is active, what each agent holds, and when paths would collide.</li>
-            <li><strong>Awareness</strong> — what each participant (human or software) is holding about the shared world — not a claim of machine consciousness.</li>
-            <li><strong>Product</strong> — Rhyming Templates → Tiny Gateway™ → Tiny Footprint (Layer A) → Layers B–F → FractiSI Multi-Agent.</li>
-          </ul>
-          <p>Possible rhyme with Active Inference: many agents — including humans — act in one shared world without each reprinting a private full copy. “Rhyme” means kinship for experiments, not “we are that framework.”</p>
+        labHint: 'Optional: print the same primer ladder into the live output panel.',
+        takeaway: 'Shared world first. Then rhyme, selective reconstruction, coordination, and deploy — in that spirit.',
+        teach: `
+          <div class="teach-block notice">
+            <p class="label">Trainer note</p>
+            <p>Many AI helpers fail the same way teams fail with documents: everyone keeps a private full copy. FractiSI is built so agents — and humans — can work from one shared world instead.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The ladder · plain English</p>
+            <ol class="ladder">
+              <li><span class="n">01</span><span><strong>Generative possibility</strong> — the open field of processes you can file, nest, and reuse.</span></li>
+              <li><span class="n">02</span><span><strong>Net Zero</strong> — home base. The shared world roots here.</span></li>
+              <li><span class="n">03</span><span><strong>Φ ≈ 1.618</strong> — a nesting scale so layers stay tidy as they deepen (design grammar, not physics).</span></li>
+              <li><span class="n">04</span><span><strong>Infinite Octaves</strong> — how deep the filing goes. “Infinite” means depth, not infinite measured physics.</span></li>
+              <li><span class="n">05</span><span><strong>Boundary nodes</strong> — the front door: what may enter.</span></li>
+              <li><span class="n">06</span><span><strong>Recursive trees / rhyme</strong> — nested context that repeats and self-corrects across scale.</span></li>
+              <li><span class="n">07</span><span><strong>Eight-node / honeycomb</strong> — one story, eight ports, so helpers plug in without reprinting everything.</span></li>
+              <li><span class="n">08</span><span><strong>Wave · vectors · interference</strong> — what is active, what each agent holds, and when paths would collide.</span></li>
+              <li><span class="n">09</span><span><strong>Awareness</strong> — what each participant is holding about the shared world (not machine consciousness).</span></li>
+              <li><span class="n">10</span><span><strong>Product</strong> — Rhyming Templates → Tiny Gateway™ → Tiny Footprint → Layers A–F → FractiSI Multi-Agent.</span></li>
+            </ol>
+          </div>
+          <div class="teach-block">
+            <p class="label">Symposium frame</p>
+            <p>Possible rhyme with Active Inference: many agents — including humans — act in one shared world without each reprinting a private full copy. “Rhyme” means kinship for experiments, not “we are that framework.”</p>
+          </div>
         `,
       },
       {
         id: '1',
         n: 1,
         title: 'Share the world once',
-        component: 'Layer A · Tiny Footprint',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Without Layer A, every agent reprints a full copy of the shared world — like every coworker photocopying the whole project folder for themselves.</p>
-          <p class="label">Opportunity</p>
-          <p>Tiny Footprint registers the world once. Each agent keeps only its local deltas. Run the lab to see the byte contrast.</p>
+        promise: 'See why “every agent gets a full copy” is the expensive default — and what Tiny Footprint changes.',
+        runLabel: 'Run shared-world lab',
+        labHint: 'Compare N full copies against one shared world plus per-agent deltas.',
+        takeaway: 'Register the world once. Agents keep only what changed for them.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Without Layer A, every agent reprints a full copy of the shared world — like every coworker photocopying the whole project folder for themselves.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>Tiny Footprint (Layer A) keeps one shared world. Each agent stores local deltas only. That is the density foundation for everything else.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Byte counts: full-copy fleet vs shared world + deltas. The gap is the architecture talking.</p>
+          </div>
         `,
       },
       {
         id: '2',
         n: 2,
-        title: 'Gzip helps — architecture still matters',
-        component: 'Layer A · Tiny Footprint pack',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Compression shrinks copies. It does not remove the “N people each keep a full copy” structure.</p>
-          <p class="label">Opportunity</p>
-          <p>Share the world first. Then compression is optional polish. Run the lab for the residual after gzip.</p>
+        title: 'Gzip helps. Architecture still matters.',
+        promise: 'Compression is polish. It does not invent sharing.',
+        runLabel: 'Run gzip residual lab',
+        labHint: 'Measure what remains after gzip when you still keep N copies.',
+        takeaway: 'Share first. Compress second. Do not confuse the two.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Gzip and pack compression shrink copies. They do not remove the structure of “N people each keep a full copy.”</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>Tiny Footprint shares the world first. Compression becomes optional polish on top of a better shape.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Residual gap after gzip — proof that architecture still leads compression.</p>
+          </div>
         `,
       },
       {
         id: '3',
         n: 3,
         title: 'Rhyme when the words differ',
-        component: 'Tiny Gateway™ · Rhyming Templates',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Exact-text and prefix caches only help when the wording matches. Real teams rephrase the same job all day.</p>
-          <p class="label">Opportunity</p>
-          <p>Rhyming Templates share organization across Infinite Octaves when the words change. Run the lab to compare rhyme vs exact cache.</p>
+        promise: 'Exact caches fail as soon as someone rephrases the same job. Rhyming Templates are built for that reality.',
+        runLabel: 'Run rhyme vs cache',
+        labHint: 'Compare exact/prefix cache behavior with Rhyming Templates when wording changes.',
+        takeaway: 'Reuse organization across Infinite Octaves — not only identical strings.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Exact-text and prefix caches only help when the wording matches. Real teams rephrase the same work all day.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>Tiny Gateway™ Rhyming Templates share structure when words change — holographic rhyme from Net Zero up the octave ladder.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Hit/miss contrast: exact cache vs rhyme when sessions differ in wording.</p>
+          </div>
         `,
       },
       {
         id: '4',
         n: 4,
         title: 'Find what flat skim misses',
-        component: 'Selective reconstruction · discovery',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Under a fixed budget, flat skim never assembles multi-hop chains buried in noise.</p>
-          <p class="label">Opportunity</p>
-          <p>Selective reconstruction follows relationship edges across the shared world. Run the lab for the discovery score.</p>
+        promise: 'Under a budget, skimming text is not the same as walking relationships.',
+        runLabel: 'Run discovery lab',
+        labHint: 'Compare flat skim against selective reconstruction on a multi-hop discovery task.',
+        takeaway: 'Follow relationship edges in the shared world — that is how buried chains surface.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Flat skim under a fixed budget never assembles multi-hop chains buried in noise.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>Selective reconstruction walks nested relational structure — recovering what a shallow pass cannot.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Discovery score: guided path vs flat skim (often 100/100 vs 0/100 in this lab).</p>
+          </div>
         `,
       },
       {
         id: '5',
         n: 5,
         title: 'Converge with fewer rounds',
-        component: 'Selective reconstruction · convergence',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Collectives burn too many ops and rounds before a composed answer.</p>
-          <p class="label">Opportunity</p>
-          <p>The same guided path converges with fewer rounds and ops. Run the lab for the meters.</p>
+        promise: 'Finding the answer is not enough — fleets also need to stop thrashing.',
+        runLabel: 'Run convergence lab',
+        labHint: 'Measure rounds and ops on the same guided reconstruction path.',
+        takeaway: 'Fewer rounds and ops on the guided path — convergence is a first-class meter.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Collectives burn too many operations and propagation rounds before a composed answer appears.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>The same selective-reconstruction path converges with fewer rounds and ops — less thrash, earlier compose.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Round and op reductions versus the unconstrained collective baseline.</p>
+          </div>
         `,
       },
       {
         id: '6',
         n: 6,
         title: 'Coordinate before you merge',
-        component: 'Layers B–D · coordination · shared state · composition',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Parallel agents collide at merge when isolation meets a blind integrate.</p>
-          <p class="label">Opportunity</p>
-          <p>Layers B–D coordinate ownership and compose contributions before ship. Run the lab for the coordination contrast.</p>
+        promise: 'Parallel agents are not enough. Ownership and composition prevent silent collisions.',
+        runLabel: 'Run coordination lab',
+        labHint: 'Compare isolated parallel work against coordinated ownership and composition.',
+        takeaway: 'Layers B–D: coordinate, share state, compose — then ship.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Parallel agents collide at merge when isolation meets a blind integrate.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>Layers B–D mark ownership, share state on purpose, and compose contributions before merge.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Coordination contrast: blind parallel vs owned composition.</p>
+          </div>
         `,
       },
       {
         id: '7',
         n: 7,
         title: 'Density, Git, and paid deploy',
-        component: 'Layer A density · E Git · F Deploy',
-        runLabel: 'Run this lab',
-        bodyHtml: `
-          <p class="label">Problem</p>
-          <p>Duplicated context burns the budget before specialized agent work begins.</p>
-          <p class="label">Opportunity</p>
-          <p>Tiny Footprint density fits more agents in the same representation budget. Git awareness (Layer E) is free on Community. Cloud deploy (Layer F) unlocks as paid Team · Enterprise · Cloud.</p>
+        promise: 'Close the loop: more agents in budget, Git awareness free on Community, cloud deploy as paid Layer F.',
+        runLabel: 'Run density · Git · deploy',
+        labHint: 'See density gains, Git awareness, and where paid deploy unlocks.',
+        takeaway: 'Community can learn and commit. Fleet deploy is the paid Layer F seat.',
+        teach: `
+          <div class="teach-block">
+            <p class="label">The problem</p>
+            <p>Duplicated context burns the budget before specialized agent work even begins.</p>
+          </div>
+          <div class="teach-block">
+            <p class="label">The FractiSI move</p>
+            <p>Tiny Footprint density fits more agents in the same representation budget. Layer E Git awareness is available on Community. Layer F cloud deploy unlocks on Team · Enterprise · Cloud.</p>
+          </div>
+          <div class="teach-block notice">
+            <p class="label">What to watch in the run</p>
+            <p>Density meters plus the free vs paid boundary for deploy.</p>
+          </div>
         `,
       },
     ];
 
     const ORDER = STEPS.map((s) => s.id);
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v1';
+    const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
     let index = 0;
     let running = false;
 
-    const progressEl = document.getElementById('progress');
+    const progressLabel = document.getElementById('progress-label');
+    const progressFill = document.getElementById('progress-fill');
+    const progressDots = document.getElementById('progress-dots');
+    const eyebrow = document.getElementById('eyebrow');
     const titleEl = document.getElementById('title');
-    const componentEl = document.getElementById('component');
-    const bodyEl = document.getElementById('body');
+    const promiseEl = document.getElementById('promise');
+    const teachEl = document.getElementById('teach');
+    const labHint = document.getElementById('lab-hint');
     const btnRun = document.getElementById('btn-run');
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
     const statusEl = document.getElementById('status');
+    const resultsWrap = document.getElementById('results-wrap');
     const resultsEl = document.getElementById('results');
+    const takeawayEl = document.getElementById('takeaway');
     const honestyEl = document.getElementById('honesty');
     const finishEl = document.getElementById('finish');
+    const lessonEl = document.getElementById('lesson');
 
-    function current() {
-      return STEPS[index];
+    function current() { return STEPS[index]; }
+
+    function saveDone() {
+      localStorage.setItem(DONE_KEY, JSON.stringify([...done]));
+    }
+
+    function renderDots() {
+      progressDots.innerHTML = '';
+      STEPS.forEach((s, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.title = (s.n === 0 ? 'Primer' : 'Lab ' + s.n) + ': ' + s.title;
+        b.setAttribute('aria-label', b.title);
+        if (i === index) b.classList.add('is-active');
+        if (done.has(s.id) || i < index) b.classList.add('is-done');
+        b.addEventListener('click', () => show(s.id));
+        progressDots.appendChild(b);
+      });
     }
 
     function show(id) {
@@ -328,20 +667,33 @@
       index = i >= 0 ? i : 0;
       const s = current();
       const total = STEPS.length;
-      const label = s.n === 0 ? 'Primer' : 'Lab ' + s.n;
-      progressEl.textContent = label + ' · ' + (index + 1) + ' of ' + total;
+      const lessonNo = String(index + 1).padStart(2, '0');
+      const kind = s.n === 0 ? 'Primer' : 'Lab ' + s.n;
+
+      progressLabel.textContent = 'Lesson ' + lessonNo + ' · ' + kind;
+      progressFill.style.width = ((index + 1) / total * 100).toFixed(1) + '%';
+      eyebrow.textContent = kind + ' · FractiSI Multi-Agent';
       titleEl.textContent = s.title;
-      componentEl.textContent = s.component;
-      bodyEl.innerHTML = s.bodyHtml;
-      btnRun.textContent = s.runLabel || 'Run this lab';
+      promiseEl.textContent = s.promise;
+      teachEl.innerHTML = s.teach;
+      labHint.textContent = s.labHint;
+      btnRun.textContent = s.runLabel;
       btnPrev.disabled = index === 0;
-      btnNext.textContent = index >= STEPS.length - 1 ? 'Finish' : 'Next →';
-      resultsEl.hidden = true;
-      resultsEl.classList.add('is-empty');
-      resultsEl.textContent = 'Results appear here after you run the lab.';
-      statusEl.textContent = '';
+      btnNext.textContent = index >= total - 1 ? 'Finish' : 'Next →';
+
+      resultsWrap.classList.remove('is-open');
+      resultsEl.textContent = '';
+      takeawayEl.classList.remove('is-open');
+      takeawayEl.innerHTML = '';
       honestyEl.textContent = '';
-      finishEl.hidden = true;
+      statusEl.textContent = '';
+      finishEl.classList.remove('is-open');
+
+      lessonEl.classList.remove('lesson');
+      void lessonEl.offsetWidth;
+      lessonEl.classList.add('lesson');
+
+      renderDots();
       history.replaceState(null, '', '#' + s.id);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -350,10 +702,10 @@
       if (running) return;
       running = true;
       btnRun.disabled = true;
-      statusEl.textContent = 'Running…';
-      resultsEl.hidden = false;
-      resultsEl.classList.remove('is-empty');
+      statusEl.textContent = 'Running live kit…';
+      resultsWrap.classList.add('is-open');
       resultsEl.textContent = '▸ measuring…';
+      takeawayEl.classList.remove('is-open');
       try {
         const id = current().id;
         const res = await fetch('/api/testdrive?step=' + encodeURIComponent(id), {
@@ -373,10 +725,16 @@
         ];
         resultsEl.textContent = header.concat(step.lines || []).join('\n');
         honestyEl.textContent = step.honesty || '';
+        takeawayEl.innerHTML = '<strong>Takeaway</strong>' + (current().takeaway || '');
+        takeawayEl.classList.add('is-open');
         statusEl.textContent = 'Done · ' + data.ms + ' ms';
+        done.add(id);
+        saveDone();
+        renderDots();
+        resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } catch (err) {
-        resultsEl.textContent = 'Could not run this lab.\n' + String(err.message || err);
-        statusEl.textContent = 'Error — you can still use Next / Previous';
+        resultsEl.textContent = 'Could not run this lab.\n' + String(err.message || err) + '\n\nYou can still continue with Next / Previous.';
+        statusEl.textContent = 'Error — navigation still works';
       } finally {
         running = false;
         btnRun.disabled = false;
@@ -384,16 +742,28 @@
     }
 
     btnRun.addEventListener('click', runLab);
-    btnPrev.addEventListener('click', () => {
-      if (index > 0) show(ORDER[index - 1]);
-    });
+    btnPrev.addEventListener('click', () => { if (index > 0) show(ORDER[index - 1]); });
     btnNext.addEventListener('click', () => {
       if (index >= STEPS.length - 1) {
-        finishEl.hidden = false;
+        finishEl.classList.add('is-open');
         finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         return;
       }
       show(ORDER[index + 1]);
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+      if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
+        e.preventDefault();
+        btnNext.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') {
+        e.preventDefault();
+        btnPrev.click();
+      } else if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault();
+        runLab();
+      }
     });
 
     const hash = (location.hash || '').replace(/^#/, '');
