@@ -384,14 +384,14 @@
       <div class="teach" id="teach"></div>
 
       <section class="lab-panel" aria-label="Live lab">
-        <p class="lab-title">Live lab</p>
-        <p class="lab-hint" id="lab-hint">Run to measure this step on the FractiSI kit.</p>
+        <p class="lab-title">Measure</p>
+        <p class="lab-hint" id="lab-hint">Runs the same kit as the CLI.</p>
         <div class="actions">
-          <button type="button" class="btn btn-run" id="btn-run">Run this lab</button>
+          <button type="button" class="btn btn-run" id="btn-run">Run</button>
           <span class="status" id="status"></span>
         </div>
         <div class="results-wrap" id="results-wrap">
-          <p class="results-label">Live output</p>
+          <p class="results-label">Output</p>
           <pre class="results" id="results"></pre>
           <div class="takeaway" id="takeaway"></div>
           <p class="honesty" id="honesty"></p>
@@ -399,12 +399,12 @@
       </section>
 
       <section class="finish" id="finish" aria-label="Walkthrough complete">
-        <h2>You finished the Test Drive.</h2>
-        <p>You walked the primer and the live labs. Next: try the Community kit on your machine, or skim editions if you are evaluating for a team.</p>
+        <h2>Test Drive complete.</h2>
+        <p>Clone the Community kit, or check editions if you are buying seats. Deploy remains Layer F (paid).</p>
         <div class="finish-actions">
-          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Open GitHub kit →</a>
-          <a class="btn-secondary" href="/product/pricing/">See editions</a>
-          <a class="btn-secondary" href="/talks/aai-symposium-2026/">Watch the talk</a>
+          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub →</a>
+          <a class="btn-secondary" href="/product/pricing/">Pricing</a>
+          <a class="btn-secondary" href="/talks/aai-symposium-2026/">Talk</a>
         </div>
       </section>
     </article>
@@ -423,195 +423,195 @@
       {
         id: 'primer',
         n: 0,
-        title: 'How FractiSI Multi-Agent fits together',
-        promise: 'Before any numbers: one plain map of the stack — so the labs that follow make sense on first listen.',
-        runLabel: 'Show the ladder',
-        labHint: 'Optional: print the same primer ladder into the live output panel.',
-        takeaway: 'Shared world first. Then rhyme, selective reconstruction, coordination, and deploy — in that spirit.',
+        title: 'Stack map',
+        promise: 'Names you will see in the labs — then we measure.',
+        runLabel: 'Print stack map',
+        labHint: 'Dumps the canonical ladder into the output panel.',
+        takeaway: 'Shared world → Tiny Gateway → Tiny Footprint → B–F.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">Trainer note</p>
-            <p>Many AI helpers fail the same way teams fail with documents: everyone keeps a private full copy. FractiSI is built so agents — and humans — can work from one shared world instead.</p>
+            <p class="label">Premise</p>
+            <p>Default multi-agent setups give each agent a private full copy of context. FractiSI Multi-Agent keeps one shared world and specializes around it.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The ladder · plain English</p>
+            <p class="label">Ladder</p>
             <ol class="ladder">
-              <li><span class="n">01</span><span><strong>Generative possibility</strong> — the open field of processes you can file, nest, and reuse.</span></li>
-              <li><span class="n">02</span><span><strong>Net Zero</strong> — home base. The shared world roots here.</span></li>
-              <li><span class="n">03</span><span><strong>Φ ≈ 1.618</strong> — a nesting scale so layers stay tidy as they deepen (design grammar, not physics).</span></li>
-              <li><span class="n">04</span><span><strong>Infinite Octaves</strong> — how deep the filing goes. “Infinite” means depth, not infinite measured physics.</span></li>
-              <li><span class="n">05</span><span><strong>Boundary nodes</strong> — the front door: what may enter.</span></li>
-              <li><span class="n">06</span><span><strong>Recursive trees / rhyme</strong> — nested context that repeats and self-corrects across scale.</span></li>
-              <li><span class="n">07</span><span><strong>Eight-node / honeycomb</strong> — one story, eight ports, so helpers plug in without reprinting everything.</span></li>
-              <li><span class="n">08</span><span><strong>Wave · vectors · interference</strong> — what is active, what each agent holds, and when paths would collide.</span></li>
-              <li><span class="n">09</span><span><strong>Awareness</strong> — what each participant is holding about the shared world (not machine consciousness).</span></li>
-              <li><span class="n">10</span><span><strong>Product</strong> — Rhyming Templates → Tiny Gateway™ → Tiny Footprint → Layers B–F → FractiSI Multi-Agent.</span></li>
+              <li><span class="n">01</span><span><strong>Generative possibility</strong> — what can be filed, nested, reused.</span></li>
+              <li><span class="n">02</span><span><strong>Net Zero</strong> — root of the shared world.</span></li>
+              <li><span class="n">03</span><span><strong>Φ ≈ 1.618</strong> — nesting scale (design grammar, not physics).</span></li>
+              <li><span class="n">04</span><span><strong>Infinite Octaves</strong> — nesting depth / filing map.</span></li>
+              <li><span class="n">05</span><span><strong>Boundary nodes</strong> — what may enter.</span></li>
+              <li><span class="n">06</span><span><strong>Recursive trees / rhyme</strong> — structure across scale; prefix ≠ rhyme.</span></li>
+              <li><span class="n">07</span><span><strong>Eight-node / honeycomb</strong> — one story, eight ports.</span></li>
+              <li><span class="n">08</span><span><strong>Wave · vectors · interference</strong> — activation, working sets, collision marks.</span></li>
+              <li><span class="n">09</span><span><strong>Awareness</strong> — what each participant holds (not consciousness).</span></li>
+              <li><span class="n">10</span><span><strong>Product</strong> — Rhyming Templates → Tiny Gateway → Tiny Footprint → B–F.</span></li>
             </ol>
           </div>
           <div class="teach-block">
-            <p class="label">Symposium frame</p>
-            <p>Possible rhyme with Active Inference: many agents — including humans — act in one shared world without each reprinting a private full copy. “Rhyme” means kinship for experiments, not “we are that framework.”</p>
+            <p class="label">Symposium</p>
+            <p>Possible structural rhyme with Active Inference — shared world, many agents including humans. Not identity with that framework.</p>
           </div>
         `,
       },
       {
         id: '1',
         n: 1,
-        title: 'Share the world once',
-        promise: 'See why “every agent gets a full copy” is the expensive default — and what Tiny Footprint changes.',
-        runLabel: 'Run shared-world lab',
-        labHint: 'Compare N full copies against one shared world plus per-agent deltas.',
-        takeaway: 'Register the world once. Agents keep only what changed for them.',
+        title: 'Shared world vs N copies',
+        promise: 'Tiny Footprint: one world, per-agent deltas.',
+        runLabel: 'Run',
+        labHint: 'Byte contrast: N full copies vs shared + deltas.',
+        takeaway: 'Stop reprinting the world per agent.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Without Tiny Footprint, every agent reprints a full copy of the shared world — like every coworker photocopying the whole project folder for themselves.</p>
+            <p class="label">Default</p>
+            <p>Each agent carries a full private copy of shared context. Cost scales with fleet size before any specialized work starts.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>Tiny Footprint keeps one shared world. Each agent stores local deltas only. That is the density foundation for everything else.</p>
+            <p class="label">Tiny Footprint</p>
+            <p>Register the world once. Agents keep local deltas only. Density for everything above.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Byte counts: full-copy fleet vs shared world + deltas. The gap is the architecture talking.</p>
+            <p class="label">Metric</p>
+            <p>Total bytes: full-copy fleet vs shared world + deltas.</p>
           </div>
         `,
       },
       {
         id: '2',
         n: 2,
-        title: 'Gzip helps. Architecture still matters.',
-        promise: 'Compression is polish. It does not invent sharing.',
-        runLabel: 'Run gzip residual lab',
-        labHint: 'Measure what remains after gzip when you still keep N copies.',
-        takeaway: 'Share first. Compress second. Do not confuse the two.',
+        title: 'Gzip is not sharing',
+        promise: 'Compression shrinks copies. It does not remove N-copy structure.',
+        runLabel: 'Run',
+        labHint: 'Residual gap after gzip on N copies vs shared pack.',
+        takeaway: 'Share first. Compress second.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Gzip and pack compression shrink copies. They do not remove the structure of “N people each keep a full copy.”</p>
+            <p class="label">Default</p>
+            <p>Gzip / pack helps bandwidth. It still assumes each agent owns a full copy.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>Tiny Footprint shares the world first. Compression becomes optional polish on top of a better shape.</p>
+            <p class="label">Tiny Footprint</p>
+            <p>Share the world, then optionally compress. Architecture leads; compression is polish.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Residual gap after gzip — proof that architecture still leads compression.</p>
+            <p class="label">Metric</p>
+            <p>Post-gzip residual between N copies and shared-world pack.</p>
           </div>
         `,
       },
       {
         id: '3',
         n: 3,
-        title: 'Rhyme when the words differ',
-        promise: 'Exact caches fail as soon as someone rephrases the same job. Rhyming Templates are built for that reality.',
-        runLabel: 'Run rhyme vs cache',
-        labHint: 'Compare exact/prefix cache behavior with Rhyming Templates when wording changes.',
-        takeaway: 'Reuse organization across Infinite Octaves — not only identical strings.',
+        title: 'Rhyme vs exact cache',
+        promise: 'Wording changes. Structure should still reuse.',
+        runLabel: 'Run',
+        labHint: 'Exact/prefix cache vs Tiny Gateway Rhyming Templates.',
+        takeaway: 'Reuse organization when strings differ.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Exact-text and prefix caches only help when the wording matches. Real teams rephrase the same work all day.</p>
+            <p class="label">Default</p>
+            <p>Exact-text and prefix caches miss as soon as prompts are rephrased.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>Tiny Gateway™ Rhyming Templates share structure when words change — holographic rhyme from Net Zero up the octave ladder.</p>
+            <p class="label">Tiny Gateway</p>
+            <p>Rhyming Templates share Infinite Octave structure across differently worded sessions.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Hit/miss contrast: exact cache vs rhyme when sessions differ in wording.</p>
+            <p class="label">Metric</p>
+            <p>Stored bytes / hit behavior: exact cache vs rhyme on differing-word sessions.</p>
           </div>
         `,
       },
       {
         id: '4',
         n: 4,
-        title: 'Find what flat skim misses',
-        promise: 'Under a budget, skimming text is not the same as walking relationships.',
-        runLabel: 'Run discovery lab',
-        labHint: 'Compare flat skim against selective reconstruction on a multi-hop discovery task.',
-        takeaway: 'Follow relationship edges in the shared world — that is how buried chains surface.',
+        title: 'Discovery under budget',
+        promise: 'Flat skim vs selective reconstruction on multi-hop chains.',
+        runLabel: 'Run',
+        labHint: 'Discovery score: guided path vs flat skim.',
+        takeaway: 'Walk relationships — do not only skim text.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Flat skim under a fixed budget never assembles multi-hop chains buried in noise.</p>
+            <p class="label">Default</p>
+            <p>Budgeted flat skim fails to assemble buried multi-hop chains.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>Selective reconstruction walks nested relational structure — recovering what a shallow pass cannot.</p>
+            <p class="label">Selective reconstruction</p>
+            <p>Follow nested relational edges in the shared world.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Discovery score: guided path vs flat skim (often 100/100 vs 0/100 in this lab).</p>
+            <p class="label">Metric</p>
+            <p>This lab: 100/100 guided vs 0/100 flat skim.</p>
           </div>
         `,
       },
       {
         id: '5',
         n: 5,
-        title: 'Converge with fewer rounds',
-        promise: 'Finding the answer is not enough — fleets also need to stop thrashing.',
-        runLabel: 'Run convergence lab',
-        labHint: 'Measure rounds and ops on the same guided reconstruction path.',
-        takeaway: 'Fewer rounds and ops on the guided path — convergence is a first-class meter.',
+        title: 'Convergence cost',
+        promise: 'Same path, fewer rounds and ops.',
+        runLabel: 'Run',
+        labHint: 'Rounds and operations vs unconstrained collective.',
+        takeaway: 'Guided reconstruction thrash less.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Collectives burn too many operations and propagation rounds before a composed answer appears.</p>
+            <p class="label">Default</p>
+            <p>Unconstrained collectives spend rounds and ops before a composed answer.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>The same selective-reconstruction path converges with fewer rounds and ops — less thrash, earlier compose.</p>
+            <p class="label">Guided path</p>
+            <p>Selective reconstruction converges earlier on the same discovery structure.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Round and op reductions versus the unconstrained collective baseline.</p>
+            <p class="label">Metric</p>
+            <p>Round Δ and op Δ versus baseline.</p>
           </div>
         `,
       },
       {
         id: '6',
         n: 6,
-        title: 'Coordinate before you merge',
-        promise: 'Parallel agents are not enough. Ownership and composition prevent silent collisions.',
-        runLabel: 'Run coordination lab',
-        labHint: 'Compare isolated parallel work against coordinated ownership and composition.',
-        takeaway: 'Layers B–D: coordinate, share state, compose — then ship.',
+        title: 'Ownership before merge',
+        promise: 'Parallel work without coordination collides.',
+        runLabel: 'Run',
+        labHint: 'Isolated parallel vs coordinated composition (B–D).',
+        takeaway: 'Coordinate → share state → compose → then merge.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Parallel agents collide at merge when isolation meets a blind integrate.</p>
+            <p class="label">Default</p>
+            <p>Isolated agents + blind integrate = merge collisions.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>Layers B–D mark ownership, share state on purpose, and compose contributions before merge.</p>
+            <p class="label">Layers B–D</p>
+            <p>Ownership, shared state, composition before ship.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Coordination contrast: blind parallel vs owned composition.</p>
+            <p class="label">Metric</p>
+            <p>Coord-bench contrast: arm A vs coordinated arm.</p>
           </div>
         `,
       },
       {
         id: '7',
         n: 7,
-        title: 'Density, Git, and paid deploy',
-        promise: 'Close the loop: more agents in budget, Git awareness free on Community, cloud deploy as paid Layer F.',
-        runLabel: 'Run density · Git · deploy',
-        labHint: 'See density gains, Git awareness, and where paid deploy unlocks.',
-        takeaway: 'Community can learn and commit. Fleet deploy is the paid Layer F seat.',
+        title: 'Density · Git · deploy',
+        promise: 'More agents in budget. Git on Community. Deploy is paid.',
+        runLabel: 'Run',
+        labHint: 'Density meters + free Git vs paid Layer F.',
+        takeaway: 'Community: local + Git. Layer F: paid deploy.',
         teach: `
           <div class="teach-block">
-            <p class="label">The problem</p>
-            <p>Duplicated context burns the budget before specialized agent work even begins.</p>
+            <p class="label">Default</p>
+            <p>Duplicated context eats the representation budget first.</p>
           </div>
           <div class="teach-block">
-            <p class="label">The FractiSI move</p>
-            <p>Tiny Footprint density fits more agents in the same representation budget. Layer E Git awareness is available on Community. Layer F cloud deploy unlocks on Team · Enterprise · Cloud.</p>
+            <p class="label">Product seats</p>
+            <p>Tiny Footprint density; Layer E Git on Community; Layer F cloud deploy on Team · Enterprise · Cloud.</p>
           </div>
           <div class="teach-block notice">
-            <p class="label">What to watch in the run</p>
-            <p>Density meters plus the free vs paid boundary for deploy.</p>
+            <p class="label">Metric</p>
+            <p>Agents per budget + entitlement boundary for deploy.</p>
           </div>
         `,
       },
@@ -702,7 +702,7 @@
       if (running) return;
       running = true;
       btnRun.disabled = true;
-      statusEl.textContent = 'Running live kit…';
+      statusEl.textContent = 'Running…';
       resultsWrap.classList.add('is-open');
       resultsEl.textContent = '▸ measuring…';
       takeawayEl.classList.remove('is-open');
@@ -725,7 +725,7 @@
         ];
         resultsEl.textContent = header.concat(step.lines || []).join('\n');
         honestyEl.textContent = step.honesty || '';
-        takeawayEl.innerHTML = '<strong>Takeaway</strong>' + (current().takeaway || '');
+        takeawayEl.innerHTML = '<strong>Result</strong>' + (current().takeaway || '');
         takeawayEl.classList.add('is-open');
         statusEl.textContent = 'Done · ' + data.ms + ' ms';
         done.add(id);
