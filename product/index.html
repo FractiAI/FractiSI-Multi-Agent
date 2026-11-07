@@ -119,12 +119,12 @@
         </div>
         <div class="card">
           <h3>Selective reconstruct</h3>
-          <p>Nested vectors let an agent pull only the scales it needs—runtime DRAM, not just file size.</p>
+          <p>Nested vectors let an agent pull only the scales it needs—runtime working set, not just file size.</p>
         </div>
       </div>
 
-      <h2>Why DRAM is the engine</h2>
-      <p><strong>FractiSI Multi-Agent</strong> is the product name; Tiny Footprint is Layer A. <strong>DRAM concurrency</strong> is how it pays: more agents in the same memory budget when the shared world would otherwise be copied N times. Network fan-out and durable template stores are phase-2 adapters—not separate diluted SKUs.</p>
+      <h2>What the product pays for</h2>
+      <p><strong>FractiSI Multi-Agent</strong> is the product name; Tiny Footprint is Layer A. Labs show four payoffs together: <strong>shared-world discovery</strong> that flat skim misses, <strong>faster convergence</strong> on the same path, <strong>density after gzip</strong> when every agent would otherwise carry a full copy, and <strong>rhyme reuse</strong> when wording differs but shape matches. Memory concurrency is one meter—not the whole story. Network fan-out and durable template stores are phase-2 adapters—not separate diluted SKUs.</p>
 
       <h2>One engine · three deployment surfaces</h2>
       <div class="cards">
@@ -143,14 +143,16 @@
       </div>
 
       <h2>What the labs show</h2>
-      <p>Multi-agent labs (synthetic shared worlds): when each agent embeds a full world copy, Tiny’s shared pack still shows large cuts <strong>after gzip</strong>—about <b>~42%</b> residual in smaller-world shine labs, and much larger when the world dominates per-agent state. Resident-byte proxies and 8 GiB density arithmetic show <b>order-of-magnitude more agents</b> in the world-dominated regime. Selective coarse-only nested tasks cut runtime working-set bytes by about <b>~99.5%</b> vs shipping full pyramids.</p>
+      <p>Architectural / structured-state suites measure the full board—not memory alone. Guided shared-world recovery finds chains flat skim never assembles (<b>100/100 vs 0/100</b>). The same constrained discovery path converges in half the rounds and far fewer ops (<b>−50% · −85%</b>). Shared packs still beat naive per-agent copies <strong>after gzip</strong> (~42%+ residual in smaller-world labs; denser when the world dominates). Same-shape sessions with different wording favor <strong>rhyming templates</strong> over exact-text cache. Tiny Gateway’s representation / GPU-allocation labs sit under the engine shelf (<b>84.5% · 81.4%</b>). Density arithmetic is one lane among those results.</p>
       <div class="metrics" aria-label="Multi-Agent lab highlights">
-        <div><b>~42%+</b><span>pack residual after gzip (shared world)</span></div>
-        <div><b>≫10×</b><span>agent density when world ≫ delta</span></div>
-        <div><b>~99.5%</b><span>selective coarse working set</span></div>
-        <div><b>1 product</b><span>Multi-Agent · DRAM engine</span></div>
+        <div><b>100/100</b><span>vs flat skim on guided discovery</span></div>
+        <div><b>−50% · −85%</b><span>rounds and ops to converge</span></div>
+        <div><b>36×–62×</b><span>density vs full per-agent copy</span></div>
+        <div><b>~42%+</b><span>still ahead after gzip</span></div>
+        <div><b>Rhyme</b><span>beats exact-text cache when words differ</span></div>
+        <div><b>84.5% · 81.4%</b><span>Tiny Gateway representation / GPU alloc</span></div>
       </div>
-      <p><a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a> · <a href="https://github.com/FractiAI/tiny-oracle-lob-pilot">Empirical suite</a> · <a href="/research/#open-evaluation">Evaluation program</a></p>
+      <p><a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a> · <a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a> · <a href="/research/#open-evaluation">Evaluation program</a></p>
 
       <h2>Workstation</h2>
       <figure class="figure">
