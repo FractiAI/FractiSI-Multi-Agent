@@ -1,6 +1,16 @@
-# Tiny Footprint Workstation
+# Tiny Footprint Workstation · FractiSI Multi-Agent
 
 FractiAI's kit for storing shared AI-serving state once. Node with no runtime dependencies for everything a customer runs; Python under `uv` for real-model labs and figures.
+
+## Audience Test Drive (IDE agents)
+
+If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo for the AAI Symposium Test Drive), follow **[`TEST_DRIVE.md`](./TEST_DRIVE.md)** and run:
+
+```bash
+node scripts/tiny.mjs testdrive
+```
+
+That is the whole default path. No cloud token.
 
 ## Commands
 

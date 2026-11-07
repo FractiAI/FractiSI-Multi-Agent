@@ -4,77 +4,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="FractiSI Multi-Agent Test Drive — three steps: open the talk, clone the kit, run the demo.">
+  <meta name="description" content="Give your IDE the FractiSI-Multi-Agent repo link and ask it to do the test drive.">
   <link rel="stylesheet" href="../css/site.css?v=27">
   <style>
-    .dash {
-      display: grid;
-      gap: 1rem;
-      margin: 1.75rem 0 2rem;
+    .board {
+      max-width: 40rem;
+      margin: 2rem auto 0;
     }
-    @media (min-width: 900px) {
-      .dash { grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
-    }
-    .step {
-      background: var(--paper);
+    .card {
       border: 1px solid var(--line);
-      padding: 1.35rem 1.25rem 1.45rem;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
+      background: var(--paper);
+      padding: 1.5rem 1.4rem 1.6rem;
+      margin: 0 0 1rem;
     }
-    .step .n {
+    .card .n {
       font-family: var(--sans);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin: 0 0 0.55rem;
+      margin: 0 0 0.5rem;
     }
-    .step h2 {
-      margin: 0 0 0.55rem;
-      font-size: 1.55rem;
+    .card h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1.45rem;
       font-weight: 500;
-      line-height: 1.15;
     }
-    .step p {
-      margin: 0 0 1rem;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.4;
-      flex: 1;
-    }
-    .step pre {
-      margin: 0 0 1rem;
+    .card p { margin: 0 0 0.85rem; color: var(--muted); }
+    .card code, .card .box {
+      display: block;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.82rem;
-      line-height: 1.45;
+      font-size: 0.92rem;
       background: #14120e;
       color: #f4f1ea;
-      padding: 0.75rem 0.85rem;
-      overflow-x: auto;
+      padding: 0.85rem 1rem;
       border-radius: 0.3rem;
+      word-break: break-all;
+      line-height: 1.45;
     }
-    .step a.go {
+    .say {
+      font-size: 1.15rem;
+      color: var(--ink) !important;
+      font-style: italic;
+    }
+    .go {
       display: inline-block;
-      align-self: flex-start;
+      margin-top: 0.35rem;
       font-family: var(--sans);
       font-weight: 650;
-      font-size: 0.95rem;
       text-decoration: none;
       background: var(--ink);
       color: var(--bg);
       padding: 0.55rem 0.95rem;
       border-radius: 999px;
     }
-    .step a.go:hover { opacity: 0.9; }
-    .more {
+    .foot-links {
       font-family: var(--sans);
       font-size: 0.92rem;
       color: var(--muted);
-      margin: 0;
+      margin-top: 1.25rem;
     }
-    .more a { color: var(--accent); font-weight: 650; }
+    .foot-links a { color: var(--accent); font-weight: 650; }
   </style>
 </head>
 <body>
@@ -84,59 +74,53 @@
       <a href="/product/">Product</a>
       <a href="/test-drive/">Test Drive</a>
       <a href="/blog/">Blog</a>
-      <a href="/research/">Research</a>
-      <a href="/library/">Library</a>
-      <a class="button" href="/talks/aai-symposium-2026/">Open the talk</a>
+      <a href="/talks/aai-symposium-2026/">Talk</a>
+      <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <article class="page" style="max-width:58rem;margin:0 auto">
-      <p class="kicker">Test Drive · AAI Symposium · Nov 12–13, 2026</p>
-      <h1>FractiSI Multi-Agent</h1>
-      <p class="lede">One shared world. Many agents. Follow along in three steps.</p>
+    <article class="page board">
+      <p class="kicker">Test Drive · AAI Symposium</p>
+      <h1>One ask for your IDE</h1>
+      <p class="lede">Give your IDE our repo. Ask it to run the Test Drive. That’s it.</p>
 
-      <div class="dash" role="list">
-        <section class="step" role="listitem" id="step-1">
-          <p class="n">Step 1</p>
-          <h2>Open the talk</h2>
-          <p>Watch the 30-minute presentation. Links on the slides open in a new tab.</p>
-          <a class="go" href="/talks/aai-symposium-2026/" target="_blank" rel="noopener">Presentation →</a>
-        </section>
-
-        <section class="step" role="listitem" id="step-2">
-          <p class="n">Step 2</p>
-          <h2>Clone the kit</h2>
-          <p>Git + Node 18+. Open the repo in Cursor, VS Code, or Claude Code.</p>
-          <pre>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
-cd FractiSI-Multi-Agent</pre>
-          <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub →</a>
-        </section>
-
-        <section class="step" role="listitem" id="step-3">
-          <p class="n">Step 3</p>
-          <h2>Run the demo</h2>
-          <p>No cloud token. Local doctor → demo → benchmark on your machine.</p>
-          <pre>node scripts/tiny.mjs doctor
-node scripts/tiny.mjs demo
-node scripts/tiny.mjs benchmark</pre>
-          <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/QUICKSTART.md" target="_blank" rel="noopener">Commands →</a>
-        </section>
+      <div class="card">
+        <p class="n">1 · Repo</p>
+        <h2>Paste this link</h2>
+        <p>Into Cursor, Claude Code, VS Code, or any coding agent.</p>
+        <code>https://github.com/FractiAI/FractiSI-Multi-Agent</code>
+        <p style="margin-top:0.85rem;margin-bottom:0">
+          <a class="go" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">Open repo →</a>
+        </p>
       </div>
 
-      <p class="more">
-        <a href="/blog/aai-symposium-2026/">Blog note</a>
+      <div class="card">
+        <p class="n">2 · Prompt</p>
+        <h2>Say this</h2>
+        <p class="say box">Do the FractiSI Multi-Agent test drive.</p>
+        <p>Your IDE reads <code>TEST_DRIVE.md</code> and runs <code>node scripts/tiny.mjs testdrive</code> — local doctor, demo, and benchmark. No FractiSI account. No cloud token.</p>
+      </div>
+
+      <div class="card">
+        <p class="n">3 · Optional</p>
+        <h2>Watch the talk</h2>
+        <p>While the agent works, open the presentation.</p>
+        <a class="go" href="/talks/aai-symposium-2026/">Presentation →</a>
+      </div>
+
+      <p class="foot-links">
+        <a href="/blog/aai-symposium-2026/">Blog</a>
         · <a href="/product/">Product</a>
-        · <a href="/research/#open-evaluation">Evaluation</a>
         · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
       </p>
-      <p class="honesty">Local demos are architectural exercises on your machine — not CapEx guarantees.</p>
+      <p class="honesty">The Test Drive is a local architectural exercise on your machine — not a CapEx guarantee.</p>
     </article>
   </main>
 
   <footer class="site-footer">
     <span>FractiSI · Test Drive</span>
-    <span><a href="/talks/aai-symposium-2026/">Talk</a> · <a href="/blog/">Blog</a></span>
+    <span><a href="/talks/aai-symposium-2026/">Talk</a></span>
   </footer>
 </body>
 </html>

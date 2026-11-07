@@ -23,6 +23,7 @@
     "coverage": "node scripts/run_node_tests.mjs --experimental-test-coverage",
     "doctor": "node scripts/tiny.mjs doctor",
     "install-kit": "node scripts/tiny.mjs install",
+    "testdrive": "node scripts/tiny.mjs testdrive",
     "demo": "node scripts/tiny.mjs demo",
     "benchmark": "node scripts/tiny.mjs benchmark",
     "report": "node scripts/tiny.mjs report",

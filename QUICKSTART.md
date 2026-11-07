@@ -1,5 +1,12 @@
 # Quickstart — FractiSI Multi-Agent
 
+## IDE Test Drive (recommended for symposium / first try)
+
+1. Clone `https://github.com/FractiAI/FractiSI-Multi-Agent`
+2. Ask your IDE: **Do the FractiSI Multi-Agent test drive.**
+
+It will follow [`TEST_DRIVE.md`](./TEST_DRIVE.md) and run `node scripts/tiny.mjs testdrive` (local doctor → demo → benchmark → report). No cloud token.
+
 ## What you need
 
 1. **Git**
