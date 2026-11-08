@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
+  <title id="title">FractiSI Multi-Agent stack tree</title>
+  <desc id="desc">Dendrochronology-style stack chart: Digits × Octaves rings under a trunk of Base Mainnet through Deploy, crowned FractiSI Multi-Agent.</desc>
+  <defs>
+    <linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e7d0"/>
+      <stop offset="100%" stop-color="#e4d2b0"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6b4423"/>
+      <stop offset="50%" stop-color="#8a5a2b"/>
+      <stop offset="100%" stop-color="#5c3a1a"/>
+    </linearGradient>
+    <radialGradient id="ringFill" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d9c3a0"/>
+      <stop offset="100%" stop-color="#b89568"/>
+    </radialGradient>
+  </defs>
+  <rect width="720" height="1080" fill="url(#parch)"/>
+  <text x="360" y="48" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#2a1c10" letter-spacing="1.5">FRACTISI MULTI-AGENT</text>
+  <text x="360" y="78" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#5a4028" letter-spacing="2">ONE SHARED WORLD · MANY AGENTS</text>
+  <line x1="160" y1="92" x2="560" y2="92" stroke="#8a6a40" stroke-width="1.2"/>
+
+  <!-- Canopy suggestion -->
+  <ellipse cx="360" cy="150" rx="210" ry="58" fill="#4a6b3a" opacity="0.88"/>
+  <ellipse cx="250" cy="168" rx="110" ry="42" fill="#3f5e32" opacity="0.9"/>
+  <ellipse cx="470" cy="168" rx="110" ry="42" fill="#3f5e32" opacity="0.9"/>
+  <text x="360" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#f4efe3">FractiSI Multi-Agent</text>
+
+  <!-- Trunk plaques (bottom ’ top visually = list bottom first drawn low) -->
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#f7efe2" text-anchor="middle">
+    <!-- y positions from top after canopy -->
+    <rect x="210" y="210" width="300" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="232">DEPLOY</text>
+
+    <rect x="210" y="252" width="300" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="274">GIT AWARENESS</text>
+
+    <rect x="200" y="294" width="320" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="316" font-size="11.5">COORDINATION · SHARED STATE · COMPOSITION</text>
+
+    <rect x="210" y="336" width="300" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="358">TINY FOOTPRINT</text>
+
+    <rect x="190" y="378" width="340" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="400" font-size="11.5">RHYMING TEMPLATES · TINY GATEWAY</text>
+
+    <rect x="200" y="420" width="320" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="442">HOLOGRAPHIC RHYME GATE</text>
+
+    <rect x="210" y="462" width="300" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="484">INFINITE OCTAVES</text>
+
+    <rect x="200" y="504" width="320" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="526">NET ZERO · BALANCED ZERO</text>
+
+    <rect x="210" y="546" width="300" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="568">SYNTHEVERSE SANDBOX</text>
+
+    <rect x="210" y="588" width="300" height="34" rx="4" fill="url(#wood)"/>
+    <text x="360" y="610">BASE MAINNET</text>
+  </g>
+
+  <!-- Stump rings -->
+  <g transform="translate(360 820)">
+    <circle r="210" fill="url(#ringFill)" stroke="#6b4423" stroke-width="2"/>
+    <circle r="190" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="170" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="150" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="130" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="110" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="90" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="70" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="50" fill="none" stroke="#7a5530" stroke-width="1.2"/>
+    <circle r="30" fill="#c9ae86" stroke="#5c3a1a" stroke-width="1.5"/>
+    <circle r="10" fill="#8a5a2b"/>
+    <text y="-4" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#2a1c10">SELF-</text>
+    <text y="8" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#2a1c10">OBS.</text>
+  </g>
+
+  <g font-family="Georgia, serif" font-size="10" fill="#3a2818">
+    <text x="48" y="720">Digit 0 · Zero-point / Net Zero root</text>
+    <text x="48" y="738">Digit 4 · Biological Switch (human)</text>
+    <text x="48" y="756">Digit 6 · Agentic hexa-lattice (agents)</text>
+    <text x="48" y="774">Digits × Octaves 0199 filing map</text>
+    <text x="430" y="720">Balanced zero, not nothing zero</text>
+    <text x="430" y="738">Enter / exit with chosen awareness</text>
+    <text x="430" y="756">Soft Story catalog · not CapEx proof</text>
+  </g>
+
+  <text x="360" y="1055" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5a4028">SOURCE / NEW GAME / HERO · Digits × Octaves 0199 · FractiSI Multi-Agent stack</text>
+</svg>

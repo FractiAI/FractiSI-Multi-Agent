@@ -12,7 +12,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-**Self-paced Test Drive** (= symposium presentation): hero → `#welcome` → `#primer` (valet awareness story) → `#primer-sandbox` → `#primer-problem` (agent pain + rhyme) → demos `#1` `#3` `#4` (Run) → `#how-stack` → `#invite` (explore · connect · beta) → End. Fully self-sufficient; presenter may speak from the same pages. Locks: `opening-story.mjs` · `sandbox-frame.mjs` · `rhyme-definition.mjs`. Deck mirrors arc: `/talks/aai-symposium-2026/`. Deploy paid (Team+).
+**Self-paced Test Drive** (= symposium presentation): hero → `#welcome` → `#primer` (valet awareness story) → `#primer-sandbox` → `#primer-problem` (agent pain + rhyme) → demos `#1` `#3` `#4` (Run) → `#how-stack` (SING13 tree chart updated · `/media/fractisi-multi-agent-stack-tree.jpg` + SVG) → `#invite` (explore · connect · beta) → End. Locks: `opening-story.mjs` · `sandbox-frame.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck mirrors arc: `/talks/aai-symposium-2026/`. Deploy paid (Team+).
 
 ## Commands
 
