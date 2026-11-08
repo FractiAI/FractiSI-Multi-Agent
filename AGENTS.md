@@ -12,7 +12,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-**Self-paced Test Drive** (= symposium presentation · plain English + images): hero (title + case) → `#welcome` opens on *The Multi-Agent World Inference Rhyme?* → `#primer` (valet awareness) → `#primer-sandbox` → `#primer-problem` → demos `#1` `#3` `#4` → `#how-stack` (stack tree) → `#invite` (explore · Expedition 002 · pricing · beta) → End. Locks: `opening-story.mjs` · `sandbox-frame.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck: `/talks/aai-symposium-2026/`. Deploy paid (Team+).
+**Self-paced Test Drive** (= symposium presentation · plain English + images · 11 beats): hero (title) → `#welcome` (the question) → `#story` (valet awareness) → `#sandbox` → `#problem` → `#rhyme` (Net Zero first, then four pillars) → live tests `#1` `#7` `#3` `#4` (before/after bars, plain summaries, recap) → `#how-stack` (stack tree; coordination reported honestly) → `#invite` (recap · explore · connect · beta). Locks: `opening-story.mjs` · `sandbox-frame.mjs` · `net-zero-definition.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck: `/talks/aai-symposium-2026/` (same 11 beats; numbers pinned to the API by tests). Deploy paid (Team+).
 
 ## Commands
 

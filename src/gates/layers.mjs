@@ -16,7 +16,7 @@ export const LAYERS = Object.freeze([
   ['benchmarks', 'workloads'],
   ['analysis'],
   ['manuscript'],
-  ['reporting', 'share', 'gates', 'docs_tools'],
+  ['reporting', 'share', 'gates', 'docs_tools', 'testdrive'],
   ['pipeline', 'verification', 'cli'],
 ]);
 
