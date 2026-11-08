@@ -21,10 +21,10 @@ test('labs 1/3/4 return plain-language readout summaries', () => {
 test('Test Drive live panel explains test and renders results summary', () => {
   const page = readFileSync(join(root, 'test-drive/index.html'), 'utf8');
   assert.match(page, /lab-test-box/);
-  assert.match(page, /What we’re testing|What we're testing/);
+  assert.match(page, /What this shows/);
   assert.match(page, /results-summary/);
-  assert.match(page, /Results in plain language/);
-  assert.match(page, /testing: 'We give 12 agents/);
-  assert.match(page, /testing: 'We create many sessions/);
-  assert.match(page, /testing: 'We hide answers/);
+  assert.match(page, /Here’s what happened/);
+  assert.match(page, /Twelve agents need the same map/);
+  assert.match(page, /exact-text cache only fires/i);
+  assert.match(page, /Answers hide behind six-step chains/);
 });

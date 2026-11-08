@@ -62,16 +62,15 @@ test('Test Drive how-stack references the updated tree', async () => {
 test('Test Drive opens on hero title case with prose and images', async () => {
   const { readFile } = await import('node:fs/promises');
   const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
-  assert.match(page, /Start module/);
-  assert.match(page, /Training objective/);
-  assert.match(page, /demonstrate FractiSI Multi-Agent/);
+  assert.match(page, /Let’s begin/);
+  assert.match(page, /One shared world\. Many agents\./);
+  assert.match(page, /Today we show you a better way/);
   assert.doesNotMatch(page, /decide whether FractiSI/);
+  assert.doesNotMatch(page, /Training objective/);
+  assert.doesNotMatch(page, /Failure mode A/);
   assert.match(page, /td-hero-visual/);
-  assert.match(page, /title: 'The Multi-Agent World Inference Rhyme\?'/);
   assert.match(page, /teach-prose/);
-  assert.match(page, /Failure mode A/);
-  assert.match(page, /What we demonstrate/);
+  assert.match(page, /What’s broken/);
   assert.match(page, /fractisi-hero\.jpg/);
   assert.doesNotMatch(page, /Hold that light/);
-  assert.doesNotMatch(page, /strongly rhyme/);
 });
