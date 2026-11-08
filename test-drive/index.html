@@ -897,18 +897,18 @@
 
       progressLabel.textContent = kind + ' · stop ' + peekNo;
       progressFill.style.width = ((index + 1) / total * 100).toFixed(1) + '%';
-      eyebrow.textContent = kind + ' · FractiSI Multi-Agent · self-paced';
+      eyebrow.textContent = kind + ' · FractiSI Multi-Agent · training module';
       titleEl.textContent = s.title;
       promiseEl.textContent = s.promise;
       teachEl.innerHTML = s.teach;
       btnPrev.disabled = index === 0;
-      btnNext.textContent = index >= total - 1 ? 'End of Test Drive' : 'Next →';
+      btnNext.textContent = index >= total - 1 ? 'Complete module' : 'Next →';
 
       if (teach) {
         labPanel.classList.add('is-hidden');
         teachContinue.classList.remove('is-hidden');
         if (centerHint) {
-          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · self-paced';
+          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · training module';
         }
         done.add(s.id);
         saveDone();
