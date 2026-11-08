@@ -1,0 +1,1182 @@
+{
+  "suite": "world_model_assimilation",
+  "version": "0.1.0",
+  "kind": "measured",
+  "ms": 66.441726,
+  "generatedAt": "2026-11-08T12:40:03.012Z",
+  "honesty": "In-process architectural labs on FractiSI Predictive Shared State prototype. No external world-model weights loaded. Not CapEx / HBM / Active Inference claims.",
+  "baseline": {
+    "id": "baseline_fractisi_comparative_bench",
+    "kind": "measured",
+    "source": "src/platform/comparative-bench.mjs:runComparativeBench",
+    "agentCounts": [
+      1,
+      4,
+      16,
+      32
+    ],
+    "runs": 3,
+    "bench": {
+      "kind": "fractisi_comparative_bench",
+      "measured": true,
+      "simulatedProductionCost": false,
+      "hardware": "in-process Node deterministic simulation",
+      "startedAt": "2026-11-08T12:40:02.946Z",
+      "elapsedMsTotal": 12,
+      "agentCounts": [
+        1,
+        4,
+        16,
+        32
+      ],
+      "runs": 3,
+      "results": [
+        {
+          "agents": 1,
+          "run": 0,
+          "seed": 113,
+          "elapsedMs": 1.608386,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 1,
+              "sharedWorldFiles": 2,
+              "agentDeltaCount": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 1,
+          "run": 1,
+          "seed": 114,
+          "elapsedMs": 0.182322,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 1,
+              "sharedWorldFiles": 2,
+              "agentDeltaCount": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 1,
+          "run": 2,
+          "seed": 115,
+          "elapsedMs": 0.166204,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 1,
+              "sharedWorldFiles": 3,
+              "agentDeltaCount": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 1,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 1,
+              "integrationLatencyUnits": 1,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 4,
+          "run": 0,
+          "seed": 413,
+          "elapsedMs": 0.441675,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 4,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 4,
+              "sharedWorldFiles": 9,
+              "agentDeltaCount": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 4,
+          "run": 1,
+          "seed": 414,
+          "elapsedMs": 0.900664,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 4,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 4,
+              "sharedWorldFiles": 8,
+              "agentDeltaCount": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 4,
+          "run": 2,
+          "seed": 415,
+          "elapsedMs": 0.260729,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 4,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 4,
+              "sharedWorldFiles": 9,
+              "agentDeltaCount": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 4,
+              "mergeConflicts": 0,
+              "semanticFailures": 0,
+              "duplicateWork": 0,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 4,
+              "integrationLatencyUnits": 4,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 16,
+          "run": 0,
+          "seed": 1613,
+          "elapsedMs": 0.786238,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 16,
+              "mergeConflicts": 2,
+              "semanticFailures": 2,
+              "duplicateWork": 3,
+              "successfulCompositions": 12,
+              "usefulCompletedTasks": 12,
+              "integrationLatencyUnits": 20
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 16,
+              "sharedWorldFiles": 31,
+              "agentDeltaCount": 16,
+              "mergeConflicts": 0,
+              "semanticFailures": 4,
+              "duplicateWork": 3,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 16,
+              "integrationLatencyUnits": 16,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 16,
+              "mergeConflicts": 2,
+              "semanticFailures": 0,
+              "duplicateWork": 4,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 14,
+              "integrationLatencyUnits": 18,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 16,
+          "run": 1,
+          "seed": 1614,
+          "elapsedMs": 0.847342,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 16,
+              "mergeConflicts": 2,
+              "semanticFailures": 2,
+              "duplicateWork": 3,
+              "successfulCompositions": 12,
+              "usefulCompletedTasks": 12,
+              "integrationLatencyUnits": 20
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 16,
+              "sharedWorldFiles": 32,
+              "agentDeltaCount": 16,
+              "mergeConflicts": 0,
+              "semanticFailures": 4,
+              "duplicateWork": 3,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 16,
+              "integrationLatencyUnits": 16,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 16,
+              "mergeConflicts": 3,
+              "semanticFailures": 0,
+              "duplicateWork": 4,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 13,
+              "integrationLatencyUnits": 19,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 16,
+          "run": 2,
+          "seed": 1615,
+          "elapsedMs": 1.269317,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 16,
+              "mergeConflicts": 1,
+              "semanticFailures": 1,
+              "duplicateWork": 2,
+              "successfulCompositions": 13,
+              "usefulCompletedTasks": 13,
+              "integrationLatencyUnits": 18
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 16,
+              "sharedWorldFiles": 33,
+              "agentDeltaCount": 16,
+              "mergeConflicts": 0,
+              "semanticFailures": 3,
+              "duplicateWork": 2,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 16,
+              "integrationLatencyUnits": 16,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 16,
+              "mergeConflicts": 2,
+              "semanticFailures": 0,
+              "duplicateWork": 3,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 14,
+              "integrationLatencyUnits": 18,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 32,
+          "run": 0,
+          "seed": 3213,
+          "elapsedMs": 2.203516,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 32,
+              "mergeConflicts": 5,
+              "semanticFailures": 5,
+              "duplicateWork": 9,
+              "successfulCompositions": 21,
+              "usefulCompletedTasks": 21,
+              "integrationLatencyUnits": 42
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 32,
+              "sharedWorldFiles": 61,
+              "agentDeltaCount": 32,
+              "mergeConflicts": 0,
+              "semanticFailures": 11,
+              "duplicateWork": 9,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 32,
+              "integrationLatencyUnits": 32,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 32,
+              "mergeConflicts": 8,
+              "semanticFailures": 0,
+              "duplicateWork": 19,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 24,
+              "integrationLatencyUnits": 40,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 32,
+          "run": 1,
+          "seed": 3214,
+          "elapsedMs": 1.362502,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 32,
+              "mergeConflicts": 2,
+              "semanticFailures": 2,
+              "duplicateWork": 4,
+              "successfulCompositions": 27,
+              "usefulCompletedTasks": 27,
+              "integrationLatencyUnits": 36
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 32,
+              "sharedWorldFiles": 64,
+              "agentDeltaCount": 32,
+              "mergeConflicts": 0,
+              "semanticFailures": 5,
+              "duplicateWork": 4,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 32,
+              "integrationLatencyUnits": 32,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 32,
+              "mergeConflicts": 3,
+              "semanticFailures": 0,
+              "duplicateWork": 7,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 29,
+              "integrationLatencyUnits": 35,
+              "composableBatch": true
+            }
+          }
+        },
+        {
+          "agents": 32,
+          "run": 2,
+          "seed": 3215,
+          "elapsedMs": 1.400729,
+          "arms": {
+            "A": {
+              "arm": "A_conventional_branches",
+              "agents": 32,
+              "mergeConflicts": 2,
+              "semanticFailures": 2,
+              "duplicateWork": 5,
+              "successfulCompositions": 25,
+              "usefulCompletedTasks": 25,
+              "integrationLatencyUnits": 36
+            },
+            "B": {
+              "arm": "B_tiny_footprint_only",
+              "agents": 32,
+              "sharedWorldFiles": 64,
+              "agentDeltaCount": 32,
+              "mergeConflicts": 0,
+              "semanticFailures": 7,
+              "duplicateWork": 5,
+              "successfulCompositions": 0,
+              "usefulCompletedTasks": 32,
+              "integrationLatencyUnits": 32,
+              "note": "Shared-world memory only — no composition/conflict gate"
+            },
+            "C": {
+              "arm": "C_fractisi_coordination",
+              "agents": 32,
+              "mergeConflicts": 5,
+              "semanticFailures": 0,
+              "duplicateWork": 11,
+              "successfulCompositions": 1,
+              "usefulCompletedTasks": 27,
+              "integrationLatencyUnits": 37,
+              "composableBatch": true
+            }
+          }
+        }
+      ]
+    }
+  },
+  "experiments": [
+    {
+      "id": "experiment_1_predictive_context_efficiency",
+      "kind": "measured",
+      "agents": 16,
+      "runs": 5,
+      "summary": {
+        "conventionalBytes": {
+          "mean": 7712,
+          "stdev": 0,
+          "min": 7712,
+          "max": 7712,
+          "n": 5
+        },
+        "tinyBytes": {
+          "mean": 596,
+          "stdev": 0,
+          "min": 596,
+          "max": 596,
+          "n": 5
+        },
+        "predictivePerspectiveBytes": {
+          "mean": 1472,
+          "stdev": 0,
+          "min": 1472,
+          "max": 1472,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 7756,
+          "stdev": 0,
+          "min": 7756,
+          "max": 7756,
+          "n": 5
+        },
+        "tinyVsConventionalReduction": 0.9227178423236515,
+        "perspectiveVsConventionalReduction": 0.8091286307053942,
+        "meanConflicts": 2,
+        "meanKeptFutures": 2,
+        "reconstructionAccuracy": {
+          "mean": 1,
+          "stdev": 0,
+          "min": 1,
+          "max": 1,
+          "n": 5
+        },
+        "predictiveMs": {
+          "mean": 1.7693805999999994,
+          "stdev": 0.7587265401575466,
+          "min": 1.1595820000000003,
+          "max": 3.228746000000001,
+          "n": 5
+        }
+      },
+      "runsDetail": [
+        {
+          "run": 0,
+          "conventionalBytes": 7712,
+          "tinyBytes": 596,
+          "predictivePerspectiveBytes": 1472,
+          "imaginationBytes": 7756,
+          "predictionReuseBytes": 5053,
+          "conflicts": 2,
+          "keptFutures": 2,
+          "conventionalMs": 0.1980170000000001,
+          "tinyMs": 0.2350320000000039,
+          "predictiveMs": 3.228746000000001,
+          "reconstructionAccuracy": 1,
+          "versionBefore": 0,
+          "versionAfter": 1
+        },
+        {
+          "run": 1,
+          "conventionalBytes": 7712,
+          "tinyBytes": 596,
+          "predictivePerspectiveBytes": 1472,
+          "imaginationBytes": 7756,
+          "predictionReuseBytes": 5041,
+          "conflicts": 2,
+          "keptFutures": 2,
+          "conventionalMs": 0.10365699999999833,
+          "tinyMs": 0.02852800000000144,
+          "predictiveMs": 1.2534489999999963,
+          "reconstructionAccuracy": 1,
+          "versionBefore": 0,
+          "versionAfter": 1
+        },
+        {
+          "run": 2,
+          "conventionalBytes": 7712,
+          "tinyBytes": 596,
+          "predictivePerspectiveBytes": 1472,
+          "imaginationBytes": 7756,
+          "predictionReuseBytes": 5080,
+          "conflicts": 2,
+          "keptFutures": 2,
+          "conventionalMs": 0.10411899999999719,
+          "tinyMs": 0.02582400000000007,
+          "predictiveMs": 1.768222999999999,
+          "reconstructionAccuracy": 1,
+          "versionBefore": 0,
+          "versionAfter": 1
+        },
+        {
+          "run": 3,
+          "conventionalBytes": 7712,
+          "tinyBytes": 596,
+          "predictivePerspectiveBytes": 1472,
+          "imaginationBytes": 7756,
+          "predictionReuseBytes": 5039,
+          "conflicts": 2,
+          "keptFutures": 2,
+          "conventionalMs": 0.10396700000000436,
+          "tinyMs": 0.025441000000000713,
+          "predictiveMs": 1.1595820000000003,
+          "reconstructionAccuracy": 1,
+          "versionBefore": 0,
+          "versionAfter": 1
+        },
+        {
+          "run": 4,
+          "conventionalBytes": 7712,
+          "tinyBytes": 596,
+          "predictivePerspectiveBytes": 1472,
+          "imaginationBytes": 7756,
+          "predictionReuseBytes": 5010,
+          "conflicts": 2,
+          "keptFutures": 2,
+          "conventionalMs": 0.10265400000000113,
+          "tinyMs": 0.02321399999999585,
+          "predictiveMs": 1.436903000000001,
+          "reconstructionAccuracy": 1,
+          "versionBefore": 0,
+          "versionAfter": 1
+        }
+      ]
+    },
+    {
+      "id": "experiment_2_alternative_futures",
+      "kind": "measured",
+      "summary": {
+        "meanConflicts": 2,
+        "compositionPartialRate": 1,
+        "unapprovedAlwaysBlocked": true,
+        "commitSuccess": 1,
+        "rollbackSuccess": 1,
+        "finalCorrectness": 1
+      },
+      "runsDetail": [
+        {
+          "run": 0,
+          "agents": 8,
+          "futures": 8,
+          "conflicts": 2,
+          "composable": false,
+          "kept": 4,
+          "rejected": 4,
+          "unapprovedBlocked": true,
+          "commitOk": true,
+          "rollbackOk": true,
+          "finalCorrectness": true
+        },
+        {
+          "run": 1,
+          "agents": 8,
+          "futures": 8,
+          "conflicts": 2,
+          "composable": false,
+          "kept": 4,
+          "rejected": 4,
+          "unapprovedBlocked": true,
+          "commitOk": true,
+          "rollbackOk": true,
+          "finalCorrectness": true
+        },
+        {
+          "run": 2,
+          "agents": 8,
+          "futures": 8,
+          "conflicts": 2,
+          "composable": false,
+          "kept": 4,
+          "rejected": 4,
+          "unapprovedBlocked": true,
+          "commitOk": true,
+          "rollbackOk": true,
+          "finalCorrectness": true
+        },
+        {
+          "run": 3,
+          "agents": 8,
+          "futures": 8,
+          "conflicts": 2,
+          "composable": false,
+          "kept": 4,
+          "rejected": 4,
+          "unapprovedBlocked": true,
+          "commitOk": true,
+          "rollbackOk": true,
+          "finalCorrectness": true
+        },
+        {
+          "run": 4,
+          "agents": 8,
+          "futures": 8,
+          "conflicts": 2,
+          "composable": false,
+          "kept": 4,
+          "rejected": 4,
+          "unapprovedBlocked": true,
+          "commitOk": true,
+          "rollbackOk": true,
+          "finalCorrectness": true
+        }
+      ]
+    },
+    {
+      "id": "experiment_3_temporal_continuity",
+      "kind": "measured",
+      "summary": {
+        "meanContextGrowthRatio": 1.0103734439834025,
+        "meanLostEvents": 0,
+        "recoverySuccess": 1
+      },
+      "runsDetail": [
+        {
+          "run": 0,
+          "steps": 40,
+          "contextStartBytes": 482,
+          "contextEndBytes": 487,
+          "contextGrowthRatio": 1.0103734439834025,
+          "lostInformationEvents": 0,
+          "driftProxy": 0,
+          "recoveryOk": true,
+          "resumedVersion": 11,
+          "interruptedFrom": 40
+        },
+        {
+          "run": 1,
+          "steps": 40,
+          "contextStartBytes": 482,
+          "contextEndBytes": 487,
+          "contextGrowthRatio": 1.0103734439834025,
+          "lostInformationEvents": 0,
+          "driftProxy": 0,
+          "recoveryOk": true,
+          "resumedVersion": 11,
+          "interruptedFrom": 40
+        },
+        {
+          "run": 2,
+          "steps": 40,
+          "contextStartBytes": 482,
+          "contextEndBytes": 487,
+          "contextGrowthRatio": 1.0103734439834025,
+          "lostInformationEvents": 0,
+          "driftProxy": 0,
+          "recoveryOk": true,
+          "resumedVersion": 11,
+          "interruptedFrom": 40
+        }
+      ]
+    },
+    {
+      "id": "experiment_4_collective_intelligence",
+      "kind": "measured",
+      "note": "Useful work = successfully composed/committed agent contributions. Full-duplicate arm completes 0 composed integrations by design.",
+      "arms": [
+        {
+          "agents": 1,
+          "single": {
+            "useful": {
+              "mean": 8,
+              "stdev": 0,
+              "min": 8,
+              "max": 8,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 484,
+              "stdev": 0,
+              "min": 484,
+              "max": 484,
+              "n": 3
+            }
+          },
+          "fullDuplicate": {
+            "useful": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 482,
+              "stdev": 0,
+              "min": 482,
+              "max": 482,
+              "n": 3
+            }
+          },
+          "fractisiExisting": {
+            "useful": {
+              "mean": 1,
+              "stdev": 0,
+              "min": 1,
+              "max": 1,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            }
+          },
+          "predictiveShared": {
+            "useful": {
+              "mean": 1,
+              "stdev": 0,
+              "min": 1,
+              "max": 1,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 482,
+              "stdev": 0,
+              "min": 482,
+              "max": 482,
+              "n": 3
+            },
+            "ms": {
+              "mean": 0.08286733333333036,
+              "stdev": 0.0063030593806155015,
+              "min": 0.07436099999999612,
+              "max": 0.08942799999999806,
+              "n": 3
+            }
+          }
+        },
+        {
+          "agents": 4,
+          "single": {
+            "useful": {
+              "mean": 2,
+              "stdev": 0,
+              "min": 2,
+              "max": 2,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 484,
+              "stdev": 0,
+              "min": 484,
+              "max": 484,
+              "n": 3
+            }
+          },
+          "fullDuplicate": {
+            "useful": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 1928,
+              "stdev": 0,
+              "min": 1928,
+              "max": 1928,
+              "n": 3
+            }
+          },
+          "fractisiExisting": {
+            "useful": {
+              "mean": 4,
+              "stdev": 0,
+              "min": 4,
+              "max": 4,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            }
+          },
+          "predictiveShared": {
+            "useful": {
+              "mean": 3,
+              "stdev": 0,
+              "min": 3,
+              "max": 3,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 1,
+              "stdev": 0,
+              "min": 1,
+              "max": 1,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 482,
+              "stdev": 0,
+              "min": 482,
+              "max": 482,
+              "n": 3
+            },
+            "ms": {
+              "mean": 0.4168390000000007,
+              "stdev": 0.2398654250713671,
+              "min": 0.2456459999999936,
+              "max": 0.7560550000000035,
+              "n": 3
+            }
+          }
+        },
+        {
+          "agents": 16,
+          "single": {
+            "useful": {
+              "mean": 1,
+              "stdev": 0,
+              "min": 1,
+              "max": 1,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 484,
+              "stdev": 0,
+              "min": 484,
+              "max": 484,
+              "n": 3
+            }
+          },
+          "fullDuplicate": {
+            "useful": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 7712,
+              "stdev": 0,
+              "min": 7712,
+              "max": 7712,
+              "n": 3
+            }
+          },
+          "fractisiExisting": {
+            "useful": {
+              "mean": 14,
+              "stdev": 2.160246899469287,
+              "min": 11,
+              "max": 16,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 2,
+              "stdev": 2.160246899469287,
+              "min": 0,
+              "max": 5,
+              "n": 3
+            }
+          },
+          "predictiveShared": {
+            "useful": {
+              "mean": 4,
+              "stdev": 0,
+              "min": 4,
+              "max": 4,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 4,
+              "stdev": 0,
+              "min": 4,
+              "max": 4,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 484,
+              "stdev": 0,
+              "min": 484,
+              "max": 484,
+              "n": 3
+            },
+            "ms": {
+              "mean": 0.7954076666666671,
+              "stdev": 0.02569228984647926,
+              "min": 0.7666420000000045,
+              "max": 0.8290140000000008,
+              "n": 3
+            }
+          }
+        },
+        {
+          "agents": 32,
+          "single": {
+            "useful": {
+              "mean": 1,
+              "stdev": 0,
+              "min": 1,
+              "max": 1,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 484,
+              "stdev": 0,
+              "min": 484,
+              "max": 484,
+              "n": 3
+            }
+          },
+          "fullDuplicate": {
+            "useful": {
+              "mean": 0,
+              "stdev": 0,
+              "min": 0,
+              "max": 0,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 15424,
+              "stdev": 0,
+              "min": 15424,
+              "max": 15424,
+              "n": 3
+            }
+          },
+          "fractisiExisting": {
+            "useful": {
+              "mean": 26.666666666666668,
+              "stdev": 3.0912061651652345,
+              "min": 24,
+              "max": 31,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 5.333333333333333,
+              "stdev": 3.0912061651652345,
+              "min": 1,
+              "max": 8,
+              "n": 3
+            }
+          },
+          "predictiveShared": {
+            "useful": {
+              "mean": 4,
+              "stdev": 0,
+              "min": 4,
+              "max": 4,
+              "n": 3
+            },
+            "conflicts": {
+              "mean": 4,
+              "stdev": 0,
+              "min": 4,
+              "max": 4,
+              "n": 3
+            },
+            "bytes": {
+              "mean": 484,
+              "stdev": 0,
+              "min": 484,
+              "max": 484,
+              "n": 3
+            },
+            "ms": {
+              "mean": 1.7413670000000014,
+              "stdev": 0.29810856962858095,
+              "min": 1.5266739999999999,
+              "max": 2.162931999999998,
+              "n": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "experiment_5_multimodal_shared_world",
+      "kind": "measured_simulation",
+      "honesty": "Spatial grid is a stand-in multimodal state — not NVIDIA Cosmos, not V-JEPA pixels, not a learned visual encoder. Measures whether multiple agents can share one world representation without N full copies.",
+      "summary": {
+        "meanReduction": 0.8401803162195772,
+        "meanConventionalBytes": 90064,
+        "meanSharedBytes": 14394,
+        "meanConflicts": 1
+      },
+      "runsDetail": [
+        {
+          "run": 0,
+          "gridCells": 256,
+          "conventionalBytes": 90064,
+          "sharedPlusViewportBytes": 14394,
+          "reduction": 0.8401803162195772,
+          "agents": 8,
+          "futuresComposed": 1,
+          "futuresRejected": 7,
+          "conflicts": 1
+        },
+        {
+          "run": 1,
+          "gridCells": 256,
+          "conventionalBytes": 90064,
+          "sharedPlusViewportBytes": 14394,
+          "reduction": 0.8401803162195772,
+          "agents": 8,
+          "futuresComposed": 1,
+          "futuresRejected": 7,
+          "conflicts": 1
+        },
+        {
+          "run": 2,
+          "gridCells": 256,
+          "conventionalBytes": 90064,
+          "sharedPlusViewportBytes": 14394,
+          "reduction": 0.8401803162195772,
+          "agents": 8,
+          "futuresComposed": 1,
+          "futuresRejected": 7,
+          "conflicts": 1
+        }
+      ]
+    }
+  ]
+}
