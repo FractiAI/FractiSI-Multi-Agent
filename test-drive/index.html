@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
-  <meta name="description" content="The Multi-Agent World Inference Rhyme? — self-paced FractiSI Multi-Agent Test Drive in plain English: the case, awareness story, sandbox, agent problems, live demos, stack how, then explore / pricing / beta.">
+  <meta name="description" content="FractiSI Multi-Agent Test Drive training module: framing question, failure modes, three live labs, stack map. Applied Active Inference Symposium.">
   <link rel="stylesheet" href="/css/site.css?v=34">
   <meta http-equiv="Cache-Control" content="no-cache">
   <style>
@@ -539,22 +539,22 @@
     <p class="brand">FractiSI Multi-Agent</p>
     <h1>The Multi-Agent World Inference Rhyme?</h1>
     <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-    <p class="deck">That title is the case this Test Drive opens. In plain English: when many agents — including us — try to keep a grip on one shared world, does their organization <em>rhyme</em> enough to discover more, collide less, and burn less context? This is a self-paced peek at <strong>FractiSI Multi-Agent</strong> inside the <strong>Syntheverse Sandbox</strong> on <strong>Base Mainnet</strong>. Not a course. Not a claim that we <em>are</em> Active Inference. A kinship question with demos you can run yourself.</p>
+    <p class="deck"><strong>Training objective:</strong> decide whether FractiSI Multi-Agent’s shared-world architecture is relevant to the multi-agent inference problems you work on. You will get the framing question, a short context story, the failure modes we target, three runnable demos, and a stack map. Runtime ~20 minutes. Self-paced; usable as a live walkthrough. Environment: <strong>Syntheverse Sandbox</strong> on <strong>Base Mainnet</strong>. This is not Active Inference training and does not claim framework equivalence.</p>
     <figure class="td-hero-visual">
-      <img src="/media/fractisi-hero.jpg?v=24" alt="FractiSI Multi-Agent: many agents converging on one shared world" width="1200" height="675" decoding="async" />
+      <img src="/media/fractisi-hero.jpg?v=24" alt="FractiSI Multi-Agent shared-world coordination" width="1200" height="675" decoding="async" />
     </figure>
     <div class="cta-row">
-      <button type="button" class="btn btn-run" id="btn-start" data-action="start">Begin with the case →</button>
-      <span class="cta-note">~20 minutes · plain English · live demos you click</span>
+      <button type="button" class="btn btn-run" id="btn-start" data-action="start">Start module →</button>
+      <span class="cta-note">Next advances · Run demo executes each lab</span>
     </div>
-    <p class="soft-links"><a href="/talks/aai-symposium-2026/">Speaker deck (same arc)</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">IDE kit</a> · <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Join beta</a></p>
+    <p class="soft-links"><a href="/talks/aai-symposium-2026/">Speaker deck</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo / IDE</a> · <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Beta</a></p>
   </section>
 
   <div class="lesson-shell is-gated" id="lesson-shell">
     <div class="progress-rail" aria-label="Test Drive progress">
       <div class="progress-top">
         <span id="progress-label">Part 01</span>
-        <span class="eta" id="progress-eta">Plain English · images · ~9 stops</span>
+        <span class="eta" id="progress-eta">Training module · 9 sections</span>
       </div>
       <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
       <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump"></div>
@@ -566,7 +566,7 @@
       <p class="promise" id="promise"></p>
       <div class="teach" id="teach"></div>
 
-      <p class="teach-continue is-hidden" id="teach-continue">When ready, press <strong>Next →</strong>. On demo stops, press <strong>Run demo</strong> before moving on.</p>
+      <p class="teach-continue is-hidden" id="teach-continue">Continue with <strong>Next →</strong>. On lab stops, run the demo before advancing.</p>
 
       <section class="lab-panel is-hidden" id="lab-panel" aria-label="Live demo">
         <p class="lab-title" id="lab-title">Live demo</p>
@@ -584,14 +584,14 @@
       </section>
 
       <section class="finish" id="finish" aria-label="Test Drive complete">
-        <h2>End of Test Drive</h2>
-        <p>You have the title’s case, a floor story about awareness, the sandbox you can enter and leave, the agent pain, three live demos with dramatic gaps, and a picture of the stack. If the rhyme still interests you — explore the kit, read Expedition 002, check pricing, write me, or ask to join the beta. Step out of the sandbox with the same awareness you brought in.</p>
+        <h2>Module complete</h2>
+        <p>You covered the framing question, context story, target failure modes, three lab demos, and the stack map. Recommended next steps: clone the kit, read Expedition 002, review pricing, or email for beta access. Exit the sandbox whenever you are done.</p>
         <div class="finish-actions">
-          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Explore the kit →</a>
+          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Open the kit →</a>
           <a class="btn-secondary" href="/expedition-002/">Expedition 002</a>
-          <a class="btn-secondary" href="/pricing/">Pricing plans</a>
-          <a class="btn-secondary" href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">Connect</a>
-          <a class="btn-secondary" href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">Join beta</a>
+          <a class="btn-secondary" href="/pricing/">Pricing</a>
+          <a class="btn-secondary" href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">Email</a>
+          <a class="btn-secondary" href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">Beta</a>
         </div>
       </section>
     </article>
@@ -613,25 +613,22 @@
         part: 1,
         parts: 9,
         title: 'The Multi-Agent World Inference Rhyme?',
-        promise: 'The title is the case. Here is what it asks — in everyday English.',
+        promise: 'Framing question for this module — what we are evaluating and what we are not.',
         teach: `
           <div class="teach-prose">
-            <p>Welcome. This Test Drive opens on a question, not a product pitch: <strong>The Multi-Agent World Inference Rhyme?</strong></p>
-            <p>In this symposium room, people care about agents that infer — that keep updating what they believe about a world they share with others. Humans do that too. We are not here to rename Active Inference or claim FractiSI Multi-Agent is that framework. We are here to ask whether a practical multi-agent stack can <em>strongly rhyme</em> with what you already care about: many minds (human and machine) meeting one world without each one reprinting the whole scene from scratch.</p>
-            <p>The case, simply: fleets of coding agents, ops agents, and research agents still tend to carry private full copies of the same context. They burn budget before useful work. They miss multi-hop facts a flat skim never assembles. They collide when they merge. Exact-text caches only help when the words match. Compression shrinks copies; it does not remove the habit of copying.</p>
+            <p>This module is titled <strong>The Multi-Agent World Inference Rhyme?</strong> Treat that as the evaluation question, not branding copy.</p>
+            <p><strong>What it asks:</strong> when multiple agents — software agents and human operators — work against one shared world model, can their context be organized so they discover more under a fixed budget, merge with fewer collisions, and spend less representation on duplicate state?</p>
+            <p><strong>Audience fit:</strong> Applied Active Inference Symposium. You already reason about agents that update beliefs and act in a shared environment. FractiSI Multi-Agent is a systems product in that neighborhood. It is <em>not</em> an Active Inference course, and we do not claim identity with the formal framework.</p>
+            <p><strong>Problem under test:</strong> production multi-agent fleets still duplicate shared context per agent (policies, maps, tools, corpora). Exact-string caches fail when wording changes but task structure does not. Compression reduces payload size; it does not remove N-copy structure. Flat skim under a token/byte budget misses multi-hop facts.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-hero.jpg?v=24" alt="Shared-world convergence — many agents, one scene" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>One shared world. Many perspectives. The rhyme is organizational — not “sounds alike.”</figcaption>
+            <img src="/media/fractisi-hero.jpg?v=24" alt="Shared-world multi-agent coordination diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            <figcaption>Target pattern: one registered world, per-agent deltas, selective reuse.</figcaption>
           </figure>
           <div class="teach-prose">
-            <p>FractiSI Multi-Agent is a peek at a different habit: register the world once, keep only what differs per agent, reuse organization when wording changes, and walk relationships when flat skim fails. You will see that in three live demos. Before the demos — a short awareness story, the sandbox you are standing in, and the pain in plain language.</p>
+            <p><strong>Module sequence:</strong> (1) short awareness vignette, (2) sandbox boundaries, (3) failure modes + “rhyme” definitions, (4–6) three live labs, (7) stack map, (8) follow-ups. Same path if you are solo or if a facilitator is speaking from these pages.</p>
           </div>
-          <p class="case-pull">Self-paced. No presenter required. If I am with you live, I speak from these same pages. Press <strong>Next →</strong> when ready.</p>
-          <div class="teach-block">
-            <p class="label">Controls</p>
-            <p><strong>Next →</strong> advances. On demo stops, press <strong>Run demo</strong> (or key <span class="kbd">R</span>). Same demos from an IDE: <code>node scripts/tiny.mjs testdrive N</code>.</p>
-          </div>
+          <p class="case-pull"><strong>Controls:</strong> <strong>Next →</strong> advances. On labs, click <strong>Run demo</strong> (or <span class="kbd">R</span>). IDE equivalent: <code>node scripts/tiny.mjs testdrive N</code>.</p>
         `,
       },
       {
@@ -639,18 +636,18 @@
         mode: 'teach',
         part: 2,
         parts: 9,
-        title: 'Awareness flips the shared scene',
-        promise: 'A restroom-valet story — same sound, different grip.',
+        title: 'Context vignette · awareness changes evaluation',
+        promise: 'Same stimulus, different prior — opinions move immediately.',
         teach: `
           <div class="teach-prose">
-            <p>I work as a <strong>restroom valet</strong>. In that room I play <strong>AI-generated music</strong>. For a while it is ordinary background — the kind of sound people barely name.</p>
-            <p>Then someone becomes <strong>aware</strong> the music is AI-generated. Opinions often change <strong>immediately</strong>. The waveform did not jump. The room did not rebuild. What changed was the grip: how listeners held the shared scene.</p>
-            <p>That is the power of awareness in everyday life — not a lecture on consciousness, a floor fact from a working restroom. Same world. Different inference about what the world is.</p>
-            <p>Hold that light. The rest of this Test Drive is a multi-agent application with promising lab results that may strongly rhyme with how this room already thinks about agents and shared worlds. We will not force the kinship. We will show the demos and let you decide what rhymes.</p>
+            <p><strong>Setup.</strong> I work as a restroom valet. In that space I play AI-generated music as background audio.</p>
+            <p><strong>Observation.</strong> When listeners learn the music is AI-generated, evaluations often change immediately. The audio stream is unchanged. What changed is the prior they apply to the same signal.</p>
+            <p><strong>Training point.</strong> Awareness of what a shared scene <em>is</em> alters how people score it. That is not a consciousness seminar; it is a compact example that inference about a shared world is load-bearing.</p>
+            <p><strong>Bridge.</strong> The labs that follow measure a multi-agent system that tries to keep a shared world coherent under concurrency. Use the vignette as context for why “shared world + updated awareness” is worth instrumenting — then judge the metrics, not the story.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/el-cortez.jpg" alt="The El Cortez Hotel — a shared public place where scenes and awareness meet" width="1200" height="800" loading="lazy" decoding="async" />
-            <figcaption>Shared places rewrite how we meet them once awareness shifts — the restroom story is the same pattern at floor level.</figcaption>
+            <img src="/media/el-cortez.jpg" alt="El Cortez Hotel exterior — shared public venue" width="1200" height="800" loading="lazy" decoding="async" />
+            <figcaption>Public shared spaces are where priors and signals meet. The vignette is the same mechanic at small scale.</figcaption>
           </figure>
         `,
       },
@@ -659,17 +656,17 @@
         mode: 'teach',
         part: 3,
         parts: 9,
-        title: 'Where you are standing',
-        promise: 'Syntheverse Sandbox on Base Mainnet — enter and leave with your awareness.',
+        title: 'Environment · Syntheverse Sandbox on Base Mainnet',
+        promise: 'Scope of the demo environment and what is not required to participate.',
         teach: `
           <div class="teach-prose">
-            <p>This Test Drive does not float in a void. It lives in the <strong>Syntheverse Sandbox</strong> — a safe room for looking, running demos, and leaving when you are done. Under that room sits <strong>Base Mainnet</strong>: on-chain bedrock the sandbox can match for receipts. You do <em>not</em> need a wallet, a purchase, or a crypto account to take this peek.</p>
-            <p>Think of it as a doorway you choose. Step in for the demos. Step out when curiosity is enough for today. Bring whatever awareness fits — curiosity, operator discipline, Git grip, or a fuller agent stance. The stack does not demand one costume.</p>
-            <p>That voluntary enter/exit matters for this symposium. Active Inference people already know agents update beliefs and actions inside a world. Here the “world” of the demo is the sandbox. Your awareness is yours.</p>
+            <p><strong>Environment.</strong> This Test Drive runs in the <strong>Syntheverse Sandbox</strong>. Persistence/receipts can bind to <strong>Base Mainnet</strong> as the on-chain base layer. For this module you do not need a wallet, purchase, or account to run the labs.</p>
+            <p><strong>Participation model.</strong> Enter for the demos; leave when finished. Use the operator stance you already have — reviewer, engineer, or researcher.</p>
+            <p><strong>Why name it here.</strong> Active Inference work assumes an agent–world loop. For this training, the demo world is the sandbox; your evaluation criteria stay yours. The product surfaces (Local / Server / Cloud) share one engine story and remain optional after the labs.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-markets.jpg?v=24" alt="FractiSI Multi-Agent surfaces — Local, Server, and Cloud on one shared-world engine" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>One engine across Local · Server · Cloud — still inside the sandbox until you leave.</figcaption>
+            <img src="/media/fractisi-markets.jpg?v=24" alt="FractiSI Multi-Agent Local, Server, and Cloud editions" width="1200" height="675" loading="lazy" decoding="async" />
+            <figcaption>Deployment surfaces after the labs — Community covers local clone and Git; cloud deploy is paid.</figcaption>
           </figure>
         `,
       },
@@ -678,21 +675,23 @@
         mode: 'teach',
         part: 4,
         parts: 9,
-        title: 'What agents suffer — and what “rhyme” means',
-        promise: 'The pain in plain English, then two senses of rhyme for this room.',
+        title: 'Failure modes and definitions',
+        promise: 'What breaks in fleets today, and what “rhyme” means in this product.',
         teach: `
           <div class="teach-prose">
-            <p>Most multi-agent setups still hand every participant a <strong>private full copy</strong> of the shared context — policies, maps, tools, corpora, simulation state. Ten agents means ten reprints before anyone does useful work. Memory fills. Network fans out. Merge time becomes a pile-up.</p>
-            <p>Exact-text caches help only when the words match letter-for-letter. Change the phrasing and the cache goes cold even when the job is the same shape. Gzip and other compressors shrink the copies; they do not stop the habit of carrying N copies. Flat skim over a budgeted window misses multi-hop chains — facts that only appear when you walk relationships, not when you read a linear dump.</p>
+            <p><strong>Failure mode A — N full copies.</strong> Shared context is cloned per agent. Cost and merge conflict risk scale with concurrency before useful work starts.</p>
+            <p><strong>Failure mode B — exact-string cache.</strong> Hits require identical text. Paraphrase of the same task shape yields a miss.</p>
+            <p><strong>Failure mode C — compression-only.</strong> Gzip (and peers) shrink bytes; they do not eliminate N-copy structure.</p>
+            <p><strong>Failure mode D — flat skim.</strong> Under a fixed budget, linear windows miss multi-hop chains that only resolve by following edges.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-architecture.jpg?v=24" alt="FractiSI Multi-Agent architecture beside the runtimes you already use" width="1200" height="900" loading="lazy" decoding="async" />
-            <figcaption>Install beside Cursor, Claude Code, VS Code, and Git — coordinate a shared world instead of reprinting it.</figcaption>
+            <img src="/media/fractisi-architecture.jpg?v=24" alt="FractiSI Multi-Agent architecture beside existing agent runtimes" width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>Intended placement: beside Cursor, Claude Code, VS Code, and Git — not a model replacement.</figcaption>
           </figure>
           <div class="teach-prose">
-            <p><strong>Rhyme — symposium sense.</strong> FractiSI Multi-Agent may strongly rhyme with Active Inference: agents (including humans) keeping a grip on a shared world, updating what they hold as observations arrive. Kinship of concern — not framework identity.</p>
-            <p><strong>Rhyme — product sense.</strong> Inside the stack, a holographic rhyme is shared <em>organization</em> (repeating · self-similar · self-correcting · recursive), rooted at Net Zero — <em>balanced zero, not nothing zero</em>. It is not “sounds alike,” not prefix cache alone, not schema-key match alone.</p>
-            <p>Next: three live demos. Press <strong>Run demo</strong> on each and watch the gap.</p>
+            <p><strong>Definition — symposium “rhyme”.</strong> Overlap of concern with Active Inference: agents maintaining useful state about a shared world. Overlap ≠ equivalence.</p>
+            <p><strong>Definition — product “rhyme”.</strong> Organizational reuse under a four-pillar gate (repeating · self-similar · self-correcting · recursive), rooted at <strong>Net Zero</strong> = balanced zero (active equilibrium), not empty null and not a climate slogan. Not prefix cache. Not schema-key match alone.</p>
+            <p><strong>Next.</strong> Three labs. Run each demo and record the gap against the baseline named on the page.</p>
           </div>
         `,
       },
@@ -702,19 +701,20 @@
         part: 5,
         parts: 9,
         n: 1,
-        title: 'Demo · Stop reprinting the world',
-        promise: 'One shared world + per-agent deltas vs N full private copies.',
+        title: 'Lab 1 · Shared world vs N full copies',
+        promise: 'Measure byte cost: one registered world + deltas versus per-agent full reprints.',
         runLabel: 'Run demo',
-        labHint: 'Live bytes · IDE: node scripts/tiny.mjs testdrive 1',
-        takeaway: 'Share the world once. Agents keep only deltas.',
+        labHint: 'CLI: node scripts/tiny.mjs testdrive 1',
+        takeaway: 'Register shared state once; keep per-agent deltas only.',
         teach: `
           <div class="teach-prose">
-            <p>Imagine a team of agents that all need the same map, the same policies, the same tool list. The default habit is to give each agent a full private reprint. Cost scales with headcount before anyone moves.</p>
-            <p><strong>Tiny Footprint</strong> — the shared-world execution core — registers that world once. Each agent keeps only what differs: pose, goals, local memory, the delta that makes them them. Press <strong>Run demo</strong> and compare total bytes against a fleet of full copies. Or from your IDE: <code>node scripts/tiny.mjs testdrive 1</code>.</p>
+            <p><strong>Scenario.</strong> N agents need the same policies, maps, and tools. Baseline: give each a full private copy. Cost grows with N before any agent acts.</p>
+            <p><strong>Intervention.</strong> <strong>Tiny Footprint</strong> registers the shared world once. Agents retain local deltas (goals, pose, working memory).</p>
+            <p><strong>Action.</strong> Click <strong>Run demo</strong> (or <code>node scripts/tiny.mjs testdrive 1</code>). Compare aggregate bytes for shared+deltas versus full-copy fleet.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-workstation.jpg?v=24" alt="FractiSI Multi-Agent workstation — agents on one shared world" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>Workstation picture: many agents, one registered world, deltas per seat.</figcaption>
+            <img src="/media/fractisi-workstation.jpg?v=24" alt="FractiSI Multi-Agent workstation with shared world" width="1200" height="675" loading="lazy" decoding="async" />
+            <figcaption>Workstation view of shared-world sessions with per-agent deltas.</figcaption>
           </figure>
         `,
       },
@@ -724,19 +724,20 @@
         part: 6,
         parts: 9,
         n: 3,
-        title: 'Demo · Rhyme when words differ',
-        promise: 'Exact cache goes cold; shared organization can still hit.',
+        title: 'Lab 2 · Organizational reuse when wording differs',
+        promise: 'Exact-text cache miss rate vs Rhyming Templates on same-shape sessions.',
         runLabel: 'Run demo',
-        labHint: 'Rhyming Templates vs exact cache · IDE: testdrive 3',
-        takeaway: 'Organization under the rhyme gate — not identical strings.',
+        labHint: 'CLI: node scripts/tiny.mjs testdrive 3',
+        takeaway: 'Reuse structure that passes the rhyme gate — not identical strings.',
         teach: `
           <div class="teach-prose">
-            <p>Two sessions can have the same shape and different wording. An exact-text or prefix cache treats them as strangers — zero hits — even when the organizational pattern is the same.</p>
-            <p><strong>Rhyming Templates</strong> (Tiny Gateway) ask a stricter question: does this pass the four-pillar holographic rhyme gate from Net Zero? If yes, structure can be reused without demanding identical strings. Press <strong>Run demo</strong> (or IDE <code>testdrive 3</code>) and watch exact cache miss while rhyme still shares organization.</p>
+            <p><strong>Scenario.</strong> Two sessions share task organization but differ in wording. Exact-text / prefix cache returns zero hits.</p>
+            <p><strong>Intervention.</strong> <strong>Rhyming Templates</strong> (Tiny Gateway) admit reuse only if the four-pillar gate from Net Zero passes.</p>
+            <p><strong>Action.</strong> Run the demo (or <code>testdrive 3</code>). Confirm exact cache misses while organizational reuse still scores hits.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-markets.jpg?v=24" alt="One engine across editions — reuse organization, not only identical text" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>Reuse is about shape and organization — the editions share one engine story.</figcaption>
+            <img src="/media/fractisi-markets.jpg?v=24" alt="FractiSI editions sharing one engine" width="1200" height="675" loading="lazy" decoding="async" />
+            <figcaption>Same engine contract across editions; reuse is structural, not lexical.</figcaption>
           </figure>
         `,
       },
@@ -746,19 +747,20 @@
         part: 7,
         parts: 9,
         n: 4,
-        title: 'Demo · Find what flat skim misses',
-        promise: 'Guided reconstruction 100/100 vs flat skim 0/100 on the same budget.',
+        title: 'Lab 3 · Multi-hop discovery vs flat skim',
+        promise: 'Score guided reconstruction against budgeted flat skim on the same board.',
         runLabel: 'Run demo',
-        labHint: 'Discovery · IDE: testdrive 4',
-        takeaway: 'Walk relationships in the shared world — do not only skim text.',
+        labHint: 'CLI: node scripts/tiny.mjs testdrive 4',
+        takeaway: 'Follow nested edges; do not rely on contiguous windows alone.',
         teach: `
           <div class="teach-prose">
-            <p>Some facts only appear when you follow a chain: A points to B, B to C, C to the answer. A flat skim with a fixed budget can read a lot of text and still score zero on those multi-hop discoveries.</p>
-            <p>Selective reconstruction walks nested edges in the shared world instead of hoping the answer sits in a contiguous window. Press <strong>Run demo</strong> (or IDE <code>testdrive 4</code>). Look for the score line: <strong>100/100 vs 0/100</strong>. That gap is why Expedition 002 talks about discovery beyond memory savings alone.</p>
+            <p><strong>Scenario.</strong> Answers sit on multi-hop chains (A→B→C→result). Flat skim under a fixed budget can read substantial text and still score 0/100.</p>
+            <p><strong>Intervention.</strong> Selective reconstruction walks nested edges in the shared world.</p>
+            <p><strong>Action.</strong> Run the demo (or <code>testdrive 4</code>). Target readout: <strong>100/100 vs 0/100</strong>. This is the discovery signal behind Expedition 002 — not memory savings alone.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/library-hero.jpg" alt="A library of shelves — discovery needs paths, not only more pages" width="1200" height="800" loading="lazy" decoding="async" />
-            <figcaption>More pages are not the same as walking the right relationships.</figcaption>
+            <img src="/media/library-hero.jpg" alt="Library shelves representing structured search paths" width="1200" height="800" loading="lazy" decoding="async" />
+            <figcaption>Volume of text ≠ path coverage. Measure the chain hit rate.</figcaption>
           </figure>
         `,
       },
@@ -767,20 +769,21 @@
         mode: 'teach',
         part: 8,
         parts: 9,
-        title: 'How the stack explains the demos',
-        promise: 'A picture first — then the trunk in plain English.',
+        title: 'Stack map · how the labs connect',
+        promise: 'Map each lab result to the named surfaces in the product stack.',
         teach: `
           <div class="teach-prose">
-            <p>You have seen three gaps: density vs full copies, rhyme vs exact cache, discovery vs flat skim. Here is the short map of how FractiSI Multi-Agent files that work — using the SING13 dendrochronology tree plate with the trunk updated for this product.</p>
-            <p>Read the trunk from the roots up. <strong>Base Mainnet</strong> is bedrock. <strong>Syntheverse Sandbox</strong> is the room. <strong>Net Zero</strong> is balanced zero — active equilibrium, not empty void. Nesting climbs through <strong>Infinite Octaves</strong>. The <strong>holographic rhyme gate</strong> decides when organization may be shared. <strong>Rhyming Templates / Tiny Gateway</strong> carry that reuse. <strong>Tiny Footprint</strong> keeps the world once. Then <strong>Coordination · Shared state · Composition</strong>, <strong>Git awareness</strong>, and paid <strong>Deploy</strong> crown into FractiSI Multi-Agent.</p>
+            <p>You measured three gaps: density vs full copies, organizational reuse vs exact cache, discovery vs flat skim. The stack below is the filing map for those behaviors (SING13 tree plate, trunk labels updated for FractiSI Multi-Agent).</p>
+            <p><strong>Bottom → top:</strong> Base Mainnet → Syntheverse Sandbox → Net Zero (balanced zero) → Infinite Octaves → holographic rhyme gate → Rhyming Templates / Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition → Git awareness → Deploy (paid) → FractiSI Multi-Agent.</p>
+            <p><strong>Lab mapping:</strong> Lab 1 → Tiny Footprint. Lab 2 → rhyme gate / Tiny Gateway. Lab 3 → selective reconstruction on nested structure.</p>
           </div>
           <figure class="stack-tree-figure">
-            <img src="/media/fractisi-multi-agent-stack-tree.jpg?v=1" alt="Updated FractiSI Multi-Agent stack tree: Base Mainnet through Deploy" width="864" height="1152" loading="lazy" decoding="async" />
-            <figcaption>Stack tree — bedrock to Deploy. Soft Story catalog plate, not CapEx proof.</figcaption>
+            <img src="/media/fractisi-multi-agent-stack-tree.jpg?v=1" alt="FractiSI Multi-Agent stack tree from Base Mainnet to Deploy" width="864" height="1152" loading="lazy" decoding="async" />
+            <figcaption>Stack diagram for training orientation. Architectural labs — not CapEx certification.</figcaption>
           </figure>
           <div class="teach-prose">
-            <p>Mapped to what you ran: Demo 1 is Tiny Footprint density. Demo 3 is rhyme / Tiny Gateway when wording differs. Demo 4 is selective reconstruction along nested edges. Crisp SVG legend: <a href="/media/fractisi-multi-agent-stack-tree.svg">stack-tree.svg</a>. Heritage SING13 plate: <a href="/media/infinite-octave-hero-source-tree.jpg">original tree</a>.</p>
-            <p>Honesty: these are in-process architectural labs — promising, not CapEx guarantees, not Active Inference identity, not infinite measured physics tiers.</p>
+            <p>Artifacts: <a href="/media/fractisi-multi-agent-stack-tree.svg">SVG legend</a> · <a href="/media/infinite-octave-hero-source-tree.jpg">heritage SING13 plate</a>.</p>
+            <p><strong>Limits:</strong> in-process architectural measurements. Not CapEx guarantees. Not Active Inference identity. Not a claim of infinite physical octave tiers.</p>
           </div>
         `,
       },
@@ -789,24 +792,25 @@
         mode: 'teach',
         part: 9,
         parts: 9,
-        title: 'Go further on your own',
-        promise: 'Explore · read · price · connect · beta.',
+        title: 'Follow-up actions',
+        promise: 'Repo labs, Expedition 002, pricing, contact, beta.',
         teach: `
           <div class="teach-prose">
-            <p>If the case still has a hold on you, the next moves are yours. Clone <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">FractiSI-Multi-Agent</a> and run more labs with <code>node scripts/tiny.mjs testdrive</code> (2 · 5 · 6 · 7). Read <a href="/expedition-002/">Expedition 002</a> for the discovery story beyond memory alone. Check <a href="/pricing/">pricing plans</a> if you want the commercial frame — Community stays free for local work and Git; Deploy is paid on Team and above.</p>
-            <p>Write me at <a href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">valetpru@gmail.com</a> with questions, critiques, or joint experiments. Want a longer look with us? <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">Ask to join beta testing</a>.</p>
-            <p>Press <strong>Next →</strong> for End of Test Drive. Leave the sandbox whenever you want — same awareness you brought in.</p>
+            <p><strong>Continue locally.</strong> Clone <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">FractiSI-Multi-Agent</a> and run <code>node scripts/tiny.mjs testdrive</code> (additional labs: 2 · 5 · 6 · 7).</p>
+            <p><strong>Read.</strong> <a href="/expedition-002/">Expedition 002</a> for discovery metrics beyond memory. <a href="/pricing/">Pricing</a> for edition boundaries — Community is free for local + Git; Deploy requires Team+.</p>
+            <p><strong>Contact.</strong> <a href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">valetpru@gmail.com</a> for technical follow-up. <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">Beta requests</a> welcome.</p>
+            <p>Advance with <strong>Next →</strong> to close the module.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/founders.png" alt="FractiAI founders — human contact for the beta path" width="800" height="600" loading="lazy" decoding="async" />
-            <figcaption>Real humans on the other end of the beta and connect mail.</figcaption>
+            <img src="/media/founders.png" alt="FractiAI founders" width="800" height="600" loading="lazy" decoding="async" />
+            <figcaption>Direct contact for beta and technical questions.</figcaption>
           </figure>
         `,
       },
     ];
 
     const ORDER = STEPS.map((s) => s.id);
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v7';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v8';
     const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
     let index = 0;
     let running = false;
