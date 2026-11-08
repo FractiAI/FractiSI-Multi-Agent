@@ -62,7 +62,9 @@ test('Test Drive how-stack references the updated tree', async () => {
 test('Test Drive opens on the hero title and introduces the case', async () => {
   const { readFile } = await import('node:fs/promises');
   const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
-  assert.match(page, /<h1>The Multi-Agent World Inference Rhyme\?<\/h1>/);
+  assert.match(page, /<h1>One shared world\. Four live tests\.<\/h1>/);
+  assert.match(page, /\/css\/site\.css\?v=35/);
+  assert.match(page, /Session title: The Multi-Agent World Inference Rhyme\?/);
   assert.match(page, /Let’s begin/);
   assert.match(page, /Applied Active Inference Symposium/);
   assert.match(page, /When many agents share one world, does the way they organize it rhyme\?/);
@@ -73,6 +75,12 @@ test('Test Drive opens on the hero title and introduces the case', async () => {
   assert.doesNotMatch(page, /Training objective/);
   assert.doesNotMatch(page, /Failure mode A/);
   assert.doesNotMatch(page, /Layer [A-F]\b/);
+  assert.doesNotMatch(page, new RegExp(['Here is the', 'question'].join(' '), 'i'));
+  const markup = page.slice(page.indexOf('<body>'), page.indexOf('<script'));
+  const steps = page.slice(page.indexOf('const STEPS'), page.indexOf('const ORDER'));
+  const copy = (markup + steps).replace(/<[^>]*>/g, ' ');
+  assert.doesNotMatch(copy, /[A-Za-z]!/, 'no exclamation marks in page copy');
+  assert.doesNotMatch(copy, /\p{Extended_Pictographic}/u, 'no emoji in page copy');
 });
 
 test('Net Zero is defined before the rhyme gate and invitations are present', async () => {
@@ -91,7 +99,10 @@ test('Test Drive futures beat covers Predictive Shared State results', async () 
   const { readFile } = await import('node:fs/promises');
   const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
   assert.match(page, /id: 'futures'/);
-  assert.match(page, /Practice the future/);
+  assert.match(page, /Rehearse the future\. Change the world on approval\./);
+  assert.match(page, /About 99% less at 100 agents|about 99% less at 100 agents/);
+  assert.match(page, /never more than 5% behind/i);
+  assert.match(page, /chose who goes first/);
   assert.match(page, /\+1\.4/);
   assert.match(page, /\+3\.6/);
   assert.match(page, /cannot overwrite the real world/i);

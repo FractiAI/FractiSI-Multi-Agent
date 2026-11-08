@@ -4,36 +4,45 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FractiSI Multi-Agent · Admin</title>
-  <link rel="stylesheet" href="/css/site.css" />
-  <style>
-    :root { --ink:#0b1424; --gold:#c9a227; --paper:#f4f1ea; }
-    body { margin:0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background:linear-gradient(160deg,#0b1424,#1a2740 45%,#102033); color:#f7f4ec; }
-    main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
-    h1 { font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600; letter-spacing: -0.02em; }
-    .kicker { color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; }
-    .panel { margin-top: 1.5rem; padding: 1rem 1.1rem; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
-    code { color: #f0d78c; }
-    a { color: #f0d78c; }
-  </style>
+  <link rel="stylesheet" href="/css/site.css?v=35" />
 </head>
 <body>
-  <main>
-    <p class="kicker">FractiSI Multi-Agent</p>
-    <h1>Administrative status</h1>
-    <p>Local Workstation admin surface. Full try path: Git + <code>VERCEL_TOKEN</code> → <code>node scripts/tiny.mjs try</code>. Then load status from <code>.fractisi/state.json</code> (or after <code>init</code>).</p>
-    <div class="panel">
-      <p><strong>Capabilities</strong></p>
-      <ul>
-        <li>Tiny Footprint execution</li>
-        <li>Coordination &amp; shared state</li>
-        <li>Composition &amp; conflict detection</li>
-        <li>Git awareness</li>
-        <li>Deploy approvals (Enterprise)</li>
-      </ul>
-      <p>CLI: <code>node scripts/tiny.mjs try</code> · <code>status --json</code></p>
-      <p>What to expect: shared-world density, coordination, composition, Git worktrees, approval-gated preview.</p>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/library/">Library</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="page">
+      <p class="kicker">Workstation admin</p>
+      <h1>Administrative status</h1>
+      <p class="lede">The local admin surface for your Workstation. It reads session state from <code>.fractisi/state.json</code>, which exists after <code>init</code>.</p>
+
+      <h2>Run it</h2>
+      <p>The full path needs Git and <code>VERCEL_TOKEN</code>. Then run the command below.</p>
+      <pre><code>node scripts/tiny.mjs try
+node scripts/tiny.mjs status --json</code></pre>
+
+      <h2>Capabilities</h2>
+      <div class="cards">
+        <div class="card"><h3>Tiny Footprint</h3><p>Shared-world execution with per-agent deltas.</p></div>
+        <div class="card"><h3>Coordination and shared state</h3><p>Ownership and interference checks over one registered world.</p></div>
+        <div class="card"><h3>Composition</h3><p>Integration with conflict detection.</p></div>
+        <div class="card"><h3>Git awareness</h3><p>Parallel scoped work in Git worktrees.</p></div>
+        <div class="card"><h3>Deploy</h3><p>Approval-gated preview. Enterprise approvals.</p></div>
+      </div>
+
       <p><a href="/product/">Product</a> · <a href="/library/">Library</a> · <a href="/docs/install/INSTALL.md">Install</a></p>
-    </div>
+    </article>
   </main>
+
+  <footer class="site-footer">
+    <span>FractiSI · Admin · FractiSI Multi-Agent</span>
+    <span><a href="/product/">Product</a> · <a href="/product/pricing/">Pricing</a></span>
+  </footer>
 </body>
 </html>
