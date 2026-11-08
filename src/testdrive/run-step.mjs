@@ -188,7 +188,7 @@ function run1() {
       treatmentValue: `${multi.prefixReuse.bytes.toLocaleString()} bytes`,
       headlineLabel: 'How much smaller',
       headlineValue: reductionPct,
-      summary: `We compared ${multi.conventional.sessions} agents that all need the same shared context. The old way copied that context for every agent (${multi.conventional.bytes.toLocaleString()} bytes total). FractiSI kept one shared copy and only the small differences per agent (${multi.prefixReuse.bytes.toLocaleString()} bytes). That is a ${reductionPct} cut — same work, far less duplicate context.`,
+      summary: `Twelve agents. Same shared context. The old way: ${multi.conventional.bytes.toLocaleString()} bytes of full copies. FractiSI: ${multi.prefixReuse.bytes.toLocaleString()} bytes — one world, small per-agent notes. ${reductionPct} smaller. Same work. Far less waste.`,
     },
   });
 }
@@ -291,7 +291,7 @@ function run3() {
       treatmentValue: `${rhymeCmp.rhymeBytes.toLocaleString()} bytes`,
       headlineLabel: 'Smaller than exact-text cache store',
       headlineValue: pct(rhymeCmp.rhymeVersusCache),
-      summary: `We ran ${rhymeCmp.sessions} sessions that do the same kind of work but use different wording. An exact-text cache only helps when the words match — here it got ${rhymeCmp.exactTextHits} hits. FractiSI still reused the shared organization (${rhymeCmp.rhymeBytes.toLocaleString()} bytes), ${pct(rhymeCmp.rhymeVersusCache)} smaller than keeping every paraphrase as its own exact-cache entry.`,
+      summary: `Same job. Different words. Exact-text cache: ${rhymeCmp.exactTextHits} hits. FractiSI still shared the organization — ${rhymeCmp.rhymeBytes.toLocaleString()} bytes, ${pct(rhymeCmp.rhymeVersusCache)} smaller than storing every paraphrase alone. The spelling changed. The shape didn’t have to be paid for twice.`,
     },
   });
 }
@@ -334,7 +334,7 @@ function run4() {
       treatmentValue: `${e2.fractisi.discoveries}/${e2.scenarios} found · ${e2.fractisi.solutions}/${e2.scenarios} solved`,
       headlineLabel: 'Score',
       headlineValue: `${e2.fractisi.discoveries}/${e2.scenarios} vs ${e2.flat.discoveries}/${e2.scenarios}`,
-      summary: `We hid answers behind six-step chains and gave both methods the same information budget. Flat skim (reading a text window) found ${e2.flat.discoveries} of ${e2.scenarios} and solved ${e2.flat.solutions}. FractiSI followed the relationships and found ${e2.fractisi.discoveries} of ${e2.scenarios}, solving ${e2.fractisi.solutions}. Same data — different search method.`,
+      summary: `Same budget. Same data. Answers buried six links deep. Flat skim found ${e2.flat.discoveries} of ${e2.scenarios}. FractiSI found ${e2.fractisi.discoveries} of ${e2.scenarios} — and solved ${e2.fractisi.solutions}. The answer was always there. One method walked past it. The other followed the chain.`,
     },
   });
 }
