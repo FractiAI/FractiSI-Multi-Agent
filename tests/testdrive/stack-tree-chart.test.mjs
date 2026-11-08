@@ -59,18 +59,30 @@ test('Test Drive how-stack references the updated tree', async () => {
   assert.match(page, /infinite-octave-hero-source-tree\.jpg/);
 });
 
-test('Test Drive opens on hero title case with prose and images', async () => {
+test('Test Drive opens on the hero title and introduces the case', async () => {
   const { readFile } = await import('node:fs/promises');
   const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
+  assert.match(page, /<h1>The Multi-Agent World Inference Rhyme\?<\/h1>/);
   assert.match(page, /Let’s begin/);
-  assert.match(page, /One shared world\. Many agents\./);
-  assert.match(page, /Today we show you a better way/);
+  assert.match(page, /Applied Active Inference Symposium/);
+  assert.match(page, /When many agents share one world, does the way they organize it rhyme\?/);
+  assert.match(page, /I work as a restroom valet/);
+  assert.match(page, /Syntheverse Sandbox/);
+  assert.match(page, /Base Mainnet/);
   assert.doesNotMatch(page, /decide whether FractiSI/);
   assert.doesNotMatch(page, /Training objective/);
   assert.doesNotMatch(page, /Failure mode A/);
-  assert.match(page, /td-hero-visual/);
-  assert.match(page, /teach-prose/);
-  assert.match(page, /What’s broken/);
-  assert.match(page, /fractisi-hero\.jpg/);
-  assert.doesNotMatch(page, /Hold that light/);
+  assert.doesNotMatch(page, /Layer [A-F]\b/);
+});
+
+test('Net Zero is defined before the rhyme gate and invitations are present', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
+  const nz = page.indexOf('Balanced zero, not nothing zero.');
+  const gate = page.indexOf('<h3>Repeating</h3>');
+  assert.ok(nz > 0 && gate > nz, 'Net Zero must precede the four pillars');
+  for (const needle of ['valetpru@gmail.com', '/expedition-002/', '/pricing/', 'Join the beta', 'Get the kit']) {
+    assert.ok(page.includes(needle), needle);
+  }
+  assert.doesNotMatch(page, /What’s broken/);
 });

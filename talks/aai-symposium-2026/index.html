@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Applied Active Inference Symposium 2026</title>
-  <meta name="description" content="Symposium presentation: valet awareness story → FractiSI Multi-Agent Test Drive demos. Audience track /test-drive/.">
+  <meta name="description" content="Symposium presentation: valet awareness story → four live FractiSI Multi-Agent tests. Audience track /test-drive/.">
   <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
       <a class="chip" href="https://github.com/FractiAI/FractiSI-Multi-Agent" target="_blank" rel="noopener">GitHub</a>
       <button type="button" id="btn-notes" title="Toggle speaker notes (N)">Notes</button>
       <button type="button" id="btn-prev" title="Previous (←)">←</button>
-      <span id="progress" aria-live="polite">1 / 9</span>
+      <span id="progress" aria-live="polite">1 / 11</span>
       <button type="button" id="btn-next" title="Next (→ or Space)">→</button>
     </div>
   </div>
@@ -30,99 +30,128 @@
   <main id="deck" class="deck" tabindex="0">
 
     <section class="slide is-active" data-part="Open" data-time="2 min" aria-label="Slide 1">
-      <p class="part">The idea</p>
-      <h1>One shared world. Many agents.</h1>
-      <p class="tagline">Today we show a better way — less copying, smarter reuse,<br>discoveries a flat skim never finds.</p>
+      <p class="part">The case</p>
+      <h1>The Multi-Agent World Inference Rhyme?</h1>
       <ul class="bullets">
         <li>Applied Active Inference Symposium · Nov 12–13, 2026</li>
-        <li>Rhymes with this room’s concerns — not framework identity</li>
-        <li>Audience opens <a href="/test-drive/" target="_blank" rel="noopener">/test-drive/</a> → <strong>Let’s begin</strong></li>
-        <li>Story → sandbox → what’s broken → three live tests → how it fits</li>
+        <li><strong>The question:</strong> when many agents share one world, does the way they organize it rhyme?</li>
+        <li>Four live tests · about twenty minutes · the audience presses the buttons</li>
+        <li>Rhyme means kinship with this room, not Active Inference identity</li>
       </ul>
-      <p class="ide-cue"><span>You</span> Speak from the Test Drive · IDE <code>node scripts/tiny.mjs testdrive</code></p>
+      <p class="punch">We will not argue it. We will run it.</p>
+      <p class="ide-cue"><span>You</span> Open <a href="/test-drive/" target="_blank" rel="noopener">/test-drive/</a> → <strong>Let’s begin</strong> · IDE <code>node scripts/tiny.mjs testdrive</code></p>
       <aside class="notes">
-        <p>Simple. Confident. Show — don’t ask them to decide. Run the tests.</p>
+        <p>Spare and confident. Say the title, say the question, say we will run it. Do not ask them to decide anything.</p>
       </aside>
     </section>
 
     <section class="slide" data-part="Story" data-time="2 min" aria-label="Slide 2">
       <p class="part">Awareness</p>
-      <h1>AI music in the restroom</h1>
+      <h1>Same music. Different room.</h1>
       <ul class="bullets">
-        <li>I work as a restroom valet · I play AI-generated music there</li>
-        <li>Once people become <strong>aware</strong> it is AI, opinions often flip <strong>immediately</strong></li>
-        <li>Same sound · different grip · awareness rewrote the shared scene</li>
+        <li>I work as a restroom valet · I play AI-made music there</li>
+        <li>Once someone learns it is AI, the room changes right away</li>
+        <li>Same song, same speakers · what changed is what the listener believed</li>
+        <li>A shared world is only as good as what each of us holds about it</li>
       </ul>
-      <p class="punch">Hold that light — then meet the multi-agent stack.</p>
-      <p class="ide-cue"><span>On track</span> /test-drive/ Part 2</p>
+      <p class="punch">Now picture the ones holding it are agents.</p>
+      <p class="ide-cue"><span>On track</span> /test-drive/ beat 2</p>
       <aside class="notes">
-        <p>First person, short. Not a psych paper. Land awareness, move on.</p>
+        <p>First person, short. Land awareness, then bridge: a multi-agent application that may rhyme with this room.</p>
       </aside>
     </section>
 
     <section class="slide" data-part="Sandbox" data-time="1.5 min" aria-label="Slide 3">
       <p class="part">Sandbox</p>
-      <h1>Syntheverse on Base Mainnet</h1>
+      <h1>You are in a sandbox.</h1>
       <ul class="bullets">
-        <li><strong>Syntheverse Sandbox</strong> — the room this peek lives in</li>
-        <li><strong>Base Mainnet</strong> — bedrock underfoot · no wallet required to look</li>
-        <li>Enter and leave with <strong>whichever awareness you choose</strong></li>
+        <li><strong>Syntheverse Sandbox</strong> is the room · <strong>Base Mainnet</strong> is the bedrock</li>
+        <li>Enter and leave with whichever awareness you choose</li>
+        <li>No wallet · no account · nothing to buy</li>
       </ul>
-      <p class="ide-cue"><span>On track</span> /test-drive/ Part 3</p>
+      <p class="punch">Come in. Look around. Leave when you like.</p>
+      <p class="ide-cue"><span>On track</span> /test-drive/ beat 3</p>
       <aside class="notes">
-        <p>Keep it one minute. Voluntary enter/exit.</p>
+        <p>One minute. Voluntary enter and exit.</p>
       </aside>
     </section>
 
     <section class="slide" data-part="Problem" data-time="2 min" aria-label="Slide 4">
-      <p class="part">Problem + rhyme</p>
-      <h1>What agents suffer</h1>
+      <p class="part">The idea</p>
+      <h1>What goes wrong with a crowd of agents</h1>
       <ul class="bullets">
-        <li>N private full copies · exact cache needs identical words · gzip does not remove N-copy structure</li>
-        <li>Flat skim misses multi-hop chains · blind merge collides</li>
-        <li><strong>Rhyme with this room:</strong> agents (including us) gripping a shared world — kinship, not identity</li>
-        <li><strong>Product rhyme:</strong> shared organization from Net Zero — not “sounds alike”</li>
+        <li><strong>Copies:</strong> ten agents, ten copies of one world</li>
+        <li><strong>Context tax:</strong> every copy fills memory</li>
+        <li><strong>Different words:</strong> exact-text caches go cold when agents paraphrase</li>
+        <li><strong>Buried answers:</strong> a skim misses what sits several links away</li>
+        <li><strong>Collisions:</strong> many writers step on each other · we come back to this at the stack</li>
       </ul>
-      <p class="punch">Next: three Runs. Watch the gap.</p>
-      <p class="ide-cue"><span>On track</span> /test-drive/ Part 4 → demos</p>
+      <p class="punch">Keep one world. Let each agent keep only what makes it different.</p>
+      <p class="ide-cue"><span>On track</span> /test-drive/ beat 4</p>
       <aside class="notes">
-        <p>Then pause for audience to Run demo on each of the next three pages.</p>
+        <p>Four of the five can be tested live. Be upfront that the fifth, collisions, gets an honest answer later.</p>
       </aside>
     </section>
 
-    <section class="slide" data-part="Demo" data-time="2 min" aria-label="Slide 5">
-      <p class="part">Demo 1</p>
-      <h1>Stop reprinting the world</h1>
-      <p class="punch">Tiny Footprint · N full copies vs shared world + deltas</p>
-      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#1" target="_blank" rel="noopener">/test-drive/#1 → Run demo</a> · IDE <code>testdrive 1</code></p>
+    <section class="slide" data-part="Rhyme" data-time="2.5 min" aria-label="Slide 5">
+      <p class="part">The idea</p>
+      <h1>Two words you need</h1>
+      <ul class="bullets">
+        <li><strong>Net Zero:</strong> balanced zero, not nothing zero · forces cancel, work continues</li>
+        <li><strong>Rhyme:</strong> organized alike even when the words differ</li>
+        <li>Four pillars, all required, rooted at Net Zero: repeating · self-similar · self-correcting · recursive</li>
+        <li>Matching words alone, a cache hit alone, or a pattern with no root do not count</li>
+      </ul>
+      <p class="punch">Balanced zero, not nothing zero.</p>
+      <p class="ide-cue"><span>On track</span> /test-drive/ beat 5</p>
       <aside class="notes">
-        <p>Wait for Runs. Name the dramatic byte gap out loud.</p>
+        <p>Define Net Zero first, always. Then the four pillars. Keep the symposium kinship word separate from the software gate.</p>
       </aside>
     </section>
 
-    <section class="slide" data-part="Demo" data-time="2 min" aria-label="Slide 6">
-      <p class="part">Demo 2</p>
-      <h1>Rhyme when words differ</h1>
-      <p class="punch">Exact cache · 0 hits · Rhyming Templates still share organization</p>
-      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#3" target="_blank" rel="noopener">/test-drive/#3 → Run demo</a> · IDE <code>testdrive 3</code></p>
+    <section class="slide" data-part="Test 1" data-time="2 min" aria-label="Slide 6">
+      <p class="part">Live test 1</p>
+      <h1>One world. Not twelve.</h1>
+      <p class="punch">Twelve agents · 5,992 B of full copies vs 845 B shared · 85.9% smaller</p>
+      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#1" target="_blank" rel="noopener">/test-drive/#1 → Run the test</a> · IDE <code>testdrive 1</code></p>
       <aside class="notes">
-        <p>Underscore: product rhyme ≠ symposium kinship word — both matter, keep separate.</p>
+        <p>Let them press Run. Name the gap out loud, then move on.</p>
       </aside>
     </section>
 
-    <section class="slide" data-part="Demo" data-time="2 min" aria-label="Slide 7">
-      <p class="part">Demo 3</p>
-      <h1>100/100 vs 0/100</h1>
-      <p class="punch">Selective reconstruction finds multi-hop chains flat skim misses</p>
-      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#4" target="_blank" rel="noopener">/test-drive/#4 → Run demo</a> · IDE <code>testdrive 4</code></p>
+    <section class="slide" data-part="Test 2" data-time="2 min" aria-label="Slide 7">
+      <p class="part">Live test 2</p>
+      <h1>Same memory. More agents.</h1>
+      <p class="punch">The same 12,004 bytes holds 24 agents the old way and 232 shared · 9.7×</p>
+      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#7" target="_blank" rel="noopener">/test-drive/#7 → Run the test</a> · IDE <code>testdrive 7</code></p>
       <aside class="notes">
-        <p>Let the score land. Then brief how.</p>
+        <p>This is what the saving buys: headroom. Say it plainly.</p>
       </aside>
     </section>
 
-    <section class="slide" data-part="How" data-time="2.5 min" aria-label="Slide 8">
-      <p class="part">How · brief</p>
-      <h1>Stack tree — how the demos work</h1>
+    <section class="slide" data-part="Test 3" data-time="2 min" aria-label="Slide 8">
+      <p class="part">Live test 3</p>
+      <h1>Same job. Different words.</h1>
+      <p class="punch">Exact-text cache: 0 hits · FractiSI stored 45.0% less</p>
+      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#3" target="_blank" rel="noopener">/test-drive/#3 → Run the test</a> · IDE <code>testdrive 3</code></p>
+      <aside class="notes">
+        <p>Product rhyme is organization, not spelling. Keep it apart from the symposium kinship word.</p>
+      </aside>
+    </section>
+
+    <section class="slide" data-part="Test 4" data-time="2 min" aria-label="Slide 9">
+      <p class="part">Live test 4</p>
+      <h1>The answer was always there.</h1>
+      <p class="punch">100 of 100 found, against 0 of 100 for a flat skim · same budget</p>
+      <p class="ide-cue"><span>Run now</span> <a href="/test-drive/#4" target="_blank" rel="noopener">/test-drive/#4 → Run the test</a> · IDE <code>testdrive 4</code></p>
+      <aside class="notes">
+        <p>Let the score land. Then the extra line: 85% fewer operations, 50% fewer rounds.</p>
+      </aside>
+    </section>
+
+    <section class="slide" data-part="Stack" data-time="2.5 min" aria-label="Slide 10">
+      <p class="part">The stack</p>
+      <h1>How it fits together</h1>
       <div style="display:grid;grid-template-columns:minmax(0,14rem) 1fr;gap:1rem;align-items:start">
         <figure class="stack-tree-figure">
           <img src="/media/fractisi-multi-agent-stack-tree.jpg?v=1" alt="FractiSI Multi-Agent stack tree chart" width="864" height="1152" />
@@ -130,34 +159,33 @@
         </figure>
         <ol class="stack">
           <li>Base Mainnet → Syntheverse Sandbox → Net Zero (balanced zero)</li>
-          <li>Infinite Octaves → Holographic rhyme → Rhyming Templates / Tiny Gateway</li>
+          <li>Infinite Octaves → Holographic rhyme gate → Rhyming Templates · Tiny Gateway</li>
           <li>Tiny Footprint → Coordination · Shared state · Composition</li>
-          <li>Git awareness → Deploy (paid) → FractiSI Multi-Agent</li>
+          <li>Git awareness (free) → Deploy (paid, Team and up) → FractiSI Multi-Agent</li>
         </ol>
       </div>
-      <p class="punch">In-process labs · promising · not CapEx · not Active Inference identity</p>
+      <p class="punch">Coordination: at 25 agents it logged more conflicts than plain branching. We say so.</p>
       <p class="ide-cue"><span>On track</span> /test-drive/#how-stack · <a href="/media/fractisi-multi-agent-stack-tree.svg">SVG</a></p>
       <aside class="notes">
-        <p>Show the tree. Point trunk plaques. Do not dump every name. Invite further exploration.</p>
+        <p>Point at the trunk, do not recite every name. Tell the coordination result straight: 3.7 vs 1.7 conflicts at 25 agents, slightly more useful work. Labs on one machine, not production benchmarks.</p>
       </aside>
     </section>
 
-    <section class="slide" data-part="Invite" data-time="2 min" aria-label="Slide 9">
-      <p class="part">Invite · close</p>
-      <h1>Explore · connect · beta</h1>
+    <section class="slide" data-part="Invite" data-time="2 min" aria-label="Slide 11">
+      <p class="part">Go further</p>
+      <h1>Explore · connect · join the beta</h1>
       <ul class="bullets">
-        <li><strong>Explore</strong> — clone the kit · <a href="/expedition-002/">Expedition 002</a> · <a href="/pricing/">Pricing plans</a> · /product/</li>
-        <li><strong>Connect</strong> — <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a></li>
-        <li><strong>Beta</strong> — ask to join beta testing</li>
+        <li><strong>Explore:</strong> clone the kit · <a href="/expedition-002/">Expedition 002</a> · <a href="/pricing/">plans</a> · Community is free</li>
+        <li><strong>Connect:</strong> <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a> · Valet Pru</li>
+        <li><strong>Beta:</strong> ask for a seat</li>
       </ul>
-      <p class="thanks">End of Test Drive · thank you · one shared world · many agents</p>
-      <p class="ide-cue"><span>Finish</span> <a href="/test-drive/#invite" target="_blank" rel="noopener">/test-drive/#invite</a></p>
+      <p class="thanks">One shared world. Many agents. Thank you.</p>
+      <p class="ide-cue"><span>Finish</span> <a href="/test-drive/#invite" target="_blank" rel="noopener">/test-drive/#invite</a> · the page recaps what each person ran</p>
       <aside class="notes">
-        <p>Leave time for questions. Deploy is paid; peek is free.</p>
+        <p>Leave time for questions. Deploy is paid. Everything else in the tour is free.</p>
       </aside>
     </section>
 
-  </main>
   </main>
 
   <footer class="notes-panel" id="notes-panel" hidden>

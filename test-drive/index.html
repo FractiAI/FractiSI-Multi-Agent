@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
-  <meta name="description" content="FractiSI Multi-Agent Test Drive: one shared world, many agents — three live proofs. Applied Active Inference Symposium.">
+  <meta name="description" content="Many agents. One shared world. Four live tests you run yourself, about twenty minutes. Applied Active Inference Symposium, Nov 12–13, 2026.">
+  <meta property="og:title" content="The Multi-Agent World Inference Rhyme?">
+  <meta property="og:description" content="Many agents. One shared world. Four live tests you run yourself.">
+  <meta property="og:image" content="https://fractisi.vercel.app/media/fractisi-hero.jpg">
   <link rel="stylesheet" href="/css/site.css?v=34">
   <meta http-equiv="Cache-Control" content="no-cache">
   <style>
@@ -14,590 +17,392 @@
       --td-mist: #f4f1ea;
       --td-line: #ddd6c8;
       --td-forest: #1f3d34;
+      --td-forest-2: #2f5a4c;
+      --td-gold: #d6c27a;
+      --td-gold-deep: #a8923f;
       --td-muted: #5e5a53;
       --td-console: #14120e;
     }
 
     body {
       background:
-        radial-gradient(1200px 480px at 12% -10%, rgba(31, 61, 52, 0.08), transparent 60%),
-        radial-gradient(900px 420px at 90% 0%, rgba(214, 194, 122, 0.12), transparent 55%),
+        radial-gradient(1200px 520px at 8% -10%, rgba(31, 61, 52, 0.09), transparent 60%),
+        radial-gradient(900px 440px at 92% 0%, rgba(214, 194, 122, 0.14), transparent 55%),
         var(--td-mist);
     }
+    .is-hidden { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    :focus-visible { outline: 3px solid var(--td-gold-deep); outline-offset: 3px; border-radius: 4px; }
 
-    .lesson-shell {
-      max-width: 44rem;
-      margin: 0 auto;
-      padding: 1.25rem 1.25rem 6.5rem;
+    /* ——— Buttons ——— */
+    .btn, .btn-secondary {
+      font-family: var(--sans);
+      font-size: 0.98rem;
+      font-weight: 650;
+      border-radius: 999px;
+      padding: 0.7rem 1.25rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid var(--td-line);
+      background: var(--td-paper);
+      color: var(--td-ink);
+      transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
     }
+    .btn:hover, .btn-secondary:hover { background: #fff; transform: translateY(-1px); }
+    .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .btn-run {
+      background: var(--td-forest);
+      border-color: var(--td-forest);
+      color: #fbf9f4;
+      box-shadow: 0 6px 18px rgba(31, 61, 52, 0.25);
+    }
+    .btn-run:hover { background: var(--td-forest-2); }
+    .btn-gold {
+      background: var(--td-gold);
+      border-color: var(--td-gold);
+      color: #17130a;
+      font-size: 1.1rem;
+      padding: 0.95rem 1.8rem;
+      box-shadow: 0 10px 30px rgba(214, 194, 122, 0.28);
+    }
+    .btn-gold:hover { background: #e4d28c; }
+    .btn-next.is-ready { background: var(--td-gold); border-color: var(--td-gold); color: #17130a; }
+
+    /* ——— Hero ——— */
+    .td-hero {
+      min-height: calc(100vh - 3.7rem);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: clamp(3rem, 8vw, 6.5rem) 1.5rem 4rem;
+      color: #f4f1ea;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(214, 194, 122, 0.16), transparent 46%),
+        radial-gradient(circle, rgba(214, 194, 122, 0.22) 1.2px, transparent 1.6px) 0 0 / 34px 34px,
+        linear-gradient(180deg, #0d1a15 0%, #0a1410 100%);
+    }
+    .td-hero .inner { max-width: 54rem; }
+    .td-hero .brand {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--td-gold);
+      margin: 0 0 1.6rem;
+    }
+    .td-hero h1 {
+      font-family: var(--sans);
+      font-weight: 750;
+      font-size: clamp(2.5rem, 7.4vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      margin: 0 0 1.4rem;
+      color: #fff;
+      text-wrap: balance;
+    }
+    .td-hero .event {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 234, 0.7);
+      margin: 0 0 2rem;
+    }
+    .td-hero .deck {
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      line-height: 1.5;
+      color: rgba(244, 241, 234, 0.92);
+      margin: 0 auto 2.4rem;
+      max-width: 36rem;
+    }
+    .td-hero .facts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.6rem;
+      margin: 1.6rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: rgba(244, 241, 234, 0.72);
+    }
+    .td-hero .facts li::before { content: "·"; color: var(--td-gold); margin-right: 0.5rem; }
+    .td-hero .soft-links {
+      margin-top: 2.6rem;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: rgba(244, 241, 234, 0.6);
+    }
+    .td-hero .soft-links a { color: rgba(244, 241, 234, 0.85); text-decoration: none; border-bottom: 1px solid rgba(214, 194, 122, 0.5); }
+
+    /* ——— Lesson shell ——— */
+    .lesson-shell { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem 7.5rem; }
+    .lesson-shell.is-gated { display: none; }
 
     .progress-rail {
       position: sticky;
-      top: 3.55rem;
-      z-index: 3;
-      margin: 0 -1.25rem 1.35rem;
-      padding: 0.75rem 1.25rem 0.85rem;
-      background: rgba(244, 241, 234, 0.92);
-      backdrop-filter: blur(10px);
+      top: 3.7rem;
+      z-index: 1;
+      margin: 0 -1.25rem;
+      padding: 0.85rem 1.25rem 0.7rem;
+      background: rgba(244, 241, 234, 0.94);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--td-line);
     }
     .progress-top {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      align-items: baseline;
-      margin-bottom: 0.55rem;
       font-family: var(--sans);
       font-size: 0.78rem;
+      font-weight: 650;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--td-forest);
-      font-weight: 650;
+      color: var(--td-muted);
+      margin-bottom: 0.5rem;
     }
-    .progress-top .eta { color: var(--td-muted); letter-spacing: 0.04em; text-transform: none; font-weight: 500; }
-    .progress-track {
-      height: 0.28rem;
-      background: #e7e0d3;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--td-forest);
-      border-radius: 999px;
-      transition: width 0.35s ease;
-    }
-    .progress-dots {
-      display: flex;
-      gap: 0.35rem;
-      margin-top: 0.55rem;
-      flex-wrap: wrap;
-    }
-    .progress-dots button {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 999px;
-      border: 0;
+    .progress-top .chapter { color: var(--td-forest); }
+    .segments { display: flex; gap: 4px; }
+    .segments button {
+      flex: 1;
+      height: 8px;
       padding: 0;
-      background: #d5cec0;
+      border: 0;
+      border-radius: 4px;
+      background: var(--td-line);
       cursor: pointer;
+      transition: background 0.2s ease, transform 0.12s ease;
     }
-    .progress-dots button.is-done { background: var(--td-forest); }
-    .progress-dots button.is-active {
-      background: var(--td-ink);
-      box-shadow: 0 0 0 3px rgba(26, 25, 22, 0.14);
-      transform: scale(1.15);
-    }
+    .segments button:hover { transform: scaleY(1.5); }
+    .segments button.is-done { background: var(--td-forest-2); }
+    .segments button.is-active { background: var(--td-gold-deep); }
+    .segments button.is-lab { box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.18); }
 
-    .lesson {
-      animation: lesson-in 0.38s ease;
-    }
-    @keyframes lesson-in {
-      from { opacity: 0; transform: translateY(0.55rem); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .eyebrow {
+    .lesson { padding-top: clamp(2rem, 5vw, 3.5rem); animation: td-rise 0.45s ease both; }
+    @keyframes td-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .lesson .eyebrow {
       font-family: var(--sans);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--td-forest);
-      font-weight: 650;
-      margin: 0 0 0.55rem;
+      margin: 0 0 0.9rem;
     }
     .lesson h1 {
-      margin: 0 0 0.55rem;
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      font-weight: 500;
+      font-family: var(--sans);
+      font-weight: 750;
+      font-size: clamp(2.1rem, 5.6vw, 3.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 0.8rem;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+    .lesson h1:focus { outline: none; }
+    .lesson .promise {
+      font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+      line-height: 1.4;
+      color: var(--td-muted);
+      margin: 0 0 2.2rem;
+      max-width: 36rem;
+    }
+
+    /* ——— Prose ——— */
+    .prose { max-width: 40rem; }
+    .prose p { font-size: 1.22rem; line-height: 1.62; margin: 0 0 1.15rem; }
+    .prose .lede { font-size: 1.45rem; line-height: 1.45; color: var(--td-ink); font-weight: 500; margin-bottom: 1.5rem; }
+    .prose .big {
+      font-family: var(--sans);
+      font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
       line-height: 1.18;
-      letter-spacing: -0.02em;
-    }
-    .promise {
-      font-size: 1.12rem;
-      color: var(--td-muted);
-      margin: 0 0 1.35rem;
-      max-width: 36rem;
-    }
-
-    .teach {
-      display: grid;
-      gap: 1rem;
-      margin: 0 0 1.4rem;
-    }
-    .teach-block .label {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
+      margin: 2rem 0 0.9rem;
       color: var(--td-forest);
-      font-weight: 650;
-      margin: 0 0 0.35rem;
     }
-    .teach-block p {
-      margin: 0;
-      font-size: 1.08rem;
-      line-height: 1.55;
-      color: var(--td-ink);
-    }
-    .teach-block.notice {
-      border-left: 3px solid var(--td-forest);
-      padding-left: 0.95rem;
-    }
-
-    .ladder {
-      margin: 0.35rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.65rem;
-    }
-    .ladder li {
-      display: grid;
-      grid-template-columns: 1.6rem 1fr;
-      gap: 0.55rem;
-      align-items: start;
-      font-size: 1.02rem;
-      line-height: 1.45;
-    }
-    .ladder .n {
+    .prose .big.q { margin-top: 0; }
+    .prose .punch {
       font-family: var(--sans);
-      font-size: 0.75rem;
-      font-weight: 650;
-      color: var(--td-forest);
-      padding-top: 0.2rem;
-    }
-    .ladder strong { font-family: var(--sans); font-weight: 650; }
-    .teach-prose p {
-      margin: 0 0 0.9rem;
-      font-size: 1.08rem;
-      line-height: 1.62;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 750;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin: 0.4rem 0 1.2rem;
       color: var(--td-ink);
     }
-    .teach-prose p:last-child { margin-bottom: 0; }
-    .teach-figure {
-      margin: 0.35rem 0 1rem;
-      padding: 0;
-      border: 1px solid var(--td-line);
-      background: #efe8da;
-      overflow: hidden;
-      border-radius: 0.35rem;
-    }
-    .teach-figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    .teach-figure figcaption {
-      margin: 0;
-      padding: 0.55rem 0.85rem 0.7rem;
-      font-size: 0.82rem;
-      line-height: 1.4;
-      color: var(--td-muted);
-    }
-    .td-hero-visual {
-      margin: 1.35rem 0 0;
-      border: 1px solid var(--td-line);
-      border-radius: 0.4rem;
-      overflow: hidden;
-      max-width: 36rem;
-    }
-    .td-hero-visual img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    .case-pull {
-      margin: 1rem 0 0;
-      padding: 0.85rem 1rem;
-      border-left: 3px solid var(--td-forest);
-      font-size: 1.12rem;
-      line-height: 1.5;
-      color: var(--td-ink);
-      background: rgba(31, 61, 52, 0.05);
-    }
-    .stack-tree-figure {
-      margin: 1rem 0 0.85rem;
-      padding: 0;
-      border: 1px solid var(--td-line);
-      background: #f3e7d0;
-      overflow: hidden;
-      border-radius: 0.35rem;
-    }
-    .stack-tree-figure img {
-      display: block;
-      width: 100%;
-      max-width: 26rem;
-      height: auto;
-      margin: 0 auto;
-    }
-    .stack-tree-figure figcaption {
-      margin: 0;
-      padding: 0.55rem 0.8rem 0.7rem;
-      font-size: 0.82rem;
-      line-height: 1.4;
-      opacity: 0.9;
-    }
-    .stack-tree-ladder { margin-top: 0.35rem; }
-    .stack-tree-honesty {
-      margin: 0.65rem 0 0;
+    .prose h2 {
+      font-family: var(--sans);
       font-size: 0.8rem;
-      line-height: 1.4;
-      opacity: 0.82;
-    }
-
-    .lab-panel {
-      margin: 1.5rem 0 0;
-      padding: 1.15rem 1.15rem 1.2rem;
-      background: var(--td-paper);
-      border: 1px solid var(--td-line);
-      border-radius: 0.45rem;
-      box-shadow: 0 10px 30px rgba(26, 25, 22, 0.04);
-    }
-    .lab-panel .lab-title {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--td-forest);
-      font-weight: 650;
-      margin: 0 0 0.35rem;
+      color: var(--td-gold-deep);
+      margin: 2.6rem 0 0.6rem;
     }
-    .lab-panel .lab-hint {
-      margin: 0 0 0.95rem;
-      color: var(--td-muted);
-      font-size: 0.98rem;
-    }
-    .lab-test-box {
-      margin: 0 0 1rem;
-      padding: 0.85rem 0.95rem;
-      background: rgba(31, 61, 52, 0.06);
-      border-left: 3px solid var(--td-forest);
-      border-radius: 0 0.3rem 0.3rem 0;
-    }
-    .lab-test-box .k {
-      font-family: var(--sans);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--td-forest);
-      font-weight: 650;
-      margin: 0 0 0.35rem;
-    }
-    .lab-test-box p {
-      margin: 0 0 0.55rem;
-      font-size: 1.05rem;
-      line-height: 1.5;
-      color: var(--td-ink);
-    }
-    .lab-test-box p:last-child { margin-bottom: 0; }
-    .results-summary {
-      display: none;
-      margin: 0 0 0.9rem;
-      animation: lesson-in 0.3s ease;
-    }
-    .results-summary.is-open { display: block; }
-    .results-summary .summary-title {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--td-forest);
-      font-weight: 650;
-      margin: 0 0 0.45rem;
-    }
-    .results-summary .summary-text {
-      margin: 0 0 0.85rem;
-      font-size: 1.08rem;
+    .prose .aside {
+      font-size: 1rem;
       line-height: 1.55;
-      color: var(--td-ink);
-    }
-    .results-summary .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-      gap: 0.5rem;
-      margin: 0 0 0.25rem;
-    }
-    .results-summary .card {
-      background: #14120e;
-      color: #f4f1ea;
-      padding: 0.7rem 0.8rem;
-      border-radius: 0.35rem;
-    }
-    .results-summary .card.headline {
-      background: var(--td-forest);
-      grid-column: 1 / -1;
-    }
-    .results-summary .card .k {
-      font-family: var(--sans);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.8;
-      margin: 0 0 0.3rem;
-    }
-    .results-summary .card .v {
-      font-family: var(--sans);
-      font-size: clamp(1.05rem, 2.8vw, 1.4rem);
-      font-weight: 650;
-      line-height: 1.25;
-      margin: 0;
-      word-break: break-word;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      align-items: center;
-    }
-    .btn {
-      font-family: var(--sans);
-      font-weight: 650;
-      font-size: 0.95rem;
-      border-radius: 0.35rem;
-      padding: 0.68rem 1.05rem;
-      cursor: pointer;
-      border: 1px solid var(--td-ink);
-      background: var(--td-paper);
-      color: var(--td-ink);
-      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
-    }
-    .btn:hover:not(:disabled),
-    .btn:focus-visible:not(:disabled) {
-      background: #ffffff;
-      transform: translateY(-1px);
-    }
-    .btn.btn-run,
-    .btn.btn-next {
-      background: #1a1916;
-      color: #fbf9f4;
-      border-color: #1a1916;
-      min-width: 9.5rem;
-    }
-    .btn.btn-run:hover:not(:disabled),
-    .btn.btn-run:focus-visible:not(:disabled),
-    .btn.btn-next:hover:not(:disabled),
-    .btn.btn-next:focus-visible:not(:disabled) {
-      background: #2a2824;
-      color: #ffffff;
-    }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-    .btn { touch-action: manipulation; position: relative; z-index: 1; }
-    .status {
-      font-family: var(--sans);
-      font-size: 0.88rem;
       color: var(--td-muted);
-      min-height: 1.2em;
+      border-left: 3px solid var(--td-gold);
+      padding: 0.15rem 0 0.15rem 1rem;
+      margin: 1.8rem 0 0;
     }
-
-    .results-wrap {
-      margin-top: 0.95rem;
-    }
-    .results-label {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--td-muted);
-      margin: 0 0 0.45rem;
-    }
-    .results {
-      margin: 0;
-      background: var(--td-console);
-      color: #f4f1ea;
-      padding: 1rem 1.05rem;
-      border-radius: 0.35rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.82rem;
+    .prose ul.plain { list-style: none; margin: 0 0 1.4rem; padding: 0; }
+    .prose ul.plain li {
+      font-size: 1.15rem;
       line-height: 1.5;
-      white-space: pre-wrap;
-      min-height: 6.5rem;
-      max-height: 22rem;
-      overflow: auto;
-    }
-    .results.is-empty { color: #9a958c; }
-    .takeaway {
-      margin: 0.85rem 0 0;
-      padding: 0.85rem 0.95rem;
-      background: rgba(31, 61, 52, 0.08);
-      border-radius: 0.35rem;
-      font-size: 1.02rem;
-      color: var(--td-ink);
-      display: none;
-    }
-    .takeaway.is-open { display: block; animation: lesson-in 0.3s ease; }
-    .takeaway strong {
-      display: block;
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--td-forest);
-      margin-bottom: 0.3rem;
-    }
-    .honesty {
-      margin-top: 0.85rem;
-      font-family: var(--sans);
-      font-size: 0.82rem;
-      color: var(--td-muted);
-    }
-
-    .finish {
-      display: none;
-      margin: 1.35rem 0 0;
-      padding: 1.25rem 1.2rem;
-      background: var(--td-paper);
-      border: 1px solid var(--td-line);
-      border-radius: 0.45rem;
-    }
-    .finish.is-open { display: block; animation: lesson-in 0.35s ease; }
-    .finish h2 {
-      margin: 0 0 0.45rem;
-      font-size: 1.45rem;
-      font-weight: 500;
-    }
-    .finish p { margin: 0 0 0.9rem; color: var(--td-muted); }
-    .finish-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-    .finish a.btn-run {
-      text-decoration: none;
-      display: inline-block;
-    }
-    .finish a.btn-secondary {
-      font-family: var(--sans);
-      font-weight: 650;
-      color: var(--td-forest);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(31, 61, 52, 0.35);
-      padding: 0.68rem 0.1rem;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 5;
-      background: rgba(251, 249, 244, 0.94);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--td-line);
-      padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
-    }
-    .bottom-nav-inner {
-      max-width: 44rem;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: center;
-    }
-    .bottom-nav .center-hint {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: var(--td-muted);
-      text-align: center;
-      flex: 1;
-    }
-    @media (max-width: 560px) {
-      .bottom-nav .center-hint { display: none; }
-      .btn { flex: 1; text-align: center; }
-    }
-
-    .kbd {
-      font-family: var(--sans);
-      font-size: 0.7rem;
-      border: 1px solid var(--td-line);
-      border-radius: 0.25rem;
-      padding: 0.05rem 0.28rem;
-      color: var(--td-muted);
-    }
-
-    .is-hidden { display: none !important; }
-    .teach-continue {
-      margin: 1.1rem 0 0;
-      font-family: var(--sans);
-      font-size: 0.92rem;
-      color: var(--td-muted);
-    }
-
-    .td-hero {
-      min-height: calc(100vh - 3.55rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2.5rem 1.35rem 5.5rem;
-      max-width: 40rem;
-      margin: 0 auto;
+      padding: 0.85rem 0 0.85rem 1.2rem;
+      border-bottom: 1px solid var(--td-line);
       position: relative;
     }
-    .td-hero::before {
-      content: "";
-      position: absolute;
-      inset: -2rem -20vw auto;
-      height: 55vh;
-      background:
-        radial-gradient(ellipse 70% 60% at 18% 30%, rgba(31, 61, 52, 0.16), transparent 70%),
-        radial-gradient(ellipse 55% 50% at 88% 10%, rgba(214, 194, 122, 0.18), transparent 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .td-hero > * { position: relative; z-index: 1; }
-    .td-hero .brand {
-      font-family: var(--sans);
-      font-size: clamp(1.65rem, 3.5vw, 2.1rem);
-      font-weight: 650;
-      letter-spacing: -0.03em;
-      color: var(--td-forest);
-      margin: 0 0 1.35rem;
-    }
-    .td-hero h1 {
-      margin: 0 0 1rem;
-      font-size: clamp(2.15rem, 6vw, 3.35rem);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-      color: var(--td-ink);
-    }
-    .td-hero .event {
-      font-family: var(--sans);
-      font-size: 0.92rem;
-      font-weight: 650;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--td-forest);
-      margin: 0 0 1.1rem;
-    }
-    .td-hero .deck {
-      font-size: 1.2rem;
-      line-height: 1.45;
-      color: var(--td-muted);
-      margin: 0 0 1.75rem;
-      max-width: 34rem;
-    }
-    .td-hero .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      align-items: center;
-    }
-    .td-hero .cta-note {
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      color: var(--td-muted);
-    }
-    .td-hero .soft-links {
-      margin-top: 2rem;
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      color: var(--td-muted);
-    }
-    .td-hero .soft-links a {
-      color: var(--td-forest);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(31, 61, 52, 0.35);
-    }
+    .prose ul.plain li::before { content: ""; position: absolute; left: 0; top: 1.4rem; width: 6px; height: 6px; border-radius: 50%; background: var(--td-gold-deep); }
+    .prose ul.plain strong { font-family: var(--sans); letter-spacing: -0.01em; }
 
-    .lesson-shell.is-gated { display: none; }
+    .wide { max-width: 100%; margin: 2rem 0; }
+    .figure { margin: 2rem 0; max-width: 46rem; }
+    .figure img { border-radius: 16px; box-shadow: 0 18px 50px rgba(20, 18, 14, 0.16); width: 100%; }
+    .figure figcaption { font-family: var(--sans); font-size: 0.88rem; color: var(--td-muted); margin-top: 0.7rem; }
+
+    /* ——— Diagram: copies vs shared world ——— */
+    .world-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+    @media (max-width: 640px) { .world-diagram { grid-template-columns: 1fr; } }
+    .wd-col { border-radius: 18px; padding: 1.25rem; border: 1px solid var(--td-line); background: var(--td-paper); }
+    .wd-col.new { background: #eef3ef; border-color: #c9d8d0; }
+    .wd-h { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 1rem; color: var(--td-muted); }
+    .wd-col.new .wd-h { color: var(--td-forest); }
+    .wd-agents { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem; }
+    .wd-agent { aspect-ratio: 1; border-radius: 10px; background: #e6dfd0; border: 1px dashed #bdb39d; display: grid; place-items: center; font-family: var(--sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; color: #8d826b; text-transform: uppercase; }
+    .wd-shared { border-radius: 12px; background: var(--td-forest); color: #f4f1ea; font-family: var(--sans); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.04em; text-align: center; padding: 1.1rem 0.5rem; margin-bottom: 0.55rem; }
+    .wd-note { height: 0.7rem; border-radius: 6px; background: var(--td-gold); align-self: end; }
+    .wd-cap { font-family: var(--sans); font-size: 0.88rem; line-height: 1.4; color: var(--td-muted); margin: 0.95rem 0 0; }
+
+    /* ——— Diagram: strata ——— */
+    .strata { display: grid; gap: 6px; margin: 2rem 0; max-width: 34rem; }
+    .strata div { border-radius: 12px; padding: 0.95rem 1.2rem; font-family: var(--sans); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .strata b { font-size: 1.05rem; letter-spacing: -0.01em; }
+    .strata span { font-size: 0.82rem; opacity: 0.8; }
+    .strata .s1 { background: var(--td-gold); color: #17130a; }
+    .strata .s2 { background: var(--td-forest-2); color: #f4f1ea; margin: 0 0.8rem; }
+    .strata .s3 { background: #14120e; color: #f4f1ea; margin: 0 1.6rem; }
+
+    /* ——— Diagram: Net Zero ——— */
+    .balance { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.6rem 0 1.8rem; }
+    @media (max-width: 640px) { .balance { grid-template-columns: 1fr; } }
+    .balance > div { border-radius: 16px; padding: 1.2rem 1.3rem; }
+    .balance .yes { background: #eef3ef; border: 2px solid var(--td-forest-2); }
+    .balance .no { background: var(--td-paper); border: 1px dashed #bdb39d; color: var(--td-muted); }
+    .balance h3 { font-family: var(--sans); font-size: 1.1rem; letter-spacing: -0.02em; margin: 0 0 0.4rem; }
+    .balance .no h3 { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: rgba(120, 100, 70, 0.6); }
+    .balance p { font-size: 1.02rem !important; line-height: 1.5 !important; margin: 0 !important; }
+
+    /* ——— Diagram: four pillars ——— */
+    .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1.6rem 0 1.8rem; }
+    @media (max-width: 860px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 460px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: var(--td-paper); border: 1px solid var(--td-line); border-radius: 16px; padding: 1rem 1.05rem 1.15rem; }
+    .pillar .n { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; color: var(--td-gold-deep); letter-spacing: 0.12em; }
+    .pillar h3 { font-family: var(--sans); font-size: 1.05rem; letter-spacing: -0.02em; margin: 0.35rem 0 0.4rem; }
+    .pillar p { font-size: 0.95rem !important; line-height: 1.45 !important; margin: 0 !important; color: var(--td-muted); }
+
+    /* ——— Preview of the four tests ——— */
+    .four-tests { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin: 2rem 0 0; }
+    @media (max-width: 860px) { .four-tests { grid-template-columns: repeat(2, 1fr); } }
+    .four-tests a { text-decoration: none; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: 14px; padding: 0.9rem 1rem; display: block; transition: transform 0.12s ease, border-color 0.12s ease; }
+    .four-tests a:hover { transform: translateY(-2px); border-color: var(--td-forest-2); }
+    .four-tests b { display: block; font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--td-gold-deep); margin-bottom: 0.3rem; }
+    .four-tests span { font-family: var(--sans); font-size: 0.98rem; font-weight: 650; letter-spacing: -0.015em; line-height: 1.25; color: var(--td-ink); }
+
+    /* ——— Stack ladder ——— */
+    .stack-grid { display: grid; grid-template-columns: minmax(0, 18rem) 1fr; gap: 2rem; align-items: start; margin: 2rem 0; }
+    @media (max-width: 820px) { .stack-grid { grid-template-columns: 1fr; } }
+    .stack-grid figure { margin: 0; }
+    .stack-grid img { border-radius: 16px; box-shadow: 0 18px 50px rgba(20, 18, 14, 0.18); width: 100%; }
+    .stack-grid figcaption { font-family: var(--sans); font-size: 0.82rem; color: var(--td-muted); margin-top: 0.6rem; }
+    .ladder { list-style: none; margin: 0; padding: 0; counter-reset: rung; display: flex; flex-direction: column-reverse; gap: 0.45rem; }
+    .ladder li { counter-increment: rung; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: 12px; padding: 0.7rem 0.95rem 0.75rem 3rem; position: relative; font-size: 1rem; line-height: 1.4; }
+    .ladder li::before { content: counter(rung); position: absolute; left: 0.85rem; top: 0.72rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--td-forest); color: #fbf9f4; display: grid; place-items: center; font-family: var(--sans); font-size: 0.78rem; font-weight: 700; }
+    .ladder strong { font-family: var(--sans); letter-spacing: -0.01em; }
+    .ladder .tag { display: inline-block; margin-left: 0.4rem; font-family: var(--sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--td-gold); color: #17130a; border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: 0.1em; }
+    .ladder .tag.paid { background: #14120e; color: #f4f1ea; }
+    .ladder .tag.free { background: #dfe9e3; color: var(--td-forest); }
+    .ladder .crown { background: var(--td-forest); color: #f4f1ea; border-color: var(--td-forest); }
+    .ladder .crown::before { content: "★"; background: var(--td-gold); color: #17130a; }
+
+    /* ——— Lab ——— */
+    .lab { margin-top: 0.4rem; max-width: 46rem; }
+    .lab-brief { background: var(--td-paper); border: 1px solid var(--td-line); border-radius: 18px; overflow: hidden; }
+    .lab-row { padding: 1.1rem 1.3rem; display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; align-items: baseline; }
+    .lab-row + .lab-row { border-top: 1px solid var(--td-line); }
+    @media (max-width: 560px) { .lab-row { grid-template-columns: 1fr; gap: 0.3rem; } }
+    .lab-k { font-family: var(--sans); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--td-gold-deep); }
+    .lab-row p { margin: 0; font-size: 1.12rem; line-height: 1.5; }
+    .lab-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 1.5rem 0 0.4rem; }
+    .lab-actions .btn-run { font-size: 1.12rem; padding: 0.95rem 1.9rem; }
+    .status { font-family: var(--sans); font-size: 0.9rem; color: var(--td-muted); }
+    .lab-hint { font-family: var(--sans); font-size: 0.84rem; color: var(--td-muted); margin: 0.4rem 0 0; }
+    .lab-hint code { background: #ebe6da; padding: 0.1rem 0.4rem; border-radius: 5px; font-size: 0.82rem; }
+
+    .result { scroll-margin-top: 8rem; margin-top: 2rem; background: #fff; border: 1px solid var(--td-line); border-radius: 22px; padding: clamp(1.25rem, 3vw, 2rem); box-shadow: 0 24px 60px rgba(20, 18, 14, 0.1); animation: td-rise 0.5s ease both; }
+    .rc-kicker { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--td-gold-deep); margin: 0 0 0.6rem; }
+    .rc-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1.1rem; margin-bottom: 1.4rem; }
+    .rc-num { font-family: var(--sans); font-weight: 780; font-size: clamp(2.8rem, 9vw, 5.2rem); letter-spacing: -0.05em; line-height: 1; color: var(--td-forest); font-variant-numeric: tabular-nums; }
+    .rc-label { font-family: var(--sans); font-size: 1.05rem; color: var(--td-muted); }
+    .rc-caption { font-family: var(--sans); font-size: 0.8rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--td-muted); margin: 0 0 0.7rem; }
+    .bar { margin-bottom: 0.9rem; }
+    .bar-top { display: flex; justify-content: space-between; gap: 1rem; font-family: var(--sans); font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .bar-top b { font-variant-numeric: tabular-nums; }
+    .bar-track { height: 20px; border-radius: 10px; background: #efe9dc; overflow: hidden; }
+    .bar-track i { display: block; height: 100%; width: 0; border-radius: 10px; transition: width 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    .bar--old i { background: #b9b09c; }
+    .bar--new i { background: linear-gradient(90deg, var(--td-forest), var(--td-forest-2) 60%, var(--td-gold)); }
+    .rc-summary { font-size: 1.28rem; line-height: 1.55; margin: 1.5rem 0 0; }
+    .rc-also { font-size: 1rem; line-height: 1.5; color: var(--td-muted); margin: 0.9rem 0 0; }
+    .rc-bottom { margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid var(--td-line); font-family: var(--sans); font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; color: var(--td-forest); }
+    .rc-log { margin-top: 1.1rem; font-family: var(--sans); font-size: 0.9rem; }
+    .rc-log summary { cursor: pointer; color: var(--td-muted); }
+    .rc-log pre { margin: 0.8rem 0 0; background: var(--td-console); color: #e8e2d4; padding: 1rem 1.1rem; border-radius: 12px; overflow: auto; font-size: 0.8rem; line-height: 1.5; max-height: 18rem; }
+    .rc-honesty { font-family: var(--sans); font-size: 0.8rem; line-height: 1.45; color: var(--td-muted); margin: 0.9rem 0 0; }
+
+    /* ——— Finish ——— */
+    .recap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin: 1.6rem 0 2.2rem; max-width: 46rem; }
+    @media (max-width: 560px) { .recap { grid-template-columns: 1fr; } }
+    .recap a { display: block; text-decoration: none; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: 16px; padding: 1.05rem 1.2rem; transition: transform 0.12s ease; }
+    .recap a:hover { transform: translateY(-2px); }
+    .recap a.is-ran { background: #eef3ef; border-color: #c9d8d0; }
+    .recap b { display: block; font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--td-gold-deep); margin-bottom: 0.35rem; }
+    .recap .v { font-family: var(--sans); font-weight: 780; font-size: 1.9rem; letter-spacing: -0.04em; color: var(--td-forest); line-height: 1.05; font-variant-numeric: tabular-nums; }
+    .recap .v.todo { font-size: 1.05rem; letter-spacing: -0.01em; color: var(--td-muted); font-weight: 650; }
+    .recap .l { display: block; font-family: var(--sans); font-size: 0.88rem; color: var(--td-muted); margin-top: 0.3rem; }
+    .doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin: 1.4rem 0 1.6rem; }
+    @media (max-width: 760px) { .doors { grid-template-columns: 1fr; } }
+    .door { background: #14120e; color: #f4f1ea; border-radius: 18px; padding: 1.3rem 1.3rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .door h3 { font-family: var(--sans); font-size: 1.3rem; letter-spacing: -0.03em; margin: 0; }
+    .door p { font-size: 1rem !important; line-height: 1.5 !important; margin: 0 !important; color: rgba(244, 241, 234, 0.78); }
+    .door .btn-gold { font-size: 0.95rem; padding: 0.65rem 1.1rem; align-self: flex-start; margin-top: auto; box-shadow: none; }
+    .door .links { display: flex; flex-direction: column; gap: 0.3rem; margin-top: auto; font-family: var(--sans); font-size: 0.95rem; }
+    .door .links a { color: var(--td-gold); text-decoration: none; border-bottom: 1px solid rgba(214, 194, 122, 0.35); align-self: flex-start; }
+    .closing { font-family: var(--sans); font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 750; letter-spacing: -0.04em; line-height: 1.1; color: var(--td-forest); margin: 2.4rem 0 0.4rem; }
+    .fine { font-family: var(--sans); font-size: 0.86rem; color: var(--td-muted); max-width: 38rem; }
+
+    /* ——— Bottom nav ——— */
+    .bottom-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 3; background: rgba(251, 249, 244, 0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--td-line); }
+    .bottom-nav-inner { max-width: 62rem; margin: 0 auto; padding: 0.75rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .center-hint { font-family: var(--sans); font-size: 0.8rem; color: var(--td-muted); }
+    .kbd { font-family: var(--sans); font-size: 0.72rem; padding: 0.08rem 0.4rem; border: 1px solid var(--td-line); border-radius: 5px; background: #fff; }
+    @media (max-width: 640px) { .center-hint { display: none; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lesson, .result { animation: none; }
+      .bar-track i { transition: none; }
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
@@ -612,78 +417,57 @@
   </header>
 
   <section class="td-hero" id="td-hero" aria-label="Test Drive welcome">
-    <p class="brand">FractiSI Multi-Agent</p>
-    <h1>The Multi-Agent World Inference Rhyme?</h1>
-    <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-    <p class="deck">Today we show you a better way for many agents to share one world. Less copying. Smarter reuse. Discoveries a flat skim never finds. About twenty minutes. Click through. Run the three tests. See it yourself.</p>
-    <figure class="td-hero-visual">
-      <img src="/media/fractisi-hero.jpg?v=24" alt="FractiSI Multi-Agent shared-world coordination" width="1200" height="675" decoding="async" />
-    </figure>
-    <div class="cta-row">
-      <button type="button" class="btn btn-run" id="btn-start" data-action="start">Let’s begin →</button>
-      <span class="cta-note">Next moves you forward · Run test shows the result</span>
+    <div class="inner">
+      <p class="brand">FractiSI Multi-Agent</p>
+      <h1>The Multi-Agent World Inference Rhyme?</h1>
+      <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
+      <p class="deck">Many agents. One shared world. Watch them waste less, reuse more, and find what a skim never will. Four live tests. You press the buttons.</p>
+      <button type="button" class="btn btn-gold" id="btn-start" data-action="start">Let’s begin →</button>
+      <ul class="facts">
+        <li>About twenty minutes</li>
+        <li>No account</li>
+        <li>No wallet</li>
+        <li>Live numbers, not slides</li>
+      </ul>
+      <p class="soft-links"><a href="/talks/aai-symposium-2026/">Speaker deck</a> &nbsp;·&nbsp; <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a> &nbsp;·&nbsp; <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Beta</a></p>
+      <noscript><p class="soft-links">This tour runs in the browser and needs JavaScript. The same tests run from the repo: <code>node scripts/tiny.mjs testdrive</code></p></noscript>
     </div>
-    <p class="soft-links"><a href="/talks/aai-symposium-2026/">Speaker deck</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a> · <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Beta</a></p>
   </section>
 
   <div class="lesson-shell is-gated" id="lesson-shell">
     <div class="progress-rail" aria-label="Test Drive progress">
       <div class="progress-top">
-        <span id="progress-label">Part 01</span>
-        <span class="eta" id="progress-eta">Demo · 9 beats</span>
+        <span class="chapter" id="progress-chapter">The case</span>
+        <span id="progress-label">Beat 1 of 11</span>
       </div>
-      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
-      <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump"></div>
+      <div class="segments" id="progress-dots" role="tablist" aria-label="Jump to a beat"></div>
     </div>
 
-    <article class="lesson" id="lesson" aria-live="polite">
-      <p class="eyebrow" id="eyebrow">Test Drive</p>
-      <h1 id="title">Loading…</h1>
+    <article class="lesson" id="lesson">
+      <p class="eyebrow" id="eyebrow">The case</p>
+      <h1 id="title" tabindex="-1">Loading…</h1>
       <p class="promise" id="promise"></p>
       <div class="teach" id="teach"></div>
 
-      <p class="teach-continue is-hidden" id="teach-continue">When you’re ready — <strong>Next →</strong>. On a test, hit <strong>Run test</strong> first.</p>
-
-      <section class="lab-panel is-hidden" id="lab-panel" aria-label="Live demo">
-        <p class="lab-title" id="lab-title">Live test</p>
-        <div class="lab-test-box" id="lab-test-box">
-          <p class="k">What this shows</p>
-          <p id="lab-testing">—</p>
-          <p class="k" style="margin-top:0.65rem">After you run it</p>
-          <p id="lab-expect">—</p>
+      <section class="lab is-hidden" id="lab-panel" aria-label="Live test">
+        <div class="lab-brief">
+          <div class="lab-row"><span class="lab-k">The test</span><p id="lab-testing">—</p></div>
+          <div class="lab-row"><span class="lab-k">What to watch</span><p id="lab-expect">—</p></div>
         </div>
-        <p class="lab-hint" id="lab-hint">Same measurement as the CLI / IDE.</p>
-        <div class="actions">
-          <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run test</button>
-          <span class="status" id="status"></span>
+        <div class="lab-actions">
+          <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run the test</button>
+          <span class="status" id="status" role="status"></span>
         </div>
-        <div class="results-wrap" id="results-wrap">
-          <div class="results-summary" id="results-summary" aria-live="polite"></div>
-          <p class="results-label">Detailed log</p>
-          <pre class="results is-empty" id="results">Hit Run test. The story of the result appears here.</pre>
-          <div class="takeaway" id="takeaway"></div>
-          <p class="honesty" id="honesty"></p>
-        </div>
-      </section>
-
-      <section class="finish" id="finish" aria-label="Test Drive complete">
-        <h2>That’s the demo.</h2>
-        <p>One shared world. Three live proofs. If you want more — take the kit, read Expedition 002, look at pricing, or write us. Leave whenever you’re done.</p>
-        <div class="finish-actions">
-          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get the kit →</a>
-          <a class="btn-secondary" href="/expedition-002/">Expedition 002</a>
-          <a class="btn-secondary" href="/pricing/">Pricing</a>
-          <a class="btn-secondary" href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">Write us</a>
-          <a class="btn-secondary" href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">Beta</a>
-        </div>
+        <p class="lab-hint" id="lab-hint"></p>
+        <div class="result is-hidden" id="result" aria-live="polite"></div>
       </section>
     </article>
   </div>
 
-  <nav class="bottom-nav" aria-label="Lesson navigation">
+  <nav class="bottom-nav is-hidden" aria-label="Lesson navigation">
     <div class="bottom-nav-inner">
-      <button type="button" class="btn" id="btn-prev" data-action="prev">← Previous</button>
-      <span class="center-hint">Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs</span>
+      <button type="button" class="btn" id="btn-prev" data-action="prev">← Back</button>
+      <span class="center-hint" id="center-hint"></span>
       <button type="button" class="btn btn-next" id="btn-next" data-action="next">Next →</button>
     </div>
   </nav>
@@ -693,210 +477,300 @@
       {
         id: 'welcome',
         mode: 'teach',
-        part: 1,
-        parts: 9,
-        title: 'One shared world. Many agents.',
-        promise: 'That’s the whole idea.',
+        chapter: 'The case',
+        title: 'Here is the question.',
+        promise: 'It is also the title of this session.',
         teach: `
-          <div class="teach-prose">
-            <p>We call this <strong>The Multi-Agent World Inference Rhyme?</strong></p>
-            <p>It’s a simple idea with a hard problem behind it.</p>
-            <p>Today, when you put ten agents on one job, you often give them ten copies of the same world. Ten maps. Ten rulebooks. Ten piles of context. Then you wonder why everything gets expensive — and why they still miss what’s buried three links deep.</p>
-            <p>We’re going to show you something different.</p>
-            <p>One world. Registered once. Each agent keeps only what makes it different. When the words change but the job is the same shape — reuse the organization. When the answer hides behind a chain of relationships — follow the chain.</p>
-            <p>This is for the Applied Active Inference room. You already care about agents that meet a shared world. We’re not here to rename your field. We’re here to show a system that rhymes with what you care about — and then prove it live.</p>
+          <div class="prose">
+            <p class="lede">This room studies agents that infer. They hold a picture of the world, act on it, and update when the world answers back.</p>
+            <p>Some of you study what happens when there are many of them. Some of you study what happens when people are in the mix.</p>
+            <p>That is the situation we build for. Software agents and people, working in one shared world, each seeing it a little differently.</p>
+            <p class="big q">When many agents share one world, does the way they organize it rhyme?</p>
+            <p>If it does, the whole group should waste less, notice more, and reuse what it already knows.</p>
+            <p>That is a claim you can test. So we will not argue it. We will run it.</p>
+            <p class="aside">Rhyme here means kinship with what this room studies. We are not claiming our system is Active Inference. We will keep that line clear all the way through.</p>
           </div>
-          <figure class="teach-figure">
-            <img src="/media/fractisi-hero.jpg?v=24" alt="One shared world, many agents" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>One world. Many perspectives.</figcaption>
-          </figure>
-          <div class="teach-prose">
-            <p>A short story. The room we’re in. What’s broken. Three tests. How it fits together. Then you’re free.</p>
-            <p><strong>Next</strong> moves you forward. On a test, press <strong>Run test</strong>.</p>
+          <div class="four-tests" aria-label="The four tests">
+            <a href="#1"><b>Test 1</b><span>One world. Not twelve.</span></a>
+            <a href="#7"><b>Test 2</b><span>Same memory. More agents.</span></a>
+            <a href="#3"><b>Test 3</b><span>Same job. Different words.</span></a>
+            <a href="#4"><b>Test 4</b><span>The answer was always there.</span></a>
           </div>
         `,
       },
       {
-        id: 'primer',
+        id: 'story',
         mode: 'teach',
-        part: 2,
-        parts: 9,
-        title: 'Same song. Different meaning.',
-        promise: 'A story from the floor.',
+        chapter: 'Awareness',
+        title: 'Same music. Different room.',
+        promise: 'A story from where I work.',
         teach: `
-          <div class="teach-prose">
-            <p>I work as a restroom valet.</p>
-            <p>In that room I play AI-generated music. For a while, nobody thinks about it. It’s just sound.</p>
-            <p>Then someone learns it’s AI. And everything changes. Instantly. Same notes. Same speakers. Different world.</p>
-            <p>Nothing about the audio changed. What changed was what people believed they were hearing.</p>
-            <p>That’s awareness. Not a lecture. A fact from a working restroom.</p>
-            <p>Hold onto that. Because the demos you’re about to see are about agents — and us — keeping a grip on a shared world. Same world. Better organization. Watch what happens when the grip improves.</p>
+          <div class="prose">
+            <p class="lede">I work as a restroom valet.</p>
+            <p>In that room I play music made by AI. Most nights nobody thinks about it. It is just music. People hum along.</p>
+            <p>Then someone finds out it was made by AI.</p>
+            <p class="big">The room changes. Right away.</p>
+            <p>Some people lean in. Some people frown. The song is the same. The speakers are the same. The ceiling is the same.</p>
+            <p>Nothing in the sound changed. What changed was what the listener believed about the sound. Their picture updated, and the experience followed.</p>
+            <p>You know this better than most. A shared world is only as good as what each of us holds about it.</p>
+            <p>Now picture the ones holding it are agents. Many of them, all working at once. We built something for that, and we think it rhymes with what this room cares about. The tests are how we show you.</p>
           </div>
-          <figure class="teach-figure">
+          <figure class="figure">
             <img src="/media/el-cortez.jpg" alt="A shared public place" width="1200" height="800" loading="lazy" decoding="async" />
             <figcaption>Same place. Different awareness. Different experience.</figcaption>
           </figure>
         `,
       },
       {
-        id: 'primer-sandbox',
+        id: 'sandbox',
         mode: 'teach',
-        part: 3,
-        parts: 9,
-        title: 'You’re in a sandbox.',
-        promise: 'Come in. Look around. Leave when you’re done.',
+        chapter: 'Sandbox',
+        title: 'You are in a sandbox.',
+        promise: 'Come in. Look around. Leave when you like.',
         teach: `
-          <div class="teach-prose">
-            <p>This demo lives in the <strong>Syntheverse Sandbox</strong>.</p>
-            <p>Underneath it is <strong>Base Mainnet</strong> — solid ground when you need receipts. You don’t need a wallet to take this tour. You don’t need an account. You don’t need to buy anything.</p>
-            <p>Walk in. Run the tests. Walk out.</p>
-            <p>Bring whatever awareness you already have. Curiosity is enough.</p>
+          <div class="prose">
+            <p class="lede">Everything you are about to run lives in the Syntheverse Sandbox.</p>
+            <p>Under the sandbox is Base Mainnet, a public chain that keeps receipts. Think of the chain as bedrock and the sandbox as a room built on top of it.</p>
           </div>
-          <figure class="teach-figure">
-            <img src="/media/fractisi-markets.jpg?v=24" alt="Local, Server, Cloud — one engine" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>One engine. Local, server, or cloud — when you’re ready.</figcaption>
-          </figure>
+          <div class="strata" aria-label="Layers from top to bottom">
+            <div class="s1"><b>FractiSI Multi-Agent</b><span>what you are about to run</span></div>
+            <div class="s2"><b>Syntheverse Sandbox</b><span>the room</span></div>
+            <div class="s3"><b>Base Mainnet</b><span>bedrock</span></div>
+          </div>
+          <div class="prose">
+            <p>You can walk in and walk out. You choose how you show up: curious, skeptical, hands on the code, or just watching. That awareness is yours to set.</p>
+            <p>No wallet. No account. Nothing to buy.</p>
+          </div>
         `,
       },
       {
-        id: 'primer-problem',
+        id: 'problem',
         mode: 'teach',
-        part: 4,
-        parts: 9,
-        title: 'What’s broken.',
-        promise: 'Four habits that waste a fleet.',
+        chapter: 'The idea',
+        title: 'What goes wrong with a crowd of agents.',
+        promise: 'Five habits. All of them expensive.',
         teach: `
-          <div class="teach-prose">
-            <p>Here’s the old way.</p>
-            <p>Every agent gets a full private copy of the world. Ten agents. Ten copies. Before anyone does useful work.</p>
-            <p>You try to fix it with an exact-text cache. It only helps when the words match. Change the phrasing — cache goes cold. Same job. Zero hits.</p>
-            <p>You squeeze it with compression. Smaller files. Same bad habit. You’re still carrying N copies.</p>
-            <p>You skim a window of text under a budget. The answer is three links away. You never find it.</p>
-            <p>That’s what we’re about to break — live.</p>
-            <p>One more word: <strong>rhyme</strong>. In this product it doesn’t mean “sounds alike.” It means shared organization — structure you can reuse — rooted at Net Zero: balanced zero, not empty zero. And yes, that concern rhymes with Active Inference. Kinship. Not identity.</p>
+          <div class="prose">
+            <p class="lede">Put ten agents on one job and most systems hand each of them a private copy of the world.</p>
           </div>
-          <figure class="teach-figure">
-            <img src="/media/fractisi-architecture.jpg?v=24" alt="Beside the tools you already use" width="1200" height="900" loading="lazy" decoding="async" />
-            <figcaption>It sits beside Cursor, Claude Code, VS Code, and Git. It doesn’t replace them.</figcaption>
-          </figure>
+          <div class="world-diagram" role="img" aria-label="Old way: every agent carries a full copy of the world. FractiSI: one shared world and a small note per agent.">
+            <div class="wd-col old">
+              <p class="wd-h">The old way</p>
+              <div class="wd-agents">
+                <div class="wd-agent">copy</div><div class="wd-agent">copy</div><div class="wd-agent">copy</div><div class="wd-agent">copy</div>
+              </div>
+              <p class="wd-cap">Every agent carries its own full copy of the world.</p>
+            </div>
+            <div class="wd-col new">
+              <p class="wd-h">FractiSI</p>
+              <div class="wd-shared">One shared world</div>
+              <div class="wd-agents"><span class="wd-note"></span><span class="wd-note"></span><span class="wd-note"></span><span class="wd-note"></span></div>
+              <p class="wd-cap">One copy. Each agent keeps a small note about what is different for it.</p>
+            </div>
+          </div>
+          <div class="prose">
+            <ul class="plain">
+              <li><strong>Copies.</strong> Ten agents, ten copies of the same map and rules, before anyone does useful work.</li>
+              <li><strong>The context tax.</strong> Every copy fills memory. Add agents and you run out of room.</li>
+              <li><strong>Different words.</strong> A cache only helps when the text matches exactly. Agents paraphrase, and the cache goes cold.</li>
+              <li><strong>Buried answers.</strong> Skim a window of text and you miss whatever sits several links away.</li>
+              <li><strong>Collisions.</strong> When many agents write at once, they step on each other.</li>
+            </ul>
+            <p>Compression does not fix this. A smaller pile of copies is still a pile of copies.</p>
+            <p class="big">Keep one world. Let each agent keep only what makes it different.</p>
+            <p>Four of these we can test right here. We will tell you where the fifth stands when we get to the stack.</p>
+          </div>
+        `,
+      },
+      {
+        id: 'rhyme',
+        mode: 'teach',
+        chapter: 'The idea',
+        title: 'Two words you need.',
+        promise: 'Net Zero first. Then rhyme.',
+        teach: `
+          <div class="prose">
+            <p class="lede">Before the tests, two words. We use both carefully.</p>
+            <h2>Net Zero</h2>
+            <p class="punch">Balanced zero, not nothing zero.</p>
+            <p>Nothing zero is an empty box. Nothing there, nothing moving.</p>
+            <p>Balanced zero is a scale at rest because both pans carry weight. Opposing forces cancel and the work keeps flowing, like a hub that holds steady while traffic moves through it.</p>
+          </div>
+          <div class="balance">
+            <div class="yes"><h3>Balanced zero</h3><p>Forces cancel. Work continues. Steady because everything is in play.</p></div>
+            <div class="no"><h3>Nothing zero</h3><p>Empty. Stopped. Nothing there to hold steady.</p></div>
+          </div>
+          <div class="prose">
+            <p>That balanced point is the root of the shared world. Everything else hangs from it.</p>
+            <h2>Rhyme</h2>
+            <p>In a poem, a rhyme is two lines that sound alike. Here, a rhyme is two pieces of work that are organized alike, even when the words differ.</p>
+            <p>To count, a pattern has to pass four tests. All four. Rooted at Net Zero.</p>
+          </div>
+          <div class="pillars">
+            <div class="pillar"><span class="n">01</span><h3>Repeating</h3><p>The same organization shows up again, even in different words.</p></div>
+            <div class="pillar"><span class="n">02</span><h3>Self-similar</h3><p>A small piece carries the pattern of the whole.</p></div>
+            <div class="pillar"><span class="n">03</span><h3>Self-correcting</h3><p>Drift pulls back toward balance.</p></div>
+            <div class="pillar"><span class="n">04</span><h3>Recursive</h3><p>It nests upward from the root, one octave at a time, as in music: the same pattern, one scale up.</p></div>
+          </div>
+          <div class="prose">
+            <p>Matching words alone do not count. A cache hit alone does not count. A pattern with no root does not count.</p>
+            <p>When a new session passes the gate, it can reuse structure that is already stored. That is the saving you are about to see.</p>
+          </div>
         `,
       },
       {
         id: '1',
         mode: 'lab',
-        part: 5,
-        parts: 9,
-        n: 1,
-        title: 'Watch this. One world — not twelve.',
-        promise: 'Twelve agents. Same context. Two ways to pay for it.',
-        runLabel: 'Run test',
-        labHint: 'Or from your machine: node scripts/tiny.mjs testdrive 1',
-        testing: 'Twelve agents need the same map and rules. The old way copies that whole context for every agent. FractiSI keeps one shared copy — and only the small notes that make each agent different.',
-        expect: 'Two totals, side by side — and how much smaller the FractiSI way is.',
+        chapter: 'Live tests',
+        title: 'One world. Not twelve.',
+        promise: 'Twelve agents need the same map.',
+        recapName: 'One world, not twelve',
+        labHint: 'On your own machine: <code>node scripts/tiny.mjs testdrive 1</code>',
+        testing: 'Twelve agents work from the same shared context. The old way stores a full copy for every agent. FractiSI stores one shared copy plus a small note per agent. We count the bytes each way needs.',
+        expect: 'Two totals, side by side. Watch how small the FractiSI bar is.',
         takeaway: 'One world. Not twelve reprints.',
         teach: `
-          <div class="teach-prose">
-            <p>If twelve people need the same map, do you print twelve maps?</p>
-            <p>Most multi-agent systems still say yes.</p>
-            <p>Read the box below. Hit <strong>Run test</strong>. Look at the numbers.</p>
+          <div class="prose">
+            <p class="lede">If twelve people need the same map, do you print twelve maps?</p>
+            <p>Most multi-agent systems still do. Every agent gets its own full copy of the world.</p>
+            <p>FractiSI prints it once.</p>
           </div>
-          <figure class="teach-figure">
+          <figure class="figure">
             <img src="/media/fractisi-workstation.jpg?v=24" alt="Shared-world workstation" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>One registered world. Small differences per agent.</figcaption>
+            <figcaption>One registered world. A small difference per agent.</figcaption>
           </figure>
+        `,
+      },
+      {
+        id: '7',
+        mode: 'lab',
+        chapter: 'Live tests',
+        title: 'Same memory. More agents.',
+        promise: 'What does the saving buy you?',
+        recapName: 'Same memory, more agents',
+        labHint: 'On your own machine: <code>node scripts/tiny.mjs testdrive 7</code>',
+        testing: 'We take the memory that twenty-four full-copy agents need. Then we ask how many agents fit in that same space when they share one world. Same memory budget for both.',
+        expect: 'Two agent counts. The gap is the headroom.',
+        takeaway: 'Every new agent adds a note, not another copy of everything.',
+        teach: `
+          <div class="prose">
+            <p class="lede">Saving bytes is nice. What matters is what the bytes buy.</p>
+            <p>Memory is the ceiling on how many agents can work at once. Lower the cost of each one and the ceiling moves.</p>
+            <p>So we hold the memory fixed and count heads.</p>
+          </div>
         `,
       },
       {
         id: '3',
         mode: 'lab',
-        part: 6,
-        parts: 9,
-        n: 3,
+        chapter: 'Live tests',
         title: 'Same job. Different words.',
-        promise: 'The cache goes cold. The organization doesn’t have to.',
-        runLabel: 'Run test',
-        labHint: 'Or: node scripts/tiny.mjs testdrive 3',
-        testing: 'Many sessions. Same kind of work. Different wording. An exact-text cache only fires when the words match. FractiSI reuses the shared organization instead.',
-        expect: 'Near-zero exact-cache hits — and a smaller store when organization is shared.',
-        takeaway: 'Shape matters more than identical strings.',
+        promise: 'The cache goes cold. The organization does not.',
+        recapName: 'Same job, different words',
+        labHint: 'On your own machine: <code>node scripts/tiny.mjs testdrive 3</code>',
+        testing: 'Forty sessions do the same kind of work, each worded differently. An exact-text cache can only reuse identical text. FractiSI reuses shared organization, but only when a pattern passes the four-pillar gate. We count cache hits and the bytes each store needs.',
+        expect: 'How often the old cache fires, and how much each store has to keep.',
+        takeaway: 'The shape is reused. The spelling does not matter.',
         teach: `
-          <div class="teach-prose">
-            <p>Agents don’t speak in copy-paste.</p>
-            <p>They paraphrase. Exact caches hate that.</p>
-            <p>Run the test. Watch the old cache miss — and watch organization still get reused.</p>
+          <div class="prose">
+            <p class="lede">Agents do not copy and paste. They paraphrase.</p>
+            <p>An exact-text cache works only when the words match letter for letter. Change the phrasing and it goes cold.</p>
+            <p>So we give it forty sessions of the same job, each worded differently, and see who notices they have the same shape.</p>
           </div>
-          <figure class="teach-figure">
-            <img src="/media/fractisi-markets.jpg?v=24" alt="One engine" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>Reuse the shape. Not the spelling.</figcaption>
-          </figure>
         `,
       },
       {
         id: '4',
         mode: 'lab',
-        part: 7,
-        parts: 9,
-        n: 4,
+        chapter: 'Live tests',
         title: 'The answer was always there.',
-        promise: 'Same budget. Same data. Completely different score.',
-        runLabel: 'Run test',
-        labHint: 'Or: node scripts/tiny.mjs testdrive 4',
-        testing: 'Answers hide behind six-step chains. Both methods get the same information budget. Flat skim reads a window of text. FractiSI follows the links.',
-        expect: 'A score that usually looks like one hundred to zero.',
-        takeaway: 'Follow the links. Don’t just skim the page.',
+        promise: 'Same budget. Same data.',
+        recapName: 'The answer was always there',
+        labHint: 'On your own machine: <code>node scripts/tiny.mjs testdrive 4</code>',
+        testing: 'One hundred puzzles where the answer sits six links deep. Both methods get the same information budget. A flat skim reads a window of text. FractiSI follows the links through the shared world.',
+        expect: 'A score out of one hundred for each method.',
+        takeaway: 'Follow the links. Do not just skim the page.',
         teach: `
-          <div class="teach-prose">
-            <p>Some truths only appear if you follow A to B to C.</p>
-            <p>Skim a block of text and you’ll walk right past them.</p>
-            <p>Run the test. Same budget. Watch who finds the answer.</p>
+          <div class="prose">
+            <p class="lede">Some truths only show up if you follow A to B to C.</p>
+            <p>Skim a block of text and you will walk right past them.</p>
+            <p>The answers are all in the data. The question is which method can reach them.</p>
           </div>
-          <figure class="teach-figure">
-            <img src="/media/library-hero.jpg" alt="Paths through knowledge" width="1200" height="800" loading="lazy" decoding="async" />
-            <figcaption>More pages aren’t the point. The right path is.</figcaption>
+          <figure class="figure">
+            <img src="/media/library-hero.jpg" alt="Paths through a library of knowledge" width="1200" height="800" loading="lazy" decoding="async" />
+            <figcaption>More pages are not the point. The right path is.</figcaption>
           </figure>
         `,
       },
       {
         id: 'how-stack',
         mode: 'teach',
-        part: 8,
-        parts: 9,
+        chapter: 'The stack',
         title: 'How it fits together.',
-        promise: 'A picture of the stack — from bedrock to ship.',
+        promise: 'From bedrock to the thing you can ship.',
         teach: `
-          <div class="teach-prose">
-            <p>You just saw three gaps close.</p>
-            <p>Fewer copies. Reuse when words change. Discoveries a skim can’t make.</p>
-            <p>Here’s the stack that does that — from the ground up.</p>
-            <p>Base Mainnet. Syntheverse Sandbox. Net Zero — balanced zero, not empty zero. Infinite Octaves. The rhyme gate. Rhyming Templates. Tiny Footprint. Coordination, shared state, composition. Git awareness. Deploy when you’re ready to pay for it.</p>
-            <p>Lab one was Tiny Footprint. Lab two was the rhyme. Lab three was following the links.</p>
-            <p>Beautiful. And honest: these are architectural labs. Promising. Not a CapEx certificate. Not a claim that we are Active Inference.</p>
+          <div class="prose">
+            <p class="lede">You just watched four things happen. Here is what made them happen, from the ground up.</p>
           </div>
-          <figure class="stack-tree-figure">
-            <img src="/media/fractisi-multi-agent-stack-tree.jpg?v=1" alt="FractiSI Multi-Agent stack tree" width="864" height="1152" loading="lazy" decoding="async" />
-            <figcaption>Bedrock to Deploy. One trunk.</figcaption>
-          </figure>
-          <div class="teach-prose">
-            <p><a href="/media/fractisi-multi-agent-stack-tree.svg">SVG</a> · <a href="/media/infinite-octave-hero-source-tree.jpg">original plate</a></p>
+          <div class="stack-grid">
+            <figure>
+              <img src="/media/fractisi-multi-agent-stack-tree.jpg?v=1" alt="FractiSI Multi-Agent stack tree" width="864" height="1152" loading="lazy" decoding="async" />
+              <figcaption>The stack as a tree. <a href="/media/fractisi-multi-agent-stack-tree.svg">SVG</a> · <a href="/media/infinite-octave-hero-source-tree.jpg">original plate</a></figcaption>
+            </figure>
+            <ol class="ladder">
+              <li><strong>Base Mainnet.</strong> Bedrock. Receipts when you need them.</li>
+              <li><strong>Syntheverse Sandbox.</strong> The room you are standing in.</li>
+              <li><strong>Net Zero.</strong> Balanced zero. The root every rhyme hangs from.</li>
+              <li><strong>Infinite Octaves.</strong> The same pattern at larger and larger scales.</li>
+              <li><strong>Holographic rhyme gate.</strong> Four pillars. Only what passes gets reused. <span class="tag">Test 3</span></li>
+              <li><strong>Rhyming Templates, Tiny Gateway.</strong> Reuse the shape, rebuild the detail on demand. <span class="tag">Tests 3 · 4</span></li>
+              <li><strong>Tiny Footprint.</strong> One world, one small note per agent. <span class="tag">Tests 1 · 2</span></li>
+              <li><strong>Coordination, shared state, composition.</strong> Agents agree who owns what and merge their work.</li>
+              <li><strong>Git awareness.</strong> Your repo stays the source of truth. <span class="tag free">Free</span></li>
+              <li><strong>Deploy.</strong> Publishing, with a human approving. <span class="tag paid">Team and up</span></li>
+              <li class="crown"><strong>FractiSI Multi-Agent.</strong></li>
+            </ol>
+          </div>
+          <div class="prose">
+            <p>We measured coordination too, and we owe you the result. At twenty-five agents it logged more conflicts than plain branching, not fewer, while finishing slightly more useful work. So it is not one of the four tests. We would rather tell you that than hide it.</p>
+            <p class="aside">Everything you ran is a lab on one machine. It is a promising result, not a production benchmark, and not a claim to be Active Inference.</p>
           </div>
         `,
       },
       {
         id: 'invite',
-        mode: 'teach',
-        part: 9,
-        parts: 9,
-        title: 'If you want to go further.',
-        promise: 'The kit. The paper. The price. Us.',
-        teach: `
-          <div class="teach-prose">
-            <p>Clone <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">FractiSI-Multi-Agent</a>. Run more tests.</p>
-            <p>Read <a href="/expedition-002/">Expedition 002</a>.</p>
-            <p>See <a href="/pricing/">pricing</a> — Community is free for local work and Git. Deploy is paid.</p>
-            <p>Write <a href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">valetpru@gmail.com</a>. Or ask for <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">beta</a>.</p>
-            <p>Hit <strong>Next</strong> when you’re done.</p>
+        mode: 'finish',
+        chapter: 'Go further',
+        title: 'That was the demonstration.',
+        promise: 'Here is what you ran, and where to go next.',
+        teach: () => `
+          <div class="prose"><h2>What you ran</h2></div>
+          <div class="recap">${recapHtml()}</div>
+          <div class="prose"><h2>Go further</h2></div>
+          <div class="doors">
+            <div class="door">
+              <h3>Explore</h3>
+              <p>Take the kit and run every test yourself. Community is free: local work plus Git.</p>
+              <div class="links">
+                <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get the kit on GitHub</a>
+                <a href="/expedition-002/">Read Expedition 002</a>
+                <a href="/pricing/">See the plans</a>
+              </div>
+            </div>
+            <div class="door">
+              <h3>Connect</h3>
+              <p>Questions, ideas, or a joint experiment. Write to Valet Pru. A person answers.</p>
+              <a class="btn btn-gold" href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">valetpru@gmail.com</a>
+            </div>
+            <div class="door">
+              <h3>Join the beta</h3>
+              <p>We are opening a small beta. Ask for a seat and we will send you in.</p>
+              <a class="btn btn-gold" href="mailto:valetpru@gmail.com?subject=FractiSI%20beta%20testing">Ask for a seat</a>
+            </div>
           </div>
-          <figure class="teach-figure">
+          <p class="closing">One shared world. Many agents.</p>
+          <p class="fine">Deploy is paid (Team and up). Everything in this tour is free. Thank you for spending twenty minutes here.</p>
+          <figure class="figure">
             <img src="/media/founders.png" alt="The people behind FractiAI" width="800" height="600" loading="lazy" decoding="async" />
             <figcaption>Real people. Real email.</figcaption>
           </figure>
@@ -905,55 +779,59 @@
     ];
 
     const ORDER = STEPS.map((s) => s.id);
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v10';
-    const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
+    const LABS = STEPS.filter((s) => s.mode === 'lab');
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v11';
+    const RESULTS_KEY = 'fractisi-td-results-v11';
+    const store = (() => { try { return window.localStorage; } catch { return null; } })();
+    const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
+    const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
+
+    const done = new Set(read(DONE_KEY, '[]'));
+    const results = read(RESULTS_KEY, '{}');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     let index = 0;
     let running = false;
     let trackOpen = false;
 
-    const heroEl = document.getElementById('td-hero');
-    const shellEl = document.getElementById('lesson-shell');
+    const $ = (id) => document.getElementById(id);
+    const heroEl = $('td-hero');
+    const shellEl = $('lesson-shell');
     const bottomNav = document.querySelector('.bottom-nav');
-    const progressLabel = document.getElementById('progress-label');
-    const progressFill = document.getElementById('progress-fill');
-    const progressDots = document.getElementById('progress-dots');
-    const eyebrow = document.getElementById('eyebrow');
-    const titleEl = document.getElementById('title');
-    const promiseEl = document.getElementById('promise');
-    const teachEl = document.getElementById('teach');
-    const teachContinue = document.getElementById('teach-continue');
-    const labPanel = document.getElementById('lab-panel');
-    const labTitle = document.getElementById('lab-title');
-    const labHint = document.getElementById('lab-hint');
-    const btnRun = document.getElementById('btn-run');
-    const btnPrev = document.getElementById('btn-prev');
-    const btnNext = document.getElementById('btn-next');
-    const statusEl = document.getElementById('status');
-    const resultsWrap = document.getElementById('results-wrap');
-    const resultsEl = document.getElementById('results');
-    const takeawayEl = document.getElementById('takeaway');
-    const honestyEl = document.getElementById('honesty');
-    const finishEl = document.getElementById('finish');
-    const centerHint = document.querySelector('.bottom-nav .center-hint');
+    const progressChapter = $('progress-chapter');
+    const progressLabel = $('progress-label');
+    const progressDots = $('progress-dots');
+    const eyebrow = $('eyebrow');
+    const titleEl = $('title');
+    const promiseEl = $('promise');
+    const teachEl = $('teach');
+    const labPanel = $('lab-panel');
+    const labHint = $('lab-hint');
+    const btnRun = $('btn-run');
+    const btnPrev = $('btn-prev');
+    const btnNext = $('btn-next');
+    const statusEl = $('status');
+    const resultEl = $('result');
+    const centerHint = $('center-hint');
 
-    function current() { return STEPS[index]; }
-    function isTeach(s) { return (s.mode || 'lab') === 'teach'; }
+    const current = () => STEPS[index];
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-    function saveDone() {
-      localStorage.setItem(DONE_KEY, JSON.stringify([...done]));
-    }
-
-    function kindLabel(s) {
-      if (s.part && s.parts) return 'Part ' + s.part + ' / ' + s.parts;
-      if (s.mode === 'lab') return 'Demo';
-      return 'Test Drive';
+    function recapHtml() {
+      return LABS.map((s, i) => {
+        const r = results[s.id];
+        if (r) {
+          return '<a class="is-ran" href="#' + s.id + '"><b>Test ' + (i + 1) + ' · ' + esc(s.recapName) + '</b><span class="v">' + esc(r.headlineValue) + '</span><span class="l">' + esc(r.headlineLabel) + '</span></a>';
+        }
+        return '<a href="#' + s.id + '"><b>Test ' + (i + 1) + ' · ' + esc(s.recapName) + '</b><span class="v todo">Not run yet. Run it →</span></a>';
+      }).join('');
     }
 
     function openTrack(startId) {
       trackOpen = true;
       heroEl.classList.add('is-hidden');
       shellEl.classList.remove('is-gated');
-      if (bottomNav) bottomNav.classList.remove('is-hidden');
+      bottomNav.classList.remove('is-hidden');
       show(startId || 'welcome');
     }
 
@@ -961,118 +839,136 @@
       trackOpen = false;
       heroEl.classList.remove('is-hidden');
       shellEl.classList.add('is-gated');
-      if (bottomNav) bottomNav.classList.add('is-hidden');
+      bottomNav.classList.add('is-hidden');
       history.replaceState(null, '', '/test-drive/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
-    function renderDots() {
+    function renderSegments() {
       progressDots.innerHTML = '';
       STEPS.forEach((s, i) => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.title = kindLabel(s) + ': ' + s.title;
+        b.title = (i + 1) + '. ' + s.title;
         b.setAttribute('aria-label', b.title);
         if (i === index) b.classList.add('is-active');
-        if (done.has(s.id) || i < index) b.classList.add('is-done');
+        else if (done.has(s.id) || i < index) b.classList.add('is-done');
+        if (s.mode === 'lab') b.classList.add('is-lab');
         b.addEventListener('click', () => show(s.id));
         progressDots.appendChild(b);
       });
     }
 
     function show(id) {
-      if (!trackOpen) openTrack(id);
       const i = ORDER.indexOf(id);
       index = i >= 0 ? i : 0;
       const s = current();
       const total = STEPS.length;
-      const peekNo = String(index + 1).padStart(2, '0');
-      const kind = kindLabel(s);
-      const teach = isTeach(s);
+      const isLab = s.mode === 'lab';
 
-      progressLabel.textContent = kind + ' · stop ' + peekNo;
-      progressFill.style.width = ((index + 1) / total * 100).toFixed(1) + '%';
-      eyebrow.textContent = kind + ' · FractiSI Multi-Agent';
+      progressChapter.textContent = s.chapter;
+      progressLabel.textContent = 'Beat ' + (index + 1) + ' of ' + total;
+      eyebrow.textContent = isLab ? 'Live test ' + (LABS.indexOf(s) + 1) + ' of ' + LABS.length : s.chapter;
       titleEl.textContent = s.title;
       promiseEl.textContent = s.promise;
-      teachEl.innerHTML = s.teach;
-      btnPrev.disabled = index === 0;
-      btnNext.textContent = index >= total - 1 ? 'That’s it' : 'Next →';
+      teachEl.innerHTML = typeof s.teach === 'function' ? s.teach() : s.teach;
+      btnPrev.disabled = false;
+      btnPrev.textContent = index === 0 ? '← Title' : '← Back';
+      btnNext.textContent = index >= total - 1 ? 'Back to the start' : 'Next →';
+      btnNext.classList.remove('is-ready');
 
-      if (teach) {
-        labPanel.classList.add('is-hidden');
-        teachContinue.classList.remove('is-hidden');
-        if (centerHint) {
-          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · demo';
-        }
-        done.add(s.id);
-        saveDone();
-      } else {
+      if (isLab) {
         labPanel.classList.remove('is-hidden');
-        teachContinue.classList.add('is-hidden');
-        labTitle.textContent = 'Live demo';
-        const testingEl = document.getElementById('lab-testing');
-        const expectEl = document.getElementById('lab-expect');
-        if (testingEl) testingEl.textContent = s.testing || '';
-        if (expectEl) expectEl.textContent = s.expect || '';
-        labHint.textContent = s.labHint || '';
-        btnRun.textContent = s.runLabel || 'Run test';
-        if (centerHint) {
-          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs test';
-        }
-        const summaryEl = document.getElementById('results-summary');
-        if (summaryEl) {
-          summaryEl.classList.remove('is-open');
-          summaryEl.innerHTML = '';
-        }
-        resultsEl.classList.add('is-empty');
-        resultsEl.textContent = 'Run the test to fill in the plain-language results above.';
-        takeawayEl.classList.remove('is-open');
-        takeawayEl.innerHTML = '';
-        honestyEl.textContent = '';
+        $('lab-testing').textContent = s.testing;
+        $('lab-expect').textContent = s.expect;
+        labHint.innerHTML = s.labHint || '';
+        btnRun.textContent = 'Run the test';
+        btnRun.disabled = false;
         statusEl.textContent = '';
+        resultEl.classList.add('is-hidden');
+        resultEl.innerHTML = '';
+        centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs the test';
+      } else {
+        labPanel.classList.add('is-hidden');
+        centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span>';
       }
 
-      finishEl.classList.remove('is-open');
-      renderDots();
+      if (!isLab) { done.add(s.id); write(DONE_KEY, [...done]); }
+      renderSegments();
       history.replaceState(null, '', '#' + s.id);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      titleEl.focus({ preventScroll: true });
     }
 
     function goNext() {
-      if (!trackOpen) {
-        openTrack('welcome');
-        return;
-      }
-      if (index >= STEPS.length - 1) {
-        finishEl.classList.add('is-open');
-        finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        return;
-      }
+      if (!trackOpen) { openTrack('welcome'); return; }
+      if (index >= STEPS.length - 1) { showHero(); return; }
       show(ORDER[index + 1]);
     }
 
     function goPrev() {
       if (!trackOpen) return;
-      if (index === 0) {
-        showHero();
-        return;
-      }
+      if (index === 0) { showHero(); return; }
       show(ORDER[index - 1]);
+    }
+
+    function countUp(el, text) {
+      const m = String(text).match(/^(.*?)(\d+(?:\.\d+)?)(.*)$/);
+      if (!m || reduceMotion) { el.textContent = text; return; }
+      const [, pre, num, post] = m;
+      const target = parseFloat(num);
+      const decimals = (num.split('.')[1] || '').length;
+      const t0 = performance.now();
+      const dur = 1100;
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = pre + (target * eased).toFixed(decimals) + post;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = text;
+      };
+      requestAnimationFrame(tick);
+    }
+
+    function barHtml(kind, label, text, value, max) {
+      const pct = max > 0 ? Math.max(value > 0 ? 1.5 : 0, Math.min(100, (value / max) * 100)) : 0;
+      return '<div class="bar bar--' + kind + '"><div class="bar-top"><span>' + esc(label) + '</span><b>' + esc(text) + '</b></div><div class="bar-track"><i data-w="' + pct.toFixed(2) + '"></i></div></div>';
+    }
+
+    function renderResult(step, ms) {
+      const r = step.readout || {};
+      const b = r.bars;
+      let bars = '';
+      if (b) {
+        const max = b.max || Math.max(b.baseline, b.treatment, 1);
+        bars =
+          '<p class="rc-caption">' + esc(b.caption) + '</p>' +
+          barHtml('old', r.baselineLabel || 'Old way', b.baselineText, b.baseline, max) +
+          barHtml('new', r.treatmentLabel || 'FractiSI', b.treatmentText, b.treatment, max);
+      }
+      resultEl.innerHTML =
+        '<p class="rc-kicker">Here is what happened</p>' +
+        '<div class="rc-head"><span class="rc-num" id="rc-num">' + esc(r.headlineValue || '') + '</span><span class="rc-label">' + esc(r.headlineLabel || '') + '</span></div>' +
+        bars +
+        '<p class="rc-summary">' + esc(r.summary || step.opportunity || '') + '</p>' +
+        (r.also ? '<p class="rc-also">' + esc(r.also) + '</p>' : '') +
+        '<p class="rc-bottom">' + esc(current().takeaway || '') + '</p>' +
+        '<p class="rc-honesty">A lab run on one machine. Promising, not a production benchmark.</p>' +
+        '<details class="rc-log"><summary>Show the full log · ran in ' + esc(ms) + ' ms</summary><pre>' + esc([step.title, 'Surface: ' + step.layer, 'Component: ' + step.component, ''].concat(step.lines || []).concat(step.honesty ? ['', 'Honesty boundary: ' + step.honesty] : []).join('\n')) + '</pre></details>';
+      resultEl.classList.remove('is-hidden');
+      countUp($('rc-num'), r.headlineValue || '');
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        resultEl.querySelectorAll('.bar-track i').forEach((el) => { el.style.width = el.dataset.w + '%'; });
+      }));
+      return r;
     }
 
     async function runLab() {
       if (running) return;
-      if (isTeach(current())) {
-        goNext();
-        return;
-      }
+      if (current().mode !== 'lab') { goNext(); return; }
       running = true;
       btnRun.disabled = true;
       statusEl.textContent = 'Running…';
-      resultsEl.classList.remove('is-empty');
-      resultsEl.textContent = '▸ running…';
-      takeawayEl.classList.remove('is-open');
       try {
         const id = current().id;
         const res = await fetch('/api/testdrive?step=' + encodeURIComponent(id), {
@@ -1082,90 +978,49 @@
         });
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error(data.detail || data.error || ('HTTP ' + res.status));
-        const step = data.step;
-        const r = step.readout || {};
-        const summaryEl = document.getElementById('results-summary');
-        if (summaryEl) {
-          const cards = [
-            ['headline', r.headlineLabel || 'Headline', r.headlineValue || '—'],
-            ['', r.baselineLabel || 'Old way', r.baselineValue || '—'],
-            ['', r.treatmentLabel || 'FractiSI', r.treatmentValue || '—'],
-          ].map(([kind, k, v]) =>
-            '<div class="card' + (kind === 'headline' ? ' headline' : '') + '"><p class="k">' + k + '</p><p class="v">' + v + '</p></div>'
-          ).join('');
-          summaryEl.innerHTML =
-            '<p class="summary-title">Here’s what happened</p>' +
-            '<p class="summary-text">' + (r.summary || step.opportunity || current().takeaway || '') + '</p>' +
-            '<div class="cards">' + cards + '</div>';
-          summaryEl.classList.add('is-open');
-        }
-        const header = [
-          step.title,
-          'Surface: ' + step.layer,
-          'Component: ' + step.component,
-          'Ran in ' + data.ms + ' ms',
-          '',
-        ];
-        resultsEl.textContent = header.concat(step.lines || []).join('\n');
-        honestyEl.textContent = step.honesty || '';
-        takeawayEl.innerHTML = '<strong>Bottom line</strong>' + (current().takeaway || '');
-        takeawayEl.classList.add('is-open');
-        statusEl.textContent = 'Done · ' + data.ms + ' ms';
+        const r = renderResult(data.step, data.ms);
+        results[id] = { headlineValue: r.headlineValue || '', headlineLabel: r.headlineLabel || '' };
+        write(RESULTS_KEY, results);
         done.add(id);
-        saveDone();
-        renderDots();
-        resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        write(DONE_KEY, [...done]);
+        renderSegments();
+        statusEl.textContent = 'Done in ' + data.ms + ' ms';
+        btnRun.textContent = 'Run it again';
+        btnNext.classList.add('is-ready');
+        resultEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
       } catch (err) {
-        resultsEl.classList.remove('is-empty');
-        resultsEl.textContent = 'Could not run this lab.\n' + String(err.message || err) + '\n\nYou can still continue with Next / Previous.';
-        statusEl.textContent = 'Error — navigation still works';
+        resultEl.classList.remove('is-hidden');
+        resultEl.innerHTML = '<p class="rc-kicker">That did not run</p><p class="rc-summary">' + esc(err.message || err) + '</p><p class="rc-also">You can keep going with Next and Back. The same test runs from the repo: <code>node scripts/tiny.mjs testdrive</code></p>';
+        statusEl.textContent = 'Error. Navigation still works.';
       } finally {
         running = false;
         btnRun.disabled = false;
       }
     }
 
-    // Delegated clicks — survives focus quirks and avoids dual .btn-run confusion.
     document.addEventListener('click', (e) => {
       const t = e.target && e.target.closest ? e.target.closest('[data-action]') : null;
       if (!t) return;
       const action = t.getAttribute('data-action');
-      if (action === 'start') {
-        e.preventDefault();
-        openTrack('welcome');
-      } else if (action === 'run') {
-        e.preventDefault();
-        runLab();
-      } else if (action === 'next') {
-        e.preventDefault();
-        goNext();
-      } else if (action === 'prev') {
-        e.preventDefault();
-        goPrev();
-      }
+      e.preventDefault();
+      if (action === 'start') openTrack('welcome');
+      else if (action === 'run') runLab();
+      else if (action === 'next') goNext();
+      else if (action === 'prev') goPrev();
     });
 
     window.addEventListener('keydown', (e) => {
-      if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
-      if (!trackOpen && (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N')) {
-        e.preventDefault();
-        openTrack('welcome');
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.target && /input|textarea|select|summary/i.test(e.target.tagName)) return;
+      if (!trackOpen) {
+        if (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') { e.preventDefault(); openTrack('welcome'); }
         return;
       }
-      if (!trackOpen) return;
-      if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
-        e.preventDefault();
-        goNext();
-      } else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') {
-        e.preventDefault();
-        goPrev();
-      } else if (e.key === 'r' || e.key === 'R') {
-        e.preventDefault();
-        runLab();
-      }
+      if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') { e.preventDefault(); goNext(); }
+      else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') { e.preventDefault(); goPrev(); }
+      else if (e.key === 'r' || e.key === 'R') { e.preventDefault(); runLab(); }
     });
 
-    if (bottomNav) bottomNav.classList.add('is-hidden');
     function routeFromHash() {
       const hash = (location.hash || '').replace(/^#/, '');
       if (ORDER.includes(hash)) openTrack(hash);

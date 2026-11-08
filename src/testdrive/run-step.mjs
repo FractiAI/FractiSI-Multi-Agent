@@ -188,7 +188,15 @@ function run1() {
       treatmentValue: `${multi.prefixReuse.bytes.toLocaleString()} bytes`,
       headlineLabel: 'How much smaller',
       headlineValue: reductionPct,
-      summary: `Twelve agents. Same shared context. The old way: ${multi.conventional.bytes.toLocaleString()} bytes of full copies. FractiSI: ${multi.prefixReuse.bytes.toLocaleString()} bytes — one world, small per-agent notes. ${reductionPct} smaller. Same work. Far less waste.`,
+      bars: {
+        caption: 'Bytes stored for twelve agents',
+        baseline: multi.conventional.bytes,
+        treatment: multi.prefixReuse.bytes,
+        baselineText: `${multi.conventional.bytes.toLocaleString()} B`,
+        treatmentText: `${multi.prefixReuse.bytes.toLocaleString()} B`,
+        better: 'lower',
+      },
+      summary: `Twelve agents. Same shared context. The old way stored ${multi.conventional.bytes.toLocaleString()} bytes of full copies. FractiSI stored ${multi.prefixReuse.bytes.toLocaleString()} bytes: one world, plus a small note per agent. That is ${reductionPct} smaller for the same work.`,
     },
   });
 }
@@ -285,13 +293,21 @@ function run3() {
     },
     readout: {
       tested: `${rhymeCmp.sessions} sessions with the same job shape written in different words.`,
-      baselineLabel: 'Old way · exact-text cache hits',
-      baselineValue: String(rhymeCmp.exactTextHits),
+      baselineLabel: 'Old way · exact-text cache',
+      baselineValue: `${rhymeCmp.exactTextHits} hits`,
       treatmentLabel: 'FractiSI · shared organization store',
       treatmentValue: `${rhymeCmp.rhymeBytes.toLocaleString()} bytes`,
       headlineLabel: 'Smaller than exact-text cache store',
       headlineValue: pct(rhymeCmp.rhymeVersusCache),
-      summary: `Same job. Different words. Exact-text cache: ${rhymeCmp.exactTextHits} hits. FractiSI still shared the organization — ${rhymeCmp.rhymeBytes.toLocaleString()} bytes, ${pct(rhymeCmp.rhymeVersusCache)} smaller than storing every paraphrase alone. The spelling changed. The shape didn’t have to be paid for twice.`,
+      bars: {
+        caption: `Bytes stored for ${rhymeCmp.sessions} sessions`,
+        baseline: rhymeCmp.cacheBytes,
+        treatment: rhymeCmp.rhymeBytes,
+        baselineText: `${rhymeCmp.cacheBytes.toLocaleString()} B`,
+        treatmentText: `${rhymeCmp.rhymeBytes.toLocaleString()} B`,
+        better: 'lower',
+      },
+      summary: `Same job, written ${rhymeCmp.sessions} different ways. The exact-text cache scored ${rhymeCmp.exactTextHits} hits, so it saved nothing: ${rhymeCmp.cacheBytes.toLocaleString()} bytes. FractiSI recognized the shared shape and stored ${rhymeCmp.rhymeBytes.toLocaleString()} bytes, ${pct(rhymeCmp.rhymeVersusCache)} smaller. The words changed. The organization did not, so it was only paid for once.`,
     },
   });
 }
@@ -334,7 +350,17 @@ function run4() {
       treatmentValue: `${e2.fractisi.discoveries}/${e2.scenarios} found · ${e2.fractisi.solutions}/${e2.scenarios} solved`,
       headlineLabel: 'Score',
       headlineValue: `${e2.fractisi.discoveries}/${e2.scenarios} vs ${e2.flat.discoveries}/${e2.scenarios}`,
-      summary: `Same budget. Same data. Answers buried six links deep. Flat skim found ${e2.flat.discoveries} of ${e2.scenarios}. FractiSI found ${e2.fractisi.discoveries} of ${e2.scenarios} — and solved ${e2.fractisi.solutions}. The answer was always there. One method walked past it. The other followed the chain.`,
+      bars: {
+        caption: `Hidden answers found out of ${e2.scenarios}`,
+        baseline: e2.flat.discoveries,
+        treatment: e2.fractisi.discoveries,
+        baselineText: `${e2.flat.discoveries} of ${e2.scenarios}`,
+        treatmentText: `${e2.fractisi.discoveries} of ${e2.scenarios}`,
+        better: 'higher',
+        max: e2.scenarios,
+      },
+      also: `Along the way FractiSI used ${pct(e2.opsReduction)} fewer operations and ${pct(e2.roundsReduction)} fewer propagation rounds than the flat approach.`,
+      summary: `Same budget. Same data. ${e2.scenarios} answers buried six links deep. Skimming found ${e2.flat.discoveries}. FractiSI found ${e2.fractisi.discoveries} and solved ${e2.fractisi.solutions}. The answers were always there. One method walked past them. The other followed the chain.`,
     },
   });
 }
@@ -454,6 +480,24 @@ function run7() {
       densityGain,
       sharedBytes: multi.prefixReuse.bytes,
       component: 'density_git_deploy',
+    },
+    readout: {
+      tested: `The memory that ${conventionalAgents} full-copy agents need, and how many shared-world agents fit in that same space.`,
+      baselineLabel: 'Old way · full copy per agent',
+      baselineValue: `${conventionalAgents} agents`,
+      treatmentLabel: 'FractiSI · one shared world + small notes',
+      treatmentValue: `${sharedAgentsFit} agents`,
+      headlineLabel: 'More agents in the same space',
+      headlineValue: `${densityGain.toFixed(1)}× more`,
+      bars: {
+        caption: `Agents that fit in ${budget.toLocaleString()} bytes`,
+        baseline: conventionalAgents,
+        treatment: sharedAgentsFit,
+        baselineText: `${conventionalAgents} agents`,
+        treatmentText: `${sharedAgentsFit} agents`,
+        better: 'higher',
+      },
+      summary: `Same memory. ${budget.toLocaleString()} bytes holds ${conventionalAgents} agents the old way. Share the world once and it holds ${sharedAgentsFit}. That is ${densityGain.toFixed(1)}× the agents, because every new one adds a small note instead of another copy of everything.`,
     },
   });
 }

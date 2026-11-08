@@ -1,6 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { listTestDriveSteps, runTestDriveStep } from '../../src/testdrive/run-step.mjs';
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
+const page = readFileSync(join(root, 'test-drive/index.html'), 'utf8');
+const deck = readFileSync(join(root, 'talks/aai-symposium-2026/index.html'), 'utf8');
+const LABS = ['1', '7', '3', '4'];
+
 
 test('catalog lists primer through 7 with product layers', () => {
   const steps = listTestDriveSteps();
@@ -52,4 +61,66 @@ test('discovery step reports 100/100 vs 0/100', () => {
   assert.equal(out.step.metrics.flatDiscoveries, 0);
   assert.equal(out.step.metrics.fractisiDiscoveries, 100);
   assert.equal(out.step.metrics.component, 'selective_reconstruction');
+});
+
+
+test('the four live tests return a plain-language readout with bars', () => {
+  for (const id of LABS) {
+    const { step } = runTestDriveStep(id);
+    const r = step.readout;
+    assert.ok(r, id);
+    assert.ok(r.summary && r.summary.length > 40, id + ' summary');
+    assert.ok(r.headlineValue, id + ' headline');
+    assert.ok(r.baselineValue && r.treatmentValue, id + ' values');
+    assert.ok(r.bars && r.bars.caption, id + ' bars');
+    assert.equal(typeof r.bars.baseline, 'number', id);
+    assert.equal(typeof r.bars.treatment, 'number', id);
+    assert.ok(r.bars.baselineText && r.bars.treatmentText, id);
+  }
+});
+
+test('headline claims match what the machine returns', () => {
+  assert.equal(runTestDriveStep('1').step.readout.bars.treatment < runTestDriveStep('1').step.readout.bars.baseline, true);
+  const density = runTestDriveStep('7').step.readout.bars;
+  assert.ok(density.treatment > density.baseline * 5, 'density gain is large');
+  const rhyme = runTestDriveStep('3').step.readout;
+  assert.match(rhyme.baselineValue, /^0 hits$/);
+  const discovery = runTestDriveStep('4').step.readout;
+  assert.equal(discovery.bars.max, 100);
+  assert.match(discovery.also, /fewer operations/);
+});
+
+test('Test Drive page explains each test and renders the results card', () => {
+  assert.match(page, /The test<\/span>/);
+  assert.match(page, /What to watch/);
+  assert.match(page, /Here is what happened/);
+  assert.match(page, /rc-num/);
+  assert.match(page, /bar-track/);
+  assert.match(page, /prefers-reduced-motion/);
+  assert.match(page, /Twelve agents work from the same shared context/);
+  assert.match(page, /exact-text cache can only reuse identical text/i);
+  assert.match(page, /six links deep/);
+  assert.match(page, /Same memory\. More agents\./);
+});
+
+test('speaker deck quotes the same numbers the tests return', () => {
+  const one = runTestDriveStep('1').step.readout.bars;
+  const density = runTestDriveStep('7').step.readout;
+  const rhyme = runTestDriveStep('3').step.readout;
+  assert.ok(deck.includes(one.baselineText), 'deck test 1 baseline');
+  assert.ok(deck.includes(one.treatmentText), 'deck test 1 treatment');
+  assert.ok(deck.includes(runTestDriveStep('1').step.readout.headlineValue), 'deck test 1 headline');
+  assert.ok(deck.includes(density.headlineValue.replace(' more', '')), 'deck test 2 headline');
+  assert.ok(deck.includes(String(density.bars.treatment)), 'deck test 2 capacity');
+  assert.ok(deck.includes(rhyme.headlineValue), 'deck test 3 headline');
+  assert.match(deck, /100 of 100/);
+});
+
+test('coordination is reported honestly, never as a collision win', () => {
+  const { metrics } = runTestDriveStep('6').step;
+  assert.ok(metrics.n25.cConflicts > metrics.n25.aConflicts, 'premise: coordinated logs more conflicts at n=25');
+  assert.match(page, /more conflicts than plain branching/);
+  assert.doesNotMatch(page, /fewer (collisions|conflicts)/i);
+  assert.doesNotMatch(deck, /fewer (collisions|conflicts)/i);
+  assert.match(deck, /more conflicts than plain branching/);
 });
