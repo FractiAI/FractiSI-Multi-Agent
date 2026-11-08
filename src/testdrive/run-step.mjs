@@ -118,6 +118,8 @@ function base(meta, fields) {
     fractisi: fields.fractisi || [],
     lines: fields.lines || [],
     metrics: fields.metrics || {},
+    /** UI scoreboard: what was tested + headline result cards */
+    readout: fields.readout || null,
     next: NEXT[meta.id],
     honesty: ARCHITECTURE_PRIMER.honesty,
   };
@@ -154,6 +156,7 @@ function runPrimer() {
 function run1() {
   const m = meta('1');
   const multi = runMultiSessionDemo(12);
+  const reductionPct = pct(multi.prefixByteReduction);
   return base(m, {
     problem: 'Without Tiny Footprint, every agent reprints a full copy of the shared world.',
     opportunity: 'Tiny Footprint registers the world once; agents keep only local deltas.',
@@ -166,7 +169,7 @@ function run1() {
       '',
       `  Conventional (N full copies):  ${multi.conventional.bytes} B across ${multi.conventional.sessions} sessions`,
       `  Tiny Footprint shared+deltas: ${multi.prefixReuse.bytes} B`,
-      `  Reduction vs full copies:      ${pct(multi.prefixByteReduction)}`,
+      `  Reduction vs full copies:      ${reductionPct}`,
       '',
       '  → Same sessions. Tiny Footprint stops paying N reprints of one world.',
     ],
@@ -176,6 +179,16 @@ function run1() {
       reduction: multi.prefixByteReduction,
       sessions: multi.conventional.sessions,
       component: 'tiny_footprint',
+    },
+    readout: {
+      tested: `Byte cost for ${multi.conventional.sessions} agent sessions that share the same world context.`,
+      baselineLabel: 'Old way · every agent gets a full copy',
+      baselineValue: `${multi.conventional.bytes.toLocaleString()} bytes`,
+      treatmentLabel: 'FractiSI · one shared world + small per-agent notes',
+      treatmentValue: `${multi.prefixReuse.bytes.toLocaleString()} bytes`,
+      headlineLabel: 'How much smaller',
+      headlineValue: reductionPct,
+      summary: `We compared ${multi.conventional.sessions} agents that all need the same shared context. The old way copied that context for every agent (${multi.conventional.bytes.toLocaleString()} bytes total). FractiSI kept one shared copy and only the small differences per agent (${multi.prefixReuse.bytes.toLocaleString()} bytes). That is a ${reductionPct} cut — same work, far less duplicate context.`,
     },
   });
 }
@@ -270,6 +283,16 @@ function run3() {
       rhymeVersusCache: rhymeCmp.rhymeVersusCache,
       component: 'tiny_gateway_rhyming_templates',
     },
+    readout: {
+      tested: `${rhymeCmp.sessions} sessions with the same job shape written in different words.`,
+      baselineLabel: 'Old way · exact-text cache hits',
+      baselineValue: String(rhymeCmp.exactTextHits),
+      treatmentLabel: 'FractiSI · shared organization store',
+      treatmentValue: `${rhymeCmp.rhymeBytes.toLocaleString()} bytes`,
+      headlineLabel: 'Smaller than exact-text cache store',
+      headlineValue: pct(rhymeCmp.rhymeVersusCache),
+      summary: `We ran ${rhymeCmp.sessions} sessions that do the same kind of work but use different wording. An exact-text cache only helps when the words match — here it got ${rhymeCmp.exactTextHits} hits. FractiSI still reused the shared organization (${rhymeCmp.rhymeBytes.toLocaleString()} bytes), ${pct(rhymeCmp.rhymeVersusCache)} smaller than keeping every paraphrase as its own exact-cache entry.`,
+    },
   });
 }
 
@@ -302,6 +325,16 @@ function run4() {
       fractisiDiscoveries: e2.fractisi.discoveries,
       pass: e2.pass,
       component: 'selective_reconstruction',
+    },
+    readout: {
+      tested: `${e2.scenarios} puzzles where the answer is buried six links deep. Same information budget for both methods.`,
+      baselineLabel: 'Old way · flat skim',
+      baselineValue: `${e2.flat.discoveries}/${e2.scenarios} found · ${e2.flat.solutions}/${e2.scenarios} solved`,
+      treatmentLabel: 'FractiSI · follow the links',
+      treatmentValue: `${e2.fractisi.discoveries}/${e2.scenarios} found · ${e2.fractisi.solutions}/${e2.scenarios} solved`,
+      headlineLabel: 'Score',
+      headlineValue: `${e2.fractisi.discoveries}/${e2.scenarios} vs ${e2.flat.discoveries}/${e2.scenarios}`,
+      summary: `We hid answers behind six-step chains and gave both methods the same information budget. Flat skim (reading a text window) found ${e2.flat.discoveries} of ${e2.scenarios} and solved ${e2.flat.solutions}. FractiSI followed the relationships and found ${e2.fractisi.discoveries} of ${e2.scenarios}, solving ${e2.fractisi.solutions}. Same data — different search method.`,
     },
   });
 }
