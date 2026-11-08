@@ -64,10 +64,13 @@ test('Test Drive opens on hero title case with prose and images', async () => {
   const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
   assert.match(page, /Start module/);
   assert.match(page, /Training objective/);
+  assert.match(page, /demonstrate FractiSI Multi-Agent/);
+  assert.doesNotMatch(page, /decide whether FractiSI/);
   assert.match(page, /td-hero-visual/);
   assert.match(page, /title: 'The Multi-Agent World Inference Rhyme\?'/);
   assert.match(page, /teach-prose/);
   assert.match(page, /Failure mode A/);
+  assert.match(page, /What we demonstrate/);
   assert.match(page, /fractisi-hero\.jpg/);
   assert.doesNotMatch(page, /Hold that light/);
   assert.doesNotMatch(page, /strongly rhyme/);
