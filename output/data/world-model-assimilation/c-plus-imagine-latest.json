@@ -1,0 +1,2343 @@
+{
+  "kind": "c_plus_imagine_bench",
+  "measured": true,
+  "simulatedProductionCost": false,
+  "hardware": "in-process Node deterministic simulation",
+  "hypothesis": "C+imagine (same hard gate) holds useful completions vs C (±0 expected if gate already removed overlaps). C+imagine_select (predictive MIS replaces hard gate) tests whether futures can choose the working set. Graduate only if no >5% useful regression and future-exploration metrics are positive.",
+  "graduationRule": "Graduate to createPlatform only if useful work does not regress >5% and future-exploration metrics (kept futures / conflict anticipation) are positive.",
+  "startedAt": "2026-11-08T17:31:21.747Z",
+  "elapsedMsTotal": 176.47717799999998,
+  "agentCounts": [
+    1,
+    4,
+    16,
+    32,
+    100
+  ],
+  "runs": 5,
+  "byAgents": [
+    {
+      "agents": 1,
+      "runs": 5,
+      "C": {
+        "usefulCompletedTasks": {
+          "mean": 1,
+          "stdev": 0,
+          "min": 1,
+          "max": 1,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        }
+      },
+      "C_imagine": {
+        "usefulCompletedTasks": {
+          "mean": 1,
+          "stdev": 0,
+          "min": 1,
+          "max": 1,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 1,
+          "stdev": 0,
+          "min": 1,
+          "max": 1,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "conventionalBytes": {
+          "mean": 127,
+          "stdev": 7.37563556583431,
+          "min": 119,
+          "max": 141,
+          "n": 5
+        },
+        "sharedRegistryBytes": {
+          "mean": 136.6,
+          "stdev": 7.227724399837061,
+          "min": 128,
+          "max": 150,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 287.4,
+          "stdev": 34.27885645700567,
+          "min": 255,
+          "max": 354,
+          "n": 5
+        },
+        "perspectiveBytes": {
+          "mean": 76.6,
+          "stdev": 9.112628599915615,
+          "min": 67,
+          "max": 94,
+          "n": 5
+        }
+      },
+      "C_imagine_select": {
+        "usefulCompletedTasks": {
+          "mean": 1,
+          "stdev": 0,
+          "min": 1,
+          "max": 1,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 1,
+          "stdev": 0,
+          "min": 1,
+          "max": 1,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 287.4,
+          "stdev": 34.27885645700567,
+          "min": 255,
+          "max": 354,
+          "n": 5
+        }
+      },
+      "deltaUseful": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "deltaUsefulSelect": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "usefulRegression": false,
+      "usefulImproved": false,
+      "selectRegression": false,
+      "selectImproved": false,
+      "sharedVsConventionalReduction": -0.07559055118110236
+    },
+    {
+      "agents": 4,
+      "runs": 5,
+      "C": {
+        "usefulCompletedTasks": {
+          "mean": 4,
+          "stdev": 0,
+          "min": 4,
+          "max": 4,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        }
+      },
+      "C_imagine": {
+        "usefulCompletedTasks": {
+          "mean": 4,
+          "stdev": 0,
+          "min": 4,
+          "max": 4,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 4,
+          "stdev": 0,
+          "min": 4,
+          "max": 4,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "conventionalBytes": {
+          "mean": 1988.8,
+          "stdev": 42.73827324541786,
+          "min": 1940,
+          "max": 2048,
+          "n": 5
+        },
+        "sharedRegistryBytes": {
+          "mean": 505.8,
+          "stdev": 10.979981785048643,
+          "min": 493,
+          "max": 521,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 1113.6,
+          "stdev": 47.67640926076543,
+          "min": 1062,
+          "max": 1179,
+          "n": 5
+        },
+        "perspectiveBytes": {
+          "mean": 296.8,
+          "stdev": 13.16662447250623,
+          "min": 282,
+          "max": 315,
+          "n": 5
+        }
+      },
+      "C_imagine_select": {
+        "usefulCompletedTasks": {
+          "mean": 4,
+          "stdev": 0,
+          "min": 4,
+          "max": 4,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 4,
+          "stdev": 0,
+          "min": 4,
+          "max": 4,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 1113.6,
+          "stdev": 47.67640926076543,
+          "min": 1062,
+          "max": 1179,
+          "n": 5
+        }
+      },
+      "deltaUseful": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "deltaUsefulSelect": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "usefulRegression": false,
+      "usefulImproved": false,
+      "selectRegression": false,
+      "selectImproved": false,
+      "sharedVsConventionalReduction": 0.7456757843925985
+    },
+    {
+      "agents": 16,
+      "runs": 5,
+      "C": {
+        "usefulCompletedTasks": {
+          "mean": 14,
+          "stdev": 2.0976176963403033,
+          "min": 11,
+          "max": 16,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 2,
+          "stdev": 2.0976176963403033,
+          "min": 0,
+          "max": 5,
+          "n": 5
+        }
+      },
+      "C_imagine": {
+        "usefulCompletedTasks": {
+          "mean": 14,
+          "stdev": 2.0976176963403033,
+          "min": 11,
+          "max": 16,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 2,
+          "stdev": 2.0976176963403033,
+          "min": 0,
+          "max": 5,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 14,
+          "stdev": 2.0976176963403033,
+          "min": 11,
+          "max": 16,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "conventionalBytes": {
+          "mean": 32483.2,
+          "stdev": 710.3279242716001,
+          "min": 31584,
+          "max": 33344,
+          "n": 5
+        },
+        "sharedRegistryBytes": {
+          "mean": 2040.6,
+          "stdev": 43.59633012077966,
+          "min": 1984,
+          "max": 2095,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 3903.6,
+          "stdev": 550.1558324693106,
+          "min": 3078,
+          "max": 4482,
+          "n": 5
+        },
+        "perspectiveBytes": {
+          "mean": 1036.4,
+          "stdev": 144.45012980264158,
+          "min": 818,
+          "max": 1188,
+          "n": 5
+        }
+      },
+      "C_imagine_select": {
+        "usefulCompletedTasks": {
+          "mean": 14,
+          "stdev": 2.0976176963403033,
+          "min": 11,
+          "max": 16,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 5.6,
+          "stdev": 6.829348431585549,
+          "min": 0,
+          "max": 17,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 14,
+          "stdev": 2.0976176963403033,
+          "min": 11,
+          "max": 16,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 2,
+          "stdev": 2.0976176963403033,
+          "min": 0,
+          "max": 5,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 4624.8,
+          "stdev": 213.09378217113704,
+          "min": 4365,
+          "max": 4887,
+          "n": 5
+        }
+      },
+      "deltaUseful": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "deltaUsefulSelect": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "usefulRegression": false,
+      "usefulImproved": false,
+      "selectRegression": false,
+      "selectImproved": false,
+      "sharedVsConventionalReduction": 0.9371798344990642
+    },
+    {
+      "agents": 32,
+      "runs": 5,
+      "C": {
+        "usefulCompletedTasks": {
+          "mean": 24.4,
+          "stdev": 2.0591260281974,
+          "min": 22,
+          "max": 28,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 7.6,
+          "stdev": 2.0591260281974,
+          "min": 4,
+          "max": 10,
+          "n": 5
+        }
+      },
+      "C_imagine": {
+        "usefulCompletedTasks": {
+          "mean": 24.4,
+          "stdev": 2.0591260281974,
+          "min": 22,
+          "max": 28,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 7.6,
+          "stdev": 2.0591260281974,
+          "min": 4,
+          "max": 10,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 24.4,
+          "stdev": 2.0591260281974,
+          "min": 22,
+          "max": 28,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "conventionalBytes": {
+          "mean": 131897.6,
+          "stdev": 623.9261494760417,
+          "min": 130688,
+          "max": 132416,
+          "n": 5
+        },
+        "sharedRegistryBytes": {
+          "mean": 4141.4,
+          "stdev": 18.161497735594384,
+          "min": 4107,
+          "max": 4156,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 6916.2,
+          "stdev": 590.4853596830322,
+          "min": 6255,
+          "max": 7941,
+          "n": 5
+        },
+        "perspectiveBytes": {
+          "mean": 1829,
+          "stdev": 155.90766498155247,
+          "min": 1655,
+          "max": 2099,
+          "n": 5
+        }
+      },
+      "C_imagine_select": {
+        "usefulCompletedTasks": {
+          "mean": 25.8,
+          "stdev": 1.32664991614216,
+          "min": 24,
+          "max": 28,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 23.8,
+          "stdev": 9.325234581499814,
+          "min": 7,
+          "max": 33,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 25.8,
+          "stdev": 1.32664991614216,
+          "min": 24,
+          "max": 28,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 6.2,
+          "stdev": 1.32664991614216,
+          "min": 4,
+          "max": 8,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 9492.6,
+          "stdev": 102.23619711237308,
+          "min": 9291,
+          "max": 9576,
+          "n": 5
+        }
+      },
+      "deltaUseful": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "deltaUsefulSelect": {
+        "mean": 1.4,
+        "stdev": 1.019803902718557,
+        "min": 0,
+        "max": 3,
+        "n": 5
+      },
+      "usefulRegression": false,
+      "usefulImproved": false,
+      "selectRegression": false,
+      "selectImproved": true,
+      "sharedVsConventionalReduction": 0.9686013998738415
+    },
+    {
+      "agents": 100,
+      "runs": 5,
+      "C": {
+        "usefulCompletedTasks": {
+          "mean": 73.4,
+          "stdev": 6.887670143089026,
+          "min": 61,
+          "max": 81,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 26.6,
+          "stdev": 6.887670143089026,
+          "min": 19,
+          "max": 39,
+          "n": 5
+        }
+      },
+      "C_imagine": {
+        "usefulCompletedTasks": {
+          "mean": 73.4,
+          "stdev": 6.887670143089026,
+          "min": 61,
+          "max": 81,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 26.6,
+          "stdev": 6.887670143089026,
+          "min": 19,
+          "max": 39,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 73.4,
+          "stdev": 6.887670143089026,
+          "min": 61,
+          "max": 81,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 0,
+          "stdev": 0,
+          "min": 0,
+          "max": 0,
+          "n": 5
+        },
+        "conventionalBytes": {
+          "mean": 1290480,
+          "stdev": 8867.33330827256,
+          "min": 1280800,
+          "max": 1301900,
+          "n": 5
+        },
+        "sharedRegistryBytes": {
+          "mean": 12968.8,
+          "stdev": 84.56334903490992,
+          "min": 12876,
+          "max": 13084,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 20904,
+          "stdev": 1951.5935027561452,
+          "min": 17370,
+          "max": 23028,
+          "n": 5
+        },
+        "perspectiveBytes": {
+          "mean": 5514.4,
+          "stdev": 513.858579766846,
+          "min": 4582,
+          "max": 6070,
+          "n": 5
+        }
+      },
+      "C_imagine_select": {
+        "usefulCompletedTasks": {
+          "mean": 77,
+          "stdev": 7.58946638440411,
+          "min": 64,
+          "max": 86,
+          "n": 5
+        },
+        "mergeConflicts": {
+          "mean": 187.6,
+          "stdev": 110.06834240597975,
+          "min": 87,
+          "max": 365,
+          "n": 5
+        },
+        "futuresKept": {
+          "mean": 77,
+          "stdev": 7.58946638440411,
+          "min": 64,
+          "max": 86,
+          "n": 5
+        },
+        "futuresRejected": {
+          "mean": 23,
+          "stdev": 7.58946638440411,
+          "min": 14,
+          "max": 36,
+          "n": 5
+        },
+        "imaginationBytes": {
+          "mean": 29640.6,
+          "stdev": 450.4253989286128,
+          "min": 29154,
+          "max": 30192,
+          "n": 5
+        }
+      },
+      "deltaUseful": {
+        "mean": 0,
+        "stdev": 0,
+        "min": 0,
+        "max": 0,
+        "n": 5
+      },
+      "deltaUsefulSelect": {
+        "mean": 3.6,
+        "stdev": 1.019803902718557,
+        "min": 2,
+        "max": 5,
+        "n": 5
+      },
+      "usefulRegression": false,
+      "usefulImproved": false,
+      "selectRegression": false,
+      "selectImproved": true,
+      "sharedVsConventionalReduction": 0.9899504060504618
+    }
+  ],
+  "results": [
+    {
+      "agents": 1,
+      "run": 0,
+      "seed": 20261206,
+      "elapsedMs": 3.430287,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 11.599116324162583,
+          "predictedCommitOk": true,
+          "imaginationBytes": 276,
+          "perspectiveBytes": 74,
+          "conventionalBytes": 125,
+          "sharedRegistryBytes": 135,
+          "authoritativeBytes": 193,
+          "ms": 1.3848429999999965
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 9.884798054308174,
+          "predictedCommitOk": true,
+          "imaginationBytes": 276,
+          "perspectiveBytes": 74,
+          "conventionalBytes": 125,
+          "sharedRegistryBytes": 135,
+          "authoritativeBytes": 193,
+          "ms": 0.34699400000000225
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 1,
+      "run": 1,
+      "seed": 20261207,
+      "elapsedMs": 0.75749,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 8.094066368240462,
+          "predictedCommitOk": true,
+          "imaginationBytes": 354,
+          "perspectiveBytes": 94,
+          "conventionalBytes": 141,
+          "sharedRegistryBytes": 150,
+          "authoritativeBytes": 256,
+          "ms": 0.3730029999999971
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 9.555948119414058,
+          "predictedCommitOk": true,
+          "imaginationBytes": 354,
+          "perspectiveBytes": 94,
+          "conventionalBytes": 141,
+          "sharedRegistryBytes": 150,
+          "authoritativeBytes": 256,
+          "ms": 0.19837900000000275
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 1,
+      "run": 2,
+      "seed": 20261208,
+      "elapsedMs": 0.729926,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 10.12689940724951,
+          "predictedCommitOk": true,
+          "imaginationBytes": 276,
+          "perspectiveBytes": 74,
+          "conventionalBytes": 125,
+          "sharedRegistryBytes": 135,
+          "authoritativeBytes": 193,
+          "ms": 0.2201820000000012
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 10.28611509352402,
+          "predictedCommitOk": true,
+          "imaginationBytes": 276,
+          "perspectiveBytes": 74,
+          "conventionalBytes": 125,
+          "sharedRegistryBytes": 135,
+          "authoritativeBytes": 193,
+          "ms": 0.32013699999999545
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 1,
+      "run": 3,
+      "seed": 20261209,
+      "elapsedMs": 0.450212,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 8.416223859854098,
+          "predictedCommitOk": true,
+          "imaginationBytes": 255,
+          "perspectiveBytes": 67,
+          "conventionalBytes": 119,
+          "sharedRegistryBytes": 128,
+          "authoritativeBytes": 179,
+          "ms": 0.18451999999999913
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 7.953837381095406,
+          "predictedCommitOk": true,
+          "imaginationBytes": 255,
+          "perspectiveBytes": 67,
+          "conventionalBytes": 119,
+          "sharedRegistryBytes": 128,
+          "authoritativeBytes": 179,
+          "ms": 0.12087900000000218
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 1,
+      "run": 4,
+      "seed": 20261210,
+      "elapsedMs": 0.369197,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 12.482740241925816,
+          "predictedCommitOk": true,
+          "imaginationBytes": 276,
+          "perspectiveBytes": 74,
+          "conventionalBytes": 125,
+          "sharedRegistryBytes": 135,
+          "authoritativeBytes": 193,
+          "ms": 0.1544930000000022
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 1,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 1,
+          "integrationLatencyUnits": 1,
+          "futuresImagined": 1,
+          "futuresKept": 1,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 10.038086329841091,
+          "predictedCommitOk": true,
+          "imaginationBytes": 276,
+          "perspectiveBytes": 74,
+          "conventionalBytes": 125,
+          "sharedRegistryBytes": 135,
+          "authoritativeBytes": 193,
+          "ms": 0.11498999999999882
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 4,
+      "run": 0,
+      "seed": 20261506,
+      "elapsedMs": 1.599134,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 8.68090580811733,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1104,
+          "perspectiveBytes": 296,
+          "conventionalBytes": 1988,
+          "sharedRegistryBytes": 507,
+          "authoritativeBytes": 769,
+          "ms": 0.7389999999999972
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 8.062412227631691,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1104,
+          "perspectiveBytes": 296,
+          "conventionalBytes": 1988,
+          "sharedRegistryBytes": 507,
+          "authoritativeBytes": 769,
+          "ms": 0.528027999999999
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 4,
+      "run": 1,
+      "seed": 20261507,
+      "elapsedMs": 1.957661,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 9.7471537127564,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1062,
+          "perspectiveBytes": 282,
+          "conventionalBytes": 1940,
+          "sharedRegistryBytes": 493,
+          "authoritativeBytes": 741,
+          "ms": 0.49555099999999896
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 9.749898810795615,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1062,
+          "perspectiveBytes": 282,
+          "conventionalBytes": 1940,
+          "sharedRegistryBytes": 493,
+          "authoritativeBytes": 741,
+          "ms": 1.2291709999999938
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 4,
+      "run": 2,
+      "seed": 20261508,
+      "elapsedMs": 0.762991,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 8.578994880824842,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1065,
+          "perspectiveBytes": 283,
+          "conventionalBytes": 1944,
+          "sharedRegistryBytes": 494,
+          "authoritativeBytes": 743,
+          "ms": 0.3302550000000011
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 7.9963656664572165,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1065,
+          "perspectiveBytes": 283,
+          "conventionalBytes": 1944,
+          "sharedRegistryBytes": 494,
+          "authoritativeBytes": 743,
+          "ms": 0.2911410000000032
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 4,
+      "run": 3,
+      "seed": 20261509,
+      "elapsedMs": 1.022779,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 9.896881724765032,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1158,
+          "perspectiveBytes": 308,
+          "conventionalBytes": 2024,
+          "sharedRegistryBytes": 514,
+          "authoritativeBytes": 816,
+          "ms": 0.44963599999999815
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 10.660127714701161,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1158,
+          "perspectiveBytes": 308,
+          "conventionalBytes": 2024,
+          "sharedRegistryBytes": 514,
+          "authoritativeBytes": 816,
+          "ms": 0.4431300000000036
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 4,
+      "run": 4,
+      "seed": 20261510,
+      "elapsedMs": 1.251481,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 7.710859676222224,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1179,
+          "perspectiveBytes": 315,
+          "conventionalBytes": 2048,
+          "sharedRegistryBytes": 521,
+          "authoritativeBytes": 830,
+          "ms": 0.4252520000000004
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 4,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 4,
+          "integrationLatencyUnits": 4,
+          "futuresImagined": 4,
+          "futuresKept": 4,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 7.898400604660238,
+          "predictedCommitOk": true,
+          "imaginationBytes": 1179,
+          "perspectiveBytes": 315,
+          "conventionalBytes": 2048,
+          "sharedRegistryBytes": 521,
+          "authoritativeBytes": 830,
+          "ms": 0.6714500000000001
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 16,
+      "run": 0,
+      "seed": 20262706,
+      "elapsedMs": 3.908223,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 16,
+          "mergeConflicts": 1,
+          "semanticFailures": 0,
+          "duplicateWork": 1,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 15,
+          "integrationLatencyUnits": 17,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 16,
+          "mergeConflicts": 1,
+          "semanticFailures": 0,
+          "duplicateWork": 1,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 15,
+          "integrationLatencyUnits": 17,
+          "futuresImagined": 15,
+          "futuresKept": 15,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 13.352958165690774,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4158,
+          "perspectiveBytes": 1106,
+          "conventionalBytes": 32176,
+          "sharedRegistryBytes": 2024,
+          "authoritativeBytes": 2903,
+          "ms": 1.3925160000000005
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 16,
+          "mergeConflicts": 1,
+          "semanticFailures": 0,
+          "duplicateWork": 1,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 15,
+          "integrationLatencyUnits": 17,
+          "futuresImagined": 16,
+          "futuresKept": 15,
+          "futuresRejected": 1,
+          "predictiveConflicts": 1,
+          "planBestEnergy": 12.626206180275616,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4521,
+          "perspectiveBytes": 1200,
+          "conventionalBytes": 32176,
+          "sharedRegistryBytes": 2024,
+          "authoritativeBytes": 2989,
+          "ms": 1.713409999999996
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 16,
+      "run": 1,
+      "seed": 20262707,
+      "elapsedMs": 3.315841,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 16,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 16,
+          "integrationLatencyUnits": 16,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 16,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 16,
+          "integrationLatencyUnits": 16,
+          "futuresImagined": 16,
+          "futuresKept": 16,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 11.083296881286774,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4365,
+          "perspectiveBytes": 1155,
+          "conventionalBytes": 31584,
+          "sharedRegistryBytes": 1984,
+          "authoritativeBytes": 3051,
+          "ms": 1.664859000000007
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 16,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 16,
+          "integrationLatencyUnits": 16,
+          "futuresImagined": 16,
+          "futuresKept": 16,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 12.392504696104691,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4365,
+          "perspectiveBytes": 1155,
+          "conventionalBytes": 31584,
+          "sharedRegistryBytes": 1984,
+          "authoritativeBytes": 3051,
+          "ms": 0.9295049999999989
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 16,
+      "run": 2,
+      "seed": 20262708,
+      "elapsedMs": 2.910062,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 16,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 16,
+          "integrationLatencyUnits": 16,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 16,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 16,
+          "integrationLatencyUnits": 16,
+          "futuresImagined": 16,
+          "futuresKept": 16,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 12.071204965634488,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4482,
+          "perspectiveBytes": 1188,
+          "conventionalBytes": 32016,
+          "sharedRegistryBytes": 2012,
+          "authoritativeBytes": 3140,
+          "ms": 1.4276839999999993
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 16,
+          "mergeConflicts": 0,
+          "semanticFailures": 0,
+          "duplicateWork": 0,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 16,
+          "integrationLatencyUnits": 16,
+          "futuresImagined": 16,
+          "futuresKept": 16,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 12.408447067454896,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4482,
+          "perspectiveBytes": 1188,
+          "conventionalBytes": 32016,
+          "sharedRegistryBytes": 2012,
+          "authoritativeBytes": 3140,
+          "ms": 0.9250119999999953
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 16,
+      "run": 3,
+      "seed": 20262709,
+      "elapsedMs": 2.855171,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 16,
+          "mergeConflicts": 5,
+          "semanticFailures": 0,
+          "duplicateWork": 17,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 11,
+          "integrationLatencyUnits": 21,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 16,
+          "mergeConflicts": 5,
+          "semanticFailures": 0,
+          "duplicateWork": 17,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 11,
+          "integrationLatencyUnits": 21,
+          "futuresImagined": 11,
+          "futuresKept": 11,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 9.44062070757516,
+          "predictedCommitOk": true,
+          "imaginationBytes": 3078,
+          "perspectiveBytes": 818,
+          "conventionalBytes": 33296,
+          "sharedRegistryBytes": 2088,
+          "authoritativeBytes": 2156,
+          "ms": 1.0497209999999981
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 16,
+          "mergeConflicts": 17,
+          "semanticFailures": 0,
+          "duplicateWork": 5,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 11,
+          "integrationLatencyUnits": 21,
+          "futuresImagined": 16,
+          "futuresKept": 11,
+          "futuresRejected": 5,
+          "predictiveConflicts": 17,
+          "planBestEnergy": 11.610328548560283,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4887,
+          "perspectiveBytes": 1289,
+          "conventionalBytes": 33296,
+          "sharedRegistryBytes": 2088,
+          "authoritativeBytes": 2156,
+          "ms": 0.8487039999999979
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 16,
+      "run": 4,
+      "seed": 20262710,
+      "elapsedMs": 2.816317,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 16,
+          "mergeConflicts": 4,
+          "semanticFailures": 0,
+          "duplicateWork": 10,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 12,
+          "integrationLatencyUnits": 20,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 16,
+          "mergeConflicts": 4,
+          "semanticFailures": 0,
+          "duplicateWork": 10,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 12,
+          "integrationLatencyUnits": 20,
+          "futuresImagined": 12,
+          "futuresKept": 12,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 11.187482875368884,
+          "predictedCommitOk": true,
+          "imaginationBytes": 3435,
+          "perspectiveBytes": 915,
+          "conventionalBytes": 33344,
+          "sharedRegistryBytes": 2095,
+          "authoritativeBytes": 2406,
+          "ms": 1.380108
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 16,
+          "mergeConflicts": 10,
+          "semanticFailures": 0,
+          "duplicateWork": 4,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 12,
+          "integrationLatencyUnits": 20,
+          "futuresImagined": 16,
+          "futuresKept": 12,
+          "futuresRejected": 4,
+          "predictiveConflicts": 10,
+          "planBestEnergy": 12.671788870393955,
+          "predictedCommitOk": true,
+          "imaginationBytes": 4869,
+          "perspectiveBytes": 1291,
+          "conventionalBytes": 33344,
+          "sharedRegistryBytes": 2095,
+          "authoritativeBytes": 2408,
+          "ms": 0.951470999999998
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 32,
+      "run": 0,
+      "seed": 20264306,
+      "elapsedMs": 6.856179,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 32,
+          "mergeConflicts": 7,
+          "semanticFailures": 0,
+          "duplicateWork": 23,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 25,
+          "integrationLatencyUnits": 39,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 32,
+          "mergeConflicts": 7,
+          "semanticFailures": 0,
+          "duplicateWork": 23,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 25,
+          "integrationLatencyUnits": 39,
+          "futuresImagined": 25,
+          "futuresKept": 25,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 22.095520295462407,
+          "predictedCommitOk": true,
+          "imaginationBytes": 7101,
+          "perspectiveBytes": 1879,
+          "conventionalBytes": 132224,
+          "sharedRegistryBytes": 4153,
+          "authoritativeBytes": 4978,
+          "ms": 2.490335999999999
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 32,
+          "mergeConflicts": 23,
+          "semanticFailures": 0,
+          "duplicateWork": 6,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 26,
+          "integrationLatencyUnits": 38,
+          "futuresImagined": 32,
+          "futuresKept": 26,
+          "futuresRejected": 6,
+          "predictiveConflicts": 23,
+          "planBestEnergy": 22.053707064848812,
+          "predictedCommitOk": true,
+          "imaginationBytes": 9534,
+          "perspectiveBytes": 2511,
+          "conventionalBytes": 132224,
+          "sharedRegistryBytes": 4153,
+          "authoritativeBytes": 5164,
+          "ms": 2.286389
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 1,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 32,
+      "run": 1,
+      "seed": 20264307,
+      "elapsedMs": 6.186186,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 32,
+          "mergeConflicts": 8,
+          "semanticFailures": 0,
+          "duplicateWork": 24,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 24,
+          "integrationLatencyUnits": 40,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 32,
+          "mergeConflicts": 8,
+          "semanticFailures": 0,
+          "duplicateWork": 24,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 24,
+          "integrationLatencyUnits": 40,
+          "futuresImagined": 24,
+          "futuresKept": 24,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 18.335520605814605,
+          "predictedCommitOk": true,
+          "imaginationBytes": 6831,
+          "perspectiveBytes": 1807,
+          "conventionalBytes": 132224,
+          "sharedRegistryBytes": 4152,
+          "authoritativeBytes": 4790,
+          "ms": 2.8713730000000055
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 32,
+          "mergeConflicts": 24,
+          "semanticFailures": 0,
+          "duplicateWork": 6,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 26,
+          "integrationLatencyUnits": 38,
+          "futuresImagined": 32,
+          "futuresKept": 26,
+          "futuresRejected": 6,
+          "predictiveConflicts": 24,
+          "planBestEnergy": 18.8556835663934,
+          "predictedCommitOk": true,
+          "imaginationBytes": 9531,
+          "perspectiveBytes": 2510,
+          "conventionalBytes": 132224,
+          "sharedRegistryBytes": 4152,
+          "authoritativeBytes": 5156,
+          "ms": 2.2016490000000033
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 2,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 32,
+      "run": 2,
+      "seed": 20264308,
+      "elapsedMs": 5.793008,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 32,
+          "mergeConflicts": 10,
+          "semanticFailures": 0,
+          "duplicateWork": 32,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 22,
+          "integrationLatencyUnits": 42,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 32,
+          "mergeConflicts": 10,
+          "semanticFailures": 0,
+          "duplicateWork": 32,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 22,
+          "integrationLatencyUnits": 42,
+          "futuresImagined": 22,
+          "futuresKept": 22,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 14.975581832725064,
+          "predictedCommitOk": true,
+          "imaginationBytes": 6255,
+          "perspectiveBytes": 1655,
+          "conventionalBytes": 132416,
+          "sharedRegistryBytes": 4156,
+          "authoritativeBytes": 4386,
+          "ms": 2.1725990000000053
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 32,
+          "mergeConflicts": 32,
+          "semanticFailures": 0,
+          "duplicateWork": 7,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 25,
+          "integrationLatencyUnits": 39,
+          "futuresImagined": 32,
+          "futuresKept": 25,
+          "futuresRejected": 7,
+          "predictiveConflicts": 32,
+          "planBestEnergy": 15.79802544121749,
+          "predictedCommitOk": true,
+          "imaginationBytes": 9576,
+          "perspectiveBytes": 2519,
+          "conventionalBytes": 132416,
+          "sharedRegistryBytes": 4156,
+          "authoritativeBytes": 4946,
+          "ms": 2.2699850000000055
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 3,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 32,
+      "run": 3,
+      "seed": 20264309,
+      "elapsedMs": 5.774015,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 32,
+          "mergeConflicts": 9,
+          "semanticFailures": 0,
+          "duplicateWork": 33,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 23,
+          "integrationLatencyUnits": 41,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 32,
+          "mergeConflicts": 9,
+          "semanticFailures": 0,
+          "duplicateWork": 33,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 23,
+          "integrationLatencyUnits": 41,
+          "futuresImagined": 23,
+          "futuresKept": 23,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 17.547965605118694,
+          "predictedCommitOk": true,
+          "imaginationBytes": 6453,
+          "perspectiveBytes": 1705,
+          "conventionalBytes": 131936,
+          "sharedRegistryBytes": 4139,
+          "authoritativeBytes": 4524,
+          "ms": 2.4262740000000065
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 32,
+          "mergeConflicts": 33,
+          "semanticFailures": 0,
+          "duplicateWork": 8,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 24,
+          "integrationLatencyUnits": 40,
+          "futuresImagined": 32,
+          "futuresKept": 24,
+          "futuresRejected": 8,
+          "predictiveConflicts": 33,
+          "planBestEnergy": 15.467132283469619,
+          "predictedCommitOk": true,
+          "imaginationBytes": 9531,
+          "perspectiveBytes": 2502,
+          "conventionalBytes": 131936,
+          "sharedRegistryBytes": 4139,
+          "authoritativeBytes": 4721,
+          "ms": 2.284352999999996
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 1,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 32,
+      "run": 4,
+      "seed": 20264310,
+      "elapsedMs": 6.453153,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 32,
+          "mergeConflicts": 4,
+          "semanticFailures": 0,
+          "duplicateWork": 7,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 28,
+          "integrationLatencyUnits": 36,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 32,
+          "mergeConflicts": 4,
+          "semanticFailures": 0,
+          "duplicateWork": 7,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 28,
+          "integrationLatencyUnits": 36,
+          "futuresImagined": 28,
+          "futuresKept": 28,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 20.826643395211235,
+          "predictedCommitOk": true,
+          "imaginationBytes": 7941,
+          "perspectiveBytes": 2099,
+          "conventionalBytes": 130688,
+          "sharedRegistryBytes": 4107,
+          "authoritativeBytes": 5568,
+          "ms": 2.7364060000000023
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 32,
+          "mergeConflicts": 7,
+          "semanticFailures": 0,
+          "duplicateWork": 4,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 28,
+          "integrationLatencyUnits": 36,
+          "futuresImagined": 32,
+          "futuresKept": 28,
+          "futuresRejected": 4,
+          "predictiveConflicts": 7,
+          "planBestEnergy": 21.303337489127124,
+          "predictedCommitOk": true,
+          "imaginationBytes": 9291,
+          "perspectiveBytes": 2450,
+          "conventionalBytes": 130688,
+          "sharedRegistryBytes": 4107,
+          "authoritativeBytes": 5577,
+          "ms": 2.2587350000000015
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 0,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 100,
+      "run": 0,
+      "seed": 20271106,
+      "elapsedMs": 24.625312,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 100,
+          "mergeConflicts": 28,
+          "semanticFailures": 0,
+          "duplicateWork": 267,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 72,
+          "integrationLatencyUnits": 128,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 100,
+          "mergeConflicts": 28,
+          "semanticFailures": 0,
+          "duplicateWork": 267,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 72,
+          "integrationLatencyUnits": 128,
+          "futuresImagined": 72,
+          "futuresKept": 72,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 42.33505775378634,
+          "predictedCommitOk": true,
+          "imaginationBytes": 20571,
+          "perspectiveBytes": 5429,
+          "conventionalBytes": 1301900,
+          "sharedRegistryBytes": 13084,
+          "authoritativeBytes": 14428,
+          "ms": 8.602103
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 100,
+          "mergeConflicts": 267,
+          "semanticFailures": 0,
+          "duplicateWork": 26,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 74,
+          "integrationLatencyUnits": 126,
+          "futuresImagined": 100,
+          "futuresKept": 74,
+          "futuresRejected": 26,
+          "predictiveConflicts": 267,
+          "planBestEnergy": 48.597736351282485,
+          "predictedCommitOk": true,
+          "imaginationBytes": 30171,
+          "perspectiveBytes": 7918,
+          "conventionalBytes": 1301900,
+          "sharedRegistryBytes": 13084,
+          "authoritativeBytes": 14815,
+          "ms": 8.11943699999999
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 2,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 100,
+      "run": 1,
+      "seed": 20271107,
+      "elapsedMs": 25.279814,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 100,
+          "mergeConflicts": 22,
+          "semanticFailures": 0,
+          "duplicateWork": 87,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 78,
+          "integrationLatencyUnits": 122,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 100,
+          "mergeConflicts": 22,
+          "semanticFailures": 0,
+          "duplicateWork": 87,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 78,
+          "integrationLatencyUnits": 122,
+          "futuresImagined": 78,
+          "futuresKept": 78,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 41.610337027496314,
+          "predictedCommitOk": true,
+          "imaginationBytes": 22230,
+          "perspectiveBytes": 5864,
+          "conventionalBytes": 1280800,
+          "sharedRegistryBytes": 12876,
+          "authoritativeBytes": 15592,
+          "ms": 9.979154999999992
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 100,
+          "mergeConflicts": 87,
+          "semanticFailures": 0,
+          "duplicateWork": 18,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 82,
+          "integrationLatencyUnits": 118,
+          "futuresImagined": 100,
+          "futuresKept": 82,
+          "futuresRejected": 18,
+          "predictiveConflicts": 87,
+          "planBestEnergy": 46.635846590014246,
+          "predictedCommitOk": true,
+          "imaginationBytes": 29154,
+          "perspectiveBytes": 7655,
+          "conventionalBytes": 1280800,
+          "sharedRegistryBytes": 12876,
+          "authoritativeBytes": 16349,
+          "ms": 8.486808999999994
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 4,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 100,
+      "run": 2,
+      "seed": 20271108,
+      "elapsedMs": 23.105195,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 100,
+          "mergeConflicts": 39,
+          "semanticFailures": 0,
+          "duplicateWork": 365,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 61,
+          "integrationLatencyUnits": 139,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 100,
+          "mergeConflicts": 39,
+          "semanticFailures": 0,
+          "duplicateWork": 365,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 61,
+          "integrationLatencyUnits": 139,
+          "futuresImagined": 61,
+          "futuresKept": 61,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 22.162557386890345,
+          "predictedCommitOk": true,
+          "imaginationBytes": 17370,
+          "perspectiveBytes": 4582,
+          "conventionalBytes": 1300300,
+          "sharedRegistryBytes": 13055,
+          "authoritativeBytes": 12184,
+          "ms": 9.07382800000002
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 100,
+          "mergeConflicts": 365,
+          "semanticFailures": 0,
+          "duplicateWork": 36,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 64,
+          "integrationLatencyUnits": 136,
+          "futuresImagined": 100,
+          "futuresKept": 64,
+          "futuresRejected": 36,
+          "predictiveConflicts": 365,
+          "planBestEnergy": 36.19581092083853,
+          "predictedCommitOk": true,
+          "imaginationBytes": 30192,
+          "perspectiveBytes": 7904,
+          "conventionalBytes": 1300300,
+          "sharedRegistryBytes": 13055,
+          "authoritativeBytes": 12753,
+          "ms": 8.24111099999999
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 3,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 100,
+      "run": 3,
+      "seed": 20271109,
+      "elapsedMs": 20.303076,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 100,
+          "mergeConflicts": 25,
+          "semanticFailures": 0,
+          "duplicateWork": 125,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 75,
+          "integrationLatencyUnits": 125,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 100,
+          "mergeConflicts": 25,
+          "semanticFailures": 0,
+          "duplicateWork": 125,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 75,
+          "integrationLatencyUnits": 125,
+          "futuresImagined": 75,
+          "futuresKept": 75,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 37.022681699217216,
+          "predictedCommitOk": true,
+          "imaginationBytes": 21321,
+          "perspectiveBytes": 5627,
+          "conventionalBytes": 1286400,
+          "sharedRegistryBytes": 12931,
+          "authoritativeBytes": 14945,
+          "ms": 7.858158000000003
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 100,
+          "mergeConflicts": 125,
+          "semanticFailures": 0,
+          "duplicateWork": 21,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 79,
+          "integrationLatencyUnits": 121,
+          "futuresImagined": 100,
+          "futuresKept": 79,
+          "futuresRejected": 21,
+          "predictiveConflicts": 125,
+          "planBestEnergy": 38.80516932211059,
+          "predictedCommitOk": true,
+          "imaginationBytes": 29430,
+          "perspectiveBytes": 7725,
+          "conventionalBytes": 1286400,
+          "sharedRegistryBytes": 12931,
+          "authoritativeBytes": 15767,
+          "ms": 6.932688999999982
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 4,
+      "deltaConflicts": 0
+    },
+    {
+      "agents": 100,
+      "run": 4,
+      "seed": 20271110,
+      "elapsedMs": 22.22975,
+      "arms": {
+        "C": {
+          "arm": "C_fractisi_coordination",
+          "agents": 100,
+          "mergeConflicts": 19,
+          "semanticFailures": 0,
+          "duplicateWork": 94,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 81,
+          "integrationLatencyUnits": 119,
+          "composableBatch": true
+        },
+        "C_imagine": {
+          "arm": "C_plus_imagine",
+          "agents": 100,
+          "mergeConflicts": 19,
+          "semanticFailures": 0,
+          "duplicateWork": 94,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 81,
+          "integrationLatencyUnits": 119,
+          "futuresImagined": 81,
+          "futuresKept": 81,
+          "futuresRejected": 0,
+          "predictiveConflicts": 0,
+          "planBestEnergy": 25.896037107160247,
+          "predictedCommitOk": true,
+          "imaginationBytes": 23028,
+          "perspectiveBytes": 6070,
+          "conventionalBytes": 1283000,
+          "sharedRegistryBytes": 12898,
+          "authoritativeBytes": 16154,
+          "ms": 8.863752000000005
+        },
+        "C_imagine_select": {
+          "arm": "C_imagine_select",
+          "agents": 100,
+          "mergeConflicts": 94,
+          "semanticFailures": 0,
+          "duplicateWork": 14,
+          "successfulCompositions": 1,
+          "usefulCompletedTasks": 86,
+          "integrationLatencyUnits": 114,
+          "futuresImagined": 100,
+          "futuresKept": 86,
+          "futuresRejected": 14,
+          "predictiveConflicts": 94,
+          "planBestEnergy": 30.493760428639845,
+          "predictedCommitOk": true,
+          "imaginationBytes": 29256,
+          "perspectiveBytes": 7682,
+          "conventionalBytes": 1283000,
+          "sharedRegistryBytes": 12898,
+          "authoritativeBytes": 17099,
+          "ms": 6.627884999999992
+        }
+      },
+      "deltaUseful": 0,
+      "deltaUsefulSelect": 5,
+      "deltaConflicts": 0
+    }
+  ],
+  "honesty": "Same buildWorkload seeds as comparative-bench arm C. No external WFM weights. Imagination is category C and cannot overwrite authoritative state without approval."
+}

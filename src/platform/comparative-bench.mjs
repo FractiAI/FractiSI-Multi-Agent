@@ -19,7 +19,7 @@ function mulberry32(seed) {
   };
 }
 
-function buildWorkload(agentCount, seed, opts = {}) {
+export function buildWorkload(agentCount, seed, opts = {}) {
   const rand = mulberry32(seed);
   const sharedFiles = Array.from({ length: opts.sharedFiles || 20 }, (_, i) => `src/shared/module_${i}.mjs`);
   const tasks = [];
@@ -111,7 +111,7 @@ function armB_tinyFootprintOnly(workload) {
   };
 }
 
-function armC_fractisi(workload) {
+export function armC_fractisi(workload) {
   const platform = createPlatform();
   platform.coordination.connectProject({ name: 'bench', root: '/tmp/fractisi-bench' });
   const contribIds = [];

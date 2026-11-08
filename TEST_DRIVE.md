@@ -10,7 +10,7 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 **Hero:** *The Multi-Agent World Inference Rhyme?* · Applied Active Inference Symposium (Nov 12–13, 2026)
 
-### Arc (11 beats · about twenty minutes · plain English)
+### Arc (12 beats · about twenty minutes · plain English)
 
 Voice: spare, confident, product-keynote. The objective is to **demonstrate**, not to ask the audience to decide.
 
@@ -24,7 +24,8 @@ Voice: spare, confident, product-keynote. The objective is to **demonstrate**, n
 8. **Test 3** (`#3`) — same job, different words · exact-text cache vs Rhyming Templates  
 9. **Test 4** (`#4`) — the answer was always there · 100 vs 0 discoveries  
 10. **How it fits** (`#how-stack`) — stack tree + named ladder · `/media/fractisi-multi-agent-stack-tree.jpg`  
-11. **Go further** (`#invite`) — recap of what the visitor ran · explore · connect · beta
+11. **What’s new** (`#futures`) — Predictive Shared State: rehearse futures before touching the real world · C+imagine_select measured lift at 32/100 agents
+12. **Go further** (`#invite`) — recap · explore · World Model research · connect · beta
 
 Each test shows *the test* and *what to watch* before it runs, then a results card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally so the last beat can recap them.
 

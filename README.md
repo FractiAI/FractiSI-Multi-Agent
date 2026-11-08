@@ -58,6 +58,7 @@ These are the outcomes multi-agent teams come here for. Digital architectural / 
 | Goal | — | Denser fleets · less duplicated effort · composed outcomes |
 
 **Empirical companion:** [FractiAI/tiny-oracle-lob-pilot](https://github.com/FractiAI/tiny-oracle-lob-pilot) · `npm run multi-agent` · `npm run shine`  
+**World Model Assimilation (research):** [docs/research/world-model-assimilation/](./docs/research/world-model-assimilation/) · `npm run research:world-model-assimilation`  
 **Platform architecture:** [docs/product/FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_2026-11.md](./docs/product/FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_2026-11.md)  
 **Tiny Footprint product paper:** [docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md](./docs/product/TINY_FOOTPRINT_MULTI_AGENT_2026-11.md) · live: [fractisi.vercel.app/library/papers/tiny-footprint-multi-agent](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/)  
 **Expedition 002 · Beyond Memory:** [docs/product/FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md](./docs/product/FRACTISI_EXPEDITION_002_BEYOND_MEMORY_2026-11.md) · [library](https://fractisi.vercel.app/library/papers/fractisi-expedition-002-beyond-memory/) · [brochure](https://fractisi.vercel.app/docs/web/expedition-002-brochure.html)
