@@ -6,9 +6,11 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ## What this Test Drive is
 
-**One comprehensive track** — the same steps in the browser ([`/test-drive/`](https://fractisi.vercel.app/test-drive/)) and in the CLI. Primer included; do not send the audience to the product page for first listen. Optional speaker deck for presenters only (`/talks/aai-symposium-2026/`) — not a parallel audience track.
+**Hero:** *The Multi-Agent World Inference Rhyme?* — a short **peek** for the Applied Active Inference Symposium (Nov 12–13, 2026). Goal: expose and whet curiosity — **not** train the room in FractiSI or Active Inference.
 
-Framed for the Applied Active Inference Symposium as **structural kinship** (“possible rhyme”) with Active Inference: **humans are agents too** in a shared world (**not** framework identity, **not** the four-pillar software gate).
+**One audience track** — browser [`/test-drive/`](https://fractisi.vercel.app/test-drive/) (hero → four plain pages → optional live tastes) and the same runners in the CLI. Optional speaker deck for presenters only (`/talks/aai-symposium-2026/`).
+
+Framing: **possible kinship** with Active Inference — **humans are agents too** in one shared world (**not** framework identity, **not** the four-pillar software gate).
 
 ### What we mean by Net Zero (locked · define before rhyme)
 
@@ -46,7 +48,7 @@ Then live labs:
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
-**Browser:** https://fractisi.vercel.app/test-drive/ — four primer pages (no Run / no Measure panel) → seven live labs with Run. Keys ← →; **R** runs labs only. Live results via `/api/testdrive`.
+**Browser:** https://fractisi.vercel.app/test-drive/ — hero gate → four peek pages (no Run) → optional live labs. Keys ← →; **R** runs labs only. Live results via `/api/testdrive`.
 
 ## Human one-liner
 

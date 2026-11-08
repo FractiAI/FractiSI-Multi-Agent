@@ -12,7 +12,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-Open with the **four-page primer** (teach only — no Measure panel): `#primer` shared world → `#primer-net-zero` (balanced zero, not nothing zero) → `#primer-rhyme` (four pillars) → `#primer-map` (short product map). Then labs `#1`…`#7` with Run. Definitions: `src/testdrive/net-zero-definition.mjs` · `src/testdrive/rhyme-definition.mjs` · `src/engine/rhyming/gate.mjs`. Symposium “possible rhyme with Active Inference” = kinship only — not the software gate, not identity. CLI: `testdrive primer` then `1`…`7`. Emphasize lab 3 (rhyme gate) and 4–5. Deploy is paid (Team+).
+Audience hero: **The Multi-Agent World Inference Rhyme?** (Applied Active Inference Symposium). Goal = **peek / whet appetite**, not field training. Browser: hero gate → `#primer` (shared world kinship) → `#primer-net-zero` (balanced zero) → `#primer-rhyme` (two senses of rhyme) → `#primer-map` → optional labs `#1`…`#7`. Definitions: `src/testdrive/net-zero-definition.mjs` · `src/testdrive/rhyme-definition.mjs` · `src/engine/rhyming/gate.mjs`. Symposium “possible rhyme with Active Inference” = kinship only — not the software gate, not identity. CLI: `testdrive primer` then `1`…`7`. Deploy is paid (Team+).
 
 ## Commands
 

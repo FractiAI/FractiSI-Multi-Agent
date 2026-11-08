@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test Drive · FractiSI Multi-Agent</title>
-  <meta name="description" content="FractiSI Multi-Agent Test Drive — one track: stack map, live labs, Previous / Next. Optional IDE CLI and speaker deck.">
+  <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
+  <meta name="description" content="A short peek for the Applied Active Inference Symposium: FractiSI Multi-Agent as a possible multi-agent world inference rhyme — one shared world, many agents including us. Not a course. Not framework identity.">
   <link rel="stylesheet" href="/css/site.css?v=34">
   <meta http-equiv="Cache-Control" content="no-cache">
   <style>
@@ -366,6 +366,85 @@
       font-size: 0.92rem;
       color: var(--td-muted);
     }
+
+    .td-hero {
+      min-height: calc(100vh - 3.55rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 1.35rem 5.5rem;
+      max-width: 40rem;
+      margin: 0 auto;
+      position: relative;
+    }
+    .td-hero::before {
+      content: "";
+      position: absolute;
+      inset: -2rem -20vw auto;
+      height: 55vh;
+      background:
+        radial-gradient(ellipse 70% 60% at 18% 30%, rgba(31, 61, 52, 0.16), transparent 70%),
+        radial-gradient(ellipse 55% 50% at 88% 10%, rgba(214, 194, 122, 0.18), transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .td-hero > * { position: relative; z-index: 1; }
+    .td-hero .brand {
+      font-family: var(--sans);
+      font-size: clamp(1.65rem, 3.5vw, 2.1rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      color: var(--td-forest);
+      margin: 0 0 1.35rem;
+    }
+    .td-hero h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.15rem, 6vw, 3.35rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--td-ink);
+    }
+    .td-hero .event {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      margin: 0 0 1.1rem;
+    }
+    .td-hero .deck {
+      font-size: 1.2rem;
+      line-height: 1.45;
+      color: var(--td-muted);
+      margin: 0 0 1.75rem;
+      max-width: 34rem;
+    }
+    .td-hero .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+    .td-hero .cta-note {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--td-muted);
+    }
+    .td-hero .soft-links {
+      margin-top: 2rem;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--td-muted);
+    }
+    .td-hero .soft-links a {
+      color: var(--td-forest);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 61, 52, 0.35);
+    }
+
+    .lesson-shell.is-gated { display: none; }
   </style>
 </head>
 <body>
@@ -379,23 +458,35 @@
     </nav>
   </header>
 
-  <div class="lesson-shell">
-    <div class="progress-rail" aria-label="Lesson progress">
+  <section class="td-hero" id="td-hero" aria-label="Test Drive welcome">
+    <p class="brand">FractiSI Multi-Agent</p>
+    <h1>The Multi-Agent World Inference Rhyme?</h1>
+    <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
+    <p class="deck">A short peek at one shared world for many agents — including us. Possible kinship with Active Inference. Not a course. Not a claim the frameworks are the same.</p>
+    <div class="cta-row">
+      <button type="button" class="btn btn-run" id="btn-start" data-action="start">Peek inside →</button>
+      <span class="cta-note">A few plain pages, then optional live labs.</span>
+    </div>
+    <p class="soft-links"><a href="/blog/aai-symposium-2026/">Symposium note</a> · <a href="/talks/aai-symposium-2026/">Speaker deck</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a></p>
+  </section>
+
+  <div class="lesson-shell is-gated" id="lesson-shell">
+    <div class="progress-rail" aria-label="Peek progress">
       <div class="progress-top">
-        <span id="progress-label">Lesson 01 · Primer</span>
-        <span class="eta" id="progress-eta">4 primer pages · 7 labs</span>
+        <span id="progress-label">Peek 01</span>
+        <span class="eta" id="progress-eta">short peek · optional labs</span>
       </div>
       <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
-      <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump to lesson"></div>
+      <div class="progress-dots" id="progress-dots" role="tablist" aria-label="Jump"></div>
     </div>
 
     <article class="lesson" id="lesson" aria-live="polite">
-      <p class="eyebrow" id="eyebrow">Lesson</p>
+      <p class="eyebrow" id="eyebrow">Peek</p>
       <h1 id="title">Loading…</h1>
       <p class="promise" id="promise"></p>
       <div class="teach" id="teach"></div>
 
-      <p class="teach-continue is-hidden" id="teach-continue">Use <strong>Next →</strong> when this page is clear. Labs with a live Run panel start after the primer.</p>
+      <p class="teach-continue is-hidden" id="teach-continue">Curious? Hit <strong>Next →</strong>. Live labs are optional — a taste, not homework.</p>
 
       <section class="lab-panel is-hidden" id="lab-panel" aria-label="Live lab">
         <p class="lab-title" id="lab-title">Live lab</p>
@@ -413,12 +504,13 @@
       </section>
 
       <section class="finish" id="finish" aria-label="Test Drive complete">
-        <h2>Test Drive complete.</h2>
-        <p>Same track in an IDE: clone the kit and run <code>node scripts/tiny.mjs testdrive</code> (or ask your agent to do the Test Drive). Deploy remains paid.</p>
+        <h2>That’s the peek.</h2>
+        <p>If anything here rhymes with how you think about agents and a shared world, keep going — clone the kit, open the papers, or write us after the symposium. If not, you still got a fair look. Deploy stays paid; the peek does not need an account.</p>
         <div class="finish-actions">
-          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub →</a>
-          <a class="btn-secondary" href="/product/pricing/">Pricing</a>
-          <a class="btn-secondary" href="/talks/aai-symposium-2026/">Speaker deck (optional)</a>
+          <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Explore the kit →</a>
+          <a class="btn-secondary" href="/blog/aai-symposium-2026/">Symposium note</a>
+          <a class="btn-secondary" href="/product/">Product</a>
+          <a class="btn-secondary" href="/research/#open-evaluation">Open evaluation</a>
         </div>
       </section>
     </article>
@@ -440,20 +532,20 @@
         n: 0,
         primerIndex: 1,
         primerTotal: 4,
-        title: 'One shared world',
-        promise: 'Cold start in four short pages — no meters yet.',
+        title: 'Agents in one shared world',
+        promise: 'The kinship this room already cares about — said plainly.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">The problem</p>
-            <p>Most multi-agent setups give every agent a <strong>private full copy</strong> of the same context. Ten agents → ten reprints of the world before specialized work starts. Humans in the loop get treated the same way: another private dump.</p>
+            <p class="label">Why you are here</p>
+            <p>Active Inference people already treat agents as systems that must keep a grip on a changing world — with different observations, beliefs, and actions. <strong>Humans count.</strong> FractiSI Multi-Agent asks whether a computational stack can rhyme with that picture: many agents, including us, inside <strong>one shared world</strong> instead of N private reprints.</p>
           </div>
           <div class="teach-block">
-            <p class="label">FractiSI Multi-Agent</p>
-            <p>Keep <strong>one shared world</strong>. Agents (and people) hold only what they need on top of it. That is the product idea. Everything else in this Test Drive — Net Zero, rhyme, Tiny Footprint, Coordination — is how that idea is named and measured.</p>
+            <p class="label">The everyday snag</p>
+            <p>Most multi-agent setups still hand every participant a full private copy of context. Ten agents → ten reprints before anyone does useful work. People in the loop get the same treatment: another dump.</p>
           </div>
           <div class="teach-block">
-            <p class="label">What you will leave with</p>
-            <p>Working meaning for <strong>Net Zero</strong> and <strong>rhyme</strong>, a short product map, then seven live labs that run the same kit as the CLI. No account. No cloud token for the Test Drive.</p>
+            <p class="label">This peek</p>
+            <p>Not a training course in FractiSI or Active Inference. A short look at names and a few live tastes — enough to decide if you want to explore further after the symposium.</p>
           </div>
         `,
       },
@@ -463,24 +555,20 @@
         n: 0,
         primerIndex: 2,
         primerTotal: 4,
-        title: 'Net Zero',
-        promise: 'Balanced zero, not nothing zero — define this before rhyme.',
+        title: 'Net Zero — balanced zero',
+        promise: 'Home base of the shared world. One line to remember.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">Punch line</p>
+            <p class="label">Remember this</p>
             <p><strong>Balanced zero, not nothing zero.</strong></p>
           </div>
           <div class="teach-block">
-            <p class="label">What it is</p>
-            <p><strong>Net Zero (octave 0)</strong> is the active-equilibrium root of the shared world. Opposing contributions cancel into a viable operating band while work continues — cancel-to-balance under continuous activity. Stillness is not required. Here <strong>Goldilocks ≡ Net Zero</strong>: the “just right” band files as the same living balance.</p>
+            <p class="label">In plain words</p>
+            <p><strong>Net Zero</strong> is the living balance point of the shared world — forces cancel into a workable band while activity continues. Not an empty void. Not a freeze. Stillness is not required.</p>
           </div>
           <div class="teach-block">
-            <p class="label">Why it matters here</p>
-            <p>Octave 0 is home base. Nested structure and holographic rhymes hang from this balanced root. A mid-level nest with no Net Zero root is not a rhyme in this product.</p>
-          </div>
-          <div class="teach-block notice">
-            <p class="label">Not Net Zero here</p>
-            <p>Nothing zero (empty void / blank null) · dead stillness · climate-policy “net zero” slogans · certified zero-watt Super Intelligence · GR singularity proofs.</p>
+            <p class="label">Why it shows up here</p>
+            <p>If agents (human or software) share one world, that world needs a stable home base. Later pages hang “rhyme” off this root. Skip the catalog weeds for now; the punch line is enough for a first listen.</p>
           </div>
         `,
       },
@@ -490,34 +578,20 @@
         n: 0,
         primerIndex: 3,
         primerTotal: 4,
-        title: 'Holographic rhyme',
-        promise: 'Organization grammar rooted at Net Zero — not “sounds alike.”',
+        title: 'What “rhyme” means here',
+        promise: 'Two senses — keep them separate.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">After Net Zero</p>
-            <p>A <strong>holographic rhyme</strong> is motion / organization grammar under Infinite Octaves. It is not a synonym for “sounds alike,” not exact-text match, and not a prefix-cache hit.</p>
+            <p class="label">Symposium sense</p>
+            <p><strong>Possible rhyme with Active Inference</strong> = structural kinship worth trying together: shared world, many agents including humans. Invitation — not “these frameworks are the same.”</p>
           </div>
           <div class="teach-block">
-            <p class="label">Gate — all four pillars required</p>
-            <p>Rooted at <strong>Net Zero (octave 0)</strong> — balanced zero — and ascending Infinite Octaves:</p>
-            <ol class="ladder">
-              <li><span class="n">·</span><span><strong>Repeating</strong> — same organization across expressions (shape; words may differ).</span></li>
-              <li><span class="n">·</span><span><strong>Self-similar</strong> — local blueprint mirrors the whole.</span></li>
-              <li><span class="n">·</span><span><strong>Self-correcting</strong> — drift dampens toward Net Zero.</span></li>
-              <li><span class="n">·</span><span><strong>Recursive</strong> — nests from Net Zero up the octave ladder (mid-octave-only fails).</span></li>
-            </ol>
-          </div>
-          <div class="teach-block notice">
-            <p class="label">Not a rhyme</p>
-            <p>Exact-text / prefix alone · schema-key match alone · brick-wall repetition · mid-octave nest without Net Zero.</p>
+            <p class="label">Product sense (software gate)</p>
+            <p>A <strong>holographic rhyme</strong> is shared organization, not identical wording. It passes only when four motions hold from Net Zero up a nesting ladder: repeating · self-similar · self-correcting · recursive. Exact-text / prefix cache alone is useful — and is <em>not</em> this gate.</p>
           </div>
           <div class="teach-block">
-            <p class="label">Product name</p>
-            <p><strong>Rhyming Templates</strong> (Tiny Gateway) are reusable patterns that pass this gate — so differently worded sessions can share organization. Papers: <a href="/library/papers/holographic-rhyme/">holographic rhyme</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
-          </div>
-          <div class="teach-block">
-            <p class="label">Symposium wording (different sense)</p>
-            <p>“Possible rhyme with Active Inference” = structural kinship for joint experiments (shared world, humans as agents too). Not this software gate. Not framework identity.</p>
+            <p class="label">Taste, not mastery</p>
+            <p>You do not need to memorize the pillars. Lab 3 later shows the contrast live if you want it. Papers wait when curiosity bites: <a href="/library/papers/holographic-rhyme/">holographic rhyme</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>.</p>
           </div>
         `,
       },
@@ -527,26 +601,20 @@
         n: 0,
         primerIndex: 4,
         primerTotal: 4,
-        title: 'Product map',
-        promise: 'Names you will meet in the labs — keep this short.',
+        title: 'A short product map',
+        promise: 'Just enough names to recognize the labs — then optional Run.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">Working picture</p>
-            <p>Generative possibility → <strong>Net Zero</strong> (balanced zero) → nesting scale (Φ) → <strong>Infinite Octaves</strong> → <strong>holographic rhyme</strong> → <strong>Rhyming Templates / Tiny Gateway</strong> → <strong>Tiny Footprint</strong> → Coordination · Shared state · Composition → Git awareness → Deploy (paid).</p>
+            <p class="label">Picture</p>
+            <p>Shared world rooted at <strong>Net Zero</strong> → nesting depth → <strong>rhyme</strong> (organization reuse) → <strong>Tiny Gateway / Tiny Footprint</strong> (density) → Coordination · Shared state · Composition → Git awareness → Deploy (paid).</p>
           </div>
           <div class="teach-block">
-            <p class="label">What the labs will do</p>
-            <ol class="ladder">
-              <li><span class="n">1–2</span><span><strong>Tiny Footprint</strong> — shared world vs N copies (then after gzip).</span></li>
-              <li><span class="n">3</span><span><strong>Rhyme vs exact cache</strong> — four-pillar gate on differing words.</span></li>
-              <li><span class="n">4–5</span><span><strong>Selective reconstruction</strong> — discovery and convergence.</span></li>
-              <li><span class="n">6</span><span><strong>Coordination · Shared state · Composition</strong> — ownership before blind merge.</span></li>
-              <li><span class="n">7</span><span><strong>Density · Git awareness · Deploy</strong> — Community free; Deploy paid.</span></li>
-            </ol>
+            <p class="label">Optional live tastes</p>
+            <p>Labs 1–2: stop reprinting the world. Lab 3: rhyme vs exact cache. Labs 4–5: find buried structure without thrashing. Lab 6: coordinate before blind merge. Lab 7: density, Git, paid Deploy. Skip any lab; curiosity is the only syllabus.</p>
           </div>
           <div class="teach-block">
-            <p class="label">Next</p>
-            <p>Hit <strong>Next →</strong> for Lab 1. Each lab has a short teach block, then a <strong>Run</strong> that executes the same kit as <code>node scripts/tiny.mjs testdrive</code>.</p>
+            <p class="label">No gatekeeping</p>
+            <p>No FractiSI account. No cloud token for this peek. Same runners exist in an IDE if you clone later.</p>
           </div>
         `,
       },
@@ -725,11 +793,15 @@
     ];
 
     const ORDER = STEPS.map((s) => s.id);
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v2';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v3';
     const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
     let index = 0;
     let running = false;
+    let trackOpen = false;
 
+    const heroEl = document.getElementById('td-hero');
+    const shellEl = document.getElementById('lesson-shell');
+    const bottomNav = document.querySelector('.bottom-nav');
     const progressLabel = document.getElementById('progress-label');
     const progressFill = document.getElementById('progress-fill');
     const progressDots = document.getElementById('progress-dots');
@@ -761,9 +833,26 @@
 
     function kindLabel(s) {
       if (isTeach(s) && s.primerIndex) {
-        return 'Primer ' + s.primerIndex + ' / ' + s.primerTotal;
+        return 'Peek ' + s.primerIndex + ' / ' + s.primerTotal;
       }
-      return s.n === 0 ? 'Primer' : 'Lab ' + s.n;
+      return s.n === 0 ? 'Peek' : 'Taste ' + s.n;
+    }
+
+    function openTrack(startId) {
+      trackOpen = true;
+      heroEl.classList.add('is-hidden');
+      shellEl.classList.remove('is-gated');
+      if (bottomNav) bottomNav.classList.remove('is-hidden');
+      show(startId || 'primer');
+    }
+
+    function showHero() {
+      trackOpen = false;
+      heroEl.classList.remove('is-hidden');
+      shellEl.classList.add('is-gated');
+      if (bottomNav) bottomNav.classList.add('is-hidden');
+      history.replaceState(null, '', '/test-drive/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function renderDots() {
@@ -781,42 +870,43 @@
     }
 
     function show(id) {
+      if (!trackOpen) openTrack(id);
       const i = ORDER.indexOf(id);
       index = i >= 0 ? i : 0;
       const s = current();
       const total = STEPS.length;
-      const lessonNo = String(index + 1).padStart(2, '0');
+      const peekNo = String(index + 1).padStart(2, '0');
       const kind = kindLabel(s);
       const teach = isTeach(s);
 
-      progressLabel.textContent = 'Lesson ' + lessonNo + ' · ' + kind;
+      progressLabel.textContent = 'Stop ' + peekNo + ' · ' + kind;
       progressFill.style.width = ((index + 1) / total * 100).toFixed(1) + '%';
-      eyebrow.textContent = kind + ' · FractiSI Multi-Agent';
+      eyebrow.textContent = kind + ' · Applied Active Inference Symposium';
       titleEl.textContent = s.title;
       promiseEl.textContent = s.promise;
       teachEl.innerHTML = s.teach;
       btnPrev.disabled = index === 0;
-      btnNext.textContent = index >= total - 1 ? 'Finish' : 'Next →';
+      btnNext.textContent = index >= total - 1 ? 'That’s the peek' : 'Next →';
 
       if (teach) {
         labPanel.classList.add('is-hidden');
         teachContinue.classList.remove('is-hidden');
         if (centerHint) {
-          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · no Run on primer pages';
+          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · optional labs later';
         }
         done.add(s.id);
         saveDone();
       } else {
         labPanel.classList.remove('is-hidden');
         teachContinue.classList.add('is-hidden');
-        labTitle.textContent = 'Live lab';
+        labTitle.textContent = 'Live taste';
         labHint.textContent = s.labHint || '';
         btnRun.textContent = s.runLabel || 'Run';
         if (centerHint) {
           centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs';
         }
         resultsEl.classList.add('is-empty');
-        resultsEl.textContent = 'Press Run to execute this lab.';
+        resultsEl.textContent = 'Press Run for a live taste — skip anytime.';
         takeawayEl.classList.remove('is-open');
         takeawayEl.innerHTML = '';
         honestyEl.textContent = '';
@@ -830,6 +920,10 @@
     }
 
     function goNext() {
+      if (!trackOpen) {
+        openTrack('primer');
+        return;
+      }
       if (index >= STEPS.length - 1) {
         finishEl.classList.add('is-open');
         finishEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -839,7 +933,12 @@
     }
 
     function goPrev() {
-      if (index > 0) show(ORDER[index - 1]);
+      if (!trackOpen) return;
+      if (index === 0) {
+        showHero();
+        return;
+      }
+      show(ORDER[index - 1]);
     }
 
     async function runLab() {
@@ -895,7 +994,10 @@
       const t = e.target && e.target.closest ? e.target.closest('[data-action]') : null;
       if (!t) return;
       const action = t.getAttribute('data-action');
-      if (action === 'run') {
+      if (action === 'start') {
+        e.preventDefault();
+        openTrack('primer');
+      } else if (action === 'run') {
         e.preventDefault();
         runLab();
       } else if (action === 'next') {
@@ -909,6 +1011,12 @@
 
     window.addEventListener('keydown', (e) => {
       if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+      if (!trackOpen && (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N')) {
+        e.preventDefault();
+        openTrack('primer');
+        return;
+      }
+      if (!trackOpen) return;
       if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
         e.preventDefault();
         goNext();
@@ -921,8 +1029,10 @@
       }
     });
 
+    if (bottomNav) bottomNav.classList.add('is-hidden');
     const hash = (location.hash || '').replace(/^#/, '');
-    show(ORDER.includes(hash) ? hash : 'primer');
+    if (ORDER.includes(hash)) openTrack(hash);
+    else showHero();
   </script>
 </body>
 </html>
