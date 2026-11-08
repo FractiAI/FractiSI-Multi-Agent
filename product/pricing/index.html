@@ -5,52 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FractiSI Multi-Agent · Pricing</title>
   <meta name="description" content="FractiSI Multi-Agent pricing: Community free · Developer Pro $59/mo · Team $299/mo · Enterprise from $30k/yr · Cloud custom.">
-  <link rel="stylesheet" href="../../css/site.css?v=26">
+  <link rel="stylesheet" href="../../css/site.css?v=35">
   <style>
-    .price-grid { display:grid; gap:1.25rem; margin:1.5rem 0 2rem; }
+    .price-grid { display: grid; gap: 1rem; margin: 1.4rem 0 2.2rem; }
     @media (min-width: 900px) {
       .price-grid { grid-template-columns: repeat(2, 1fr); }
       .price-grid .span-2 { grid-column: 1 / -1; }
     }
     .price-card {
-      border: 1px solid rgba(201,162,39,.45);
-      background: #0b1220;
-      color: #f7f4ec;
-      padding: 1.25rem 1.35rem 1.4rem;
-      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem 1.5rem;
     }
-    .price-card h3 { margin: 0 0 .35rem; font-size: 1.15rem; color: #f3e6c0; }
+    .price-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0 0 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
     .price-card .amt {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #c9a227;
-      margin: .2rem 0 .8rem;
+      margin: 0 0 0.7rem;
+      font-size: 2.1rem;
+      font-weight: 640;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
     }
-    .price-card .amt small { font-size: .85rem; font-weight: 500; color: rgba(247,244,236,.75); }
-    .price-card ul { margin: 0; padding-left: 1.1rem; }
-    .price-card li { margin: .35rem 0; color: #f7f4ec; }
-    .price-card .who { color: rgba(247,244,236,.78); font-size: .95rem; margin: 0 0 .75rem; }
-    .price-card a { color: #f3e6c0; }
-    .price-card.featured { box-shadow: inset 0 0 0 1px #c9a227; }
-    .metric-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem; }
-    .metric-table th, .metric-table td { border-bottom: 1px solid var(--line); padding: .55rem .4rem; text-align: left; vertical-align: top; }
-    .badge { display:inline-block; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:#0b1424; background:#c9a227; padding:.15rem .45rem; border-radius:2px; margin-left:.35rem; }
-    .diff-board {
-      display:grid; gap:1rem; margin:1.25rem 0 1.75rem;
-      padding:1.15rem 1.2rem 1.25rem;
-      border:1px solid rgba(201,162,39,.55);
-      background: #0b1220;
-      color: #f7f4ec;
+    .price-card .amt small { font-size: 0.9rem; font-weight: 500; letter-spacing: 0; color: var(--muted); }
+    .price-card .who { margin: 0 0 1rem; color: var(--ink-2); font-size: 0.98rem; line-height: 1.5; }
+    .price-card ul { margin: 0 0 1.2rem; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .price-card li { margin: 0; padding: 0.55rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; color: var(--ink-2); }
+    .price-card p:last-child { margin: auto 0 0; }
+    .price-card p:last-child a {
+      display: inline-block;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 560;
+      text-decoration: none;
     }
-    @media (min-width: 800px) { .diff-board { grid-template-columns: repeat(3, 1fr); } }
-    .diff-board h2 { grid-column: 1 / -1; margin: 0 0 .15rem; font-size:1.35rem; color:#f3e6c0; font-family: var(--sans); }
-    .diff-board .why { grid-column: 1 / -1; margin: 0 0 .35rem; color: rgba(247,244,236,.9); }
-    .diff-stat { border-left: 3px solid #c9a227; padding: .15rem 0 .15rem .85rem; }
-    .diff-stat .num { display:block; font-size:1.55rem; font-weight:700; color:#c9a227; line-height:1.2; margin:.2rem 0; }
-    .diff-stat .label { display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(247,244,236,.72); }
-    .diff-stat p { margin:.35rem 0 0; font-size:.92rem; color:#f7f4ec; }
-    .diff-board .foot { grid-column: 1 / -1; margin:.35rem 0 0; font-size:.9rem; color:rgba(247,244,236,.78); }
-    .diff-board a { color: #f3e6c0; }
+    .price-card p:last-child a:hover { border-color: var(--ink); }
+    .price-card.featured {
+      background: radial-gradient(700px 240px at 100% 0%, rgba(127, 209, 176, 0.12), transparent 60%), var(--night);
+      color: var(--on-night);
+      border-color: var(--night);
+      box-shadow: var(--shadow);
+    }
+    .price-card.featured h3 { color: #7fd1b0; }
+    .price-card.featured .amt { color: #fff; }
+    .price-card.featured .amt small, .price-card.featured .who { color: var(--on-night-muted); }
+    .price-card.featured ul, .price-card.featured li { border-color: var(--night-line); color: var(--on-night); }
+    .price-card.featured p:last-child a { background: #fff; color: var(--ink); border-color: #fff; }
+    .price-card.featured p:last-child a:hover { background: #e8ece9; }
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(14, 74, 56, 0.08);
+      border: 1px solid rgba(14, 74, 56, 0.2);
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+    }
+    .price-card.featured .badge { color: #7fd1b0; background: rgba(127, 209, 176, 0.1); border-color: rgba(127, 209, 176, 0.3); }
+    .meter-table td:first-child { font-weight: 600; }
   </style>
 </head>
 <body>
@@ -70,94 +102,26 @@
     </nav>
   </header>
 
-  <img class="banner" src="../../media/fractisi-markets.jpg?v=23" alt="FractiSI Multi-Agent editions: Local, Server, and Cloud — one engine.">
   <main class="wrap">
     <article class="page">
-      <p class="kicker">Pricing · FractiSI Multi-Agent</p>
-      <h1>Plans for shared-world intelligence</h1>
-      <p class="lede"><strong>One shared world. Many perspectives. New discoveries. Faster convergence. Better decisions.</strong></p>
-      <p>FractiSI Multi-Agent sits beside Cursor, Claude Code, VS Code, and Git — shared-world intelligence and coordination for agent fleets, not another coding assistant. You buy concurrent coordinated capacity and edition capability, not model tokens and not per-discovery fees.</p>
-
-      <div class="plan-strip" role="region" aria-label="Pricing plans">
-        <h2>At a glance</h2>
-        <p class="promise">Software that runs on your machines — we do not host your servers.</p>
-        <div class="plans">
-          <div class="plan">
-            <span class="name">Community</span>
-            <span class="amt">Free</span>
-            <span class="buy">Try the architecture on your machine</span>
-          </div>
-          <div class="plan featured">
-            <span class="name">Developer Pro</span>
-            <span class="amt">$59/mo</span>
-            <span class="buy">Personal fleet · up to 8 concurrent agents</span>
-          </div>
-          <div class="plan">
-            <span class="name">Team</span>
-            <span class="amt">$299/mo</span>
-            <span class="buy">Shared worlds · up to 32 concurrent agents</span>
-          </div>
-          <div class="plan">
-            <span class="name">Enterprise</span>
-            <span class="amt">From $30k/yr</span>
-            <span class="buy">License + support on your servers</span>
-          </div>
-          <div class="plan">
-            <span class="name">Cloud</span>
-            <span class="amt">Custom</span>
-            <span class="buy">Custom license + support — you run the cloud</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="diff-board" role="region" aria-label="Why teams visit">
-        <h2>Why teams visit</h2>
-        <p class="why">Results versus flat skim, full-copy fleets, gzip-only packs, and exact-text cache — measured in FractiSI labs.</p>
-        <div class="diff-stat">
-          <span class="label">Sees what flat models miss</span>
-          <span class="num">100 / 100 vs 0 / 100</span>
-          <p>Guided shared-world recovery finds chains and solutions flat skim never assembles under the same budget.</p>
-        </div>
-        <div class="diff-stat">
-          <span class="label">Converges faster</span>
-          <span class="num">−50% rounds · −85% ops</span>
-          <p>Fewer propagation rounds and operations on the same constrained discovery path.</p>
-        </div>
-        <div class="diff-stat">
-          <span class="label">Density vs full-copy</span>
-          <span class="num">36× – 62×</span>
-          <p>Shared world once; per-agent difference only — denser fleets in the same memory budget.</p>
-        </div>
-        <div class="diff-stat">
-          <span class="label">Still ahead after gzip</span>
-          <span class="num">~42%+</span>
-          <p>Compression shrinks copies; it does not remove the cross-copy tax FractiSI is built to avoid.</p>
-        </div>
-        <div class="diff-stat">
-          <span class="label">When words differ</span>
-          <span class="num">Rhyme beats exact cache</span>
-          <p>Same-shape sessions with different wording favor rhyming templates over exact-text cache.</p>
-        </div>
-        <div class="diff-stat">
-          <span class="label">Tiny Gateway engine</span>
-          <span class="num">84.5% · 81.4%</span>
-          <p>Representation and GPU-allocation density from the Tiny Footprint / Tiny Gateway core.</p>
-        </div>
-      </div>
+      <p class="kicker">Pricing</p>
+      <h1>Pay for concurrent agents, not tokens.</h1>
+      <p class="lede">Five editions. Community is free. Paid editions add concurrent coordinated agents, governance, and approval-gated deploy.</p>
+      <p>FractiSI Multi-Agent runs beside Cursor, Claude Code, VS Code, and Git. You buy concurrent coordinated capacity and edition capability. You do not buy model tokens, and there are no per-discovery fees. The software runs on your machines. We do not host your servers.</p>
 
       <h2>Editions</h2>
       <div class="price-grid">
         <div class="price-card">
           <h3>Community <span class="badge">Free</span></h3>
           <p class="amt">$0</p>
-          <p class="who">Open kit on your laptop or workstation.</p>
+          <p class="who">The open kit on your laptop or workstation.</p>
           <ul>
             <li>Local workstation installation</li>
             <li>Tiny Footprint shared-world engine</li>
             <li>Basic coordination and composition</li>
-            <li>GitHub · Git commits on your work</li>
+            <li>GitHub and Git commits on your work</li>
             <li>Open labs, Test Drive, and documentation</li>
-            <li><strong>No cloud deploy</strong> — deploy is paid</li>
+            <li>No cloud deploy. Deploy is a paid feature.</li>
           </ul>
           <p><a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get Community</a></p>
         </div>
@@ -165,13 +129,13 @@
         <div class="price-card featured">
           <h3>Developer Pro</h3>
           <p class="amt">$59 <small>/ month</small></p>
-          <p class="who">One operator · up to 8 concurrent agents on your machine.</p>
+          <p class="who">One operator. Up to 8 concurrent agents on your machine.</p>
           <ul>
             <li>Everything in Community</li>
             <li>Guided discovery and convergence workflows</li>
             <li>Richer receipts and profiling</li>
             <li>Priority documentation and updates</li>
-            <li>Local compose + Git — deploy still on Team+</li>
+            <li>Local composition and Git. Deploy starts at Team.</li>
           </ul>
           <p><a href="mailto:valetpru@gmail.com?subject=FractiSI%20Developer%20Pro">Request Developer Pro</a></p>
         </div>
@@ -179,11 +143,11 @@
         <div class="price-card">
           <h3>Team</h3>
           <p class="amt">$299 <small>/ month</small></p>
-          <p class="who">Your team · shared worlds · up to 32 concurrent agents · <strong>cloud deploy unlocks here</strong>.</p>
+          <p class="who">Your team, with shared worlds and up to 32 concurrent agents. Cloud deploy starts here.</p>
           <ul>
             <li>Shared organizational worlds</li>
             <li>Provenance and contribution governance</li>
-            <li>Approval-gated cloud deploy (needs cloud token)</li>
+            <li>Approval-gated cloud deploy (requires a cloud token)</li>
             <li>Multi-user administration</li>
             <li>Team support</li>
           </ul>
@@ -193,50 +157,89 @@
         <div class="price-card">
           <h3>Enterprise / Server</h3>
           <p class="amt">From $30,000 <small>/ year</small></p>
-          <p class="who"><strong>Software + support for your infrastructure</strong> — not a FractiSI-hosted server. You keep your GPUs, clusters, and cloud accounts; we license FractiSI Multi-Agent and help you run it there.</p>
+          <p class="who">Software and support for your infrastructure. You keep your GPUs, clusters, and cloud accounts. We license FractiSI Multi-Agent and help you run it there. It is not a FractiSI-hosted server.</p>
           <ul>
-            <li>Production license for your servers / agent hosts</li>
+            <li>Production license for your servers and agent hosts</li>
             <li>Install and integration support beside your existing stack</li>
             <li>Identity, policy, and governance guidance</li>
-            <li>Capacity planning help and named support</li>
-            <li>Architecture review — on your hardware, not ours</li>
+            <li>Capacity planning and named support</li>
+            <li>Architecture review on your hardware</li>
           </ul>
           <p><a href="mailto:valetpru@gmail.com?subject=FractiSI%20Enterprise">Talk to us</a></p>
         </div>
 
         <div class="price-card span-2">
-          <h3>Cloud · Custom</h3>
+          <h3>Cloud <span class="badge">Custom</span></h3>
           <p class="amt">Custom</p>
-          <p class="who"><strong>Software + support for your cloud</strong> — not FractiSI cloud infrastructure. You (or your customers) own and operate the GPUs, regions, and accounts; we license FractiSI Multi-Agent and support running it there under negotiated terms.</p>
+          <p class="who">Software and support for your cloud. You or your customers own and operate the GPUs, regions, and accounts. We license FractiSI Multi-Agent and support running it there under negotiated terms. It is not FractiSI cloud infrastructure.</p>
           <ul>
-            <li>Custom production license for provider / multi-tenant fleets</li>
+            <li>Custom production license for provider and multi-tenant fleets</li>
             <li>Integration and joint validation support on your stack</li>
             <li>Shared-world coordination guidance at fleet scale</li>
-            <li>OEM / resale commercial terms — you host, we support</li>
+            <li>OEM and resale commercial terms. You host, we support.</li>
           </ul>
           <p><a href="mailto:valetpru@gmail.com?subject=FractiSI%20Cloud%20Custom">Partner inquiry</a></p>
         </div>
       </div>
 
+      <h2>What the capacity buys</h2>
+      <p>Measured in FractiSI labs against flat skim, full per-agent copies, gzip-only packs, and exact-text cache.</p>
+      <div class="diff-board" role="region" aria-label="Lab results">
+        <h2>Lab results</h2>
+        <p class="why">Architectural and structured-state suites. Details are in the <a href="/library/">library</a>.</p>
+        <div class="diff-stat">
+          <span class="label">Discovery</span>
+          <span class="num">100 / 100 vs 0 / 100</span>
+          <p>Guided shared-world recovery finds chains and solutions that flat skim does not assemble under the same budget.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Convergence</span>
+          <span class="num">−50% rounds · −85% ops</span>
+          <p>Fewer propagation rounds and operations on the same constrained discovery path.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Density vs full copy</span>
+          <span class="num">36× – 62×</span>
+          <p>The shared world is stored once. Each agent adds only its difference, so more agents fit in the same memory budget.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">After gzip</span>
+          <span class="num">~42%+</span>
+          <p>Compression shrinks copies. It does not remove the cross-copy cost FractiSI is built to avoid.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">When wording differs</span>
+          <span class="num">Rhyme beats exact cache</span>
+          <p>Sessions with the same shape and different words favor rhyming templates over exact-text cache.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Tiny Gateway</span>
+          <span class="num">84.5% · 81.4%</span>
+          <p>Representation and GPU-allocation reduction from the Tiny Footprint and Tiny Gateway core.</p>
+        </div>
+      </div>
+
       <h2>How pricing works</h2>
-      <p>You pay for <strong>concurrent coordinated agents</strong> and the edition’s capabilities. Not model tokens. Not per discovery. FractiSI is software you run — Community and Pro on your workstation; Team, Enterprise, and Cloud on <em>your</em> infrastructure with our license and support.</p>
-      <table class="metric-table">
+      <p>You pay for concurrent coordinated agents and the capabilities of your edition. Community and Pro run on your workstation. Team, Enterprise, and Cloud run on your infrastructure with our license and support.</p>
+      <table class="meter-table">
         <thead><tr><th>Dimension</th><th>Treatment</th></tr></thead>
         <tbody>
           <tr><td>Human operators</td><td>Included by edition</td></tr>
           <tr><td>Concurrent coordinated agents</td><td>Primary capacity meter</td></tr>
-          <tr><td>Discovery · convergence · shared worlds</td><td>Capability by edition</td></tr>
-          <tr><td>Governance &amp; deploy</td><td>Team · Enterprise · Cloud</td></tr>
+          <tr><td>Discovery, convergence, shared worlds</td><td>Capability by edition</td></tr>
+          <tr><td>Governance and deploy</td><td>Team, Enterprise, Cloud</td></tr>
         </tbody>
       </table>
 
       <h2>Get started</h2>
-      <p><strong>Community (free)</strong> — clone <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>, Node 18+, run the Test Drive. Use GitHub for commits. Cloud deploy is not included.<br>
-      <strong>Pro</strong> — more capacity and intelligence workflows on your machine.<br>
-      <strong>Team+</strong> — governance and <strong>paid cloud deploy</strong> (set a cloud token + <code>FRACTISI_EDITION</code>).<br>
-      <strong>Enterprise / Cloud (Custom)</strong> — license and support so you can run FractiSI on infrastructure you already own or operate. We do not sell dedicated servers, cloud regions, or hosted GPU fleets.</p>
+      <ul>
+        <li><strong>Community.</strong> Clone <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>, install Node 18 or later, and run the Test Drive. Use GitHub for commits. Cloud deploy is not included.</li>
+        <li><strong>Pro.</strong> More concurrent capacity and guided workflows on your machine.</li>
+        <li><strong>Team and above.</strong> Governance and paid cloud deploy. Set a cloud token and <code>FRACTISI_EDITION</code>.</li>
+        <li><strong>Enterprise and Cloud.</strong> A license and support to run FractiSI on infrastructure you already own or operate. We do not sell dedicated servers, cloud regions, or hosted GPU fleets.</li>
+      </ul>
       <p>Questions: <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>.</p>
-      <p class="honesty">Lab figures are FractiSI measurements for product decisions, not CapEx guarantees. Commercial terms finalize at contract.</p>
+      <p class="honesty">Lab figures are FractiSI measurements for product decisions, not CapEx guarantees. Commercial terms are final at contract.</p>
     </article>
   </main>
 

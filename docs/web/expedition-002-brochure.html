@@ -3,15 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FractiSI · FractiSI Multi-Agent · Expedition 002 Brochure</title>
-  <meta name="description" content="One world. Many agents. Minimal duplicated state — plus Expedition 002 discovery findings.">
-  <link rel="stylesheet" href="../../css/site.css?v=26">
+  <title>Expedition 002 · Brochure · FractiSI Multi-Agent</title>
+  <meta name="description" content="One world, many agents, minimal duplicated state. Expedition 002 lab results: 100/100 vs 0/100 discovery, 36–62× density, 84.5% Tiny Gateway.">
+  <link rel="stylesheet" href="../../css/site.css?v=35">
   <style>
-    .brochure { max-width: 48rem; }
-    .brochure h2 { margin-top: 2rem; }
-    .brochure .callout { border-left: 3px solid var(--gold, #c9a227); padding-left: 1rem; margin: 1.25rem 0; }
-    .brochure table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-    .brochure th, .brochure td { border-bottom: 1px solid rgba(255,255,255,0.12); padding: 0.45rem 0.35rem; text-align: left; }
+    .brochure .callout { border-left: 2px solid var(--accent); padding: 0.1rem 0 0.1rem 1rem; margin: 1.25rem 0; color: var(--ink-2); }
   </style>
 </head>
 <body>
@@ -24,76 +20,74 @@
     <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
   </nav>
 </header>
-<img class="banner" src="../../media/fractisi-hero.jpg?v=19" alt="">
 <main class="wrap brochure">
   <article class="page">
-    <p class="kicker">FractiSI &amp; FractiSI Multi-Agent · November 2026</p>
+    <p class="kicker">Expedition 002 · Brochure · November 2026</p>
     <h1>One world. Many agents. Minimal duplicated state.</h1>
-    <p class="lede">A reusable computational architecture for high-concurrency AI, distributed intelligence, and shared-world computing — with Expedition 002 extending the question beyond memory savings.</p>
+    <p class="lede">FractiSI Multi-Agent stores shared context once. Expedition 002 tests whether that also improves discovery and convergence, not only memory.</p>
 
-      <div class="diff-board" role="region" aria-label="Why teams visit — full lab differentiators">
-        <h2>Why teams visit · full lab differentiators</h2>
-        <p class="why">Multi-agent teams come for results vs <strong>flat skim</strong>, <strong>full-copy</strong>, <strong>gzip-only</strong>, and <strong>exact-text / prefix cache</strong>. Receipts below — architectural / structured-state labs unless noted.</p>
+      <div class="diff-board" role="region" aria-label="Expedition 002 results">
+        <h2>Results at a glance</h2>
+        <p class="why">Measured against flat skim, full per-agent copies, gzip-only packs, and exact-text or prefix cache. Architectural and structured-state labs unless noted.</p>
         <div class="diff-stat">
-          <span class="label">Sees what flat models miss</span>
+          <span class="label">Discovery</span>
           <span class="num">100 / 100 vs 0 / 100</span>
-          <p>Expedition 002 · guided shared-world recovery finds chains, anomalies, solutions. Flat skim under the same budget: zero.</p>
+          <p>Guided shared-world recovery finds chains, anomalies, and solutions. Flat skim under the same budget finds none.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Converges on answers faster</span>
+          <span class="label">Convergence</span>
           <span class="num">−50% rounds · −85% ops</span>
-          <p>3 propagation rounds vs 6; mean 6 ops vs 40 on the same constrained discovery path.</p>
+          <p>3 propagation rounds vs 6. Mean 6 operations vs 40 on the same constrained discovery path.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Density vs full per-agent copy</span>
+          <span class="label">Density vs full copy</span>
           <span class="num">36.91× – 62.41×</span>
-          <p>Dup cut 89.6%–99.2% vs reprinting the world into every agent. Selective coarse-only ~99.5% fewer runtime bytes.</p>
+          <p>Duplication cut of 89.6% to 99.2%. Selective coarse-only reconstruction uses about 99.5% fewer runtime bytes.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Still wins after gzip</span>
+          <span class="label">After gzip</span>
           <span class="num">~42%+ residual</span>
-          <p>Shared pack vs naive per-agent copies — about ~42% residual after gzip in smaller-world labs; ~98% when the world dominates. Compression shrinks copies; it does not remove the cross-copy tax.</p>
+          <p>Shared pack vs naive per-agent copies: about 42% residual after gzip in smaller-world labs, about 98% when the world dominates. Compression shrinks copies. It does not remove the cross-copy cost.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Beats exact-text cache when words differ</span>
+          <span class="label">When wording differs</span>
           <span class="num">4,758 vs 6,704 B</span>
-          <p>40 same-shape / different-words sessions: rhyme templates beat exact-text cache. Exact cache wins only identical text (332 B vs rhyme 5,867 B). Prefix reuse already helps exact prompts in production.</p>
+          <p>40 sessions with the same shape and different words: rhyme templates beat exact-text cache. Exact cache wins only on identical text (332 B vs 5,867 B for rhyme). Prefix reuse already helps exact prompts in production.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Tiny Gateway · DRAM &amp; materialize</span>
+          <span class="label">Tiny Gateway</span>
           <span class="num">84.5% · 81.4% · ~9.6×</span>
-          <p>Aggregate representation cut 84.5% (≈80% research gate) · GPU alloc proxy 81.4% (288→53.6 MiB) · turn materialize ~9.6×. H100 rhyme-vs-prefix ~34% is simulation only.</p>
+          <p>Aggregate representation cut of 84.5% (about the 80% research gate). GPU allocation proxy down 81.4% (288 to 53.6 MiB). Turn materialization about 9.6× faster. The H100 rhyme-vs-prefix figure of ~34% is simulation only.</p>
         </div>
-        <p class="foot">Honesty: digital architectural labs + structured-state / gzip receipts — not CapEx guarantees, not an LLM multi-agent bake-off, not “80% DRAM for AI serving” as established. LLM collective intelligence not demonstrated. Reproduce: <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Exp 002</a> · <a href="/library/papers/fractisi-expedition-002-beyond-memory/">RESULTS.md</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a> · <a href="/product/pricing/">pricing</a>.</p>
+        <p class="foot">Digital architectural labs with structured-state and gzip receipts. Not a CapEx guarantee, not an LLM multi-agent bake-off, and not an established 80% DRAM saving for AI serving. LLM collective intelligence is not demonstrated. Reproduce: <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a> · <a href="/library/papers/fractisi-expedition-002-beyond-memory/">RESULTS.md</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a> · <a href="/product/pricing/">pricing</a>.</p>
       </div>
 
-
-    <h2>The next frontier in AI infrastructure</h2>
-    <p>Artificial intelligence is moving beyond individual assistants toward populations of autonomous agents working together. Coding swarms, enterprise copilots, research teams, robots, digital twins, and simulations increasingly require many independent agents inside shared environments.</p>
-    <p>Today’s architectures often reproduce substantial portions of the same information across agents. Traditional compression makes duplicated information smaller. FractiSI explores a different approach: represent shared structures once, maintain what makes each participant different, and reconstruct only the information each agent needs.</p>
-    <div class="callout"><strong>Objective:</strong> more useful intelligence, more concurrent agents, and more computational possibilities within the same infrastructure envelope.</div>
+    <h2>The problem</h2>
+    <p>AI is moving from single assistants to populations of agents working together. Coding swarms, enterprise copilots, research teams, robots, digital twins, and simulations all need many agents inside one shared environment.</p>
+    <p>Most architectures copy large parts of the same information into every agent. Compression makes the copies smaller. FractiSI takes a different approach. It represents shared structure once, keeps what makes each agent different, and reconstructs only what each agent needs.</p>
+    <div class="callout"><strong>Objective:</strong> more useful intelligence, more concurrent agents, and more computational possibilities in the same infrastructure envelope.</div>
 
     <h2>Architecture</h2>
     <p><strong>Shared-world representation</strong> · <strong>Agent-specific deltas</strong> · <strong>Selective reconstruction</strong></p>
-    <p>Additional research capabilities under Expedition 002: relationship discovery · distributed anomaly detection · faster architectural convergence · collective solution generation · dynamic composition.</p>
-    <p>Components: Tiny Gateway · Rhyming Templates · Nested Vectors · Shared-World Representation · Agent-Specific Deltas · Selective Reconstruction.</p>
+    <p>Expedition 002 adds research capabilities: relationship discovery, distributed anomaly detection, faster architectural convergence, collective solution generation, and dynamic composition.</p>
+    <p>Components: Tiny Gateway, Rhyming Templates, Nested Vectors, Shared-World Representation, Agent-Specific Deltas, Selective Reconstruction.</p>
 
-    <h2>Expedition 002 · executed lab (suite receipts)</h2>
+    <h2>Executed lab receipts</h2>
     <table>
       <thead><tr><th>Finding</th><th>Result</th></tr></thead>
       <tbody>
-        <tr><td>Dup cut vs full-copy (large N)</td><td>≥95% peak proxy</td></tr>
-        <tr><td>Speed vs full-copy (Node harness)</td><td>~37×–62×</td></tr>
-        <tr><td>Selective vs conventional shared lookup</td><td>Mixed / can be slower</td></tr>
-        <tr><td>Discovery + solution (100 scenarios)</td><td>Guided 100/100 · Flat 0/100</td></tr>
-        <tr><td>Ops / rounds under constraint</td><td>~85% fewer ops · ~50% fewer rounds</td></tr>
+        <tr><td>Duplication cut vs full copy (large N)</td><td>≥95% peak proxy</td></tr>
+        <tr><td>Speed vs full copy (Node harness)</td><td>~37×–62×</td></tr>
+        <tr><td>Selective vs conventional shared lookup</td><td>Mixed. Can be slower.</td></tr>
+        <tr><td>Discovery and solution (100 scenarios)</td><td>Guided 100/100 · Flat 0/100</td></tr>
+        <tr><td>Operations and rounds under constraint</td><td>~85% fewer ops · ~50% fewer rounds</td></tr>
         <tr><td>LLM collective intelligence</td><td>Not yet demonstrated</td></tr>
       </tbody>
     </table>
     <p>Full write-up: <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002 paper</a>.</p>
 
-    <h2>Research program map (eight application families)</h2>
-    <p>Priority markets for evaluation partnerships — not a claim that every poster concurrency figure is independently receipted in Expedition 002:</p>
+    <h2>Eight application families</h2>
+    <p>These are the priority markets for evaluation partnerships. Expedition 002 does not independently receipt every concurrency figure on the original posters.</p>
     <ul>
       <li>Massive autonomous robot populations</li>
       <li>Living digital twins</li>
@@ -104,23 +98,23 @@
       <li>Persistent virtual worlds</li>
       <li>Collaborative research systems</li>
     </ul>
-    <p class="callout">Detailed per-family “YES / N×” brochure posters remain <strong>program targets</strong> until each family carries its own suite receipt. Expedition 002 receipts cover resource-vs-full-copy and constrained discovery/collective completion.</p>
+    <p class="callout">Per-family &ldquo;YES / N×&rdquo; brochure posters are <strong>program targets</strong> until each family has its own suite receipt. Expedition 002 receipts cover resource use against full copy, and constrained discovery and collective completion.</p>
 
     <h2>Economic metric</h2>
-    <p><strong>Useful work per infrastructure dollar</strong> — higher agent density per DRAM/HBM budget, less duplicated shared-context storage, less unnecessary materialization, lower cost per agent-hour, faster composition via structural reuse.</p>
+    <p><strong>Useful work per infrastructure dollar.</strong> That means higher agent density per DRAM or HBM budget, less duplicated shared-context storage, less unnecessary materialization, lower cost per agent-hour, and faster composition through structural reuse.</p>
 
     <h2>Partnerships</h2>
-    <p>AI infrastructure developers · hyperscalers · agent-platform developers · robotics / industrial / digital twins. Models: research collaboration · independent benchmarking · runtime integration · enterprise licensing · infrastructure partnerships.</p>
+    <p>We work with AI infrastructure developers, hyperscalers, agent-platform developers, and robotics, industrial, and digital-twin teams. Models: research collaboration, independent benchmarking, runtime integration, enterprise licensing, and infrastructure partnerships.</p>
 
     <h2>Next milestone</h2>
-    <p>LLM-agent trial with matched models, prompts, tools, information, and budgets — only the information architecture changes. Score correctness, discovery, convergence, conflicts, and cost per successful task.</p>
+    <p>An LLM-agent trial with matched models, prompts, tools, information, and budgets. Only the information architecture changes. Score correctness, discovery, convergence, conflicts, and cost per successful task.</p>
 
     <p><a href="https://github.com/FractiAI/FractiSI-Multi-Agent">github.com/FractiAI/FractiSI-Multi-Agent</a><br>
     Contact: goldenbackdoorhitfactory@gmail.com</p>
 
-    <p class="honesty">Honesty: Application companion lab. Not ENGINE_SHELF. Not LLM bake-off. Not CapEx guarantee. SynthOBS Autonomous Agent · Syntheverse Sandbox · Document ID WP-FRACTISI-EXPEDITION-002-BEYOND-MEMORY-EGS-2026-11-05.</p>
+    <p class="honesty">Application companion lab. Not ENGINE_SHELF. Not an LLM bake-off. Not a CapEx guarantee. SynthOBS Autonomous Agent · Syntheverse Sandbox · Document ID WP-FRACTISI-EXPEDITION-002-BEYOND-MEMORY-EGS-2026-11-05.</p>
   </article>
 </main>
-<footer class="site-foot"><span>FractiSI · FractiSI Multi-Agent · → ∞^∞</span></footer>
+<footer class="site-footer"><span>FractiSI · FractiSI Multi-Agent · → ∞^∞</span></footer>
 </body>
 </html>
