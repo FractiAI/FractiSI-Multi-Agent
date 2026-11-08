@@ -21,6 +21,106 @@
       "source": "/test-drive/self-paced/:path*",
       "destination": "/test-drive/",
       "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing/",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/plans",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/plans/",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing-plan",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing-plan/",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing-plans",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing-plans/",
+      "destination": "/product/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition-002",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition-002/",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition/002",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition/002/",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition/",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/exp002",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/exp002/",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition-2",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/expedition-2/",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/product/expedition-002",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": false
+    },
+    {
+      "source": "/docs/product/expedition-002/",
+      "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
+      "permanent": false
     }
   ]
 }
