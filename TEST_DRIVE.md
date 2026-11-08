@@ -1,94 +1,52 @@
 # FractiSI Multi-Agent · Test Drive
 
-**For IDE agents (Cursor, Claude Code, VS Code Copilot, etc.)**
+**For IDE agents (Cursor, Claude Code, VS Code Copilot, etc.) and symposium audiences**
 
 If a human opens this repository and asks you to **do the FractiSI Multi-Agent test drive**, follow this file.
 
 ## What this Test Drive is
 
-**Hero:** *The Multi-Agent World Inference Rhyme?* — symposium presentation + audience Test Drive (Nov 12–13, 2026).
+**Self-paced symposium path** — fully self-sufficient in the browser; a presenter can speak from the same pages.
 
-**Open:** restroom-valet story — AI-generated music; opinions flip when listeners become **aware** (`src/testdrive/opening-story.mjs`). That light on awareness introduces FractiSI Multi-Agent as promising results that may **strongly rhyme** with this audience — then clear demos.
+**Hero:** *The Multi-Agent World Inference Rhyme?* · Applied Active Inference Symposium (Nov 12–13, 2026)
 
-**Demos:** browser **Run demo** on labs, or IDE `node scripts/tiny.mjs testdrive N` / ask your agent. Highest-impact: 1 · 3 · 4 · 6.
+### Arc (9 stops)
 
-**Sandbox frame:** **Base Mainnet** → **Syntheverse Sandbox**. Enter/leave with chosen awareness. No wallet for the peek. `src/testdrive/sandbox-frame.mjs`.
+1. **How this works** — self-paced controls  
+2. **Awareness story** — restroom valet · AI music · opinions flip when aware (`src/testdrive/opening-story.mjs`)  
+3. **Sandbox** — Syntheverse on Base Mainnet · enter/exit with chosen awareness  
+4. **Problems + rhyme** — what agents suffer · symposium kinship ≠ product rhyme gate  
+5–7. **Three demos** — Run live: shared world (1) · rhyme vs cache (3) · discovery 100/100 (4)  
+8. **How** — brief stack that explains the demos  
+9. **Invite** — explore kit · connect · join beta → **End of Test Drive**
 
-**One track:** browser [`/test-drive/`](https://fractisi.vercel.app/test-drive/) and CLI. Speaker deck [`/talks/aai-symposium-2026/`](https://fractisi.vercel.app/talks/aai-symposium-2026/) follows the same arc (story → bridge → how to demo → Runs).
+**Sandbox:** Base Mainnet → Syntheverse Sandbox (`src/testdrive/sandbox-frame.mjs`). No wallet for the peek.
 
-### What we mean by Net Zero (locked · define before rhyme)
+**Rhyme:** possible strong kinship with Active Inference (**not** framework identity). Product gate = four pillars from Net Zero (`src/testdrive/rhyme-definition.mjs`).
 
-Canonical: `src/testdrive/net-zero-definition.mjs` · singularity-crystal / Goldilocks≡Net Zero / Topology of the Void peers.
+**Browser:** https://fractisi.vercel.app/test-drive/  
+**Deck (same arc):** https://fractisi.vercel.app/talks/aai-symposium-2026/  
+**IDE:**
 
-**Balanced zero, not nothing zero.** **Net Zero (octave 0)** is the **active-equilibrium** root of the shared world — cancel-to-balance under continuous activity — not empty void, blank null, or a dead stop. Opposing contributions cancel into a viable operating band while work continues. Here **Goldilocks ≡ Net Zero** (viable band = active equilibrium). Stillness is not required. Rhymes hang from this balanced root.
+```bash
+git clone https://github.com/FractiAI/FractiSI-Multi-Agent
+cd FractiSI-Multi-Agent
+node scripts/tiny.mjs testdrive 1   # demo
+node scripts/tiny.mjs testdrive 3
+node scripts/tiny.mjs testdrive 4
+# optional further labs: 2 5 6 7
+```
 
-**Not Net Zero here:** nothing zero (void / blank null) · dead stillness · climate-policy “net zero” slogans · certified zero-watt SI · GR singularity proofs.
-
-### What we mean by rhyme (locked)
-
-Canonical gate: `src/engine/rhyming/gate.mjs` · papers `/library/papers/holographic-rhyme/` · `/library/papers/tiny-gateway-rhyming-templates/`.
-
-A **holographic rhyme** passes **all four pillars**, rooted at **Net Zero (octave 0)** — the active-equilibrium home base above — and ascending **Infinite Octaves**:
-
-1. **Repeating** — same organization across expressions (shape; words may differ)
-2. **Self-similar** — local blueprint mirrors the whole
-3. **Self-correcting** — drift dampens toward Net Zero (active equilibrium)
-4. **Recursive** — nests from Net Zero up the octave ladder
-
-**Not a rhyme:** exact-text / prefix alone · schema-key match alone · brick-wall repetition · mid-octave nest without Net Zero.
-
-**Rhyming Templates** = reusable patterns under that gate (Tiny Gateway).
-
-**Primer ladder:** Base Mainnet → Syntheverse Sandbox → Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness (enter/exit by choice) → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent.
-
-Then live labs:
-
-1. **Tiny Footprint** — shared world + deltas  
-2. **Tiny Footprint** after gzip  
-3. **Tiny Gateway · Rhyming Templates** vs exact cache (four-pillar gate)  
-4–5. **Selective reconstruction** — discovery / convergence  
-6. **Coordination · Shared state · Composition**  
-7. **Density · Git awareness · Deploy (paid)**
-
-No FractiSI account. No cloud token for the Test Drive itself.
-
-**Browser:** https://fractisi.vercel.app/test-drive/ — hero → story → bridge → sandbox → Net Zero → rhyme → demo board → live labs (**Run demo**). Keys ← →; **R** runs labs. IDE same step IDs.
+Or ask your IDE agent: *Do the FractiSI Multi-Agent test drive.*
 
 ## Human one-liner
 
-> Clone `https://github.com/FractiAI/FractiSI-Multi-Agent` and ask your IDE:  
-> **Do the FractiSI Multi-Agent test drive.**
+> Open https://fractisi.vercel.app/test-drive/ and press **Begin Test Drive** — or clone the kit and run the demos above.
 
-## What you must run
+## Contact · beta
 
-```bash
-node scripts/tiny.mjs testdrive
-```
-
-Or step:
-
-```bash
-node scripts/tiny.mjs testdrive primer   # stack map + rhyme definition
-node scripts/tiny.mjs testdrive 1
-… through 7
-```
-
-| Step | Focus | Receipt |
-|------|--------|---------|
-| 0 | Stack map · rhyme definition | Primer narrative |
-| 1 | **Tiny Footprint** shared world + deltas | N copies vs shared+deltas |
-| 2 | **Tiny Footprint** after gzip | Gzip residual |
-| 3 | **Rhyming Templates** vs exact cache | Four-pillar gate + store bytes |
-| 4–5 | Selective reconstruction | Discovery / convergence |
-| 6 | Coordination · Shared state · Composition | Coordination |
-| 7 | Density · Git · deploy | Entitlements |
-
-## While you run
-
-1. Name components out loud — Infinite Octaves, holographic rhyme (four pillars), Rhyming Templates, Tiny Gateway, Tiny Footprint, Coordination · Shared state · Composition · Git awareness · Deploy.  
-2. Run `testdrive` (full) or the step on the current card.  
-3. Offer links: Test Drive · Tiny Gateway paper · holographic rhyme paper · Tiny Footprint paper · pricing.  
-4. Do **not** require a Vercel token for the default Test Drive.  
-5. Do **not** skip the rhyme definition or treat rhyme as “prefix cache.”
+- Connect / critique / joint experiments: **valetpru@gmail.com**  
+- Beta: mail subject **FractiSI beta testing**  
+- Deploy remains paid (Team+)
 
 → ∞^∞
