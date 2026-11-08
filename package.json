@@ -37,6 +37,7 @@
     "coord-bench": "node scripts/tiny.mjs coord-bench",
     "init": "node scripts/tiny.mjs init",
     "status": "node scripts/tiny.mjs status",
-    "research:world-model-assimilation": "node scripts/run_world_model_assimilation.mjs"
+    "research:world-model-assimilation": "node scripts/run_world_model_assimilation.mjs",
+    "research:c-plus-imagine": "node scripts/run_c_plus_imagine.mjs"
   }
 }

@@ -79,3 +79,7 @@ Measured architectural lab on `createPredictiveSharedWorld`. No external WFM wei
 2. Default UX: perspectives cheap; imagination on explicit request.  
 3. Next experiment: CEM planning over comparative-bench task graphs + latent-action codebook on unlabeled diffs (Jafar pattern).  
 4. Keep reporting useful work **and** bytes — never bytes alone.
+
+## Follow-on: C vs C+imagine
+
+See [`C_PLUS_IMAGINE_RESULTS.md`](./C_PLUS_IMAGINE_RESULTS.md). Headline: hard-gated C+imagine matches C exactly; soft predictive select **improves** useful work at 32 (+1.4) and 100 (+3.6) agents with no >5% regression.

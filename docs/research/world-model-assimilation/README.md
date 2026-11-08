@@ -17,6 +17,7 @@
 | 6 | [EXPERIMENT_RESULTS.md](./EXPERIMENT_RESULTS.md) |
 | 7 | [INTEGRATION_ROADMAP.md](./INTEGRATION_ROADMAP.md) |
 | 8 | [EXECUTIVE_RECOMMENDATION.md](./EXECUTIVE_RECOMMENDATION.md) |
+| 9 | [C_PLUS_IMAGINE_RESULTS.md](./C_PLUS_IMAGINE_RESULTS.md) — **C vs C+imagine measured** |
 
 ## Code
 
@@ -25,6 +26,8 @@
 | `src/experiments/predictive-shared-state.mjs` | Predictive Shared World prototype (authoritative / proposed / predicted) |
 | `src/experiments/world-model-assimilation-suite.mjs` | Experiments 1–5 + baseline reproduction |
 | `scripts/run_world_model_assimilation.mjs` | Isolated runner |
+| `src/experiments/c-plus-imagine-bench.mjs` | C vs C+imagine (+ soft select) on comparative-bench graphs |
+| `scripts/run_c_plus_imagine.mjs` | Runner for C vs C+imagine |
 | `output/data/world-model-assimilation/latest.json` | Latest measured receipt |
 
 ## Honesty

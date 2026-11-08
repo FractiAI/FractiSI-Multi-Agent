@@ -27,7 +27,7 @@
 
 | Item | Depends on | Complexity | Expected benefit |
 |---|---|---|---|
-| Drive imagine/compose from comparative-bench task graphs | P0 | Low | Fair useful-work comparison at 16–100 agents |
+| Drive imagine/compose from comparative-bench task graphs | P0 | Low | **Done** — see `C_PLUS_IMAGINE_RESULTS.md` |
 | Latent-action codebook on unlabeled contribution diffs (Jafar pattern) | P0 | Med | Compress diffs agents exchange |
 | CEM planner choosing compose order / rollback targets | P0 | Med | Better collective outcomes under conflict |
 | Persist CandidateFutures in `.fractisi/` (still non-authoritative) | P0 | Low | Debuggability |
@@ -37,6 +37,7 @@
 | Item | Edition | Notes |
 |---|---|---|
 | `features.predictiveSharedState` on `createPlatform` | Community+ | Local CPU OK |
+| `features.predictiveComposeSelect` (C+imagine_select) | Community+ | Default **off**; measured lift at 32–100 agents |
 | CLI: `fractisi imagine` / `fractisi futures` | Community+ | Explicit imagination |
 | Composition hook: evaluate futures before integrate | Community+ | Keep approval |
 | Docs + Test Drive beat (optional) | Site | Demonstrate, don’t overclaim |

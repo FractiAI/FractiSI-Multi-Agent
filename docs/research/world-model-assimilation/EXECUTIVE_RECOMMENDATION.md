@@ -54,9 +54,19 @@ Agents that can:
 - commit only with approval —  
 while still paying Tiny Footprint’s density tax once, not N times.
 
-## Next highest-value experiment
+## Next highest-value experiment — DONE
 
-**Wire Predictive Shared State into the comparative-bench task graph** (same tasks/seeds as arm C): measure useful completions, conflicts, and bytes for `C` vs `C+imagine` at 1/4/16/32/100 agents. Graduate to `createPlatform` only if useful work does not regress and future-exploration metrics are positive.
+**C vs C+imagine** on comparative-bench graphs is complete. Receipt: `C_PLUS_IMAGINE_RESULTS.md`.
+
+| Result | Decision input |
+|---|---|
+| C+imagine (hard gate) | Δ useful = **0** at 1…100 — safe, no lift |
+| C+imagine_select (predictive MIS) | **+1.4** useful at 32 · **+3.6** at 100 · no >5% regression |
+| Shared registry vs N copies | up to **−99%** bytes at 100 agents |
+
+**Graduation:** opt-in `features.predictiveComposeSelect` on `createPlatform` (default off). Do not remove arm C’s hard gate yet.
+
+**Next after this:** higher interdependence + interface-marker workloads for C+imagine_select.
 
 ## Strategic one-liner
 
