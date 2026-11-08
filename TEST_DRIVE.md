@@ -6,13 +6,15 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ## What this Test Drive is
 
-**Hero:** *The Multi-Agent World Inference Rhyme?* — a short **peek** for the Applied Active Inference Symposium (Nov 12–13, 2026). Goal: expose and whet curiosity — **not** train the room in FractiSI or Active Inference.
+**Hero:** *The Multi-Agent World Inference Rhyme?* — symposium presentation + audience Test Drive (Nov 12–13, 2026).
 
-**Sandbox frame:** **Base Mainnet** (bedrock) → **Syntheverse Sandbox** (this peek). Audiences **enter and leave** with whichever **awareness** they choose. No wallet required for the peek. Lock: `src/testdrive/sandbox-frame.mjs`.
+**Open:** restroom-valet story — AI-generated music; opinions flip when listeners become **aware** (`src/testdrive/opening-story.mjs`). That light on awareness introduces FractiSI Multi-Agent as promising results that may **strongly rhyme** with this audience — then clear demos.
 
-**One audience track** — browser [`/test-drive/`](https://fractisi.vercel.app/test-drive/) (hero → five plain pages including sandbox → optional live tastes) and the same runners in the CLI. Optional speaker deck for presenters only (`/talks/aai-symposium-2026/`).
+**Demos:** browser **Run demo** on labs, or IDE `node scripts/tiny.mjs testdrive N` / ask your agent. Highest-impact: 1 · 3 · 4 · 6.
 
-Framing: **possible kinship** with Active Inference — **humans are agents too** in one shared world (**not** framework identity, **not** the four-pillar software gate).
+**Sandbox frame:** **Base Mainnet** → **Syntheverse Sandbox**. Enter/leave with chosen awareness. No wallet for the peek. `src/testdrive/sandbox-frame.mjs`.
+
+**One track:** browser [`/test-drive/`](https://fractisi.vercel.app/test-drive/) and CLI. Speaker deck [`/talks/aai-symposium-2026/`](https://fractisi.vercel.app/talks/aai-symposium-2026/) follows the same arc (story → bridge → how to demo → Runs).
 
 ### What we mean by Net Zero (locked · define before rhyme)
 
@@ -50,7 +52,7 @@ Then live labs:
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
-**Browser:** https://fractisi.vercel.app/test-drive/ — hero gate → five peek pages (sandbox + Net Zero + rhyme + map; no Run) → optional live labs. Keys ← →; **R** runs labs only. Live results via `/api/testdrive`.
+**Browser:** https://fractisi.vercel.app/test-drive/ — hero → story → bridge → sandbox → Net Zero → rhyme → demo board → live labs (**Run demo**). Keys ← →; **R** runs labs. IDE same step IDs.
 
 ## Human one-liner
 

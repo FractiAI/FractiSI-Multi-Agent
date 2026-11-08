@@ -84,22 +84,25 @@ test('locked rhyme definition matches the four-pillar gate', () => {
   assert.match(RHYME_DEFINITION.symposiumKinship, /not framework identity/i);
 });
 
-test('primer lines define sandbox, then Net Zero, then rhyme', () => {
+test('primer lines open with valet story, then sandbox, Net Zero, rhyme', () => {
   const lines = architecturePrimerLines();
   const blob = lines.join('\n');
   assert.ok(lines.length > 20);
+  assert.match(blob, /A RESTROOM VALET STORY|restroom valet/i);
+  assert.match(blob, /AI-generated music|AI music/i);
   assert.match(blob, /Base Mainnet/);
   assert.match(blob, /Syntheverse Sandbox/);
   assert.match(blob, /WHAT WE MEAN BY NET ZERO/);
   assert.match(blob, /active[- ]equilibrium/i);
   assert.match(blob, /WHAT WE MEAN BY RHYME/);
+  const storyAt = blob.indexOf('A RESTROOM VALET STORY');
   const sandAt = blob.indexOf('WHERE THIS PEEK SITS');
   const nzAt = blob.indexOf('WHAT WE MEAN BY NET ZERO');
   const rhymeAt = blob.indexOf('WHAT WE MEAN BY RHYME');
-  assert.ok(sandAt >= 0 && nzAt > sandAt && rhymeAt > nzAt, 'sandbox → Net Zero → rhyme order');
+  assert.ok(
+    storyAt >= 0 && sandAt > storyAt && nzAt > sandAt && rhymeAt > nzAt,
+    'story → sandbox → Net Zero → rhyme order',
+  );
   assert.match(blob, /Repeating/);
-  assert.match(blob, /Self-similar/);
-  assert.match(blob, /Self-correcting/);
-  assert.match(blob, /Recursive/);
   assert.match(blob, /Not a rhyme/);
 });

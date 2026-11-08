@@ -8,11 +8,14 @@
  * Rhyme: src/testdrive/rhyme-definition.mjs
  */
 
+import { OPENING_STORY, openingStoryLines } from './opening-story.mjs';
 import { SANDBOX_FRAME, sandboxFrameLines } from './sandbox-frame.mjs';
 import { NET_ZERO_DEFINITION, netZeroDefinitionLines } from './net-zero-definition.mjs';
 import { RHYME_DEFINITION, rhymeDefinitionLines } from './rhyme-definition.mjs';
 
 export {
+  OPENING_STORY,
+  openingStoryLines,
   SANDBOX_FRAME,
   sandboxFrameLines,
   NET_ZERO_DEFINITION,
@@ -25,7 +28,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
   title: 'FractiSI Multi-Agent · stack map',
   kicker: 'Architecture primer',
   lede:
-    'This peek sits in the Syntheverse Sandbox on Base Mainnet bedrock. Enter and leave with whichever awareness you choose. Inside: one shared world for many agents (including us) instead of N private full copies.',
+    'We open with a restroom-valet AI-music story about the power of awareness, then peek inside the Syntheverse Sandbox on Base Mainnet — enter and leave with whichever awareness you choose. Inside: one shared world for many agents (including us) instead of N private full copies.',
   steps: Object.freeze([
     {
       id: 'base-mainnet',
@@ -125,6 +128,8 @@ export function architecturePrimerLines() {
     lines.push(`    ${s.body}`);
     lines.push('');
   }
+  lines.push(...openingStoryLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
+  lines.push('');
   lines.push(...sandboxFrameLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
   lines.push('');
   lines.push(...netZeroDefinitionLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
