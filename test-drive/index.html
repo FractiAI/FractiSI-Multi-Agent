@@ -169,6 +169,35 @@
       padding-top: 0.2rem;
     }
     .ladder strong { font-family: var(--sans); font-weight: 650; }
+    .stack-tree-figure {
+      margin: 1rem 0 0.85rem;
+      padding: 0;
+      border: 1px solid var(--td-line);
+      background: #f3e7d0;
+      overflow: hidden;
+      border-radius: 0.35rem;
+    }
+    .stack-tree-figure img {
+      display: block;
+      width: 100%;
+      max-width: 26rem;
+      height: auto;
+      margin: 0 auto;
+    }
+    .stack-tree-figure figcaption {
+      margin: 0;
+      padding: 0.55rem 0.8rem 0.7rem;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+    .stack-tree-ladder { margin-top: 0.35rem; }
+    .stack-tree-honesty {
+      margin: 0.65rem 0 0;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      opacity: 0.82;
+    }
 
     .lab-panel {
       margin: 1.5rem 0 0;
@@ -690,23 +719,47 @@
         part: 8,
         parts: 9,
         title: 'How — a short stack walk',
-        promise: 'Just enough names to explain the demos you ran.',
+        promise: 'SING13 tree chart, updated for this stack. Picture first, then the ladder.',
         teach: `
           <div class="teach-block notice">
-            <p class="label">Picture</p>
-            <p><strong>Base Mainnet</strong> → <strong>Syntheverse Sandbox</strong> → shared world at <strong>Net Zero</strong> (balanced zero) → nesting → <strong>holographic rhyme</strong> → <strong>Rhyming Templates / Tiny Gateway</strong> → <strong>Tiny Footprint</strong> → Coordination · Shared state · Composition → Git awareness → Deploy (paid).</p>
+            <p class="label">Stack tree</p>
+            <p>From SING13’s Infinite Octave dendrochronology plate — trunk rewritten for FractiSI Multi-Agent. Rings stay Digits × Octaves. Self-observation stays at the heartwood.</p>
+          </div>
+          <figure class="stack-tree-figure">
+            <img src="/media/fractisi-multi-agent-stack-tree.jpg?v=1" alt="Updated FractiSI Multi-Agent stack tree: Base Mainnet through Deploy on the trunk, Digits × Octaves rings, self-observation loop" width="864" height="1152" loading="lazy" decoding="async" />
+            <figcaption>FractiSI Multi-Agent stack tree — bedrock → Deploy. Readable ladder below.</figcaption>
+          </figure>
+          <div class="teach-block">
+            <p class="label">Trunk · roots to canopy</p>
+            <ol class="ladder stack-tree-ladder">
+              <li><span class="n">1</span><span>Base Mainnet</span></li>
+              <li><span class="n">2</span><span>Syntheverse Sandbox</span></li>
+              <li><span class="n">3</span><span>Net Zero · balanced zero (not nothing zero)</span></li>
+              <li><span class="n">4</span><span>Infinite Octaves</span></li>
+              <li><span class="n">5</span><span>Holographic rhyme gate</span></li>
+              <li><span class="n">6</span><span>Rhyming Templates · Tiny Gateway</span></li>
+              <li><span class="n">7</span><span>Tiny Footprint</span></li>
+              <li><span class="n">8</span><span>Coordination · Shared state · Composition</span></li>
+              <li><span class="n">9</span><span>Git awareness</span></li>
+              <li><span class="n">10</span><span>Deploy (paid)</span></li>
+              <li><span class="n">★</span><span>FractiSI Multi-Agent</span></li>
+            </ol>
           </div>
           <div class="teach-block">
-            <p class="label">Mapped to what you saw</p>
+            <p class="label">Mapped to demos</p>
             <ul class="ladder">
-              <li><span class="n">·</span><span>Demo 1 — Tiny Footprint density (share once)</span></li>
-              <li><span class="n">·</span><span>Demo 3 — rhyme / Tiny Gateway when wording differs</span></li>
-              <li><span class="n">·</span><span>Demo 4 — selective reconstruction along nested edges</span></li>
+              <li><span class="n">·</span><span>Demo 1 — Tiny Footprint density</span></li>
+              <li><span class="n">·</span><span>Demo 3 — rhyme / Tiny Gateway</span></li>
+              <li><span class="n">·</span><span>Demo 4 — selective reconstruction</span></li>
             </ul>
           </div>
           <div class="teach-block">
+            <p class="label">Also</p>
+            <p>Crisp SVG: <a href="/media/fractisi-multi-agent-stack-tree.svg">stack-tree.svg</a> · heritage SING13 plate: <a href="/media/infinite-octave-hero-source-tree.jpg">original tree</a>.</p>
+          </div>
+          <div class="teach-block">
             <p class="label">Honesty</p>
-            <p>In-process architectural labs — promising, not CapEx guarantees. Possible rhyme with Active Inference ≠ framework identity.</p>
+            <p>Soft Story catalog plate — promising labs, not CapEx guarantees. Possible rhyme with Active Inference ≠ framework identity.</p>
           </div>
         `,
       },
