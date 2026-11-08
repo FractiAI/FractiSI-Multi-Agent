@@ -12,7 +12,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-Audience hero: **The Multi-Agent World Inference Rhyme?** (Applied Active Inference Symposium). Goal = **peek / whet appetite**, not field training. Stack sits in **Syntheverse Sandbox** on **Base Mainnet** — audiences enter/exit with whichever awareness they choose (`src/testdrive/sandbox-frame.mjs`). Browser: hero → `#primer` → `#primer-sandbox` → `#primer-net-zero` → `#primer-rhyme` → `#primer-map` → optional labs `#1`…`#7`. Definitions: `net-zero-definition.mjs` · `rhyme-definition.mjs` · `gate.mjs`. Symposium “possible rhyme with Active Inference” = kinship only. CLI: `testdrive primer` then `1`…`7`. Deploy is paid (Team+).
+Audience hero: **The Multi-Agent World Inference Rhyme?** (Applied Active Inference Symposium). **Open with the valet awareness story** (`src/testdrive/opening-story.mjs` — AI music in the restroom; opinions flip once aware), then bridge to FractiSI Multi-Agent as a possible strong rhyme with this room, then **impact demos** (browser **Run** or IDE `testdrive N`). Sandbox: **Syntheverse** on **Base Mainnet** (`sandbox-frame.mjs`). Browser: hero → `#primer` (story) → `#primer-bridge` → `#primer-sandbox` → `#primer-net-zero` → `#primer-rhyme` → `#primer-map` (demo board) → labs. Goal = peek / whet appetite, not field training. Talk deck = same arc (`/talks/aai-symposium-2026/`). Deploy is paid (Team+).
 
 ## Commands
 
