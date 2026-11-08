@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
-  <meta name="description" content="FractiSI Multi-Agent Test Drive training module: framing question, failure modes, three live labs, stack map. Applied Active Inference Symposium.">
+  <meta name="description" content="FractiSI Multi-Agent Test Drive: demonstrate shared-world labs — less duplicate context, rhyme reuse, multi-hop discovery. Applied Active Inference Symposium.">
   <link rel="stylesheet" href="/css/site.css?v=34">
   <meta http-equiv="Cache-Control" content="no-cache">
   <style>
@@ -615,7 +615,7 @@
     <p class="brand">FractiSI Multi-Agent</p>
     <h1>The Multi-Agent World Inference Rhyme?</h1>
     <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-    <p class="deck"><strong>Training objective:</strong> decide whether FractiSI Multi-Agent’s shared-world architecture is relevant to the multi-agent inference problems you work on. You will get the framing question, a short context story, the failure modes we target, three runnable demos, and a stack map. Runtime ~20 minutes. Self-paced; usable as a live walkthrough. Environment: <strong>Syntheverse Sandbox</strong> on <strong>Base Mainnet</strong>. This is not Active Inference training and does not claim framework equivalence.</p>
+    <p class="deck"><strong>Training objective:</strong> demonstrate FractiSI Multi-Agent’s shared-world architecture on live labs — less duplicate context, reuse when wording differs, and multi-hop discovery flat skim misses. You get a short context story, the failure modes we target, three runnable demonstrations, and a stack map. Runtime ~20 minutes. Self-paced; usable as a live walkthrough. Environment: <strong>Syntheverse Sandbox</strong> on <strong>Base Mainnet</strong>. This is not Active Inference training and does not claim framework equivalence.</p>
     <figure class="td-hero-visual">
       <img src="/media/fractisi-hero.jpg?v=24" alt="FractiSI Multi-Agent shared-world coordination" width="1200" height="675" decoding="async" />
     </figure>
@@ -668,7 +668,7 @@
 
       <section class="finish" id="finish" aria-label="Test Drive complete">
         <h2>Module complete</h2>
-        <p>You covered the framing question, context story, target failure modes, three lab demos, and the stack map. Recommended next steps: clone the kit, read Expedition 002, review pricing, or email for beta access. Exit the sandbox whenever you are done.</p>
+        <p>You saw the demonstrations: context story, target failure modes, three live labs with plain-language results, and the stack map. Recommended next steps: clone the kit, read Expedition 002, review pricing, or email for beta access. Exit the sandbox whenever you are done.</p>
         <div class="finish-actions">
           <a class="btn btn-run" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Open the kit →</a>
           <a class="btn-secondary" href="/expedition-002/">Expedition 002</a>
@@ -696,22 +696,22 @@
         part: 1,
         parts: 9,
         title: 'The Multi-Agent World Inference Rhyme?',
-        promise: 'Framing question for this module — what we are evaluating and what we are not.',
+        promise: 'What this module demonstrates — and what it does not claim.',
         teach: `
           <div class="teach-prose">
-            <p>This module is titled <strong>The Multi-Agent World Inference Rhyme?</strong> Treat that as the evaluation question, not branding copy.</p>
-            <p><strong>What it asks:</strong> when multiple agents — software agents and human operators — work against one shared world model, can their context be organized so they discover more under a fixed budget, merge with fewer collisions, and spend less representation on duplicate state?</p>
+            <p>This module is titled <strong>The Multi-Agent World Inference Rhyme?</strong> That names the demonstration theme: shared-world organization for multi-agent work — not branding fluff.</p>
+            <p><strong>What we demonstrate:</strong> when multiple agents — software agents and human operators — work against one shared world model, FractiSI can cut duplicate context, reuse organization when wording differs, and recover multi-hop facts flat skim misses under a fixed budget.</p>
             <p><strong>Audience fit:</strong> Applied Active Inference Symposium. You already reason about agents that update beliefs and act in a shared environment. FractiSI Multi-Agent is a systems product in that neighborhood. It is <em>not</em> an Active Inference course, and we do not claim identity with the formal framework.</p>
-            <p><strong>Problem under test:</strong> production multi-agent fleets still duplicate shared context per agent (policies, maps, tools, corpora). Exact-string caches fail when wording changes but task structure does not. Compression reduces payload size; it does not remove N-copy structure. Flat skim under a token/byte budget misses multi-hop facts.</p>
+            <p><strong>Problem we show against:</strong> production multi-agent fleets still duplicate shared context per agent (policies, maps, tools, corpora). Exact-string caches fail when wording changes but task structure does not. Compression reduces payload size; it does not remove N-copy structure. Flat skim under a token/byte budget misses multi-hop facts.</p>
           </div>
           <figure class="teach-figure">
             <img src="/media/fractisi-hero.jpg?v=24" alt="Shared-world multi-agent coordination diagram" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>Target pattern: one registered world, per-agent deltas, selective reuse.</figcaption>
+            <figcaption>Demonstration pattern: one registered world, per-agent deltas, selective reuse.</figcaption>
           </figure>
           <div class="teach-prose">
-            <p><strong>Module sequence:</strong> (1) short awareness vignette, (2) sandbox boundaries, (3) failure modes + “rhyme” definitions, (4–6) three live labs, (7) stack map, (8) follow-ups. Same path if you are solo or if a facilitator is speaking from these pages.</p>
+            <p><strong>Module sequence:</strong> (1) short awareness vignette, (2) sandbox boundaries, (3) failure modes + “rhyme” definitions, (4–6) three live demonstrations, (7) stack map, (8) follow-ups. Same path if you are solo or if a facilitator is speaking from these pages.</p>
           </div>
-          <p class="case-pull"><strong>Controls:</strong> <strong>Next →</strong> advances. On labs, click <strong>Run demo</strong> (or <span class="kbd">R</span>). IDE equivalent: <code>node scripts/tiny.mjs testdrive N</code>.</p>
+          <p class="case-pull"><strong>Controls:</strong> <strong>Next →</strong> advances. On labs, click <strong>Run test</strong> (or <span class="kbd">R</span>). IDE equivalent: <code>node scripts/tiny.mjs testdrive N</code>.</p>
         `,
       },
       {
@@ -719,14 +719,14 @@
         mode: 'teach',
         part: 2,
         parts: 9,
-        title: 'Context vignette · awareness changes evaluation',
+        title: 'Context vignette · awareness changes the read',
         promise: 'Same stimulus, different prior — opinions move immediately.',
         teach: `
           <div class="teach-prose">
             <p><strong>Setup.</strong> I work as a restroom valet. In that space I play AI-generated music as background audio.</p>
-            <p><strong>Observation.</strong> When listeners learn the music is AI-generated, evaluations often change immediately. The audio stream is unchanged. What changed is the prior they apply to the same signal.</p>
+            <p><strong>Observation.</strong> When listeners learn the music is AI-generated, opinions often change immediately. The audio stream is unchanged. What changed is the prior they apply to the same signal.</p>
             <p><strong>Training point.</strong> Awareness of what a shared scene <em>is</em> alters how people score it. That is not a consciousness seminar; it is a compact example that inference about a shared world is load-bearing.</p>
-            <p><strong>Bridge.</strong> The labs that follow measure a multi-agent system that tries to keep a shared world coherent under concurrency. Use the vignette as context for why “shared world + updated awareness” is worth instrumenting — then judge the metrics, not the story.</p>
+            <p><strong>Bridge.</strong> The labs that follow demonstrate a multi-agent system keeping a shared world coherent under concurrency. The vignette sets context; the metrics are the demonstration.</p>
           </div>
           <figure class="teach-figure">
             <img src="/media/el-cortez.jpg" alt="El Cortez Hotel exterior — shared public venue" width="1200" height="800" loading="lazy" decoding="async" />
@@ -745,7 +745,7 @@
           <div class="teach-prose">
             <p><strong>Environment.</strong> This Test Drive runs in the <strong>Syntheverse Sandbox</strong>. Persistence/receipts can bind to <strong>Base Mainnet</strong> as the on-chain base layer. For this module you do not need a wallet, purchase, or account to run the labs.</p>
             <p><strong>Participation model.</strong> Enter for the demos; leave when finished. Use the operator stance you already have — reviewer, engineer, or researcher.</p>
-            <p><strong>Why name it here.</strong> Active Inference work assumes an agent–world loop. For this training, the demo world is the sandbox; your evaluation criteria stay yours. The product surfaces (Local / Server / Cloud) share one engine story and remain optional after the labs.</p>
+            <p><strong>Why name it here.</strong> Active Inference work assumes an agent–world loop. For this training, the demo world is the sandbox. The product surfaces (Local / Server / Cloud) share one engine story and remain optional after the labs.</p>
           </div>
           <figure class="teach-figure">
             <img src="/media/fractisi-markets.jpg?v=24" alt="FractiSI Multi-Agent Local, Server, and Cloud editions" width="1200" height="675" loading="lazy" decoding="async" />
