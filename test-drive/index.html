@@ -269,6 +269,82 @@
       color: var(--td-muted);
       font-size: 0.98rem;
     }
+    .lab-test-box {
+      margin: 0 0 1rem;
+      padding: 0.85rem 0.95rem;
+      background: rgba(31, 61, 52, 0.06);
+      border-left: 3px solid var(--td-forest);
+      border-radius: 0 0.3rem 0.3rem 0;
+    }
+    .lab-test-box .k {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+      margin: 0 0 0.35rem;
+    }
+    .lab-test-box p {
+      margin: 0 0 0.55rem;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: var(--td-ink);
+    }
+    .lab-test-box p:last-child { margin-bottom: 0; }
+    .results-summary {
+      display: none;
+      margin: 0 0 0.9rem;
+      animation: lesson-in 0.3s ease;
+    }
+    .results-summary.is-open { display: block; }
+    .results-summary .summary-title {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-forest);
+      font-weight: 650;
+      margin: 0 0 0.45rem;
+    }
+    .results-summary .summary-text {
+      margin: 0 0 0.85rem;
+      font-size: 1.08rem;
+      line-height: 1.55;
+      color: var(--td-ink);
+    }
+    .results-summary .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      gap: 0.5rem;
+      margin: 0 0 0.25rem;
+    }
+    .results-summary .card {
+      background: #14120e;
+      color: #f4f1ea;
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.35rem;
+    }
+    .results-summary .card.headline {
+      background: var(--td-forest);
+      grid-column: 1 / -1;
+    }
+    .results-summary .card .k {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin: 0 0 0.3rem;
+    }
+    .results-summary .card .v {
+      font-family: var(--sans);
+      font-size: clamp(1.05rem, 2.8vw, 1.4rem);
+      font-weight: 650;
+      line-height: 1.25;
+      margin: 0;
+      word-break: break-word;
+    }
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -569,15 +645,22 @@
       <p class="teach-continue is-hidden" id="teach-continue">Continue with <strong>Next →</strong>. On lab stops, run the demo before advancing.</p>
 
       <section class="lab-panel is-hidden" id="lab-panel" aria-label="Live demo">
-        <p class="lab-title" id="lab-title">Live demo</p>
-        <p class="lab-hint" id="lab-hint">Same kit as the CLI / IDE.</p>
+        <p class="lab-title" id="lab-title">Live test</p>
+        <div class="lab-test-box" id="lab-test-box">
+          <p class="k">What we’re testing</p>
+          <p id="lab-testing">—</p>
+          <p class="k" style="margin-top:0.65rem">What you’ll see after you run it</p>
+          <p id="lab-expect">—</p>
+        </div>
+        <p class="lab-hint" id="lab-hint">Same measurement as the CLI / IDE.</p>
         <div class="actions">
-          <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run demo</button>
+          <button type="button" class="btn btn-run" id="btn-run" data-action="run">Run test</button>
           <span class="status" id="status"></span>
         </div>
         <div class="results-wrap" id="results-wrap">
-          <p class="results-label">Output</p>
-          <pre class="results is-empty" id="results">Press Run demo to see the live result.</pre>
+          <div class="results-summary" id="results-summary" aria-live="polite"></div>
+          <p class="results-label">Detailed log</p>
+          <pre class="results is-empty" id="results">Run the test to fill in the plain-language results above.</pre>
           <div class="takeaway" id="takeaway"></div>
           <p class="honesty" id="honesty"></p>
         </div>
@@ -702,19 +785,20 @@
         parts: 9,
         n: 1,
         title: 'Lab 1 · Shared world vs N full copies',
-        promise: 'Measure byte cost: one registered world + deltas versus per-agent full reprints.',
-        runLabel: 'Run demo',
-        labHint: 'CLI: node scripts/tiny.mjs testdrive 1',
-        takeaway: 'Register shared state once; keep per-agent deltas only.',
+        promise: 'Same agents, same shared context — do we still need a full private copy for each one?',
+        runLabel: 'Run test',
+        labHint: 'CLI equivalent: node scripts/tiny.mjs testdrive 1',
+        testing: 'We give 12 agents the same shared context (policies, maps, tools). The old way copies that whole context for every agent. FractiSI keeps one shared copy and only the small notes that differ per agent.',
+        expect: 'A plain-language summary of total bytes both ways, plus how much smaller FractiSI is (percent cut).',
+        takeaway: 'One shared world beats N full reprints.',
         teach: `
           <div class="teach-prose">
-            <p><strong>Scenario.</strong> N agents need the same policies, maps, and tools. Baseline: give each a full private copy. Cost grows with N before any agent acts.</p>
-            <p><strong>Intervention.</strong> <strong>Tiny Footprint</strong> registers the shared world once. Agents retain local deltas (goals, pose, working memory).</p>
-            <p><strong>Action.</strong> Click <strong>Run demo</strong> (or <code>node scripts/tiny.mjs testdrive 1</code>). Compare aggregate bytes for shared+deltas versus full-copy fleet.</p>
+            <p>This lab asks a simple question: if many agents need the same map and rules, must each one carry a full private copy?</p>
+            <p>Use the live test panel below. Read <em>What we’re testing</em>, press <strong>Run test</strong>, then read the plain-language results.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-workstation.jpg?v=24" alt="FractiSI Multi-Agent workstation with shared world" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>Workstation view of shared-world sessions with per-agent deltas.</figcaption>
+            <img src="/media/fractisi-workstation.jpg?v=24" alt="Shared-world workstation" width="1200" height="675" loading="lazy" decoding="async" />
+            <figcaption>One registered world; small deltas per agent.</figcaption>
           </figure>
         `,
       },
@@ -724,20 +808,21 @@
         part: 6,
         parts: 9,
         n: 3,
-        title: 'Lab 2 · Organizational reuse when wording differs',
-        promise: 'Exact-text cache miss rate vs Rhyming Templates on same-shape sessions.',
-        runLabel: 'Run demo',
-        labHint: 'CLI: node scripts/tiny.mjs testdrive 3',
-        takeaway: 'Reuse structure that passes the rhyme gate — not identical strings.',
+        title: 'Lab 2 · Same job, different words',
+        promise: 'If two sessions do the same kind of work but use different wording, can we still reuse structure?',
+        runLabel: 'Run test',
+        labHint: 'CLI equivalent: node scripts/tiny.mjs testdrive 3',
+        testing: 'We create many sessions with the same job shape written in different words. An exact-text cache only helps when the words match. FractiSI tries to reuse the shared organization instead.',
+        expect: 'How many exact-text cache hits you got (usually near zero), and whether FractiSI’s shared organization store is smaller than keeping every paraphrase separately.',
+        takeaway: 'Reuse organization when wording changes — not only identical strings.',
         teach: `
           <div class="teach-prose">
-            <p><strong>Scenario.</strong> Two sessions share task organization but differ in wording. Exact-text / prefix cache returns zero hits.</p>
-            <p><strong>Intervention.</strong> <strong>Rhyming Templates</strong> (Tiny Gateway) admit reuse only if the four-pillar gate from Net Zero passes.</p>
-            <p><strong>Action.</strong> Run the demo (or <code>testdrive 3</code>). Confirm exact cache misses while organizational reuse still scores hits.</p>
+            <p>Agents paraphrase constantly. Exact-string caches go cold even when the job is the same shape.</p>
+            <p>Read the live test panel, press <strong>Run test</strong>, then read the plain-language results for cache hits vs shared organization size.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/fractisi-markets.jpg?v=24" alt="FractiSI editions sharing one engine" width="1200" height="675" loading="lazy" decoding="async" />
-            <figcaption>Same engine contract across editions; reuse is structural, not lexical.</figcaption>
+            <img src="/media/fractisi-markets.jpg?v=24" alt="One engine across editions" width="1200" height="675" loading="lazy" decoding="async" />
+            <figcaption>Reuse is about shape, not identical wording.</figcaption>
           </figure>
         `,
       },
@@ -747,20 +832,21 @@
         part: 7,
         parts: 9,
         n: 4,
-        title: 'Lab 3 · Multi-hop discovery vs flat skim',
-        promise: 'Score guided reconstruction against budgeted flat skim on the same board.',
-        runLabel: 'Run demo',
-        labHint: 'CLI: node scripts/tiny.mjs testdrive 4',
-        takeaway: 'Follow nested edges; do not rely on contiguous windows alone.',
+        title: 'Lab 3 · Finding answers flat skim misses',
+        promise: 'Same budget, same data — can following links find buried answers that a text skim misses?',
+        runLabel: 'Run test',
+        labHint: 'CLI equivalent: node scripts/tiny.mjs testdrive 4',
+        testing: 'We hide answers behind six-step chains. Both methods get the same information budget. Flat skim reads a text window. FractiSI follows the links in the shared world.',
+        expect: 'A clear score: how many FractiSI found and solved versus how many flat skim found and solved (often 100 vs 0).',
+        takeaway: 'Walk relationships. Do not rely on a flat text window alone.',
         teach: `
           <div class="teach-prose">
-            <p><strong>Scenario.</strong> Answers sit on multi-hop chains (A→B→C→result). Flat skim under a fixed budget can read substantial text and still score 0/100.</p>
-            <p><strong>Intervention.</strong> Selective reconstruction walks nested edges in the shared world.</p>
-            <p><strong>Action.</strong> Run the demo (or <code>testdrive 4</code>). Target readout: <strong>100/100 vs 0/100</strong>. This is the discovery signal behind Expedition 002 — not memory savings alone.</p>
+            <p>Some answers only appear if you follow A→B→C. Skimming a block of text can miss that path entirely.</p>
+            <p>Read the live test panel, press <strong>Run test</strong>, then read the plain-language score comparison.</p>
           </div>
           <figure class="teach-figure">
-            <img src="/media/library-hero.jpg" alt="Library shelves representing structured search paths" width="1200" height="800" loading="lazy" decoding="async" />
-            <figcaption>Volume of text ≠ path coverage. Measure the chain hit rate.</figcaption>
+            <img src="/media/library-hero.jpg" alt="Structured search paths" width="1200" height="800" loading="lazy" decoding="async" />
+            <figcaption>Path coverage beats page volume.</figcaption>
           </figure>
         `,
       },
@@ -810,7 +896,7 @@
     ];
 
     const ORDER = STEPS.map((s) => s.id);
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v8';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v9';
     const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]'));
     let index = 0;
     let running = false;
@@ -915,14 +1001,23 @@
       } else {
         labPanel.classList.remove('is-hidden');
         teachContinue.classList.add('is-hidden');
-        labTitle.textContent = 'Live demo';
+        labTitle.textContent = 'Live test';
+        const testingEl = document.getElementById('lab-testing');
+        const expectEl = document.getElementById('lab-expect');
+        if (testingEl) testingEl.textContent = s.testing || '';
+        if (expectEl) expectEl.textContent = s.expect || '';
         labHint.textContent = s.labHint || '';
-        btnRun.textContent = s.runLabel || 'Run demo';
+        btnRun.textContent = s.runLabel || 'Run test';
         if (centerHint) {
-          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs demo';
+          centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs test';
+        }
+        const summaryEl = document.getElementById('results-summary');
+        if (summaryEl) {
+          summaryEl.classList.remove('is-open');
+          summaryEl.innerHTML = '';
         }
         resultsEl.classList.add('is-empty');
-        resultsEl.textContent = 'Press Run demo to see the dramatic result.';
+        resultsEl.textContent = 'Run the test to fill in the plain-language results above.';
         takeawayEl.classList.remove('is-open');
         takeawayEl.innerHTML = '';
         honestyEl.textContent = '';
@@ -937,7 +1032,7 @@
 
     function goNext() {
       if (!trackOpen) {
-        openTrack('primer');
+        openTrack('welcome');
         return;
       }
       if (index >= STEPS.length - 1) {
@@ -979,6 +1074,22 @@
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error(data.detail || data.error || ('HTTP ' + res.status));
         const step = data.step;
+        const r = step.readout || {};
+        const summaryEl = document.getElementById('results-summary');
+        if (summaryEl) {
+          const cards = [
+            ['headline', r.headlineLabel || 'Headline', r.headlineValue || '—'],
+            ['', r.baselineLabel || 'Old way', r.baselineValue || '—'],
+            ['', r.treatmentLabel || 'FractiSI', r.treatmentValue || '—'],
+          ].map(([kind, k, v]) =>
+            '<div class="card' + (kind === 'headline' ? ' headline' : '') + '"><p class="k">' + k + '</p><p class="v">' + v + '</p></div>'
+          ).join('');
+          summaryEl.innerHTML =
+            '<p class="summary-title">Results in plain language</p>' +
+            '<p class="summary-text">' + (r.summary || step.opportunity || current().takeaway || '') + '</p>' +
+            '<div class="cards">' + cards + '</div>';
+          summaryEl.classList.add('is-open');
+        }
         const header = [
           step.title,
           'Surface: ' + step.layer,
@@ -988,7 +1099,7 @@
         ];
         resultsEl.textContent = header.concat(step.lines || []).join('\n');
         honestyEl.textContent = step.honesty || '';
-        takeawayEl.innerHTML = '<strong>Result</strong>' + (current().takeaway || '');
+        takeawayEl.innerHTML = '<strong>Bottom line</strong>' + (current().takeaway || '');
         takeawayEl.classList.add('is-open');
         statusEl.textContent = 'Done · ' + data.ms + ' ms';
         done.add(id);
