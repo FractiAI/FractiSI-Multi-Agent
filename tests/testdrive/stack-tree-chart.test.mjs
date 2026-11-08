@@ -58,3 +58,15 @@ test('Test Drive how-stack references the updated tree', async () => {
   assert.match(page, /how-stack/);
   assert.match(page, /infinite-octave-hero-source-tree\.jpg/);
 });
+
+test('Test Drive opens on hero title case with prose and images', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
+  assert.match(page, /Begin with the case/);
+  assert.match(page, /td-hero-visual/);
+  assert.match(page, /title: 'The Multi-Agent World Inference Rhyme\?'/);
+  assert.match(page, /teach-prose/);
+  assert.match(page, /fractisi-hero\.jpg/);
+  assert.match(page, /fractisi-architecture\.jpg/);
+  assert.match(page, /fractisi-workstation\.jpg/);
+});

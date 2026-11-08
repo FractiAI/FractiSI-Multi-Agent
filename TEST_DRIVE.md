@@ -10,15 +10,15 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 **Hero:** *The Multi-Agent World Inference Rhyme?* · Applied Active Inference Symposium (Nov 12–13, 2026)
 
-### Arc (9 stops)
+### Arc (9 stops · plain English · images)
 
-1. **How this works** — self-paced controls  
+1. **The case** — opens on the hero title *The Multi-Agent World Inference Rhyme?* and states the kinship question in everyday prose (not an outline)  
 2. **Awareness story** — restroom valet · AI music · opinions flip when aware (`src/testdrive/opening-story.mjs`)  
 3. **Sandbox** — Syntheverse on Base Mainnet · enter/exit with chosen awareness  
 4. **Problems + rhyme** — what agents suffer · symposium kinship ≠ product rhyme gate  
 5–7. **Three demos** — Run live: shared world (1) · rhyme vs cache (3) · discovery 100/100 (4)  
-8. **How** — stack tree chart (SING13 plate updated) + brief ladder that explains the demos · `/media/fractisi-multi-agent-stack-tree.jpg` · SVG `/media/fractisi-multi-agent-stack-tree.svg`  
-9. **Invite** — explore kit · connect · join beta → **End of Test Drive**
+8. **How** — stack tree chart (SING13 plate updated) + plain-English trunk · `/media/fractisi-multi-agent-stack-tree.jpg`  
+9. **Invite** — explore · Expedition 002 · pricing · connect · beta → **End of Test Drive**
 
 **Sandbox:** Base Mainnet → Syntheverse Sandbox (`src/testdrive/sandbox-frame.mjs`). No wallet for the peek.
 
