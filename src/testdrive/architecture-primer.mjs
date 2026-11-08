@@ -3,21 +3,40 @@
  * Shared by Test Drive (CLI / API) and the product page.
  *
  * Voice: frontier product engineering — concrete, short, locked names.
- * Net Zero first: src/testdrive/net-zero-definition.mjs ← singularity crystal + Goldilocks≡Net Zero.
- * Then rhyme: src/testdrive/rhyme-definition.mjs ← gate.mjs + holographic-rhyme paper.
+ * Sandbox frame first: Base Mainnet → Syntheverse (enter/exit with chosen awareness).
+ * Net Zero: src/testdrive/net-zero-definition.mjs
+ * Rhyme: src/testdrive/rhyme-definition.mjs
  */
 
+import { SANDBOX_FRAME, sandboxFrameLines } from './sandbox-frame.mjs';
 import { NET_ZERO_DEFINITION, netZeroDefinitionLines } from './net-zero-definition.mjs';
 import { RHYME_DEFINITION, rhymeDefinitionLines } from './rhyme-definition.mjs';
 
-export { NET_ZERO_DEFINITION, netZeroDefinitionLines, RHYME_DEFINITION, rhymeDefinitionLines };
+export {
+  SANDBOX_FRAME,
+  sandboxFrameLines,
+  NET_ZERO_DEFINITION,
+  netZeroDefinitionLines,
+  RHYME_DEFINITION,
+  rhymeDefinitionLines,
+};
 
 export const ARCHITECTURE_PRIMER = Object.freeze({
   title: 'FractiSI Multi-Agent · stack map',
   kicker: 'Architecture primer',
   lede:
-    'FractiSI Multi-Agent keeps one shared world for many agents (and human operators) instead of N private full copies. Learn Net Zero and rhyme first; the product map is short; then labs run the kit.',
+    'This peek sits in the Syntheverse Sandbox on Base Mainnet bedrock. Enter and leave with whichever awareness you choose. Inside: one shared world for many agents (including us) instead of N private full copies.',
   steps: Object.freeze([
+    {
+      id: 'base-mainnet',
+      name: SANDBOX_FRAME.baseMainnet.name,
+      body: SANDBOX_FRAME.baseMainnet.body,
+    },
+    {
+      id: 'syntheverse',
+      name: SANDBOX_FRAME.syntheverse.name,
+      body: SANDBOX_FRAME.syntheverse.body,
+    },
     {
       id: 'generative',
       name: 'Generative possibility',
@@ -73,22 +92,21 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
     },
     {
       id: 'awareness',
-      name: 'Awareness',
-      body:
-        'What each participant holds about the shared world (observations, beliefs, actions, ownership). Not phenomenal consciousness. Git awareness = repo grip (commits / worktrees).',
+      name: SANDBOX_FRAME.awareness.name,
+      body: `${SANDBOX_FRAME.awareness.body} Git awareness = repo grip (commits / worktrees) when you choose that path.`,
     },
     {
       id: 'synthesis',
       name: 'Product surface',
       body:
-        'Rhyming Templates (under the rhyme gate) → Tiny Gateway™ → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy (paid) → FractiSI Multi-Agent beside Cursor, Claude Code, VS Code, and Git.',
+        'Rhyming Templates (under the rhyme gate) → Tiny Gateway™ → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy (paid) → FractiSI Multi-Agent beside Cursor, Claude Code, VS Code, and Git — still inside the sandbox until you leave.',
     },
   ]),
   activeInference: RHYME_DEFINITION.symposiumKinship,
   chain:
-    'Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent',
+    'Base Mainnet → Syntheverse Sandbox → Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary nodes → Holographic rhyme (four pillars) → Recursive trees → 3D Hexagon / eight-node · honeycomb → Wave–Node–Fq / nested vectors / interference → Awareness (enter/exit by choice) → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent',
   honesty:
-    'Catalog + in-process labs. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Net Zero = balanced zero ≠ nothing zero / climate slogan. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof.',
+    'Catalog + in-process labs inside Syntheverse Sandbox on Base Mainnet bedrock. Voluntary enter/exit with chosen awareness — not a crypto purchase requirement. Not CapEx guarantees, not a Theory of Everything, not Active Inference identity, not infinite physical octave tiers, not Φ as physics or awareness. Net Zero = balanced zero ≠ nothing zero / climate slogan. Rhyme ≠ prefix cache. Hexagon–circle Soft Story partly open. Tiny Gateway ENGINE_SHELF #52 ≠ production HBM proof. Not clinical Synthio MRI.',
 });
 
 /** Plain-text lines for CLI / API results panels. */
@@ -107,7 +125,8 @@ export function architecturePrimerLines() {
     lines.push(`    ${s.body}`);
     lines.push('');
   }
-  // Define Net Zero before the rhyme gate that roots on it.
+  lines.push(...sandboxFrameLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
+  lines.push('');
   lines.push(...netZeroDefinitionLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
   lines.push('');
   lines.push(...rhymeDefinitionLines().map((l) => (l.startsWith('  ') || l === '' ? l : `  ${l}`)));
@@ -115,7 +134,7 @@ export function architecturePrimerLines() {
   lines.push('  Symposium kinship (separate word use)');
   lines.push(`    ${p.activeInference}`);
   lines.push('');
-  lines.push('  Next: labs 1–7. Same runners as the CLI. No account. No cloud token for the Test Drive.');
+  lines.push('  Next: optional labs 1–7. Same runners as the CLI. No account required for the peek.');
   return lines;
 }
 

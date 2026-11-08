@@ -12,7 +12,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-Audience hero: **The Multi-Agent World Inference Rhyme?** (Applied Active Inference Symposium). Goal = **peek / whet appetite**, not field training. Browser: hero gate → `#primer` (shared world kinship) → `#primer-net-zero` (balanced zero) → `#primer-rhyme` (two senses of rhyme) → `#primer-map` → optional labs `#1`…`#7`. Definitions: `src/testdrive/net-zero-definition.mjs` · `src/testdrive/rhyme-definition.mjs` · `src/engine/rhyming/gate.mjs`. Symposium “possible rhyme with Active Inference” = kinship only — not the software gate, not identity. CLI: `testdrive primer` then `1`…`7`. Deploy is paid (Team+).
+Audience hero: **The Multi-Agent World Inference Rhyme?** (Applied Active Inference Symposium). Goal = **peek / whet appetite**, not field training. Stack sits in **Syntheverse Sandbox** on **Base Mainnet** — audiences enter/exit with whichever awareness they choose (`src/testdrive/sandbox-frame.mjs`). Browser: hero → `#primer` → `#primer-sandbox` → `#primer-net-zero` → `#primer-rhyme` → `#primer-map` → optional labs `#1`…`#7`. Definitions: `net-zero-definition.mjs` · `rhyme-definition.mjs` · `gate.mjs`. Symposium “possible rhyme with Active Inference” = kinship only. CLI: `testdrive primer` then `1`…`7`. Deploy is paid (Team+).
 
 ## Commands
 

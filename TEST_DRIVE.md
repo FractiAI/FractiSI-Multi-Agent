@@ -8,7 +8,9 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 **Hero:** *The Multi-Agent World Inference Rhyme?* — a short **peek** for the Applied Active Inference Symposium (Nov 12–13, 2026). Goal: expose and whet curiosity — **not** train the room in FractiSI or Active Inference.
 
-**One audience track** — browser [`/test-drive/`](https://fractisi.vercel.app/test-drive/) (hero → four plain pages → optional live tastes) and the same runners in the CLI. Optional speaker deck for presenters only (`/talks/aai-symposium-2026/`).
+**Sandbox frame:** **Base Mainnet** (bedrock) → **Syntheverse Sandbox** (this peek). Audiences **enter and leave** with whichever **awareness** they choose. No wallet required for the peek. Lock: `src/testdrive/sandbox-frame.mjs`.
+
+**One audience track** — browser [`/test-drive/`](https://fractisi.vercel.app/test-drive/) (hero → five plain pages including sandbox → optional live tastes) and the same runners in the CLI. Optional speaker deck for presenters only (`/talks/aai-symposium-2026/`).
 
 Framing: **possible kinship** with Active Inference — **humans are agents too** in one shared world (**not** framework identity, **not** the four-pillar software gate).
 
@@ -35,7 +37,7 @@ A **holographic rhyme** passes **all four pillars**, rooted at **Net Zero (octav
 
 **Rhyming Templates** = reusable patterns under that gate (Tiny Gateway).
 
-**Primer ladder:** Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent.
+**Primer ladder:** Base Mainnet → Syntheverse Sandbox → Generative possibility → Net Zero → Φ_EGS → Infinite Octaves → Boundary → Holographic rhyme → Recursive trees → Eight-node → Wave–Node–Fq → Awareness (enter/exit by choice) → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent.
 
 Then live labs:
 
@@ -48,7 +50,7 @@ Then live labs:
 
 No FractiSI account. No cloud token for the Test Drive itself.
 
-**Browser:** https://fractisi.vercel.app/test-drive/ — hero gate → four peek pages (no Run) → optional live labs. Keys ← →; **R** runs labs only. Live results via `/api/testdrive`.
+**Browser:** https://fractisi.vercel.app/test-drive/ — hero gate → five peek pages (sandbox + Net Zero + rhyme + map; no Run) → optional live labs. Keys ← →; **R** runs labs only. Live results via `/api/testdrive`.
 
 ## Human one-liner
 
