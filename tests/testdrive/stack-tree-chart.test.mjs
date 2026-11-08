@@ -86,3 +86,14 @@ test('Net Zero is defined before the rhyme gate and invitations are present', as
   }
   assert.doesNotMatch(page, /What’s broken/);
 });
+
+test('Test Drive futures beat covers Predictive Shared State results', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
+  assert.match(page, /id: 'futures'/);
+  assert.match(page, /Practice the future/);
+  assert.match(page, /\+1\.4/);
+  assert.match(page, /\+3\.6/);
+  assert.match(page, /cannot overwrite the real world/i);
+  assert.match(page, /not a claim that we wrapped Cosmos/i);
+});

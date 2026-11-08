@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
-  <meta name="description" content="Many agents. One shared world. Four live tests you run yourself, about twenty minutes. Applied Active Inference Symposium, Nov 12–13, 2026.">
+  <meta name="description" content="Many agents. One shared world. Four live tests, then predictive futures. About twenty minutes. Applied Active Inference Symposium, Nov 12–13, 2026.">
   <meta property="og:title" content="The Multi-Agent World Inference Rhyme?">
   <meta property="og:description" content="Many agents. One shared world. Four live tests you run yourself.">
   <meta property="og:image" content="https://fractisi.vercel.app/media/fractisi-hero.jpg">
@@ -421,7 +421,7 @@
       <p class="brand">FractiSI Multi-Agent</p>
       <h1>The Multi-Agent World Inference Rhyme?</h1>
       <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-      <p class="deck">Many agents. One shared world. Watch them waste less, reuse more, and find what a skim never will. Four live tests. You press the buttons.</p>
+      <p class="deck">Many agents. One shared world. Watch them waste less, reuse more, and find what a skim never will. Four live tests. Then a new rehearsal layer: practice futures before they touch the real world.</p>
       <button type="button" class="btn btn-gold" id="btn-start" data-action="start">Let’s begin →</button>
       <ul class="facts">
         <li>About twenty minutes</li>
@@ -725,7 +725,7 @@
               <li><strong>Holographic rhyme gate.</strong> Four pillars. Only what passes gets reused. <span class="tag">Test 3</span></li>
               <li><strong>Rhyming Templates, Tiny Gateway.</strong> Reuse the shape, rebuild the detail on demand. <span class="tag">Tests 3 · 4</span></li>
               <li><strong>Tiny Footprint.</strong> One world, one small note per agent. <span class="tag">Tests 1 · 2</span></li>
-              <li><strong>Coordination, shared state, composition.</strong> Agents agree who owns what and merge their work.</li>
+              <li><strong>Coordination, shared state, composition.</strong> Agents agree who owns what and merge their work. <span class="tag">+ futures (opt-in)</span></li>
               <li><strong>Git awareness.</strong> Your repo stays the source of truth. <span class="tag free">Free</span></li>
               <li><strong>Deploy.</strong> Publishing, with a human approving. <span class="tag paid">Team and up</span></li>
               <li class="crown"><strong>FractiSI Multi-Agent.</strong></li>
@@ -733,7 +733,39 @@
           </div>
           <div class="prose">
             <p>We measured coordination too, and we owe you the result. At twenty-five agents it logged more conflicts than plain branching, not fewer, while finishing slightly more useful work. So it is not one of the four tests. We would rather tell you that than hide it.</p>
+            <p>And we added something new beside this stack: <strong>Predictive Shared State</strong> — agents can rehearse futures before they touch the real world. Next beat shows the numbers.</p>
+            <p>In the ladder: Coordination · Shared state · Composition is where that rehearsal plugs in — as an optional switch, not a replacement for the four live tests.</p>
             <p class="aside">Everything you ran is a lab on one machine. It is a promising result, not a production benchmark, and not a claim to be Active Inference.</p>
+          </div>
+        `,
+      },
+      {
+        id: 'futures',
+        mode: 'teach',
+        chapter: 'What\'s new',
+        title: 'Practice the future. Then change the world.',
+        promise: 'A new layer we measured. Optional. Honest.',
+        teach: `
+          <div class="prose">
+            <p class="lede">After the four tests, we asked a harder question.</p>
+            <p>Can agents rehearse possible changes without touching the real shared world?</p>
+            <p>We keep three boxes separate:</p>
+            <ul class="plain">
+              <li><strong>The real world</strong> — what is actually true.</li>
+              <li><strong>Proposals</strong> — what an agent wants to change.</li>
+              <li><strong>Predictions</strong> — practice runs. “What if we did this?”</li>
+            </ul>
+            <p class="punch">A prediction cannot overwrite the real world unless someone approves it.</p>
+            <p>We ran the same multi-agent jobs at 1, 4, 16, 32, and 100 agents.</p>
+            <p>When imagination ran <em>after</em> the usual conflict gate, useful work matched today’s FractiSI exactly. Safe. No extra win.</p>
+            <p>When imagination <em>chose who goes first</em>, fleets finished more useful work:</p>
+            <ul class="plain">
+              <li><strong>32 agents:</strong> about +1.4 more useful tasks.</li>
+              <li><strong>100 agents:</strong> about +3.6 more.</li>
+              <li><strong>Never</strong> more than 5% behind the current system.</li>
+            </ul>
+            <p>Sharing one world still uses far less memory than N full copies — about 99% less at 100 agents. Imagining futures costs some memory too, so we only do it when asked.</p>
+            <p class="aside">Research lab on one machine. Opt-in for the product. Not a claim that we wrapped Cosmos or V-JEPA into the core. Not Active Inference identity.</p>
           </div>
         `,
       },
@@ -754,6 +786,7 @@
               <div class="links">
                 <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get the kit on GitHub</a>
                 <a href="/expedition-002/">Read Expedition 002</a>
+                <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/tree/main/docs/research/world-model-assimilation">World Model research</a>
                 <a href="/pricing/">See the plans</a>
               </div>
             </div>
@@ -780,8 +813,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v11';
-    const RESULTS_KEY = 'fractisi-td-results-v11';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v12';
+    const RESULTS_KEY = 'fractisi-td-results-v12';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
