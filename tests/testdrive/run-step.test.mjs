@@ -97,13 +97,13 @@ test('Test Drive page explains each test and renders the results card', () => {
   assert.match(page, /rc-num/);
   assert.match(page, /bar-track/);
   assert.match(page, /prefers-reduced-motion/);
-  assert.match(page, /Twelve agents work from the same shared context/);
-  assert.match(page, /exact-text cache can only reuse identical text/i);
+  assert.match(page, /Twelve agents share one context/);
+  assert.match(page, /exact-text cache reuses only identical text/i);
   assert.match(page, /six links deep/);
-  assert.match(page, /fractisi-td-walkthrough-done-v13/);
-  assert.match(page, /fractisi-td-results-v13/);
-  assert.doesNotMatch(page, /-v12/);
-  assert.match(page, /Same memory\. More agents\./);
+  assert.match(page, /fractisi-td-walkthrough-done-v14/);
+  assert.match(page, /fractisi-td-results-v14/);
+  assert.doesNotMatch(page, /-v13/);
+  assert.match(page, /More agents, same memory\./);
 });
 
 test('speaker deck quotes the same numbers the tests return', () => {

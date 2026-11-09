@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>One shared world. Four live tests. · Test Drive · FractiSI</title>
-  <meta name="description" content="Run four live tests on many agents sharing one world, then see predictive futures. About twenty minutes. No account, no wallet. Applied Active Inference Symposium, Nov 12–13, 2026.">
-  <meta property="og:title" content="One shared world. Four live tests.">
-  <meta property="og:description" content="When many agents share one world, does the way they organize it rhyme? Four live tests you run yourself.">
+  <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
+  <meta name="description" content="When many agents share one world, does the way they organize it rhyme? Four live tests, run in your browser or your IDE. About twenty minutes. Applied Active Inference Symposium, Nov 12–13, 2026.">
+  <meta property="og:title" content="The Multi-Agent World Inference Rhyme?">
+  <meta property="og:description" content="Many agents, one shared world, four tests you run yourself.">
   <meta property="og:image" content="https://fractisi.vercel.app/media/fractisi-hero.jpg">
   <link rel="stylesheet" href="/css/site.css?v=35">
   <meta http-equiv="Cache-Control" content="no-cache">
@@ -461,15 +461,15 @@
   <section class="td-hero" id="td-hero" aria-label="Test Drive welcome">
     <div class="inner">
       <p class="brand">FractiSI Multi-Agent · Test Drive</p>
-      <h1>One shared world. Four live tests.</h1>
+      <h1>The Multi-Agent World Inference Rhyme?</h1>
       <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-      <p class="deck">Run the experiments yourself. Measure what changes when many agents share one world instead of copying it. Then see predictive futures: a new layer where agents rehearse changes before they touch the real world.</p>
-      <button type="button" class="btn btn-solid" id="btn-start" data-action="start">Let’s begin →</button>
+      <p class="deck">Give many agents one shared world instead of many private copies, and they find more, waste less and fit more in the same memory. Four tests you run yourself, then a look at what we are building next.</p>
+      <button type="button" class="btn btn-solid" id="btn-start" data-action="start">Begin →</button>
       <ul class="facts">
         <li>About twenty minutes</li>
         <li>No account</li>
         <li>No wallet</li>
-        <li>Live numbers, not slides</li>
+        <li>Live runs, not slides</li>
       </ul>
       <p class="soft-links"><a href="/talks/aai-symposium-2026/">Speaker deck</a> &nbsp;·&nbsp; <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a> &nbsp;·&nbsp; <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Beta</a></p>
       <noscript><p class="soft-links">This tour runs in the browser and needs JavaScript. The same tests run from the repo: <code>node scripts/tiny.mjs testdrive</code></p></noscript>
@@ -520,21 +520,20 @@
         id: 'welcome',
         mode: 'teach',
         chapter: 'The question',
-        title: 'The question under test.',
-        promise: 'Session title: The Multi-Agent World Inference Rhyme?',
+        title: 'Many agents. One world.',
+        promise: 'What we set out to find out.',
         teach: `
           <div class="prose">
-            <p class="lede">Inference research studies agents that hold a model of the world, act on it, and update when the world responds.</p>
-            <p>Some of you study many such agents at once. Some study what changes when people are in the loop. We build for that case: software agents and people sharing one world, each with a partial view of it.</p>
+            <p class="lede">Active inference describes an agent as something that keeps a model of its world and revises it as the world answers back.</p>
+            <p>Most of that work studies one agent, or a few. We build for the next case: many agents sharing one world, with people among them. Each holds a partial picture. All of them act on the same thing.</p>
             <p class="big q">When many agents share one world, does the way they organize it rhyme?</p>
-            <p>If it does, the group should waste less, notice more, and reuse what it already knows.</p>
-            <p>That is testable. The next twenty minutes run the tests instead of arguing the point.</p>
-            <p class="aside">Rhyme here means kinship with what this room studies. It is not a claim that our system is Active Inference. That boundary holds throughout.</p>
+            <p>We mean rhyme in a precise sense, defined before the tests so you can check us. If the answer is yes, the group should waste less, find more, and reuse what it already knows. Those are things you can measure, so the next twenty minutes measure them.</p>
+            <p class="aside">We think this may rhyme with active inference. We are not saying it is active inference. We are showing a result and asking whether it deserves a joint look.</p>
           </div>
           <div class="four-tests" aria-label="The four tests">
-            <a href="#1"><b>Test 1</b><span>One world. Not twelve.</span></a>
-            <a href="#7"><b>Test 2</b><span>Same memory. More agents.</span></a>
-            <a href="#3"><b>Test 3</b><span>Same job. Different words.</span></a>
+            <a href="#1"><b>Test 1</b><span>Twelve agents, one copy.</span></a>
+            <a href="#7"><b>Test 2</b><span>More agents, same memory.</span></a>
+            <a href="#3"><b>Test 3</b><span>Same job, different words.</span></a>
             <a href="#4"><b>Test 4</b><span>Answers six links deep.</span></a>
           </div>
         `,
@@ -543,22 +542,20 @@
         id: 'story',
         mode: 'teach',
         chapter: 'Awareness',
-        title: 'Same sound. Different room.',
-        promise: 'A short story about belief and experience.',
+        title: 'The same song.',
+        promise: 'Where this started.',
         teach: `
           <div class="prose">
             <p class="lede">I work as a restroom valet.</p>
-            <p>I play music made by AI. Most nights nobody gives it a thought. People hum along.</p>
-            <p>Then someone learns it was made by AI.</p>
-            <p class="big">The room changes at once.</p>
-            <p>Some people lean in. Some frown. The song, the speakers and the ceiling are the same.</p>
-            <p>Nothing in the signal changed. The listener’s model of the signal did, and the experience followed.</p>
-            <p>This room knows the pattern. A shared world is only as good as what each participant holds about it.</p>
-            <p>Now make the participants agents, many at once. We built for that case, and we think it rhymes with what this room studies. The tests show how it holds up.</p>
+            <p>I play music in there, and a lot of it is made by AI. For most of a night nobody notices. People hum along. Someone taps the counter.</p>
+            <p>Then somebody finds out it is AI. The mood changes almost at once. Some people lean in. Some go quiet. Some leave.</p>
+            <p>Same speakers. Same songs. What changed was what the listener knew.</p>
+            <p class="big">A shared world is made of what each participant holds about it.</p>
+            <p>Change what one participant knows and you change how everyone in the room behaves. Now put many agents in that room, and people too, each holding a partial picture. That is the case we built for. The tests that follow are what we found.</p>
           </div>
           <figure class="figure">
             <img src="/media/el-cortez.jpg" alt="A shared public place" width="1200" height="800" loading="lazy" decoding="async" />
-            <figcaption>Same place. Different awareness. Different experience.</figcaption>
+            <figcaption>One room. Everyone in it knows something different.</figcaption>
           </figure>
         `,
       },
@@ -566,12 +563,12 @@
         id: 'sandbox',
         mode: 'teach',
         chapter: 'Sandbox',
-        title: 'Where this runs.',
-        promise: 'A sandbox. Enter and leave when you choose.',
+        title: 'Where you are.',
+        promise: 'A sandbox you can enter and leave.',
         teach: `
           <div class="prose">
-            <p class="lede">Everything you run here lives in the Syntheverse Sandbox.</p>
-            <p>Base Mainnet is a public chain that keeps receipts. The sandbox sits on top of it, the way a room sits on bedrock.</p>
+            <p class="lede">Everything on this page runs inside the Syntheverse Sandbox.</p>
+            <p>The sandbox sits on Base Mainnet, a public chain that keeps receipts. FractiSI Multi-Agent runs inside the sandbox.</p>
           </div>
           <div class="strata" aria-label="Layers from top to bottom">
             <div class="s1"><b>FractiSI Multi-Agent</b><span>what you run</span></div>
@@ -579,47 +576,47 @@
             <div class="s3"><b>Base Mainnet</b><span>bedrock</span></div>
           </div>
           <div class="prose">
-            <p>You choose how you take part: curious, skeptical, reading the code, or watching. That awareness is yours to set.</p>
-            <p>No wallet. No account. Nothing to buy.</p>
+            <p>You decide how far in to go. Read the code, run the tests, or watch. How aware you want to be is your setting.</p>
+            <p>You do not need a wallet or an account, and nothing here is for sale.</p>
           </div>
         `,
       },
       {
         id: 'problem',
         mode: 'teach',
-        chapter: 'The idea',
-        title: 'Five costs of a crowd.',
-        promise: 'What breaks when many agents work on one job.',
+        chapter: 'The problem',
+        title: 'What goes wrong with many agents.',
+        promise: 'Five problems, one cause.',
         teach: `
           <div class="prose">
-            <p class="lede">Put ten agents on one job and most systems give each one a private copy of the world.</p>
+            <p class="lede">Put ten agents on one job and most systems give each of them a private copy of the world.</p>
           </div>
-          <div class="world-diagram" role="img" aria-label="Old way: every agent carries a full copy of the world. FractiSI: one shared world and a small note per agent.">
+          <div class="world-diagram" role="img" aria-label="Today: every agent carries a full copy of the world. FractiSI: one shared world and a small note per agent.">
             <div class="wd-col old">
-              <p class="wd-h">The old way</p>
+              <p class="wd-h">Today</p>
               <div class="wd-agents">
                 <div class="wd-agent">copy</div><div class="wd-agent">copy</div><div class="wd-agent">copy</div><div class="wd-agent">copy</div>
               </div>
-              <p class="wd-cap">Every agent carries its own full copy of the world.</p>
+              <p class="wd-cap">Each agent carries a full copy.</p>
             </div>
             <div class="wd-col new">
               <p class="wd-h">FractiSI</p>
               <div class="wd-shared">One shared world</div>
               <div class="wd-agents"><span class="wd-note"></span><span class="wd-note"></span><span class="wd-note"></span><span class="wd-note"></span></div>
-              <p class="wd-cap">One copy. Each agent keeps a small note about what differs for it.</p>
+              <p class="wd-cap">One copy of the world. Each agent keeps a note on what differs for it.</p>
             </div>
           </div>
           <div class="prose">
             <ul class="plain">
-              <li><strong>Copies.</strong> Ten agents hold ten copies of the same map and rules before any useful work starts.</li>
-              <li><strong>The context tax.</strong> Every copy fills memory. Add agents and the memory runs out.</li>
-              <li><strong>Different words.</strong> A cache helps only when the text matches exactly. Agents paraphrase, and the cache goes cold.</li>
-              <li><strong>Buried answers.</strong> A skim of one text window misses whatever sits several links away.</li>
-              <li><strong>Collisions.</strong> When many agents write at once, they overwrite each other.</li>
+              <li><strong>Copies.</strong> Ten agents hold ten copies of the same map and rules before any of them does anything useful.</li>
+              <li><strong>Memory.</strong> Every copy sits in memory. Past a point, adding an agent means dropping one.</li>
+              <li><strong>Paraphrase.</strong> Agents restate things in their own words, so a cache keyed on exact text almost never hits.</li>
+              <li><strong>Discovery and convergence.</strong> The answer is often several links away. A skim of one window of text never reaches it, and the group never settles on one.</li>
+              <li><strong>Collisions.</strong> Agents write at the same time and overwrite each other.</li>
             </ul>
-            <p>Compression does not fix this. A smaller pile of copies is still a pile of copies.</p>
-            <p class="big">Keep one world. Each agent stores only what makes it different.</p>
-            <p>We test four of these directly. The fifth, collisions, is reported in the stack section.</p>
+            <p>Compression touches none of these. A smaller pile of copies is still a pile of copies.</p>
+            <p class="big">Keep one world. Let each agent store only what is different about it.</p>
+            <p>The next section tests four of the five. Collisions come up in the stack, with a result we did not like.</p>
           </div>
         `,
       },
@@ -627,35 +624,35 @@
         id: 'rhyme',
         mode: 'teach',
         chapter: 'The idea',
-        title: 'Two definitions.',
-        promise: 'Net Zero first. Then rhyme.',
+        title: 'Net Zero, then rhyme.',
+        promise: 'The two terms everything else rests on.',
         teach: `
           <div class="prose">
-            <p class="lede">Two terms carry the rest of the session. We use both with care.</p>
+            <p class="lede">We use two terms with specific meanings. Net Zero comes first, because rhyme grows out of it.</p>
             <h2>Net Zero</h2>
             <p class="punch">Balanced zero, not nothing zero.</p>
-            <p>Nothing zero is an empty box. Nothing is there and nothing moves.</p>
-            <p>Balanced zero is a scale at rest because both pans carry weight. Opposing forces cancel and the work keeps flowing, like a hub that holds steady while traffic moves through it.</p>
+            <p>Nothing zero is an empty box. Nothing is in it and nothing moves.</p>
+            <p>Balanced zero is a scale that sits level because both pans carry weight. Opposing forces cancel and the work keeps going, the way a hub holds steady while traffic moves through it.</p>
           </div>
           <div class="balance">
-            <div class="yes"><h3>Balanced zero</h3><p>Forces cancel. Work continues. Steady because everything is in play.</p></div>
-            <div class="no"><h3>Nothing zero</h3><p>Empty. Stopped. Nothing there to hold steady.</p></div>
+            <div class="yes"><h3>Balanced zero</h3><p>Forces cancel. Activity continues. Steady because everything is in play.</p></div>
+            <div class="no"><h3>Nothing zero</h3><p>Empty and stopped. Nothing there to hold steady.</p></div>
           </div>
           <div class="prose">
-            <p>That balanced point is the root of the shared world. Everything else hangs from it.</p>
+            <p>Net Zero is octave 0, the root of the shared world. Everything else is built upward from it. An octave is one step up in scale, and the same pattern shows up at each step. We call the whole ladder Infinite Octaves.</p>
             <h2>Rhyme</h2>
-            <p>In a poem, a rhyme is two lines that sound alike. Here, a rhyme is two pieces of work organized alike even when the words differ.</p>
-            <p>A pattern counts only if it passes all four tests below, rooted at Net Zero.</p>
+            <p>In a poem, two lines rhyme when they sound alike. Here, two pieces of work rhyme when they are organized alike, even if the words differ.</p>
+            <p>A pattern counts as a rhyme only if it passes all four tests below, rooted at Net Zero.</p>
           </div>
           <div class="pillars">
-            <div class="pillar"><span class="n">01</span><h3>Repeating</h3><p>The same organization shows up again, even in different words.</p></div>
+            <div class="pillar"><span class="n">01</span><h3>Repeating</h3><p>The same organization shows up again, in different words.</p></div>
             <div class="pillar"><span class="n">02</span><h3>Self-similar</h3><p>A small piece carries the pattern of the whole.</p></div>
-            <div class="pillar"><span class="n">03</span><h3>Self-correcting</h3><p>Drift pulls back toward balance.</p></div>
-            <div class="pillar"><span class="n">04</span><h3>Recursive</h3><p>It nests upward from the root, one octave at a time, as in music: the same pattern, one scale up.</p></div>
+            <div class="pillar"><span class="n">03</span><h3>Self-correcting</h3><p>Drift gets pulled back toward balance.</p></div>
+            <div class="pillar"><span class="n">04</span><h3>Recursive</h3><p>It nests upward from the root, one octave at a time.</p></div>
           </div>
           <div class="prose">
-            <p>Matching words alone do not count. Neither does a cache hit alone, or a pattern with no root.</p>
-            <p>When a new session passes the gate, it reuses structure that is already stored. That is the saving the next tests measure.</p>
+            <p>Matching words do not make a rhyme. A cache hit does not, and neither does a pattern with no root.</p>
+            <p>A pattern that passes becomes a Rhyming Template. New work that fits it reuses the template and records only what differs. That reuse is the saving the tests measure.</p>
           </div>
         `,
       },
@@ -663,18 +660,17 @@
         id: '1',
         mode: 'lab',
         chapter: 'Live tests',
-        title: 'One world. Not twelve.',
+        title: 'Twelve agents, one copy.',
         promise: 'Twelve agents need the same map.',
-        recapName: 'One world, not twelve',
+        recapName: 'Twelve agents, one copy',
         labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive 1</code>',
-        testing: 'Twelve agents work from the same shared context. The old way stores a full copy for every agent. FractiSI stores one shared copy plus a small note per agent. We count the bytes each approach needs.',
-        expect: 'Two byte totals, side by side. Compare the bar lengths.',
-        takeaway: 'One shared world, not twelve copies.',
+        testing: 'Twelve agents share one context. We store it two ways: a full copy per agent, or one shared copy plus a small note per agent. Then we count bytes.',
+        expect: 'Two byte counts, and the percentage between them.',
+        takeaway: 'One copy of the world. A note per agent.',
         teach: `
           <div class="prose">
             <p class="lede">Twelve agents need the same map. Do you store twelve copies?</p>
-            <p>Most multi-agent systems do. Each agent gets a full copy of the world.</p>
-            <p>FractiSI stores it once.</p>
+            <p>Most multi-agent systems do. FractiSI stores the world once and gives each agent a note on how its view differs.</p>
           </div>
           <figure class="figure">
             <img src="/media/fractisi-workstation.jpg?v=24" alt="Shared-world workstation" width="1200" height="675" loading="lazy" decoding="async" />
@@ -686,18 +682,17 @@
         id: '7',
         mode: 'lab',
         chapter: 'Live tests',
-        title: 'Same memory. More agents.',
+        title: 'More agents, same memory.',
         promise: 'What the saving buys.',
-        recapName: 'Same memory, more agents',
+        recapName: 'More agents, same memory',
         labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive 7</code>',
-        testing: 'We take the memory that twenty-four full-copy agents need. Then we count how many agents fit in that same space when they share one world. Same memory budget for both.',
-        expect: 'Two agent counts. The gap is the headroom.',
-        takeaway: 'Each new agent adds a note, not another copy of everything.',
+        testing: 'Take the memory that 24 full-copy agents use. Count how many agents fit in that same space when they share one world.',
+        expect: 'Two agent counts. The gap between them is the headroom.',
+        takeaway: 'Each new agent costs a note, not a copy.',
         teach: `
           <div class="prose">
-            <p class="lede">Saved bytes matter for what they allow.</p>
-            <p>Memory caps how many agents can run at once. Lower the per-agent cost and the cap rises.</p>
-            <p>So we fix the memory budget and count agents.</p>
+            <p class="lede">Memory sets how many agents can run at once.</p>
+            <p>Lower the cost of each agent and the ceiling rises. So we hold the memory budget fixed and count agents.</p>
           </div>
         `,
       },
@@ -705,18 +700,18 @@
         id: '3',
         mode: 'lab',
         chapter: 'Live tests',
-        title: 'Same job. Different words.',
-        promise: 'The cache goes cold. The organization does not.',
+        title: 'Same job, different words.',
+        promise: 'The cache goes cold. The pattern does not.',
         recapName: 'Same job, different words',
         labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive 3</code>',
-        testing: 'Forty sessions do the same kind of work, each worded differently. An exact-text cache can only reuse identical text. FractiSI reuses shared organization, but only when a pattern passes the four-pillar gate. We count cache hits and the bytes each store needs.',
-        expect: 'How often the old cache hits, and how much each store has to keep.',
-        takeaway: 'The shape is reused. The spelling does not matter.',
+        testing: 'Forty sessions do the same kind of job, each worded differently. An exact-text cache reuses only identical text. Rhyming Templates reuse a pattern only if it passes the four-pillar gate. We count cache hits and bytes stored.',
+        expect: 'Cache hits for the old approach, and bytes stored by each.',
+        takeaway: 'The words changed. The pattern did not. We paid for it once.',
         teach: `
           <div class="prose">
-            <p class="lede">Agents paraphrase. They do not copy and paste.</p>
-            <p>An exact-text cache hits only when the words match letter for letter. Rephrase and it goes cold.</p>
-            <p>We give both stores forty sessions of the same job, each worded differently, and see which one recognizes the shared shape.</p>
+            <p class="lede">Agents paraphrase. They rarely copy and paste.</p>
+            <p>An exact-text cache hits only when the words match letter for letter. Reword the request and it goes cold.</p>
+            <p>We give both stores forty differently worded sessions of one job and see which recognizes the pattern underneath.</p>
           </div>
         `,
       },
@@ -728,18 +723,17 @@
         promise: 'Same budget. Same data.',
         recapName: 'Answers six links deep',
         labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive 4</code>',
-        testing: 'One hundred puzzles where the answer sits six links deep. Both methods get the same information budget. A flat skim reads a window of text. FractiSI follows the links through the shared world.',
-        expect: 'A score out of one hundred for each method.',
-        takeaway: 'Follow the links. Do not just skim the page.',
+        testing: 'One hundred puzzles, each with its answer six links away. Both methods get the same budget. One skims a window of text. The other follows links through the shared world.',
+        expect: 'A score out of 100 for each method.',
+        takeaway: 'Follow the links.',
         teach: `
           <div class="prose">
             <p class="lede">Some answers appear only if you follow A to B to C.</p>
-            <p>A skim of one text window walks past them.</p>
-            <p>The answers are all in the data. The question is which method reaches them.</p>
+            <p>A skim of one window walks past them. Every answer is in the data. The question is which method reaches it.</p>
           </div>
           <figure class="figure">
             <img src="/media/library-hero.jpg" alt="Paths through a library of knowledge" width="1200" height="800" loading="lazy" decoding="async" />
-            <figcaption>The right path matters more than more pages.</figcaption>
+            <figcaption>The path matters more than the page count.</figcaption>
           </figure>
         `,
       },
@@ -747,11 +741,11 @@
         id: 'how-stack',
         mode: 'teach',
         chapter: 'The stack',
-        title: 'How the stack fits together.',
-        promise: 'From bedrock to the product.',
+        title: 'The stack, bottom to top.',
+        promise: 'What the tests ran on.',
         teach: `
           <div class="prose">
-            <p class="lede">The four tests ran on the stack below, read from the ground up.</p>
+            <p class="lede">The four tests ran on the stack below. Read it from the ground up.</p>
           </div>
           <div class="stack-grid">
             <figure>
@@ -761,22 +755,21 @@
             <ol class="ladder">
               <li><strong>Base Mainnet.</strong> Bedrock. Receipts when you need them.</li>
               <li><strong>Syntheverse Sandbox.</strong> The room you are running in.</li>
-              <li><strong>Net Zero.</strong> Balanced zero. The root every rhyme hangs from.</li>
+              <li><strong>Net Zero.</strong> Balanced zero. The root every rhyme grows from.</li>
               <li><strong>Infinite Octaves.</strong> The same pattern at larger and larger scales.</li>
-              <li><strong>Holographic rhyme gate.</strong> Four pillars. Only what passes gets reused. <span class="tag">Test 3</span></li>
-              <li><strong>Rhyming Templates, Tiny Gateway.</strong> Reuse the shape, rebuild the detail on demand. <span class="tag">Tests 3 · 4</span></li>
+              <li><strong>Holographic rhyme gate.</strong> Four pillars. Only a pattern that passes gets reused. <span class="tag">Test 3</span></li>
+              <li><strong>Rhyming Templates, Tiny Gateway.</strong> Keep the pattern, rebuild the detail on demand. <span class="tag">Tests 3 · 4</span></li>
               <li><strong>Tiny Footprint.</strong> One world, one small note per agent. <span class="tag">Tests 1 · 2</span></li>
-              <li><strong>Coordination, shared state, composition.</strong> Agents agree who owns what and merge their work. <span class="tag">+ futures (opt-in)</span></li>
-              <li><strong>Git awareness.</strong> Your repo stays the source of truth. <span class="tag free">Free</span></li>
-              <li><strong>Deploy.</strong> Publishing, with a human approving. <span class="tag paid">Team and up</span></li>
+              <li><strong>Coordination, shared state, composition.</strong> Agents agree on who owns what, and their work merges. <span class="tag">+ futures (opt-in)</span></li>
+              <li><strong>Git awareness.</strong> Your repository stays the source of truth. <span class="tag free">Free</span></li>
+              <li><strong>Deploy.</strong> Publishing, with a person approving. <span class="tag paid">Team and up</span></li>
               <li class="crown"><strong>FractiSI Multi-Agent.</strong></li>
             </ol>
           </div>
           <div class="prose">
-            <p>We measured coordination too, and we owe you the result. At twenty-five agents it logged more conflicts than plain branching, not fewer, while finishing slightly more useful work. That is why it is not one of the four tests. We report it rather than hide it.</p>
-            <p>We also added a layer beside this stack: <strong>Predictive Shared State</strong>. Agents rehearse futures before they touch the real world. The next step has the numbers.</p>
-            <p>In the ladder, Coordination · Shared state · Composition is where rehearsal plugs in, as an optional switch. It does not replace the four live tests.</p>
-            <p class="aside">Everything you ran is a lab on one machine. It is a promising result, not a production benchmark, and not a claim to be Active Inference.</p>
+            <p>We measured coordination too, and the result is mixed. At 25 agents it logged more conflicts than plain branching, 3.7 against 1.7, while finishing slightly more useful work. We are not showing it as a test. It is where we have the most left to do.</p>
+            <p>Beside this stack sits <strong>Predictive Shared State</strong>, where agents rehearse a change before it touches the real world. It plugs in at Coordination, shared state and composition as an optional switch. The next step has the numbers.</p>
+            <p class="aside">Everything you ran is a lab on one machine. It is a promising result, not a production benchmark.</p>
           </div>
         `,
       },
@@ -789,24 +782,22 @@
         teach: `
           <div class="prose">
             <p class="lede">After the four tests we asked a harder question.</p>
-            <p>Can agents rehearse possible changes without touching the real shared world?</p>
-            <p>We keep three stores separate:</p>
+            <p>Can agents rehearse possible changes without touching the shared world?</p>
+            <p>We keep three stores apart:</p>
             <ul class="plain">
               <li><strong>The real world.</strong> What is actually true.</li>
               <li><strong>Proposals.</strong> What an agent wants to change.</li>
-              <li><strong>Predictions.</strong> Practice runs. “What if we did this?”</li>
+              <li><strong>Predictions.</strong> Practice runs of &ldquo;what if we did this?&rdquo;</li>
             </ul>
             <p class="punch">A prediction cannot overwrite the real world unless someone approves it.</p>
-            <p>We ran the same multi-agent jobs at 1, 4, 16, 32, and 100 agents.</p>
-            <p>When imagination ran <em>after</em> the usual conflict gate, useful work matched today’s FractiSI exactly. Safe. No extra gain.</p>
-            <p>When imagination <em>chose who goes first</em>, fleets finished more useful work:</p>
+            <p>We ran the same multi-agent jobs at 1, 4, 16, 32 and 100 agents. When imagination ran after the usual conflict gate, useful work matched today&rsquo;s FractiSI exactly. It was safe and added nothing. When imagination chose who goes first, fleets finished more useful work:</p>
             <ul class="plain">
               <li><strong>32 agents:</strong> about +1.4 more useful tasks.</li>
               <li><strong>100 agents:</strong> about +3.6 more.</li>
               <li><strong>Worst case:</strong> never more than 5% behind the current system.</li>
             </ul>
-            <p>Sharing one world still uses far less memory than N full copies: about 99% less at 100 agents. Imagining futures costs some memory too, so it runs only when requested.</p>
-            <p class="aside">Research lab on one machine. Opt-in for the product. Not a claim that we wrapped Cosmos or V-JEPA into the core. Not Active Inference identity.</p>
+            <p>The shared world still takes about 99% less memory than N full copies at 100 agents. Imagining futures costs some memory of its own, so it runs only when asked.</p>
+            <p class="aside">A lab result on one machine, and opt-in. This is not a claim that we wrapped Cosmos or V-JEPA into the core, and it is not active inference.</p>
           </div>
         `,
       },
@@ -814,26 +805,34 @@
         id: 'invite',
         mode: 'finish',
         chapter: 'Go further',
-        title: 'The demonstration is complete.',
-        promise: 'What you ran, and where to go next.',
+        title: 'Run it yourself.',
+        promise: 'What you ran, and how to go further.',
         teach: () => `
           <div class="prose"><h2>What you ran</h2></div>
           <div class="recap">${recapHtml()}</div>
+          <div class="prose">
+            <h2>In your own IDE</h2>
+            <ul class="plain">
+              <li><strong>1.</strong> Open Cursor, Claude Code or VS Code.</li>
+              <li><strong>2.</strong> Give your agent <code>https://github.com/FractiAI/FractiSI-Multi-Agent</code> and say: <em>Do the FractiSI Multi-Agent test drive.</em></li>
+              <li><strong>3.</strong> For commits and deploys, add Git and a cloud token. Community is free. Deploy is a paid feature, Team and up.</li>
+            </ul>
+          </div>
           <div class="prose"><h2>Go further</h2></div>
           <div class="doors">
             <div class="door">
               <h3>Explore</h3>
-              <p>Take the kit and run every test yourself. Community is free: local work plus Git.</p>
+              <p>Take the kit and run every test yourself. Community covers local work and Git.</p>
               <div class="links">
                 <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Get the kit on GitHub</a>
                 <a href="/expedition-002/">Read Expedition 002</a>
-                <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/tree/main/docs/research/world-model-assimilation">World Model research</a>
+                <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/tree/main/docs/research/world-model-assimilation">World model research</a>
                 <a href="/pricing/">See the plans</a>
               </div>
             </div>
             <div class="door">
               <h3>Connect</h3>
-              <p>Questions, critiques, or a joint experiment. Write to Valet Pru. A person answers.</p>
+              <p>A question, a critique, or a joint experiment. Write to Valet Pru. A person answers.</p>
               <a class="btn btn-solid" href="mailto:valetpru@gmail.com?subject=FractiSI%20Multi-Agent%20connect">valetpru@gmail.com</a>
             </div>
             <div class="door">
@@ -843,10 +842,10 @@
             </div>
           </div>
           <p class="closing">One shared world. Many agents.</p>
-          <p class="fine">Deploy is paid (Team and up). Everything in this tour is free. Thank you for spending twenty minutes here.</p>
+          <p class="fine">Everything in this tour is free. Thank you for spending twenty minutes here.</p>
           <figure class="figure">
             <img src="/media/founders.png" alt="The people behind FractiAI" width="800" height="600" loading="lazy" decoding="async" />
-            <figcaption>The people behind FractiAI. Real email.</figcaption>
+            <figcaption>The people behind FractiAI.</figcaption>
           </figure>
         `,
       },
@@ -854,8 +853,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v13';
-    const RESULTS_KEY = 'fractisi-td-results-v13';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v14';
+    const RESULTS_KEY = 'fractisi-td-results-v14';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
@@ -1027,7 +1026,7 @@
         '<p class="rc-summary">' + esc(r.summary || step.opportunity || '') + '</p>' +
         (r.also ? '<p class="rc-also">' + esc(r.also) + '</p>' : '') +
         '<p class="rc-bottom">' + esc(current().takeaway || '') + '</p>' +
-        '<p class="rc-honesty">Lab run on one machine. Promising, not a production benchmark.</p>' +
+        '<p class="rc-honesty">A lab run on one machine. Promising, not a production benchmark.</p>' +
         '<details class="rc-log"><summary>Show the full log · ran in ' + esc(ms) + ' ms</summary><pre>' + esc([step.title, 'Surface: ' + step.layer, 'Component: ' + step.component, ''].concat(step.lines || []).concat(step.honesty ? ['', 'Honesty boundary: ' + step.honesty] : []).join('\n')) + '</pre></details>';
       resultEl.classList.remove('is-hidden');
       countUp($('rc-num'), r.headlineValue || '');
