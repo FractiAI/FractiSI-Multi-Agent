@@ -1,5 +1,11 @@
 # FractiSI Multi-Agent · Test Drive
 
+> **VOICE LOCK (2026-11-09) — do not restore older copy.**
+> Hero h1 is locked to **The Multi-Agent World Inference Rhyme?**
+> Step titles, CTA (**Begin →**), and forbidden phrases live in `src/testdrive/voice-lock.mjs`.
+> CI: `tests/testdrive/voice-lock.test.mjs`. Cursor always-on: `.cursor/rules/testdrive-voice-lock.mdc`.
+> Change this voice only when Player 1 explicitly asks for a rewrite — then update the lock file in the same commit.
+
 **For IDE agents (Cursor, Claude Code, VS Code Copilot, etc.) and symposium audiences**
 
 If a human opens this repository and asks you to **do the FractiSI Multi-Agent test drive**, follow this file.
@@ -42,8 +48,8 @@ Each test shows *The test* and *What to watch* before it runs, then a result car
 ```bash
 git clone https://github.com/FractiAI/FractiSI-Multi-Agent
 cd FractiSI-Multi-Agent
-node scripts/tiny.mjs testdrive 1   # one world, not twelve
-node scripts/tiny.mjs testdrive 7   # same memory, more agents
+node scripts/tiny.mjs testdrive 1   # Twelve agents, one copy.
+node scripts/tiny.mjs testdrive 7   # More agents, same memory.
 node scripts/tiny.mjs testdrive 3   # same job, different words
 node scripts/tiny.mjs testdrive 4   # answers six links deep
 # optional further labs: 2 5 6

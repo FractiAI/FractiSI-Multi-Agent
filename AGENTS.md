@@ -4,6 +4,11 @@ FractiAI's kit for storing shared AI-serving state once. Node with no runtime de
 
 ## Audience Test Drive (IDE agents)
 
+> **VOICE LOCK (2026-11-09).** Do not restore older Test Drive copy.
+> Locked hero: **The Multi-Agent World Inference Rhyme?**
+> Contract: [`src/testdrive/voice-lock.mjs`](./src/testdrive/voice-lock.mjs) · CI: `tests/testdrive/voice-lock.test.mjs` · always-on rule: `.cursor/rules/testdrive-voice-lock.mdc`
+> Forbidden restores are listed in `src/testdrive/voice-lock.mjs` (`forbiddenPhrases`) — retired heroes, Session-title lines, meta question titles, Let’s-begin CTA, Layer A–F labels.
+
 If the human says **do the FractiSI Multi-Agent test drive** (or opens this repo for the AAI Symposium Test Drive), follow **[`TEST_DRIVE.md`](./TEST_DRIVE.md)** and run:
 
 ```bash
@@ -12,7 +17,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-**Self-paced Test Drive** (= symposium presentation · plain English + images · 11 beats): hero (title) → `#welcome` (the question) → `#story` (valet awareness) → `#sandbox` → `#problem` → `#rhyme` (Net Zero first, then four pillars) → live tests `#1` `#7` `#3` `#4` → `#how-stack` → `#futures` (Predictive Shared State · C+imagine_select) → `#invite` (recap · explore · connect · beta). Locks: `opening-story.mjs` · `sandbox-frame.mjs` · `net-zero-definition.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck: `/talks/aai-symposium-2026/` (same 11 beats; numbers pinned to the API by tests). Deploy paid (Team+).
+**Self-paced Test Drive** (= symposium presentation · 12 steps): locked hero → `#welcome` *Many agents. One world.* → `#story` *The same song.* → `#sandbox` *Where you are.* → `#problem` → `#rhyme` (Net Zero first) → live tests `#1` `#7` `#3` `#4` → `#how-stack` → `#futures` → `#invite` *Run it yourself.* Content locks: `voice-lock.mjs` · `opening-story.mjs` · `sandbox-frame.mjs` · `net-zero-definition.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck: `/talks/aai-symposium-2026/` (same titles; numbers pinned by tests). Deploy paid (Team+).
 
 ## Commands
 

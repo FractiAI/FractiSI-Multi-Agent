@@ -18,3 +18,7 @@ These pages are FractiAI's marketing snapshots, copied from the live site and lo
 |---|---|
 | [`media/`](media/README.md) | Images used by these pages |
 | `brand-gold-surfaces.css`, `tiny-footprint-product.css` | Page styles |
+
+## Test Drive voice lock
+
+Symposium / Test Drive copy is pinned in [`TEST_DRIVE_VOICE_LOCK.md`](./TEST_DRIVE_VOICE_LOCK.md) and `src/testdrive/voice-lock.mjs`. Do not restore older heroes without an explicit Player 1 rewrite ask.

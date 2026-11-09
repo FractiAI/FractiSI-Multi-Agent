@@ -1,0 +1,57 @@
+---
+description: Locked Test Drive / symposium surface voice — do not restore older copy
+alwaysApply: true
+---
+
+# Test Drive voice lock — Always On
+
+**Locked 2026-11-09.** Player 1 locked the FractiSI Multi-Agent Test Drive / symposium surfaces. Do **not** restore earlier heroes, meta titles, or AI-slop phrasing when editing this repo (including Auto model runs).
+
+## Canonical lock
+
+- Contract: `src/testdrive/voice-lock.mjs` (`TEST_DRIVE_VOICE_LOCK`)
+- Guide: `TEST_DRIVE.md` (banner **VOICE LOCK**)
+- Surfaces: `test-drive/index.html` · `talks/aai-symposium-2026/index.html` · `blog/aai-symposium-2026/index.html`
+- CI: `tests/testdrive/voice-lock.test.mjs` (must stay green)
+
+## Required hero
+
+- Page `<h1>` and deck/blog title: **The Multi-Agent World Inference Rhyme?**
+- CTA: **Begin →**
+- Research question on `#welcome`: *When many agents share one world, does the way they organize it rhyme?*
+- Storage keys: `…-v14` (do not roll back to v12/v13)
+
+## Required step titles (exact)
+
+1. `welcome` — Many agents. One world.
+2. `story` — The same song.
+3. `sandbox` — Where you are.
+4. `problem` — What goes wrong with many agents.
+5. `rhyme` — Net Zero, then rhyme.
+6. `1` — Twelve agents, one copy.
+7. `7` — More agents, same memory.
+8. `3` — Same job, different words.
+9. `4` — Answers six links deep.
+10. `how-stack` — The stack, bottom to top.
+11. `futures` — Rehearse the future. Change the world on approval.
+12. `invite` — Run it yourself.
+
+## Forbidden (do not restore)
+
+- `One shared world. Four live tests.`
+- `Session title:`
+- `Here is the question` / `The question under test`
+- `The demonstration is complete`
+- `Let’s begin`
+- `That is testable` / `That boundary holds`
+- `Layer A`–`Layer F` (use named surfaces: Tiny Footprint, Coordination, Shared state, Composition, Git awareness, Deploy)
+- Training-objective / Failure-mode-A framing
+- Emoji or exclamation marks in page copy
+
+## Voice
+
+Frontier-lab product page: short declarative sentences, numbers over adjectives, demonstrate-not-decide. Keep measured facts (bytes, × capacity, +1.4 / +3.6, coordination more conflicts than plain branching, Cosmos honesty).
+
+## When you may change this
+
+Only if Player 1 **explicitly** asks to rewrite Test Drive voice. Then update `src/testdrive/voice-lock.mjs`, the four surfaces, `TEST_DRIVE.md`, and `tests/testdrive/voice-lock.test.mjs` in the **same** commit. Do not “improve” the hero or titles on your own initiative.
