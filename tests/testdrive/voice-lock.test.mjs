@@ -63,6 +63,14 @@ test('Test Drive page keeps required facts and bans retired copy', () => {
   }
 });
 
+
+test('story beat uses Mens Club Reno watercolor, not El Cortez', () => {
+  assert.match(page, /mens-club-reno-watercolor\.jpg/);
+  const story = page.slice(page.indexOf("id: 'story'"), page.indexOf("id: 'sandbox'"));
+  assert.doesNotMatch(story, /el-cortez\.jpg/);
+  assert.match(story, /Men'?s Club Reno/i);
+});
+
 test('speaker deck locks the same hero and post-welcome step titles', () => {
   assert.ok(deck.includes(voiceLockHeroHtml()), 'deck hero');
   // Deck slide 1 uses the locked hero as its h1; welcome's step title lives on /test-drive/.

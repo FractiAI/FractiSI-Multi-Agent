@@ -48,6 +48,10 @@ alwaysApply: true
 - Training-objective / Failure-mode-A framing
 - Emoji or exclamation marks in page copy
 
+## Story image
+
+`#story` figure is `/media/mens-club-reno-watercolor.jpg` (Men's Club Reno watercolor). Do **not** put El Cortez back on the story beat; El Cortez stays on `/research/` only.
+
 ## Voice
 
 Frontier-lab product page: short declarative sentences, numbers over adjectives, demonstrate-not-decide. Keep measured facts (bytes, × capacity, +1.4 / +3.6, coordination more conflicts than plain branching, Cosmos honesty).

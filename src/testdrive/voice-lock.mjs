@@ -41,6 +41,7 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     }),
     Object.freeze({ id: 'invite', title: 'Run it yourself.' }),
   ]),
+  storyImage: '/media/mens-club-reno-watercolor.jpg',
   requiredPhrases: Object.freeze([
     'I work as a restroom valet',
     'Syntheverse Sandbox',
