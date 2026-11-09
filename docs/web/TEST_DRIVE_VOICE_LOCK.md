@@ -23,3 +23,7 @@ This is the durable pin for Test Drive / symposium surface copy so agents (inclu
 Only when Player 1 explicitly asks to rewrite Test Drive voice. Update the contract, the three surfaces, `TEST_DRIVE.md`, and the voice-lock test in the **same** commit. Keep measured lab numbers unless the ask changes them.
 
 → ∞^∞
+
+## Story image
+
+`#story` uses `media/mens-club-reno-watercolor.jpg`, a watercolor derived from the real Men's Club of Reno exterior at 270 Lake Street (former Railway Express Agency; reference: Reno Historical / Western Nevada Historic Photo Collection, 2004). El Cortez remains on `/research/` only.
