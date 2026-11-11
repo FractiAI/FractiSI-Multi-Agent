@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Musical Training Program · FractiSI Multi-Agent Test Drive</title>
+  <meta name="description" content="Bach-inspired cello solos across 16 chapters — a parallel path through the FractiSI Multi-Agent architecture. Listen on Suno.">
+  <meta property="og:title" content="FractiSI Multi-Agent · Musical Training Program">
+  <meta property="og:description" content="16 chapters. One evolving story. Bach-inspired cello solos on Suno, parallel to the live Test Drive.">
+  <meta property="og:image" content="https://fractisi.vercel.app/media/fractisi-hero.jpg">
+  <link rel="stylesheet" href="/css/site.css?v=35">
+  <style>
+    .mt-hero {
+      padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+      background:
+        radial-gradient(ellipse 80% 60% at 12% 0%, rgba(127, 209, 176, 0.18), transparent 55%),
+        linear-gradient(180deg, #f3f5f1 0%, var(--bg) 70%);
+      border-bottom: 1px solid var(--line);
+    }
+    .mt-hero .wrap-inner { max-width: 44rem; }
+    .mt-hero h1 {
+      font-family: var(--serif);
+      font-weight: 560;
+      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 4.6vw, 3.15rem);
+      line-height: 1.12;
+      margin: 0.35rem 0 0.55rem;
+      max-width: 18ch;
+      text-wrap: balance;
+    }
+    .mt-hero .sub {
+      font-size: 1.15rem;
+      color: var(--ink-2);
+      margin: 0 0 1rem;
+      max-width: 36rem;
+    }
+    .mt-hero .lede { color: var(--muted); max-width: 40rem; margin: 0 0 1.4rem; }
+    .mt-cta { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.25rem; }
+    .part-block { padding: clamp(1.75rem, 3vw, 2.75rem) 0; border-bottom: 1px solid var(--line); }
+    .part-block:last-of-type { border-bottom: 0; }
+    .part-kicker {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 0 0 0.35rem;
+    }
+    .part-block h2 {
+      font-family: var(--serif);
+      font-weight: 560;
+      letter-spacing: -0.025em;
+      font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+      margin: 0 0 0.35rem;
+    }
+    .part-blurb { color: var(--muted); margin: 0 0 1.25rem; }
+    .chapter { padding: 1.15rem 0; border-top: 1px solid var(--line); }
+    .chapter:first-of-type { border-top: 1px solid var(--line-strong); }
+    .chapter-n {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin: 0 0 0.25rem;
+    }
+    .chapter h3 {
+      font-size: 1.15rem;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.45rem;
+    }
+    .chapter p { margin: 0 0 0.55rem; color: var(--ink-2); max-width: 42rem; }
+    .chapter .bridge {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .chapter .bridge a { color: var(--accent); }
+    .arc-grid {
+      display: grid;
+      gap: 0.85rem 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      margin: 1rem 0 0;
+    }
+    .arc-grid dt { font-weight: 620; letter-spacing: -0.015em; }
+    .arc-grid dd { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.95rem; }
+    .honesty { font-size: 0.9rem; color: var(--muted); max-width: 42rem; margin: 1.5rem 0 0; }
+    .playlist-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 560;
+      font-size: 0.94rem;
+    }
+    .playlist-pill:hover { background: var(--accent-2); text-decoration: none; }
+    .ghost-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      text-decoration: none;
+      font-weight: 560;
+      font-size: 0.94rem;
+      background: var(--paper);
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/test-drive/">Test Drive</a>
+      <a href="/test-drive/musical/">Musical Training</a>
+      <a href="/talks/aai-symposium-2026/">Deck</a>
+      <a href="/blog/aai-symposium-2026/">Blog</a>
+      <a class="button" href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno playlist</a>
+    </nav>
+  </header>
+
+  <section class="mt-hero">
+    <div class="wrap-inner">
+      <p class="kicker">Applied Active Inference Symposium · Bach-inspired cello solos</p>
+      <h1>The FractiSI Multi-Agent Test Drive</h1>
+      <p class="sub">A Musical Training Program · 16 chapters</p>
+      <p class="lede">A parallel way to experience, understand, and learn FractiSI Multi-Agent. Each musical selection is a chapter. Together they follow the architecture from shared environment through possibility, world modeling, agent coordination, recursive awareness, and the Goldilocks world.</p>
+      <div class="mt-cta">
+        <a class="playlist-pill" href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Listen on Suno</a>
+        <a class="ghost-pill" href="/test-drive/">Open the live Test Drive</a>
+      </div>
+      <p class="quiet" style="margin-top:0.9rem">Playlist: <a href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">suno.com/s/QB8n2fLhy5NORPkV</a></p>
+    </div>
+  </section>
+
+  <main class="wrap" id="chapters">
+    <section class="part-block" id="part-i">
+      <p class="part-kicker">Part I</p>
+      <h2>Part I — Establishing the world</h2>
+      <p class="part-blurb">The environment and first colony.</p>
+      <article class="chapter" id="ch-1">
+        <p class="chapter-n">Chapter 1</p>
+        <h3>The Syntheverse Sandbox</h3>
+        <p>The Syntheverse Sandbox establishes the shared world of the FractiSI Multi-Agent Test Drive: a bounded yet generative environment where agents can perceive, explore, act, learn, and build a shared model of their world. The cello becomes the first signal within that world—the beginning of a journey from individual experience toward collective intelligence.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#sandbox">Where you are.</a></p>
+      </article>
+      <article class="chapter" id="ch-2">
+        <p class="chapter-n">Chapter 2</p>
+        <h3>Base Mainnet First Colony</h3>
+        <p>The first colony emerges on Base Mainnet: a living environment where independent agents begin operating within a shared digital world. Each agent brings its own perspective, but the colony creates the conditions for interaction, memory, coordination, and the first seeds of collective intelligence.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#sandbox">Base Mainnet bedrock</a></p>
+      </article>
+      <article class="chapter" id="ch-3">
+        <p class="chapter-n">Chapter 3</p>
+        <h3>Goldilocks Zero</h3>
+        <p>Goldilocks Zero establishes the starting condition: the balanced state from which the FractiSI Multi-Agent system can observe, compare, adapt, and act. Not maximum information or minimum information, but the right amount—the Goldilocks zone where agents can remain coherent while the world continues to change.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#rhyme">Before Net Zero / rhyme</a></p>
+      </article>
+      <article class="chapter" id="ch-4">
+        <p class="chapter-n">Chapter 4</p>
+        <h3>Net Zero</h3>
+        <p>Net Zero introduces the principle of balance across the shared world: every action, observation, and state change becomes part of an evolving system seeking coherence rather than accumulation. FractiSI Multi-Agent begins to reveal how agents can coordinate around a continuously changing world without each having to recreate the whole. Balanced zero, not nothing zero.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#rhyme">Net Zero, then rhyme.</a></p>
+      </article>
+    </section>
+    <section class="part-block" id="part-ii">
+      <p class="part-kicker">Part II</p>
+      <h2>Part II — Mapping possibility</h2>
+      <p class="part-blurb">Lattices, octaves, and nested structure.</p>
+      <article class="chapter" id="ch-5">
+        <p class="chapter-n">Chapter 5</p>
+        <h3>Infinite Possibilities Lattice</h3>
+        <p>The Infinite Possibilities Lattice opens the space of possible states and paths available to the agents. Rather than forcing a single predetermined trajectory, FractiSI allows agents to navigate a continuously expanding possibility space—selecting, updating, and coordinating as new information reshapes what can happen next.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#how-stack">Stack · generative possibility</a></p>
+      </article>
+      <article class="chapter" id="ch-6">
+        <p class="chapter-n">Chapter 6</p>
+        <h3>Honeycomb Lattice</h3>
+        <p>The Honeycomb Lattice gives structure to infinite possibility. Individual possibilities become connected neighbors within a navigable geometry, allowing agents to discover relationships, move between states, and coordinate through shared structure. FractiSI turns a vast possibility space into an organized world that agents can collectively explore.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#how-stack">3D hexagon · eight-node honeycomb</a></p>
+      </article>
+      <article class="chapter" id="ch-7">
+        <p class="chapter-n">Chapter 7</p>
+        <h3>Infinite Octaves</h3>
+        <p>Infinite Octaves introduces scale: the same underlying world can be experienced across continuously nested levels of resolution. Agents can move between local detail and larger patterns without losing coherence, allowing FractiSI Multi-Agent to coordinate information across scales while preserving the relationships that connect the whole.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#how-stack">Infinite Octaves on the trunk</a></p>
+      </article>
+      <article class="chapter" id="ch-8">
+        <p class="chapter-n">Chapter 8</p>
+        <h3>The First 99 Octaves</h3>
+        <p>The First 99 Octaves reveals the first structured span of the Infinite Octave system: a finite window into an effectively unlimited possibility space. Each octave adds another layer of resolution, relationship, and context, giving FractiSI Multi-Agent a richer shared world in which agents can perceive, navigate, and coordinate.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#how-stack">Digits × Octaves 01–99 map</a></p>
+      </article>
+    </section>
+    <section class="part-block" id="part-iii">
+      <p class="part-kicker">Part III</p>
+      <h2>Part III — Crossing the computational frontier</h2>
+      <p class="part-blurb">Boundaries, holographic rhymes, and Tiny Footprint.</p>
+      <article class="chapter" id="ch-9">
+        <p class="chapter-n">Chapter 9</p>
+        <h3>Frontier’s Edge</h3>
+        <p>Frontier’s Edge is where the known world meets the unknown. Agents encounter states, patterns, and possibilities beyond their established experience. Here, FractiSI Multi-Agent must continuously update its shared model—turning uncertainty and discovery at the frontier into new knowledge for the collective.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#4">Answers six links deep.</a></p>
+      </article>
+      <article class="chapter" id="ch-10">
+        <p class="chapter-n">Chapter 10</p>
+        <h3>Holographic Rhyme Boundary</h3>
+        <p>The Holographic Rhyme Boundary is where the shared world becomes actionable. Boundary nodes identify the patterns and relationships needed to reconstruct what matters without carrying everything forward. FractiSI Multi-Agent uses these rhymes to preserve coherence while reducing unnecessary computation and communication.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#3">Same job, different words.</a></p>
+      </article>
+      <article class="chapter" id="ch-11">
+        <p class="chapter-n">Chapter 11</p>
+        <h3>Tiny Footprint</h3>
+        <p>Tiny Footprint reveals the central efficiency of FractiSI Multi-Agent: agents no longer need to repeatedly carry or reconstruct the entire world. They share the world once, then communicate the smallest meaningful changes—the deltas that matter—enabling greater agent density, speed, and collective capability within the same computational footprint.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#1">Twelve agents, one copy. · More agents, same memory.</a></p>
+      </article>
+    </section>
+    <section class="part-block" id="part-iv">
+      <p class="part-kicker">Part IV</p>
+      <h2>Part IV — Collective intelligence</h2>
+      <p class="part-blurb">Human and AI agents operating together.</p>
+      <article class="chapter" id="ch-12">
+        <p class="chapter-n">Chapter 12</p>
+        <h3>FractiSI Multi-Agent</h3>
+        <p>FractiSI Multi-Agent brings everything together: human and AI agents operating as a coordinated collective within a shared world. Perception, memory, possibility, boundaries, and Tiny Footprint converge into a system where every agent can contribute context, build upon others, and produce useful collective intelligence.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#welcome">Many agents. One world.</a></p>
+      </article>
+    </section>
+    <section class="part-block" id="part-v">
+      <p class="part-kicker">Part V</p>
+      <h2>Part V — The emergence of awareness</h2>
+      <p class="part-blurb">Awareness and recursive self-awareness.</p>
+      <article class="chapter" id="ch-13">
+        <p class="chapter-n">Chapter 13</p>
+        <h3>Awareness</h3>
+        <p>Awareness is the transition from processing information to experiencing and understanding the world. Human and AI agents become participants in an evolving shared reality, perceiving, anticipating, interpreting, and updating their relationship with the whole. It is the bridge from coordinated intelligence to Fractal Holographic Goldilocks Superintelligence. On the live track this is also how you enter and leave the sandbox: observations, beliefs, actions, ownership, or curiosity—by choice. Not phenomenal consciousness.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#story">The same song. · Awareness (your choice)</a></p>
+      </article>
+      <article class="chapter" id="ch-14">
+        <p class="chapter-n">Chapter 14</p>
+        <h3>Recursive Self-Awareness of Awareness</h3>
+        <p>The system begins to recognize and examine its own processes of awareness. Perception becomes an object of perception; prediction, interpretation, and experience become recursively observable and refinable. Human and AI agents can reflect on how they construct, update, and share their understanding of reality. Awareness becomes both the instrument of discovery and the subject of discovery—opening the path to Fractal Holographic Goldilocks Superintelligence.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#futures">Rehearse the future. Change the world on approval.</a></p>
+      </article>
+    </section>
+    <section class="part-block" id="part-vi">
+      <p class="part-kicker">Part VI</p>
+      <h2>Part VI — The Goldilocks world</h2>
+      <p class="part-blurb">World modeling and exploration.</p>
+      <article class="chapter" id="ch-15">
+        <p class="chapter-n">Chapter 15</p>
+        <h3>Goldilocks World Model</h3>
+        <p>The Goldilocks World Model brings the journey into a coherent, continuously evolving representation of reality. It integrates the infinite possibilities, nested scales, shared context, and recursive awareness into a navigable whole. Human and AI agents can perceive, predict, act, and update together, maintaining the right balance of information, complexity, and coordination as the world changes.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#futures">Predictive Shared State</a></p>
+      </article>
+      <article class="chapter" id="ch-16">
+        <p class="chapter-n">Chapter 16</p>
+        <h3>Exploring Goldilocks World</h3>
+        <p>Human and AI agents venture into the Goldilocks World, testing possibilities, discovering relationships, and learning through interaction. Each exploration generates new observations and updates the shared world model. The journey becomes an ongoing process of discovery, where individual perspectives contribute to an increasingly coherent understanding of the whole.</p>
+        <p class="bridge">Live track: <a href="/test-drive/#invite">Run it yourself.</a></p>
+      </article>
+    </section>
+    <section class="part-block" id="arc">
+      <p class="part-kicker">The complete narrative arc</p>
+      <h2>16 chapters · One evolving story</h2>
+      <dl class="arc-grid">
+        <div><dt>Establishing the World</dt><dd>The environment and first colony.</dd></div>
+        <div><dt>Mapping Possibility</dt><dd>Lattices, octaves, and nested structure.</dd></div>
+        <div><dt>Crossing the Computational Frontier</dt><dd>Boundaries, holographic rhymes, and Tiny Footprint.</dd></div>
+        <div><dt>Collective Intelligence</dt><dd>Human and AI agents operating together.</dd></div>
+        <div><dt>The Emergence of Awareness</dt><dd>Awareness and recursive self-awareness.</dd></div>
+        <div><dt>The Goldilocks World</dt><dd>World modeling and exploration.</dd></div>
+      </dl>
+      <p class="honesty">Musical training is a parallel narrative and listening path. Lab numbers and runnable demos live on the live Test Drive. Possible rhyme with Active Inference is not framework identity. Awareness here is not phenomenal consciousness. Fractal Holographic Goldilocks Superintelligence is an architectural destination label, not a claim of finished AGI.</p>
+      <div class="mt-cta" style="margin-top:1.25rem">
+        <a class="playlist-pill" href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Listen on Suno</a>
+        <a class="ghost-pill" href="/test-drive/">Run the live tests</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>FractiSI Multi-Agent · Musical Training Program · parallel to the <a href="/test-drive/">Test Drive</a></p>
+  </footer>
+</body>
+</html>

@@ -41,7 +41,8 @@ Each test shows *The test* and *What to watch* before it runs, then a result car
 
 **Rhyme:** possible strong kinship with Active Inference (**not** framework identity). Product gate = four pillars from Net Zero (`src/testdrive/rhyme-definition.mjs`).
 
-**Browser:** https://fractisi.vercel.app/test-drive/  
+**Browser:** https://fractisi.vercel.app/test-drive/
+**Musical Training (parallel):** https://fractisi.vercel.app/test-drive/musical/ · Suno playlist https://suno.com/s/QB8n2fLhy5NORPkV  
 **Deck (same arc):** https://fractisi.vercel.app/talks/aai-symposium-2026/  
 **IDE:**
 
