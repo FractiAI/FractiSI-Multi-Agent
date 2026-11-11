@@ -161,6 +161,77 @@
       padding: 0.3rem 0.75rem;
       background: rgba(255, 255, 255, 0.03);
     }
+    .td-hero .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 0.15rem 0 0.35rem;
+    }
+    .td-hero .btn-musical {
+      background: var(--td-mint);
+      border-color: var(--td-mint);
+      color: var(--td-night);
+      font-size: 1rem;
+      font-weight: 650;
+      padding: 0.8rem 1.45rem;
+      text-decoration: none;
+    }
+    .td-hero .btn-musical:hover {
+      background: #9fe0c4;
+      border-color: #9fe0c4;
+      color: var(--td-night);
+      text-decoration: none;
+    }
+    .td-hero .btn-musical.is-outline {
+      background: transparent;
+      border-color: var(--td-mint);
+      color: var(--td-mint);
+    }
+    .td-hero .btn-musical.is-outline:hover {
+      background: rgba(127, 209, 176, 0.14);
+      border-color: #9fe0c4;
+      color: #9fe0c4;
+    }
+    .musical-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.25rem;
+      padding: 0.75rem clamp(1rem, 3vw, 2rem);
+      background: #12352a;
+      color: #e8f7f0;
+      border-bottom: 1px solid rgba(127, 209, 176, 0.35);
+      font-size: 0.95rem;
+    }
+    .musical-strip strong { font-weight: 650; letter-spacing: -0.015em; }
+    .musical-strip .muted { color: rgba(232, 247, 240, 0.72); }
+    .musical-strip .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .musical-strip a.pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      background: var(--td-mint);
+      color: var(--td-night);
+      font-weight: 650;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .musical-strip a.pill:hover { background: #9fe0c4; text-decoration: none; }
+    .musical-strip a.ghost {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(127, 209, 176, 0.55);
+      color: #e8f7f0;
+      text-decoration: none;
+      font-weight: 560;
+      font-size: 0.9rem;
+    }
+    .musical-strip a.ghost:hover { border-color: #fff; text-decoration: none; }
     .td-hero .soft-links {
       margin-top: 2.4rem;
       font-size: 0.88rem;
@@ -453,6 +524,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
       <a href="/test-drive/" aria-current="page">Test Drive</a>
+      <a href="/test-drive/musical/">Musical Training</a>
       <a href="/blog/">Blog</a>
       <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a>
     </nav>
@@ -464,17 +536,32 @@
       <h1>The Multi-Agent World Inference Rhyme?</h1>
       <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
       <p class="deck">Give many agents one shared world instead of many private copies, and they find more, waste less and fit more in the same memory. Four tests you run yourself, then a look at what we are building next.</p>
-      <button type="button" class="btn btn-solid" id="btn-start" data-action="start">Begin →</button>
+      <div class="cta-row">
+        <button type="button" class="btn btn-solid" id="btn-start" data-action="start">Begin →</button>
+        <a class="btn btn-musical" href="/test-drive/musical/">Musical Training</a>
+        <a class="btn btn-musical is-outline" href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno playlist</a>
+      </div>
       <ul class="facts">
         <li>About twenty minutes</li>
         <li>No account</li>
         <li>No wallet</li>
         <li>Live runs, not slides</li>
       </ul>
-      <p class="soft-links"><a href="/talks/aai-symposium-2026/">Speaker deck</a> &nbsp;·&nbsp; <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a> &nbsp;·&nbsp; <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Beta</a></p>
+      <p class="soft-links"><a href="/test-drive/musical/">Musical Training</a> &nbsp;·&nbsp; <a href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno</a> &nbsp;·&nbsp; <a href="/talks/aai-symposium-2026/">Speaker deck</a> &nbsp;·&nbsp; <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">Repo</a> &nbsp;·&nbsp; <a href="mailto:valetpru@gmail.com?subject=FractiSI%20beta">Beta</a></p>
       <noscript><p class="soft-links">This tour runs in the browser and needs JavaScript. The same tests run from the repo: <code>node scripts/tiny.mjs testdrive</code></p></noscript>
     </div>
   </section>
+
+  <aside class="musical-strip" aria-label="Musical Training Program">
+    <div>
+      <strong>Musical Training Program</strong>
+      <span class="muted"> · 16 Bach-inspired cello chapters · parallel to this Test Drive</span>
+    </div>
+    <div class="actions">
+      <a class="pill" href="/test-drive/musical/">Open Musical Training</a>
+      <a class="ghost" href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno playlist</a>
+    </div>
+  </aside>
 
   <div class="lesson-shell is-gated" id="lesson-shell">
     <div class="progress-rail" aria-label="Test Drive progress">
