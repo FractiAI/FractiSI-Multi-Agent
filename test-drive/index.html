@@ -885,7 +885,7 @@
           <div class="prose">
             <p class="lede">Git is still the system of record. The question is what reaches it.</p>
             <p>Most multi-agent setups give every agent a branch and find overlaps only when merges break. FractiSI keeps scoped worktrees for human and digital agents, blocks overlapping ownership up front, and lands one composed commit.</p>
-            <p>This lab uses real Git branches and real merges on a temporary repository. If this browser host has no <code>git</code> binary, the card will say so and point you to <code>node scripts/tiny.mjs testdrive git</code> on your workstation — that is where the measured merge improvement runs.</p>
+            <p>This lab runs real merges without needing a system <code>git</code> binary on the page host. By default it uses FractiSI's portable cloud lab git. If you store a GitHub token in this browser (<code>localStorage.fractisiGithubToken</code>), the lab prefers your GitHub environment and creates an ephemeral private repo for the run.</p>
           </div>
         `,
       },
@@ -971,8 +971,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v19';
-    const RESULTS_KEY = 'fractisi-td-results-v19';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v20';
+    const RESULTS_KEY = 'fractisi-td-results-v20';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
@@ -1171,10 +1171,14 @@
       statusEl.textContent = 'Running…';
       try {
         const id = current().id;
+        const githubToken = (function () {
+          try { return store.getItem('fractisiGithubToken') || store.getItem('fractisi-github-token') || ''; }
+          catch { return ''; }
+        })();
         const res = await fetch('/api/testdrive?step=' + encodeURIComponent(id), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ step: id }),
+          headers: Object.assign({ 'Content-Type': 'application/json' }, githubToken ? { 'x-github-token': githubToken } : {}),
+          body: JSON.stringify({ step: id, githubToken: githubToken || undefined, engine: 'auto' }),
         });
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error(data.detail || data.error || ('HTTP ' + res.status));

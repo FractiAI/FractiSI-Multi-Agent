@@ -97,7 +97,7 @@ async function runOne(ctx, id) {
   const setup = await ensureSetup(ctx);
   if (setup !== 0) return setup;
   banner('Test Drive', `Step ${id}`);
-  printStep(runTestDriveStep(id));
+  printStep(await runTestDriveStep(id));
   return 0;
 }
 

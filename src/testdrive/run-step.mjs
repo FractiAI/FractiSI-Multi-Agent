@@ -461,61 +461,57 @@ function run6() {
 }
 
 
-function runGitLab() {
+async function runGitLab(opts = {}) {
   const m = meta('git');
-  const lab = runGitAwarenessBench({ agents: 6 });
+  const lab = await runGitAwarenessBench({
+    agents: 6,
+    githubToken: opts.githubToken || opts.token || '',
+    engine: opts.engine || 'auto',
+  });
   const a = lab.conventional || {};
   const f = lab.fractisi || {};
-  if (lab.status === 'not_run' || lab.reason === 'git_unavailable') {
+  if ((lab.status === 'not_run' || lab.status === 'fail') && !lab.conclusive && a.failedMerges == null) {
     return base(m, {
       problem: 'Parallel agents each open a branch, then merge blind — overlapping edits break main.',
       opportunity: 'Git awareness keeps scoped worktrees, blocks overlapping ownership before merge, and integrates one composed commit.',
       fractisi: [
-        'Component: Git awareness (real Git branches + integrateComposition).',
-        'This browser/API host has no git binary, so the live merge lab did not run here.',
-        'Run locally: node scripts/tiny.mjs testdrive git',
+        'Component: Git awareness.',
+        `Engine status: ${lab.reason || lab.status}`,
+        lab.detail ? `Detail: ${lab.detail}` : 'Retry with a GitHub token or the portable cloud lab git.',
       ],
       lines: [
-        'GIT AWARENESS · NOT RUN ON THIS HOST',
+        'GIT AWARENESS · LAB DID NOT COMPLETE',
         '',
-        `  Reason: ${lab.reason || 'git_unavailable'}`,
-        `  Detail: ${lab.detail || 'git binary missing'}`,
+        `  Reason: ${lab.reason || lab.status}`,
+        `  Detail: ${lab.detail || ''}`,
         '',
-        '  The measured lab needs a real git binary (workstation / CLI).',
-        '  Next: node scripts/tiny.mjs testdrive git',
-        `  ${lab.honesty}`,
+        `  ${lab.honesty || ''}`,
       ],
       metrics: {
-        status: 'not_run',
-        reason: lab.reason || 'git_unavailable',
+        status: lab.status || 'not_run',
+        reason: lab.reason || 'unknown',
+        engine: lab.engine || null,
         improved: false,
         conclusive: false,
         component: 'git_awareness',
       },
       readout: {
-        done: 'We attempted the Git awareness lab on this host. It needs a real git binary to create branches, commit overlapping edits, and merge into main.',
-        tested: 'Real git merge failures and conflicted paths for six agents — conventional branches vs FractiSI Git awareness.',
+        done: 'We attempted the Git awareness lab. The selected engine did not finish a conclusive merge comparison.',
+        tested: 'Failed merges and conflicted paths for six agents — conventional branches vs FractiSI Git awareness.',
         baselineLabel: 'Conventional branch merges',
-        baselineValue: 'not run',
+        baselineValue: 'n/a',
         treatmentLabel: 'FractiSI Git awareness',
-        treatmentValue: 'not run',
-        headlineLabel: 'Needs local Git',
-        headlineValue: 'CLI',
-        bars: {
-          caption: 'Failed merges into main (6 agents)',
-          baseline: 0,
-          treatment: 0,
-          baselineText: 'n/a',
-          treatmentText: 'n/a',
-          better: 'lower',
-        },
-        summary: 'This host could not run real Git merges (no git binary). On a workstation the same lab has been measuring fewer failed merges when ownership runs before integrateComposition.',
-        implication: 'Git awareness is a workstation capability. The browser can explain it; the CLI proves it with real merges.',
-        beyondTheory: 'When Git is available, the lab produces ordinary merge failures and a cleaner FractiSI main on the same overlapping workload — coherent, predictable, and well beyond theory. Run node scripts/tiny.mjs testdrive git to see those numbers on your machine.',
-        also: 'Local command: node scripts/tiny.mjs testdrive git',
+        treatmentValue: 'n/a',
+        headlineLabel: 'Lab incomplete',
+        headlineValue: '—',
+        bars: { caption: 'Failed merges into main (6 agents)', baseline: 0, treatment: 0, baselineText: 'n/a', treatmentText: 'n/a', better: 'lower' },
+        summary: lab.honesty || 'Git awareness lab did not complete on this host.',
+        implication: 'Provide a GitHub token to use your GitHub environment, or rely on the portable cloud lab git bundled with FractiSI.',
+        beyondTheory: 'When the lab completes, failed merges and a cleaner FractiSI main show a coherent, predictable improvement — well beyond theory.',
       },
     });
   }
+
   const failRed = lab.failedMergeReduction == null ? 'n/a' : pct(lab.failedMergeReduction);
   const conflictRed = lab.conflictReduction == null ? 'n/a' : pct(lab.conflictReduction);
   const headline = !lab.conclusive
@@ -523,17 +519,20 @@ function runGitLab() {
     : failRed === 'n/a'
       ? `${a.failedMerges}→${f.failedMerges}`
       : failRed;
+  const engineLabel = lab.engineLabel || lab.engine || 'portable';
+
   return base(m, {
     problem: 'Parallel agents each open a branch, then merge blind — overlapping edits break main.',
     opportunity: 'Git awareness keeps scoped worktrees, blocks overlapping ownership before merge, and integrates one composed commit.',
     fractisi: [
-      'Component: Git awareness (real Git branches + integrateComposition).',
-      'Mechanism: ownership / composition gate first; Git records the result.',
-      'Honesty: temporary-repo lab on this machine — not production CapEx.',
+      'Component: Git awareness (branches + ownership gate + one integrate commit).',
+      `Engine: ${engineLabel}.`,
+      'Honesty: temporary-repo lab — not production CapEx.',
     ],
     lines: [
-      'GIT AWARENESS · REAL BRANCHES + MERGES',
+      'GIT AWARENESS · MEASURED MERGES',
       '',
+      `  Engine:                         ${engineLabel}`,
       `  Agents:                         ${lab.agents}`,
       `  Conventional failed merges:     ${a.failedMerges}`,
       `  Conventional conflicted paths:  ${a.mergeConflicts}${a.conflictedPaths?.length ? ` (${a.conflictedPaths.join(', ')})` : ''}`,
@@ -546,14 +545,15 @@ function runGitLab() {
       `  Conflict-path reduction:        ${conflictRed}`,
       '',
       lab.improved
-        ? '  → Ownership before merge keeps main cleaner. Same workload. Real git.'
+        ? '  → Ownership before merge keeps main cleaner. Same workload. Real merges.'
         : lab.conclusive
           ? '  → No improvement on this run — inspect the counters above.'
-          : '  → Inconclusive: conventional arm produced no failed merges (environment quirk).',
+          : '  → Inconclusive run — inspect the counters above.',
       `  ${lab.honesty}`,
     ],
     metrics: {
       agents: lab.agents,
+      engine: lab.engine,
       conventionalFailedMerges: a.failedMerges,
       conventionalConflicts: a.mergeConflicts,
       fractisiFailedMerges: f.failedMerges,
@@ -566,8 +566,8 @@ function runGitLab() {
       component: 'git_awareness',
     },
     readout: {
-      done: `We gave ${lab.agents} agents the same overlapping workload in a temporary Git repo. Conventional arm: each agent got a real Git branch from the same seed, committed, then we merged every branch into main. FractiSI arm: ownership and composition ran first; only non-overlapping work was integrated with one Git commit.`,
-      tested: `Real git merge failures and conflicted paths for ${lab.agents} agents — conventional branches vs FractiSI Git awareness.`,
+      done: `We gave ${lab.agents} agents the same overlapping workload (${engineLabel}). Conventional arm: each agent got a branch from the same seed, committed, then we merged every branch into main. FractiSI arm: ownership and composition ran first; only non-overlapping work was integrated with one commit.`,
+      tested: `Merge failures and conflicted paths for ${lab.agents} agents — conventional branches vs FractiSI Git awareness.`,
       baselineLabel: 'Conventional branch merges',
       baselineValue: `${a.failedMerges} failed merges · ${a.mergeConflicts} conflicted paths`,
       treatmentLabel: 'FractiSI Git awareness',
@@ -576,16 +576,16 @@ function runGitLab() {
       headlineValue: headline,
       bars: {
         caption: `Failed merges into main (${lab.agents} agents)`,
-        baseline: a.failedMerges,
-        treatment: f.failedMerges,
+        baseline: Number(a.failedMerges) || 0,
+        treatment: Number(f.failedMerges) || 0,
         baselineText: `${a.failedMerges} failed`,
         treatmentText: `${f.failedMerges} failed`,
         better: 'lower',
       },
-      also: `Conventional left ${a.mergeConflicts} conflicted path(s) on merge. FractiSI blocked ${f.blockedBeforeGit} overlapping task(s) before Git and landed ${f.successfulCompositions} composition(s) with ${f.mergeConflicts} conflicted paths on main.`,
-      summary: `Same workload, real Git. Conventional merges failed ${a.failedMerges} time(s) with ${a.mergeConflicts} conflicted path(s). FractiSI failed ${f.failedMerges} merge(s), blocked ${f.blockedBeforeGit} overlap(s) up front, and kept ${f.mergeConflicts} conflicted paths on main.`,
-      implication: 'Git stays the system of record. The improvement is deciding what is allowed to reach Git — scoped worktrees plus an ownership gate — so main is not the first place overlaps are discovered.',
-      beyondTheory: 'Failed merges and conflicted paths are ordinary Git outcomes on this machine, not a slide claim. Blocking overlaps before merge is coherent with the shared-world model, predictable on the same workload, and interesting because the repository stays cleaner — well beyond theory.',
+      also: `Engine: ${engineLabel}. Conventional left ${a.mergeConflicts} conflicted path(s). FractiSI blocked ${f.blockedBeforeGit} overlapping task(s) up front and landed ${f.successfulCompositions} composition(s) with ${f.mergeConflicts} conflicted paths on main.`,
+      summary: `Same workload, real merges via ${engineLabel}. Conventional merges failed ${a.failedMerges} time(s) with ${a.mergeConflicts} conflicted path(s). FractiSI failed ${f.failedMerges} merge(s), blocked ${f.blockedBeforeGit} overlap(s) up front, and kept ${f.mergeConflicts} conflicted paths on main.`,
+      implication: 'Git stays the system of record. The improvement is deciding what is allowed to reach Git — scoped work plus an ownership gate — so main is not the first place overlaps are discovered.',
+      beyondTheory: 'Failed merges and conflicted paths are ordinary Git outcomes, not a slide claim. Blocking overlaps before merge is coherent with the shared-world model, predictable on the same workload, and interesting because the repository stays cleaner — well beyond theory.',
     },
   });
 }
@@ -671,8 +671,8 @@ export function listTestDriveSteps() {
   return STEP_CATALOG.map((s) => ({ ...s, next: NEXT[s.id] }));
 }
 
-/** @param {string|number} stepId */
-export function runTestDriveStep(stepId) {
+/** @param {string|number} stepId @param {object} [opts] */
+export async function runTestDriveStep(stepId, opts = {}) {
   const key = String(stepId).toLowerCase();
   const runner = RUNNERS[key];
   if (!runner) {
@@ -681,7 +681,7 @@ export function runTestDriveStep(stepId) {
     throw err;
   }
   const started = Date.now();
-  const result = runner();
+  const result = await runner(opts);
   return {
     ok: true,
     ms: Date.now() - started,

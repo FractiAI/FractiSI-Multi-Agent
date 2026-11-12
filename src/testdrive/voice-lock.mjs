@@ -15,15 +15,15 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-12-git-lab',
+  id: 'testdrive-voice-lock-2026-11-12-git-portable',
   lockedAt: '2026-11-12',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',
-  storageKeyDone: 'fractisi-td-walkthrough-done-v19',
-  storageKeyResults: 'fractisi-td-results-v19',
+  storageKeyDone: 'fractisi-td-walkthrough-done-v20',
+  storageKeyResults: 'fractisi-td-results-v20',
   stepTitles: Object.freeze([
     Object.freeze({ id: 'story', title: 'The same song.' }),
     Object.freeze({ id: 'welcome', title: 'Why this is a Test Drive.' }),
@@ -74,6 +74,7 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'Git awareness · cleaner merges.',
     'Decide before Git',
     'scoped worktrees',
+    'portable cloud lab git',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([

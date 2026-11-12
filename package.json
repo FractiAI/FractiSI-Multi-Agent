@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "FractiSI Multi-Agent \u2014 Tiny Footprint execution + coordination/composition platform (Workstation kit)",
+  "description": "FractiSI Multi-Agent — Tiny Footprint execution + coordination/composition platform (Workstation kit)",
   "license": "UNLICENSED",
   "author": "FractiAI",
   "homepage": "https://fractisi.vercel.app",
@@ -39,5 +39,8 @@
     "status": "node scripts/tiny.mjs status",
     "research:world-model-assimilation": "node scripts/run_world_model_assimilation.mjs",
     "research:c-plus-imagine": "node scripts/run_c_plus_imagine.mjs"
+  },
+  "dependencies": {
+    "isomorphic-git": "^1.30.1"
   }
 }

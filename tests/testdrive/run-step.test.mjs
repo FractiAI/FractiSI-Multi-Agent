@@ -11,7 +11,7 @@ const deck = readFileSync(join(root, 'talks/aai-symposium-2026/index.html'), 'ut
 const LABS = ['1', '7', '3', '4', 'git'];
 
 
-test('catalog lists primer through density with git awareness lab', () => {
+test('catalog lists primer through density with git awareness lab', async () => {
   const steps = listTestDriveSteps();
   assert.equal(steps.length, 9);
   assert.equal(steps[0].id, 'primer');
@@ -25,9 +25,9 @@ test('catalog lists primer through density with git awareness lab', () => {
   assert.equal(steps[8].id, '7');
 });
 
-test('each step returns structured live results naming components', () => {
+test('each step returns structured live results naming components', async () => {
   for (const id of ['primer', '1', '2', '3', '4', '5', '6', 'git', '7']) {
-    const out = runTestDriveStep(id);
+    const out = await runTestDriveStep(id);
     assert.equal(out.ok, true);
     assert.equal(out.step.id === 'primer' ? 'primer' : out.step.id, id === '0' ? 'primer' : id);
     assert.ok(Array.isArray(out.step.lines));
@@ -36,7 +36,7 @@ test('each step returns structured live results naming components', () => {
     assert.ok(out.step.component);
     assert.ok(typeof out.ms === 'number');
   }
-  const primer = runTestDriveStep('primer').step.lines.join('\n');
+  const primer = (await runTestDriveStep('primer')).step.lines.join('\n');
   assert.match(primer, /Generative possibility/);
   assert.match(primer, /Net Zero/);
   assert.match(primer, /Φ_EGS|1\.618/);
@@ -52,13 +52,13 @@ test('each step returns structured live results naming components', () => {
   assert.match(primer, /including humans/);
   assert.match(primer, /possible rhyme|Possible Active Inference/);
   assert.match(primer, /shared world|Home base|plain English/i);
-  const rhyme = runTestDriveStep(3).step.lines.join('\n');
+  const rhyme = (await runTestDriveStep(3)).step.lines.join('\n');
   assert.match(rhyme, /RHYMING TEMPLATES|Rhyming Template/i);
   assert.match(rhyme, /Net Zero/);
 });
 
-test('discovery step reports 100/100 vs 0/100', () => {
-  const out = runTestDriveStep(4);
+test('discovery step reports 100/100 vs 0/100', async () => {
+  const out = await runTestDriveStep(4);
   assert.equal(out.step.metrics.pass, true);
   assert.equal(out.step.metrics.flatDiscoveries, 0);
   assert.equal(out.step.metrics.fractisiDiscoveries, 100);
@@ -66,9 +66,9 @@ test('discovery step reports 100/100 vs 0/100', () => {
 });
 
 
-test('the four live tests return a plain-language readout with bars', () => {
+test('the four live tests return a plain-language readout with bars', async () => {
   for (const id of LABS) {
-    const { step } = runTestDriveStep(id);
+    const { step } = await runTestDriveStep(id);
     const r = step.readout;
     assert.ok(r, id);
     assert.ok(r.done && r.done.length > 40, id + ' done');
@@ -87,18 +87,18 @@ test('the four live tests return a plain-language readout with bars', () => {
   }
 });
 
-test('headline claims match what the machine returns', () => {
-  assert.equal(runTestDriveStep('1').step.readout.bars.treatment < runTestDriveStep('1').step.readout.bars.baseline, true);
-  const density = runTestDriveStep('7').step.readout.bars;
+test('headline claims match what the machine returns', async () => {
+  assert.equal((await runTestDriveStep('1')).step.readout.bars.treatment < (await runTestDriveStep('1')).step.readout.bars.baseline, true);
+  const density = (await runTestDriveStep('7')).step.readout.bars;
   assert.ok(density.treatment > density.baseline * 5, 'density gain is large');
-  const rhyme = runTestDriveStep('3').step.readout;
+  const rhyme = (await runTestDriveStep('3')).step.readout;
   assert.match(rhyme.baselineValue, /^0 hits$/);
-  const discovery = runTestDriveStep('4').step.readout;
+  const discovery = (await runTestDriveStep('4')).step.readout;
   assert.equal(discovery.bars.max, 100);
   assert.match(discovery.also, /fewer operations/);
 });
 
-test('Test Drive page explains each test and renders the results card', () => {
+test('Test Drive page explains each test and renders the results card', async () => {
   assert.match(page, /The test<\/span>/);
   assert.match(page, /What to watch/);
   assert.match(page, /<p class="rc-kicker">Result<\/p>/);
@@ -114,29 +114,30 @@ test('Test Drive page explains each test and renders the results card', () => {
   assert.match(page, /Twelve agents share one context/);
   assert.match(page, /exact-text cache reuses only identical text/i);
   assert.match(page, /six links deep/);
-  assert.match(page, /fractisi-td-walkthrough-done-v19/);
+  assert.match(page, /fractisi-td-walkthrough-done-v20/);
   assert.match(page, /Git awareness · cleaner merges/);
   assert.match(page, /#git/);
-  assert.match(page, /fractisi-td-results-v19/);
+  assert.match(page, /portable cloud lab git/);
+  assert.match(page, /fractisi-td-results-v20/);
   assert.doesNotMatch(page, /-v15/);
   assert.match(page, /More agents, same memory\./);
 });
 
-test('speaker deck quotes the same numbers the tests return', () => {
-  const one = runTestDriveStep('1').step.readout.bars;
-  const density = runTestDriveStep('7').step.readout;
-  const rhyme = runTestDriveStep('3').step.readout;
+test('speaker deck quotes the same numbers the tests return', async () => {
+  const one = (await runTestDriveStep('1')).step.readout.bars;
+  const density = (await runTestDriveStep('7')).step.readout;
+  const rhyme = (await runTestDriveStep('3')).step.readout;
   assert.ok(deck.includes(one.baselineText), 'deck test 1 baseline');
   assert.ok(deck.includes(one.treatmentText), 'deck test 1 treatment');
-  assert.ok(deck.includes(runTestDriveStep('1').step.readout.headlineValue), 'deck test 1 headline');
+  assert.ok(deck.includes((await runTestDriveStep('1')).step.readout.headlineValue), 'deck test 1 headline');
   assert.ok(deck.includes(density.headlineValue.replace(' more', '')), 'deck test 2 headline');
   assert.ok(deck.includes(String(density.bars.treatment)), 'deck test 2 capacity');
   assert.ok(deck.includes(rhyme.headlineValue), 'deck test 3 headline');
   assert.match(deck, /100 of 100/);
 });
 
-test('coordination is reported honestly, never as a collision win', () => {
-  const { metrics } = runTestDriveStep('6').step;
+test('coordination is reported honestly, never as a collision win', async () => {
+  const { metrics } = (await runTestDriveStep('6')).step;
   assert.ok(metrics.n25.cConflicts > metrics.n25.aConflicts, 'premise: coordinated logs more conflicts at n=25');
   assert.match(page, /more conflicts than plain branching/);
   assert.doesNotMatch(page, /fewer (collisions|conflicts)/i);
@@ -145,14 +146,14 @@ test('coordination is reported honestly, never as a collision win', () => {
 });
 
 
-test('git awareness lab uses real git and reports fewer failed merges', () => {
-  const { step } = runTestDriveStep('git');
+test('git awareness lab reports fewer failed merges on portable engine', async () => {
+  const { step } = await runTestDriveStep('git', { engine: 'portable' });
   assert.equal(step.metrics.component, 'git_awareness');
   assert.equal(step.metrics.conclusive, true);
   assert.equal(step.metrics.improved, true);
   assert.ok(step.metrics.conventionalFailedMerges > step.metrics.fractisiFailedMerges);
   assert.equal(step.metrics.fractisiFailedMerges, 0);
-  assert.ok(step.readout.done.includes('temporary Git repo') || step.readout.done.includes('worktree'));
   assert.match(step.readout.beyondTheory, /well beyond theory/i);
   assert.match(step.lines.join('\n'), /GIT AWARENESS/);
+  assert.match(String(step.metrics.engine || '') + step.lines.join('\n'), /portable/i);
 });

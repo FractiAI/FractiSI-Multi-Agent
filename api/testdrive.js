@@ -29,19 +29,29 @@ export default async function handler(req, res) {
   }
 
   let step = readStep(req);
-  if (!step && req.method === 'POST') {
+  let githubToken = '';
+  let engine = '';
+  if (req.method === 'POST') {
     try {
       const chunks = [];
       for await (const c of req) chunks.push(c);
       const raw = Buffer.concat(chunks).toString('utf8');
       if (raw) {
         const body = JSON.parse(raw);
-        step = body.step || body.id;
+        step = step || body.step || body.id;
+        githubToken = body.githubToken || body.token || '';
+        engine = body.engine || '';
       }
     } catch {
       send(res, 400, { ok: false, error: 'invalid_json' });
       return;
     }
+  }
+  if (!githubToken) {
+    githubToken =
+      req.headers['x-github-token'] ||
+      req.headers['x-fractisi-github-token'] ||
+      '';
   }
 
   if (!step || step === 'list') {
@@ -55,7 +65,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const out = runTestDriveStep(step);
+    const out = await runTestDriveStep(step, { githubToken, engine: engine || 'auto' });
     send(res, 200, out);
   } catch (err) {
     const unknown = err?.code === 'unknown_step';
