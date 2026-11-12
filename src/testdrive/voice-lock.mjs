@@ -15,7 +15,7 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-12-six-live-tests',
+  id: 'testdrive-voice-lock-2026-11-12-test-paper-links',
   lockedAt: '2026-11-12',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
@@ -87,6 +87,8 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'Five shared-world tests ran on the stack below',
     'Six live tests',
     'Test 6',
+    'Whitepapers · proofs · receipts',
+    'Whitepapers, proofs, and receipts',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([

@@ -460,6 +460,28 @@
     .lab-hint { font-size: 0.85rem; color: var(--td-muted); margin: 0.4rem 0 0; }
     .lab-hint code { background: var(--td-soft); border: 1px solid var(--td-line); padding: 0.1rem 0.4rem; border-radius: 5px; font-size: 0.8rem; }
 
+    .lab-papers, .rc-papers {
+      margin: 0.85rem 0 0;
+      padding: 0.85rem 1rem;
+      background: var(--td-soft);
+      border: 1px solid var(--td-line);
+      border-radius: var(--td-radius);
+    }
+    .lab-papers .lp-k, .rc-papers .lp-k {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--td-accent);
+      margin-bottom: 0.45rem;
+    }
+    .lab-papers ul, .rc-papers ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .lab-papers a, .rc-papers a { font-size: 0.92rem; font-weight: 560; letter-spacing: -0.01em; color: var(--td-ink); text-decoration-color: color-mix(in srgb, var(--td-accent) 45%, transparent); }
+    .lab-papers a:hover, .rc-papers a:hover { text-decoration-color: var(--td-accent); }
+    .lab-papers .lp-note, .rc-papers .lp-note { display: block; font-size: 0.82rem; color: var(--td-muted); font-weight: 400; margin-top: 0.1rem; }
+
     .result { scroll-margin-top: 8rem; margin-top: 2rem; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: 18px; padding: clamp(1.25rem, 3vw, 2rem); box-shadow: var(--shadow); animation: td-rise 0.45s ease both; }
     .rc-kicker { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--td-accent); margin: 0 0 0.7rem; }
     .rc-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1.1rem; margin-bottom: 1.4rem; }
@@ -609,6 +631,7 @@
           <span class="status" id="status" role="status"></span>
         </div>
         <p class="lab-hint" id="lab-hint"></p>
+        <div class="lab-papers is-hidden" id="lab-papers" aria-label="Whitepapers for this test"></div>
         <div class="result is-hidden" id="result" aria-live="polite"></div>
       </section>
     </article>
@@ -773,7 +796,10 @@
         testing: 'Twelve agents share one context. We store it two ways: a full copy per agent, or one shared copy plus a small note per agent. Then we count bytes.',
         expect: 'Two byte counts, and the percentage between them.',
         takeaway: 'One copy of the world. A note per agent.',
-        teach: `
+        papers: [
+          { href: '/library/papers/tiny-footprint-multi-agent/', label: 'Shared Worlds for Concurrent Agents', note: 'Tiny Footprint whitepaper · bytes, density, gzip residual, receipts' },
+          { href: '/library/papers/tiny-gateway-rhyming-templates/', label: 'Tiny Gateway · Rhyming Templates', note: 'Engine under the shared world · nested vectors · lab receipts' },
+        ],        teach: `
           <div class="prose">
             <p class="lede">Twelve agents need the same map. Do you store it twelve times?</p>
             <p>Most multi-agent systems do. FractiSI stores the world once, the same world human operators and digital agents work from, and gives each agent a note on how its view differs.</p>
@@ -795,7 +821,10 @@
         testing: 'Take the memory that 24 full-copy agents use. Count how many agents fit in that same space when they share one world.',
         expect: 'Two agent counts. The gap between them is the headroom.',
         takeaway: 'Each new agent costs a note, not a copy.',
-        teach: `
+        papers: [
+          { href: '/library/papers/tiny-footprint-multi-agent/', label: 'Shared Worlds for Concurrent Agents', note: 'Density headroom · same budget, more agents · receipts' },
+          { href: '/library/papers/tiny-gateway-rhyming-templates/', label: 'Tiny Gateway · Rhyming Templates', note: 'Representation math behind the density claim' },
+        ],        teach: `
           <div class="prose">
             <p class="lede">Memory sets how many agents can run at once.</p>
             <p>Lower the cost of each agent and the ceiling rises, for digital fleets and for the human-supervised teams that steer them in the same shared world. So we fix the memory budget and count agents.</p>
@@ -813,7 +842,10 @@
         testing: 'Forty sessions do the same kind of job, each worded differently. An exact-text cache reuses only identical text. Rhyming Templates reuse a pattern only if it passes the four-pillar gate. We count cache hits and bytes stored.',
         expect: 'Cache hits for the old approach, and bytes stored by each.',
         takeaway: 'The words changed. The pattern did not. We paid for it once.',
-        teach: `
+        papers: [
+          { href: '/library/papers/tiny-gateway-rhyming-templates/', label: 'Tiny Gateway · Rhyming Templates', note: 'Rhyming Templates vs exact-text cache · proofs and receipts' },
+          { href: '/library/papers/holographic-rhyme/', label: 'The Holographic Rhyme', note: 'Four-pillar gate · repeating · self-similar · self-correcting · recursive' },
+        ],        teach: `
           <div class="prose">
             <p class="lede">Human and digital agents paraphrase. They rarely copy and paste.</p>
             <p>An exact-text cache hits only when the words match letter for letter. Reword the request and it goes cold.</p>
@@ -832,7 +864,10 @@
         testing: 'One hundred puzzles, each with its answer six links away. Both methods get the same budget. One skims a window of text. The other follows links through the shared world.',
         expect: 'A score out of 100 for each method.',
         takeaway: 'Follow the links.',
-        teach: `
+        papers: [
+          { href: '/library/papers/fractisi-expedition-002-beyond-memory/', label: 'Expedition 002 · Beyond Memory Savings', note: 'Multi-hop discovery under a fixed budget · 100/100 vs 0/100 · receipts' },
+          { href: '/library/papers/tiny-gateway-rhyming-templates/', label: 'Tiny Gateway · Rhyming Templates', note: 'Selective reconstruction · nested vectors' },
+        ],        teach: `
           <div class="prose">
             <p class="lede">Some answers appear only if you follow A to B to C.</p>
             <p>A skim of one window walks past them. Every answer is already in the shared world that human and digital agents use together. The question is which method reaches it.</p>
@@ -854,7 +889,10 @@
         testing: 'Six agents share an overlapping Git workload. Conventional: each gets a real Git branch from the same seed, then we merge into main. FractiSI: ownership and composition first, then one integrateComposition commit. We count failed merges and conflicted paths.',
         expect: 'Failed merges and conflicted paths for each arm.',
         takeaway: 'Decide before Git. Main stays cleaner.',
-        teach: `
+        papers: [
+          { href: '/library/papers/fractisi-multi-agent-platform/', label: 'FractiSI Multi-Agent Platform Architecture', note: 'Git awareness · ownership · composition · platform stack' },
+          { href: 'https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/product/FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_2026-11.md', label: 'Platform architecture note (repo)', note: 'Scoped worktrees · integrateComposition · honesty tables' },
+        ],        teach: `
           <div class="prose">
             <p class="lede">Git is still the system of record. The question is what reaches it.</p>
             <p>Most multi-agent setups give every agent a branch and find overlaps only when merges break. FractiSI keeps scoped worktrees for human and digital agents, blocks overlapping ownership up front, and lands one composed commit.</p>
@@ -910,7 +948,10 @@
         testing: 'Same multi-agent jobs at 32 and 100 agents. Arm C is today’s FractiSI. C+imagine rehearses after the usual conflict gate. C+imagine_select lets imagination choose who goes first. We count useful completed tasks. Predictions cannot overwrite the real world without approval.',
         expect: 'Useful-task deltas at 32 and 100 agents, and whether select stays within 5% of today.',
         takeaway: 'Rehearse first. Approve before the real world changes.',
-        teach: `
+        papers: [
+          { href: 'https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/research/world-model-assimilation/PREDICTIVE_SHARED_STATE_ARCHITECTURE.md', label: 'Predictive Shared State architecture', note: 'Three stores · approval gate · imagination select' },
+          { href: 'https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/research/world-model-assimilation/C_PLUS_IMAGINE_RESULTS.md', label: 'C+imagine results & receipts', note: '+1.4 / +3.6 useful-task deltas · measured tables' },
+        ],        teach: `
           <div class="prose">
             <p class="lede">Can human and digital agents rehearse a change before it touches the shared world?</p>
             <p>A mind that can only act has to learn by breaking things. One that can imagine first does not. We keep three stores apart: the real world, proposals, and predictions.</p>
@@ -931,6 +972,18 @@
             <p class="lede">Results board — six live numbers: footprint, density, rhyme, discovery, Git awareness (100% fewer Git failed merges), and prediction (+3.6 useful at 100 agents). Numbers stay pinned from the lab; your run confirms them.</p>
           </div>
           <div class="recap" aria-label="Results board">${recapHtml()}</div>
+          <div class="prose">
+            <h2>Whitepapers, proofs, and receipts</h2>
+            <p>Each live test has a paper trail. Open these when you want the math, honesty tables, and measured receipts behind the numbers.</p>
+            <ul class="plain">
+              <li><strong>Tests 1 · 2.</strong> <a href="/library/papers/tiny-footprint-multi-agent/">Shared Worlds for Concurrent Agents</a> · <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway · Rhyming Templates</a></li>
+              <li><strong>Test 3.</strong> <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway · Rhyming Templates</a> · <a href="/library/papers/holographic-rhyme/">The Holographic Rhyme</a></li>
+              <li><strong>Test 4.</strong> <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002 · Beyond Memory</a></li>
+              <li><strong>Test 5.</strong> <a href="/library/papers/fractisi-multi-agent-platform/">Multi-Agent Platform Architecture</a></li>
+              <li><strong>Test 6.</strong> <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/research/world-model-assimilation/PREDICTIVE_SHARED_STATE_ARCHITECTURE.md">Predictive Shared State</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/research/world-model-assimilation/C_PLUS_IMAGINE_RESULTS.md">C+imagine receipts</a></li>
+              <li><strong>Library index.</strong> <a href="/library/">All public papers</a></li>
+            </ul>
+          </div>
           <div class="prose">
             <h2>In your own IDE</h2>
             <ul class="plain">
@@ -1012,6 +1065,23 @@
 
     const current = () => STEPS[index];
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const labPapers = $('lab-papers');
+
+    function papersListHtml(papers) {
+      if (!papers || !papers.length) return '';
+      return papers.map((p) => {
+        const note = p.note ? '<span class="lp-note">' + esc(p.note) + '</span>' : '';
+        const external = /^https?:\/\//.test(p.href);
+        const attrs = external ? ' target="_blank" rel="noopener"' : '';
+        return '<li><a href="' + esc(p.href) + '"' + attrs + '>' + esc(p.label) + '</a>' + note + '</li>';
+      }).join('');
+    }
+
+    function papersHtml(papers, className) {
+      const items = papersListHtml(papers);
+      if (!items) return '';
+      return '<div class="' + (className || 'lab-papers') + '"><span class="lp-k">Whitepapers · proofs · receipts</span><ul>' + items + '</ul></div>';
+    }
 
     const PINNED_BRAGS = {
       '1': { headlineValue: '85.9%', headlineLabel: 'Smaller footprint', brag: '12 agents · 5,992 B → 845 B' },
@@ -1090,6 +1160,13 @@
         $('lab-testing').textContent = s.testing;
         $('lab-expect').textContent = s.expect;
         labHint.innerHTML = s.labHint || '';
+        if (s.papers && s.papers.length) {
+          labPapers.innerHTML = '<span class="lp-k">Whitepapers · proofs · receipts</span><ul>' + papersListHtml(s.papers) + '</ul>';
+          labPapers.classList.remove('is-hidden');
+        } else {
+          labPapers.innerHTML = '';
+          labPapers.classList.add('is-hidden');
+        }
         btnRun.textContent = 'Run the test';
         btnRun.disabled = false;
         statusEl.textContent = '';
@@ -1098,6 +1175,8 @@
         centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">R</span> runs the test';
       } else {
         labPanel.classList.add('is-hidden');
+        labPapers.innerHTML = '';
+        labPapers.classList.add('is-hidden');
         centerHint.innerHTML = 'Keys <span class="kbd">←</span> <span class="kbd">→</span>';
       }
 
@@ -1170,6 +1249,7 @@
         sectionHtml('What it means', r.implication) +
         sectionHtml('Beyond theory', r.beyondTheory, 'rc-section--beyond') +
         '<p class="rc-bottom">' + esc(current().takeaway || '') + '</p>' +
+        papersHtml(current().papers, 'rc-papers') +
         '<p class="rc-honesty">A lab run on one machine. Promising, not a production benchmark.</p>' +
         '<details class="rc-log"><summary>Show the full log · ran in ' + esc(ms) + ' ms</summary><pre>' + esc([step.title, 'Surface: ' + step.layer, 'Component: ' + step.component, ''].concat(step.lines || []).concat(step.honesty ? ['', 'Honesty boundary: ' + step.honesty] : []).join('\n')) + '</pre></details>';
       resultEl.classList.remove('is-hidden');

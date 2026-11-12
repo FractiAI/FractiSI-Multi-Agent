@@ -170,6 +170,27 @@ test('invite recap and deck results board include six tests', () => {
   assert.match(deck, /2 failed merges/);
 });
 
+test('each live test links whitepapers for details, proofs, and receipts', () => {
+  for (const id of LABS) {
+    const start = page.indexOf(`id: '${id}'`);
+    const end = page.indexOf('teach:', start);
+    const chunk = page.slice(start, end);
+    assert.match(chunk, /papers:\s*\[/, id + ' papers');
+    assert.match(chunk, /\/library\/papers\/|github\.com\/FractiAI\/FractiSI-Multi-Agent/, id + ' href');
+  }
+  assert.match(page, /Whitepapers · proofs · receipts/);
+  assert.match(page, /Whitepapers, proofs, and receipts/);
+  assert.match(page, /id="lab-papers"/);
+  assert.match(page, /papersHtml\(/);
+  assert.match(page, /\/library\/papers\/tiny-footprint-multi-agent\//);
+  assert.match(page, /\/library\/papers\/tiny-gateway-rhyming-templates\//);
+  assert.match(page, /\/library\/papers\/holographic-rhyme\//);
+  assert.match(page, /\/library\/papers\/fractisi-expedition-002-beyond-memory\//);
+  assert.match(page, /\/library\/papers\/fractisi-multi-agent-platform\//);
+  assert.match(page, /PREDICTIVE_SHARED_STATE_ARCHITECTURE\.md/);
+  assert.match(page, /C_PLUS_IMAGINE_RESULTS\.md/);
+});
+
 test('welcome shows six live tests and stack points at Test 6 next', () => {
   const ids = [...page.matchAll(/\{\n\s+id: '([^']+)'/g)].map((m) => m[1]);
   const start = ids.indexOf('story');
