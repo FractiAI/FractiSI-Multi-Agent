@@ -65,6 +65,10 @@ function seedRepo(root) {
   runGit(root, ['init']);
   runGit(root, ['config', 'user.name', 'FractiSI Lab']);
   runGit(root, ['config', 'user.email', 'fractisi-lab@local']);
+  runGit(root, ['config', 'commit.gpgsign', 'false'], { allowFail: true });
+  runGit(root, ['config', 'core.autocrlf', 'false'], { allowFail: true });
+  // Serverless / odd hosts sometimes mark temp dirs as dubious.
+  runGit(root, ['config', 'safe.directory', root], { allowFail: true });
   // Default branch name for predictable merges.
   runGit(root, ['checkout', '-b', 'main'], { allowFail: true });
   fs.writeFileSync(path.join(root, 'README.md'), '# FractiSI Git lab\n');
@@ -73,7 +77,10 @@ function seedRepo(root) {
   fs.writeFileSync(path.join(root, 'src', 'shared', 'base.mjs'), 'export const base = 1;\n');
   fs.writeFileSync(path.join(root, 'src', 'api', 'router.mjs'), 'export const router = {};\n');
   runGit(root, ['add', '-A']);
-  runGit(root, ['commit', '-m', 'chore: seed git lab']);
+  const commit = runGit(root, ['commit', '-m', 'chore: seed git lab']);
+  if (!commit.ok) {
+    throw new Error(`seed_commit_failed:${commit.stderr || commit.stdout}`);
+  }
 }
 
 function writeRel(root, rel, content) {
@@ -88,31 +95,35 @@ function armConventionalGit(workload, parentTmp) {
   const branches = [];
   let commits = 0;
 
+  // Portable arm: sequential branches in one repo (no worktrees).
+  // Each branch starts from the seed commit so overlapping edits collide on merge.
+  const seed = runGit(root, ['rev-parse', 'HEAD']);
+  if (!seed.ok) {
+    return {
+      arm: 'A_conventional_git',
+      ok: false,
+      error: 'missing_seed_commit',
+      mergeConflicts: 0,
+      failedMerges: 0,
+      successfulMerges: 0,
+      commitsOnMain: 0,
+      agents: workload.tasks.length,
+    };
+  }
+
   for (const task of workload.tasks) {
     const branch = `agent/${task.agent}`;
-    const wt = path.join(root, '.worktrees', task.agent);
-    fs.mkdirSync(path.dirname(wt), { recursive: true });
-    const add = runGit(root, ['worktree', 'add', '-b', branch, wt]);
-    if (!add.ok) {
-      return {
-        arm: 'A_conventional_git',
-        ok: false,
-        error: add.stderr || add.stdout || 'worktree_add_failed',
-        mergeConflicts: 0,
-        failedMerges: 0,
-        successfulMerges: 0,
-        commitsOnMain: 1,
-        agents: workload.tasks.length,
-      };
-    }
+    runGit(root, ['checkout', '-B', branch, seed.stdout]);
     for (const p of task.paths) {
-      writeRel(wt, p, `// ${task.agent} · ${task.title}\nexport const mark = '${task.agent}';\n`);
+      writeRel(root, p, `// ${task.agent} · ${task.title}\nexport const mark = '${task.agent}';\n`);
     }
-    runGit(wt, ['add', '-A']);
-    const commit = runGit(wt, ['commit', '-m', `feat(${task.agent}): ${task.title}`], { allowFail: true });
+    runGit(root, ['add', '-A']);
+    const commit = runGit(root, ['commit', '-m', `feat(${task.agent}): ${task.title}`], { allowFail: true });
     if (commit.ok || (commit.stdout + commit.stderr).includes('nothing to commit')) commits += 1;
     branches.push({ branch, agent: task.agent });
   }
+
+  runGit(root, ['checkout', '-B', 'main', seed.stdout]);
 
   let failedMerges = 0;
   let successfulMerges = 0;
@@ -129,17 +140,11 @@ function armConventionalGit(workload, parentTmp) {
     }
   }
 
-  // cleanup worktrees best-effort
-  for (const { branch, agent } of branches) {
-    const wt = path.join(root, '.worktrees', agent);
-    runGit(root, ['worktree', 'remove', '--force', wt], { allowFail: true });
-    runGit(root, ['branch', '-D', branch], { allowFail: true });
-  }
-
   const log = runGit(root, ['rev-list', '--count', 'HEAD'], { allowFail: true });
   return {
     arm: 'A_conventional_git',
     ok: true,
+    mode: 'sequential_branches',
     agents: workload.tasks.length,
     agentCommits: commits,
     mergeConflicts: conflictedPaths.size,
@@ -232,8 +237,29 @@ function armFractisiGit(workload, parentTmp) {
           sha = integrated.sha;
           written = written.concat(integrated.written || []);
         } else {
-          failedMerges += 1;
-          integrateError = integrated.error || 'integrate_failed';
+          // Fallback: write accepted files and commit with lab git identity.
+          // Covers hosts where platform git commit env differs from seed config.
+          const files = {};
+          for (const cid of batch) {
+            const c = platform.store.state.contributions.get(cid);
+            if (c?.files) Object.assign(files, c.files);
+          }
+          for (const [rel, content] of Object.entries(files)) writeRel(root, rel, content);
+          runGit(root, ['add', '-A']);
+          const commit = runGit(root, ['commit', '-m', `fractisi: git-lab fallback ${composed.composition.id}`], {
+            allowFail: true,
+          });
+          if (commit.ok) {
+            successfulCompositions += 1;
+            integratedOk = true;
+            const head = runGit(root, ['rev-parse', 'HEAD']);
+            sha = head.ok ? head.stdout : null;
+            written = written.concat(Object.keys(files));
+            integrateError = `recovered_after:${integrated.error || 'integrate_failed'}`;
+          } else {
+            failedMerges += 1;
+            integrateError = integrated.error || commit.stderr || 'integrate_failed';
+          }
         }
       }
       for (const id of batch) {

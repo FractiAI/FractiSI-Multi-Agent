@@ -875,17 +875,17 @@
         mode: 'lab',
         chapter: 'Live tests',
         title: 'Git awareness · cleaner merges.',
-        promise: 'Real worktrees. Ownership before merge.',
+        promise: 'Real Git branches. Ownership before merge.',
         recapName: 'Git awareness · cleaner merges',
         labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive git</code>',
-        testing: 'Six agents share an overlapping Git workload. Conventional: each gets a real worktree branch, then we merge into main. FractiSI: ownership and composition first, then one integrateComposition commit. We count failed merges and conflicted paths.',
+        testing: 'Six agents share an overlapping Git workload. Conventional: each gets a real Git branch from the same seed, then we merge into main. FractiSI: ownership and composition first, then one integrateComposition commit. We count failed merges and conflicted paths.',
         expect: 'Failed merges and conflicted paths for each arm.',
         takeaway: 'Decide before Git. Main stays cleaner.',
         teach: `
           <div class="prose">
             <p class="lede">Git is still the system of record. The question is what reaches it.</p>
             <p>Most multi-agent setups give every agent a branch and find overlaps only when merges break. FractiSI keeps scoped worktrees for human and digital agents, blocks overlapping ownership up front, and lands one composed commit.</p>
-            <p>This lab uses real <code>git worktree</code> and real merges on a temporary repository on this machine.</p>
+            <p>This lab uses real Git branches and real merges on a temporary repository on this machine.</p>
           </div>
         `,
       },

@@ -516,7 +516,7 @@ function runGitLab() {
       component: 'git_awareness',
     },
     readout: {
-      done: `We gave ${lab.agents} agents the same overlapping workload in a temporary Git repo. Conventional arm: each agent got a real worktree branch, committed, then we merged every branch into main. FractiSI arm: ownership and composition ran first; only non-overlapping work was integrated with one Git commit.`,
+      done: `We gave ${lab.agents} agents the same overlapping workload in a temporary Git repo. Conventional arm: each agent got a real Git branch from the same seed, committed, then we merged every branch into main. FractiSI arm: ownership and composition ran first; only non-overlapping work was integrated with one Git commit.`,
       tested: `Real git merge failures and conflicted paths for ${lab.agents} agents — conventional branches vs FractiSI Git awareness.`,
       baselineLabel: 'Conventional branch merges',
       baselineValue: `${a.failedMerges} failed merges · ${a.mergeConflicts} conflicted paths`,
@@ -554,7 +554,7 @@ function run7() {
     fractisi: [
       'Tiny Footprint density — more agents inside the same representation budget.',
       'Deploy — approval-gated publish; paid (Team · Enterprise · Cloud).',
-      'Git awareness was measured in the previous step (real worktrees + merges).',
+      'Git awareness was measured in the previous step (real Git branchs + merges).',
     ],
     lines: [
       'DENSITY · GIT AWARENESS · DEPLOY',

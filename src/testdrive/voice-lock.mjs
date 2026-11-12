@@ -73,7 +73,7 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'predictable',
     'Git awareness · cleaner merges.',
     'Decide before Git',
-    'real worktree',
+    'scoped worktrees',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([
