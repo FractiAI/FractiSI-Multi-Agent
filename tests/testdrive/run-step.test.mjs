@@ -66,7 +66,7 @@ test('discovery step reports 100/100 vs 0/100', async () => {
 });
 
 
-test('the four live tests return a plain-language readout with bars', async () => {
+test('the five live tests return a plain-language readout with bars', async () => {
   for (const id of LABS) {
     const { step } = await runTestDriveStep(id);
     const r = step.readout;
@@ -114,11 +114,11 @@ test('Test Drive page explains each test and renders the results card', async ()
   assert.match(page, /Twelve agents share one context/);
   assert.match(page, /exact-text cache reuses only identical text/i);
   assert.match(page, /six links deep/);
-  assert.match(page, /fractisi-td-walkthrough-done-v20/);
+  assert.match(page, /fractisi-td-walkthrough-done-v21/);
   assert.match(page, /Git awareness · cleaner merges/);
   assert.match(page, /#git/);
   assert.match(page, /portable cloud lab git/);
-  assert.match(page, /fractisi-td-results-v20/);
+  assert.match(page, /fractisi-td-results-v21/);
   assert.doesNotMatch(page, /-v15/);
   assert.match(page, /More agents, same memory\./);
 });
@@ -154,6 +154,18 @@ test('git awareness lab reports fewer failed merges on portable engine', async (
   assert.ok(step.metrics.conventionalFailedMerges > step.metrics.fractisiFailedMerges);
   assert.equal(step.metrics.fractisiFailedMerges, 0);
   assert.match(step.readout.beyondTheory, /well beyond theory/i);
+  assert.match(step.readout.brag, /failed merges/);
   assert.match(step.lines.join('\n'), /GIT AWARENESS/);
   assert.match(String(step.metrics.engine || '') + step.lines.join('\n'), /portable/i);
+});
+
+test('invite recap and deck results board include Git Test 5', () => {
+  assert.match(page, /PINNED_BRAGS/);
+  assert.match(page, /Results board/);
+  assert.match(page, /100% fewer Git failed merges/);
+  assert.match(page, /git: \{ headlineValue: '100\.0%'/);
+  assert.match(deck, /Results board/);
+  assert.match(deck, /100% fewer Git failed merges/);
+  assert.match(deck, /data-part="Test 5"/);
+  assert.match(deck, /2 failed merges/);
 });

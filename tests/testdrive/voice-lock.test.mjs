@@ -21,9 +21,9 @@ const guide = readFileSync(join(root, 'TEST_DRIVE.md'), 'utf8');
 const agents = readFileSync(join(root, 'AGENTS.md'), 'utf8');
 
 test('voice lock contract is frozen and complete', () => {
-  assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-12-git-portable');
+  assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-12-git-results-board');
   assert.equal(LOCK.heroH1, 'The Multi-Agent World Inference Rhyme?');
-  assert.equal(LOCK.stepTitles.length, 12);
+  assert.equal(LOCK.stepTitles.length, 13);
   assert.ok(LOCK.forbiddenPhrases.length >= 10);
   assert.ok(LOCK.requiredPhrases.length >= 8);
 });

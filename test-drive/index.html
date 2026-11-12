@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
-  <meta name="description" content="Superintelligence as human and digital agents holding one world together. A working demonstration in four live tests. Applied Active Inference Symposium, Nov 12–13, 2026.">
+  <meta name="description" content="Superintelligence as human and digital agents holding one world together. A working demonstration in five live tests. Applied Active Inference Symposium, Nov 12–13, 2026.">
   <meta property="og:title" content="The Multi-Agent World Inference Rhyme?">
   <meta property="og:description" content="Human and digital agents holding one world together. Four tests you run yourself.">
   <meta property="og:image" content="https://fractisi.vercel.app/media/fractisi-hero.jpg">
@@ -421,7 +421,7 @@
     .pillar h3 { font-size: 1.02rem; font-weight: 600; letter-spacing: -0.02em; margin: 0.35rem 0 0.4rem; }
     .pillar p { font-size: 0.92rem !important; line-height: 1.5 !important; margin: 0 !important; color: var(--td-muted) !important; }
 
-    /* ——— Index of the four tests ——— */
+    /* ——— Index of the live tests ——— */
     .four-tests { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.65rem; margin: 2rem 0 0; }
     @media (max-width: 860px) { .four-tests { grid-template-columns: repeat(2, 1fr); } }
     .four-tests a { text-decoration: none; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: var(--td-radius); padding: 0.9rem 1rem; display: block; transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease; }
@@ -489,6 +489,7 @@
     @media (max-width: 560px) { .recap { grid-template-columns: 1fr; } }
     .recap a { display: block; text-decoration: none; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: var(--td-radius); padding: 1.05rem 1.2rem; transition: transform 0.12s ease, border-color 0.12s ease; }
     .recap a:hover { transform: translateY(-2px); border-color: var(--td-line-strong); }
+    .recap a.is-pinned { border-color: color-mix(in srgb, var(--td-accent) 35%, transparent); }
     .recap a.is-ran { background: #f1f6f3; border-color: rgba(14, 74, 56, 0.28); }
     .recap b { display: block; font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--td-accent); margin-bottom: 0.4rem; }
     .recap .v { font-weight: 620; font-size: 1.9rem; letter-spacing: -0.045em; color: var(--td-ink); line-height: 1.05; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
@@ -539,7 +540,7 @@
       <p class="brand">FractiSI Multi-Agent · Test Drive</p>
       <h1>The Multi-Agent World Inference Rhyme?</h1>
       <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-      <p class="deck">Our position: superintelligence is not one model in a box. It is human and digital agents holding one world together. This is a working piece of it. We start with a story about awareness, then you run four tests.</p>
+      <p class="deck">Our position: superintelligence is not one model in a box. It is human and digital agents holding one world together. This is a working piece of it. We start with a story about awareness, then you run five tests.</p>
       <div class="cta-row">
         <button type="button" class="btn btn-solid" id="btn-start" data-action="start">Begin →</button>
         <a class="btn btn-musical" href="/test-drive/musical/">Musical Training</a>
@@ -834,6 +835,26 @@
         `,
       },
       {
+        id: 'git',
+        mode: 'lab',
+        chapter: 'Live tests',
+        title: 'Git awareness · cleaner merges.',
+        promise: 'Real Git branches. Ownership before merge.',
+        recapName: 'Git awareness · cleaner merges',
+        labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive git</code>',
+        testing: 'Six agents share an overlapping Git workload. Conventional: each gets a real Git branch from the same seed, then we merge into main. FractiSI: ownership and composition first, then one integrateComposition commit. We count failed merges and conflicted paths.',
+        expect: 'Failed merges and conflicted paths for each arm.',
+        takeaway: 'Decide before Git. Main stays cleaner.',
+        teach: `
+          <div class="prose">
+            <p class="lede">Git is still the system of record. The question is what reaches it.</p>
+            <p>Most multi-agent setups give every agent a branch and find overlaps only when merges break. FractiSI keeps scoped worktrees for human and digital agents, blocks overlapping ownership up front, and lands one composed commit.</p>
+            <p>This lab runs real merges without needing a system <code>git</code> binary on the page host. By default it uses FractiSI's portable cloud lab git. If you store a GitHub token in this browser (<code>localStorage.fractisiGithubToken</code>), the lab prefers your GitHub environment and creates an ephemeral private repo for the run.</p>
+          </div>
+        `,
+      },
+
+      {
         id: 'how-stack',
         mode: 'teach',
         chapter: 'The stack',
@@ -841,7 +862,7 @@
         promise: 'What the tests ran on.',
         teach: `
           <div class="prose">
-            <p class="lede">The four tests ran on the stack below. Read it from the ground up. The crown is built for human and digital agents collaborating on one shared world.</p>
+            <p class="lede">The five tests ran on the stack below. Read it from the ground up. The crown is built for human and digital agents collaborating on one shared world.</p>
           </div>
           <div class="stack-grid">
             <figure>
@@ -866,26 +887,6 @@
             <p>We measured coordination too, and the result is mixed. At 25 agents it logged more conflicts than plain branching, 3.7 against 1.7, while finishing slightly more useful work. We are not presenting it as a test. It is where we have the most left to build.</p>
             <p>Beside this stack sits <strong>Predictive Shared State</strong>, where agents rehearse a change before it touches the real world. It plugs in at Coordination, Shared state and Composition as an optional switch. The next step has the numbers.</p>
             <p class="aside">Everything you ran is a lab on one machine. It is a promising result, not a production benchmark.</p>
-          </div>
-        `,
-      },
-
-      {
-        id: 'git',
-        mode: 'lab',
-        chapter: 'Live tests',
-        title: 'Git awareness · cleaner merges.',
-        promise: 'Real Git branches. Ownership before merge.',
-        recapName: 'Git awareness · cleaner merges',
-        labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive git</code>',
-        testing: 'Six agents share an overlapping Git workload. Conventional: each gets a real Git branch from the same seed, then we merge into main. FractiSI: ownership and composition first, then one integrateComposition commit. We count failed merges and conflicted paths.',
-        expect: 'Failed merges and conflicted paths for each arm.',
-        takeaway: 'Decide before Git. Main stays cleaner.',
-        teach: `
-          <div class="prose">
-            <p class="lede">Git is still the system of record. The question is what reaches it.</p>
-            <p>Most multi-agent setups give every agent a branch and find overlaps only when merges break. FractiSI keeps scoped worktrees for human and digital agents, blocks overlapping ownership up front, and lands one composed commit.</p>
-            <p>This lab runs real merges without needing a system <code>git</code> binary on the page host. By default it uses FractiSI's portable cloud lab git. If you store a GitHub token in this browser (<code>localStorage.fractisiGithubToken</code>), the lab prefers your GitHub environment and creates an ephemeral private repo for the run.</p>
           </div>
         `,
       },
@@ -924,8 +925,10 @@
         title: 'Run it yourself.',
         promise: 'What you ran, and how to go further.',
         teach: () => `
-          <div class="prose"><h2>What you ran</h2></div>
-          <div class="recap">${recapHtml()}</div>
+          <div class="prose"><h2>What you ran</h2>
+            <p class="lede">Results board — five live numbers: footprint, density, rhyme, discovery, and Git awareness (100% fewer Git failed merges). Numbers stay pinned from the lab; your run confirms them.</p>
+          </div>
+          <div class="recap" aria-label="Results board">${recapHtml()}</div>
           <div class="prose">
             <h2>In your own IDE</h2>
             <ul class="plain">
@@ -971,8 +974,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v20';
-    const RESULTS_KEY = 'fractisi-td-results-v20';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v21';
+    const RESULTS_KEY = 'fractisi-td-results-v21';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
@@ -1008,13 +1011,24 @@
     const current = () => STEPS[index];
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+    const PINNED_BRAGS = {
+      '1': { headlineValue: '85.9%', headlineLabel: 'Smaller footprint', brag: '12 agents · 5,992 B → 845 B' },
+      '7': { headlineValue: '9.7×', headlineLabel: 'More agents, same memory', brag: '24 agents in the bytes that held 12 full copies' },
+      '3': { headlineValue: '45.0%', headlineLabel: 'Rhyme save vs exact cache', brag: 'Exact-text cache: 0 hits' },
+      '4': { headlineValue: '100/100', headlineLabel: 'Discoveries vs flat skim', brag: '0 of 100 for a flat skim · same budget' },
+      git: { headlineValue: '100.0%', headlineLabel: 'Fewer failed merges', brag: '2 → 0 failed merges · 2 blocked before Git' },
+    };
+
     function recapHtml() {
       return LABS.map((s, i) => {
-        const r = results[s.id];
-        if (r) {
-          return '<a class="is-ran" href="#' + s.id + '"><b>Test ' + (i + 1) + ' · ' + esc(s.recapName) + '</b><span class="v">' + esc(r.headlineValue) + '</span><span class="l">' + esc(r.headlineLabel) + '</span></a>';
-        }
-        return '<a href="#' + s.id + '"><b>Test ' + (i + 1) + ' · ' + esc(s.recapName) + '</b><span class="v todo">Not run yet. Run it →</span></a>';
+        const live = results[s.id];
+        const pin = PINNED_BRAGS[s.id] || {};
+        const r = Object.assign({}, pin, live || {});
+        const ran = !!live;
+        const brag = r.brag ? '<span class="l">' + esc(r.brag) + '</span>' : '';
+        const cls = ran ? 'is-ran' : 'is-pinned';
+        const todo = ran ? '' : '<span class="l">Pinned lab number · run to confirm →</span>';
+        return '<a class="' + cls + '" href="#' + s.id + '"><b>Test ' + (i + 1) + ' · ' + esc(s.recapName) + '</b><span class="v">' + esc(r.headlineValue || '—') + '</span><span class="l">' + esc(r.headlineLabel || '') + '</span>' + brag + todo + '</a>';
       }).join('');
     }
 
@@ -1183,7 +1197,11 @@
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error(data.detail || data.error || ('HTTP ' + res.status));
         const r = renderResult(data.step, data.ms);
-        results[id] = { headlineValue: r.headlineValue || '', headlineLabel: r.headlineLabel || '' };
+        results[id] = {
+          headlineValue: r.headlineValue || '',
+          headlineLabel: r.headlineLabel || '',
+          brag: r.brag || r.also || '',
+        };
         write(RESULTS_KEY, results);
         done.add(id);
         write(DONE_KEY, [...done]);

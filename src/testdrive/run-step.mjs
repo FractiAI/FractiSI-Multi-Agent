@@ -574,6 +574,7 @@ async function runGitLab(opts = {}) {
       treatmentValue: `${f.failedMerges} failed merges · ${f.blockedBeforeGit} blocked before Git`,
       headlineLabel: 'Fewer failed merges',
       headlineValue: headline,
+      brag: `${a.failedMerges} → ${f.failedMerges} failed merges · ${f.blockedBeforeGit} blocked before Git`,
       bars: {
         caption: `Failed merges into main (${lab.agents} agents)`,
         baseline: Number(a.failedMerges) || 0,
