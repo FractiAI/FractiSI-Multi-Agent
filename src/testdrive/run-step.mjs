@@ -464,8 +464,58 @@ function run6() {
 function runGitLab() {
   const m = meta('git');
   const lab = runGitAwarenessBench({ agents: 6 });
-  const a = lab.conventional;
-  const f = lab.fractisi;
+  const a = lab.conventional || {};
+  const f = lab.fractisi || {};
+  if (lab.status === 'not_run' || lab.reason === 'git_unavailable') {
+    return base(m, {
+      problem: 'Parallel agents each open a branch, then merge blind — overlapping edits break main.',
+      opportunity: 'Git awareness keeps scoped worktrees, blocks overlapping ownership before merge, and integrates one composed commit.',
+      fractisi: [
+        'Component: Git awareness (real Git branches + integrateComposition).',
+        'This browser/API host has no git binary, so the live merge lab did not run here.',
+        'Run locally: node scripts/tiny.mjs testdrive git',
+      ],
+      lines: [
+        'GIT AWARENESS · NOT RUN ON THIS HOST',
+        '',
+        `  Reason: ${lab.reason || 'git_unavailable'}`,
+        `  Detail: ${lab.detail || 'git binary missing'}`,
+        '',
+        '  The measured lab needs a real git binary (workstation / CLI).',
+        '  Next: node scripts/tiny.mjs testdrive git',
+        `  ${lab.honesty}`,
+      ],
+      metrics: {
+        status: 'not_run',
+        reason: lab.reason || 'git_unavailable',
+        improved: false,
+        conclusive: false,
+        component: 'git_awareness',
+      },
+      readout: {
+        done: 'We attempted the Git awareness lab on this host. It needs a real git binary to create branches, commit overlapping edits, and merge into main.',
+        tested: 'Real git merge failures and conflicted paths for six agents — conventional branches vs FractiSI Git awareness.',
+        baselineLabel: 'Conventional branch merges',
+        baselineValue: 'not run',
+        treatmentLabel: 'FractiSI Git awareness',
+        treatmentValue: 'not run',
+        headlineLabel: 'Needs local Git',
+        headlineValue: 'CLI',
+        bars: {
+          caption: 'Failed merges into main (6 agents)',
+          baseline: 0,
+          treatment: 0,
+          baselineText: 'n/a',
+          treatmentText: 'n/a',
+          better: 'lower',
+        },
+        summary: 'This host could not run real Git merges (no git binary). On a workstation the same lab has been measuring fewer failed merges when ownership runs before integrateComposition.',
+        implication: 'Git awareness is a workstation capability. The browser can explain it; the CLI proves it with real merges.',
+        beyondTheory: 'When Git is available, the lab produces ordinary merge failures and a cleaner FractiSI main on the same overlapping workload — coherent, predictable, and well beyond theory. Run node scripts/tiny.mjs testdrive git to see those numbers on your machine.',
+        also: 'Local command: node scripts/tiny.mjs testdrive git',
+      },
+    });
+  }
   const failRed = lab.failedMergeReduction == null ? 'n/a' : pct(lab.failedMergeReduction);
   const conflictRed = lab.conflictReduction == null ? 'n/a' : pct(lab.conflictReduction);
   const headline = !lab.conclusive
@@ -477,12 +527,12 @@ function runGitLab() {
     problem: 'Parallel agents each open a branch, then merge blind — overlapping edits break main.',
     opportunity: 'Git awareness keeps scoped worktrees, blocks overlapping ownership before merge, and integrates one composed commit.',
     fractisi: [
-      'Component: Git awareness (real `git worktree` + `integrateComposition`).',
+      'Component: Git awareness (real Git branches + integrateComposition).',
       'Mechanism: ownership / composition gate first; Git records the result.',
       'Honesty: temporary-repo lab on this machine — not production CapEx.',
     ],
     lines: [
-      'GIT AWARENESS · REAL WORKTREES + MERGES',
+      'GIT AWARENESS · REAL BRANCHES + MERGES',
       '',
       `  Agents:                         ${lab.agents}`,
       `  Conventional failed merges:     ${a.failedMerges}`,

@@ -36,6 +36,19 @@ export function buildGitLabWorkload(agentCount = 6) {
   return { sharedFiles: ['src/api/router.mjs'], tasks };
 }
 
+
+function probeGit() {
+  const result = spawnSync('git', ['--version'], { encoding: 'utf8' });
+  if (result.error || result.status !== 0) {
+    return {
+      ok: false,
+      reason: 'git_unavailable',
+      detail: result.error?.message || result.stderr || result.stdout || 'git --version failed',
+    };
+  }
+  return { ok: true, version: (result.stdout || '').trim() };
+}
+
 function runGit(cwd, args, opts = {}) {
   // Force identity + no gpg on every invocation — serverless hosts often ignore local config.
   const prefix = [
@@ -310,12 +323,69 @@ function armFractisiGit(workload, parentTmp) {
  */
 export function runGitAwarenessBench(opts = {}) {
   const agents = opts.agents ?? 6;
+  const gitProbe = probeGit();
+  if (!gitProbe.ok) {
+    return {
+      ok: false,
+      conclusive: false,
+      improved: false,
+      status: 'not_run',
+      reason: gitProbe.reason,
+      detail: gitProbe.detail,
+      ms: 0,
+      agents,
+      seed: 'fixed-overlap-router',
+      conventional: {
+        arm: 'A_conventional_git',
+        ok: false,
+        failedMerges: null,
+        mergeConflicts: null,
+        successfulMerges: null,
+      },
+      fractisi: {
+        arm: 'F_fractisi_git',
+        ok: false,
+        failedMerges: null,
+        mergeConflicts: null,
+        blockedBeforeGit: null,
+        successfulCompositions: null,
+      },
+      conflictReduction: null,
+      failedMergeReduction: null,
+      honesty:
+        'This host has no usable git binary, so the real merge lab did not run. On a machine with Git: node scripts/tiny.mjs testdrive git',
+    };
+  }
+
   const parentTmp = fs.mkdtempSync(path.join(os.tmpdir(), 'fractisi-git-lab-'));
   const workload = opts.workload || buildGitLabWorkload(agents);
 
   const started = Date.now();
-  const conventional = armConventionalGit(workload, parentTmp);
-  const fractisi = armFractisiGit(workload, parentTmp);
+  let conventional;
+  let fractisi;
+  try {
+    conventional = armConventionalGit(workload, parentTmp);
+    fractisi = armFractisiGit(workload, parentTmp);
+  } catch (err) {
+    try { fs.rmSync(parentTmp, { recursive: true, force: true }); } catch { /* ignore */ }
+    return {
+      ok: false,
+      conclusive: false,
+      improved: false,
+      status: 'fail',
+      reason: 'git_lab_exception',
+      detail: String(err?.message || err),
+      ms: Date.now() - started,
+      agents,
+      seed: 'fixed-overlap-router',
+      conventional: { arm: 'A_conventional_git', ok: false, failedMerges: null, mergeConflicts: null },
+      fractisi: { arm: 'F_fractisi_git', ok: false, failedMerges: null, mergeConflicts: null, blockedBeforeGit: null },
+      conflictReduction: null,
+      failedMergeReduction: null,
+      honesty:
+        'Git lab threw before finishing. On a machine with Git: node scripts/tiny.mjs testdrive git',
+    };
+  }
   const ms = Date.now() - started;
 
   // Prefer keeping temp dirs for debugging only when asked.
@@ -362,3 +432,5 @@ export function runGitAwarenessBench(opts = {}) {
       'Real git worktrees + merges on a temporary repo. Fixed overlap on src/api/router.mjs. Kit orchestration lab — not production CapEx, not IDE fleet telemetry.',
   };
 }
+
+export { probeGit };
