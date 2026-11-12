@@ -4,7 +4,7 @@
  *   node scripts/tiny.mjs testdrive           # full tour
  *   node scripts/tiny.mjs testdrive list
  *   node scripts/tiny.mjs testdrive primer    # cold start (step 0)
- *   node scripts/tiny.mjs testdrive 1 … 7 | git     # one product-layer demo
+ *   node scripts/tiny.mjs testdrive 1 … 7 | git | futures   # one product-layer demo
  *
  * Narrative source of truth: src/testdrive/run-step.mjs
  * (Infinite Octaves · Tiny Gateway Rhyming Templates · Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy)
@@ -106,7 +106,7 @@ function listSteps() {
   say([
     '  node scripts/tiny.mjs testdrive           # full tour',
     '  node scripts/tiny.mjs testdrive primer',
-    '  node scripts/tiny.mjs testdrive 1 … 7 | git',
+    '  node scripts/tiny.mjs testdrive 1 … 7 | git | futures',
     '  Test Drive (browser): https://fractisi.vercel.app/test-drive/',
     '',
   ]);
@@ -153,7 +153,7 @@ export async function testdrive(ctx) {
     '  Test Drive: https://fractisi.vercel.app/test-drive/',
     '',
   ]);
-  for (const key of ['primer', '1', '2', '3', '4', '5', '6', 'git', '7']) {
+  for (const key of ['primer', '1', '2', '3', '4', '5', '6', 'git', '7', 'futures']) {
     const code = await runOne(ctx, key);
     if (code !== 0) return code;
   }

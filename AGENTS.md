@@ -17,7 +17,7 @@ node scripts/tiny.mjs testdrive
 
 **One track:** `/test-drive/` (browser) = same steps as `testdrive` CLI. No separate “walkthrough” or “talk” audience track; speaker deck is optional for presenters only.
 
-**Self-paced Test Drive** (= symposium presentation · 13 steps): locked hero → `#welcome` *Many agents. One world.* → `#story` *The same song.* → `#sandbox` *Where you are.* → `#problem` → `#rhyme` (Net Zero first) → live tests `#1` `#7` `#3` `#4` `#git` → `#how-stack` → `#futures` → `#invite` *Run it yourself.* Content locks: `voice-lock.mjs` · `opening-story.mjs` · `sandbox-frame.mjs` · `net-zero-definition.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck: `/talks/aai-symposium-2026/` (same titles; numbers pinned by tests). Deploy paid (Team+).
+**Self-paced Test Drive** (= symposium presentation · 13 steps): locked hero → `#welcome` *Many agents. One world.* → `#story` *The same song.* → `#sandbox` *Where you are.* → `#problem` → `#rhyme` (Net Zero first) → live tests `#1` `#7` `#3` `#4` `#git` → `#how-stack` → live Test 6 `#futures` → `#invite` *Run it yourself.* Content locks: `voice-lock.mjs` · `opening-story.mjs` · `sandbox-frame.mjs` · `net-zero-definition.mjs` · `rhyme-definition.mjs` · `stack-tree-chart.mjs`. Deck: `/talks/aai-symposium-2026/` (same titles; numbers pinned by tests). Deploy paid (Team+).
 
 ## Commands
 

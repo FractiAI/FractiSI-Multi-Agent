@@ -15,15 +15,15 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-12-stack-after-five',
+  id: 'testdrive-voice-lock-2026-11-12-six-live-tests',
   lockedAt: '2026-11-12',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',
-  storageKeyDone: 'fractisi-td-walkthrough-done-v21',
-  storageKeyResults: 'fractisi-td-results-v21',
+  storageKeyDone: 'fractisi-td-walkthrough-done-v22',
+  storageKeyResults: 'fractisi-td-results-v22',
   stepTitles: Object.freeze([
     Object.freeze({ id: 'story', title: 'The same song.' }),
     Object.freeze({ id: 'welcome', title: 'Why this is a Test Drive.' }),
@@ -79,13 +79,14 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'cleaner merges',
     '100% fewer Git failed merges',
     'Results board',
-    'Five tests you run yourself',
-    'then you run five tests',
+    'Six tests you run yourself',
+    'then you run six tests',
     'and all of this with less conflicts',
     'Those four things are measurable, so we measure them',
-    'After all five live tests',
-    'Those five ran on the stack below',
-    'runs all five live tests',
+    'Prediction is the sixth live test',
+    'Five shared-world tests ran on the stack below',
+    'Six live tests',
+    'Test 6',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([
@@ -94,6 +95,8 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'then you run four tests',
     'Those three things are measurable, so we measure them',
     'The four tests ran on the stack below',
+    'Five live tests, about twenty minutes',
+    'After all five live tests',
     'tests four of the five',
     'Session title:',
     'Here is the question',

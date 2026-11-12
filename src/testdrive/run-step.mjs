@@ -10,6 +10,7 @@ import { compareRhymeToCache, differingWordSessions } from '../experiments/rhyme
 import { runDiscoveryConvergenceBenchmark } from '../experiments/expedition-002-discovery.mjs';
 import { runComparativeBench } from '../platform/comparative-bench.mjs';
 import { runGitAwarenessBench } from '../platform/git-bench.mjs';
+import { runCPlusImagineBench } from '../experiments/c-plus-imagine-bench.mjs';
 import {
   ARCHITECTURE_PRIMER,
   architecturePrimerFractisiBullets,
@@ -101,6 +102,14 @@ export const STEP_CATALOG = Object.freeze([
     layer: 'Tiny Footprint density · Deploy (paid)',
     component: 'Tiny Footprint density · approval-gated Deploy',
   },
+  {
+    id: 'futures',
+    n: 'futures',
+    title: 'Rehearse the future. Change the world on approval.',
+    short: 'Predictive Shared State · useful work',
+    layer: 'Predictive Shared State',
+    component: 'C+imagine_select · predictions cannot overwrite without approval',
+  },
 ]);
 
 const NEXT = Object.freeze({
@@ -112,7 +121,8 @@ const NEXT = Object.freeze({
   5: '6',
   6: 'git',
   git: '7',
-  7: null,
+  7: 'futures',
+  futures: null,
 });
 
 function base(meta, fields) {
@@ -591,6 +601,92 @@ async function runGitLab(opts = {}) {
   });
 }
 
+function runFuturesLab() {
+  const m = meta('futures');
+  const bench = runCPlusImagineBench({
+    agentCounts: [32, 100],
+    runs: 5,
+    seed: 20261106,
+  });
+  const at32 = bench.byAgents.find((r) => r.agents === 32);
+  const at100 = bench.byAgents.find((r) => r.agents === 100);
+  const delta32 = Number(at32?.deltaUsefulSelect?.mean ?? 0);
+  const delta100 = Number(at100?.deltaUsefulSelect?.mean ?? 0);
+  const usefulC100 = Number(at100?.C?.usefulCompletedTasks?.mean ?? 0);
+  const usefulS100 = Number(at100?.C_imagine_select?.usefulCompletedTasks?.mean ?? 0);
+  const sharedRed100 = Number(at100?.sharedVsConventionalReduction ?? 0);
+  const deltaImagine100 = Number(at100?.deltaUseful?.mean ?? 0);
+  const selectRegress =
+    Boolean(at32?.selectRegression) || Boolean(at100?.selectRegression);
+  const headline = `+${delta100.toFixed(1)}`;
+  const fmt = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(1));
+
+  return base(m, {
+    problem:
+      'Agents that can only act learn by colliding. Fleets finish less useful work when they discover overlaps too late.',
+    opportunity:
+      'Predictive Shared State rehearses futures before compose. Predictions cannot overwrite the real world without approval. When imagination chooses who goes first, fleets finish more useful work.',
+    fractisi: [
+      'Component: Predictive Shared State (C+imagine_select).',
+      'Three stores: real world · proposals · predictions.',
+      'Honesty: in-process lab · opt-in · not a Cosmos/V-JEPA wrap · not active inference.',
+    ],
+    lines: [
+      'PREDICTION · USEFUL WORK',
+      '',
+      '  Arms: C (today) · C+imagine (after gate) · C+imagine_select (futures choose who goes)',
+      `  32 agents · Δ useful (select):   +${fmt(delta32)}`,
+      `  100 agents · Δ useful (select):  +${fmt(delta100)}`,
+      `  100 agents · C useful:          ${fmt(usefulC100)}`,
+      `  100 agents · select useful:     ${fmt(usefulS100)}`,
+      `  100 agents · Δ after-gate:      ${fmt(deltaImagine100)} (safe, inert)`,
+      `  Shared vs N copies @100:        ${pct(sharedRed100)} smaller`,
+      `  Select >5% regression:          ${selectRegress ? 'yes' : 'no'}`,
+      '',
+      '  → A prediction cannot overwrite the real world unless someone approves it.',
+      `  ${bench.honesty}`,
+    ],
+    metrics: {
+      agents: [32, 100],
+      deltaUsefulSelect32: delta32,
+      deltaUsefulSelect100: delta100,
+      usefulC100,
+      usefulSelect100: usefulS100,
+      deltaImagine100,
+      sharedVsConventionalReduction100: sharedRed100,
+      selectRegression: selectRegress,
+      improved: delta100 > 0 && !selectRegress,
+      conclusive: true,
+      component: 'predictive_shared_state',
+    },
+    readout: {
+      done: 'We ran the same multi-agent jobs at 32 and 100 agents. Arm C is today’s FractiSI coordination. C+imagine rehearses after the usual conflict gate. C+imagine_select lets imagination choose who goes first. Predictions stay off the real world until approved.',
+      tested: 'Useful completed tasks and shared-world bytes — today’s coordination vs imagination-chosen ordering.',
+      baselineLabel: 'Today’s FractiSI (arm C) at 100 agents',
+      baselineValue: `${fmt(usefulC100)} useful tasks`,
+      treatmentLabel: 'Imagination chooses who goes first',
+      treatmentValue: `${fmt(usefulS100)} useful (+${fmt(delta100)})`,
+      headlineLabel: 'More useful tasks at 100 agents',
+      headlineValue: headline,
+      brag: `+${fmt(delta32)} at 32 · +${fmt(delta100)} at 100 · never >5% behind`,
+      bars: {
+        caption: 'Useful completed tasks at 100 agents',
+        baseline: usefulC100,
+        treatment: usefulS100,
+        baselineText: `${fmt(usefulC100)} useful`,
+        treatmentText: `${fmt(usefulS100)} useful`,
+        better: 'higher',
+      },
+      also: `After the usual gate, imagination added ${fmt(deltaImagine100)} useful tasks at 100 agents (safe, inert). Shared world stayed about ${pct(sharedRed100)} smaller than N full copies. Opt-in lab on one machine.`,
+      summary: `Same workload. When imagination chose who goes first, fleets finished +${fmt(delta32)} useful tasks at 32 agents and +${fmt(delta100)} at 100, never more than 5% behind today’s FractiSI. A prediction cannot overwrite the real world without approval.`,
+      implication:
+        'Rehearsal earns its keep when it selects the working set — not when it only re-ranks an already-filtered queue. Human and digital agents share one world; imagination stays a separate store until someone approves a change.',
+      beyondTheory:
+        'The +1.4 / +3.6 useful-task deltas are ordinary in-process counters on a fixed seed, not a slide claim. Keeping predictions off the authoritative world is coherent, predictable on the same workload, and interesting because fleets finish more useful work without learning by breaking things — well beyond theory.',
+    },
+  });
+}
+
 function run7() {
   const m = meta('7');
   const multi = runMultiSessionDemo(24);
@@ -666,6 +762,7 @@ const RUNNERS = Object.freeze({
   6: run6,
   git: runGitLab,
   7: run7,
+  futures: runFuturesLab,
 });
 
 export function listTestDriveSteps() {

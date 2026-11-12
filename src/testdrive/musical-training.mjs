@@ -20,7 +20,7 @@ export const MUSICAL_TRAINING = Object.freeze({
   liveTrack: Object.freeze({
     href: '/test-drive/',
     label: 'Live Test Drive',
-    note: 'Same journey, runnable: five live tests in the browser or IDE.',
+    note: 'Same journey, runnable: six live tests in the browser or IDE.',
   }),
   parts: Object.freeze([
     Object.freeze({

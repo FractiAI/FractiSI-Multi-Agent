@@ -21,7 +21,7 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 Voice: world-class frontier superintelligence lab. Mission first (superintelligence is not one model in a box; it is human and digital agents holding one world together), then evidence. Precise, ambitious, restrained, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**.
 
 1. **The same song.** (`#story`) — Bathroom / restroom valet awareness story · awareness frames sensory observations · Men’s Club Reno  
-2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · research question · five tests  
+2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · research question · six tests  
 3. **Where you are.** (`#sandbox`) — Syntheverse Sandbox on Base Mainnet · enter and leave with chosen awareness · no wallet  
 4. **What goes wrong with many agents.** (`#problem`) — copies · memory · paraphrase · discovery and convergence · collisions  
 5. **Net Zero, then rhyme.** (`#rhyme`) — Net Zero (*balanced zero, not nothing zero*) first, then the four-pillar rhyme gate  
@@ -30,8 +30,8 @@ Voice: world-class frontier superintelligence lab. Mission first (superintellige
 8. **Same job, different words.** (`#3`) — Test 3 · exact-text cache vs Rhyming Templates  
 9. **Answers six links deep.** (`#4`) — Test 4 · 100 vs 0 discoveries  
 10. **Git awareness · cleaner merges.** (`#git`) — Test 5 · 2 → 0 failed merges (portable cloud lab git)  
-11. **The stack, bottom to top.** (`#how-stack`) — after all five live tests · stack tree + named ladder · `/media/fractisi-multi-agent-stack-tree.jpg`  
-12. **Rehearse the future. Change the world on approval.** (`#futures`) — Predictive Shared State: rehearse futures before touching the real world · predictions cannot overwrite the real world without approval · imagination-chosen ordering: about +1.4 useful tasks at 32 agents, about +3.6 at 100, never more than 5% behind · about 99% smaller shared world at 100 agents · not a claim that we wrapped Cosmos or V-JEPA into the core  
+11. **The stack, bottom to top.** (`#how-stack`) — after five shared-world tests · prediction is Test 6 next · stack tree + named ladder · `/media/fractisi-multi-agent-stack-tree.jpg`  
+12. **Rehearse the future. Change the world on approval.** (`#futures`) — Test 6 · Predictive Shared State live lab · +1.4 useful at 32 · +3.6 at 100 · never >5% behind · predictions cannot overwrite without approval · not a Cosmos/V-JEPA wrap  
 13. **Run it yourself.** (`#invite`) — run it in your own IDE (repo link, Git + cloud token, Deploy paid) · explore · connect · beta
 
 Each test shows *The test* and *What to watch* before it runs, then a result card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally (storage keys `…-v15`) so the last step can recap them.
