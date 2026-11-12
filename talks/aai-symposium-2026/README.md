@@ -1,12 +1,13 @@
 # FractiSI Multi-Agent · Applied Active Inference Symposium 2026
 
-**Test drive talk** for the Applied Active Inference Symposium (online), **November 12–13, 2026**.
+**Six-minute opening** for the Applied Active Inference Symposium (online), **November 12–13, 2026** — invitation into the self-paced Test Drive and Musical Training playlist.
 
 - **Title:** FractiSI Multi-Agent — One Shared World. Many Agents. Coordinated Work. Composed Results.
 - **Subtitle:** A Shared-World Architecture for Multi-Agent Intelligence
-- **Length:** 30 minutes · 16 slides
+- **Length:** ~6 minutes opening remarks · optional deck companion · self-paced Test Drive + Suno playlist
 - **Live deck:** [/talks/aai-symposium-2026/](/talks/aai-symposium-2026/)
 - **Hub:** [/test-drive/](/test-drive/)
+- **Musical Training:** [/test-drive/musical/](/test-drive/musical/) · [Suno playlist](https://suno.com/s/QB8n2fLhy5NORPkV)
 
 ## Presenting
 
