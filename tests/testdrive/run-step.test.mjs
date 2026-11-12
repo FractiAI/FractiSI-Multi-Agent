@@ -148,6 +148,7 @@ test('coordination is reported honestly, never as a collision win', () => {
 test('git awareness lab uses real git and reports fewer failed merges', () => {
   const { step } = runTestDriveStep('git');
   assert.equal(step.metrics.component, 'git_awareness');
+  assert.equal(step.metrics.conclusive, true);
   assert.equal(step.metrics.improved, true);
   assert.ok(step.metrics.conventionalFailedMerges > step.metrics.fractisiFailedMerges);
   assert.equal(step.metrics.fractisiFailedMerges, 0);

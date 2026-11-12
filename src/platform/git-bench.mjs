@@ -16,7 +16,25 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createPlatform } from './create-platform.mjs';
-import { buildWorkload } from './comparative-bench.mjs';
+
+/** Fixed overlapping Git workload — always collides on a seeded file. */
+export function buildGitLabWorkload(agentCount = 6) {
+  const n = Math.max(3, agentCount);
+  const tasks = [];
+  for (let a = 0; a < n; a++) {
+    const agent = `A${a}`;
+    const exclusive = [`src/agents/agent_${a}/feature.mjs`];
+    // First three agents all rewrite the same seeded file with incompatible content.
+    const paths = a < 3 ? ['src/api/router.mjs', ...exclusive] : exclusive;
+    tasks.push({
+      agent,
+      title: `task_${a}`,
+      paths,
+      independent: a >= 3,
+    });
+  }
+  return { sharedFiles: ['src/api/router.mjs'], tasks };
+}
 
 function runGit(cwd, args, opts = {}) {
   const result = spawnSync('git', args, {
@@ -183,6 +201,7 @@ function armFractisiGit(workload, parentTmp) {
   let sha = null;
   let written = [];
   let failedMerges = 0;
+  let integrateError = null;
 
   if (contribIds.length) {
     // Greedy independent batches (same spirit as comparative-bench arm C)
@@ -214,6 +233,7 @@ function armFractisiGit(workload, parentTmp) {
           written = written.concat(integrated.written || []);
         } else {
           failedMerges += 1;
+          integrateError = integrated.error || 'integrate_failed';
         }
       }
       for (const id of batch) {
@@ -241,6 +261,7 @@ function armFractisiGit(workload, parentTmp) {
     writtenPaths: written.length,
     commitsOnMain: Number(log.stdout) || 1,
     conflictedPaths,
+    integrateError,
   };
 }
 
@@ -250,13 +271,9 @@ function armFractisiGit(workload, parentTmp) {
  * @param {number} [opts.seed=20261112]
  */
 export function runGitAwarenessBench(opts = {}) {
-  const agents = opts.agents ?? 8;
-  const seed = opts.seed ?? 20261112;
+  const agents = opts.agents ?? 6;
   const parentTmp = fs.mkdtempSync(path.join(os.tmpdir(), 'fractisi-git-lab-'));
-  const workload = buildWorkload(agents, seed, {
-    interdependFraction: opts.interdependFraction ?? 0.45,
-    sharedFiles: opts.sharedFiles ?? 12,
-  });
+  const workload = opts.workload || buildGitLabWorkload(agents);
 
   const started = Date.now();
   const conventional = armConventionalGit(workload, parentTmp);
@@ -282,20 +299,28 @@ export function runGitAwarenessBench(opts = {}) {
       : null;
 
   const improved =
-    conventional.failedMerges > fractisi.failedMerges ||
-    conventional.mergeConflicts > fractisi.mergeConflicts;
+    conventional.ok &&
+    fractisi.ok &&
+    conventional.failedMerges > 0 &&
+    fractisi.failedMerges < conventional.failedMerges &&
+    fractisi.mergeConflicts <= conventional.mergeConflicts;
+
+  // If the conventional arm produced no merge failures, the lab is inconclusive
+  // (environment/git quirk) — do not advertise an improvement.
+  const conclusive = Boolean(conventional.ok && conventional.failedMerges > 0);
 
   return {
     ok: conventional.ok && fractisi.ok,
+    conclusive,
     ms,
-    agents,
-    seed,
+    agents: workload.tasks.length,
+    seed: 'fixed-overlap-router',
     conventional,
     fractisi,
-    conflictReduction,
-    failedMergeReduction,
-    improved,
+    conflictReduction: conclusive ? conflictReduction : null,
+    failedMergeReduction: conclusive ? failedMergeReduction : null,
+    improved: conclusive ? improved : false,
     honesty:
-      'Real git worktrees + merges on a temporary repo. Kit orchestration lab — not production CapEx, not IDE fleet telemetry.',
+      'Real git worktrees + merges on a temporary repo. Fixed overlap on src/api/router.mjs. Kit orchestration lab — not production CapEx, not IDE fleet telemetry.',
   };
 }

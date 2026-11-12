@@ -468,6 +468,11 @@ function runGitLab() {
   const f = lab.fractisi;
   const failRed = lab.failedMergeReduction == null ? 'n/a' : pct(lab.failedMergeReduction);
   const conflictRed = lab.conflictReduction == null ? 'n/a' : pct(lab.conflictReduction);
+  const headline = !lab.conclusive
+    ? `${a.failedMerges}→${f.failedMerges}`
+    : failRed === 'n/a'
+      ? `${a.failedMerges}→${f.failedMerges}`
+      : failRed;
   return base(m, {
     problem: 'Parallel agents each open a branch, then merge blind — overlapping edits break main.',
     opportunity: 'Git awareness keeps scoped worktrees, blocks overlapping ownership before merge, and integrates one composed commit.',
@@ -492,7 +497,9 @@ function runGitLab() {
       '',
       lab.improved
         ? '  → Ownership before merge keeps main cleaner. Same workload. Real git.'
-        : '  → No improvement on this seed — inspect the counters above.',
+        : lab.conclusive
+          ? '  → No improvement on this run — inspect the counters above.'
+          : '  → Inconclusive: conventional arm produced no failed merges (environment quirk).',
       `  ${lab.honesty}`,
     ],
     metrics: {
@@ -505,6 +512,7 @@ function runGitLab() {
       failedMergeReduction: lab.failedMergeReduction,
       conflictReduction: lab.conflictReduction,
       improved: lab.improved,
+      conclusive: lab.conclusive,
       component: 'git_awareness',
     },
     readout: {
@@ -515,7 +523,7 @@ function runGitLab() {
       treatmentLabel: 'FractiSI Git awareness',
       treatmentValue: `${f.failedMerges} failed merges · ${f.blockedBeforeGit} blocked before Git`,
       headlineLabel: 'Fewer failed merges',
-      headlineValue: failRed === 'n/a' ? `${a.failedMerges}→${f.failedMerges}` : failRed,
+      headlineValue: headline,
       bars: {
         caption: `Failed merges into main (${lab.agents} agents)`,
         baseline: a.failedMerges,
