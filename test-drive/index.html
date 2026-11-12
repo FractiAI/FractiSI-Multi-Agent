@@ -242,16 +242,16 @@
     .td-hero code { color: var(--td-mint); }
 
     /* ——— Lesson shell ——— */
-    .lesson-shell { max-width: 62rem; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 1.5rem) 7.5rem; }
+    .lesson-shell { max-width: 62rem; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 1.5rem) 3rem; }
     .lesson-shell.is-gated { display: none; }
 
     .progress-rail {
       position: sticky;
       top: 3.7rem;
-      z-index: 1;
+      z-index: 3;
       margin: 0 calc(-1 * clamp(1rem, 3vw, 1.5rem));
-      padding: 0.8rem clamp(1rem, 3vw, 1.5rem) 0.75rem;
-      background: rgba(250, 250, 247, 0.88);
+      padding: 0.7rem clamp(1rem, 3vw, 1.5rem) 0.75rem;
+      background: rgba(250, 250, 247, 0.92);
       -webkit-backdrop-filter: saturate(160%) blur(14px);
       backdrop-filter: saturate(160%) blur(14px);
       border-bottom: 1px solid var(--td-line);
@@ -507,12 +507,22 @@
     .closing { font-size: clamp(1.7rem, 4.2vw, 2.5rem); font-weight: 620; letter-spacing: -0.045em; line-height: 1.1; color: var(--td-ink); margin: 2.4rem 0 0.5rem; }
     .fine { font-size: 0.86rem; color: var(--td-muted); max-width: 38rem; }
 
-    /* ——— Bottom nav ——— */
-    .bottom-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 3; background: rgba(250, 250, 247, 0.9); -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px); border-top: 1px solid var(--td-line); }
-    .bottom-nav-inner { max-width: 62rem; margin: 0 auto; padding: 0.7rem clamp(1rem, 3vw, 1.5rem); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .center-hint { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--td-muted); }
+    /* ——— Step nav (sticky with progress rail) ——— */
+    .step-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 0.55rem 0 0.65rem;
+    }
+    .step-nav.is-hidden { display: none; }
+    .step-nav .btn { flex: 0 0 auto; min-height: 2.4rem; padding: 0.45rem 0.95rem; font-size: 0.88rem; }
+    .center-hint { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--td-muted); text-align: center; min-width: 0; }
     .kbd { font-family: var(--mono); font-size: 0.7rem; padding: 0.08rem 0.4rem; border: 1px solid var(--td-line-strong); border-bottom-width: 2px; border-radius: 5px; background: var(--td-paper); }
-    @media (max-width: 640px) { .center-hint { display: none; } }
+    @media (max-width: 640px) {
+      .center-hint { display: none; }
+      .step-nav .btn { flex: 1 1 auto; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .lesson, .result { animation: none; }
@@ -574,6 +584,11 @@
         <span class="chapter" id="progress-chapter">The question</span>
         <span id="progress-label">Step 1 of 12</span>
       </div>
+      <nav class="step-nav is-hidden" aria-label="Lesson navigation">
+        <button type="button" class="btn" id="btn-prev" data-action="prev">← Back</button>
+        <span class="center-hint" id="center-hint"></span>
+        <button type="button" class="btn btn-next" id="btn-next" data-action="next">Next →</button>
+      </nav>
       <div class="segments" id="progress-dots" role="tablist" aria-label="Jump to a step"></div>
     </div>
 
@@ -597,14 +612,6 @@
       </section>
     </article>
   </div>
-
-  <nav class="bottom-nav is-hidden" aria-label="Lesson navigation">
-    <div class="bottom-nav-inner">
-      <button type="button" class="btn" id="btn-prev" data-action="prev">← Back</button>
-      <span class="center-hint" id="center-hint"></span>
-      <button type="button" class="btn btn-next" id="btn-next" data-action="next">Next →</button>
-    </div>
-  </nav>
 
   <script type="module">
     const STEPS = [
@@ -991,7 +998,7 @@
     const $ = (id) => document.getElementById(id);
     const heroEl = $('td-hero');
     const shellEl = $('lesson-shell');
-    const bottomNav = document.querySelector('.bottom-nav');
+    const bottomNav = document.querySelector('.step-nav');
     const progressChapter = $('progress-chapter');
     const progressLabel = $('progress-label');
     const progressDots = $('progress-dots');

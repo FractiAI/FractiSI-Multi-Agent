@@ -121,6 +121,11 @@ test('Test Drive page explains each test and renders the results card', async ()
   assert.match(page, /fractisi-td-results-v21/);
   assert.doesNotMatch(page, /-v15/);
   assert.match(page, /More agents, same memory\./);
+  assert.match(page, /class="step-nav/);
+  assert.doesNotMatch(page, /class="bottom-nav/);
+  const rail = page.slice(page.indexOf('progress-rail'), page.indexOf('progress-dots'));
+  assert.match(rail, /btn-prev/);
+  assert.match(rail, /btn-next/);
 });
 
 test('speaker deck quotes the same numbers the tests return', async () => {
