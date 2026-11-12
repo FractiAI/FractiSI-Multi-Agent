@@ -15,7 +15,7 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-12-git-results-board',
+  id: 'testdrive-voice-lock-2026-11-12-five-tests-first-page',
   lockedAt: '2026-11-12',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
@@ -79,10 +79,14 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'cleaner merges',
     '100% fewer Git failed merges',
     'Results board',
+    'Five tests you run yourself',
+    'then you run five tests',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([
     'One shared world. Four live tests.',
+    'Four tests you run yourself',
+    'then you run four tests',
     'Session title:',
     'Here is the question',
     'The question under test',
