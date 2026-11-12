@@ -9,6 +9,7 @@ import { runMultiSessionDemo } from '../workloads/multi-session.mjs';
 import { compareRhymeToCache, differingWordSessions } from '../experiments/rhyme-vs-cache.mjs';
 import { runDiscoveryConvergenceBenchmark } from '../experiments/expedition-002-discovery.mjs';
 import { runComparativeBench } from '../platform/comparative-bench.mjs';
+import { runGitAwarenessBench } from '../platform/git-bench.mjs';
 import {
   ARCHITECTURE_PRIMER,
   architecturePrimerFractisiBullets,
@@ -85,12 +86,20 @@ export const STEP_CATALOG = Object.freeze([
     component: 'FractiSI platform · coord-bench isolated vs coordinated',
   },
   {
+    id: 'git',
+    n: 'git',
+    title: 'Git awareness · cleaner merges.',
+    short: 'Real worktrees · ownership before merge',
+    layer: 'Git awareness',
+    component: 'Scoped worktrees · ownership gate · integrateComposition',
+  },
+  {
     id: '7',
     n: 7,
-    title: 'Density · Git awareness · Deploy',
-    short: 'More agents · Git · paid deploy',
-    layer: 'Tiny Footprint density · Git awareness · Deploy (paid)',
-    component: 'Tiny Footprint density · Git awareness · approval-gated Deploy',
+    title: 'Density · Deploy',
+    short: 'More agents · paid deploy',
+    layer: 'Tiny Footprint density · Deploy (paid)',
+    component: 'Tiny Footprint density · approval-gated Deploy',
   },
 ]);
 
@@ -101,7 +110,8 @@ const NEXT = Object.freeze({
   3: '4',
   4: '5',
   5: '6',
-  6: '7',
+  6: 'git',
+  git: '7',
   7: null,
 });
 
@@ -450,6 +460,78 @@ function run6() {
   });
 }
 
+
+function runGitLab() {
+  const m = meta('git');
+  const lab = runGitAwarenessBench({ agents: 6 });
+  const a = lab.conventional;
+  const f = lab.fractisi;
+  const failRed = lab.failedMergeReduction == null ? 'n/a' : pct(lab.failedMergeReduction);
+  const conflictRed = lab.conflictReduction == null ? 'n/a' : pct(lab.conflictReduction);
+  return base(m, {
+    problem: 'Parallel agents each open a branch, then merge blind — overlapping edits break main.',
+    opportunity: 'Git awareness keeps scoped worktrees, blocks overlapping ownership before merge, and integrates one composed commit.',
+    fractisi: [
+      'Component: Git awareness (real `git worktree` + `integrateComposition`).',
+      'Mechanism: ownership / composition gate first; Git records the result.',
+      'Honesty: temporary-repo lab on this machine — not production CapEx.',
+    ],
+    lines: [
+      'GIT AWARENESS · REAL WORKTREES + MERGES',
+      '',
+      `  Agents:                         ${lab.agents}`,
+      `  Conventional failed merges:     ${a.failedMerges}`,
+      `  Conventional conflicted paths:  ${a.mergeConflicts}${a.conflictedPaths?.length ? ` (${a.conflictedPaths.join(', ')})` : ''}`,
+      `  Conventional successful merges: ${a.successfulMerges}`,
+      `  FractiSI blocked before Git:    ${f.blockedBeforeGit}`,
+      `  FractiSI failed merges:         ${f.failedMerges}`,
+      `  FractiSI conflicted paths:      ${f.mergeConflicts}`,
+      `  FractiSI compositions landed:   ${f.successfulCompositions}`,
+      `  Failed-merge reduction:         ${failRed}`,
+      `  Conflict-path reduction:        ${conflictRed}`,
+      '',
+      lab.improved
+        ? '  → Ownership before merge keeps main cleaner. Same workload. Real git.'
+        : '  → No improvement on this seed — inspect the counters above.',
+      `  ${lab.honesty}`,
+    ],
+    metrics: {
+      agents: lab.agents,
+      conventionalFailedMerges: a.failedMerges,
+      conventionalConflicts: a.mergeConflicts,
+      fractisiFailedMerges: f.failedMerges,
+      fractisiConflicts: f.mergeConflicts,
+      blockedBeforeGit: f.blockedBeforeGit,
+      failedMergeReduction: lab.failedMergeReduction,
+      conflictReduction: lab.conflictReduction,
+      improved: lab.improved,
+      component: 'git_awareness',
+    },
+    readout: {
+      done: `We gave ${lab.agents} agents the same overlapping workload in a temporary Git repo. Conventional arm: each agent got a real worktree branch, committed, then we merged every branch into main. FractiSI arm: ownership and composition ran first; only non-overlapping work was integrated with one Git commit.`,
+      tested: `Real git merge failures and conflicted paths for ${lab.agents} agents — conventional branches vs FractiSI Git awareness.`,
+      baselineLabel: 'Conventional branch merges',
+      baselineValue: `${a.failedMerges} failed merges · ${a.mergeConflicts} conflicted paths`,
+      treatmentLabel: 'FractiSI Git awareness',
+      treatmentValue: `${f.failedMerges} failed merges · ${f.blockedBeforeGit} blocked before Git`,
+      headlineLabel: 'Fewer failed merges',
+      headlineValue: failRed === 'n/a' ? `${a.failedMerges}→${f.failedMerges}` : failRed,
+      bars: {
+        caption: `Failed merges into main (${lab.agents} agents)`,
+        baseline: a.failedMerges,
+        treatment: f.failedMerges,
+        baselineText: `${a.failedMerges} failed`,
+        treatmentText: `${f.failedMerges} failed`,
+        better: 'lower',
+      },
+      also: `Conventional left ${a.mergeConflicts} conflicted path(s) on merge. FractiSI blocked ${f.blockedBeforeGit} overlapping task(s) before Git and landed ${f.successfulCompositions} composition(s) with ${f.mergeConflicts} conflicted paths on main.`,
+      summary: `Same workload, real Git. Conventional merges failed ${a.failedMerges} time(s) with ${a.mergeConflicts} conflicted path(s). FractiSI failed ${f.failedMerges} merge(s), blocked ${f.blockedBeforeGit} overlap(s) up front, and kept ${f.mergeConflicts} conflicted paths on main.`,
+      implication: 'Git stays the system of record. The improvement is deciding what is allowed to reach Git — scoped worktrees plus an ownership gate — so main is not the first place overlaps are discovered.',
+      beyondTheory: 'Failed merges and conflicted paths are ordinary Git outcomes on this machine, not a slide claim. Blocking overlaps before merge is coherent with the shared-world model, predictable on the same workload, and interesting because the repository stays cleaner — well beyond theory.',
+    },
+  });
+}
+
 function run7() {
   const m = meta('7');
   const multi = runMultiSessionDemo(24);
@@ -460,11 +542,11 @@ function run7() {
   const densityGain = sharedAgentsFit / conventionalAgents;
   return base(m, {
     problem: 'Duplicated context burns the budget before specialized agent work begins.',
-    opportunity: 'Tiny Footprint density + Git awareness; cloud Deploy unlocks on paid editions.',
+    opportunity: 'Tiny Footprint density raises the agent ceiling; cloud Deploy unlocks on paid editions.',
     fractisi: [
       'Tiny Footprint density — more agents inside the same representation budget.',
-      'Git awareness — commits / worktrees on your repo (Community).',
       'Deploy — approval-gated publish; paid (Team · Enterprise · Cloud).',
+      'Git awareness was measured in the previous step (real worktrees + merges).',
     ],
     lines: [
       'DENSITY · GIT AWARENESS · DEPLOY',
@@ -523,6 +605,7 @@ const RUNNERS = Object.freeze({
   4: run4,
   5: run5,
   6: run6,
+  git: runGitLab,
   7: run7,
 });
 

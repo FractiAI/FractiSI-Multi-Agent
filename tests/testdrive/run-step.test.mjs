@@ -8,23 +8,25 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const page = readFileSync(join(root, 'test-drive/index.html'), 'utf8');
 const deck = readFileSync(join(root, 'talks/aai-symposium-2026/index.html'), 'utf8');
-const LABS = ['1', '7', '3', '4'];
+const LABS = ['1', '7', '3', '4', 'git'];
 
 
-test('catalog lists primer through 7 with product layers', () => {
+test('catalog lists primer through density with git awareness lab', () => {
   const steps = listTestDriveSteps();
-  assert.equal(steps.length, 8);
+  assert.equal(steps.length, 9);
   assert.equal(steps[0].id, 'primer');
   assert.match(steps[0].title, /Architecture primer|FractiSI Multi-Agent/);
   assert.match(steps[0].component, /Generative possibility|Tiny Gateway/);
   assert.match(steps[3].component, /Rhyming Templates/);
   assert.match(steps[3].short, /Net Zero|octaves/i);
   assert.match(steps[6].layer, /Coordination/);
-  assert.equal(steps[7].id, '7');
+  assert.equal(steps[7].id, 'git');
+  assert.match(steps[7].title, /Git awareness/);
+  assert.equal(steps[8].id, '7');
 });
 
 test('each step returns structured live results naming components', () => {
-  for (const id of ['primer', '1', '2', '3', '4', '5', '6', '7']) {
+  for (const id of ['primer', '1', '2', '3', '4', '5', '6', 'git', '7']) {
     const out = runTestDriveStep(id);
     assert.equal(out.ok, true);
     assert.equal(out.step.id === 'primer' ? 'primer' : out.step.id, id === '0' ? 'primer' : id);
@@ -112,8 +114,10 @@ test('Test Drive page explains each test and renders the results card', () => {
   assert.match(page, /Twelve agents share one context/);
   assert.match(page, /exact-text cache reuses only identical text/i);
   assert.match(page, /six links deep/);
-  assert.match(page, /fractisi-td-walkthrough-done-v18/);
-  assert.match(page, /fractisi-td-results-v18/);
+  assert.match(page, /fractisi-td-walkthrough-done-v19/);
+  assert.match(page, /Git awareness · cleaner merges/);
+  assert.match(page, /#git/);
+  assert.match(page, /fractisi-td-results-v19/);
   assert.doesNotMatch(page, /-v15/);
   assert.match(page, /More agents, same memory\./);
 });
@@ -138,4 +142,16 @@ test('coordination is reported honestly, never as a collision win', () => {
   assert.doesNotMatch(page, /fewer (collisions|conflicts)/i);
   assert.doesNotMatch(deck, /fewer (collisions|conflicts)/i);
   assert.match(deck, /more conflicts than plain branching/);
+});
+
+
+test('git awareness lab uses real git and reports fewer failed merges', () => {
+  const { step } = runTestDriveStep('git');
+  assert.equal(step.metrics.component, 'git_awareness');
+  assert.equal(step.metrics.improved, true);
+  assert.ok(step.metrics.conventionalFailedMerges > step.metrics.fractisiFailedMerges);
+  assert.equal(step.metrics.fractisiFailedMerges, 0);
+  assert.ok(step.readout.done.includes('temporary Git repo') || step.readout.done.includes('worktree'));
+  assert.match(step.readout.beyondTheory, /well beyond theory/i);
+  assert.match(step.lines.join('\n'), /GIT AWARENESS/);
 });

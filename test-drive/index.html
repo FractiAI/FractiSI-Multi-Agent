@@ -422,7 +422,7 @@
     .pillar p { font-size: 0.92rem !important; line-height: 1.5 !important; margin: 0 !important; color: var(--td-muted) !important; }
 
     /* ——— Index of the four tests ——— */
-    .four-tests { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; margin: 2rem 0 0; }
+    .four-tests { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.65rem; margin: 2rem 0 0; }
     @media (max-width: 860px) { .four-tests { grid-template-columns: repeat(2, 1fr); } }
     .four-tests a { text-decoration: none; background: var(--td-paper); border: 1px solid var(--td-line); border-radius: var(--td-radius); padding: 0.9rem 1rem; display: block; transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease; }
     .four-tests a:hover { transform: translateY(-2px); border-color: var(--td-line-strong); box-shadow: var(--shadow); }
@@ -639,17 +639,18 @@
             <p class="lede">Awareness is what makes an observation mean something.</p>
             <p>Our position is that superintelligence is not one model in a box. It is human agents and digital agents collaborating in one shared world: holding it, updating it and acting on it together, each carrying only what is different about its own view.</p>
             <p>We call that Fractal Holographic Goldilocks Superintelligence World Awareness. It is a long name for a plain engineering target, and FractiSI Multi-Agent is our working substrate for it.</p>
-            <p>We are not asking you to take any of that on faith. Four live tests, about twenty minutes, run by you. That is why this is a Test Drive.</p>
+            <p>We are not asking you to take any of that on faith. Five live tests, about twenty minutes, run by you. That is why this is a Test Drive.</p>
             <p class="big q">When many agents share one world, does the way they organize it rhyme?</p>
             <p>If it does, the group should waste less, find more and reuse what it already knows. Those three things are measurable, so we measure them.</p>
             <p class="aside">We think this may rhyme with active inference. We are not saying it is active inference. This is not finished AGI and it is not a claim about consciousness. It is a substrate, a set of results and an open invitation to check them. After each live test the page reports, in plain language: what we did, what we measured, what came back, what it means, and how the run shows a coherent, predictable model with interesting results — well beyond theory.</p>
             <p class="quiet">Parallel path: <a href="/test-drive/musical/">Musical Training Program</a> · <a href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno playlist</a>.</p>
           </div>
-          <div class="four-tests" aria-label="The four tests">
+          <div class="four-tests" aria-label="The live tests">
             <a href="#1"><b>Test 1</b><span>Twelve agents, one copy.</span></a>
             <a href="#7"><b>Test 2</b><span>More agents, same memory.</span></a>
             <a href="#3"><b>Test 3</b><span>Same job, different words.</span></a>
             <a href="#4"><b>Test 4</b><span>Answers six links deep.</span></a>
+            <a href="#git"><b>Test 5</b><span>Git awareness · cleaner merges.</span></a>
           </div>
         `,
       },
@@ -856,7 +857,7 @@
               <li><strong>Rhyming Templates, Tiny Gateway.</strong> Keep the pattern, rebuild the detail on demand. <span class="tag">Tests 3 · 4</span></li>
               <li><strong>Tiny Footprint.</strong> One world, one small note per agent. <span class="tag">Tests 1 · 2</span></li>
               <li><strong>Coordination, shared state, composition.</strong> Agents agree on who owns what, and their work merges. <span class="tag">+ futures (opt-in)</span></li>
-              <li><strong>Git awareness.</strong> Your repository stays the source of truth. <span class="tag free">Free</span></li>
+              <li><strong>Git awareness.</strong> Your repository stays the source of truth. Scoped worktrees, ownership before merge. <span class="tag">Test 5</span> <span class="tag free">Free</span></li>
               <li><strong>Deploy.</strong> Publishing, with a person approving. <span class="tag paid">Team and up</span></li>
               <li class="crown"><strong>FractiSI Multi-Agent.</strong></li>
             </ol>
@@ -868,6 +869,26 @@
           </div>
         `,
       },
+
+      {
+        id: 'git',
+        mode: 'lab',
+        chapter: 'Live tests',
+        title: 'Git awareness · cleaner merges.',
+        promise: 'Real worktrees. Ownership before merge.',
+        recapName: 'Git awareness · cleaner merges',
+        labHint: 'Run locally: <code>node scripts/tiny.mjs testdrive git</code>',
+        testing: 'Six agents share an overlapping Git workload. Conventional: each gets a real worktree branch, then we merge into main. FractiSI: ownership and composition first, then one integrateComposition commit. We count failed merges and conflicted paths.',
+        expect: 'Failed merges and conflicted paths for each arm.',
+        takeaway: 'Decide before Git. Main stays cleaner.',
+        teach: `
+          <div class="prose">
+            <p class="lede">Git is still the system of record. The question is what reaches it.</p>
+            <p>Most multi-agent setups give every agent a branch and find overlaps only when merges break. FractiSI keeps scoped worktrees for human and digital agents, blocks overlapping ownership up front, and lands one composed commit.</p>
+            <p>This lab uses real <code>git worktree</code> and real merges on a temporary repository on this machine.</p>
+          </div>
+        `,
+      },
       {
         id: 'futures',
         mode: 'teach',
@@ -876,7 +897,7 @@
         promise: 'A new layer, measured. Optional.',
         teach: `
           <div class="prose">
-            <p class="lede">After the four tests we asked the harder question.</p>
+            <p class="lede">After the live tests we asked the harder question.</p>
             <p>Can human and digital agents rehearse possible changes without touching the shared world they both depend on? A mind that can only act has to learn by breaking things. One that can imagine first does not.</p>
             <p>We keep three stores apart:</p>
             <ul class="plain">
@@ -950,8 +971,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v18';
-    const RESULTS_KEY = 'fractisi-td-results-v18';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v19';
+    const RESULTS_KEY = 'fractisi-td-results-v19';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };

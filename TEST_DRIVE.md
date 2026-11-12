@@ -31,7 +31,8 @@ Voice: world-class frontier superintelligence lab. Mission first (superintellige
 9. **Answers six links deep.** (`#4`) — Test 4 · 100 vs 0 discoveries  
 10. **The stack, bottom to top.** (`#how-stack`) — stack tree + named ladder · `/media/fractisi-multi-agent-stack-tree.jpg`  
 11. **Rehearse the future. Change the world on approval.** (`#futures`) — Predictive Shared State: rehearse futures before touching the real world · predictions cannot overwrite the real world without approval · imagination-chosen ordering: about +1.4 useful tasks at 32 agents, about +3.6 at 100, never more than 5% behind · about 99% smaller shared world at 100 agents · not a claim that we wrapped Cosmos or V-JEPA into the core  
-12. **Run it yourself.** (`#invite`) — run it in your own IDE (repo link, Git + cloud token, Deploy paid) · explore · connect · beta
+12. **Git awareness · cleaner merges.** (`#git`) — real worktrees vs ownership-before-merge; failed merges / conflicted paths.
+13. **Run it yourself.** (`#invite`) — run it in your own IDE (repo link, Git + cloud token, Deploy paid) · explore · connect · beta
 
 Each test shows *The test* and *What to watch* before it runs, then a result card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally (storage keys `…-v15`) so the last step can recap them.
 
