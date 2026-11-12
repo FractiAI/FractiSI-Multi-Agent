@@ -15,18 +15,18 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-09',
-  lockedAt: '2026-11-09',
+  id: 'testdrive-voice-lock-2026-11-11',
+  lockedAt: '2026-11-11',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',
-  storageKeyDone: 'fractisi-td-walkthrough-done-v14',
-  storageKeyResults: 'fractisi-td-results-v14',
+  storageKeyDone: 'fractisi-td-walkthrough-done-v15',
+  storageKeyResults: 'fractisi-td-results-v15',
   stepTitles: Object.freeze([
-    Object.freeze({ id: 'welcome', title: 'Many agents. One world.' }),
     Object.freeze({ id: 'story', title: 'The same song.' }),
+    Object.freeze({ id: 'welcome', title: 'Why this is a Test Drive.' }),
     Object.freeze({ id: 'sandbox', title: 'Where you are.' }),
     Object.freeze({ id: 'problem', title: 'What goes wrong with many agents.' }),
     Object.freeze({ id: 'rhyme', title: 'Net Zero, then rhyme.' }),
@@ -54,6 +54,9 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'not a claim that we wrapped Cosmos',
     'more conflicts than plain branching',
     'Do the FractiSI Multi-Agent test drive',
+    'Fractal Holographic Goldilocks Superintelligence World Awareness',
+    'Why this is a Test Drive.',
+    'Awareness framed their sensory observations',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([

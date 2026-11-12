@@ -28,7 +28,7 @@ export const ARCHITECTURE_PRIMER = Object.freeze({
   title: 'FractiSI Multi-Agent · stack map',
   kicker: 'Architecture primer',
   lede:
-    'We open with a restroom-valet AI-music story about the power of awareness, then peek inside the Syntheverse Sandbox on Base Mainnet — enter and leave with whichever awareness you choose. Inside: one shared world for many agents (including us) instead of N private full copies.',
+    'We begin with a restroom-valet AI-music story: awareness frames sensory observations. With that in mind we introduce FractiSI Multi-Agent as a shared Fractal Holographic Goldilocks Superintelligence World Awareness — an operating Test Drive, not a lecture — then peek inside the Syntheverse Sandbox on Base Mainnet. Enter and leave with whichever awareness you choose. Inside: one shared world for many agents (including us) instead of N private full copies.',
   steps: Object.freeze([
     {
       id: 'base-mainnet',

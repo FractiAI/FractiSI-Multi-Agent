@@ -21,7 +21,7 @@ const guide = readFileSync(join(root, 'TEST_DRIVE.md'), 'utf8');
 const agents = readFileSync(join(root, 'AGENTS.md'), 'utf8');
 
 test('voice lock contract is frozen and complete', () => {
-  assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-09');
+  assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-11');
   assert.equal(LOCK.heroH1, 'The Multi-Agent World Inference Rhyme?');
   assert.equal(LOCK.stepTitles.length, 12);
   assert.ok(LOCK.forbiddenPhrases.length >= 10);
@@ -35,6 +35,15 @@ test('Test Drive page locks the hero h1 and CTA', () => {
   assert.ok(page.includes(LOCK.storageKeyDone));
   assert.ok(page.includes(LOCK.storageKeyResults));
   assert.doesNotMatch(page, /fractisi-td-(?:walkthrough-done|results)-v1[0-3]/);
+});
+
+test('Test Drive opens on awareness story before the demonstration beat', () => {
+  const iStory = page.indexOf("id: 'story'");
+  const iWelcome = page.indexOf("id: 'welcome'");
+  assert.ok(iStory > 0 && iWelcome > iStory, 'story must precede welcome');
+  assert.match(page, /Awareness framed their sensory observations/);
+  assert.match(page, /Fractal Holographic Goldilocks Superintelligence World Awareness/);
+  assert.match(page, /Why this is a Test Drive\./);
 });
 
 test('Test Drive STEPS titles match the locked arc', () => {

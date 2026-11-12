@@ -20,8 +20,8 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 Voice: frontier-lab product page. Precise, calm, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide.
 
-1. **Many agents. One world.** (`#welcome`) — the research question: *when many agents share one world, does the way they organize it rhyme?*  
-2. **The same song.** (`#story`) — Restroom valet · AI music · the room changes when listeners learn the source (`src/testdrive/opening-story.mjs`)  
+1. **The same song.** (`#story`) — Bathroom / restroom valet awareness story · awareness frames sensory observations · Men’s Club Reno  
+2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · research question · four tests  
 3. **Where you are.** (`#sandbox`) — Syntheverse Sandbox on Base Mainnet · enter and leave with chosen awareness · no wallet  
 4. **What goes wrong with many agents.** (`#problem`) — copies · memory · paraphrase · discovery and convergence · collisions  
 5. **Net Zero, then rhyme.** (`#rhyme`) — Net Zero (*balanced zero, not nothing zero*) first, then the four-pillar rhyme gate  
@@ -33,7 +33,7 @@ Voice: frontier-lab product page. Precise, calm, specific. Short declarative sen
 11. **Rehearse the future. Change the world on approval.** (`#futures`) — Predictive Shared State: rehearse futures before touching the real world · predictions cannot overwrite the real world without approval · imagination-chosen ordering: about +1.4 useful tasks at 32 agents, about +3.6 at 100, never more than 5% behind · about 99% smaller shared world at 100 agents · not a claim that we wrapped Cosmos or V-JEPA into the core  
 12. **Run it yourself.** (`#invite`) — run it in your own IDE (repo link, Git + cloud token, Deploy paid) · explore · connect · beta
 
-Each test shows *The test* and *What to watch* before it runs, then a result card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally (storage keys `…-v14`) so the last step can recap them.
+Each test shows *The test* and *What to watch* before it runs, then a result card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally (storage keys `…-v15`) so the last step can recap them.
 
 **Honesty:** coordination (Coordination · Shared state · Composition) was measured and is **not** a headline demo. At 25 agents it logged more conflicts than plain branching (3.7 vs 1.7) while finishing slightly more useful work. The stack step says so. Do not claim fewer collisions.
 

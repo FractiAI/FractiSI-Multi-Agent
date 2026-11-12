@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Test Drive voice lock — Always On
 
-**Locked 2026-11-09.** Player 1 locked the FractiSI Multi-Agent Test Drive / symposium surfaces. Do **not** restore earlier heroes, meta titles, or AI-slop phrasing when editing this repo (including Auto model runs).
+**Locked 2026-11-11.** Player 1 locked the FractiSI Multi-Agent Test Drive / symposium surfaces. Do **not** restore earlier heroes, meta titles, or AI-slop phrasing when editing this repo (including Auto model runs).
 
 ## Canonical lock
 
@@ -13,6 +13,10 @@ alwaysApply: true
 - Guide: `TEST_DRIVE.md` (banner **VOICE LOCK**)
 - Surfaces: `test-drive/index.html` · `talks/aai-symposium-2026/index.html` · `blog/aai-symposium-2026/index.html`
 - CI: `tests/testdrive/voice-lock.test.mjs` (must stay green)
+
+## Opening lock
+
+Begin the symposium / Test Drive on the bathroom awareness story (`#story`), then `#welcome` as the operating demonstration of FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness — not theory. That is why it is called a Test Drive.
 
 ## Required hero
 
@@ -23,8 +27,8 @@ alwaysApply: true
 
 ## Required step titles (exact)
 
-1. `welcome` — Many agents. One world.
-2. `story` — The same song.
+1. `story` — The same song.
+2. `welcome` — Why this is a Test Drive.
 3. `sandbox` — Where you are.
 4. `problem` — What goes wrong with many agents.
 5. `rhyme` — Net Zero, then rhyme.

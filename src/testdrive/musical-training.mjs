@@ -143,7 +143,7 @@ export const MUSICAL_TRAINING = Object.freeze({
           title: 'FractiSI Multi-Agent',
           body:
             'FractiSI Multi-Agent brings everything together: human and AI agents operating as a coordinated collective within a shared world. Perception, memory, possibility, boundaries, and Tiny Footprint converge into a system where every agent can contribute context, build upon others, and produce useful collective intelligence.',
-          testDrive: Object.freeze({ step: 'welcome', label: 'Many agents. One world.' }),
+          testDrive: Object.freeze({ step: 'welcome', label: 'Why this is a Test Drive.' }),
         }),
       ]),
     }),
@@ -158,7 +158,7 @@ export const MUSICAL_TRAINING = Object.freeze({
           title: 'Awareness',
           body:
             'Awareness is the transition from processing information to experiencing and understanding the world. Human and AI agents become participants in an evolving shared reality, perceiving, anticipating, interpreting, and updating their relationship with the whole. It is the bridge from coordinated intelligence to Fractal Holographic Goldilocks Superintelligence. On the live track this is also how you enter and leave the sandbox: observations, beliefs, actions, ownership, or curiosity—by choice. Not phenomenal consciousness.',
-          testDrive: Object.freeze({ step: 'story', label: 'The same song. · Awareness (your choice)' }),
+          testDrive: Object.freeze({ step: 'story', label: 'The same song. · awareness frames sensing' }),
         }),
         Object.freeze({
           n: 14,

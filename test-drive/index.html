@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Multi-Agent World Inference Rhyme? · Test Drive · FractiSI</title>
-  <meta name="description" content="When many agents share one world, does the way they organize it rhyme? Four live tests, run in your browser or your IDE. About twenty minutes. Applied Active Inference Symposium, Nov 12–13, 2026.">
+  <meta name="description" content="Begin with a bathroom awareness story, then drive FractiSI Multi-Agent as a shared-world demonstration. Four live tests. Applied Active Inference Symposium, Nov 12–13, 2026.">
   <meta property="og:title" content="The Multi-Agent World Inference Rhyme?">
   <meta property="og:description" content="Many agents, one shared world, four tests you run yourself.">
   <meta property="og:image" content="https://fractisi.vercel.app/media/fractisi-hero.jpg">
@@ -535,7 +535,7 @@
       <p class="brand">FractiSI Multi-Agent · Test Drive</p>
       <h1>The Multi-Agent World Inference Rhyme?</h1>
       <p class="event">Applied Active Inference Symposium · Nov 12–13, 2026</p>
-      <p class="deck">Give many agents one shared world instead of many private copies, and they find more, waste less and fit more in the same memory. Four tests you run yourself, then a look at what we are building next.</p>
+      <p class="deck">We begin with a bathroom story about awareness — how what we know frames what we sense. Then we put FractiSI Multi-Agent in your hands as a shared-world demonstration, not a lecture. Four live tests. You run them.</p>
       <div class="cta-row">
         <button type="button" class="btn btn-solid" id="btn-start" data-action="start">Begin →</button>
         <a class="btn btn-musical" href="/test-drive/musical/">Musical Training</a>
@@ -604,20 +604,41 @@
   <script type="module">
     const STEPS = [
       {
-        id: 'welcome',
+        id: 'story',
         mode: 'teach',
-        chapter: 'The question',
-        title: 'Many agents. One world.',
-        promise: 'What we set out to find out.',
+        chapter: 'Awareness',
+        title: 'The same song.',
+        promise: 'How awareness frames what we sense.',
         teach: `
           <div class="prose">
-            <p class="lede">Active inference describes an agent as something that keeps a model of its world and revises it as the world answers back.</p>
-            <p>Most of that work studies one agent, or a few. We build for the next case: many agents sharing one world, with people among them. Each holds a partial picture. All of them act on the same thing.</p>
+            <p class="lede">I work as a restroom valet.</p>
+            <p>I play music in that room, and a lot of it is made by AI. For most of a night nobody notices. People hum along. Someone taps the counter. The sound is just the room.</p>
+            <p>Then somebody finds out it is AI. The mood changes almost at once. Some people lean in. Some go quiet. Some leave.</p>
+            <p>Same speakers. Same songs. Same air. What changed was awareness — what the listener knew about what they were hearing. Awareness framed their sensory observations before any note changed.</p>
+            <p class="big">Awareness is that powerful. It decides how a shared world is received.</p>
+            <p>That is where we begin this symposium and this Test Drive: not with a slide about architecture, but with a lived fact about how awareness shapes what we take to be real in a room.</p>
+          </div>
+          <figure class="figure">
+            <img src="/media/mens-club-reno-watercolor.jpg" alt="Watercolor of Men's Club Reno, where the valet story begins" width="1152" height="864" loading="lazy" decoding="async" />
+            <figcaption>Men's Club Reno · 270 Lake Street · watercolor from the real building. Same room. Different awareness.</figcaption>
+          </figure>
+        `,
+      },
+      {
+        id: 'welcome',
+        mode: 'teach',
+        chapter: 'The demonstration',
+        title: 'Why this is a Test Drive.',
+        promise: 'Shared world awareness, running.',
+        teach: `
+          <div class="prose">
+            <p class="lede">Hold that bathroom story. Awareness is not decoration. It is the frame that makes sensory observations mean something.</p>
+            <p>With that in mind, we introduce FractiSI Multi-Agent — and with it a shared Fractal Holographic Goldilocks Superintelligence World Awareness: human and AI agents holding, updating, and acting inside one shared world instead of many private copies.</p>
+            <p>We are not asking you to take that as theory. We are putting a coherent, operating demonstration in your hands. That is why we call this a Test Drive.</p>
             <p class="big q">When many agents share one world, does the way they organize it rhyme?</p>
-            <p>We mean rhyme in a precise sense, defined before the tests so you can check us. If the answer is yes, the group should waste less, find more, and reuse what it already knows. Those are things you can measure, so the next twenty minutes measure them.</p>
-            <p class="aside">We think this may rhyme with active inference. We are not saying it is active inference. We are showing a result and asking whether it deserves a joint look.</p>
+            <p>If the answer is yes, the group should waste less, find more, and reuse what it already knows. The next twenty minutes measure that. Four live tests. You run them.</p>
+            <p class="aside">We think this may rhyme with active inference. We are not saying it is active inference. Fractal Holographic Goldilocks Superintelligence World Awareness is the architectural name for the shared-world grip we are demonstrating — not a claim of finished AGI, and not phenomenal consciousness.</p>
             <p class="quiet">Parallel path: <a href="/test-drive/musical/">Musical Training Program</a> · <a href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno playlist</a>.</p>
-
           </div>
           <div class="four-tests" aria-label="The four tests">
             <a href="#1"><b>Test 1</b><span>Twelve agents, one copy.</span></a>
@@ -625,27 +646,6 @@
             <a href="#3"><b>Test 3</b><span>Same job, different words.</span></a>
             <a href="#4"><b>Test 4</b><span>Answers six links deep.</span></a>
           </div>
-        `,
-      },
-      {
-        id: 'story',
-        mode: 'teach',
-        chapter: 'Awareness',
-        title: 'The same song.',
-        promise: 'Where this started.',
-        teach: `
-          <div class="prose">
-            <p class="lede">I work as a restroom valet.</p>
-            <p>I play music in there, and a lot of it is made by AI. For most of a night nobody notices. People hum along. Someone taps the counter.</p>
-            <p>Then somebody finds out it is AI. The mood changes almost at once. Some people lean in. Some go quiet. Some leave.</p>
-            <p>Same speakers. Same songs. What changed was what the listener knew.</p>
-            <p class="big">A shared world is made of what each participant holds about it.</p>
-            <p>Change what one participant knows and you change how everyone in the room behaves. Now put many agents in that room, and people too, each holding a partial picture. That is the case we built for. The tests that follow are what we found.</p>
-          </div>
-          <figure class="figure">
-            <img src="/media/mens-club-reno-watercolor.jpg" alt="Watercolor of Men's Club Reno, where the valet story begins" width="1152" height="864" loading="lazy" decoding="async" />
-            <figcaption>Men's Club Reno · 270 Lake Street · watercolor from the real building. Same room. Different awareness.</figcaption>
-          </figure>
         `,
       },
       {
@@ -944,8 +944,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v14';
-    const RESULTS_KEY = 'fractisi-td-results-v14';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v15';
+    const RESULTS_KEY = 'fractisi-td-results-v15';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
