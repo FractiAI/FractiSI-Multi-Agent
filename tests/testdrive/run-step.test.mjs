@@ -100,8 +100,8 @@ test('Test Drive page explains each test and renders the results card', () => {
   assert.match(page, /Twelve agents share one context/);
   assert.match(page, /exact-text cache reuses only identical text/i);
   assert.match(page, /six links deep/);
-  assert.match(page, /fractisi-td-walkthrough-done-v16/);
-  assert.match(page, /fractisi-td-results-v16/);
+  assert.match(page, /fractisi-td-walkthrough-done-v17/);
+  assert.match(page, /fractisi-td-results-v17/);
   assert.doesNotMatch(page, /-v15/);
   assert.match(page, /More agents, same memory\./);
 });

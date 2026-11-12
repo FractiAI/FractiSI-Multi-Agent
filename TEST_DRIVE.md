@@ -18,7 +18,7 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ### Arc (12 steps · about twenty minutes)
 
-Voice: frontier-lab product page. Precise, calm, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**.
+Voice: world-class frontier superintelligence lab. Mission first (superintelligence is not one model in a box; it is human and digital agents holding one world together), then evidence. Precise, ambitious, restrained, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**.
 
 1. **The same song.** (`#story`) — Bathroom / restroom valet awareness story · awareness frames sensory observations · Men’s Club Reno  
 2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · research question · four tests  

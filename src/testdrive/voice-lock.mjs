@@ -1,5 +1,5 @@
 /**
- * Test Drive voice lock — 2026-11-09 (symposium surfaces).
+ * Test Drive voice lock — 2026-11-11 (frontier superintelligence lab voice).
  *
  * Player 1 locked this copy so agents (including Auto) cannot silently
  * restore earlier heroes, meta titles, or AI-slop phrasing.
@@ -15,15 +15,15 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-11',
+  id: 'testdrive-voice-lock-2026-11-11-frontier',
   lockedAt: '2026-11-11',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',
-  storageKeyDone: 'fractisi-td-walkthrough-done-v16',
-  storageKeyResults: 'fractisi-td-results-v16',
+  storageKeyDone: 'fractisi-td-walkthrough-done-v17',
+  storageKeyResults: 'fractisi-td-results-v17',
   stepTitles: Object.freeze([
     Object.freeze({ id: 'story', title: 'The same song.' }),
     Object.freeze({ id: 'welcome', title: 'Why this is a Test Drive.' }),
@@ -59,6 +59,10 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'Awareness framed their sensory observations',
     'human agents and digital agents collaborating',
     'human operators and digital agents',
+    'superintelligence is not one model in a box',
+    'Our position',
+    'run by you',
+    'Held together',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([
