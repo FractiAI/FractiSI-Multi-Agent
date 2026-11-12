@@ -174,3 +174,31 @@ test('invite recap and deck results board include Git Test 5', () => {
   assert.match(deck, /data-part="Test 5"/);
   assert.match(deck, /2 failed merges/);
 });
+
+test('stack step comes after all five labs and names five tests', () => {
+  const ids = [...page.matchAll(/\{\n\s+id: '([^']+)'/g)].map((m) => m[1]);
+  const start = ids.indexOf('story');
+  const arc = ids.slice(start, ids.indexOf('invite') + 1);
+  assert.deepEqual(arc, [
+    'story',
+    'welcome',
+    'sandbox',
+    'problem',
+    'rhyme',
+    '1',
+    '7',
+    '3',
+    '4',
+    'git',
+    'how-stack',
+    'futures',
+    'invite',
+  ]);
+  const stack = page.slice(page.indexOf("id: 'how-stack'"), page.indexOf("id: 'futures'"));
+  assert.match(stack, /After all five live tests/);
+  assert.match(stack, /Those five ran on the stack below/);
+  assert.doesNotMatch(stack, /The four tests ran/);
+  assert.match(page, /runs all five live tests/);
+  assert.doesNotMatch(page, /tests four of the five/);
+  assert.match(page, /Step 1 of 13/);
+});

@@ -15,7 +15,7 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-12-four-things-measurable',
+  id: 'testdrive-voice-lock-2026-11-12-stack-after-five',
   lockedAt: '2026-11-12',
   symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
   heroH1: 'The Multi-Agent World Inference Rhyme?',
@@ -83,6 +83,9 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'then you run five tests',
     'and all of this with less conflicts',
     'Those four things are measurable, so we measure them',
+    'After all five live tests',
+    'Those five ran on the stack below',
+    'runs all five live tests',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([
@@ -90,6 +93,8 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'Four tests you run yourself',
     'then you run four tests',
     'Those three things are measurable, so we measure them',
+    'The four tests ran on the stack below',
+    'tests four of the five',
     'Session title:',
     'Here is the question',
     'The question under test',
