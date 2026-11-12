@@ -472,8 +472,12 @@
     .bar-track i { display: block; height: 100%; width: 0; border-radius: 6px; transition: width 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
     .bar--old i { background: var(--td-line-strong); }
     .bar--new i { background: linear-gradient(90deg, var(--td-accent), var(--td-accent-2) 70%, var(--td-mint)); }
-    .rc-summary { font-size: 1.15rem; line-height: 1.6; color: var(--td-ink); margin: 1.5rem 0 0; }
+    .rc-summary { font-size: 1.15rem; line-height: 1.6; color: var(--td-ink); margin: 0.55rem 0 0; }
     .rc-also { font-size: 0.98rem; line-height: 1.55; color: var(--td-muted); margin: 0.9rem 0 0; }
+    .rc-section { margin-top: 1.35rem; }
+    .rc-section-label { display: block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--td-muted); margin-bottom: 0.35rem; }
+    .rc-section p { margin: 0; font-size: 1.05rem; line-height: 1.6; color: var(--td-ink); }
+    .rc-section--beyond p { font-size: 1.08rem; }
     .rc-bottom { margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid var(--td-line); font-size: 1.08rem; font-weight: 600; letter-spacing: -0.02em; color: var(--td-accent); }
     .rc-log { margin-top: 1.1rem; font-size: 0.88rem; }
     .rc-log summary { cursor: pointer; color: var(--td-muted); font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.03em; }
@@ -638,7 +642,7 @@
             <p>We are not asking you to take any of that on faith. Four live tests, about twenty minutes, run by you. That is why this is a Test Drive.</p>
             <p class="big q">When many agents share one world, does the way they organize it rhyme?</p>
             <p>If it does, the group should waste less, find more and reuse what it already knows. Those three things are measurable, so we measure them.</p>
-            <p class="aside">We think this may rhyme with active inference. We are not saying it is active inference. This is not finished AGI and it is not a claim about consciousness. It is a substrate, a set of results and an open invitation to check them.</p>
+            <p class="aside">We think this may rhyme with active inference. We are not saying it is active inference. This is not finished AGI and it is not a claim about consciousness. It is a substrate, a set of results and an open invitation to check them. After each live test the page reports, in plain language: what we did, what we measured, what came back, what it means, and how the run shows a coherent, predictable model with interesting results — well beyond theory.</p>
             <p class="quiet">Parallel path: <a href="/test-drive/musical/">Musical Training Program</a> · <a href="https://suno.com/s/QB8n2fLhy5NORPkV" rel="noopener" target="_blank">Suno playlist</a>.</p>
           </div>
           <div class="four-tests" aria-label="The four tests">
@@ -946,8 +950,8 @@
 
     const ORDER = STEPS.map((s) => s.id);
     const LABS = STEPS.filter((s) => s.mode === 'lab');
-    const DONE_KEY = 'fractisi-td-walkthrough-done-v17';
-    const RESULTS_KEY = 'fractisi-td-results-v17';
+    const DONE_KEY = 'fractisi-td-walkthrough-done-v18';
+    const RESULTS_KEY = 'fractisi-td-results-v18';
     const store = (() => { try { return window.localStorage; } catch { return null; } })();
     const read = (k, d) => { try { return JSON.parse(store.getItem(k) || d); } catch { return JSON.parse(d); } };
     const write = (k, v) => { try { store.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
@@ -1101,6 +1105,11 @@
       return '<div class="bar bar--' + kind + '"><div class="bar-top"><span>' + esc(label) + '</span><b>' + esc(text) + '</b></div><div class="bar-track"><i data-w="' + pct.toFixed(2) + '"></i></div></div>';
     }
 
+    function sectionHtml(label, text, extraClass) {
+      if (!text) return '';
+      return '<div class="rc-section' + (extraClass ? ' ' + extraClass : '') + '"><span class="rc-section-label">' + esc(label) + '</span><p>' + esc(text) + '</p></div>';
+    }
+
     function renderResult(step, ms) {
       const r = step.readout || {};
       const b = r.bars;
@@ -1116,8 +1125,12 @@
         '<p class="rc-kicker">Result</p>' +
         '<div class="rc-head"><span class="rc-num" id="rc-num">' + esc(r.headlineValue || '') + '</span><span class="rc-label">' + esc(r.headlineLabel || '') + '</span></div>' +
         bars +
-        '<p class="rc-summary">' + esc(r.summary || step.opportunity || '') + '</p>' +
+        sectionHtml('What we did', r.done) +
+        sectionHtml('What we measured', r.tested) +
+        sectionHtml('What came back', r.summary) +
         (r.also ? '<p class="rc-also">' + esc(r.also) + '</p>' : '') +
+        sectionHtml('What it means', r.implication) +
+        sectionHtml('Beyond theory', r.beyondTheory, 'rc-section--beyond') +
         '<p class="rc-bottom">' + esc(current().takeaway || '') + '</p>' +
         '<p class="rc-honesty">A lab run on one machine. Promising, not a production benchmark.</p>' +
         '<details class="rc-log"><summary>Show the full log · ran in ' + esc(ms) + ' ms</summary><pre>' + esc([step.title, 'Surface: ' + step.layer, 'Component: ' + step.component, ''].concat(step.lines || []).concat(step.honesty ? ['', 'Honesty boundary: ' + step.honesty] : []).join('\n')) + '</pre></details>';

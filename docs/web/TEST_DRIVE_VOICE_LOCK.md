@@ -1,6 +1,6 @@
 # Test Drive voice lock
 
-**Status:** locked 2026-11-09 · Player 1
+**Status:** locked 2026-11-12 · plain-language lab report · Player 1
 
 This is the durable pin for Test Drive / symposium surface copy so agents (including Auto) do not silently restore earlier drafts.
 

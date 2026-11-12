@@ -67,6 +67,20 @@ function printStep(out) {
   }
   say(['', `  ▸ live lab · ${out.ms} ms`, '']);
   for (const line of s.lines) console.log(`  ${line}`);
+  const r = s.readout;
+  if (r && (r.done || r.implication || r.beyondTheory)) {
+    say([
+      '',
+      '  PLAIN-LANGUAGE REPORT',
+      r.done ? `    What we did:       ${r.done}` : null,
+      r.tested ? `    What we measured: ${r.tested}` : null,
+      r.summary ? `    What came back:   ${r.summary}` : null,
+      r.also ? `    Also:             ${r.also}` : null,
+      r.implication ? `    What it means:    ${r.implication}` : null,
+      r.beyondTheory ? `    Beyond theory:    ${r.beyondTheory}` : null,
+      '',
+    ].filter(Boolean));
+  }
   if (s.next) {
     say(['', `  Next: node scripts/tiny.mjs testdrive ${s.next}`, '']);
   } else {
