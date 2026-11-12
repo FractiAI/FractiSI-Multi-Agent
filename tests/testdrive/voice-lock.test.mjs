@@ -44,6 +44,8 @@ test('Test Drive opens on awareness story before the demonstration beat', () => 
   assert.match(page, /Awareness framed their sensory observations/);
   assert.match(page, /Fractal Holographic Goldilocks Superintelligence World Awareness/);
   assert.match(page, /Why this is a Test Drive\./);
+  assert.match(page, /human agents and digital agents collaborating/i);
+  assert.match(page, /human operators and digital agents/i);
 });
 
 test('Test Drive STEPS titles match the locked arc', () => {

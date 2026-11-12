@@ -22,8 +22,8 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',
-  storageKeyDone: 'fractisi-td-walkthrough-done-v15',
-  storageKeyResults: 'fractisi-td-results-v15',
+  storageKeyDone: 'fractisi-td-walkthrough-done-v16',
+  storageKeyResults: 'fractisi-td-results-v16',
   stepTitles: Object.freeze([
     Object.freeze({ id: 'story', title: 'The same song.' }),
     Object.freeze({ id: 'welcome', title: 'Why this is a Test Drive.' }),
@@ -57,6 +57,8 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'Fractal Holographic Goldilocks Superintelligence World Awareness',
     'Why this is a Test Drive.',
     'Awareness framed their sensory observations',
+    'human agents and digital agents collaborating',
+    'human operators and digital agents',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([
