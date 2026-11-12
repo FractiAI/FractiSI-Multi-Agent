@@ -37,7 +37,17 @@ export function buildGitLabWorkload(agentCount = 6) {
 }
 
 function runGit(cwd, args, opts = {}) {
-  const result = spawnSync('git', args, {
+  // Force identity + no gpg on every invocation — serverless hosts often ignore local config.
+  const prefix = [
+    '-c', 'user.name=FractiSI Lab',
+    '-c', 'user.email=fractisi-lab@local',
+    '-c', 'commit.gpgsign=false',
+    '-c', `safe.directory=${cwd}`,
+  ];
+  const finalArgs = args[0] === 'commit' && !args.includes('--no-gpg-sign')
+    ? [...prefix, 'commit', '--no-gpg-sign', ...args.slice(1)]
+    : [...prefix, ...args];
+  const result = spawnSync('git', finalArgs, {
     cwd,
     encoding: 'utf8',
     env: {
@@ -47,6 +57,7 @@ function runGit(cwd, args, opts = {}) {
       GIT_AUTHOR_EMAIL: 'fractisi-lab@local',
       GIT_COMMITTER_NAME: 'FractiSI Lab',
       GIT_COMMITTER_EMAIL: 'fractisi-lab@local',
+      GNUPGHOME: path.join(cwd, '.gnupg-empty'),
     },
   });
   const statusOk = result.status === 0;
@@ -57,6 +68,7 @@ function runGit(cwd, args, opts = {}) {
     status: result.status,
     stdout: (result.stdout || '').trim(),
     stderr: (result.stderr || '').trim(),
+    args: finalArgs,
   };
 }
 
@@ -79,7 +91,7 @@ function seedRepo(root) {
   runGit(root, ['add', '-A']);
   const commit = runGit(root, ['commit', '-m', 'chore: seed git lab']);
   if (!commit.ok) {
-    throw new Error(`seed_commit_failed:${commit.stderr || commit.stdout}`);
+    throw new Error(`seed_commit_failed:status=${commit.status}:${commit.stderr || commit.stdout || '(empty)'}`);
   }
 }
 
