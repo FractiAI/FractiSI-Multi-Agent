@@ -63,6 +63,26 @@
       "permanent": true
     },
     {
+      "source": "/nvidia-goldilocks-moment",
+      "destination": "/blog/nvidia-goldilocks-moment/",
+      "permanent": false
+    },
+    {
+      "source": "/nvidia-goldilocks-moment/",
+      "destination": "/blog/nvidia-goldilocks-moment/",
+      "permanent": false
+    },
+    {
+      "source": "/expedition/nvidia-goldilocks-awareness",
+      "destination": "/library/papers/nvidia-goldilocks-awareness-expedition/",
+      "permanent": false
+    },
+    {
+      "source": "/expedition/nvidia-goldilocks-awareness/",
+      "destination": "/library/papers/nvidia-goldilocks-awareness-expedition/",
+      "permanent": false
+    },
+    {
       "source": "/expedition-002",
       "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
       "permanent": true
