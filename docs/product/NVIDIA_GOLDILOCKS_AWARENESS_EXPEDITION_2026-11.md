@@ -1,7 +1,8 @@
-# Upgrading the World Model
+# What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO
 
-**Shared-world coordination for human and digital agents · Fractal Holographic Goldilocks Expedition**
+**A Fractal Holographic Goldilocks Superintelligence Awareness Expedition**
 
+**Leadership case (observed):** Jensen Huang, NVIDIA  
 **Document ID:** `WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15`  
 **Lab note:** [`/blog/nvidia-goldilocks-moment/`](/blog/nvidia-goldilocks-moment/)  
 **HTML surface:** [`/library/papers/nvidia-goldilocks-awareness-expedition/`](/library/papers/nvidia-goldilocks-awareness-expedition/)  
@@ -18,6 +19,6 @@
 | E4 Closed vs open selective | RMSE tied · **87.3%** byte cut |
 | E5 Scorecard | Goldilocks **76.5** · unbounded 75 · competition 71 · control 66.5 |
 
-Honesty: application companion, not ENGINE_SHELF, not a live LLM bake-off, not production benchmarking or organizational advice. The E5 weights are lab-chosen. Suite 6/6 pass.
+Honesty: application companion, not ENGINE_SHELF, not succession advice, not a live LLM bake-off, not NVIDIA KPI attestation. Super-performer / standard-agent labels are operating configurations, not human worth. E5 weights are lab-chosen. Suite 6/6 pass.
 
 → ∞^∞

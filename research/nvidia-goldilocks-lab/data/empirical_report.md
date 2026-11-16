@@ -1,9 +1,9 @@
-# Upgrading the World Model — Computational Lab Receipts
+# What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO — Computational Lab Receipts
 
 **Document ID:** `WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15`
 **Registry ID:** `synthobs-nvidia-goldilocks-awareness-expedition-2026-11`
 **Seed:** 20261115
-**Generated:** 2026-11-16T07:25:39.161Z
+**Generated:** 2026-11-16T17:51:49.263Z
 
 ## Verdict
 
@@ -51,6 +51,6 @@
 
 ## Honesty
 
-FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not organizational advice, not ENGINE_SHELF, not live GPU-HBM bake-off.
+FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off.
 
 → ∞^∞
