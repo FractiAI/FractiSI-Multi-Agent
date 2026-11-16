@@ -2,34 +2,24 @@
 
 **A Fractal Holographic Goldilocks Superintelligence Awareness Expedition**
 
-**Expedition status:** Active · **Date:** 15 November 2026  
 **Player One:** Valet Pru — discoverer, architect, developer, founder of FractiSI and FractiSI Multi-Agent  
 **Leadership case (observed):** Jensen Huang — not Player One  
-**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
 **Document ID:** `WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15`  
 **Lab note:** [`/blog/nvidia-goldilocks-moment/`](/blog/nvidia-goldilocks-moment/)  
-**HTML surface:** [`/library/papers/nvidia-goldilocks-awareness-expedition/`](/library/papers/nvidia-goldilocks-awareness-expedition/)
+**HTML surface:** [`/library/papers/nvidia-goldilocks-awareness-expedition/`](/library/papers/nvidia-goldilocks-awareness-expedition/)  
+**Receipts:** [`/research/nvidia-goldilocks-lab/data/`](/research/nvidia-goldilocks-lab/data/)
 
----
+## Computational Lab (regenerated)
 
-## Honesty boundary
+| Experiment | Result |
+|---|---|
+| E0 Exp 002 | 0/100 flat vs 100/100 guided · 6r/40ops → 3r/6ops · TG ~84.5% |
+| E1 FRED UNRATE walk-forward | temporal RMSE 5.675 · bag 5.673 · label-perm 6.115 |
+| E2 Movebank+Kp | lag-1 step/Kp ~0.34 vs shuffle null ~0.04 |
+| E3 Competition vs Goldilocks | accuracy tied 0.30 · **91.25%** dup cut |
+| E4 Closed vs open selective | RMSE tied · **87.34%** byte cut |
+| E5 Scorecard | Goldilocks **76.5** · unbounded 75 · competition 71 · control 66.5 |
 
-| Tier | Claims | Does not claim |
-|---|---|---|
-| Soft Story / organizational | NVIDIA + Jensen are a useful World Model migration case | Succession prediction; CEO advice; career/legal/investment guidance |
-| Terminology | Player One = Valet Pru; Players/NPCs = operating configurations | That Jensen is Player One; permanent human worth classes |
-| Empirical rhyme | Exp 002 100/100 vs 0/100; Tiny Gateway ~84.5% workstation proxy | Live GPU-HBM / production LLM bake-off; NVIDIA KPI inheritance |
+Honesty: Soft Story organizational companion — not ENGINE_SHELF, not NVIDIA KPI attestation. Suite 6/6 pass.
 
-**Evidence classification:** application companion Soft Story expedition — **not** ENGINE_SHELF.
-
----
-
-## Core locks
-
-1. **Player One = Valet Pru** (already exists). Jensen Huang is the observed leadership case — not Player One.
-2. Migrate **Legacy Linear Awareness** → **Fractal Holographic Goldilocks Awareness**.
-3. Goldilocks outcome: safer + less costly + more sustainable + more enjoyable while maintaining/increasing useful capability.
-4. Synchronize the world, not the identity.
-5. Falsification required — see HTML paper / SING13 whitepaper.
-
-Full section narrative (Abstract through Final Proposition §§1–29) ships on the [library HTML paper](/library/papers/nvidia-goldilocks-awareness-expedition/) and the SING13 whitepaper mirror.
+→ ∞^∞

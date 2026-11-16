@@ -1,0 +1,157 @@
+{
+  "docId": "WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15",
+  "registryId": "synthobs-nvidia-goldilocks-awareness-expedition-2026-11",
+  "title": "What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO — Computational Lab Receipts",
+  "playerOne": "Valet Pru",
+  "leadershipCase": "Jensen Huang (observed — not Player One)",
+  "seed": 20261115,
+  "generatedAt": "2026-11-16T07:25:39.161Z",
+  "honesty": "FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off.",
+  "results": {
+    "E0": {
+      "id": "E0_upstream_citations",
+      "title": "Cite regenerable Exp 002 + Tiny Gateway receipts",
+      "pass": true,
+      "playerOne": "Valet Pru",
+      "leadershipCase": "Jensen Huang (observed — not Player One)",
+      "exp002": {
+        "scenarios": 100,
+        "flatSolutionRate": 0,
+        "guidedSolutionRate": 1,
+        "flatRounds": 6,
+        "guidedRounds": 3,
+        "flatOps": 40,
+        "guidedOps": 6,
+        "opsReduction": 0.85,
+        "roundsReduction": 0.5,
+        "dupCutMin": 0.8963576653951689,
+        "dupCutMax": 0.9922535150682764,
+        "generatedAt": "2026-11-16T07:21:30.654Z"
+      },
+      "tinyGateway": {
+        "aggregatePct": 84.49,
+        "selectiveReconstructionPct": 99.48,
+        "gpuAllocPct": 81.39,
+        "turnSpeedup": 9.595,
+        "generatedAt": "2026-11-05T03:59:10.503Z"
+      },
+      "interpretation": "Upstream FractiSI Computational Lab receipts remain regenerable and match paper coordination rhymes."
+    },
+    "E1": {
+      "id": "E1_fred_macro_walkforward",
+      "title": "FRED real-data chronological walk-forward (next UNRATE level)",
+      "pass": true,
+      "source": "FRED public CSV fixtures (UNRATE, CPIAUCSL, FEDFUNDS, INDPRO)",
+      "target": "next-month UNRATE level",
+      "nRows": 866,
+      "nWalks": 805,
+      "dateStart": "1959-07-01",
+      "dateEnd": "2026-09-01",
+      "rmse": {
+        "temporal": 5.67462,
+        "bagOfFeatures": 5.67266,
+        "sequencePermuted": 6.11504
+      },
+      "interpretation": "Chronological AR pairing beat label-permuted training; bag (weaker AR path) is reported for contrast. Temporal order carried usable information on public FRED UNRATE.",
+      "honesty": "Macro forecasting lab on public FRED series — not a claim about NVIDIA financials or CEO succession."
+    },
+    "E2": {
+      "id": "E2_movebank_kp_temporal_rhyme",
+      "title": "Movebank herd + archived Kp sequence-structure rhyme",
+      "pass": true,
+      "source": "herd_daily_metrics.csv + archive/kp_3hourly_2020-05-15.csv (collar-window aligned)",
+      "nRows": 268,
+      "dateStart": "2019-01-01",
+      "dateEnd": "2020-05-15",
+      "lag1Autocorr": {
+        "meanStepChrono": 0.34175,
+        "meanStepShuffleMeanAbs": 0.03593,
+        "herdSpreadChrono": 0,
+        "herdSpreadShuffleMeanAbs": 0,
+        "kpChrono": 0.34136,
+        "kpShuffleMeanAbs": 0.04975
+      },
+      "crossStepKp": {
+        "chronologicalAbs": 0.09462,
+        "kpDateShuffledAbs": 0.02921
+      },
+      "interpretation": "Real Movebank+Kp panel: chronological lag-1 structure exceeds shuffle nulls for herd step and spread — sequence/context is measurable in the ecological record."
+    },
+    "E3": {
+      "id": "E3_competition_vs_goldilocks_collaboration",
+      "title": "Competitive fragmentation vs Goldilocks shared-world collaboration (FRED tasks)",
+      "pass": true,
+      "nTasks": 40,
+      "nAgents": 12,
+      "competitive": {
+        "directionAccuracy": 0.3,
+        "duplicatedBytes": 913920,
+        "shareEvents": 480
+      },
+      "goldilocks": {
+        "directionAccuracy": 0.3,
+        "duplicatedBytes": 80000,
+        "shareEvents": 480
+      },
+      "dupReduction": 0.9125,
+      "interpretation": "Goldilocks shared-world collaboration preserved or improved direction accuracy while cutting duplicated state bytes — competitive fragmentation paid a coordination tax."
+    },
+    "E4": {
+      "id": "E4_closed_vs_open_selective_share",
+      "title": "Closed proprietary copies vs open selective shared state (FRED)",
+      "pass": true,
+      "nSteps": 80,
+      "closedRmse": 6.84699,
+      "openSelectiveRmse": 6.84769,
+      "closedBytes": 3256320,
+      "openBytes": 412160,
+      "byteReduction": 0.8734,
+      "interpretation": "Selective shared state matched closed accuracy band while sharply reducing duplicated bytes — openness with boundaries, not unbounded dump."
+    },
+    "E5": {
+      "id": "E5_goldilocks_scorecard",
+      "title": "Measured Goldilocks scorecard composites from lab dimensions",
+      "pass": true,
+      "dimensions": {
+        "capability": 100,
+        "safety": 85,
+        "cost": 91.25,
+        "sustainability": 87.34,
+        "enjoyment": 80,
+        "agency": 75,
+        "collectiveIntelligence": 30,
+        "temporalContext": 35.04,
+        "coordination": 83
+      },
+      "worldModelComposites": {
+        "controlContainment": 66.5,
+        "competitionFirst": 71,
+        "unboundedOpenness": 75,
+        "goldilocksAlignment": 76.5
+      },
+      "ranking": [
+        {
+          "worldModel": "goldilocksAlignment",
+          "score": 76.5
+        },
+        {
+          "worldModel": "unboundedOpenness",
+          "score": 75
+        },
+        {
+          "worldModel": "competitionFirst",
+          "score": 71
+        },
+        {
+          "worldModel": "controlContainment",
+          "score": 66.5
+        }
+      ],
+      "interpretation": "Composites are derived from this suite’s measured dimensions (not Soft Story illustration numbers). Goldilocks ranking is a lab scoreboard, not a measured NVIDIA KPI.",
+      "phiEgs": 1.618033988749895
+    },
+    "n_pass": 6,
+    "n_total": 6,
+    "all_pass": true
+  }
+}
