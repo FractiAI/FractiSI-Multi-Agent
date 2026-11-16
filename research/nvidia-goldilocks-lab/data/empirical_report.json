@@ -1,19 +1,15 @@
 {
   "docId": "WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15",
   "registryId": "synthobs-nvidia-goldilocks-awareness-expedition-2026-11",
-  "title": "What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO — Computational Lab Receipts",
-  "playerOne": "Valet Pru",
-  "leadershipCase": "Jensen Huang (observed — not Player One)",
+  "title": "Upgrading the World Model — Computational Lab Receipts",
   "seed": 20261115,
   "generatedAt": "2026-11-16T07:25:39.161Z",
-  "honesty": "FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off.",
+  "honesty": "FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not organizational advice, not ENGINE_SHELF, not live GPU-HBM bake-off.",
   "results": {
     "E0": {
       "id": "E0_upstream_citations",
       "title": "Cite regenerable Exp 002 + Tiny Gateway receipts",
       "pass": true,
-      "playerOne": "Valet Pru",
-      "leadershipCase": "Jensen Huang (observed — not Player One)",
       "exp002": {
         "scenarios": 100,
         "flatSolutionRate": 0,
@@ -53,7 +49,7 @@
         "sequencePermuted": 6.11504
       },
       "interpretation": "Chronological AR pairing beat label-permuted training; bag (weaker AR path) is reported for contrast. Temporal order carried usable information on public FRED UNRATE.",
-      "honesty": "Macro forecasting lab on public FRED series — not a claim about NVIDIA financials or CEO succession."
+      "honesty": "Macro forecasting lab on public FRED series — not a claim about NVIDIA financials."
     },
     "E2": {
       "id": "E2_movebank_kp_temporal_rhyme",
