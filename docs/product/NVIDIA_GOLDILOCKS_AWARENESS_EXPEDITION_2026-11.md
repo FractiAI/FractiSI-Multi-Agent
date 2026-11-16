@@ -17,8 +17,9 @@
 | E2 Movebank + Kp | lag-1 ~0.34 vs shuffled null ~0.04 |
 | E3 Competition vs shared world | accuracy tied 0.30 · **91.3%** duplicated-byte cut |
 | E4 Closed vs open selective | RMSE tied · **87.3%** byte cut |
-| E5 Scorecard | Goldilocks **76.5** · unbounded 75 · competition 71 · control 66.5 |
+| E5 Scorecard | Goldilocks **77.1** · unbounded 75.4 · competition 72.2 · control 67.3 |
+| E6 Matched-budget architecture | same model, prompt, 64-token budget; deterministic control 0/100 vs 100/100 · live open-weight LLM (gpt-oss-20b, 12 tasks) private silos 0/12 vs shared world **12/12**; unbounded-silo control 12/12 at about 4.7x more tokens |
 
-Honesty: application companion, not ENGINE_SHELF, not succession advice, not a live LLM bake-off, not NVIDIA KPI attestation. Super-performer / standard-agent labels are operating configurations, not human worth. E5 weights are lab-chosen. Suite 6/6 pass.
+Honesty: application companion, not ENGINE_SHELF, not succession advice, not a frontier-LLM bake-off (E6 is one open-weight model on twelve synthetic tasks), not NVIDIA KPI attestation. Super-performer / standard-agent labels are operating configurations, not human worth. E5 weights are lab-chosen. Suite 7/7 pass. The E6 linear failure comes from context assembly under a tight budget, not model weakness: the same model solves every task when the silo is not truncated.
 
 → ∞^∞

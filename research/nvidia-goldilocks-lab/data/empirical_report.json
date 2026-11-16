@@ -4,8 +4,8 @@
   "title": "What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO — Computational Lab Receipts",
   "leadershipCase": "Jensen Huang (observed leadership case)",
   "seed": 20261115,
-  "generatedAt": "2026-11-16T17:51:49.263Z",
-  "honesty": "FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off.",
+  "generatedAt": "2026-11-16T18:06:51.735Z",
+  "honesty": "FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off. E6 is a matched-budget architecture test with a fixed extractive agent (same model/prompt/budget); live frontier-LLM bake-off runs only when OPENROUTER_API_KEY is set.",
   "results": {
     "E0": {
       "id": "E0_upstream_citations",
@@ -119,37 +119,89 @@
         "agency": 75,
         "collectiveIntelligence": 30,
         "temporalContext": 35.04,
-        "coordination": 83
+        "coordination": 91.5
       },
       "worldModelComposites": {
-        "controlContainment": 66.5,
-        "competitionFirst": 71,
-        "unboundedOpenness": 75,
-        "goldilocksAlignment": 76.5
+        "controlContainment": 67.3,
+        "competitionFirst": 72.2,
+        "unboundedOpenness": 75.4,
+        "goldilocksAlignment": 77.1
       },
       "ranking": [
         {
           "worldModel": "goldilocksAlignment",
-          "score": 76.5
+          "score": 77.1
         },
         {
           "worldModel": "unboundedOpenness",
-          "score": 75
+          "score": 75.4
         },
         {
           "worldModel": "competitionFirst",
-          "score": 71
+          "score": 72.2
         },
         {
           "worldModel": "controlContainment",
-          "score": 66.5
+          "score": 67.3
         }
       ],
       "interpretation": "Composites are derived from this suite’s measured dimensions (not Soft Story illustration numbers). Goldilocks ranking is a lab scoreboard, not a measured NVIDIA KPI.",
       "phiEgs": 1.618033988749895
     },
-    "n_pass": 6,
-    "n_total": 6,
+    "E6": {
+      "id": "E6_matched_budget_architecture",
+      "title": "Matched-budget agent architecture: same model · prompt · per-turn budget; linear private silos vs shared-world edges",
+      "pass": true,
+      "scenarios": 100,
+      "hops": 6,
+      "contextBudgetTokens": 64,
+      "maxRounds": 6,
+      "promptTemplate": "Extractive agent. Use only CONTEXT. Follow NEXT links. Report SOLUTION-* if present.",
+      "model": "extractive-agent/v1 (fixed; identical for both arms)",
+      "linear": {
+        "solutionRate": 0,
+        "meanTokens": 384,
+        "meanRounds": 6
+      },
+      "sharedWorld": {
+        "solutionRate": 1,
+        "meanTokens": 272.4,
+        "meanRounds": 6
+      },
+      "liveLlm": {
+        "attempted": true,
+        "provider": "Groq (OpenAI-compatible API)",
+        "model": "openai/gpt-oss-20b",
+        "openWeights": true,
+        "scenarios": 12,
+        "hops": 6,
+        "maxRounds": 6,
+        "contextBudgetTokens": 64,
+        "promptTemplate": "Extractive agent. Use only CONTEXT. Follow NEXT links. Report SOLUTION-* if present.",
+        "linear": {
+          "solutionRate": 0,
+          "meanTokens": 1741.1,
+          "meanRounds": 6,
+          "meanLatencyMs": 2225
+        },
+        "sharedWorld": {
+          "solutionRate": 1,
+          "meanTokens": 1275,
+          "meanRounds": 6,
+          "meanLatencyMs": 2347
+        },
+        "linearUnbounded": {
+          "solutionRate": 1,
+          "meanTokens": 5986.2,
+          "meanRounds": 6,
+          "meanLatencyMs": 2694
+        },
+        "interpretation": "Real LLM, temperature 0, same system prompt. linear = private silos truncated to the per-turn budget; sharedWorld = current hop + edge under the same budget; linearUnbounded = private silos with no truncation (capability control). The model reply, not a regex over context, drives the protocol. Tokens are provider-reported prompt+completion."
+      },
+      "interpretation": "Under matched model/prompt/per-turn budget, shared-world edge following recovers the solution while linear private-silo dumps burn the budget on fillers. Outcome improvement here is architectural (solution rate), not only byte efficiency. Not a live frontier-LLM bake-off unless liveLlm.attempted."
+    },
+    "n_pass": 7,
+    "n_total": 7,
     "all_pass": true
   }
 }

@@ -3,12 +3,12 @@
 **Document ID:** `WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15`
 **Registry ID:** `synthobs-nvidia-goldilocks-awareness-expedition-2026-11`
 **Seed:** 20261115
-**Generated:** 2026-11-16T17:51:49.263Z
+**Generated:** 2026-11-16T18:06:51.735Z
 
 ## Verdict
 
 | All pass | `true` |
-| Passed | 6 / 6 |
+| Passed | 7 / 7 |
 
 ## E0 · Upstream Exp 002 / Tiny Gateway
 
@@ -44,13 +44,23 @@
 
 ## E5 · Goldilocks scorecard
 
-| goldilocksAlignment | 76.5 |
-| unboundedOpenness | 75 |
-| competitionFirst | 71 |
-| controlContainment | 66.5 |
+| goldilocksAlignment | 77.1 |
+| unboundedOpenness | 75.4 |
+| competitionFirst | 72.2 |
+| controlContainment | 67.3 |
+
+## E6 · Matched-budget agent architecture
+
+| Model | extractive-agent/v1 (fixed; identical for both arms) |
+| Context budget (tokens/turn) | 64 |
+| Linear solution rate | 0 |
+| Shared-world solution rate | 1 |
+| Linear mean tokens / rounds | 384 / 6 |
+| Shared mean tokens / rounds | 272.4 / 6 |
+| Live LLM | openai/gpt-oss-20b · linear@budget 0 · shared@budget 1 · linear unbounded 1 (tokens 1741.1 / 1275 / 5986.2) |
 
 ## Honesty
 
-FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off.
+FractiSI Computational Lab · real FRED macro walk-forward + Movebank/Kp rhyme + regenerable Exp 002 / Tiny Gateway citations. Soft Story organizational companion — not NVIDIA KPI attestation, not succession advice, not ENGINE_SHELF, not live GPU-HBM bake-off. E6 is a matched-budget architecture test with a fixed extractive agent (same model/prompt/budget); live frontier-LLM bake-off runs only when OPENROUTER_API_KEY is set.
 
 → ∞^∞

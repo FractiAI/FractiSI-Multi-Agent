@@ -37,7 +37,7 @@
   </header>
 
   <h2>Honesty boundary</h2>
-  <p>Application companion expedition. Not ENGINE_SHELF, not succession advice, not a live LLM bake-off, and not production fleet benchmarking. "Players / super-performers" and "NPCs / standard agents" are operating configurations, not human worth. Jensen Huang is an observed leadership case. Exp 002 and Tiny Gateway figures are workstation architectural receipts, not NVIDIA metrics. The scorecard uses lab-chosen weights and is a scoreboard, not a measured outcome.</p>
+  <p>Application companion expedition. Not ENGINE_SHELF, not succession advice, not a frontier-LLM bake-off, and not production fleet benchmarking. "Players / super-performers" and "NPCs / standard agents" are operating configurations, not human worth. Jensen Huang is an observed leadership case. Exp 002 and Tiny Gateway figures are workstation architectural receipts, not NVIDIA metrics. The scorecard uses lab-chosen weights and is a scoreboard, not a measured outcome.</p>
 
   <h2>Abstract</h2>
   <p>The central question for increasingly capable intelligence is how to organize capable agents without suppressing capability, fragmenting context, wasting resources, adding risk, or making participation unpleasant. We migrate from a Legacy Linear world model (closed, competitive, hierarchical, rules, plans, roles) to a Fractal Holographic Goldilocks world model (shared worlds, relationships, boundaries, feedback, consent). FractiSI Multi-Agent is the computational laboratory. The human experiment asks whether the same pattern improves how agents with very different agency participate in organizations. NVIDIA is the natural hardware-ecosystem focus and Jensen Huang a visible leadership case. The deeper question is whether the organization building infrastructure for increasingly capable intelligence can also experiment with the World Model that intelligence requires.</p>
@@ -53,12 +53,13 @@
   <p><strong>Super-performers (Players)</strong> shape environments beyond standardized roles. <strong>Standard agents (NPCs)</strong> have agency more strongly shaped by inherited scripts. These are dynamic configurations, not permanent worth, and a World Model can constrain or expand agency in either. Highly capable individuals are the most sensitive test of a World Model, which is why a visible leadership case such as Jensen Huang is informative.</p>
 
   <h2>Method and results</h2>
-  <p>Six experiments from seed 20261115, regenerable with <code>npm run research:synthobs-nvidia-goldilocks-awareness-expedition</code> in the SING 13 repository, with receipts mirrored at <code>research/nvidia-goldilocks-lab/data/</code>.</p>
+  <p>Seven experiments from seed 20261115, regenerable with <code>npm run research:synthobs-nvidia-goldilocks-awareness-expedition</code> in the SING 13 repository, with receipts mirrored at <code>research/nvidia-goldilocks-lab/data/</code>.</p>
   <div class="metrics" aria-label="Lab highlights">
     <div><b>0/100 → 100/100</b><span>E0 · flat skim vs guided reconstruction</span></div>
     <div><b>5.675 vs 6.115</b><span>E1 · temporal vs permuted RMSE</span></div>
     <div><b>~91% / ~87%</b><span>E3 / E4 · bytes cut at matched accuracy</span></div>
-    <div><b>76.5</b><span>E5 · Goldilocks scorecard</span></div>
+    <div><b>77.1</b><span>E5 · Goldilocks scorecard</span></div>
+    <div><b>0/12 → 12/12</b><span>E6 · live LLM, same budget, silos vs shared world</span></div>
   </div>
   <ul>
     <li><strong>E0.</strong> Expedition 002 and Tiny Gateway receipts. Flat skimming solved 0 of 100 six-hop tasks and guided reconstruction solved 100 of 100, in 3 rounds and 6 operations against 6 and 40. Tiny Gateway aggregate is about 84.5%.</li>
@@ -66,7 +67,8 @@
     <li><strong>E2.</strong> Movebank tracks with Kp, 268 rows. Mean-step lag-1 about 0.342 against about 0.036 for the shuffled null. Spread showed no lag-1 structure.</li>
     <li><strong>E3.</strong> Competition-first vs shared world. Accuracy identical at 0.30; duplicated bytes down 91.3%. Efficiency at parity, not an accuracy gain.</li>
     <li><strong>E4.</strong> Closed vs open selective sharing. RMSE effectively equal (6.847 vs 6.848); bytes down 87.3%.</li>
-    <li><strong>E5.</strong> Scorecard from the dimensions measured. Goldilocks alignment 76.5, unbounded openness 75, competition-first 71, control containment 66.5. The lead is small and the weights are lab-chosen.</li>
+    <li><strong>E5.</strong> Scorecard from the dimensions measured. Goldilocks alignment 77.1, unbounded openness 75.4, competition-first 72.2, control containment 67.3. The lead is small and the weights are lab-chosen.</li>
+    <li><strong>E6.</strong> Matched-budget architecture test: same model, same prompt, same 64-token per-turn budget, same round limit; only context assembly differs. A deterministic extractive control solved 0 of 100 six-hop chains with private silos and 100 of 100 with shared-world edges. A real open-weight model (<code>gpt-oss-20b</code> via Groq, temperature 0, its own replies driving each round) solved 0 of 12 with silos and 12 of 12 with shared-world edges. The same model also solved 12 of 12 with untruncated silos, so the failure is context assembly under a tight budget, not model weakness; the shared world matched that accuracy with about 4.7 times fewer tokens (1,275 vs 5,986, including reasoning tokens).</li>
   </ul>
 
   <h2>The NVIDIA experiment</h2>
@@ -77,7 +79,7 @@
   <p>Capability, safety, cost, sustainability, enjoyment, agency, collective intelligence, coherence. Reject or revise if shared worlds give no advantage, if autonomy hurts, if consent-based coordination loses, if super-performer accommodation adds nothing measurable, or if migration raises complexity without a safer, cheaper, more sustainable, or more usable outcome.</p>
 
   <h2>Limits and next experiment</h2>
-  <p>These are structured-state and public-data experiments. They do not show that LLM agents reason more accurately, converge faster, or deliver more useful work per dollar under FractiSI. The next decisive experiment holds models, prompts, tools, information, and budgets fixed and changes only the information architecture.</p>
+  <p>These are structured-state and public-data experiments. E6 is one open-weight model, one provider, twelve synthetic retrieval chains and a budget chosen tight enough to bite; a looser budget narrows the gap and we have not located where it closes. These results do not show that frontier LLM agents, real documents, or human teams gain the same margin. The next step is multi-model, real-document tasks across a range of budgets.</p>
 
   <h2>Final proposition</h2>
   <p>The question is larger than whether Jensen Huang and NVIDIA need a new CEO. Core migration: standardized agents inside predefined plans to differentiated agents inside a shared, adaptive world. The test is whether more of the capability already present becomes useful collective intelligence while the system gets safer, less costly, more sustainable, and more enjoyable.</p>
