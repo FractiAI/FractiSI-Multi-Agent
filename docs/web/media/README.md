@@ -11,4 +11,4 @@ Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = share
 
 Legacy filenames `tiny-footprint-*.jpg` are kept as identical copies for older links.
 
-Voice lock: *The Fractal Holographic Goldilocks World Model for digital (and human) agents.*
+Voice lock: *The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents.*

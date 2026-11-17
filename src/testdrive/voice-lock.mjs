@@ -21,7 +21,7 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
   symposium: null,
   heroH1: 'The Multi-Agent World Inference Rhyme?',
   tagline:
-    'The Fractal Holographic Goldilocks World Model for digital (and human) agents.',
+    'The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents.',
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',
