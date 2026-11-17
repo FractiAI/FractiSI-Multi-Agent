@@ -6,15 +6,15 @@
 > CI: `tests/testdrive/voice-lock.test.mjs`. Cursor always-on: `.cursor/rules/testdrive-voice-lock.mdc`.
 > Change this voice only when Player 1 explicitly asks for a rewrite — then update the lock file in the same commit.
 
-**For IDE agents (Cursor, Claude Code, VS Code Copilot, etc.) and symposium audiences**
+**For IDE agents (Cursor, Claude Code, VS Code Copilot, etc.) and anyone evaluating the kit**
 
 If a human opens this repository and asks you to **do the FractiSI Multi-Agent test drive**, follow this file.
 
 ## What this Test Drive is
 
-**Self-paced symposium path** — fully self-sufficient in the browser; a presenter can speak from the same pages.
+**Self-paced path** — fully self-sufficient in the browser; a presenter can speak from the same pages.
 
-**Hero:** *The Multi-Agent World Inference Rhyme?* · Applied Active Inference Symposium (Nov 12–13, 2026) · about twenty minutes · no account · no wallet · live numbers.
+**Hero:** *The Multi-Agent World Inference Rhyme?* · about twenty minutes · no account · no wallet · live numbers.
 
 ### Arc (13 steps · about twenty minutes)
 

@@ -21,11 +21,26 @@ const guide = readFileSync(join(root, 'TEST_DRIVE.md'), 'utf8');
 const agents = readFileSync(join(root, 'AGENTS.md'), 'utf8');
 
 test('voice lock contract is frozen and complete', () => {
-  assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-12-test-paper-links');
+  assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-17-evergreen');
   assert.equal(LOCK.heroH1, 'The Multi-Agent World Inference Rhyme?');
+  assert.equal(LOCK.symposium, null);
   assert.equal(LOCK.stepTitles.length, 13);
   assert.ok(LOCK.forbiddenPhrases.length >= 10);
   assert.ok(LOCK.requiredPhrases.length >= 8);
+});
+
+test('Test Drive hero is evergreen — no past-symposium event subtitle', () => {
+  assert.doesNotMatch(page, /<p class="event">/);
+  assert.doesNotMatch(page, /Applied Active Inference Symposium · Nov 12/);
+  assert.doesNotMatch(guide, /Applied Active Inference Symposium \(Nov 12/);
+});
+
+test('Test Drive carries the locked FractiSI Multi-Agent tagline', () => {
+  assert.equal(
+    LOCK.tagline,
+    'The Fractal Holographic Goldilocks World Model for digital (and human) agents.',
+  );
+  assert.ok(page.includes(LOCK.tagline), 'hero tagline must match lock');
 });
 
 test('Test Drive page locks the hero h1 and CTA', () => {
