@@ -1,6 +1,7 @@
 /**
- * Cosmic Rhyme Expedition · C1 partner recovery · C2 open motifs · C3 WMAP spectrum.
- * Deterministic architecture controls on real public fixtures (no LLM required).
+ * Cosmic Rhyme Expedition · C1–C5.
+ * C1–C3 architecture · C4 residual physics · C5 LLM/language-pack rhyme.
+ * Deterministic controls on real public fixtures (no API key required).
  */
 import {
   BOOTSTRAP_B,
@@ -19,6 +20,8 @@ import {
   pearson,
   shuffleInPlace,
 } from './stats.mjs';
+import { runC4NovelPhysicsSearch } from './physics-search.mjs';
+import { runC5LlmRhyme } from './llm-rhyme.mjs';
 
 function featureKeys(objects) {
   return Object.keys(objects[0].features);
@@ -454,6 +457,8 @@ export function runFullExpedition() {
     ngc: runC2MotifDiscovery(ngc, { seed: SEED + 12 }),
   };
   const c3 = runC3WmapSpectrum();
+  const c4 = runC4NovelPhysicsSearch();
+  const c5 = runC5LlmRhyme();
 
   const h1Layers = Object.values(c1).filter((r) => r.H1).map((r) => r.layer);
   if (c3.H1) h1Layers.push('wmap_tt');
@@ -470,14 +475,26 @@ export function runFullExpedition() {
     c1,
     c2,
     c3,
+    c4,
+    c5,
     summary: {
       h1Layers,
       nH1: h1Layers.length,
       nMotifSurvivors: motifHits.length,
       motifHits,
       positiveExpeditionSignal: positive,
+      nCandidateNovelPhysics: c4.summary.nCandidateNovelPhysics,
+      nKnownPhysicsRediscovery: c4.summary.nKnownRediscovery,
+      physicsSearchSignal: c4.summary.physicsSearchSignal,
+      physicsVerdict: c4.summary.verdict,
+      novelPhysicsHits: c4.summary.novelHits,
+      knownPhysicsHits: c4.summary.knownHits,
+      whyPriorArmsWereNotNovelPhysics: c4.whyPriorArmsWereNotNovelPhysics,
+      llmRhymeSignal: c5.summary.llmRhymeSignal,
+      llmRhymeVerdict: c5.summary.verdict,
+      llmRhymeH1Layers: c5.summary.h1Layers,
       verdict: positive
-        ? 'POSITIVE — relational awareness exposes recoverable cosmic structure beyond linear/flat representations on public fixtures; ship blog + library.'
+        ? `POSITIVE relational rhyme on catalogs. ${c4.summary.verdict} ${c5.summary.verdict}`
         : 'MIXED/NULL — keep protocol and receipts; do not feature a discovery blog.',
     },
   };

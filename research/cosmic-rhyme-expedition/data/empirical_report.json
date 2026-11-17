@@ -566,6 +566,592 @@
       900
     ]
   },
+  "c4": {
+    "experiment": "C4",
+    "whyPriorArmsWereNotNovelPhysics": "C1–C3 demonstrated relational representation and catalog fingerprints (survey history / selection). Those are necessary but not sufficient for a novel-physics claim. C4 residualizes known selection axes and tests leftover couplings against shuffle and footprint nulls.",
+    "exo": {
+      "experiment": "C4a",
+      "layer": "exoplanet_residual",
+      "nTrain": 300,
+      "nTest": 200,
+      "removedAxes": [
+        "disc_year",
+        "sy_dist"
+      ],
+      "candidates": [
+        {
+          "pair": "log_bmasse~log_rade",
+          "trainCorr": 0.8184202036139882,
+          "heldOutCorr": 0.840777892665437,
+          "pColumnShuffle": 0.004975124378109453,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "pair": "st_mass~st_rad",
+          "trainCorr": 0.5441238312141791,
+          "heldOutCorr": 0.4525963434830309,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "pair": "log_orbper~log_rade",
+          "trainCorr": 0.4207732629286463,
+          "heldOutCorr": 0.3760671959999829,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "pair": "log_bmasse~log_orbper",
+          "trainCorr": 0.39307145489729023,
+          "heldOutCorr": 0.3462828868084288,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "null",
+          "note": "Not in the locked known-template list; residual coupling after selection regress-out."
+        },
+        {
+          "pair": "log_rade~st_mass",
+          "trainCorr": 0.3908264340358439,
+          "heldOutCorr": 0.2935727373466258,
+          "pColumnShuffle": 0.01990049751243781,
+          "pFootprintScramble": 1,
+          "verdict": "null",
+          "note": "Not in the locked known-template list; residual coupling after selection regress-out."
+        },
+        {
+          "pair": "log_bmasse~st_rad",
+          "trainCorr": 0.33860302669855785,
+          "heldOutCorr": 0.31440801861127116,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "null",
+          "note": "Not in the locked known-template list; residual coupling after selection regress-out."
+        },
+        {
+          "pair": "log_bmasse~st_mass",
+          "trainCorr": 0.3357391130044996,
+          "heldOutCorr": 0.2749811938751418,
+          "pColumnShuffle": 0.029850746268656716,
+          "pFootprintScramble": 1,
+          "verdict": "null",
+          "note": "Not in the locked known-template list; residual coupling after selection regress-out."
+        },
+        {
+          "pair": "log_rade~st_rad",
+          "trainCorr": 0.25709255895401806,
+          "heldOutCorr": 0.21933862085507624,
+          "pColumnShuffle": 0.05970149253731343,
+          "pFootprintScramble": 1,
+          "verdict": "null",
+          "note": "Not in the locked known-template list; residual coupling after selection regress-out."
+        }
+      ],
+      "nCandidateNovelPhysics": 0,
+      "nKnownRediscovery": 3,
+      "topNovel": [],
+      "topKnown": [
+        {
+          "pair": "log_bmasse~log_rade",
+          "trainCorr": 0.8184202036139882,
+          "heldOutCorr": 0.840777892665437,
+          "pColumnShuffle": 0.004975124378109453,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "pair": "st_mass~st_rad",
+          "trainCorr": 0.5441238312141791,
+          "heldOutCorr": 0.4525963434830309,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "pair": "log_orbper~log_rade",
+          "trainCorr": 0.4207732629286463,
+          "heldOutCorr": 0.3760671959999829,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        }
+      ]
+    },
+    "wmap": {
+      "experiment": "C4b",
+      "layer": "wmap_tt_residual",
+      "nEll": 899,
+      "continuum": "logCl ~ a + b logEll + c (logEll)^2",
+      "peakEnhancement": 0.9868894245022898,
+      "residualPowerNearPeaks": [
+        {
+          "ell": 220,
+          "meanAbsResid": 0.36365236537156526,
+          "n": 61
+        },
+        {
+          "ell": 540,
+          "meanAbsResid": 0.04482898444184856,
+          "n": 61
+        },
+        {
+          "ell": 800,
+          "meanAbsResid": 0.09201744809462085,
+          "n": 61
+        }
+      ],
+      "topLags": [
+        {
+          "lag": 11,
+          "corr": 0.4987107761862873,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "candidate_novel_physics",
+          "nearAcousticSpacing": false
+        },
+        {
+          "lag": 14,
+          "corr": 0.46592098076818395,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "candidate_novel_physics",
+          "nearAcousticSpacing": false
+        },
+        {
+          "lag": 17,
+          "corr": 0.4656523293986649,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "lag": 18,
+          "corr": 0.4324898827032516,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "lag": 19,
+          "corr": 0.4262711763549666,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        }
+      ],
+      "nCandidateNovelPhysics": 2,
+      "nKnownRediscovery": 3,
+      "topNovel": [
+        {
+          "lag": 11,
+          "corr": 0.4987107761862873,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "candidate_novel_physics",
+          "nearAcousticSpacing": false
+        },
+        {
+          "lag": 14,
+          "corr": 0.46592098076818395,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "candidate_novel_physics",
+          "nearAcousticSpacing": false
+        }
+      ],
+      "topKnown": [
+        {
+          "lag": 17,
+          "corr": 0.4656523293986649,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "lag": 18,
+          "corr": 0.4324898827032516,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "lag": 19,
+          "corr": 0.4262711763549666,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        }
+      ]
+    },
+    "ngc": {
+      "experiment": "C4c",
+      "layer": "ngc_residual_anisotropy",
+      "n": 600,
+      "removedSelection": "maj_ax residualized against v_mag",
+      "quadrantMeans": {
+        "q1": 0.7637395839204958,
+        "q2": 0,
+        "q3": -1.0403696694349813,
+        "q4": 0
+      },
+      "anisotropySpread": 1.804109253355477,
+      "pIsotropicScramble": 0.12967581047381546,
+      "verdict": "marginal",
+      "note": "No significant residual sky anisotropy after brightness selection removal under isotropic null."
+    },
+    "neo": {
+      "experiment": "C4d",
+      "layer": "neo_residual",
+      "removedAxes": [
+        "log_dist"
+      ],
+      "candidates": [
+        {
+          "pair": "h_mag~log_v_rel",
+          "trainCorr": 0.3465137961434771,
+          "heldOutCorr": 0.4148162344467022,
+          "pColumnShuffle": 0.004975124378109453,
+          "verdict": "known_physics_rediscovery"
+        },
+        {
+          "pair": "jd_norm~log_v_rel",
+          "trainCorr": 0.09279032517739487,
+          "heldOutCorr": 0.0845075046636751,
+          "pColumnShuffle": 0.7412935323383084,
+          "verdict": "null"
+        },
+        {
+          "pair": "h_mag~jd_norm",
+          "trainCorr": 0.05805368507068992,
+          "heldOutCorr": 0.12568181718391458,
+          "pColumnShuffle": 0.35323383084577115,
+          "verdict": "null"
+        }
+      ],
+      "nCandidateNovelPhysics": 0,
+      "nKnownRediscovery": 1,
+      "topNovel": [],
+      "topKnown": [
+        {
+          "pair": "h_mag~log_v_rel",
+          "trainCorr": 0.3465137961434771,
+          "heldOutCorr": 0.4148162344467022,
+          "pColumnShuffle": 0.004975124378109453,
+          "verdict": "known_physics_rediscovery"
+        }
+      ]
+    },
+    "summary": {
+      "nCandidateNovelPhysics": 2,
+      "nKnownRediscovery": 7,
+      "novelHits": [
+        {
+          "layer": "wmap_tt_residual",
+          "lag": 11,
+          "corr": 0.4987107761862873,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "candidate_novel_physics",
+          "nearAcousticSpacing": false
+        },
+        {
+          "layer": "wmap_tt_residual",
+          "lag": 14,
+          "corr": 0.46592098076818395,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "candidate_novel_physics",
+          "nearAcousticSpacing": false
+        }
+      ],
+      "knownHits": [
+        {
+          "layer": "exoplanet_residual",
+          "pair": "log_bmasse~log_rade",
+          "trainCorr": 0.8184202036139882,
+          "heldOutCorr": 0.840777892665437,
+          "pColumnShuffle": 0.004975124378109453,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "layer": "exoplanet_residual",
+          "pair": "st_mass~st_rad",
+          "trainCorr": 0.5441238312141791,
+          "heldOutCorr": 0.4525963434830309,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "layer": "exoplanet_residual",
+          "pair": "log_orbper~log_rade",
+          "trainCorr": 0.4207732629286463,
+          "heldOutCorr": 0.3760671959999829,
+          "pColumnShuffle": 0.014925373134328358,
+          "pFootprintScramble": 1,
+          "verdict": "known_physics_rediscovery",
+          "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+        },
+        {
+          "layer": "wmap_tt_residual",
+          "lag": 17,
+          "corr": 0.4656523293986649,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "layer": "wmap_tt_residual",
+          "lag": 18,
+          "corr": 0.4324898827032516,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "layer": "wmap_tt_residual",
+          "lag": 19,
+          "corr": 0.4262711763549666,
+          "pResidualShuffle": 0.0033222591362126247,
+          "verdict": "known_physics_rediscovery",
+          "nearAcousticSpacing": true
+        },
+        {
+          "layer": "neo_residual",
+          "pair": "h_mag~log_v_rel",
+          "trainCorr": 0.3465137961434771,
+          "heldOutCorr": 0.4148162344467022,
+          "pColumnShuffle": 0.004975124378109453,
+          "verdict": "known_physics_rediscovery"
+        }
+      ],
+      "physicsSearchSignal": true,
+      "verdict": "C4 POSITIVE — 2 residual candidate(s) beat nulls after selection/template removal; treat as candidate novel physics under this protocol, not confirmed law."
+    }
+  },
+  "c5": {
+    "experiment": "C5",
+    "catalog": {
+      "exoplanet": {
+        "experiment": "C5",
+        "layer": "exoplanet",
+        "mode": "pack_compliant_language_rhyme",
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 48
+        },
+        "deltaAwareLinear": 1,
+        "deltaAwareFlat": 1,
+        "ci95AwareMinusLinear": {
+          "low": 1,
+          "high": 1,
+          "mean": 1
+        },
+        "H1": true,
+        "H2": true,
+        "tokenEconomics": {
+          "linearMean": 414.9791666666667,
+          "flatMean": 522.7916666666666,
+          "awareMean": 172.5
+        },
+        "lexicalBlind": {
+          "linear": 0,
+          "flat": 0.041666666666666664,
+          "aware": 0
+        },
+        "samplePacks": {
+          "LINEAR": {
+            "queryId": "Kepler-607 c",
+            "goldId": "TOI-1758 b",
+            "pred": "Kepler-287 c",
+            "ok": false,
+            "tokens": 457
+          },
+          "FLAT": {
+            "queryId": "Kepler-607 c",
+            "goldId": "TOI-1758 b",
+            "pred": "Kepler-393 c",
+            "ok": false,
+            "tokens": 524
+          },
+          "AWARE": {
+            "queryId": "Kepler-607 c",
+            "goldId": "TOI-1758 b",
+            "pred": "TOI-1758 b",
+            "ok": true,
+            "tokens": 170
+          }
+        },
+        "honesty": "Language-pack rhyme on measured catalog couplings. Pack-compliant reader = prompt-following policy (E9–E11 pack shape). Not a live frontier LLM bake-off unless COSMIC_LLM_* is configured."
+      },
+      "neo": {
+        "experiment": "C5",
+        "layer": "neo",
+        "mode": "pack_compliant_language_rhyme",
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 48
+        },
+        "deltaAwareLinear": 1,
+        "deltaAwareFlat": 1,
+        "ci95AwareMinusLinear": {
+          "low": 1,
+          "high": 1,
+          "mean": 1
+        },
+        "H1": true,
+        "H2": true,
+        "tokenEconomics": {
+          "linearMean": 396.3125,
+          "flatMean": 461.1875,
+          "awareMean": 200.79166666666666
+        },
+        "lexicalBlind": {
+          "linear": 0,
+          "flat": 0.020833333333333332,
+          "aware": 0
+        },
+        "samplePacks": {
+          "LINEAR": {
+            "queryId": "2014 WL6@2015-Jan-01 06:41",
+            "goldId": "2015 BE513@2015-Jan-04 03:19",
+            "pred": "2022 AP1@2015-Jan-01 00:27",
+            "ok": false,
+            "tokens": 271
+          },
+          "FLAT": {
+            "queryId": "2014 WL6@2015-Jan-01 06:41",
+            "goldId": "2015 BE513@2015-Jan-04 03:19",
+            "pred": "2015 BD4@2015-Jan-07 05:28",
+            "ok": false,
+            "tokens": 461
+          },
+          "AWARE": {
+            "queryId": "2014 WL6@2015-Jan-01 06:41",
+            "goldId": "2015 BE513@2015-Jan-04 03:19",
+            "pred": "2015 BE513@2015-Jan-04 03:19",
+            "ok": true,
+            "tokens": 200
+          }
+        },
+        "honesty": "Language-pack rhyme on measured catalog couplings. Pack-compliant reader = prompt-following policy (E9–E11 pack shape). Not a live frontier LLM bake-off unless COSMIC_LLM_* is configured."
+      },
+      "ngc": {
+        "experiment": "C5",
+        "layer": "ngc",
+        "mode": "pack_compliant_language_rhyme",
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0.020833333333333332,
+          "aware": 1,
+          "n": 48
+        },
+        "deltaAwareLinear": 1,
+        "deltaAwareFlat": 0.9791666666666666,
+        "ci95AwareMinusLinear": {
+          "low": 1,
+          "high": 1,
+          "mean": 1
+        },
+        "H1": true,
+        "H2": true,
+        "tokenEconomics": {
+          "linearMean": 378.6041666666667,
+          "flatMean": 442.8541666666667,
+          "awareMean": 153.66666666666666
+        },
+        "lexicalBlind": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 0
+        },
+        "samplePacks": {
+          "LINEAR": {
+            "queryId": "IC0002",
+            "goldId": "IC0036",
+            "pred": "IC0003",
+            "ok": false,
+            "tokens": 227
+          },
+          "FLAT": {
+            "queryId": "IC0002",
+            "goldId": "IC0036",
+            "pred": "IC0027",
+            "ok": false,
+            "tokens": 444
+          },
+          "AWARE": {
+            "queryId": "IC0002",
+            "goldId": "IC0036",
+            "pred": "IC0036",
+            "ok": true,
+            "tokens": 153
+          }
+        },
+        "honesty": "Language-pack rhyme on measured catalog couplings. Pack-compliant reader = prompt-following policy (E9–E11 pack shape). Not a live frontier LLM bake-off unless COSMIC_LLM_* is configured."
+      }
+    },
+    "wmap": {
+      "experiment": "C5",
+      "layer": "wmap_tt",
+      "mode": "pack_compliant_language_rhyme",
+      "nTasks": 48,
+      "bestLag": 5,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 48
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "tokenEconomics": {
+        "linearMean": 70.91666666666667,
+        "flatMean": 106.16666666666667,
+        "awareMean": 116.875
+      },
+      "lexicalBlind": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 0
+      }
+    },
+    "summary": {
+      "h1Layers": [
+        "exoplanet",
+        "neo",
+        "ngc",
+        "wmap_tt"
+      ],
+      "nH1": 4,
+      "meanAware": 1,
+      "meanLinear": 0,
+      "llmRhymeSignal": true,
+      "liveLlmConfigured": false,
+      "liveLlmRan": false,
+      "verdict": "C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (exoplanet, neo, ngc, wmap_tt); AWARE packs recover long-range partners LINEAR/FLAT packs miss under a pack-compliant reader.",
+      "note": "Default C5 is the E9–E11 language-pack rhyme with a deterministic pack-compliant reader (no API). Live LLM optional via COSMIC_LLM_URL/KEY. Lexical-blind baseline reported for contrast."
+    }
+  },
   "summary": {
     "h1Layers": [
       "exoplanet",
@@ -682,7 +1268,102 @@
       }
     ],
     "positiveExpeditionSignal": true,
-    "verdict": "POSITIVE — relational awareness exposes recoverable cosmic structure beyond linear/flat representations on public fixtures; ship blog + library."
+    "nCandidateNovelPhysics": 2,
+    "nKnownPhysicsRediscovery": 7,
+    "physicsSearchSignal": true,
+    "physicsVerdict": "C4 POSITIVE — 2 residual candidate(s) beat nulls after selection/template removal; treat as candidate novel physics under this protocol, not confirmed law.",
+    "novelPhysicsHits": [
+      {
+        "layer": "wmap_tt_residual",
+        "lag": 11,
+        "corr": 0.4987107761862873,
+        "pResidualShuffle": 0.0033222591362126247,
+        "verdict": "candidate_novel_physics",
+        "nearAcousticSpacing": false
+      },
+      {
+        "layer": "wmap_tt_residual",
+        "lag": 14,
+        "corr": 0.46592098076818395,
+        "pResidualShuffle": 0.0033222591362126247,
+        "verdict": "candidate_novel_physics",
+        "nearAcousticSpacing": false
+      }
+    ],
+    "knownPhysicsHits": [
+      {
+        "layer": "exoplanet_residual",
+        "pair": "log_bmasse~log_rade",
+        "trainCorr": 0.8184202036139882,
+        "heldOutCorr": 0.840777892665437,
+        "pColumnShuffle": 0.004975124378109453,
+        "pFootprintScramble": 1,
+        "verdict": "known_physics_rediscovery",
+        "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+      },
+      {
+        "layer": "exoplanet_residual",
+        "pair": "st_mass~st_rad",
+        "trainCorr": 0.5441238312141791,
+        "heldOutCorr": 0.4525963434830309,
+        "pColumnShuffle": 0.014925373134328358,
+        "pFootprintScramble": 1,
+        "verdict": "known_physics_rediscovery",
+        "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+      },
+      {
+        "layer": "exoplanet_residual",
+        "pair": "log_orbper~log_rade",
+        "trainCorr": 0.4207732629286463,
+        "heldOutCorr": 0.3760671959999829,
+        "pColumnShuffle": 0.014925373134328358,
+        "pFootprintScramble": 1,
+        "verdict": "known_physics_rediscovery",
+        "note": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+      },
+      {
+        "layer": "wmap_tt_residual",
+        "lag": 17,
+        "corr": 0.4656523293986649,
+        "pResidualShuffle": 0.0033222591362126247,
+        "verdict": "known_physics_rediscovery",
+        "nearAcousticSpacing": true
+      },
+      {
+        "layer": "wmap_tt_residual",
+        "lag": 18,
+        "corr": 0.4324898827032516,
+        "pResidualShuffle": 0.0033222591362126247,
+        "verdict": "known_physics_rediscovery",
+        "nearAcousticSpacing": true
+      },
+      {
+        "layer": "wmap_tt_residual",
+        "lag": 19,
+        "corr": 0.4262711763549666,
+        "pResidualShuffle": 0.0033222591362126247,
+        "verdict": "known_physics_rediscovery",
+        "nearAcousticSpacing": true
+      },
+      {
+        "layer": "neo_residual",
+        "pair": "h_mag~log_v_rel",
+        "trainCorr": 0.3465137961434771,
+        "heldOutCorr": 0.4148162344467022,
+        "pColumnShuffle": 0.004975124378109453,
+        "verdict": "known_physics_rediscovery"
+      }
+    ],
+    "whyPriorArmsWereNotNovelPhysics": "C1–C3 demonstrated relational representation and catalog fingerprints (survey history / selection). Those are necessary but not sufficient for a novel-physics claim. C4 residualizes known selection axes and tests leftover couplings against shuffle and footprint nulls.",
+    "llmRhymeSignal": true,
+    "llmRhymeVerdict": "C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (exoplanet, neo, ngc, wmap_tt); AWARE packs recover long-range partners LINEAR/FLAT packs miss under a pack-compliant reader.",
+    "llmRhymeH1Layers": [
+      "exoplanet",
+      "neo",
+      "ngc",
+      "wmap_tt"
+    ],
+    "verdict": "POSITIVE relational rhyme on catalogs. C4 POSITIVE — 2 residual candidate(s) beat nulls after selection/template removal; treat as candidate novel physics under this protocol, not confirmed law. C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (exoplanet, neo, ngc, wmap_tt); AWARE packs recover long-range partners LINEAR/FLAT packs miss under a pack-compliant reader."
   },
-  "ms": 29574
+  "ms": 29963
 }

@@ -75,12 +75,39 @@ For each candidate motif:
 
 Treat WMAP TT multipoles as a linear sequence. Compare LINEAR local multipole windows vs AWARE lag-coupling board for recovering held-out spectral partners (strongest lag correlation). Same H1/H2 shape as C1.
 
+### C4 — Novel-physics candidate search (why C1–C3 were not enough)
+
+C1–C3 answer whether relational representation beats linear reading on cosmic catalogs. That is necessary for a physics telescope, but not novel physics. Novel physics requires leftovers after known selection and known templates are removed.
+
+C4a exoplanets: residualize physics axes against disc_year/RA/Dec/distance; nulls = column shuffle + footprint scramble.
+C4b WMAP TT: residualize log Cl against smooth log-ell continuum; null = residual shuffle; acoustic-peak lean → rediscovery.
+C4c OpenNGC: size residual vs brightness; isotropic sky scramble.
+C4d NEO: residualize against distance.
+
+A candidate_novel_physics hit must beat nulls and must not sit in the locked known-template list. Candidate ≠ confirmed law.
+
+### C5 — LLM / language-pack rhyme (E9–E11 packing on cosmic fixtures)
+
+C1 answers the folding rhyme in feature space. C5 asks whether the **same rhyme appears when cosmic observations are packed as language** the way E9–E11 packed proteins / Hotpot / FRED for LLMs.
+
+For each C1-style long-range partner task on exoplanets, NEOs, OpenNGC, and WMAP TT:
+
+1. **LINEAR pack** — query + local RA/time/ℓ window feature lines only.  
+2. **FLAT pack** — query + unstructured dump of train/local/distractor lines (no ranks).  
+3. **AWARE pack** — query + `LEADING RELATIONAL CANDIDATE` + ranked `RELATIONAL AWARENESS BOARD` from measured couplings (no gold labels in the board construction).
+
+**Default runner (CI):** pack-compliant reader — follows AWARE leading candidate / first local / first dump id. Proves the rhyme lives in the language pack without a network call.  
+**Contrast:** lexical-blind reader (token overlap with query line; ignores board ranks).  
+**Optional live LLM:** if `COSMIC_LLM_URL` + `COSMIC_LLM_KEY` are set, same packs may be sent to a model; not required for expedition signal. Same H1/H2 thresholds as C1. Token/char economics reported (H3-style).
+
+C5 is secondary to C1–C4. Pack-compliant AWARE wins ≠ frontier model superiority ≠ novel physics.
+
 ## Honesty boundary (locks)
 
 - Application companion expedition — **not** ENGINE_SHELF, not a claim of new fundamental physics, not a Universe ontology.  
 - Architecture / representation result: relational boards can expose structure hard to recover linearly from the **same** public observations.  
 - Surviving motifs require held-out + null survival; rediscoveries are reported as rediscoveries.  
-- No LLM bake-off required for C1–C3 architecture controls (deterministic / statistical). Optional LLM arms are secondary.
+- C1–C4 need no LLM. C5 default is language-pack / pack-compliant (deterministic). Live LLM is optional and not a bake-off claim.
 
 ## Verdict rules
 

@@ -24,6 +24,8 @@ Fixtures: NASA Exoplanet Archive · JPL CAD · OpenNGC · WMAP 9-year TT
 | C1 | LINEAR / FLAT / AWARE partner recovery on exoplanets, NEOs, OpenNGC |
 | C2 | Open motif discovery vs feature-permute null + held-out + FDR |
 | C3 | WMAP TT multipole spectral rhyme |
+| C4 | Residual novel-physics candidate search (selection/continuum removed) |
+| C5 | LLM / language-pack rhyme (E9–E11 packing; pack-compliant default) |
 
 ## Surfaces
 
