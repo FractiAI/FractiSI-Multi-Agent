@@ -15,10 +15,13 @@
  */
 
 export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
-  id: 'testdrive-voice-lock-2026-11-12-test-paper-links',
-  lockedAt: '2026-11-12',
-  symposium: 'Applied Active Inference Symposium · Nov 12–13, 2026',
+  id: 'testdrive-voice-lock-2026-11-17-evergreen',
+  lockedAt: '2026-11-17',
+  /** Post-symposium: Test Drive is evergreen — no live event subtitle. */
+  symposium: null,
   heroH1: 'The Multi-Agent World Inference Rhyme?',
+  tagline:
+    'The Fractal Holographic Goldilocks World Model for digital (and human) agents.',
   ctaLabel: 'Begin →',
   researchQuestion:
     'When many agents share one world, does the way they organize it rhyme?',

@@ -1,29 +1,30 @@
 ---
-description: Locked Test Drive / symposium surface voice — do not restore older copy
+description: Locked Test Drive surface voice — do not restore older copy
 alwaysApply: true
 ---
 
 # Test Drive voice lock — Always On
 
-**Locked 2026-11-12, plain-language lab report (what we did / measured / came back / means / beyond theory).** Prior: 2026-11-11 frontier superintelligence lab voice. Player 1 locked the FractiSI Multi-Agent Test Drive / symposium surfaces. Do **not** restore earlier heroes, meta titles, or AI-slop phrasing when editing this repo (including Auto model runs).
+**Locked 2026-11-17 evergreen.** Prior: 2026-11-12 plain-language lab report; 2026-11-11 frontier superintelligence lab voice. Player 1 locked the FractiSI Multi-Agent Test Drive surfaces. Do **not** restore earlier heroes, meta titles, live symposium event subtitles, or AI-slop phrasing when editing this repo (including Auto model runs). The Applied Active Inference Symposium (Nov 12–13, 2026) is over — keep archival talk/blog pages, but do **not** re-attach the event to the live Test Drive hero or site announcement banner.
 
 ## Canonical lock
 
-- Contract: `src/testdrive/voice-lock.mjs` (`TEST_DRIVE_VOICE_LOCK`)
+- Contract: `src/testdrive/voice-lock.mjs` (`TEST_DRIVE_VOICE_LOCK`) — `symposium: null`
 - Guide: `TEST_DRIVE.md` (banner **VOICE LOCK**)
-- Surfaces: `test-drive/index.html` · `talks/aai-symposium-2026/index.html` · `blog/aai-symposium-2026/index.html`
+- Surfaces: `test-drive/index.html` · archival `talks/aai-symposium-2026/index.html` · archival `blog/aai-symposium-2026/index.html`
 - CI: `tests/testdrive/voice-lock.test.mjs` (must stay green)
 
 ## Opening lock
 
-Begin the symposium / Test Drive on the bathroom awareness story (`#story`), then `#welcome` as the operating demonstration of FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness — not theory. That is why it is called a Test Drive.
+Begin the Test Drive on the bathroom awareness story (`#story`), then `#welcome` as the operating demonstration of FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness — not theory. That is why it is called a Test Drive.
 
 ## Required hero
 
 - Page `<h1>` and deck/blog title: **The Multi-Agent World Inference Rhyme?**
+- **No** live event subtitle (`<p class="event">…</p>` must stay absent)
 - CTA: **Begin →**
 - Research question on `#welcome`: *When many agents share one world, does the way they organize it rhyme?*
-- Storage keys: `…-v14` (do not roll back to v12/v13)
+- Storage keys: `…-v22` (do not roll back)
 
 ## Required step titles (exact)
 

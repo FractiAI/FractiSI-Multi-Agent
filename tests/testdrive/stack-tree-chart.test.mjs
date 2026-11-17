@@ -65,7 +65,8 @@ test('Test Drive opens on the hero title and introduces the case', async () => {
   assert.match(page, /<h1>The Multi-Agent World Inference Rhyme\?<\/h1>/);
   assert.match(page, /\/css\/site\.css\?v=35/);
   assert.match(page, />Begin →</);
-  assert.match(page, /Applied Active Inference Symposium/);
+  assert.doesNotMatch(page, /Applied Active Inference Symposium · Nov 12/);
+  assert.doesNotMatch(page, /<p class="event">/);
   assert.match(page, /When many agents share one world, does the way they organize it rhyme\?/);
   assert.match(page, /I work as a restroom valet/);
   assert.match(page, /Syntheverse Sandbox/);

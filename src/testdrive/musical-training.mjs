@@ -12,7 +12,7 @@ export const MUSICAL_TRAINING = Object.freeze({
   id: 'fractisi-musical-training-2026-11',
   title: 'The FractiSI Multi-Agent Test Drive',
   subtitle: 'A Musical Training Program',
-  symposium: 'Applied Active Inference Symposium · Bach-Inspired Cello Solos · 16 Chapters',
+  symposium: 'Bach-Inspired Cello Solos · 16 Chapters · parallel to the live Test Drive',
   sunoPlaylistUrl: SUNO_PLAYLIST_URL,
   sunoPlaylistLabel: 'Listen on Suno',
   lede:
