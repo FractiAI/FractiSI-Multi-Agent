@@ -14,7 +14,11 @@ Protocol: `E10_E11_HIGHER_SYSTEM_RHYMES.md` (pre-registered). Protein E9 remains
 
 ## Cross-rhyme verdict
 
-Folding-rhyme **relational awareness** beats linear (and flat dump) on **protein**, **knowledge**, and **macroeconomy** — i.e. not only folds. That is evidence the pattern helps **higher systems** that agents operate in (multi-hop knowledge; macro coupling), which is the smarter-agent claim’s system-generalization step.
+**What was tested.** Same three arms on each rhyme: LINEAR (local sequence/passage/series text only), FLAT (same material without a structured map), AWARE (explicit board of measured long-range couplings). Scored outcome = exact recovery of one held-out long-range partner (PDB contact residue · HotpotQA supporting title pair · strongest FRED lagged series).
+
+**What “beat linear” means here.** Under the same model and the same recovery question, AWARE’s exact-recovery rate was higher than LINEAR’s (and higher than FLAT’s) on all three rhymes above — not a preference rating, and not a claim that the base model invented the couplings. The board supplies a leading relational candidate from real MSA / passage-overlap / lag-correlation structure; LINEAR never sees that map.
+
+**Why it matters.** The lift is not limited to protein folds. Multi-hop knowledge and macro coupling are systems agents actually use, so the same relational World Model move generalizes beyond biology.
 
 Honesty: AWARE often succeeds by using an explicit leading relational candidate derived from real couplings (MSA overlap / FRED lag-corr / Pfam). LINEAR never gets that map. This demonstrates **new ability vs linear under a shared world model**, not that the base model invented couplings from nothing.
 
