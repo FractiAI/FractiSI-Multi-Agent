@@ -14,14 +14,14 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 **Self-paced path** — fully self-sufficient in the browser; a presenter can speak from the same pages.
 
-**Hero:** *The Multi-Agent World Inference Rhyme?* · about twenty minutes · no account · no wallet · live numbers.
+**Hero:** *The Multi-Agent World Inference Rhyme?* · about twenty-five minutes · no account · no wallet · live numbers.
 
-### Arc (13 steps · about twenty minutes)
+### Arc (15 steps · about twenty-five minutes)
 
-Voice: world-class frontier superintelligence lab. Mission first (superintelligence is not one model in a box; it is human and digital agents holding one world together), then evidence. Precise, ambitious, restrained, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**. Thesis alignment: a World Model is a **computational fold** — intelligence recovers relationships that linear private copies miss; companion labs show relational recovery and complementary synergy (task-dependent).
+Voice: world-class frontier superintelligence lab. Mission first (superintelligence is not one model in a box; it is human and digital agents holding one world together), then evidence. Precise, ambitious, restrained, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**. Thesis alignment: a World Model is a **computational fold** — intelligence recovers relationships that linear private copies miss. Visitors run the intelligence and synergy claims themselves (LINEAR/FLAT/AWARE + complementary collab).
 
 1. **The same song.** (`#story`) — Bathroom / restroom valet awareness story · awareness frames sensory observations · Men’s Club Reno  
-2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · computational fold / relational World Model · research question · six tests · link to Protein Folding as a Rhyme for Intelligence  
+2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · computational fold / relational World Model · research question · eight tests · link to Protein Folding as a Rhyme for Intelligence  
 3. **Where you are.** (`#sandbox`) — Syntheverse Sandbox on Base Mainnet · enter and leave with chosen awareness · no wallet  
 4. **What goes wrong with many agents.** (`#problem`) — copies · memory · paraphrase · discovery and convergence · collisions · private linear streams miss relationships  
 5. **Net Zero, then rhyme.** (`#rhyme`) — Net Zero (*balanced zero, not nothing zero*) first, then the four-pillar rhyme gate · cross-domain sequence→map→world rhyme  
@@ -29,12 +29,14 @@ Voice: world-class frontier superintelligence lab. Mission first (superintellige
 7. **More agents, same memory.** (`#7`) — Test 2 · density headroom  
 8. **Same job, different words.** (`#3`) — Test 3 · exact-text cache vs Rhyming Templates  
 9. **Answers six links deep.** (`#4`) — Test 4 · 100 vs 0 discoveries  
-10. **Git awareness · cleaner merges.** (`#git`) — Test 5 · 2 → 0 failed merges (portable cloud lab git)  
-11. **The stack, bottom to top.** (`#how-stack`) — after five shared-world tests · prediction is Test 6 next · stack tree + named ladder · `/media/fractisi-multi-agent-stack-tree.jpg`  
-12. **Rehearse the future. Change the world on approval.** (`#futures`) — Test 6 · Predictive Shared State live lab · +1.4 useful at 32 · +3.6 at 100 · never >5% behind · predictions cannot overwrite without approval · not a Cosmos/V-JEPA wrap  
-13. **Run it yourself.** (`#invite`) — run it in your own IDE (repo link, Git + cloud token, Deploy paid) · explore · connect · beta
+10. **Relationships beat linear reading.** (`#relational`) — Test 5 · LINEAR / FLAT / AWARE partner recovery (regenerable architecture control)  
+11. **When the team beats the parts.** (`#collab`) — Test 6 · collaboration synergy · whole > sum of parts  
+12. **Git awareness · cleaner merges.** (`#git`) — Test 7 · 2 → 0 failed merges (portable cloud lab git)  
+13. **The stack, bottom to top.** (`#how-stack`) — after seven shared-world tests · prediction is Test 8 next · stack tree + named ladder · `/media/fractisi-multi-agent-stack-tree.jpg`  
+14. **Rehearse the future. Change the world on approval.** (`#futures`) — Test 8 · Predictive Shared State live lab · +1.4 useful at 32 · +3.6 at 100 · never >5% behind · predictions cannot overwrite without approval · not a Cosmos/V-JEPA wrap  
+15. **Run it yourself.** (`#invite`) — run it in your own IDE (repo link, Git + cloud token, Deploy paid) · explore · connect · beta
 
-Each test shows *The test* and *What to watch* before it runs, then a result card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally (storage keys `…-v15`) so the last step can recap them.
+Each test shows *The test* and *What to watch* before it runs, then a result card: headline number, before/after bars, a plain-language summary, and the raw log on request. Results persist locally (storage keys `…-v23`) so the last step can recap them.
 
 **Honesty:** coordination (Coordination · Shared state · Composition) was measured and is **not** a headline demo. At 25 agents it logged more conflicts than plain branching (3.7 vs 1.7) while finishing slightly more useful work. The stack step says so. Do not claim fewer collisions.
 
@@ -54,6 +56,10 @@ node scripts/tiny.mjs testdrive 1   # Twelve agents, one copy.
 node scripts/tiny.mjs testdrive 7   # More agents, same memory.
 node scripts/tiny.mjs testdrive 3   # same job, different words
 node scripts/tiny.mjs testdrive 4   # answers six links deep
+node scripts/tiny.mjs testdrive relational   # relationships beat linear reading
+node scripts/tiny.mjs testdrive collab       # when the team beats the parts
+node scripts/tiny.mjs testdrive git
+node scripts/tiny.mjs testdrive futures
 # optional further labs: 2 5 6
 ```
 

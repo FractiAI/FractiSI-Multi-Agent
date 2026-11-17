@@ -24,7 +24,7 @@ test('voice lock contract is frozen and complete', () => {
   assert.equal(LOCK.id, 'testdrive-voice-lock-2026-11-17-evergreen');
   assert.equal(LOCK.heroH1, 'The Multi-Agent World Inference Rhyme?');
   assert.equal(LOCK.symposium, null);
-  assert.equal(LOCK.stepTitles.length, 13);
+  assert.equal(LOCK.stepTitles.length, 15);
   assert.ok(LOCK.forbiddenPhrases.length >= 10);
   assert.ok(LOCK.requiredPhrases.length >= 8);
 });

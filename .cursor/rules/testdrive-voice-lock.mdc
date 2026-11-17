@@ -24,7 +24,8 @@ Begin the Test Drive on the bathroom awareness story (`#story`), then `#welcome`
 - **No** live event subtitle (`<p class="event">…</p>` must stay absent)
 - CTA: **Begin →**
 - Research question on `#welcome`: *When many agents share one world, does the way they organize it rhyme?*
-- Storage keys: `…-v22` (do not roll back)
+- Storage keys: `…-v23` (do not roll back)
+- Eight live tests (Tests 5–6 = relational intelligence + collaboration synergy, run by the visitor)
 
 ## Required step titles (exact)
 
@@ -37,9 +38,12 @@ Begin the Test Drive on the bathroom awareness story (`#story`), then `#welcome`
 7. `7` — More agents, same memory.
 8. `3` — Same job, different words.
 9. `4` — Answers six links deep.
-10. `how-stack` — The stack, bottom to top.
-11. `futures` — Rehearse the future. Change the world on approval.
-12. `invite` — Run it yourself.
+10. `relational` — Relationships beat linear reading.
+11. `collab` — When the team beats the parts.
+12. `git` — Git awareness · cleaner merges.
+13. `how-stack` — The stack, bottom to top.
+14. `futures` — Rehearse the future. Change the world on approval.
+15. `invite` — Run it yourself.
 
 ## Forbidden (do not restore)
 

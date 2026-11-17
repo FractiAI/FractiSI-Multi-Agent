@@ -8,27 +8,29 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const page = readFileSync(join(root, 'test-drive/index.html'), 'utf8');
 const deck = readFileSync(join(root, 'talks/aai-symposium-2026/index.html'), 'utf8');
-const LABS = ['1', '7', '3', '4', 'git', 'futures'];
+const LABS = ['1', '7', '3', '4', 'relational', 'collab', 'git', 'futures'];
 
 
 test('catalog lists primer through density with git and prediction labs', async () => {
   const steps = listTestDriveSteps();
-  assert.equal(steps.length, 10);
+  assert.equal(steps.length, 12);
   assert.equal(steps[0].id, 'primer');
   assert.match(steps[0].title, /Architecture primer|FractiSI Multi-Agent/);
   assert.match(steps[0].component, /Generative possibility|Tiny Gateway/);
   assert.match(steps[3].component, /Rhyming Templates/);
   assert.match(steps[3].short, /Net Zero|octaves/i);
-  assert.match(steps[6].layer, /Coordination/);
-  assert.equal(steps[7].id, 'git');
-  assert.match(steps[7].title, /Git awareness/);
-  assert.equal(steps[8].id, '7');
-  assert.equal(steps[9].id, 'futures');
-  assert.match(steps[9].title, /Rehearse the future/);
+  assert.equal(steps[5].id, 'relational');
+  assert.equal(steps[6].id, 'collab');
+  assert.match(steps[8].layer, /Coordination/);
+  assert.equal(steps[9].id, 'git');
+  assert.match(steps[9].title, /Git awareness/);
+  assert.equal(steps[10].id, '7');
+  assert.equal(steps[11].id, 'futures');
+  assert.match(steps[11].title, /Rehearse the future/);
 });
 
 test('each step returns structured live results naming components', async () => {
-  for (const id of ['primer', '1', '2', '3', '4', '5', '6', 'git', '7', 'futures']) {
+  for (const id of ['primer', '1', '2', '3', '4', 'relational', 'collab', '5', '6', 'git', '7', 'futures']) {
     const out = await runTestDriveStep(id);
     assert.equal(out.ok, true);
     assert.equal(out.step.id === 'primer' ? 'primer' : out.step.id, id === '0' ? 'primer' : id);
@@ -42,7 +44,7 @@ test('each step returns structured live results naming components', async () => 
   assert.match(primer, /Generative possibility/);
 });
 
-test('the six live tests return a plain-language readout with bars', async () => {
+test('the eight live tests return a plain-language readout with bars', async () => {
   for (const id of LABS) {
     const { step } = await runTestDriveStep(id);
     const r = step.readout;
@@ -90,11 +92,11 @@ test('Test Drive page explains each test and renders the results card', async ()
   assert.match(page, /Twelve agents share one context/);
   assert.match(page, /exact-text cache reuses only identical text/i);
   assert.match(page, /six links deep/);
-  assert.match(page, /fractisi-td-walkthrough-done-v22/);
+  assert.match(page, /fractisi-td-walkthrough-done-v23/);
   assert.match(page, /Git awareness · cleaner merges/);
   assert.match(page, /#git/);
   assert.match(page, /portable cloud lab git/);
-  assert.match(page, /fractisi-td-results-v22/);
+  assert.match(page, /fractisi-td-results-v23/);
   assert.doesNotMatch(page, /-v15/);
   assert.match(page, /More agents, same memory\./);
   assert.match(page, /class="step-nav/);
@@ -102,7 +104,7 @@ test('Test Drive page explains each test and renders the results card', async ()
   const rail = page.slice(page.indexOf('progress-rail'), page.indexOf('progress-dots'));
   assert.match(rail, /btn-prev/);
   assert.match(rail, /btn-next/);
-  assert.match(page, /Six live tests/);
+  assert.match(page, /Eight live tests/);
   assert.match(page, /<b>Test 6<\/b>/);
   assert.match(page, /href="#futures"/);
 });
@@ -157,7 +159,7 @@ test('prediction lab reports more useful work when imagination selects', async (
   assert.match(step.readout.beyondTheory, /well beyond theory/i);
 });
 
-test('invite recap and deck results board include six tests', () => {
+test('invite recap and deck results board include eight tests', () => {
   assert.match(page, /PINNED_BRAGS/);
   assert.match(page, /Results board/);
   assert.match(page, /100% fewer Git failed merges/);
@@ -167,6 +169,8 @@ test('invite recap and deck results board include six tests', () => {
   assert.match(deck, /\+3\.6 useful at 100 agents/);
   assert.match(deck, /data-part="Test 5"/);
   assert.match(deck, /data-part="Test 6"/);
+  assert.match(deck, /data-part="Test 7"/);
+  assert.match(deck, /data-part="Test 8"/);
   assert.match(deck, /2 failed merges/);
 });
 
@@ -191,7 +195,7 @@ test('each live test links whitepapers for details, proofs, and receipts', () =>
   assert.match(page, /C_PLUS_IMAGINE_RESULTS\.md/);
 });
 
-test('welcome shows six live tests and stack points at Test 6 next', () => {
+test('welcome shows eight live tests and stack points at Test 8 next', () => {
   const ids = [...page.matchAll(/\{\n\s+id: '([^']+)'/g)].map((m) => m[1]);
   const start = ids.indexOf('story');
   const arc = ids.slice(start, ids.indexOf('invite') + 1);
@@ -205,21 +209,25 @@ test('welcome shows six live tests and stack points at Test 6 next', () => {
     '7',
     '3',
     '4',
+    'relational',
+    'collab',
     'git',
     'how-stack',
     'futures',
     'invite',
   ]);
   const welcome = page.slice(page.indexOf("id: 'welcome'"), page.indexOf("id: 'sandbox'"));
-  assert.match(welcome, /Six live tests/);
-  assert.match(welcome, /<b>Test 6<\/b>/);
+  assert.match(welcome, /Eight live tests/);
+  assert.match(welcome, /<b>Test 8<\/b>/);
   assert.match(welcome, /#futures/);
+  assert.match(welcome, /#relational/);
+  assert.match(welcome, /#collab/);
   const stack = page.slice(page.indexOf("id: 'how-stack'"), page.indexOf("id: 'futures'"));
-  assert.match(stack, /Five shared-world tests ran on the stack below/);
-  assert.match(stack, /Prediction is the sixth live test/);
+  assert.match(stack, /Seven shared-world tests ran on the stack below/);
+  assert.match(stack, /Prediction is the eighth live test/);
   assert.doesNotMatch(stack, /The four tests ran/);
   assert.doesNotMatch(page, /tests four of the five/);
-  assert.match(page, /Step 1 of 13/);
+  assert.match(page, /Step 1 of 15/);
   const futures = page.slice(page.indexOf("id: 'futures'"), page.indexOf("id: 'invite'"));
   assert.match(futures, /mode: 'lab'/);
 });

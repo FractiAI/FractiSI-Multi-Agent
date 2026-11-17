@@ -11,6 +11,8 @@ import { runDiscoveryConvergenceBenchmark } from '../experiments/expedition-002-
 import { runComparativeBench } from '../platform/comparative-bench.mjs';
 import { runGitAwarenessBench } from '../platform/git-bench.mjs';
 import { runCPlusImagineBench } from '../experiments/c-plus-imagine-bench.mjs';
+import { runRelationalIntelligenceDemo } from '../experiments/relational-intelligence-demo.mjs';
+import { runCollabSynergyDemo } from '../experiments/collab-synergy-demo.mjs';
 import {
   ARCHITECTURE_PRIMER,
   architecturePrimerFractisiBullets,
@@ -71,6 +73,22 @@ export const STEP_CATALOG = Object.freeze([
     component: 'Tiny Gateway selective reconstruction · Expedition 002 E2',
   },
   {
+    id: 'relational',
+    n: 'relational',
+    title: 'Relationships beat linear reading.',
+    short: 'LINEAR · FLAT · AWARE partner recovery',
+    layer: 'Relational World Model',
+    component: 'LINEAR / FLAT / AWARE architecture control · E9–E11 claim shape',
+  },
+  {
+    id: 'collab',
+    n: 'collab',
+    title: 'When the team beats the parts.',
+    short: 'Collaboration synergy · whole > sum of parts',
+    layer: 'Multi-agent collaboration',
+    component: 'Complementary join · E12 architecture control',
+  },
+  {
     id: '5',
     n: 5,
     title: 'Selective reconstruction · convergence',
@@ -117,7 +135,9 @@ const NEXT = Object.freeze({
   1: '2',
   2: '3',
   3: '4',
-  4: '5',
+  4: 'relational',
+  relational: 'collab',
+  collab: '5',
   5: '6',
   6: 'git',
   git: '7',
@@ -751,6 +771,123 @@ function run7() {
   });
 }
 
+function runRelational() {
+  const m = meta('relational');
+  const demo = runRelationalIntelligenceDemo();
+  const linearPct = Math.round(demo.linearRate * 100);
+  const flatPct = Math.round(demo.flatRate * 100);
+  const awarePct = Math.round(demo.awareRate * 100);
+  return base(m, {
+    problem: 'Linear reading and flat dumps miss long-range partners that a relational map holds.',
+    opportunity: 'A shared World Model of couplings recovers partners sequence-local reading cannot.',
+    fractisi: [
+      'LINEAR — local window only.',
+      'FLAT — same material without structure.',
+      'AWARE — explicit coupling board; take the leading partner.',
+    ],
+    lines: [
+      'RELATIONAL INTELLIGENCE · LINEAR / FLAT / AWARE',
+      '',
+      `  Seed ${demo.seed} · N=${demo.n}`,
+      `  LINEAR exact partner:  ${demo.linear}/${demo.n} (${linearPct}%)`,
+      `  FLAT exact partner:    ${demo.flat}/${demo.n} (${flatPct}%)`,
+      `  AWARE exact partner:   ${demo.aware}/${demo.n} (${awarePct}%)`,
+      '',
+      `  ${demo.honesty}`,
+    ],
+    metrics: {
+      component: 'relational_intelligence',
+      seed: demo.seed,
+      n: demo.n,
+      linearRate: demo.linearRate,
+      flatRate: demo.flatRate,
+      awareRate: demo.awareRate,
+    },
+    readout: {
+      done: `We gave the same ${demo.n} seeded tasks three organizations of the same material: a local linear window, a flat dump, and a relational coupling board.`,
+      tested: `Exact recovery of one held-out long-range partner under LINEAR, FLAT, and AWARE.`,
+      baselineLabel: 'Linear reading',
+      baselineValue: `${linearPct}%`,
+      treatmentLabel: 'Relational awareness',
+      treatmentValue: `${awarePct}%`,
+      headlineLabel: 'Partner recovery with a relational map',
+      headlineValue: `${awarePct}% vs ${linearPct}%`,
+      bars: {
+        caption: `Exact partner recovery · N=${demo.n}`,
+        baseline: linearPct,
+        treatment: awarePct,
+        baselineText: `LINEAR ${linearPct}%`,
+        treatmentText: `AWARE ${awarePct}%`,
+        max: 100,
+        better: 'higher',
+      },
+      also: `FLAT (unstructured dump) recovered ${flatPct}%. The board is a better organization of information — that is the thesis.`,
+      summary: `On ${demo.n} regenerable tasks, linear reading recovered ${demo.linear} partners and the relational board recovered ${demo.aware}. Same material; different World Model.`,
+      implication: 'Intelligence here means recovering relationships invisible in a linear stream — the computational fold claim you can run yourself.',
+      beyondTheory: `AWARE beating LINEAR on exact partner recovery is a coherent, predictable consequence of holding couplings in a shared map — well beyond theory, and open to re-run on this machine.`,
+    },
+  });
+}
+
+function runCollab() {
+  const m = meta('collab');
+  const demo = runCollabSynergyDemo();
+  const orPct = Math.round(demo.orRate * 100);
+  const collabPct = Math.round(demo.collabRate * 100);
+  return base(m, {
+    problem: 'Independent parts with complementary information often cannot assemble the joint product alone.',
+    opportunity: 'A collaborating team with a shared join rule can beat the sum of solos.',
+    fractisi: [
+      'SOLO / OR — each part alone, or either alone.',
+      'SILO — wrong join rule.',
+      'COLLAB_AWARE — shared awareness join rule.',
+    ],
+    lines: [
+      'COLLABORATION SYNERGY · WHOLE > SUM OF PARTS',
+      '',
+      `  Seed ${demo.seed} · N=${demo.n}`,
+      `  SOLO_A / SOLO_B:     ${demo.soloA}/${demo.n} · ${demo.soloB}/${demo.n}`,
+      `  INDEPENDENT_OR:     ${demo.independentOr}/${demo.n} (${orPct}%)`,
+      `  SILO (wrong join):  ${demo.siloTeam}/${demo.n}`,
+      `  COLLAB_AWARE:       ${demo.collabAware}/${demo.n} (${collabPct}%)`,
+      '',
+      `  synergy_whole_gt_sum_parts: ${demo.synergyWholeGtSumParts}`,
+      `  ${demo.honesty}`,
+    ],
+    metrics: {
+      component: 'collab_synergy',
+      seed: demo.seed,
+      n: demo.n,
+      orRate: demo.orRate,
+      collabRate: demo.collabRate,
+      synergyWholeGtSumParts: demo.synergyWholeGtSumParts,
+    },
+    readout: {
+      done: `We split ${demo.n} complementary items so each part held half the joint token. Solos, OR, and a wrong join rule tried first; then a shared awareness join.`,
+      tested: `Whether the collaborating team beats the OR of independent solos on the joint product.`,
+      baselineLabel: 'Independent OR of solos',
+      baselineValue: `${orPct}%`,
+      treatmentLabel: 'Collaborating team',
+      treatmentValue: `${collabPct}%`,
+      headlineLabel: 'Whole > sum of parts',
+      headlineValue: `${collabPct}% vs ${orPct}%`,
+      bars: {
+        caption: `Joint-product recovery · N=${demo.n}`,
+        baseline: orPct,
+        treatment: collabPct,
+        baselineText: `OR ${orPct}%`,
+        treatmentText: `COLLAB ${collabPct}%`,
+        max: 100,
+        better: 'higher',
+      },
+      also: `Solos and wrong-join also scored ${Math.round(demo.soloARate * 100)}% / ${Math.round(demo.siloRate * 100)}%. Synergy appears when the job is truly complementary.`,
+      summary: `Independent parts never formed the joint product (${orPct}%). With a shared join rule the team recovered it on ${collabPct}% of items — whole greater than the sum of parts.`,
+      implication: 'Multi-agent synergy is real when information is complementary and the World Model supports a shared join — not a claim that more chat always wins.',
+      beyondTheory: `Zero solos/OR versus full recovery under a shared join is a coherent, predictable architecture result — well beyond theory — and you just ran it.`,
+    },
+  });
+}
+
 const RUNNERS = Object.freeze({
   primer: runPrimer,
   0: runPrimer,
@@ -758,6 +895,8 @@ const RUNNERS = Object.freeze({
   2: run2,
   3: run3,
   4: run4,
+  relational: runRelational,
+  collab: runCollab,
   5: run5,
   6: run6,
   git: runGitLab,

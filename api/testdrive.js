@@ -1,6 +1,6 @@
 /**
  * Self-paced Test Drive runner.
- * GET/POST /api/testdrive?step=primer|1…7|list
+ * GET/POST /api/testdrive?step=primer|1…7|relational|collab|git|futures|list
  */
 import { listTestDriveSteps, runTestDriveStep } from '../src/testdrive/run-step.mjs';
 
