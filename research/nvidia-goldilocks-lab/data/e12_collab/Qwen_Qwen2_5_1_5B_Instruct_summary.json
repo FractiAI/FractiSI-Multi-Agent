@@ -1,0 +1,47 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "protocol": "E12_COLLAB_SYNERGY.md",
+  "n": 30,
+  "exact_match_rates": {
+    "SOLO_A": 0.2333,
+    "SOLO_B": 0.3667,
+    "MAX_SOLO": 0.4667,
+    "INDEPENDENT_OR": 0.4667,
+    "SILO_TEAM": 0.3667,
+    "COLLAB_AWARE": 0.2667
+  },
+  "mean_f1": {
+    "SOLO_A": 0.2982,
+    "SOLO_B": 0.4942,
+    "MAX_SOLO": 0.6123,
+    "INDEPENDENT_OR": 0.6123,
+    "SILO_TEAM": 0.5127,
+    "COLLAB_AWARE": 0.4215
+  },
+  "contrasts": {
+    "COLLAB_minus_INDEPENDENT_OR": {
+      "mean": -0.2005,
+      "lo": -0.3667,
+      "hi": -0.0333,
+      "excludes_0": true
+    },
+    "COLLAB_minus_MAX_SOLO": {
+      "mean": -0.2005,
+      "lo": -0.3667,
+      "hi": -0.0333,
+      "excludes_0": true
+    },
+    "COLLAB_minus_SILO_TEAM": {
+      "mean": -0.1007,
+      "lo": -0.3,
+      "hi": 0.1,
+      "excludes_0": false
+    }
+  },
+  "gates": {
+    "synergy_whole_gt_sum_parts": false,
+    "team_gt_best_part": false,
+    "board_helps_messaging": false
+  },
+  "verdict_better_collaboration": false
+}

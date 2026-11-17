@@ -1,0 +1,40 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "protocol": "E12_COLLAB_SYNERGY.md Amendment A",
+  "task": "complementary_title_pair",
+  "n": 30,
+  "exact_match_rates": {
+    "SOLO_A": 0.0333,
+    "SOLO_B": 0.0,
+    "MAX_SOLO": 0.0333,
+    "INDEPENDENT_OR": 0.0333,
+    "SILO_TEAM": 0.2,
+    "COLLAB_AWARE": 0.1333
+  },
+  "contrasts": {
+    "COLLAB_minus_INDEPENDENT_OR": {
+      "mean": 0.0996,
+      "lo": -0.0333,
+      "hi": 0.2333,
+      "excludes_0": false
+    },
+    "COLLAB_minus_MAX_SOLO": {
+      "mean": 0.0996,
+      "lo": -0.0333,
+      "hi": 0.2333,
+      "excludes_0": false
+    },
+    "COLLAB_minus_SILO_TEAM": {
+      "mean": -0.065,
+      "lo": -0.2667,
+      "hi": 0.1333,
+      "excludes_0": false
+    }
+  },
+  "gates": {
+    "synergy_whole_gt_sum_parts": false,
+    "team_gt_best_part": false,
+    "board_helps_messaging": false
+  },
+  "verdict_better_collaboration": false
+}

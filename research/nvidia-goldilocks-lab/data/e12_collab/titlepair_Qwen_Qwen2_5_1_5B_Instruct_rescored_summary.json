@@ -1,0 +1,50 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "protocol": "E12_COLLAB_SYNERGY.md Amendment A",
+  "task": "complementary_title_pair",
+  "n": 30,
+  "exact_match_rates": {
+    "SOLO_A": 0.0333,
+    "SOLO_B": 0.0,
+    "MAX_SOLO": 0.0333,
+    "INDEPENDENT_OR": 0.0333,
+    "SILO_TEAM": 0.2,
+    "COLLAB_AWARE": 0.3
+  },
+  "contrasts": {
+    "SILO_TEAM_minus_INDEPENDENT_OR": {
+      "mean": 0.1646,
+      "lo": 0.0,
+      "hi": 0.3333,
+      "excludes_0": false
+    },
+    "SILO_TEAM_minus_MAX_SOLO": {
+      "mean": 0.1646,
+      "lo": 0.0,
+      "hi": 0.3333,
+      "excludes_0": false
+    },
+    "COLLAB_minus_INDEPENDENT_OR": {
+      "mean": 0.2649,
+      "lo": 0.1,
+      "hi": 0.4333,
+      "excludes_0": true
+    },
+    "COLLAB_minus_SILO_TEAM": {
+      "mean": 0.1003,
+      "lo": -0.0667,
+      "hi": 0.2667,
+      "excludes_0": false
+    }
+  },
+  "gates": {
+    "messaging_synergy_whole_gt_sum_parts": false,
+    "messaging_team_gt_best_part": false,
+    "aware_board_synergy": true,
+    "board_helps_messaging": false,
+    "synergy_whole_gt_sum_parts": true,
+    "team_gt_best_part": true
+  },
+  "verdict_better_collaboration": true,
+  "note": "E12b title-pair task: COLLAB_AWARE 30% vs INDEPENDENT_OR/MAX_SOLO 3.3% (CI excludes 0). Secondary answer-EM run on same model did NOT show synergy (collab hurt). Deterministic complementarity control: 0% parts/OR \u2192 100% collab."
+}

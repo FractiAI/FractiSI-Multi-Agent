@@ -1,0 +1,19 @@
+{
+  "model": "deterministic-complementarity/v1",
+  "protocol": "E12_COLLAB_SYNERGY.md (architecture control)",
+  "n": 100,
+  "exact_match_rates": {
+    "SOLO_A": 0.0,
+    "SOLO_B": 0.0,
+    "INDEPENDENT_OR": 0.0,
+    "MAX_SOLO": 0.0,
+    "SILO_TEAM": 0.0,
+    "COLLAB_AWARE": 1.0
+  },
+  "gates": {
+    "synergy_whole_gt_sum_parts": true,
+    "team_gt_best_part": true
+  },
+  "verdict_better_collaboration": true,
+  "interpretation": "Parts alone and OR-of-parts cannot form the joined solution; shared join rule recovers 100%. Architecture-level whole > sum of parts."
+}
