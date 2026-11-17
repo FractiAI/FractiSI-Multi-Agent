@@ -63,6 +63,26 @@
       "permanent": true
     },
     {
+      "source": "/cosmic-rhyme-expedition",
+      "destination": "/blog/cosmic-rhyme-expedition/",
+      "permanent": false
+    },
+    {
+      "source": "/cosmic-rhyme-expedition/",
+      "destination": "/blog/cosmic-rhyme-expedition/",
+      "permanent": false
+    },
+    {
+      "source": "/expedition/cosmic-rhyme",
+      "destination": "/library/papers/cosmic-rhyme-expedition/",
+      "permanent": false
+    },
+    {
+      "source": "/expedition/cosmic-rhyme/",
+      "destination": "/library/papers/cosmic-rhyme-expedition/",
+      "permanent": false
+    },
+    {
       "source": "/nvidia-goldilocks-moment",
       "destination": "/blog/nvidia-goldilocks-moment/",
       "permanent": false

@@ -1,0 +1,688 @@
+{
+  "seed": 20261117,
+  "documentId": "WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17",
+  "c1": {
+    "exoplanet": {
+      "experiment": "C1",
+      "layer": "exoplanet",
+      "nObjects": 500,
+      "nTasks": 171,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 171
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true
+    },
+    "neo": {
+      "experiment": "C1",
+      "layer": "neo",
+      "nObjects": 350,
+      "nTasks": 114,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 114
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true
+    },
+    "ngc": {
+      "experiment": "C1",
+      "layer": "ngc",
+      "nObjects": 600,
+      "nTasks": 176,
+      "rates": {
+        "linear": 0,
+        "flat": 0.011363636363636364,
+        "aware": 1,
+        "n": 176
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 0.9886363636363636,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true
+    }
+  },
+  "c2": {
+    "exoplanet": {
+      "experiment": "C2",
+      "layer": "exoplanet",
+      "nTrain": 300,
+      "nTest": 200,
+      "candidates": [
+        {
+          "signature": "disc_year~st_rad",
+          "trainEnrichment": 0.5080357142857143,
+          "heldOutEnrichment": 0.5282258064516129,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.034609375,
+          "meanLabelNull": 0.46964285714285775
+        },
+        {
+          "signature": "disc_year~st_teff",
+          "trainEnrichment": 0.059821428571428574,
+          "heldOutEnrichment": 0.06653225806451613,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.0355580357142857,
+          "meanLabelNull": 0.07321428571428581
+        },
+        {
+          "signature": "disc_year~st_mass",
+          "trainEnrichment": 0.048214285714285716,
+          "heldOutEnrichment": 0.02620967741935484,
+          "pFeaturePermute": 0.9135802469135802,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.035100446428571436,
+          "meanLabelNull": 0.046428571428571375
+        },
+        {
+          "signature": "st_rad~st_teff",
+          "trainEnrichment": 0.04732142857142857,
+          "heldOutEnrichment": 0.02217741935483871,
+          "pFeaturePermute": 0.9876543209876543,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.0353794642857143,
+          "meanLabelNull": 0.04464285714285718
+        },
+        {
+          "signature": "disc_year~log_orbper",
+          "trainEnrichment": 0.04375,
+          "heldOutEnrichment": 0.02620967741935484,
+          "pFeaturePermute": 0.8395061728395061,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.03503348214285715,
+          "meanLabelNull": 0.04464285714285718
+        },
+        {
+          "signature": "st_rad~sy_dist",
+          "trainEnrichment": 0.04017857142857143,
+          "heldOutEnrichment": 0.036290322580645164,
+          "pFeaturePermute": 0.48148148148148145,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.03598214285714287,
+          "meanLabelNull": 0.037500000000000054
+        },
+        {
+          "signature": "log_rade~st_rad",
+          "trainEnrichment": 0.03482142857142857,
+          "heldOutEnrichment": 0.02620967741935484,
+          "pFeaturePermute": 0.9259259259259259,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.037154017857142875,
+          "meanLabelNull": 0.035714285714285705
+        },
+        {
+          "signature": "disc_year~sy_dist",
+          "trainEnrichment": 0.03482142857142857,
+          "heldOutEnrichment": 0.04032258064516129,
+          "pFeaturePermute": 0.345679012345679,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.037064732142857146,
+          "meanLabelNull": 0.038392857142857124
+        },
+        {
+          "signature": "disc_year~log_bmasse",
+          "trainEnrichment": 0.029464285714285714,
+          "heldOutEnrichment": 0.05443548387096774,
+          "pFeaturePermute": 0.06172839506172839,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03623883928571428,
+          "meanLabelNull": 0.034821428571428566
+        },
+        {
+          "signature": "log_rade~sy_dist",
+          "trainEnrichment": 0.025,
+          "heldOutEnrichment": 0.03225806451612903,
+          "pFeaturePermute": 0.691358024691358,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03594866071428573,
+          "meanLabelNull": 0.030357142857142833
+        },
+        {
+          "signature": "st_mass~st_rad",
+          "trainEnrichment": 0.023214285714285715,
+          "heldOutEnrichment": 0.006048387096774193,
+          "pFeaturePermute": 1,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.03457589285714286,
+          "meanLabelNull": 0.02589285714285715
+        },
+        {
+          "signature": "log_orbper~st_rad",
+          "trainEnrichment": 0.022321428571428572,
+          "heldOutEnrichment": 0.02217741935483871,
+          "pFeaturePermute": 0.9506172839506173,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.03426339285714286,
+          "meanLabelNull": 0.023214285714285687
+        }
+      ],
+      "survivors": [
+        {
+          "signature": "disc_year~st_rad",
+          "trainEnrichment": 0.5080357142857143,
+          "heldOutEnrichment": 0.5282258064516129,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.034609375,
+          "meanLabelNull": 0.46964285714285775,
+          "fdrSurvive": true,
+          "audit": "Catalog selection motif: discovery epoch aligned with stellar-radius slice — survey-history pattern in the observable cosmos, not new physics.",
+          "forbiddenLeak": false
+        },
+        {
+          "signature": "disc_year~st_teff",
+          "trainEnrichment": 0.059821428571428574,
+          "heldOutEnrichment": 0.06653225806451613,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.0355580357142857,
+          "meanLabelNull": 0.07321428571428581,
+          "fdrSurvive": true,
+          "audit": "Catalog selection motif: discovery epoch aligned with stellar-temperature slice — survey-history pattern in the observable cosmos, not new physics.",
+          "forbiddenLeak": false
+        }
+      ],
+      "nSurvivors": 2
+    },
+    "neo": {
+      "experiment": "C2",
+      "layer": "neo",
+      "nTrain": 210,
+      "nTest": 140,
+      "candidates": [
+        {
+          "signature": "jd_norm~log_dist",
+          "trainEnrichment": 0.14534883720930233,
+          "heldOutEnrichment": 0.09615384615384616,
+          "pFeaturePermute": 0.16049382716049382,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.07694794864604768,
+          "meanLabelNull": 0.13832853025936614
+        },
+        {
+          "signature": "h_mag~log_dist",
+          "trainEnrichment": 0.11046511627906977,
+          "heldOutEnrichment": 0.16025641025641027,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.0753663800054735,
+          "meanLabelNull": 0.10662824207492787
+        },
+        {
+          "signature": "dist_min~jd_norm",
+          "trainEnrichment": 0.09883720930232558,
+          "heldOutEnrichment": 0.09615384615384616,
+          "pFeaturePermute": 0.16049382716049382,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.07787587663356096,
+          "meanLabelNull": 0.09221902017291056
+        },
+        {
+          "signature": "dist_min~h_mag",
+          "trainEnrichment": 0.08139534883720931,
+          "heldOutEnrichment": 0.10256410256410256,
+          "pFeaturePermute": 0.07407407407407407,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.0749652871477154,
+          "meanLabelNull": 0.0835734870317004
+        },
+        {
+          "signature": "h_mag~jd_norm",
+          "trainEnrichment": 0.07848837209302326,
+          "heldOutEnrichment": 0.07692307692307693,
+          "pFeaturePermute": 0.37037037037037035,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.07367803409951872,
+          "meanLabelNull": 0.07204610951008654
+        },
+        {
+          "signature": "log_dist~log_v_rel",
+          "trainEnrichment": 0.0755813953488372,
+          "heldOutEnrichment": 0.07692307692307693,
+          "pFeaturePermute": 0.49382716049382713,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.07760082224021761,
+          "meanLabelNull": 0.07492795389048991
+        },
+        {
+          "signature": "dist_min~v_inf",
+          "trainEnrichment": 0.0755813953488372,
+          "heldOutEnrichment": 0.038461538461538464,
+          "pFeaturePermute": 0.9876543209876543,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.07846554970781809,
+          "meanLabelNull": 0.07780979827089325
+        },
+        {
+          "signature": "log_dist~v_inf",
+          "trainEnrichment": 0.06976744186046512,
+          "heldOutEnrichment": 0.08974358974358974,
+          "pFeaturePermute": 0.24691358024691357,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.07865541824173669,
+          "meanLabelNull": 0.06628242074927948
+        },
+        {
+          "signature": "h_mag~log_v_rel",
+          "trainEnrichment": 0.05813953488372093,
+          "heldOutEnrichment": 0.038461538461538464,
+          "pFeaturePermute": 1,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.07523086629398854,
+          "meanLabelNull": 0.05475504322766568
+        },
+        {
+          "signature": "jd_norm~log_v_rel",
+          "trainEnrichment": 0.055232558139534885,
+          "heldOutEnrichment": 0.02564102564102564,
+          "pFeaturePermute": 1,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.07662189401522483,
+          "meanLabelNull": 0.06051873198847259
+        },
+        {
+          "signature": "h_mag~v_inf",
+          "trainEnrichment": 0.05232558139534884,
+          "heldOutEnrichment": 0.08974358974358974,
+          "pFeaturePermute": 0.18518518518518517,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.07719071878548364,
+          "meanLabelNull": 0.06051873198847259
+        },
+        {
+          "signature": "jd_norm~v_inf",
+          "trainEnrichment": 0.04941860465116279,
+          "heldOutEnrichment": 0.0641025641025641,
+          "pFeaturePermute": 0.8395061728395061,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.07837022358070475,
+          "meanLabelNull": 0.05187319884726225
+        }
+      ],
+      "survivors": [],
+      "nSurvivors": 0
+    },
+    "ngc": {
+      "experiment": "C2",
+      "layer": "ngc",
+      "nTrain": 360,
+      "nTest": 240,
+      "candidates": [
+        {
+          "signature": "maj_ax~min_ax",
+          "trainEnrichment": 0.7411133467471496,
+          "heldOutEnrichment": 0,
+          "pFeaturePermute": 1,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.03621316955712215,
+          "meanLabelNull": 0.6857335127860017
+        },
+        {
+          "signature": "maj_ax~ra",
+          "trainEnrichment": 0.05700871898054997,
+          "heldOutEnrichment": 0.19148936170212766,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03444620204020667,
+          "meanLabelNull": 0.0780619111709288
+        },
+        {
+          "signature": "dec~min_ax",
+          "trainEnrichment": 0.039570757880617036,
+          "heldOutEnrichment": 0.18085106382978725,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03747633873420012,
+          "meanLabelNull": 0.024899057873485838
+        },
+        {
+          "signature": "dec~maj_ax",
+          "trainEnrichment": 0.03822937625754527,
+          "heldOutEnrichment": 0.19148936170212766,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.038575488262595985,
+          "meanLabelNull": 0.07200538358008071
+        },
+        {
+          "signature": "min_ax~ra",
+          "trainEnrichment": 0.029510395707578806,
+          "heldOutEnrichment": 0.1595744680851064,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.035284721272359564,
+          "meanLabelNull": 0.023553162853297446
+        },
+        {
+          "signature": "min_ax~v_mag",
+          "trainEnrichment": 0.026156941649899398,
+          "heldOutEnrichment": 0.05319148936170213,
+          "pFeaturePermute": 0.04938271604938271,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03547177302250689,
+          "meanLabelNull": 0.016823687752355317
+        },
+        {
+          "signature": "maj_ax~v_mag",
+          "trainEnrichment": 0.02079141515761234,
+          "heldOutEnrichment": 0.06382978723404255,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03630974457304118,
+          "meanLabelNull": 0.04306864064602957
+        },
+        {
+          "signature": "maj_ax~redshift",
+          "trainEnrichment": 0.012072434607645875,
+          "heldOutEnrichment": 0.02127659574468085,
+          "pFeaturePermute": 0.9876543209876543,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03915854119943869,
+          "meanLabelNull": 0.01615074024226113
+        },
+        {
+          "signature": "min_ax~redshift",
+          "trainEnrichment": 0.008718980549966466,
+          "heldOutEnrichment": 0.02127659574468085,
+          "pFeaturePermute": 1,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03830723825959735,
+          "meanLabelNull": 0.006056527590847907
+        },
+        {
+          "signature": "maj_ax~radvel",
+          "trainEnrichment": 0.0053655264922870555,
+          "heldOutEnrichment": 0.02127659574468085,
+          "pFeaturePermute": 0.9753086419753086,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03848571914072689,
+          "meanLabelNull": 0.011440107671601633
+        },
+        {
+          "signature": "b_mag~maj_ax",
+          "trainEnrichment": 0.004694835680751174,
+          "heldOutEnrichment": 0.02127659574468085,
+          "pFeaturePermute": 0.9629629629629629,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03692175097899124,
+          "meanLabelNull": 0.004710632570659495
+        },
+        {
+          "signature": "min_ax~radvel",
+          "trainEnrichment": 0.004024144869215292,
+          "heldOutEnrichment": 0,
+          "pFeaturePermute": 1,
+          "pLabelShuffle": 1,
+          "meanFeatNull": 0.036225078549043645,
+          "meanLabelNull": 0.0033647375504710633
+        }
+      ],
+      "survivors": [
+        {
+          "signature": "maj_ax~ra",
+          "trainEnrichment": 0.05700871898054997,
+          "heldOutEnrichment": 0.19148936170212766,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03444620204020667,
+          "meanLabelNull": 0.0780619111709288,
+          "fdrSurvive": true,
+          "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+          "forbiddenLeak": false
+        },
+        {
+          "signature": "dec~min_ax",
+          "trainEnrichment": 0.039570757880617036,
+          "heldOutEnrichment": 0.18085106382978725,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03747633873420012,
+          "meanLabelNull": 0.024899057873485838,
+          "fdrSurvive": true,
+          "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+          "forbiddenLeak": false
+        },
+        {
+          "signature": "dec~maj_ax",
+          "trainEnrichment": 0.03822937625754527,
+          "heldOutEnrichment": 0.19148936170212766,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.038575488262595985,
+          "meanLabelNull": 0.07200538358008071,
+          "fdrSurvive": true,
+          "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+          "forbiddenLeak": false
+        },
+        {
+          "signature": "min_ax~ra",
+          "trainEnrichment": 0.029510395707578806,
+          "heldOutEnrichment": 0.1595744680851064,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.035284721272359564,
+          "meanLabelNull": 0.023553162853297446,
+          "fdrSurvive": true,
+          "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+          "forbiddenLeak": false
+        },
+        {
+          "signature": "min_ax~v_mag",
+          "trainEnrichment": 0.026156941649899398,
+          "heldOutEnrichment": 0.05319148936170213,
+          "pFeaturePermute": 0.04938271604938271,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03547177302250689,
+          "meanLabelNull": 0.016823687752355317,
+          "fdrSurvive": true,
+          "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+          "forbiddenLeak": false
+        },
+        {
+          "signature": "maj_ax~v_mag",
+          "trainEnrichment": 0.02079141515761234,
+          "heldOutEnrichment": 0.06382978723404255,
+          "pFeaturePermute": 0.012345679012345678,
+          "pLabelShuffle": 0.012345679012345678,
+          "meanFeatNull": 0.03630974457304118,
+          "meanLabelNull": 0.04306864064602957,
+          "fdrSurvive": true,
+          "audit": "Angular size–brightness coupling in deep-sky catalogs — selection/morphology audit.",
+          "forbiddenLeak": false
+        }
+      ],
+      "nSurvivors": 6
+    }
+  },
+  "c3": {
+    "experiment": "C3",
+    "layer": "wmap_tt",
+    "nEll": 899,
+    "topLags": [
+      {
+        "lag": 5,
+        "corr": 0.8950798012889346
+      },
+      {
+        "lag": 1,
+        "corr": 0.8887572789675074
+      },
+      {
+        "lag": 11,
+        "corr": 0.8840149496156944
+      },
+      {
+        "lag": 6,
+        "corr": 0.8818326426325496
+      },
+      {
+        "lag": 10,
+        "corr": 0.881644979871372
+      }
+    ],
+    "rates": {
+      "linear": 0,
+      "flat": 0,
+      "aware": 1,
+      "n": 80
+    },
+    "deltaAwareLinear": 1,
+    "deltaAwareFlat": 1,
+    "ci95AwareMinusLinear": {
+      "low": 1,
+      "high": 1,
+      "mean": 1
+    },
+    "H1": true,
+    "H2": true,
+    "ellRange": [
+      2,
+      900
+    ]
+  },
+  "summary": {
+    "h1Layers": [
+      "exoplanet",
+      "neo",
+      "ngc",
+      "wmap_tt"
+    ],
+    "nH1": 4,
+    "nMotifSurvivors": 8,
+    "motifHits": [
+      {
+        "layer": "exoplanet",
+        "signature": "disc_year~st_rad",
+        "trainEnrichment": 0.5080357142857143,
+        "heldOutEnrichment": 0.5282258064516129,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.034609375,
+        "meanLabelNull": 0.46964285714285775,
+        "fdrSurvive": true,
+        "audit": "Catalog selection motif: discovery epoch aligned with stellar-radius slice — survey-history pattern in the observable cosmos, not new physics.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "exoplanet",
+        "signature": "disc_year~st_teff",
+        "trainEnrichment": 0.059821428571428574,
+        "heldOutEnrichment": 0.06653225806451613,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 1,
+        "meanFeatNull": 0.0355580357142857,
+        "meanLabelNull": 0.07321428571428581,
+        "fdrSurvive": true,
+        "audit": "Catalog selection motif: discovery epoch aligned with stellar-temperature slice — survey-history pattern in the observable cosmos, not new physics.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "ngc",
+        "signature": "maj_ax~ra",
+        "trainEnrichment": 0.05700871898054997,
+        "heldOutEnrichment": 0.19148936170212766,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.03444620204020667,
+        "meanLabelNull": 0.0780619111709288,
+        "fdrSurvive": true,
+        "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "ngc",
+        "signature": "dec~min_ax",
+        "trainEnrichment": 0.039570757880617036,
+        "heldOutEnrichment": 0.18085106382978725,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.03747633873420012,
+        "meanLabelNull": 0.024899057873485838,
+        "fdrSurvive": true,
+        "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "ngc",
+        "signature": "dec~maj_ax",
+        "trainEnrichment": 0.03822937625754527,
+        "heldOutEnrichment": 0.19148936170212766,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.038575488262595985,
+        "meanLabelNull": 0.07200538358008071,
+        "fdrSurvive": true,
+        "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "ngc",
+        "signature": "min_ax~ra",
+        "trainEnrichment": 0.029510395707578806,
+        "heldOutEnrichment": 0.1595744680851064,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.035284721272359564,
+        "meanLabelNull": 0.023553162853297446,
+        "fdrSurvive": true,
+        "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "ngc",
+        "signature": "min_ax~v_mag",
+        "trainEnrichment": 0.026156941649899398,
+        "heldOutEnrichment": 0.05319148936170213,
+        "pFeaturePermute": 0.04938271604938271,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.03547177302250689,
+        "meanLabelNull": 0.016823687752355317,
+        "fdrSurvive": true,
+        "audit": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "forbiddenLeak": false
+      },
+      {
+        "layer": "ngc",
+        "signature": "maj_ax~v_mag",
+        "trainEnrichment": 0.02079141515761234,
+        "heldOutEnrichment": 0.06382978723404255,
+        "pFeaturePermute": 0.012345679012345678,
+        "pLabelShuffle": 0.012345679012345678,
+        "meanFeatNull": 0.03630974457304118,
+        "meanLabelNull": 0.04306864064602957,
+        "fdrSurvive": true,
+        "audit": "Angular size–brightness coupling in deep-sky catalogs — selection/morphology audit.",
+        "forbiddenLeak": false
+      }
+    ],
+    "positiveExpeditionSignal": true,
+    "verdict": "POSITIVE — relational awareness exposes recoverable cosmic structure beyond linear/flat representations on public fixtures; ship blog + library."
+  },
+  "ms": 29574
+}
