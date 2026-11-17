@@ -1,0 +1,42 @@
+{
+  "model": "Qwen/Qwen2/5/1/5B/Instruct",
+  "n": 16,
+  "data": "RCSB PDB + InterPro/Pfam seed MSAs",
+  "cohort": "coevolution_consistent",
+  "exact_rates": {
+    "LINEAR": 0,
+    "FLAT_MSA": 0,
+    "AWARE": 0
+  },
+  "mean_tokens": {
+    "LINEAR": 221.5,
+    "FLAT_MSA": 874.8,
+    "AWARE": 521.8
+  },
+  "contrasts": {
+    "AWARE_minus_LINEAR": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "excludes_0": false
+    },
+    "AWARE_minus_FLAT_MSA": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "excludes_0": false
+    },
+    "FLAT_MSA_minus_LINEAR": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "excludes_0": false
+    }
+  },
+  "H3_token_ratio_AWARE_over_FLAT": 0.5965,
+  "gates": {
+    "H1": false,
+    "H2": false,
+    "H3": true
+  }
+}

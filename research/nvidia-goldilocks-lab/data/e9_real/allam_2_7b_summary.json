@@ -1,0 +1,42 @@
+{
+  "model": "allam/2/7b",
+  "n": 16,
+  "data": "RCSB PDB + InterPro/Pfam seed MSAs",
+  "cohort": "coevolution_consistent",
+  "exact_rates": {
+    "LINEAR": 0,
+    "FLAT_MSA": 0,
+    "AWARE": 0.625
+  },
+  "mean_tokens": {
+    "LINEAR": 254.7,
+    "FLAT_MSA": 967.3,
+    "AWARE": 552.9
+  },
+  "contrasts": {
+    "AWARE_minus_LINEAR": {
+      "mean": 0.624,
+      "lo": 0.375,
+      "hi": 0.875,
+      "excludes_0": true
+    },
+    "AWARE_minus_FLAT_MSA": {
+      "mean": 0.624,
+      "lo": 0.375,
+      "hi": 0.875,
+      "excludes_0": true
+    },
+    "FLAT_MSA_minus_LINEAR": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "excludes_0": false
+    }
+  },
+  "H3_token_ratio_AWARE_over_FLAT": 0.5716,
+  "gates": {
+    "H1": true,
+    "H2": true,
+    "H3": true
+  }
+}

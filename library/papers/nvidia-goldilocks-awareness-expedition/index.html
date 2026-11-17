@@ -53,7 +53,7 @@
   <p><strong>Super-performers (Players)</strong> shape environments beyond standardized roles. <strong>Standard agents (NPCs)</strong> have agency more strongly shaped by inherited scripts. These are dynamic configurations, not permanent worth, and a World Model can constrain or expand agency in either. Highly capable individuals are the most sensitive test of a World Model, which is why a visible leadership case such as Jensen Huang is informative.</p>
 
   <h2>Method and results</h2>
-  <p>Seven experiments from seed 20261115, regenerable with <code>npm run research:synthobs-nvidia-goldilocks-awareness-expedition</code> in the SING 13 repository, with receipts mirrored at <code>research/nvidia-goldilocks-lab/data/</code>.</p>
+  <p>Lab from seed 20261115, regenerable with <code>npm run research:synthobs-nvidia-goldilocks-awareness-expedition</code> in the SING 13 repository, with receipts mirrored at <code>research/nvidia-goldilocks-lab/data/</code>.</p>
   <div class="metrics" aria-label="Lab highlights">
     <div><b>0/100 → 100/100</b><span>E0 · flat skim vs guided reconstruction</span></div>
     <div><b>5.675 vs 6.115</b><span>E1 · temporal vs permuted RMSE</span></div>
@@ -67,6 +67,7 @@
     <li><strong>E2.</strong> Movebank tracks with Kp, 268 rows. Mean-step lag-1 about 0.342 against about 0.036 for the shuffled null. Spread showed no lag-1 structure.</li>
     <li><strong>E3.</strong> Competition-first vs shared world. Accuracy identical at 0.30; duplicated bytes down 91.3%. Efficiency at parity, not an accuracy gain.</li>
     <li><strong>E4.</strong> Closed vs open selective sharing. RMSE effectively equal (6.847 vs 6.848); bytes down 87.3%.</li>
+    <li><strong>E9.</strong> Protein-folding rhyme on real PDB + Pfam: LINEAR 0 · FLAT_MSA 0 · AWARE 0.625 (allam-2-7b, N=16). Relational MSA couplings recover long-range structural partners that sequence alone misses.</li>
     <li><strong>E5.</strong> Scorecard from the dimensions measured. Goldilocks alignment 77.1, unbounded openness 75.4, competition-first 72.2, control containment 67.3. The lead is small and the weights are lab-chosen.</li>
     <li><strong>E6.</strong> Matched-budget architecture test: same model, same prompt, same 64-token per-turn budget, same round limit; only context assembly differs. A deterministic extractive control solved 0 of 100 six-hop chains with private silos and 100 of 100 with shared-world edges. A real open-weight model (<code>gpt-oss-20b</code> via Groq, temperature 0, its own replies driving each round) solved 0 of 12 with silos and 12 of 12 with shared-world edges. The same model also solved 12 of 12 with untruncated silos, so the failure is context assembly under a tight budget, not model weakness; the shared world matched that accuracy with about 4.7 times fewer tokens (1,275 vs 5,986, including reasoning tokens).</li>
   </ul>

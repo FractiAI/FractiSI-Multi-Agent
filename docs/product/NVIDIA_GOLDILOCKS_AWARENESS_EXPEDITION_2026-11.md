@@ -17,6 +17,7 @@
 | E2 Movebank + Kp | lag-1 ~0.34 vs shuffled null ~0.04 |
 | E3 Competition vs shared world | accuracy tied 0.30 · **91.3%** duplicated-byte cut |
 | E4 Closed vs open selective | RMSE tied · **87.3%** byte cut |
+| E9 Folding rhyme (real PDB+Pfam) | LINEAR 0 · FLAT_MSA 0 · **AWARE 0.625** (allam, N=16) |
 | E5 Scorecard | Goldilocks **77.1** · unbounded 75.4 · competition 72.2 · control 67.3 |
 | E6 Matched-budget architecture | same model, prompt, 64-token budget; deterministic control 0/100 vs 100/100 · live open-weight LLM (gpt-oss-20b, 12 tasks) private silos 0/12 vs shared world **12/12**; unbounded-silo control 12/12 at about 4.7x more tokens |
 
