@@ -92,6 +92,11 @@ export const TEST_DRIVE_VOICE_LOCK = Object.freeze({
     'Test 6',
     'Whitepapers · proofs · receipts',
     'Whitepapers, proofs, and receipts',
+    'computational fold',
+    'recovering the relationships',
+    'paradigm shift candidate',
+    'Protein Folding as a Rhyme for Intelligence',
+    'collaboration synergy when the job is truly complementary',
   ]),
   /** Phrases from earlier Test Drive drafts. Do not restore. */
   forbiddenPhrases: Object.freeze([

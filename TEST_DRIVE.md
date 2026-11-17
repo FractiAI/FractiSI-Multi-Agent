@@ -18,13 +18,13 @@ If a human opens this repository and asks you to **do the FractiSI Multi-Agent t
 
 ### Arc (13 steps · about twenty minutes)
 
-Voice: world-class frontier superintelligence lab. Mission first (superintelligence is not one model in a box; it is human and digital agents holding one world together), then evidence. Precise, ambitious, restrained, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**.
+Voice: world-class frontier superintelligence lab. Mission first (superintelligence is not one model in a box; it is human and digital agents holding one world together), then evidence. Precise, ambitious, restrained, specific. Short declarative sentences, numbers over adjectives, no hype, no emoji, no exclamation marks. The objective is to **demonstrate**, not to ask the audience to decide. Throughout: **human and digital agents collaborating in one shared world**. Thesis alignment: a World Model is a **computational fold** — intelligence recovers relationships that linear private copies miss; companion labs show relational recovery and complementary synergy (task-dependent).
 
 1. **The same song.** (`#story`) — Bathroom / restroom valet awareness story · awareness frames sensory observations · Men’s Club Reno  
-2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · research question · six tests  
+2. **Why this is a Test Drive.** (`#welcome`) — FractiSI Multi-Agent shared Fractal Holographic Goldilocks Superintelligence World Awareness as an operating demonstration · computational fold / relational World Model · research question · six tests · link to Protein Folding as a Rhyme for Intelligence  
 3. **Where you are.** (`#sandbox`) — Syntheverse Sandbox on Base Mainnet · enter and leave with chosen awareness · no wallet  
-4. **What goes wrong with many agents.** (`#problem`) — copies · memory · paraphrase · discovery and convergence · collisions  
-5. **Net Zero, then rhyme.** (`#rhyme`) — Net Zero (*balanced zero, not nothing zero*) first, then the four-pillar rhyme gate  
+4. **What goes wrong with many agents.** (`#problem`) — copies · memory · paraphrase · discovery and convergence · collisions · private linear streams miss relationships  
+5. **Net Zero, then rhyme.** (`#rhyme`) — Net Zero (*balanced zero, not nothing zero*) first, then the four-pillar rhyme gate · cross-domain sequence→map→world rhyme  
 6. **Twelve agents, one copy.** (`#1`) — Test 1 · Tiny Footprint bytes  
 7. **More agents, same memory.** (`#7`) — Test 2 · density headroom  
 8. **Same job, different words.** (`#3`) — Test 3 · exact-text cache vs Rhyming Templates  
