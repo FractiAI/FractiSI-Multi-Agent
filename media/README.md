@@ -4,7 +4,7 @@ Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = share
 
 | File | Role |
 |------|------|
-| `fractisi-hero.jpg` | Home / product hero — shared-world intelligence & convergence |
+| `fractisi-hero.jpg` | Home / product hero — Fractal Holographic Goldilocks World Model |
 | `fractisi-markets.jpg` | Local · Server · Cloud — one engine |
 | `fractisi-architecture.jpg` | Platform stack beside runtimes you already run |
 | `fractisi-workstation.jpg` | Workstation try path · shared world · approval gate |
@@ -14,4 +14,4 @@ Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = share
 
 Legacy filenames `tiny-footprint-*.jpg` are kept as identical copies for older links.
 
-Voice lock: *One shared world. Many perspectives. New discoveries. Faster convergence.*
+Voice lock: *The Fractal Holographic Goldilocks World Model for digital (and human) agents.*
