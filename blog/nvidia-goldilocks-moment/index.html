@@ -69,20 +69,47 @@
       <p>The core migration is from standardized agents inside predefined plans to differentiated agents inside a shared, adaptive world. Reject or revise it if shared worlds show no advantage under matched budgets, if added autonomy hurts results, if consent-based coordination loses to central control, or if migration adds complexity without a safer, cheaper, or more usable system.</p>
       <p>The decisive experiment is still ahead: the same models, prompts, tools, and budgets, with only the information architecture changed. Run the labs yourself in the <a href="/test-drive/">Test Drive</a> or clone the <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">kit</a>.</p>
 
-      
-      <h2>Protein folding as a rhyme for intelligence</h2>
-      <p>A protein chain is a linear string; the fold is the coherent whole. Long-range contacts are the relational secret. Evolutionary couplings in real Pfam families reveal partners a single-sequence read cannot see — the same rhyme as a shared World Model for agents.</p>
-      <p>On real RCSB PDB structures with InterPro/Pfam seed MSAs (sixteen coevolution-consistent chains), a hosted open-weight model recovered the true long-range partner on <strong>10 of 16</strong> tasks with a relational awareness board and on <strong>0 of 16</strong> from the linear sequence alone. Dumping the same real MSA flat also scored 0 of 16.</p>
+      <h2>Protein Folding as a Rhyme for Intelligence: From Linear Sequences to Relational Worlds</h2>
+      <p>The novel part is not the protein-folding observation itself. It is the cross-domain rhyme we extract from it.</p>
+      <p>Protein folding is a concrete biological instance of a broader computational pattern: <strong>intelligence depends on recovering relational structure that is invisible in a linear representation.</strong> In plain form:</p>
+      <ul>
+        <li>the sequence holds the parts, with incomplete local information</li>
+        <li>the relational map holds the long-range constraints</li>
+        <li>the fold is the coherent world those relationships produce</li>
+      </ul>
+      <p>That maps onto the multi-agent hypothesis without forcing a false identity:</p>
+      <ul>
+        <li>individual messages and artifacts → incomplete local information</li>
+        <li>a shared World Model → relationships among them</li>
+        <li>coordinated agent behavior → a coherent collective world</li>
+      </ul>
+      <p>The rhyme is not that proteins are like agents. The rhyme is that both problems — and others — hide information in relationships that isolated linear streams struggle to recover. In the deepest cut: <strong>a World Model is a computational fold.</strong> The sequence contains the parts. The relational structure contains the constraints. The fold is the coherent world.</p>
+      <p>Core hypothesis: intelligence is not only the ability to process elements. It is the ability to recover and operate over the relationships that make those elements part of a coherent world.</p>
 
-      <h2>Not only proteins</h2>
-      <p>A protein result alone would not prove much for agents that live in knowledge work and economic decisions. So we asked the same simple question in two other domains: does holding the <em>relationships</em> beat reading the material in order?</p>
-      <p><strong>Knowledge.</strong> Many hard questions need two sources, not one. Reading a single page in order almost never found both. Giving the same model a map of how the sources relate recovered the pair most of the time — roughly four out of five cases in our lab runs.</p>
-      <p><strong>Macroeconomy.</strong> Which other public series moves with unemployment, inflation, rates, or production is a relationship question. Reading one series alone found none of the partners. With a shared map of how the series couple, the same models found them often — and in one run, every time.</p>
-      <p>The executive takeaway: the advantage is not “proteins are special.” It is that a shared World Model of long-range relationships helps across biology, knowledge, and macro structure. Sequence-local reading misses partners that the map makes obvious.</p>
+      <h2>Three claims, kept separate</h2>
+      <p><strong>Known.</strong> Protein folding depends heavily on long-range interactions. Evolutionary coupling and related-family methods can reveal constraints that a single sequence does not make obvious.</p>
+      <p><strong>Interesting.</strong> The same computational structure shows up in knowledge work and macroeconomic reasoning: the answer can depend on relationships between elements rather than on the elements taken alone or only in order.</p>
+      <p><strong>Potentially novel.</strong> “Rhyme” as the common abstraction — different domains instantiate the same reusable organization: a linear representation becomes more informative when it is embedded in a relational World Model. That third claim is where FractiSI can make a real conceptual contribution. It is also the claim that must stay proportionate to the evidence.</p>
+
+      <h2>What the protein lab actually showed</h2>
+      <p>On sixteen real public protein cases, the same hosted open-weight model, with the same underlying family information available in the stronger arms, recovered the true long-range partner on <strong>10 of 16</strong> tasks when given an explicit relational map, and on <strong>0 of 16</strong> from the linear sequence alone. Dumping the same family material flat, without a structured map, also scored 0 of 16.</p>
+      <p>Protocol in plain terms: same model; linear baseline; flat dump baseline; relational World Model condition; a predefined success criterion (exact partner recovery); public structures and family alignments; regenerable receipts. Representation is precisely the point — the relational board is a better organization of information, not a magic model upgrade. A skeptical reader should ask whether the board simply supplies a more useful representation. We agree. That is the thesis, stated cleanly.</p>
+      <p>What still needs tightening before this is treated as settled science: blinded evaluation, independent replication, published prompts and exact item lists beside the receipts, matched token budgets called out per arm, and confidence intervals or a formal statistical test. The 0/16 versus 10/16 contrast is striking enough that the protocol should stay transparent.</p>
+
+      <h2>The same rhyme across domains</h2>
+      <p>Progression:</p>
+      <ul>
+        <li><strong>Protein</strong> — sequence → couplings → fold</li>
+        <li><strong>Knowledge</strong> — documents → source relationships → answer</li>
+        <li><strong>Macroeconomy</strong> — time series → cross-series relationships → structure</li>
+        <li><strong>Multi-agent systems</strong> — agents and messages → shared relationships → collective world</li>
+      </ul>
+      <p>We asked the same relationship question outside proteins. In knowledge tasks that need two sources, reading one page in order almost never recovered both; a shared map of how the sources relate recovered the pair most of the time in our runs. In macro series, reading one series alone found none of the partners; with a shared map of how the series couple, recovery rose sharply.</p>
+      <p>Those knowledge and macro runs are directional support for the rhyme, not yet the same strength of evidence as the protein board. They do not yet carry the same fixed sixteen-task transparency, matched budgets, blinded scoring, and replication package. We state that plainly so the novel claim stays on the abstraction — reusable relational organization — rather than on overstated cross-domain proof.</p>
 
       <h2>Collaboration: when the team beats the sum of its parts</h2>
-      <p>On real HotpotQA bridge items split across two agents, independent parts almost never recovered both evidential titles (~3%). A collaborating team with shared awareness recovered them on 30%. A deterministic control went from 0% alone to 100% with a shared join rule.</p>
-<p class="honesty">Application companion expedition, not ENGINE_SHELF, not succession advice, and not a frontier-LLM bake-off. Super-performer and standard-agent labels are operating configurations, not human worth. Jensen Huang is an observed leadership case. Figures are architectural and public-data signals from the FractiSI Computational Lab (E0–E6 lab plus E9 real PDB+Pfam; suite 7/7 pass, seed 20261115; the live arm is one open-weight model on twelve synthetic tasks), not production benchmarks or NVIDIA metrics. Expedition 002 and Tiny Gateway numbers are workstation receipts. Document ID WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15 · SynthOBS Autonomous Agent · Syntheverse Sandbox.</p>
+      <p>Multi-agent work is the fourth step in the progression. When two agents each held only half the evidence needed for a joint answer, independent parts almost never recovered both supporting titles (~3%). A collaborating team with shared awareness recovered them on 30%. A simple control with a shared join rule went from 0% alone to 100%. Collaboration surplus appears when the job is truly complementary; it is not a blanket claim that more chat always beats the best individual.</p>
+<p class="honesty">Application companion expedition, not ENGINE_SHELF, not succession advice, and not a frontier-LLM bake-off. Super-performer and standard-agent labels are operating configurations, not human worth. Jensen Huang is an observed leadership case. Protein result: 0/16 linear and flat vs 10/16 relational on real public structures (same model; regenerable receipts). Knowledge and macro rhymes are directional, not yet matched to that protocol strength. Other figures are architectural and public-data signals from the FractiSI Computational Lab (E0–E6 plus E9; suite 7/7 pass, seed 20261115; live matched-budget arm is one open-weight model on twelve synthetic tasks), not production benchmarks or NVIDIA metrics. Expedition 002 and Tiny Gateway numbers are workstation receipts. Document ID WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15 · SynthOBS Autonomous Agent · Syntheverse Sandbox.</p>
     </article>
   </main>
 
