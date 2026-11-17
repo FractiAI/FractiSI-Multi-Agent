@@ -1,8 +1,8 @@
 # FractiSI Multi-Agent
 
-### One shared world. Many agents. Coordinated work. Composed results.
+### The Fractal Holographic Goldilocks World Model for digital (and human) agents.
 
-**FractiSI Multi-Agent** is FractiSI’s flagship coordination platform for agentic engineering. It sits **beside** Cursor, Claude Code, VS Code, and Git — not another coding assistant, and not a model swap. **Tiny Footprint** (powered by **Tiny Gateway™**) keeps the shared world once; layers above coordinate ownership, compose contributions, and optionally publish behind an approval gate.
+**FractiSI Multi-Agent** — The Fractal Holographic Goldilocks World Model for digital (and human) agents. FractiSI’s flagship coordination platform for agentic engineering. It sits **beside** Cursor, Claude Code, VS Code, and Git — not another coding assistant, and not a model swap. **Tiny Footprint** (powered by **Tiny Gateway™**) keeps the shared world once; layers above coordinate ownership, compose contributions, and optionally publish behind an approval gate.
 
 **Problems it solves.** Agent fleets still pay a hidden tax: every agent reprints the same context, exact-text caches only help when the words repeat, gzip shrinks copies without removing them, and parallel work collides at merge time. Teams lose density in scarce DRAM/HBM, miss relationships a flat skim never assembles, and spend cycles reconciling branches instead of shipping composed results.
 
