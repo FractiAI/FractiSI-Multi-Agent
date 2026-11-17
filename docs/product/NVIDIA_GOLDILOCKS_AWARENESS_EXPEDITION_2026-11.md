@@ -4,7 +4,7 @@
 
 **Leadership case (observed):** Jensen Huang, NVIDIA  
 **Document ID:** `WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15`  
-**Lab note:** [`/blog/nvidia-goldilocks-moment/`](/blog/nvidia-goldilocks-moment/)  
+**Blog:** [`/blog/nvidia-goldilocks-moment/`](/blog/nvidia-goldilocks-moment/)  
 **HTML surface:** [`/library/papers/nvidia-goldilocks-awareness-expedition/`](/library/papers/nvidia-goldilocks-awareness-expedition/)  
 **Receipts:** [`/research/nvidia-goldilocks-lab/data/`](/research/nvidia-goldilocks-lab/data/)
 
