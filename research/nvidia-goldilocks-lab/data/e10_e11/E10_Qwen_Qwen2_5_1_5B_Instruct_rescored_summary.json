@@ -1,0 +1,34 @@
+{
+  "file": "E10_Qwen_Qwen2_5_1_5B_Instruct.jsonl",
+  "n": 24,
+  "exact_rates": {
+    "LINEAR": 0.0417,
+    "FLAT_MSA": 0.0833,
+    "AWARE": 0.875
+  },
+  "mean_tokens": {
+    "LINEAR": 209.7,
+    "FLAT_MSA": 1195.0,
+    "AWARE": 318.8
+  },
+  "contrasts": {
+    "H1_AWARE_minus_LINEAR": {
+      "mean": 0.8333,
+      "lo": 0.6667,
+      "hi": 0.9583,
+      "excludes_0": true
+    },
+    "H2_AWARE_minus_FLAT": {
+      "mean": 0.7914,
+      "lo": 0.5833,
+      "hi": 0.9583,
+      "excludes_0": true
+    }
+  },
+  "H3_token_ratio": 0.2668,
+  "gates": {
+    "H1": true,
+    "H2": true,
+    "H3": true
+  }
+}

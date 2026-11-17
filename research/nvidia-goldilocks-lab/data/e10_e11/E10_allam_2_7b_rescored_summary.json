@@ -1,0 +1,34 @@
+{
+  "file": "E10_allam_2_7b.jsonl",
+  "n": 24,
+  "exact_rates": {
+    "LINEAR": 0.125,
+    "FLAT_MSA": 0.1667,
+    "AWARE": 0.7917
+  },
+  "mean_tokens": {
+    "LINEAR": 256.8,
+    "FLAT_MSA": 1355.1,
+    "AWARE": 377.1
+  },
+  "contrasts": {
+    "H1_AWARE_minus_LINEAR": {
+      "mean": 0.6674,
+      "lo": 0.4583,
+      "hi": 0.8333,
+      "excludes_0": true
+    },
+    "H2_AWARE_minus_FLAT": {
+      "mean": 0.6251,
+      "lo": 0.4167,
+      "hi": 0.7917,
+      "excludes_0": true
+    }
+  },
+  "H3_token_ratio": 0.2783,
+  "gates": {
+    "H1": true,
+    "H2": true,
+    "H3": true
+  }
+}
