@@ -13,11 +13,20 @@ export const STUDY_TITLE =
   'LLM Rhyme Expedition — Cosmic Catalogs and the Human Genome';
 export const DIGITAL_SEED = 20261118;
 export const SEED = DIGITAL_SEED;
+/** Infinite Octaves ENGINE_SHELF slot — Tiny Gateway #52 owns memory shelf; this expedition is not a new Infinite Octaves shelf number. */
 export const ENGINE_SHELF_PINNED = false;
+/** FractiSI engine method pins: protein-fold rhyme + LLM language-pack rhyme (Player 1 lock). */
+export const FRACTISI_ENGINE_PINNED = true;
+export const FRACTISI_ENGINE_PINS = Object.freeze([
+  'protein-folding-rhyme',
+  'llm-language-pack-rhyme',
+]);
+export const FRACTISI_ENGINE_PIN_LINE =
+  'FractiSI engine pin: Protein-folding rhyme + LLM language-pack rhyme (LINEAR / FLAT / AWARE), nested on Tiny Footprint / Tiny Gateway.';
 
 export const H1_DELTA = 0.25;
 export const H2_DELTA = 0.1;
 export const BOOTSTRAP_B = 400;
 
 export const HONESTY =
-  'Application companion Soft Story — not ENGINE_SHELF, not a frontier-LLM bake-off, not wet-lab genetics, not clinical advice, not confirmed new physics. LINEAR/FLAT/AWARE language packs on public cosmic fixtures and public human-genome panels (GTEx/MyGene/UCSC chrM). Pack-compliant reader by default; live LLM optional.';
+  'FractiSI engine pin: Protein-folding rhyme + LLM language-pack rhyme (LINEAR/FLAT/AWARE), nested on Tiny Footprint / Tiny Gateway — both pinned. Soft Story honesty — not a new Infinite Octaves ENGINE_SHELF number (Tiny Gateway #52), not a frontier-LLM bake-off, not wet-lab genetics, not clinical advice, not confirmed new physics. Pack-compliant reader by default; live LLM optional.';
