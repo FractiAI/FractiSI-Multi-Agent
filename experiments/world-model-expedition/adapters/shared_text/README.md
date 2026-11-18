@@ -1,0 +1,1 @@
+# Adapter: shared_text

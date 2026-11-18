@@ -1,0 +1,3032 @@
+[
+  {
+    "worldKind": "knowledge",
+    "condition": "independent",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.38983247291901896,
+      "median": 0.38992590180885967,
+      "stdev": 0.0001554036192277771,
+      "ci95": {
+        "low": 0.3896962556408542,
+        "high": 0.3899686901971837
+      },
+      "min": 0.38953520112350115,
+      "max": 0.3899410900000102
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.6538461538461537,
+      "median": 1.6538461538461537,
+      "stdev": 0,
+      "ci95": {
+        "low": 1.6538461538461537,
+        "high": 1.6538461538461537
+      },
+      "min": 1.6538461538461537,
+      "max": 1.6538461538461537
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.15309079999999894,
+      "median": 0.06744499999999931,
+      "stdev": 0.14251659388632534,
+      "ci95": {
+        "low": 0.028169497594189644,
+        "high": 0.27801210240580826
+      },
+      "min": 0.053606999999999516,
+      "max": 0.4258299999999977
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "worldKind": "knowledge",
+    "condition": "shared_text",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9197601502760895,
+      "median": 0.9198968934459019,
+      "stdev": 0.00020781396797001875,
+      "ci95": {
+        "low": 0.91957799330174,
+        "high": 0.919942307250439
+      },
+      "min": 0.9193837160583646,
+      "max": 0.9199213847641393
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 2.9331550802139037,
+      "median": 2.9331550802139037,
+      "stdev": 0,
+      "ci95": {
+        "low": 2.9331550802139037,
+        "high": 2.9331550802139037
+      },
+      "min": 2.9331550802139037,
+      "max": 2.9331550802139037
+    },
+    "messages": {
+      "n": 5,
+      "mean": 15,
+      "median": 15,
+      "stdev": 0,
+      "ci95": {
+        "low": 15,
+        "high": 15
+      },
+      "min": 15,
+      "max": 15
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.1860309999999991,
+      "median": 0.06050000000000111,
+      "stdev": 0.19084451923280296,
+      "ci95": {
+        "low": 0.018748403289976262,
+        "high": 0.35331359671002194
+      },
+      "min": 0.0381949999999982,
+      "max": 0.5320769999999975
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "knowledge",
+    "condition": "shared_structured",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9227135642573142,
+      "median": 0.9227682372408038,
+      "stdev": 0.00011846803687261365,
+      "ci95": {
+        "low": 0.9226097224445399,
+        "high": 0.9228174060700886
+      },
+      "min": 0.9224788836052193,
+      "max": 0.9227897970276161
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 11,
+      "median": 11,
+      "stdev": 0,
+      "ci95": {
+        "low": 11,
+        "high": 11
+      },
+      "min": 11,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.1327711999999998,
+      "median": 0.0826589999999996,
+      "stdev": 0.1085269599047159,
+      "ci95": {
+        "low": 0.03764312538257099,
+        "high": 0.22789927461742865
+      },
+      "min": 0.06300699999999892,
+      "max": 0.34777799999999814
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "knowledge",
+    "condition": "fractisi",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9227456835085395,
+      "median": 0.9227717347736161,
+      "stdev": 0.00004902893948226012,
+      "ci95": {
+        "low": 0.922702707748253,
+        "high": 0.9227886592688259
+      },
+      "min": 0.9226529175039805,
+      "max": 0.9227870820047535
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 11,
+      "median": 11,
+      "stdev": 0,
+      "ci95": {
+        "low": 11,
+        "high": 11
+      },
+      "min": 11,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.10326860000000053,
+      "median": 0.0794700000000006,
+      "stdev": 0.04478215677521711,
+      "ci95": {
+        "low": 0.06401530888245274,
+        "high": 0.14252189111754832
+      },
+      "min": 0.06548099999999835,
+      "max": 0.18801400000000257
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "knowledge",
+    "condition": "fractisi_deltas",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9226649320613302,
+      "median": 0.9227871983264955,
+      "stdev": 0.00023709507644528673,
+      "ci95": {
+        "low": 0.9224571090637698,
+        "high": 0.9228727550588905
+      },
+      "min": 0.9221909659348294,
+      "max": 0.922788657873384
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 2.3947368421052633,
+      "median": 2.3947368421052633,
+      "stdev": 0,
+      "ci95": {
+        "low": 2.3947368421052633,
+        "high": 2.3947368421052633
+      },
+      "min": 2.3947368421052633,
+      "max": 2.3947368421052633
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 11,
+      "median": 11,
+      "stdev": 0,
+      "ci95": {
+        "low": 11,
+        "high": 11
+      },
+      "min": 11,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.1778798000000002,
+      "median": 0.06537499999999952,
+      "stdev": 0.218228713488762,
+      "ci95": {
+        "low": -0.013406101297253031,
+        "high": 0.36916570129725346
+      },
+      "min": 0.06404500000000013,
+      "max": 0.614135000000001
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "knowledge",
+    "condition": "fractisi_selective",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.904616566754117,
+      "median": 0.904652577061259,
+      "stdev": 0.00007079460423187692,
+      "ci95": {
+        "low": 0.9045545125474959,
+        "high": 0.904678620960738
+      },
+      "min": 0.9044750027867547,
+      "max": 0.9046530947060251
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 21,
+      "median": 21,
+      "stdev": 0,
+      "ci95": {
+        "low": 21,
+        "high": 21
+      },
+      "min": 21,
+      "max": 21
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.11533320000000132,
+      "median": 0.08240200000000186,
+      "stdev": 0.06474437481480491,
+      "ci95": {
+        "low": 0.058582253287322694,
+        "high": 0.17208414671267994
+      },
+      "min": 0.08192999999999984,
+      "max": 0.24479900000000043
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "dynamic",
+    "condition": "independent",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.29994828818772756,
+      "median": 0.2999671850965194,
+      "stdev": 0.000029354325417750012,
+      "ci95": {
+        "low": 0.299922557987037,
+        "high": 0.29997401838841814
+      },
+      "min": 0.2998996100682897,
+      "max": 0.2999746633678019
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.04706419999999909,
+      "median": 0.029847999999997654,
+      "stdev": 0.02674050534601013,
+      "ci95": {
+        "low": 0.023625113619100017,
+        "high": 0.07050328638089817
+      },
+      "min": 0.023042999999997704,
+      "max": 0.09141599999999883
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "worldKind": "dynamic",
+    "condition": "shared_text",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.49452565115612623,
+      "median": 0.4945299065328604,
+      "stdev": 0.000055727051616091,
+      "ci95": {
+        "low": 0.4944768042416913,
+        "high": 0.49457449807056114
+      },
+      "min": 0.49445995903336737,
+      "max": 0.4946221366779397
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.0045581348144317,
+      "median": 1.004566210045662,
+      "stdev": 0.000033714849442766976,
+      "ci95": {
+        "low": 1.0045285824459111,
+        "high": 1.0045876871829522
+      },
+      "min": 1.0045045045045045,
+      "max": 1.0046082949308757
+    },
+    "messages": {
+      "n": 5,
+      "mean": 8,
+      "median": 8,
+      "stdev": 0,
+      "ci95": {
+        "low": 8,
+        "high": 8
+      },
+      "min": 8,
+      "max": 8
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.21114999999999995,
+      "median": 0.19786500000000018,
+      "stdev": 0.02766838743403866,
+      "ci95": {
+        "low": 0.18689758910891788,
+        "high": 0.23540241089108202
+      },
+      "min": 0.1884289999999993,
+      "max": 0.26276900000000225
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "dynamic",
+    "condition": "shared_structured",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.7275103075333176,
+      "median": 0.7974722552304064,
+      "stdev": 0.1399889158410348,
+      "ci95": {
+        "low": 0.6048046126218336,
+        "high": 0.8502160024448016
+      },
+      "min": 0.4475325230608538,
+      "max": 0.7976134781513273
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 13,
+      "median": 13,
+      "stdev": 0,
+      "ci95": {
+        "low": 13,
+        "high": 13
+      },
+      "min": 13,
+      "max": 13
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 16,
+      "median": 16,
+      "stdev": 0,
+      "ci95": {
+        "low": 16,
+        "high": 16
+      },
+      "min": 16,
+      "max": 16
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.0854372000000005,
+      "median": 0.05059500000000128,
+      "stdev": 0.06726220130920377,
+      "ci95": {
+        "low": 0.026479281058087757,
+        "high": 0.14439511894191326
+      },
+      "min": 0.049281000000000574,
+      "max": 0.21983699999999828
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "dynamic",
+    "condition": "fractisi",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.7275482202746291,
+      "median": 0.7975549549213251,
+      "stdev": 0.14000780445853722,
+      "ci95": {
+        "low": 0.6048259687599125,
+        "high": 0.8502704717893457
+      },
+      "min": 0.44753262407418515,
+      "max": 0.7976129939276043
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 13,
+      "median": 13,
+      "stdev": 0,
+      "ci95": {
+        "low": 13,
+        "high": 13
+      },
+      "min": 13,
+      "max": 13
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 16,
+      "median": 16,
+      "stdev": 0,
+      "ci95": {
+        "low": 16,
+        "high": 16
+      },
+      "min": 16,
+      "max": 16
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.05080300000000051,
+      "median": 0.049852999999998815,
+      "stdev": 0.001758547241333364,
+      "ci95": {
+        "low": 0.04926156538008018,
+        "high": 0.05234443461992083
+      },
+      "min": 0.04966800000000049,
+      "max": 0.054269000000001455
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "dynamic",
+    "condition": "fractisi_deltas",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.7275364629428381,
+      "median": 0.7975444560873356,
+      "stdev": 0.1400074331703193,
+      "ci95": {
+        "low": 0.6048145368765938,
+        "high": 0.8502583890090825
+      },
+      "min": 0.4475216090319395,
+      "max": 0.7975997900324313
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.6622710622710624,
+      "median": 1.6593406593406594,
+      "stdev": 0.0035889959601218603,
+      "ci95": {
+        "low": 1.6591251686074429,
+        "high": 1.6654169559346819
+      },
+      "min": 1.6593406593406594,
+      "max": 1.6666666666666667
+    },
+    "messages": {
+      "n": 5,
+      "mean": 13,
+      "median": 13,
+      "stdev": 0,
+      "ci95": {
+        "low": 13,
+        "high": 13
+      },
+      "min": 13,
+      "max": 13
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 16,
+      "median": 16,
+      "stdev": 0,
+      "ci95": {
+        "low": 16,
+        "high": 16
+      },
+      "min": 16,
+      "max": 16
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.06151339999999976,
+      "median": 0.0610389999999974,
+      "stdev": 0.001252493289403094,
+      "ci95": {
+        "low": 0.06041554122650445,
+        "high": 0.06261125877349508
+      },
+      "min": 0.06040700000000143,
+      "max": 0.06383399999999995
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "dynamic",
+    "condition": "fractisi_selective",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.7131654641692197,
+      "median": 0.7831542010412331,
+      "stdev": 0.14000637634756302,
+      "ci95": {
+        "low": 0.5904444644489644,
+        "high": 0.835886463889475
+      },
+      "min": 0.433152724829702,
+      "max": 0.7832357604850156
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 13,
+      "median": 13,
+      "stdev": 0,
+      "ci95": {
+        "low": 13,
+        "high": 13
+      },
+      "min": 13,
+      "max": 13
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 31,
+      "median": 31,
+      "stdev": 0,
+      "ci95": {
+        "low": 31,
+        "high": 31
+      },
+      "min": 31,
+      "max": 31
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.08111980000000045,
+      "median": 0.07630099999999729,
+      "stdev": 0.010010219546044048,
+      "ci95": {
+        "low": 0.07234545570113704,
+        "high": 0.08989414429886386
+      },
+      "min": 0.07500100000000032,
+      "max": 0.10100500000000068
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "planning",
+    "condition": "independent",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.39993957641906724,
+      "median": 0.39995611121888014,
+      "stdev": 0.00003622394598836841,
+      "ci95": {
+        "low": 0.3999078247304551,
+        "high": 0.3999713281076794
+      },
+      "min": 0.39986757359761305,
+      "max": 0.3999636405727127
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.0153846153846153,
+      "median": 1.0153846153846153,
+      "stdev": 0,
+      "ci95": {
+        "low": 1.0153846153846153,
+        "high": 1.0153846153846153
+      },
+      "min": 1.0153846153846153,
+      "max": 1.0153846153846153
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.05500559999999979,
+      "median": 0.039928000000003294,
+      "stdev": 0.03302599124689395,
+      "ci95": {
+        "low": 0.02605704231067157,
+        "high": 0.083954157689328
+      },
+      "min": 0.03307399999999916,
+      "max": 0.12065299999999723
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "worldKind": "planning",
+    "condition": "shared_text",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9167488247245144,
+      "median": 0.9167692094841905,
+      "stdev": 0.00004079434904525036,
+      "ci95": {
+        "low": 0.9167130669009896,
+        "high": 0.9167845825480391
+      },
+      "min": 0.9166673271336638,
+      "max": 0.916771373208576
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 2.3697813121272366,
+      "median": 2.3697813121272366,
+      "stdev": 0,
+      "ci95": {
+        "low": 2.3697813121272366,
+        "high": 2.3697813121272366
+      },
+      "min": 2.3697813121272366,
+      "max": 2.3697813121272366
+    },
+    "messages": {
+      "n": 5,
+      "mean": 15,
+      "median": 15,
+      "stdev": 0,
+      "ci95": {
+        "low": 15,
+        "high": 15
+      },
+      "min": 15,
+      "max": 15
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.04707539999999995,
+      "median": 0.02849300000000099,
+      "stdev": 0.03718718767855371,
+      "ci95": {
+        "low": 0.01447939281981478,
+        "high": 0.07967140718018512
+      },
+      "min": 0.02652400000000199,
+      "max": 0.12136699999999934
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "planning",
+    "condition": "shared_structured",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9044545568360745,
+      "median": 0.9044619677688892,
+      "stdev": 0.00001629636228692458,
+      "ci95": {
+        "low": 0.9044402724447215,
+        "high": 0.9044688412274274
+      },
+      "min": 0.9044221193647483,
+      "max": 0.9044651399715955
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 10,
+      "median": 10,
+      "stdev": 0,
+      "ci95": {
+        "low": 10,
+        "high": 10
+      },
+      "min": 10,
+      "max": 10
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 11,
+      "median": 11,
+      "stdev": 0,
+      "ci95": {
+        "low": 11,
+        "high": 11
+      },
+      "min": 11,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.07629520000000056,
+      "median": 0.06953600000000293,
+      "stdev": 0.01486209976281947,
+      "ci95": {
+        "low": 0.06326799517964582,
+        "high": 0.0893224048203553
+      },
+      "min": 0.06664500000000118,
+      "max": 0.10587800000000058
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "planning",
+    "condition": "fractisi",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9044331790246108,
+      "median": 0.9044612886032929,
+      "stdev": 0.00005878785194302532,
+      "ci95": {
+        "low": 0.9043816492003981,
+        "high": 0.9044847088488236
+      },
+      "min": 0.9043156297811734,
+      "max": 0.9044640964324921
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 10,
+      "median": 10,
+      "stdev": 0,
+      "ci95": {
+        "low": 10,
+        "high": 10
+      },
+      "min": 10,
+      "max": 10
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 11,
+      "median": 11,
+      "stdev": 0,
+      "ci95": {
+        "low": 11,
+        "high": 11
+      },
+      "min": 11,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.09583919999999964,
+      "median": 0.07015499999999975,
+      "stdev": 0.05370942836932761,
+      "ci95": {
+        "low": 0.04876081031634253,
+        "high": 0.14291758968365675
+      },
+      "min": 0.06759599999999466,
+      "max": 0.20323399999999836
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "planning",
+    "condition": "fractisi_deltas",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9044092850502379,
+      "median": 0.9044435238329771,
+      "stdev": 0.00006781347546992489,
+      "ci95": {
+        "low": 0.9043498439181888,
+        "high": 0.9044687261822869
+      },
+      "min": 0.904273712339465,
+      "max": 0.9044455689451928
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.704035874439462,
+      "median": 1.704035874439462,
+      "stdev": 0,
+      "ci95": {
+        "low": 1.704035874439462,
+        "high": 1.704035874439462
+      },
+      "min": 1.704035874439462,
+      "max": 1.704035874439462
+    },
+    "messages": {
+      "n": 5,
+      "mean": 10,
+      "median": 10,
+      "stdev": 0,
+      "ci95": {
+        "low": 10,
+        "high": 10
+      },
+      "min": 10,
+      "max": 10
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 11,
+      "median": 11,
+      "stdev": 0,
+      "ci95": {
+        "low": 11,
+        "high": 11
+      },
+      "min": 11,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.11766319999999979,
+      "median": 0.08635100000000051,
+      "stdev": 0.062018564334885166,
+      "ci95": {
+        "low": 0.06330153151785886,
+        "high": 0.1720248684821407
+      },
+      "min": 0.08448599999999828,
+      "max": 0.2416510000000045
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "planning",
+    "condition": "fractisi_selective",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.8900579495919885,
+      "median": 0.8900913579213927,
+      "stdev": 0.00006671372129988206,
+      "ci95": {
+        "low": 0.889999472436972,
+        "high": 0.890116426747005
+      },
+      "min": 0.8899247230048423,
+      "max": 0.8900966888797714
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 10,
+      "median": 10,
+      "stdev": 0,
+      "ci95": {
+        "low": 10,
+        "high": 10
+      },
+      "min": 10,
+      "max": 10
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 21,
+      "median": 21,
+      "stdev": 0,
+      "ci95": {
+        "low": 21,
+        "high": 21
+      },
+      "min": 21,
+      "max": 21
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.1214348000000001,
+      "median": 0.09087800000000357,
+      "stdev": 0.06101895150328024,
+      "ci95": {
+        "low": 0.06794933079697785,
+        "high": 0.17492026920302237
+      },
+      "min": 0.08601600000000076,
+      "max": 0.24328999999999468
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "adversarial",
+    "condition": "independent",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.3602199492271286,
+      "median": 0.35995605190551105,
+      "stdev": 0.00791103546169844,
+      "ci95": {
+        "low": 0.35328562090573906,
+        "high": 0.3671542775485181
+      },
+      "min": 0.3510742759627227,
+      "max": 0.3733278987137
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.5659434781909038,
+      "median": 1.3157894736842106,
+      "stdev": 0.3448777859899067,
+      "ci95": {
+        "low": 1.263644770216906,
+        "high": 1.8682421861649017
+      },
+      "min": 1.2816901408450705,
+      "max": 2.139784946236559
+    },
+    "messages": {
+      "n": 5,
+      "mean": 5,
+      "median": 5,
+      "stdev": 0,
+      "ci95": {
+        "low": 5,
+        "high": 5
+      },
+      "min": 5,
+      "max": 5
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 3.8,
+      "median": 4,
+      "stdev": 0.9797958971132712,
+      "ci95": {
+        "low": 2.9411710298318994,
+        "high": 4.6588289701681
+      },
+      "min": 2,
+      "max": 5
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.0648569999999978,
+      "median": 0.04548099999999522,
+      "stdev": 0.03140906602240951,
+      "ci95": {
+        "low": 0.03732573975953026,
+        "high": 0.09238826024046534
+      },
+      "min": 0.033507000000000176,
+      "max": 0.10965300000000155
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "worldKind": "adversarial",
+    "condition": "shared_text",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9120426791275168,
+      "median": 0.9140873714685364,
+      "stdev": 0.01130340473219068,
+      "ci95": {
+        "low": 0.9021348080350353,
+        "high": 0.9219505502199983
+      },
+      "min": 0.8916124229911021,
+      "max": 0.9265175703311302
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.8767620339114495,
+      "median": 1.9441340782122905,
+      "stdev": 0.38582377854077204,
+      "ci95": {
+        "low": 1.538572581019477,
+        "high": 2.2149514868034217
+      },
+      "min": 1.1859504132231404,
+      "max": 2.3819951338199514
+    },
+    "messages": {
+      "n": 5,
+      "mean": 9.6,
+      "median": 10,
+      "stdev": 1.9595917942265424,
+      "ci95": {
+        "low": 7.882342059663799,
+        "high": 11.3176579403362
+      },
+      "min": 6,
+      "max": 12
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.06251660000000073,
+      "median": 0.049917000000000655,
+      "stdev": 0.018940165253767315,
+      "ci95": {
+        "low": 0.045914813171099446,
+        "high": 0.07911838682890202
+      },
+      "min": 0.04566400000000215,
+      "max": 0.09303799999999995
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "adversarial",
+    "condition": "shared_structured",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.9333333333333332,
+      "median": 1,
+      "stdev": 0.13333333333333336,
+      "ci95": {
+        "low": 0.8164615137093442,
+        "high": 1.0502051529573222
+      },
+      "min": 0.6666666666666666,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.861670608174921,
+      "median": 0.9059992500406232,
+      "stdev": 0.09431430309677784,
+      "ci95": {
+        "low": 0.7790004765287547,
+        "high": 0.9443407398210873
+      },
+      "min": 0.6732497125632464,
+      "max": 0.9173398581926557
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 4.8,
+      "median": 5,
+      "stdev": 0.9797958971132712,
+      "ci95": {
+        "low": 3.9411710298318994,
+        "high": 5.6588289701681
+      },
+      "min": 3,
+      "max": 6
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 8.6,
+      "median": 9,
+      "stdev": 1.9595917942265424,
+      "ci95": {
+        "low": 6.882342059663799,
+        "high": 10.3176579403362
+      },
+      "min": 5,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.058862199999998664,
+      "median": 0.05234699999999748,
+      "stdev": 0.019652828828438676,
+      "ci95": {
+        "low": 0.04163573600546054,
+        "high": 0.07608866399453679
+      },
+      "min": 0.0315610000000035,
+      "max": 0.08899499999999705
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "adversarial",
+    "condition": "fractisi",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.9333333333333332,
+      "median": 1,
+      "stdev": 0.13333333333333336,
+      "ci95": {
+        "low": 0.8164615137093442,
+        "high": 1.0502051529573222
+      },
+      "min": 0.6666666666666666,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.8616902134649713,
+      "median": 0.9060087736255715,
+      "stdev": 0.09431970633726948,
+      "ci95": {
+        "low": 0.779015345669694,
+        "high": 0.9443650812602487
+      },
+      "min": 0.6732585751455319,
+      "max": 0.9173630891440987
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 4.8,
+      "median": 5,
+      "stdev": 0.9797958971132712,
+      "ci95": {
+        "low": 3.9411710298318994,
+        "high": 5.6588289701681
+      },
+      "min": 3,
+      "max": 6
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 8.6,
+      "median": 9,
+      "stdev": 1.9595917942265424,
+      "ci95": {
+        "low": 6.882342059663799,
+        "high": 10.3176579403362
+      },
+      "min": 5,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.041001199999999474,
+      "median": 0.04367399999999577,
+      "stdev": 0.009269276938358826,
+      "ci95": {
+        "low": 0.03287632053211442,
+        "high": 0.049126079467884526
+      },
+      "min": 0.023496000000001516,
+      "max": 0.05022900000000163
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "adversarial",
+    "condition": "fractisi_deltas",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.9333333333333332,
+      "median": 1,
+      "stdev": 0.13333333333333336,
+      "ci95": {
+        "low": 0.8164615137093442,
+        "high": 1.0502051529573222
+      },
+      "min": 0.6666666666666666,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.8435356016452451,
+      "median": 0.8771930375335294,
+      "stdev": 0.08593620136760574,
+      "ci95": {
+        "low": 0.7682091999547029,
+        "high": 0.9188620033357873
+      },
+      "min": 0.6732479469520194,
+      "max": 0.906137741361587
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 2.0193403266827223,
+      "median": 2.0168539325842696,
+      "stdev": 0.2242509693930361,
+      "ci95": {
+        "low": 1.8227756853421655,
+        "high": 2.2159049680232794
+      },
+      "min": 1.624203821656051,
+      "max": 2.2972972972972974
+    },
+    "messages": {
+      "n": 5,
+      "mean": 4.8,
+      "median": 5,
+      "stdev": 0.9797958971132712,
+      "ci95": {
+        "low": 3.9411710298318994,
+        "high": 5.6588289701681
+      },
+      "min": 3,
+      "max": 6
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 8.6,
+      "median": 9,
+      "stdev": 1.9595917942265424,
+      "ci95": {
+        "low": 6.882342059663799,
+        "high": 10.3176579403362
+      },
+      "min": 5,
+      "max": 11
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.09524620000000113,
+      "median": 0.05699099999999646,
+      "stdev": 0.08652637539479102,
+      "ci95": {
+        "low": 0.019402487966069304,
+        "high": 0.17108991203393295
+      },
+      "min": 0.03316800000000342,
+      "max": 0.26703300000000496
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 0.9095238095238095,
+      "median": 0.8571428571428571,
+      "stdev": 0.07438333024673005,
+      "ci95": {
+        "low": 0.8443239458566038,
+        "high": 0.9747236731910153
+      },
+      "min": 0.8333333333333334,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "adversarial",
+    "condition": "fractisi_selective",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0.9333333333333332,
+      "median": 1,
+      "stdev": 0.13333333333333336,
+      "ci95": {
+        "low": 0.8164615137093442,
+        "high": 1.0502051529573222
+      },
+      "min": 0.6666666666666666,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0.8,
+      "median": 1,
+      "stdev": 0.4,
+      "ci95": {
+        "low": 0.449384541128033,
+        "high": 1.150615458871967
+      },
+      "min": 0,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.845455434383428,
+      "median": 0.88915766621729,
+      "stdev": 0.09289727112909499,
+      "ci95": {
+        "low": 0.764027386021225,
+        "high": 0.9268834827456309
+      },
+      "min": 0.6598560280862354,
+      "max": 0.9000927611837705
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 4.8,
+      "median": 5,
+      "stdev": 0.9797958971132712,
+      "ci95": {
+        "low": 3.9411710298318994,
+        "high": 5.6588289701681
+      },
+      "min": 3,
+      "max": 6
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 16.2,
+      "median": 17,
+      "stdev": 3.919183588453085,
+      "ci95": {
+        "low": 12.764684119327598,
+        "high": 19.6353158806724
+      },
+      "min": 9,
+      "max": 21
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.060964999999998784,
+      "median": 0.06497199999999737,
+      "stdev": 0.01698691425774514,
+      "ci95": {
+        "low": 0.0460753131567536,
+        "high": 0.07585468684324397
+      },
+      "min": 0.03231399999999951,
+      "max": 0.08411799999999658
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "relational",
+    "condition": "independent",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.3853419849908263,
+      "median": 0.385353614656574,
+      "stdev": 0.000026503585449743945,
+      "ci95": {
+        "low": 0.3853187535738907,
+        "high": 0.38536521640776183
+      },
+      "min": 0.3852899071981734,
+      "max": 0.38536045038843975
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.0122699386503067,
+      "median": 1.0122699386503067,
+      "stdev": 0,
+      "ci95": {
+        "low": 1.0122699386503067,
+        "high": 1.0122699386503067
+      },
+      "min": 1.0122699386503067,
+      "max": 1.0122699386503067
+    },
+    "messages": {
+      "n": 5,
+      "mean": 3,
+      "median": 3,
+      "stdev": 0,
+      "ci95": {
+        "low": 3,
+        "high": 3
+      },
+      "min": 3,
+      "max": 3
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 3,
+      "median": 3,
+      "stdev": 0,
+      "ci95": {
+        "low": 3,
+        "high": 3
+      },
+      "min": 3,
+      "max": 3
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.03879299999999688,
+      "median": 0.028196999999998695,
+      "stdev": 0.024142955237501682,
+      "ci95": {
+        "low": 0.01763076667719185,
+        "high": 0.05995523332280191
+      },
+      "min": 0.02197699999999969,
+      "max": 0.08623399999999748
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 0,
+      "median": 0,
+      "stdev": 0,
+      "ci95": {
+        "low": 0,
+        "high": 0
+      },
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "worldKind": "relational",
+    "condition": "shared_text",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.917671057996819,
+      "median": 0.9176802687463778,
+      "stdev": 0.00001741859267078693,
+      "ci95": {
+        "low": 0.9176557899271636,
+        "high": 0.9176863260664745
+      },
+      "min": 0.9176363719509761,
+      "max": 0.9176812154180197
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 2.0165289256198347,
+      "median": 2.0165289256198347,
+      "stdev": 0,
+      "ci95": {
+        "low": 2.0165289256198347,
+        "high": 2.0165289256198347
+      },
+      "min": 2.0165289256198347,
+      "max": 2.0165289256198347
+    },
+    "messages": {
+      "n": 5,
+      "mean": 7,
+      "median": 7,
+      "stdev": 0,
+      "ci95": {
+        "low": 7,
+        "high": 7
+      },
+      "min": 7,
+      "max": 7
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.021194200000000763,
+      "median": 0.01281099999999924,
+      "stdev": 0.015854088247515094,
+      "ci95": {
+        "low": 0.007297478935252854,
+        "high": 0.035090921064748676
+      },
+      "min": 0.0119500000000059,
+      "max": 0.05276500000000084
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "relational",
+    "condition": "shared_structured",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9117859275995505,
+      "median": 0.9117958116342241,
+      "stdev": 0.000019453076256317458,
+      "ci95": {
+        "low": 0.9117688762264052,
+        "high": 0.9118029789726957
+      },
+      "min": 0.9117520884920404,
+      "max": 0.9118033527465926
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 3,
+      "median": 3,
+      "stdev": 0,
+      "ci95": {
+        "low": 3,
+        "high": 3
+      },
+      "min": 3,
+      "max": 3
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 7,
+      "median": 7,
+      "stdev": 0,
+      "ci95": {
+        "low": 7,
+        "high": 7
+      },
+      "min": 7,
+      "max": 7
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.05012119999999953,
+      "median": 0.04111499999999779,
+      "stdev": 0.017721570781394178,
+      "ci95": {
+        "low": 0.03458755832137313,
+        "high": 0.06565484167862594
+      },
+      "min": 0.034250000000000114,
+      "max": 0.08095199999999636
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "relational",
+    "condition": "fractisi",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9117300681834497,
+      "median": 0.9117991705736024,
+      "stdev": 0.00013670489448950387,
+      "ci95": {
+        "low": 0.911610241060171,
+        "high": 0.9118498953067284
+      },
+      "min": 0.9114566932661311,
+      "max": 0.9118005502858774
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 3,
+      "median": 3,
+      "stdev": 0,
+      "ci95": {
+        "low": 3,
+        "high": 3
+      },
+      "min": 3,
+      "max": 3
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 7,
+      "median": 7,
+      "stdev": 0,
+      "ci95": {
+        "low": 7,
+        "high": 7
+      },
+      "min": 7,
+      "max": 7
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.10132160000000141,
+      "median": 0.038057000000002006,
+      "stdev": 0.1251634844123492,
+      "ci95": {
+        "low": -0.008389031303123837,
+        "high": 0.21103223130312665
+      },
+      "min": 0.03680100000000408,
+      "max": 0.3516170000000045
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "relational",
+    "condition": "fractisi_deltas",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.9117843993286912,
+      "median": 0.9117890860955784,
+      "stdev": 0.000019924452304289174,
+      "ci95": {
+        "low": 0.9117669347762225,
+        "high": 0.9118018638811598
+      },
+      "min": 0.9117468651084978,
+      "max": 0.9118014664673624
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1.703971119133574,
+      "median": 1.703971119133574,
+      "stdev": 0,
+      "ci95": {
+        "low": 1.703971119133574,
+        "high": 1.703971119133574
+      },
+      "min": 1.703971119133574,
+      "max": 1.703971119133574
+    },
+    "messages": {
+      "n": 5,
+      "mean": 3,
+      "median": 3,
+      "stdev": 0,
+      "ci95": {
+        "low": 3,
+        "high": 3
+      },
+      "min": 3,
+      "max": 3
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 7,
+      "median": 7,
+      "stdev": 0,
+      "ci95": {
+        "low": 7,
+        "high": 7
+      },
+      "min": 7,
+      "max": 7
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.05151339999999749,
+      "median": 0.04723899999999759,
+      "stdev": 0.0181538693021606,
+      "ci95": {
+        "low": 0.035600831960800605,
+        "high": 0.06742596803919437
+      },
+      "min": 0.035966999999999416,
+      "max": 0.08571499999999332
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  },
+  {
+    "worldKind": "relational",
+    "condition": "fractisi_selective",
+    "n": 5,
+    "successScore": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "taskSuccessRate": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "cie": {
+      "n": 5,
+      "mean": 0.8951227736171766,
+      "median": 0.8951215596260285,
+      "stdev": 0.000008691470832170529,
+      "ci95": {
+        "low": 0.8951151552070914,
+        "high": 0.8951303920272619
+      },
+      "min": 0.8951099442643152,
+      "max": 0.8951329487913227
+    },
+    "duplicationRatio": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    },
+    "messages": {
+      "n": 5,
+      "mean": 3,
+      "median": 3,
+      "stdev": 0,
+      "ci95": {
+        "low": 3,
+        "high": 3
+      },
+      "min": 3,
+      "max": 3
+    },
+    "reconstructions": {
+      "n": 5,
+      "mean": 13,
+      "median": 13,
+      "stdev": 0,
+      "ci95": {
+        "low": 13,
+        "high": 13
+      },
+      "min": 13,
+      "max": 13
+    },
+    "latencyMs": {
+      "n": 5,
+      "mean": 0.04691760000000045,
+      "median": 0.04802199999999601,
+      "stdev": 0.007915049932881564,
+      "ci95": {
+        "low": 0.039979752839470944,
+        "high": 0.05385544716052995
+      },
+      "min": 0.03765200000000135,
+      "max": 0.05860200000000049
+    },
+    "crossAgentAgreement": {
+      "n": 5,
+      "mean": 1,
+      "median": 1,
+      "stdev": 0,
+      "ci95": {
+        "low": 1,
+        "high": 1
+      },
+      "min": 1,
+      "max": 1
+    }
+  }
+]

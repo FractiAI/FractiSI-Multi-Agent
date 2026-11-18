@@ -40,7 +40,8 @@
     "research:world-model-assimilation": "node scripts/run_world_model_assimilation.mjs",
     "research:c-plus-imagine": "node scripts/run_c_plus_imagine.mjs",
     "research:llm-rhyme-cosmic-genome-expedition": "node research/llm-rhyme-cosmic-genome-expedition/scripts/run_empirical_pipeline.mjs",
-    "research:cosmic-rhyme-expedition": "node research/cosmic-rhyme-expedition/scripts/run_empirical_pipeline.mjs"
+    "research:cosmic-rhyme-expedition": "node research/cosmic-rhyme-expedition/scripts/run_empirical_pipeline.mjs",
+    "research:world-model-expedition": "node experiments/world-model-expedition/scripts/run_expedition.mjs"
   },
   "dependencies": {
     "isomorphic-git": "^1.30.1"

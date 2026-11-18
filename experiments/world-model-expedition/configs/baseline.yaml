@@ -1,0 +1,8 @@
+expedition: shared-world-collective-intelligence
+seeds: [1, 2, 3, 4, 5]
+worlds: [knowledge, dynamic, planning, adversarial, relational]
+conditions: [independent, shared_text, shared_structured, fractisi, fractisi_deltas, fractisi_selective]
+scale_n: [1, 2, 4, 8, 16, 32]
+primary_metrics: raw
+secondary_metrics: [CIE]
+assume_fractisi_wins: false
