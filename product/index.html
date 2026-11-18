@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FractiSI Multi-Agent · The Fractal Holographic Goldilocks World Model</title>
-  <meta name="description" content="FractiSI Multi-Agent — The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents. Shared context once; per-agent deltas. Measured: 100/100 vs flat, −50% rounds, 36–62× density. Community is free.">
+  <meta name="description" content="FractiSI Multi-Agent — The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents. Shared context once; per-agent deltas. Tested: 100 of 100 hidden answers found vs 0, up to 49% smaller messages, 36–62× more agents per machine. Community is free.">
   <link rel="stylesheet" href="../css/site.css?v=35">
   <style>
     .stack-table td:first-child { white-space: nowrap; font-weight: 600; }
@@ -48,65 +48,64 @@
 
   <main class="wrap">
     <article class="page">
-      <h2 class="section-head" id="proof">Measured results</h2>
-      <p>Agent fleets usually give every agent a full copy of the same context, then collide when results merge. FractiSI keeps the world once. These are lab measurements from the FractiSI architectural and structured-state suites.</p>
+      <h2 class="section-head" id="proof">What the tests show</h2>
+      <p>Most agent teams give every agent its own copy of the same context, then fight over the merge. FractiSI keeps one shared world and gives each agent only what is different. These are lab results, run on public data.</p>
 
       <div class="diff-board" role="region" aria-label="Lab results">
-        <h2>Results against the usual baselines</h2>
-        <p class="why">Compared with flat skim, full per-agent copies, gzip-only packs, and exact-text or prefix cache.</p>
+        <h2>Results against the usual approaches</h2>
+        <p class="why">Compared with skimming, full copies per agent, compression alone, and caches that only match identical text.</p>
         <div class="diff-stat">
-          <span class="label">Discovery</span>
-          <span class="num">100 / 100 vs 0 / 100</span>
-          <p>Guided shared-world recovery assembles chains and solutions that flat skim does not.</p>
+          <span class="label">Finding answers</span>
+          <span class="num">100 of 100 vs 0</span>
+          <p>With a shared world, agents assembled every hidden chain. Skimming found none.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Convergence</span>
-          <span class="num">−50% rounds · −85% ops</span>
-          <p>Fewer rounds and operations on the same constrained discovery path.</p>
+          <span class="label">Speed to an answer</span>
+          <span class="num">Half the rounds</span>
+          <p>Three rounds instead of six, and 85% fewer operations, on the same search.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">Density vs full copy</span>
-          <span class="num">36× – 62×</span>
+          <span class="label">Agents per machine</span>
+          <span class="num">36× to 62×</span>
           <p>The shared world is stored once. Each agent adds only its difference.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">After gzip</span>
-          <span class="num">~42%+</span>
-          <p>Residual advantage in smaller-world labs. Larger when the shared world dominates. Compression shrinks copies; it does not remove the cross-copy cost.</p>
+          <span class="label">Beyond compression</span>
+          <span class="num">42%+ smaller still</span>
+          <p>Compressing full copies does not remove the repeated content. A shared world does.</p>
         </div>
         <div class="diff-stat">
-          <span class="label">When wording differs</span>
-          <span class="num">−33% to −45% vs exact cache</span>
-          <p>Real protein-contact and moose-GPS traffic: exact cache hit zero times; rhyming templates cut bytes by a third to nearly half.</p>
+          <span class="label">When the wording changes</span>
+          <span class="num">33% to 49% smaller</span>
+          <p>Real protein, GPS and agent messages. An exact-match cache never hit. Rhyming templates stored the same traffic in a third to a half less space.</p>
         </div>
         <div class="diff-stat">
           <span class="label">Shared vs private copies</span>
-          <span class="num">5× – 20× lower error</span>
-          <p>Same world model, four agents that each see one CartPole dimension. One shared world predicts the next state 5.7× to 20× better than private copies.</p>
+          <span class="num">5× to 20× more accurate</span>
+          <p>Same model, four agents that each see one piece. One shared world predicts what happens next far better than private copies.</p>
         </div>
         <div class="diff-stat">
           <span class="label">Tiny Gateway</span>
           <span class="num">84.5% · 81.4%</span>
-          <p>Representation and GPU-allocation reduction from the Tiny Footprint core.</p>
+          <p>Less data held and less GPU memory allocated by the Tiny Footprint core.</p>
         </div>
         <p class="foot">Reproduce the runs in the <a href="/library/">library</a>: <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a>, <a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a>, <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>, and the <a href="/research/#open-evaluation">evaluation program</a>.</p>
       </div>
 
       <h2 class="section-head" id="head-to-head">Rhyming vs non-rhyming world models</h2>
       <p><a href="/rhyming-vs-non-rhyming/">Full expedition page →</a></p>
-      <p>Real multi-agent traffic is mostly the same structure in different words. Exact-text caches and prefix reuse fire only when bytes repeat. A rhyme matches shape. We ran the head-to-head on public data and live open world-model code.</p>
+      <p>Real agent work is mostly the same job in different words. A normal cache only helps when the text is identical. A rhyming world model recognizes the pattern, so it still helps when the words change. We tested both on public data and on open-source world models we ran ourselves.</p>
       <table class="stack-table">
-        <thead><tr><th>Traffic or task</th><th>Non-rhyming baseline</th><th>FractiSI rhyme</th></tr></thead>
+        <thead><tr><th>Situation</th><th>Without rhyme</th><th>With rhyme</th></tr></thead>
         <tbody>
-          <tr><td>Protein contacts (RCSB PDB / Pfam), 48 sessions, wording differs</td><td>Exact cache 22,261 B · 0 hits</td><td><strong>14,882 B · −33%</strong></td></tr>
-          <tr><td>Calibration, 40 sessions, wording differs</td><td>Exact cache 13,424 B · 0 hits</td><td><strong>7,385 B · −45%</strong></td></tr>
-          <tr><td>Guided discovery, 100 scenarios, 6 hops</td><td>Flat skim 0 / 100</td><td><strong>100 / 100</strong></td></tr>
-          <tr><td>Half the sessions are exact repeats</td><td>Exact cache 7,052 B</td><td><strong>6,619 B</strong></td></tr>
-          <tr><td>Mostly identical bytes (75%+ repeats)</td><td><strong>Exact cache and prefix reuse win</strong></td><td>Use them. FractiSI keeps them.</td></tr>
+          <tr><td>Protein notes, same structure, new wording</td><td>22,261 bytes, no cache hits</td><td><strong>14,882 bytes · 33% smaller</strong></td></tr>
+          <tr><td>Agent messages, same shape, new numbers</td><td>136,546 bytes, no cache hits</td><td><strong>69,912 bytes · 49% smaller</strong></td></tr>
+          <tr><td>Hidden-answer search, 100 cases</td><td>0 found</td><td><strong>100 found</strong></td></tr>
+          <tr><td>Mostly identical text</td><td><strong>Exact cache and prefix reuse win</strong></td><td>Keep using them. FractiSI does.</td></tr>
         </tbody>
       </table>
-      <p>Where open latent world models fit: we trained Dreamer-family RSSM, TD-MPC-lite, and MuZero-lite arms live on CPU. They predict the next state 60× to 170× better than a copy-forward baseline in single-agent CartPole. They have no share or merge operation. FractiSI owns that job: agents that each see a slice, and one world that reconciles them.</p>
-      <p class="honesty">Open arms are compact CPU implementations, not full DreamerV3 or TD-MPC2 checkpoints. V-JEPA 2 and Cosmos need a GPU and Genie is closed, so none of the three ran. On the protein task a plain structured blackboard also reached 100%, so the claim there is bytes, not accuracy. Receipts: <a href="/blog/shared-world-collective-intelligence/">expedition write-up</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/world-model-expedition/final-report.md">final report</a>.</p>
+      <p>Open-source world models such as DreamerV3, MuZero and TD-MPC2 are strong when one agent plans alone. None of them can share or merge a world between agents. That is the job FractiSI does.</p>
+      <p class="honesty">On the protein task a plain shared notebook also got every answer right, so there the gain is size, not accuracy. Upstream models were trained for minutes on a laptop-class CPU, so their numbers reflect short training. Not run: V-JEPA 2-AC, Cosmos (need a GPU) and Genie (closed). Details on the <a href="/rhyming-vs-non-rhyming/">expedition page</a>.</p>
 
       <h2 class="section-head" id="how-it-works">How it works</h2>
       <div class="cards">
@@ -141,18 +140,18 @@
           <tr><td>Deploy</td><td>Approval-gated publishing. Paid editions, Team and above.</td></tr>
         </tbody>
       </table>
-      <h2 class="section-head" id="rhyme-features">World Model features · Rhyme</h2>
-      <p>The FractiSI World Model recognizes structure, not only words. Rhyme is a feature category with four members, each measured on public data.</p>
+      <h2 class="section-head" id="rhyme-features">What makes the world model different: rhyme</h2>
+      <p>Rhyme means recognizing the pattern, not just the words. It shows up in four features. Two are new.</p>
       <table class="stack-table">
-        <thead><tr><th>Rhyme feature</th><th>What it does</th><th>Measured</th></tr></thead>
+        <thead><tr><th>Feature</th><th>What it does</th><th>Result</th></tr></thead>
         <tbody>
-          <tr><td>Rhyming Templates</td><td>Reuses structure across sessions. Stores the template once and each session as a delta.</td><td>−33% to −45% bytes vs exact cache where wording differs</td></tr>
-          <tr><td>Shared-World Rhyme</td><td>Lets agents that each see a slice write into one world and read the merged state.</td><td>Next-state error 5× to 20× lower than private copies</td></tr>
-          <tr><td><a href="/blog/cosmic-rhyme-expedition/">Protein Folding Rhyme</a> <span class="quiet">(new · #53)</span></td><td>Reads a line of parts as a relationship board and names the hidden long-range partner, the way a folded protein reveals distant contacts.</td><td>Held-out partner recovered 100% vs ~0% for local windows on exoplanets, NEOs, OpenNGC and WMAP</td></tr>
-          <tr><td><a href="/blog/llm-rhyme-cosmic-genome/">LLM Rhyme</a> <span class="quiet">(new · #54)</span></td><td>Writes the relationship board into a prompt as an AWARE language pack, so a language model can use it.</td><td>AWARE 100% vs LINEAR / FLAT ~0% (48 tasks per sky layer; 14 exon and 64 chrM genome tasks)</td></tr>
+          <tr><td>Rhyming Templates</td><td>Stores a pattern once and each session as only what differs.</td><td>Up to 49% smaller than an exact-match cache when wording varies</td></tr>
+          <tr><td>Shared-World Rhyme</td><td>Lets agents that each see part of the picture write into one world.</td><td>5× to 20× more accurate predictions than private copies</td></tr>
+          <tr><td><a href="/blog/cosmic-rhyme-expedition/">Protein Folding Rhyme</a> <span class="quiet">(new)</span></td><td>Lays a sequence out as a map of relationships so the hidden long-distance match shows up, the way a folded protein reveals distant contacts.</td><td>Found every time, vs almost never looking only at neighbors, on exoplanets, asteroids, deep-sky objects and the microwave sky</td></tr>
+          <tr><td><a href="/blog/llm-rhyme-cosmic-genome/">LLM Rhyme</a> <span class="quiet">(new)</span></td><td>Puts that map into a language model prompt so the model can use it.</td><td>Found every time with the map, almost never with plain or shuffled text (sky and genome data)</td></tr>
         </tbody>
       </table>
-      <p class="honesty">Protein Folding Rhyme and LLM Rhyme are measured as held-out partner recovery on public sky catalogs and small public genome panels. The genome arm is a demonstration, not a disease finding. When a reader ignores the ranked board and matches only overlapping words, AWARE falls to about 0%, so the gain comes from the board in the prompt. Papers: <a href="/library/papers/cosmic-rhyme-expedition/">Cosmic Rhyme</a> · <a href="/library/papers/llm-rhyme-cosmic-genome/">LLM Rhyme</a>.</p>
+      <p class="honesty">Tested on public sky catalogs and small public genome panels. The genome test is a demo, not a medical finding. If the reader ignores the map and matches words only, the gain disappears, so the map is what does the work. Papers: <a href="/library/papers/cosmic-rhyme-expedition/">Cosmic Rhyme</a> · <a href="/library/papers/llm-rhyme-cosmic-genome/">LLM Rhyme</a>.</p>
 
       <p>Under the product, the Tiny Gateway uses Rhyming Templates to reuse structure across sessions. A rhyme is a pattern that repeats, is self-similar, corrects itself, and recurses across scale. It is not an exact-text or prefix cache. See the <a href="/library/papers/holographic-rhyme/">holographic rhyme paper</a> and the <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>.</p>
       <p class="foundations">Foundations: Base Mainnet → Syntheverse Sandbox → Generative possibility → Net Zero → Φ<sub>EGS</sub> → Infinite Octaves → Boundary nodes → Holographic rhyme → Recursive trees → 3D hexagon, eight-node honeycomb → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent.</p>

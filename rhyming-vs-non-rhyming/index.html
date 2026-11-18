@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rhyming vs Non-Rhyming World Models · FractiSI Multi-Agent</title>
-  <meta name="description" content="Rhyming vs non-rhyming world models, head to head on real data and on upstream open models executed locally: DreamerV3, MuZero, TD-MPC2, V-JEPA 2. Same model, two deployments.">
+  <meta name="description" content="A world model that recognizes patterns against one that only recognizes exact words, tested head to head on real data and on open-source models we ran ourselves.">
   <link rel="stylesheet" href="../css/site.css?v=35">
   <style>
     .stack-table td:first-child { font-weight: 600; }
@@ -30,13 +30,13 @@
 
   <div class="wrap">
     <section class="hero" aria-labelledby="rvn-title">
-      <p class="kicker">Expedition · FractiSI Multi-Agent World Model</p>
+      <p class="kicker">Expedition · FractiSI Multi-Agent</p>
       <h1 id="rvn-title">Rhyming vs Non-Rhyming World Models</h1>
-      <p class="lede">A world model that recognizes structure against one that recognizes only words. Same models, same data, one question: which one does more work when agents share a world?</p>
+      <p class="lede">One kind of world model recognizes patterns. The other only recognizes exact words. We ran them head to head, on real data, to see which one does more work when agents share a world.</p>
       <div class="cta-row">
-        <a class="btn-primary" href="#same-model">See the head-to-head</a>
+        <a class="btn-primary" href="#results">See the results</a>
         <a class="btn-ghost" href="/blog/shared-world-collective-intelligence/">Read the write-up</a>
-        <a class="btn-ghost" href="#rerun">Re-run it</a>
+        <a class="btn-ghost" href="#rerun">Run it yourself</a>
       </div>
     </section>
   </div>
@@ -44,70 +44,72 @@
   <main class="wrap">
     <article class="page">
 
+      <h2 class="section-head" id="results">The short answer</h2>
+      <p>Rhyming wins on the work that matters: many agents, same job, different words. It does not win when the text is identical, and it does not replace the open-source models that plan for a single agent.</p>
       <div class="metrics">
-        <div><b>−33% to −49%</b><span>Bytes against an exact cache on real protein, GPS and agent telemetry where wording differs.</span></div>
-        <div><b>5× to 20×</b><span>Lower next-state error with one shared world than with private copies of the same model.</span></div>
-        <div><b>100 / 100</b><span>Guided discovery with a rhyming shared world, against 0 / 100 for a flat skim.</span></div>
-        <div><b>4 upstream</b><span>Open world models executed locally on CPU, plus three compact arms.</span></div>
+        <div><b>33% to 49%</b><span>Smaller than an exact-match cache on real protein, GPS and agent messages.</span></div>
+        <div><b>5× to 20×</b><span>More accurate at predicting what happens next when agents share one world.</span></div>
+        <div><b>100 of 100</b><span>Hidden answers found with a shared world. Without one: zero.</span></div>
+        <div><b>4 models</b><span>Upstream open-source world models we ran ourselves.</span></div>
       </div>
 
-      <h2 class="section-head" id="same-model">Same model, two deployments</h2>
-      <p>The cleanest test of rhyming against non-rhyming keeps the world model fixed and changes only how agents share it. Four agents each see one CartPole dimension. In the non-rhyming deployment every agent keeps a private copy of the model and the group votes. In the rhyming deployment agents write into one shared world and a single model reads the merged state. Each model drives its own controller by rolling its learned dynamics four steps ahead. No hand-written balancing rule is used for any model arm. Random play scores 20.5.</p>
+      <h2 class="section-head" id="same-model">Test 1: same model, shared or not</h2>
+      <p>We kept the world model fixed and changed one thing: whether agents share it. Four agents each see one piece of a balancing task. In one setup every agent keeps its own private copy of the model and the group votes. In the other, they all write into one shared world. Random play scores 20.5 out of 200.</p>
       <table class="stack-table">
-        <thead><tr><th>World model</th><th>Return · private copies</th><th>Return · shared world</th><th>Next-state error · private</th><th>Next-state error · shared</th></tr></thead>
+        <thead><tr><th>World model</th><th>Score · private copies</th><th>Score · shared world</th><th>Prediction error · private</th><th>Prediction error · shared</th></tr></thead>
         <tbody>
-          <tr><td>Dreamer-family RSSM</td><td>139.3</td><td><strong>199.5</strong></td><td>0.00099</td><td><strong>0.00017</strong> (5.7× lower)</td></tr>
-          <tr><td>TD-MPC-lite</td><td>200</td><td>200</td><td>0.00127</td><td><strong>0.00013</strong> (10× lower)</td></tr>
-          <tr><td>MuZero-lite</td><td>200</td><td>199.4</td><td>0.00263</td><td><strong>0.00013</strong> (20× lower)</td></tr>
+          <tr><td>Dreamer-style</td><td>139.3</td><td><strong>199.5</strong></td><td>0.00099</td><td><strong>0.00017</strong> (5.7× better)</td></tr>
+          <tr><td>TD-MPC-style</td><td>200</td><td>200</td><td>0.00127</td><td><strong>0.00013</strong> (10× better)</td></tr>
+          <tr><td>MuZero-style</td><td>200</td><td>199.4</td><td>0.00263</td><td><strong>0.00013</strong> (20× better)</td></tr>
         </tbody>
       </table>
-      <p>The shared world predicts the next state 5.7× to 20× better for every model. It changes the outcome for one of three: the Dreamer-family arm falls from 199.5 to 139.3 when its agents are cut off from each other. The other two stay at 200 because the pole-angle agent alone carries enough signal for this task. We report that rather than hide it. A task where several agents hold different necessary facts is the next step.</p>
+      <p>Sharing made every model predict better. It also changed the score for one of the three. The other two already balanced fine because one agent could see the pole angle. We are telling you that on purpose. The next test needs a task where each agent holds a fact the others need.</p>
 
-      <h2 class="section-head" id="traffic">Same structure, different words</h2>
-      <p>Real agent traffic is mostly one structure carrying different content. Exact-text caches and prefix reuse fire only on identical bytes. Rhyming Templates match the shape and store each session as a delta.</p>
+      <h2 class="section-head" id="traffic">Test 2: same job, different words</h2>
+      <p>Real agent traffic is mostly one structure carrying different content. A normal cache only helps when text matches exactly. Rhyming recognizes the shape and stores each session as only what is different.</p>
       <table class="stack-table">
-        <thead><tr><th>Traffic</th><th>Non-rhyming</th><th>Rhyming</th></tr></thead>
+        <thead><tr><th>Traffic</th><th>Without rhyme</th><th>With rhyme</th></tr></thead>
         <tbody>
-          <tr><td>Agent telemetry from the CartPole runs, 400 messages</td><td>Exact cache 136,546 B · 0 hits</td><td><strong>69,912 B · −49%</strong></td></tr>
-          <tr><td>Protein contacts (RCSB PDB / Pfam), 48 sessions</td><td>Exact cache 22,261 B · 0 hits</td><td><strong>14,882 B · −33%</strong></td></tr>
-          <tr><td>Calibration, 40 sessions</td><td>Exact cache 13,424 B · 0 hits</td><td><strong>7,385 B · −45%</strong></td></tr>
-          <tr><td>Guided discovery, 100 scenarios, 6 hops</td><td>Flat skim 0 / 100</td><td><strong>100 / 100</strong></td></tr>
-          <tr><td>Mostly identical bytes (75%+ repeats)</td><td><strong>Exact cache and prefix reuse win</strong></td><td>Use them. FractiSI keeps them.</td></tr>
-        </tbody>
-      </table>
-
-      <h2 class="section-head" id="executed">Open world models executed locally</h2>
-      <p>Every model we can run on this hardware was run. No arm is a stub.</p>
-      <table class="stack-table">
-        <thead><tr><th>Upstream model</th><th>What ran</th><th>Measured</th><th>Share / merge</th></tr></thead>
-        <tbody>
-          <tr><td>DreamerV3</td><td>danijar/dreamerv3, JAX, size1m, 5,000 steps, 824 s on CPU</td><td>Next-state error 0.0255 vs 0.0311 copy-forward on held-out data, one seed; on its training transitions it scores 0.0372 and does not beat copy-forward. Policy return 65.3 over 10 episodes.</td><td>None</td></tr>
-          <tr><td>MuZero</td><td>werner-duvaud/muzero-general, 3,000 updates, 656 s, MCTS</td><td>Policy return 218.9 over 10 episodes. No observation decoder, so next-state error is not defined; reward error 0.003.</td><td>None</td></tr>
-          <tr><td>TD-MPC2</td><td>nicklashansen/tdmpc2, official 5M-parameter checkpoints loaded through a key-rename converter, real MuJoCo physics</td><td>cartpole-swingup 197 vs 49 random, about a quarter of the published ~800+, so a partial reproduction. cartpole-balance 999 vs 331 random, which starts near upright. 2 episodes each. Its one-step latent error is worse than copy-forward.</td><td>None</td></tr>
-          <tr><td>V-JEPA 2</td><td>facebook/vjepa2-vitl-fpc64-256 encoder, 4.3 s per clip on CPU, real CartPole renders</td><td>Keeps the state: R² 0.85 across 40 held-out clips. A probe predicting the next state scores 0.056 against 0.030 for copy-forward, which uses the true current state, so it does not beat it. 8-frame clips, 100 train and 40 test, one split.</td><td>None</td></tr>
-        </tbody>
-      </table>
-      <p>The three compact arms (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite) are small PyTorch models trained in seconds. They carry the same-model test above because their dynamics can be queried for any partial state. None of the seven arms has a share or merge operation, which is the job the rhyming shared world does.</p>
-      <p>Not run: V-JEPA 2-AC (about 1B parameters, not distributed as a standard checkpoint, beyond this machine's memory), Cosmos (GPU) and Genie (closed). DIAMOND and Oasis are GPU-class and were not attempted. TD-MPC2 numbers show the checkpoint running, not a faithful reproduction of the paper. Upstream arms were trained for minutes on shared cores, so returns and wall times reflect short training. Each model is scored on its own task, so the returns are not a ranking.</p>
-
-      <h2 class="section-head" id="rhyme-features">Rhyme features of the World Model</h2>
-      <p>Rhyming is a feature category, not one trick. Two members are new.</p>
-      <table class="stack-table">
-        <thead><tr><th>Feature</th><th>Role in the World Model</th><th>Measured</th></tr></thead>
-        <tbody>
-          <tr><td>Rhyming Templates</td><td>Structure reuse across sessions</td><td>−33% to −49% bytes where wording differs</td></tr>
-          <tr><td>Shared-World Rhyme</td><td>Multi-agent share and merge</td><td>5× to 20× lower next-state error</td></tr>
-          <tr><td><a href="/blog/cosmic-rhyme-expedition/">Protein Folding Rhyme</a> <span class="quiet">(new)</span></td><td>Names the hidden long-range partner from a relationship board</td><td>100% vs ~0% on exoplanets, NEOs, OpenNGC, WMAP</td></tr>
-          <tr><td><a href="/blog/llm-rhyme-cosmic-genome/">LLM Rhyme</a> <span class="quiet">(new)</span></td><td>Gives a language model the board as an AWARE pack</td><td>AWARE 100% vs LINEAR / FLAT ~0%</td></tr>
+          <tr><td>Agent messages from our own runs, 400 messages</td><td>136,546 bytes · no cache hits</td><td><strong>69,912 bytes · 49% smaller</strong></td></tr>
+          <tr><td>Protein structure notes, 48 sessions</td><td>22,261 bytes · no cache hits</td><td><strong>14,882 bytes · 33% smaller</strong></td></tr>
+          <tr><td>Moose GPS tracks</td><td>12,122 bytes · no cache hits</td><td><strong>7,783 bytes · 36% smaller</strong></td></tr>
+          <tr><td>Same session shape, new questions, 40 sessions</td><td>13,424 bytes · no cache hits</td><td><strong>7,385 bytes · 45% smaller</strong></td></tr>
+          <tr><td>Hidden-answer search, 100 cases</td><td>0 found</td><td><strong>100 found</strong></td></tr>
+          <tr><td>Mostly identical text (75%+ repeats)</td><td><strong>Exact cache and prefix reuse win</strong></td><td>Keep using them. FractiSI does.</td></tr>
         </tbody>
       </table>
 
-      <h2 class="section-head" id="verdict">Verdict</h2>
-      <p>Rhyming and non-rhyming world models do different jobs. Open latent models own single-agent imagination and planning. A rhyming shared world owns share, merge and structure reuse, which is where multi-agent work happens. The two are complementary, and the measured differences above are specific to the second job.</p>
+      <h2 class="section-head" id="executed">Test 3: open-source models, run for real</h2>
+      <p>We ran every open-source world model that fits on this hardware. None is a stub.</p>
+      <table class="stack-table">
+        <thead><tr><th>Model</th><th>What we ran</th><th>What happened</th><th>Can agents share it?</th></tr></thead>
+        <tbody>
+          <tr><td>DreamerV3</td><td>The original code, 5,000 steps of training on a CPU</td><td>Predicted the next state a little better than copying the current one forward (0.0255 vs 0.0311, one run). Balanced the pole for 65 steps on average.</td><td>No</td></tr>
+          <tr><td>MuZero</td><td>The original code, 3,000 training updates</td><td>Balanced the pole for 219 steps on average.</td><td>No</td></tr>
+          <tr><td>TD-MPC2</td><td>The original code and published checkpoints, real physics</td><td>Beat random play (197 vs 49 on swing-up), but only about a quarter of the published score. Treat it as a partial reproduction.</td><td>No</td></tr>
+          <tr><td>V-JEPA 2</td><td>The video encoder, on real rendered frames, 4 seconds per clip</td><td>Clearly keeps the cart and pole positions, but not enough to beat copying the current state forward.</td><td>No</td></tr>
+        </tbody>
+      </table>
+      <p>Each model is scored on its own task, so this is not a ranking. We also trained three compact versions in seconds. They carry Test 1 because we can query them with partial information. Not run: V-JEPA 2-AC, Cosmos (need a GPU) and Genie (closed). DIAMOND and Oasis also need a GPU and were not attempted.</p>
 
-      <p class="honesty"><strong>What this does not show.</strong> On the protein task a plain structured blackboard also reached 100%, so the claim there is bytes, not accuracy. The shared-world accuracy gain comes from sharing, and a blackboard would match it. The rhyme layer's own contribution is the byte saving and structure reuse. Compact arms are small CPU implementations, not full checkpoints. Upstream arms were trained for minutes, so their numbers describe short training, not each model's ceiling. V-JEPA 2-AC, Cosmos and Genie are not run. Architectural and structured-state measurements, not production fleet benchmarks.</p>
+      <h2 class="section-head" id="rhyme-features">The rhyme features behind it</h2>
+      <p>Rhyme means recognizing the pattern, not just the words. It shows up in four features. Two are new.</p>
+      <table class="stack-table">
+        <thead><tr><th>Feature</th><th>What it does</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Rhyming Templates</td><td>Stores a pattern once and each session as only what differs</td><td>33% to 49% smaller than an exact-match cache</td></tr>
+          <tr><td>Shared-World Rhyme</td><td>Lets agents write into one world</td><td>5× to 20× more accurate predictions</td></tr>
+          <tr><td><a href="/blog/cosmic-rhyme-expedition/">Protein Folding Rhyme</a> <span class="quiet">(new)</span></td><td>Finds the hidden long-distance match in a sequence by mapping relationships</td><td>Found every time, vs almost never looking only at neighbors</td></tr>
+          <tr><td><a href="/blog/llm-rhyme-cosmic-genome/">LLM Rhyme</a> <span class="quiet">(new)</span></td><td>Gives a language model that map in its prompt</td><td>Found every time with the map, almost never without it</td></tr>
+        </tbody>
+      </table>
 
-      <h2 class="section-head" id="rerun">Re-run it</h2>
+      <h2 class="section-head" id="verdict">So, is rhyming better?</h2>
+      <p>For multi-agent work where the wording changes, yes, by a lot. For identical text, no: use a normal cache. For one agent planning alone, open-source world models are the right tool. The two kinds work together, and the differences above are specific to sharing a world.</p>
+
+      <p class="honesty"><strong>What these tests do not show.</strong> On the protein task a plain shared notebook also got every answer right, so there the gain is size, not accuracy. The accuracy gain in Test 1 comes from sharing, and a plain shared notebook would match it. What rhyme adds on top is the smaller size and the reuse of patterns. Compact models are small CPU versions, not full checkpoints. Upstream models were trained for minutes, so their numbers describe short training, not their ceiling. These are lab results, not production benchmarks.</p>
+
+      <h2 class="section-head" id="rerun">Run it yourself</h2>
       <pre><code>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
 cd FractiSI-Multi-Agent
 node experiments/world-model-expedition/scripts/run_expedition_v2.mjs
