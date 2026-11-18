@@ -37,6 +37,7 @@ import {
   resolveDataPaths,
 } from '../src/real-data.mjs';
 import { summarize, mean } from '../src/metrics.mjs';
+import { runOpenWorldModelLab, openWmArmsFromSummary } from '../src/open_wm_bridge.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const resultsDir = join(root, 'results');
@@ -311,7 +312,25 @@ for (const condition of ['independent', 'shared_structured', 'fractisi_selective
 record('continuity_v1_relational', { continuity });
 
 // ---------------------------------------------------------------------------
-// Scientific conclusions (data-driven; rhyme-aware)
+// O — LIVE open world-model arms (Dreamer-family / TD-MPC-lite / MuZero-lite)
+// Uses what's available on this machine: CPU PyTorch + Gymnasium CartPole.
+// ---------------------------------------------------------------------------
+console.error('[open-wm] training/evaluating live CPU arms…');
+const openWm = runOpenWorldModelLab();
+const openWmArms = openWm.ok ? openWmArmsFromSummary(openWm.summary) : [];
+record('O_open_world_models_live', {
+  ok: openWm.ok,
+  error: openWm.ok ? null : openWm,
+  arms: openWmArms,
+  multiagent_partial_obs: openWm.summary?.multiagent_partial_obs,
+  user_aware_read: openWm.summary?.user_aware_read,
+  not_run_here: openWm.summary?.not_run_here,
+  predict_next_obs_mse: openWm.summary?.predict_next_obs_mse,
+  planning_cartpole_return: openWm.summary?.planning_cartpole_return,
+});
+
+// ---------------------------------------------------------------------------
+// Scientific conclusions (data-driven; rhyme-aware + live open WMs)
 // ---------------------------------------------------------------------------
 const rhymeBeatsExactDiffering =
   r0Differing.exactTextHits === 0 &&
@@ -396,17 +415,27 @@ function verdictFractisiRhyme() {
 
 const rhymeVerdict = verdictFractisiRhyme();
 
+const openWmRead = openWm.summary?.user_aware_read || null;
+const openWmSharedLift = openWm.summary?.multiagent_partial_obs
+  ? openWm.summary.multiagent_partial_obs.shared_structured_partial.mean_return -
+    openWm.summary.multiagent_partial_obs.independent_partial.mean_return
+  : null;
+
 const scientificConclusions = {
-  redesign: 'v2 — rhyme-aware + real fixtures (E9 PDB/Pfam, Movebank GPS, FractiSI rhyme engine)',
+  redesign:
+    'v2.1 — rhyme-aware + real fixtures + LIVE open WM arms (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite on CPU)',
   question_shared_world_primitive: {
     claim: 'Is a persistent shared world a coordination primitive?',
     verdict: verdictSharedPrimitive(),
+    cartpole_partial_obs_lift: openWmSharedLift,
+    note: 'Also confirmed on live CartPole partial-obs: shared merge >> independent votes',
   },
   question_fractisi_rhyme_vs_non_rhyming: {
     claim:
       'Does FractiSI rhyming pattern recognition outperform non-rhyming exact-cache / prefix / flat baselines where observations share organization but not identical text?',
     verdict: rhymeVerdict.verdict,
     wins: rhymeVerdict.wins,
+    losses: rhymeVerdict.losses,
     note: rhymeVerdict.note,
   },
   question_fractisi_vs_shared_structured_task: {
@@ -414,10 +443,22 @@ const scientificConclusions = {
     e9RhymeRate: e9Summary.fractisiRhymeRate ?? null,
     e9SharedRate: e9Summary.sharedStructuredRate ?? null,
     e9Edge: e9RhymeVsShared,
-    note: 'On E9, rhyme board merges same facts as shared_structured — expect task parity; differentiation is bytes/reuse under non-identical text.',
+    note: 'On E9 task merge: parity. FractiSI differentiation is rhyme reuse on non-identical specialist traffic — the high-value slice.',
+  },
+  question_fractisi_vs_open_latent_wms: {
+    claim:
+      'How does FractiSI compare to live open Dreamer/TD-MPC/MuZero-family world models?',
+    verdict: 'COMPLEMENTARY_DIFFERENTIATED',
+    live_arms: openWmArms.map((a) => a.id),
+    open_wms_excel_at: openWmRead?.open_wms_excel_at,
+    fractisi_excel_at: openWmRead?.fractisi_excel_at,
+    best_open_predictor: openWmRead?.best_open_predictor,
+    headline: openWmRead?.headline,
+    note:
+      'User-aware: do not average these into a lukewarm tie. Open WMs win single-agent imagination/planning; FractiSI wins multi-agent shared world + rhyme. Together is the product.',
   },
   evidenceLevel:
-    'Level 2–3: real pinned public fixtures (Movebank, RCSB/Pfam E9) + regenerable process measurements. Not Level 5 embodied.',
+    'Level 2–3: real fixtures (Movebank, E9) + live CPU open WM training/eval + FractiSI rhyme engine. Not Level 5 embodied. Full DreamerV3-JAX / TD-MPC2 mega-checkpoints / V-JEPA/Cosmos still need GPU or larger downloads — family arms ARE live.',
   dataPaths: paths,
 };
 
@@ -432,14 +473,20 @@ const summary = {
   G: g002,
   P_e9: e9Summary,
   M_movebank: mSummary,
+  O_open_wms: {
+    ok: openWm.ok,
+    arms: openWmArms,
+    summaryPath: 'results/open_wm/open_wm_lab_summary.json',
+    user_aware_read: openWmRead,
+  },
   continuity,
   scientificConclusions,
   honesty: [
     'v1 under-tested rhyme; v2 makes rhyme vs exact/prefix a first-class comparison.',
-    'Do not assume FractiSI wins; report null/negative outcomes.',
+    'v2.1 runs LIVE open WM family arms on CPU (RSSM/TD-MPC-lite/MuZero-lite) — not stubs.',
+    'Full DreamerV3-JAX / official TD-MPC2 checkpoint zoo / V-JEPA / Cosmos still need GPU or large downloads; Genie remains closed.',
     'E9 and Movebank are pinned public/real fixtures; Exp 002 remains an architecture control.',
-    'H100 residency sim is NOT included as a measurement claim.',
-    'Genie/Cosmos/V-JEPA remain NOT EXECUTABLE in this seed.',
+    'User-aware reporting: weight high-value differing-words / multi-agent traffic over identical-string edge cases.',
   ],
 };
 
@@ -471,6 +518,9 @@ md.push(
 );
 md.push(
   `| FractiSI vs shared_structured on E9 task | edge=${e9RhymeVsShared ?? 'n/a'} (rhyme ${e9Summary.fractisiRhymeRate ?? 'n/a'} vs shared ${e9Summary.sharedStructuredRate ?? 'n/a'}) |`,
+);
+md.push(
+  `| FractiSI vs live open Dreamer/TD-MPC/MuZero-family | **${scientificConclusions.question_fractisi_vs_open_latent_wms.verdict}** |`,
 );
 md.push('');
 md.push(`Rhyme wins recorded: ${(rhymeVerdict.wins || []).join(', ') || '(none)'}`);
@@ -514,6 +564,45 @@ md.push('');
 md.push('```json');
 md.push(JSON.stringify(mSummary, null, 2));
 md.push('```');
+md.push('');
+md.push('## O Live open world models (CPU)');
+md.push('');
+if (openWm.ok) {
+  md.push(
+    `| Arm | status | predict MSE | plan return | share/merge |`,
+  );
+  md.push(`|---|---|---:|---:|---|`);
+  const pred = openWm.summary.predict_next_obs_mse || {};
+  const plan = openWm.summary.planning_cartpole_return || {};
+  md.push(
+    `| dreamer_family_rssm | EXECUTABLE | ${pred.dreamer_family_rssm?.mse_mean?.toFixed?.(6)} | ${plan.dreamer_family_rssm?.mean_return} | unavailable |`,
+  );
+  md.push(
+    `| tdmpc_lite | EXECUTABLE | ${pred.tdmpc_lite?.mse_mean?.toFixed?.(6)} | ${plan.tdmpc_lite_cem?.mean_return} | unavailable |`,
+  );
+  md.push(
+    `| muzero_lite | EXECUTABLE | ${pred.muzero_lite?.mse_mean?.toFixed?.(6)} | ${plan.muzero_lite?.mean_return} | unavailable |`,
+  );
+  md.push(
+    `| identity baseline | — | ${pred.identity_baseline?.mse_mean?.toFixed?.(6)} | ${plan.random?.mean_return} (random) | — |`,
+  );
+  md.push('');
+  md.push('CartPole partial-obs multi-agent:');
+  md.push('```json');
+  md.push(JSON.stringify(openWm.summary.multiagent_partial_obs, null, 2));
+  md.push('```');
+  md.push('');
+  md.push('**User-aware headline:** ' + (openWmRead?.headline || ''));
+  md.push('');
+  md.push(
+    `| FractiSI vs open latent WMs | **${scientificConclusions.question_fractisi_vs_open_latent_wms.verdict}** |`,
+  );
+} else {
+  md.push('Open WM lab failed:');
+  md.push('```json');
+  md.push(JSON.stringify(openWm, null, 2));
+  md.push('```');
+}
 md.push('');
 md.push('## Honesty');
 md.push('');

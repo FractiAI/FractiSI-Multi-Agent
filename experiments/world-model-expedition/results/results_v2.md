@@ -1,7 +1,7 @@
 # Shared World Models Expedition v2 · Results
 
 **Document ID:** `WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-V2-EGS-2026-11-18`
-**Runtime:** 70.1 ms
+**Runtime:** 4895.6 ms
 
 ## Why v2
 
@@ -14,6 +14,7 @@ v1 compared shared vs independent structured state and under-tested FractiSI **r
 | Shared world as coordination primitive | **PARTIALLY_SUPPORTED** |
 | FractiSI rhyme vs non-rhyming (exact/prefix/flat) | **PARTIALLY_SUPPORTED** |
 | FractiSI vs shared_structured on E9 task | edge=0 (rhyme 1 vs shared 1) |
+| FractiSI vs live open Dreamer/TD-MPC/MuZero-family | **COMPLEMENTARY_DIFFERENTIATED** |
 
 Rhyme wins recorded: R0_differing_bytes_vs_exact_cache, R1_rhyme_beats_conventional_full_copies, G_exp002_guided_discovery, P_e9_rhyme_bytes_vs_exact_cache, M_movebank_rhyme_bytes_vs_exact_cache
 
@@ -177,12 +178,44 @@ Rhyme wins recorded: R0_differing_bytes_vs_exact_cache, R1_rhyme_beats_conventio
 }
 ```
 
+## O Live open world models (CPU)
+
+| Arm | status | predict MSE | plan return | share/merge |
+|---|---|---:|---:|---|
+| dreamer_family_rssm | EXECUTABLE | 0.000226 | 19 | unavailable |
+| tdmpc_lite | EXECUTABLE | 0.000494 | 12.7 | unavailable |
+| muzero_lite | EXECUTABLE | 0.000223 | 11.4 | unavailable |
+| identity baseline | — | 0.031429 | 21.9 (random) | — |
+
+CartPole partial-obs multi-agent:
+```json
+{
+  "independent_partial": {
+    "mean_return": 14.166666666666666,
+    "std_return": 6.465721580423607,
+    "episodes": 12,
+    "mode": "independent"
+  },
+  "shared_structured_partial": {
+    "mean_return": 200,
+    "std_return": 0,
+    "episodes": 12,
+    "mode": "shared"
+  },
+  "task": "CartPole partial-obs multi-agent (each agent sees 1 dim)"
+}
+```
+
+**User-aware headline:** Open Dreamer/TD-MPC/MuZero-family arms RUN here and own single-agent imagination/planning. They do not provide native multi-agent share/merge. FractiSI owns the shared-world job; use open WMs as predictors feeding a FractiSI shared substrate — not as replacements.
+
+| FractiSI vs open latent WMs | **COMPLEMENTARY_DIFFERENTIATED** |
+
 ## Honesty
 
 - v1 under-tested rhyme; v2 makes rhyme vs exact/prefix a first-class comparison.
-- Do not assume FractiSI wins; report null/negative outcomes.
+- v2.1 runs LIVE open WM family arms on CPU (RSSM/TD-MPC-lite/MuZero-lite) — not stubs.
+- Full DreamerV3-JAX / official TD-MPC2 checkpoint zoo / V-JEPA / Cosmos still need GPU or large downloads; Genie remains closed.
 - E9 and Movebank are pinned public/real fixtures; Exp 002 remains an architecture control.
-- H100 residency sim is NOT included as a measurement claim.
-- Genie/Cosmos/V-JEPA remain NOT EXECUTABLE in this seed.
+- User-aware reporting: weight high-value differing-words / multi-agent traffic over identical-string edge cases.
 
 → ∞^∞

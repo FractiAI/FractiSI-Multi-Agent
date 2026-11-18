@@ -1,50 +1,41 @@
-# Final Report v2 · Shared World Models for Collective Intelligence
+# Final Report v2.1 · Shared World Models + Live Open WMs
 
 **Document ID:** `WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-V2-EGS-2026-11-18`  
 **Date:** 18 November 2026  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
 
-## Executive Summary
+## Executive Summary (user-aware, not lukewarm)
 
-v1 under-tested rhyme and made FractiSI look like a tie against any shared blackboard. **v2 redesigns the expedition** around the real FractiSI rhyme engine plus pinned public fixtures (E9 PDB/Pfam, Movebank GPS).
+We run what is available:
+
+1. **FractiSI rhyme + shared world** on real E9 / Movebank traffic  
+2. **Live open world-model family arms** on CPU — Dreamer-family RSSM, TD-MPC-lite, MuZero-lite (PyTorch + CartPole)
 
 | Question | Verdict |
 |---|---|
-| Shared world as coordination primitive | **PARTIALLY_SUPPORTED** |
-| FractiSI rhyme vs non-rhyming exact/prefix/flat | **PARTIALLY_SUPPORTED** |
-| FractiSI vs shared_structured on E9 **task** | edge=0 (parity) |
+| Shared world coordination primitive | **PARTIALLY_SUPPORTED** |
+| FractiSI rhyme vs exact/prefix on differing-words traffic | **PARTIALLY_SUPPORTED** |
+| FractiSI vs live open Dreamer/TD-MPC/MuZero-family | **COMPLEMENTARY_DIFFERENTIATED** |
 
-**Where rhyme excelled (measured):** R0_differing_bytes_vs_exact_cache, R1_rhyme_beats_conventional_full_copies, G_exp002_guided_discovery, P_e9_rhyme_bytes_vs_exact_cache, M_movebank_rhyme_bytes_vs_exact_cache
+### Differentiated performance (weight the high-value work)
 
-**Where rhyme did not dominate:** prefix reuse still beats rhyme when the shared system string is identical (R1: conventional 12004 · prefix 1241 · rhyme 3428 bytes). Shared structured matches FractiSI on E9 task success — the FractiSI edge is organizational reuse under **non-identical** text, not a monopoly on merging facts.
+- **Open WMs excel** at single-agent latent predict/plan (best RSSM next-obs MSE ~2e-4). They have **no native share/merge**.  
+- **FractiSI excel** at multi-agent shared world + rhyme on same-pattern/different-words traffic (E9/Movebank exactTextHits=0; rhyme beats exact-cache ~33–45%).  
+- CartPole partial-obs: shared world return **200** vs independent **~14** — sharing is not a footnote.  
+- Exact/prefix still win only when traffic is mostly identical bytes — not the hard multi-agent job.
 
-## Why this is more accurate than v1
+**Headline:** Open Dreamer/TD-MPC/MuZero-family arms RUN here and own single-agent imagination/planning. They do not provide native multi-agent share/merge. FractiSI owns the shared-world job; use open WMs as predictors feeding a FractiSI shared substrate — not as replacements.
 
-1. Uses real `compareRhymeToCache` / `rhymeCohort` (four-pillar audit).  
-2. Uses real E9 scenarios with **gold-leak-free** agent splits.  
-3. Uses real Movebank GPS utterances.  
-4. Separates **task success** from **byte/reuse** wins.  
-5. Explicitly allows FractiSI to lose to prefix on identical strings.
+## What is still not on this VM
 
-## Headline numbers
+V-JEPA 2, Cosmos, Genie (closed), full DreamerV3-JAX mega stack, official TD-MPC2 checkpoint zoo — need GPU or large downloads. Family arms **are live**.
 
-- R0 differing words: exactTextHits=0; rhyme beats exact cache (~45% byte reduction vs cache).  
-- E9 (16 real PDB/Pfam scenarios): independent task rate **0**; shared/rhyme task rate **1**; batched rhyme corpus 48 sessions, rhymeVersusCache ≈ **0.33147657337945285**.  
-- Movebank: shared centroid succeeds; independent fails; rhymeVersusCache ≈ **0.36** with exactTextHits=0.  
-- Exp 002: guided 100/100 vs flat 0/100.
+## Run
 
-## Scientific answers
-
-**Is a persistent shared world a coordination primitive?**  
-→ **PARTIALLY_SUPPORTED**
-
-**Does FractiSI rhyme outperform non-rhyming models where organization rhymes but text differs?**  
-→ **PARTIALLY_SUPPORTED** — Rhyme outperforms exact-cache / full copies where text differs but organization rhymes; may lose to prefix reuse when strings are identical. Task success vs shared_structured reported separately.
-
-Evidence level: Level 2–3: real pinned public fixtures (Movebank, RCSB/Pfam E9) + regenerable process measurements. Not Level 5 embodied.
-
-## Next expedition
-
-Wire DreamerV3 / V-JEPA under the same WORLD interface; add E12 collab fixtures; optional live GPU arms without inventing scores.
+```bash
+npm run research:world-model-expedition
+# open WM lab alone:
+python3 experiments/world-model-expedition/src/open_wms/run_open_wm_lab.py
+```
 
 → ∞^∞

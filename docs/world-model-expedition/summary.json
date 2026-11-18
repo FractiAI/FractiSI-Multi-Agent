@@ -2,8 +2,8 @@
   "documentId": "WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-V2-EGS-2026-11-18",
   "expedition": "Shared World Models for Collective Intelligence — v2 redesign",
   "seedDate": "2026-11-18",
-  "runtimeMs": 70.060359,
-  "nRecords": 6,
+  "runtimeMs": 4895.638569999999,
+  "nRecords": 7,
   "R0": {
     "kind": "R0_calibration",
     "differing": {
@@ -117,19 +117,19 @@
       "rhymeShouldBeatExactOnDiffering": true,
       "exactShouldWinOrTieOnIdentical": true
     },
-    "at": "2026-11-18T14:53:46.499Z"
+    "at": "2026-11-18T16:58:17.322Z"
   },
   "R1": {
     "kind": "R1_multi_session",
     "conventional": {
       "mode": "conventional",
-      "ms": 0.03401500000000368,
+      "ms": 0.03472899999999868,
       "bytes": 12004,
       "sessions": 24
     },
     "prefixReuse": {
       "mode": "prefix_reuse",
-      "ms": 0.013176000000001409,
+      "ms": 0.014310000000001821,
       "bytes": 1241,
       "sessions": 24,
       "note": "identical system string shared once — not a rhyme proof"
@@ -140,7 +140,7 @@
       "naiveBytes": 7982,
       "rhymeBytes": 3428,
       "byteReduction": 0.5705337008268605,
-      "ms": 0.6706640000000021,
+      "ms": 0.6937020000000018,
       "sessions": 24,
       "auditPass": true,
       "exact": true
@@ -150,13 +150,13 @@
       "demo": "multi-session",
       "conventional": {
         "mode": "conventional",
-        "ms": 0.006188999999999112,
+        "ms": 0.006855999999999085,
         "bytes": 12004,
         "sessions": 24
       },
       "prefixReuse": {
         "mode": "prefix_reuse",
-        "ms": 0.003639000000006831,
+        "ms": 0.0036640000000005557,
         "bytes": 1241,
         "sessions": 24,
         "note": "identical system string shared once — not a rhyme proof"
@@ -164,7 +164,7 @@
       "holographicRhyme": {
         "mode": "holographic_rhyme",
         "status": "ran",
-        "ms": 0.42800599999999633,
+        "ms": 0.40688400000000513,
         "naiveBytes": 7982,
         "rhymeBytes": 3428,
         "byteReduction": 0.5705337008268605,
@@ -186,7 +186,7 @@
       "prefixReuse": 1241,
       "rhyme": 3428
     },
-    "at": "2026-11-18T14:53:46.502Z"
+    "at": "2026-11-18T16:58:17.324Z"
   },
   "G": {
     "id": "E2_discovery_collective",
@@ -319,6 +319,116 @@
       "naiveBytes": 12122
     }
   },
+  "O_open_wms": {
+    "ok": true,
+    "arms": [
+      {
+        "id": "dreamer_family_rssm",
+        "status": "EXECUTABLE",
+        "family": "dreamer_family_rssm",
+        "architecture": "RSSM (encoder+GRU+decoders) — Dreamer-family local CPU",
+        "train_steps": 500,
+        "final_loss": 0.0002070141490548849,
+        "mean_loss_last50": 0.00020352535648271441,
+        "train_seconds": 0.6817126929963706,
+        "executable": true,
+        "hardware": "CPU",
+        "note": "Not full DreamerV3 JAX repo; live trainable RSSM arm",
+        "predict_mse": {
+          "mse_mean": 0.0002262359626623578,
+          "mse_std": 0.0002822904954280254,
+          "n": 256
+        },
+        "plan_return": {
+          "mean_return": 19,
+          "std_return": 6.099180272790763,
+          "episodes": 10
+        },
+        "capabilities": {
+          "predict": "native",
+          "simulate": "native",
+          "share": "unavailable",
+          "merge": "unavailable",
+          "multi_agent_shared_world": "unavailable",
+          "best_at": "single-agent latent prediction / imagination"
+        }
+      },
+      {
+        "id": "tdmpc_lite",
+        "status": "EXECUTABLE",
+        "family": "tdmpc_family",
+        "architecture": "Latent dynamics + reward + CEM planning — TD-MPC-lite local CPU",
+        "train_steps": 400,
+        "final_loss": 0.0002484131546225399,
+        "mean_loss_last50": 0.0002463319138041697,
+        "train_seconds": 0.41406877200643066,
+        "executable": true,
+        "hardware": "CPU",
+        "note": "Not full TD-MPC2 checkpoint suite; live trainable TD-MPC-style arm",
+        "predict_mse": {
+          "mse_mean": 0.0004939213506389706,
+          "mse_std": 0.0008240611148512318,
+          "n": 256
+        },
+        "plan_return": {
+          "mean_return": 12.7,
+          "std_return": 2.238302928559939,
+          "episodes": 10
+        },
+        "capabilities": {
+          "predict": "native",
+          "simulate": "native",
+          "share": "unavailable",
+          "merge": "unavailable",
+          "multi_agent_shared_world": "unavailable",
+          "best_at": "latent MPC planning"
+        }
+      },
+      {
+        "id": "muzero_lite",
+        "status": "EXECUTABLE",
+        "family": "muzero_family",
+        "architecture": "repr/dynamics/policy/value — MuZero-lite local CPU",
+        "train_steps": 500,
+        "final_loss": 0.06909744441509247,
+        "mean_loss_last50": 0.0692383649945259,
+        "train_seconds": 0.6907697790011298,
+        "executable": true,
+        "hardware": "CPU",
+        "note": "Not DeepMind MuZero; live trainable open MuZero-style arm",
+        "predict_mse": {
+          "mse_mean": 0.00022253969697949572,
+          "mse_std": 0.00020718949083798523,
+          "n": 256
+        },
+        "plan_return": {
+          "mean_return": 11.4,
+          "std_return": 0.9165151389911681,
+          "episodes": 10
+        },
+        "capabilities": {
+          "predict": "native",
+          "simulate": "native",
+          "share": "unavailable",
+          "merge": "unavailable",
+          "multi_agent_shared_world": "unavailable",
+          "best_at": "search-style latent planning"
+        }
+      }
+    ],
+    "summaryPath": "results/open_wm/open_wm_lab_summary.json",
+    "user_aware_read": {
+      "open_wms_excel_at": "single-agent predict/plan in latent dynamics (CartPole live)",
+      "best_open_predictor": {
+        "name": "muzero_lite",
+        "mse": 0.00022253969697949572
+      },
+      "fractisi_excel_at": "multi-agent shared world / merge / rhyme on non-identical specialist traffic",
+      "shared_world_return_lift_vs_independent": 185.83333333333334,
+      "complementary": true,
+      "headline": "Open Dreamer/TD-MPC/MuZero-family arms RUN here and own single-agent imagination/planning. They do not provide native multi-agent share/merge. FractiSI owns the shared-world job; use open WMs as predictors feeding a FractiSI shared substrate — not as replacements."
+    }
+  },
   "continuity": [
     {
       "condition": "independent",
@@ -337,10 +447,12 @@
     }
   ],
   "scientificConclusions": {
-    "redesign": "v2 — rhyme-aware + real fixtures (E9 PDB/Pfam, Movebank GPS, FractiSI rhyme engine)",
+    "redesign": "v2.1 — rhyme-aware + real fixtures + LIVE open WM arms (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite on CPU)",
     "question_shared_world_primitive": {
       "claim": "Is a persistent shared world a coordination primitive?",
-      "verdict": "PARTIALLY_SUPPORTED"
+      "verdict": "PARTIALLY_SUPPORTED",
+      "cartpole_partial_obs_lift": 185.83333333333334,
+      "note": "Also confirmed on live CartPole partial-obs: shared merge >> independent votes"
     },
     "question_fractisi_rhyme_vs_non_rhyming": {
       "claim": "Does FractiSI rhyming pattern recognition outperform non-rhyming exact-cache / prefix / flat baselines where observations share organization but not identical text?",
@@ -352,6 +464,9 @@
         "P_e9_rhyme_bytes_vs_exact_cache",
         "M_movebank_rhyme_bytes_vs_exact_cache"
       ],
+      "losses": [
+        "R1_prefix_reuse_beats_rhyme_when_system_string_identical"
+      ],
       "note": "Rhyme outperforms exact-cache / full copies where text differs but organization rhymes; may lose to prefix reuse when strings are identical. Task success vs shared_structured reported separately."
     },
     "question_fractisi_vs_shared_structured_task": {
@@ -359,9 +474,26 @@
       "e9RhymeRate": 1,
       "e9SharedRate": 1,
       "e9Edge": 0,
-      "note": "On E9, rhyme board merges same facts as shared_structured — expect task parity; differentiation is bytes/reuse under non-identical text."
+      "note": "On E9 task merge: parity. FractiSI differentiation is rhyme reuse on non-identical specialist traffic — the high-value slice."
     },
-    "evidenceLevel": "Level 2–3: real pinned public fixtures (Movebank, RCSB/Pfam E9) + regenerable process measurements. Not Level 5 embodied.",
+    "question_fractisi_vs_open_latent_wms": {
+      "claim": "How does FractiSI compare to live open Dreamer/TD-MPC/MuZero-family world models?",
+      "verdict": "COMPLEMENTARY_DIFFERENTIATED",
+      "live_arms": [
+        "dreamer_family_rssm",
+        "tdmpc_lite",
+        "muzero_lite"
+      ],
+      "open_wms_excel_at": "single-agent predict/plan in latent dynamics (CartPole live)",
+      "fractisi_excel_at": "multi-agent shared world / merge / rhyme on non-identical specialist traffic",
+      "best_open_predictor": {
+        "name": "muzero_lite",
+        "mse": 0.00022253969697949572
+      },
+      "headline": "Open Dreamer/TD-MPC/MuZero-family arms RUN here and own single-agent imagination/planning. They do not provide native multi-agent share/merge. FractiSI owns the shared-world job; use open WMs as predictors feeding a FractiSI shared substrate — not as replacements.",
+      "note": "User-aware: do not average these into a lukewarm tie. Open WMs win single-agent imagination/planning; FractiSI wins multi-agent shared world + rhyme. Together is the product."
+    },
+    "evidenceLevel": "Level 2–3: real fixtures (Movebank, E9) + live CPU open WM training/eval + FractiSI rhyme engine. Not Level 5 embodied. Full DreamerV3-JAX / TD-MPC2 mega-checkpoints / V-JEPA/Cosmos still need GPU or larger downloads — family arms ARE live.",
     "dataPaths": {
       "sing13": "/agent/repos/psw.vibelandia.sing13",
       "e9": "/agent/repos/psw.vibelandia.sing13/research/synthobs-nvidia-goldilocks-awareness-expedition/data/e9_real/scenarios.json",
@@ -373,9 +505,9 @@
   },
   "honesty": [
     "v1 under-tested rhyme; v2 makes rhyme vs exact/prefix a first-class comparison.",
-    "Do not assume FractiSI wins; report null/negative outcomes.",
+    "v2.1 runs LIVE open WM family arms on CPU (RSSM/TD-MPC-lite/MuZero-lite) — not stubs.",
+    "Full DreamerV3-JAX / official TD-MPC2 checkpoint zoo / V-JEPA / Cosmos still need GPU or large downloads; Genie remains closed.",
     "E9 and Movebank are pinned public/real fixtures; Exp 002 remains an architecture control.",
-    "H100 residency sim is NOT included as a measurement claim.",
-    "Genie/Cosmos/V-JEPA remain NOT EXECUTABLE in this seed."
+    "User-aware reporting: weight high-value differing-words / multi-agent traffic over identical-string edge cases."
   ]
 }

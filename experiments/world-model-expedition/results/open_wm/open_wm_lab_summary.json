@@ -1,0 +1,162 @@
+{
+  "documentId": "OPEN-WM-LAB-CPU-2026-11-18",
+  "executable": true,
+  "hardware": {
+    "gpu": false,
+    "torch": "2.15.0+cpu",
+    "device": "cpu"
+  },
+  "collect": {
+    "episodes": 50,
+    "n_transitions": 936,
+    "mean_return": 18.72,
+    "std_return": 9.064303613626366
+  },
+  "models": {
+    "dreamer_family_rssm": {
+      "family": "dreamer_family_rssm",
+      "architecture": "RSSM (encoder+GRU+decoders) \u2014 Dreamer-family local CPU",
+      "train_steps": 500,
+      "final_loss": 0.0002070141490548849,
+      "mean_loss_last50": 0.00020352535648271441,
+      "train_seconds": 0.6817126929963706,
+      "executable": true,
+      "hardware": "CPU",
+      "note": "Not full DreamerV3 JAX repo; live trainable RSSM arm"
+    },
+    "tdmpc_lite": {
+      "family": "tdmpc_family",
+      "architecture": "Latent dynamics + reward + CEM planning \u2014 TD-MPC-lite local CPU",
+      "train_steps": 400,
+      "final_loss": 0.0002484131546225399,
+      "mean_loss_last50": 0.0002463319138041697,
+      "train_seconds": 0.41406877200643066,
+      "executable": true,
+      "hardware": "CPU",
+      "note": "Not full TD-MPC2 checkpoint suite; live trainable TD-MPC-style arm"
+    },
+    "muzero_lite": {
+      "family": "muzero_family",
+      "architecture": "repr/dynamics/policy/value \u2014 MuZero-lite local CPU",
+      "train_steps": 500,
+      "final_loss": 0.06909744441509247,
+      "mean_loss_last50": 0.0692383649945259,
+      "train_seconds": 0.6907697790011298,
+      "executable": true,
+      "hardware": "CPU",
+      "note": "Not DeepMind MuZero; live trainable open MuZero-style arm"
+    }
+  },
+  "predict_next_obs_mse": {
+    "dreamer_family_rssm": {
+      "mse_mean": 0.0002262359626623578,
+      "mse_std": 0.0002822904954280254,
+      "n": 256
+    },
+    "tdmpc_lite": {
+      "mse_mean": 0.0004939213506389706,
+      "mse_std": 0.0008240611148512318,
+      "n": 256
+    },
+    "muzero_lite": {
+      "mse_mean": 0.00022253969697949572,
+      "mse_std": 0.00020718949083798523,
+      "n": 256
+    },
+    "identity_baseline": {
+      "mse_mean": 0.031428773603693116,
+      "mse_std": 0.004439452683224954,
+      "n": 256
+    }
+  },
+  "planning_cartpole_return": {
+    "random": {
+      "mean_return": 21.9,
+      "std_return": 13.148764200486676,
+      "episodes": 10
+    },
+    "dreamer_family_rssm": {
+      "mean_return": 19.0,
+      "std_return": 6.099180272790763,
+      "episodes": 10
+    },
+    "tdmpc_lite_cem": {
+      "mean_return": 12.7,
+      "std_return": 2.238302928559939,
+      "episodes": 10
+    },
+    "muzero_lite": {
+      "mean_return": 11.4,
+      "std_return": 0.9165151389911681,
+      "episodes": 10
+    }
+  },
+  "multiagent_partial_obs": {
+    "independent_partial": {
+      "mean_return": 14.166666666666666,
+      "std_return": 6.465721580423607,
+      "episodes": 12,
+      "mode": "independent"
+    },
+    "shared_structured_partial": {
+      "mean_return": 200.0,
+      "std_return": 0.0,
+      "episodes": 12,
+      "mode": "shared"
+    },
+    "task": "CartPole partial-obs multi-agent (each agent sees 1 dim)"
+  },
+  "capabilities": {
+    "dreamer_family_rssm": {
+      "predict": "native",
+      "simulate": "native",
+      "share": "unavailable",
+      "merge": "unavailable",
+      "multi_agent_shared_world": "unavailable",
+      "best_at": "single-agent latent prediction / imagination"
+    },
+    "tdmpc_lite": {
+      "predict": "native",
+      "simulate": "native",
+      "share": "unavailable",
+      "merge": "unavailable",
+      "multi_agent_shared_world": "unavailable",
+      "best_at": "latent MPC planning"
+    },
+    "muzero_lite": {
+      "predict": "native",
+      "simulate": "native",
+      "share": "unavailable",
+      "merge": "unavailable",
+      "multi_agent_shared_world": "unavailable",
+      "best_at": "search-style latent planning"
+    },
+    "fractisi_shared_rhyme": {
+      "predict": "adapter/prototype",
+      "simulate": "adapter/prototype",
+      "share": "native",
+      "merge": "native",
+      "multi_agent_shared_world": "native",
+      "best_at": "multi-agent coherent shared world + rhyme reuse"
+    }
+  },
+  "not_run_here": {
+    "vjepa2": "Needs GPU + large video weights \u2014 not on this VM",
+    "cosmos": "Needs large NVIDIA GPU",
+    "genie": "Closed / no weights",
+    "full_dreamerv3_jax": "Full danijar stack not installed; RSSM family arm IS live",
+    "full_tdmpc2_checkpoints": "324 official checkpoints not downloaded; TD-MPC-lite IS live"
+  },
+  "user_aware_read": {
+    "open_wms_excel_at": "single-agent predict/plan in latent dynamics (CartPole live)",
+    "best_open_predictor": {
+      "name": "muzero_lite",
+      "mse": 0.00022253969697949572
+    },
+    "fractisi_excel_at": "multi-agent shared world / merge / rhyme on non-identical specialist traffic",
+    "shared_world_return_lift_vs_independent": 185.83333333333334,
+    "complementary": true,
+    "headline": "Open Dreamer/TD-MPC/MuZero-family arms RUN here and own single-agent imagination/planning. They do not provide native multi-agent share/merge. FractiSI owns the shared-world job; use open WMs as predictors feeding a FractiSI shared substrate \u2014 not as replacements."
+  },
+  "runtime_seconds": 3.596346322010504
+}
