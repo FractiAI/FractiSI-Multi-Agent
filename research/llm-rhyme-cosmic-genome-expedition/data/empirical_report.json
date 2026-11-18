@@ -1,0 +1,236 @@
+{
+  "seed": 20261118,
+  "documentId": "WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18",
+  "legend": {
+    "documentId": "WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18",
+    "oneLine": "Protein sequence:MSA board:contact = Knowledge passage:title board:title pair = Macro series:lag board:teleconnection = Cosmic catalog/spectrum:AWARE language pack:partner id = Human genome exon/chrM window:AWARE language pack:partner id",
+    "domains": [
+      {
+        "rhyme": "E9 Protein",
+        "material": "sequence + MSA board",
+        "gold": "long-range contact"
+      },
+      {
+        "rhyme": "E10 Knowledge",
+        "material": "passage + title board",
+        "gold": "title pair"
+      },
+      {
+        "rhyme": "E11 Macro",
+        "material": "series + lag board",
+        "gold": "teleconnected series"
+      },
+      {
+        "rhyme": "Cosmic (this expedition)",
+        "material": "sky catalog/spectrum language packs",
+        "gold": "partner object / ell"
+      },
+      {
+        "rhyme": "Human genome (this expedition)",
+        "material": "exon panel + chrM windows as language packs",
+        "gold": "partner exon / window id"
+      }
+    ]
+  },
+  "cosmic": {
+    "exoplanet": {
+      "domain": "cosmic exoplanet catalog",
+      "layer": "exoplanet",
+      "nObjects": 500,
+      "nTasks": 48,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 48
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "tokenEconomics": {
+        "linearMean": 417.875,
+        "flatMean": 520.3333333333334,
+        "awareMean": 162.39583333333334
+      },
+      "lexicalBlind": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 0
+      }
+    },
+    "neo": {
+      "domain": "cosmic NEO close approaches",
+      "layer": "neo",
+      "nObjects": 350,
+      "nTasks": 48,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 48
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "tokenEconomics": {
+        "linearMean": 346.625,
+        "flatMean": 397.625,
+        "awareMean": 189.27083333333334
+      },
+      "lexicalBlind": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 0
+      }
+    },
+    "ngc": {
+      "domain": "cosmic OpenNGC",
+      "layer": "ngc",
+      "nObjects": 600,
+      "nTasks": 48,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 48
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "tokenEconomics": {
+        "linearMean": 247.91666666666666,
+        "flatMean": 285.0416666666667,
+        "awareMean": 131.79166666666666
+      },
+      "lexicalBlind": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 0
+      }
+    },
+    "wmap": {
+      "domain": "wmap_tt",
+      "layer": "wmap_tt",
+      "nTasks": 48,
+      "bestLag": 5,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 48
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "lexicalBlind": {
+        "aware": 0
+      }
+    }
+  },
+  "genome": {
+    "exon": {
+      "domain": "human genome exon panel (GTEx/MyGene/UCSC)",
+      "layer": "genome_exon",
+      "nObjects": 125,
+      "nTasks": 14,
+      "rates": {
+        "linear": 0,
+        "flat": 0.07142857142857142,
+        "aware": 1,
+        "n": 14
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 0.9285714285714286,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "tokenEconomics": {
+        "linearMean": 255.07142857142858,
+        "flatMean": 696.5714285714286,
+        "awareMean": 208.78571428571428
+      },
+      "lexicalBlind": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 0
+      }
+    },
+    "chrm": {
+      "domain": "human chrM sequence windows (UCSC hs1)",
+      "layer": "genome_chrm",
+      "nObjects": 275,
+      "nTasks": 64,
+      "rates": {
+        "linear": 0,
+        "flat": 0,
+        "aware": 1,
+        "n": 64
+      },
+      "deltaAwareLinear": 1,
+      "deltaAwareFlat": 1,
+      "ci95AwareMinusLinear": {
+        "low": 1,
+        "high": 1,
+        "mean": 1
+      },
+      "H1": true,
+      "H2": true,
+      "tokenEconomics": {
+        "linearMean": 260.8125,
+        "flatMean": 438.1875,
+        "awareMean": 167.703125
+      },
+      "lexicalBlind": {
+        "linear": 0,
+        "flat": 0.015625,
+        "aware": 0
+      }
+    }
+  },
+  "summary": {
+    "positiveExpeditionSignal": true,
+    "h1Layers": [
+      "exoplanet",
+      "neo",
+      "ngc",
+      "wmap_tt",
+      "genome_exon",
+      "genome_chrm"
+    ],
+    "nH1": 6,
+    "cosmicH1": 4,
+    "genomeH1": 2,
+    "liveLlmConfigured": false,
+    "verdict": "POSITIVE — LLM/language-pack rhyme on cosmic fixtures (4/4 H1) and human-genome exploration (2/2 H1). AWARE packs recover long-range partners LINEAR/FLAT miss under a pack-compliant reader.",
+    "note": "Split from Cosmic Rhyme C5. Genome arm is demonstration/exploration on public panels (not wet-lab genetics). Not ENGINE_SHELF / not frontier bake-off."
+  },
+  "ms": 386
+}

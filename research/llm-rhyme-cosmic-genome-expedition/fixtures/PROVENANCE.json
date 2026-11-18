@@ -1,0 +1,31 @@
+{
+  "fetchedAt": "2026-10-25T19:29:40Z",
+  "files": {
+    "chrM.hs1.fa": {
+      "genome": "hs1",
+      "chrom": "chrM",
+      "length": 16569,
+      "api": "UCSC getData/sequence"
+    },
+    "genes.panel.json": {
+      "assembly": "GRCh38/hg38",
+      "n": 10,
+      "api": "GTEx v2 reference/gene"
+    },
+    "exons.panel.json": {
+      "assembly": "GRCh38/hg38",
+      "n": 125,
+      "api": "MyGene.info v3"
+    },
+    "cpg.panel.json": {
+      "assembly": "GRCh38/hg38",
+      "n": 48,
+      "api": "UCSC cpgIslandExt"
+    },
+    "hg38.chrom.sizes": {
+      "genome": "hg38",
+      "api": "UCSC goldenPath"
+    }
+  },
+  "honesty": "Pinned public subsets for offline CI. Gene/exon/CpG = GRCh38; chrM sequence = hs1 T2T. Not clinical genetics."
+}

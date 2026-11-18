@@ -1,0 +1,126 @@
+{
+  "assembly": "GRCh38/hg38",
+  "source": "GTEx Portal API v2 reference/gene",
+  "genes": [
+    {
+      "symbol": "INS",
+      "gencodeId": "ENSG00000254647.6",
+      "chrom": "chr11",
+      "start": 2159779,
+      "end": 2161341,
+      "strand": "-",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 2161341,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "PDX1",
+      "gencodeId": "ENSG00000139515.5",
+      "chrom": "chr13",
+      "start": 27920020,
+      "end": 27926231,
+      "strand": "+",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 27920020,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "POMC",
+      "gencodeId": "ENSG00000115138.10",
+      "chrom": "chr2",
+      "start": 25160853,
+      "end": 25168903,
+      "strand": "-",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 25168903,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "NPY",
+      "gencodeId": "ENSG00000122585.7",
+      "chrom": "chr7",
+      "start": 24284163,
+      "end": 24291865,
+      "strand": "+",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 24284163,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "DNMT1",
+      "gencodeId": "ENSG00000130816.14",
+      "chrom": "chr19",
+      "start": 10133345,
+      "end": 10231286,
+      "strand": "-",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 10231286,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "DNMT3A",
+      "gencodeId": "ENSG00000119772.16",
+      "chrom": "chr2",
+      "start": 25227855,
+      "end": 25342590,
+      "strand": "-",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 25342590,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "APP",
+      "gencodeId": "ENSG00000142192.20",
+      "chrom": "chr21",
+      "start": 25880550,
+      "end": 26171128,
+      "strand": "-",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 26171128,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "SOD1",
+      "gencodeId": "ENSG00000142168.14",
+      "chrom": "chr21",
+      "start": 31659622,
+      "end": 31668931,
+      "strand": "+",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 31659622,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "DYRK1A",
+      "gencodeId": "ENSG00000157540.19",
+      "chrom": "chr21",
+      "start": 37365790,
+      "end": 37517450,
+      "strand": "+",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 37365790,
+      "source": "GTEx_v8_reference"
+    },
+    {
+      "symbol": "TMPRSS2",
+      "gencodeId": "ENSG00000184012.11",
+      "chrom": "chr21",
+      "start": 41464551,
+      "end": 41531116,
+      "strand": "-",
+      "geneType": "protein coding",
+      "genomeBuild": "GRCh38/hg38",
+      "tss": 41531116,
+      "source": "GTEx_v8_reference"
+    }
+  ]
+}
