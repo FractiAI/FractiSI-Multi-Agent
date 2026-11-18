@@ -1,6 +1,6 @@
 # Experimental Design · Shared World Models Expedition
 
-**Document ID:** `WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-EGS-2026-11-18`  
+**Document ID:** `WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18`  
 **Date:** 18 November 2026  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
 

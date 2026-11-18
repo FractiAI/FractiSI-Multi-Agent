@@ -1,6 +1,6 @@
-# Shared World Models Expedition v2 · Results
+# Rhyming vs Non-Rhyming World Models · Expedition · Results
 
-**Document ID:** `WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-V2-EGS-2026-11-18`
+**Document ID:** `WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18`
 **Runtime:** 4895.6 ms
 
 ## Why v2

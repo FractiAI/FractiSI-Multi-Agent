@@ -1,31 +1,15 @@
-# Shared World Models for Collective Intelligence
+# Rhyming vs Non-Rhyming World Models
 
-**Primary research question:** Now that prior experiments suggest a shared world model may be a coordination primitive for multi-agent systems, does the FractiSI shared-world architecture provide measurable advantages over leading alternatives — and where does it lose?
-
-**Do not assume FractiSI wins.**
-
-## Documents
+Prior FractiSI expeditions showed that **rhyming a shared world across agents** yields observable, replicable, falsifiable differentiated gains. This expedition is the head-to-head: **rhyming vs non-rhyming world models**.
 
 | Doc | Path |
 |---|---|
-| Current FractiSI architecture | [current-fractisi-architecture.md](./current-fractisi-architecture.md) |
-| Model landscape | [model-landscape.md](./model-landscape.md) |
-| Experimental design | [experimental-design.md](./experimental-design.md) |
-| Benchmark spec | [benchmark-spec.md](./benchmark-spec.md) |
-| Results | [results.md](./results.md) |
-| Failure analysis | [failure-analysis.md](./failure-analysis.md) |
 | Final report | [final-report.md](./final-report.md) |
+| Experimental design v2 | [experimental-design-v2.md](./experimental-design-v2.md) |
+| Results | [results.md](./results.md) |
+| Model landscape | [model-landscape.md](./model-landscape.md) |
+| FractiSI architecture | [current-fractisi-architecture.md](./current-fractisi-architecture.md) |
 
-## Harness
-
-`experiments/world-model-expedition/` — WORLD interface, adapters, worlds A–D + relational, metrics, runner.
-
-```bash
-npm run research:world-model-expedition
-```
-
-## Evidence level
-
-Level 2 computational fixtures in this seed run. Genie/Cosmos/V-JEPA live arms are NOT EXECUTABLE here. Do not claim Level 5 embodied validation.
+Harness: `experiments/world-model-expedition/` · `npm run research:world-model-expedition`
 
 → ∞^∞

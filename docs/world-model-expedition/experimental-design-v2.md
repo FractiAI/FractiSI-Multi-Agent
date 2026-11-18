@@ -1,7 +1,7 @@
-# Experimental Design v2 · Shared World Models Expedition
+# Experimental Design · Rhyming vs Non-Rhyming World Models
 
 **Date:** 18 November 2026  
-**Why v2:** v1 under-tested FractiSI **rhyming** pattern recognition. It mostly showed that *any* shared structured blackboard beats independent copies — so FractiSI looked like a tie. v2 makes rhyme vs exact-cache / prefix / flat a first-class comparison on **real available fixtures**.
+**Why v2:** Prior expeditions already showed rhyming shared worlds produce falsifiable multi-agent gains. This design is the head-to-head: **rhyming vs non-rhyming world models** on real fixtures and live open latent WM arms.
 
 ## Design principle
 

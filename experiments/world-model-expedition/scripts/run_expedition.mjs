@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Shared World Models for Collective Intelligence — expedition runner.
+ * Rhyming vs Non-Rhyming World Models — expedition runner.
  * Fair comparative harness. FractiSI is not assumed to win.
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
@@ -266,8 +266,8 @@ const scientificConclusions = {
 };
 
 const summary = {
-  documentId: 'WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-EGS-2026-11-18',
-  expedition: 'Shared World Models for Collective Intelligence',
+  documentId: 'WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18',
+  expedition: 'Rhyming vs Non-Rhyming World Models',
   seedDate: '2026-11-18',
   runtimeMs: performance.now() - t0,
   seeds: SEEDS,

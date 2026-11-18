@@ -1,6 +1,6 @@
 # Current FractiSI Architecture · Shared World / Tiny Gateway
 
-**Expedition:** Shared World Models for Collective Intelligence  
+**Expedition:** Rhyming vs Non-Rhyming World Models  
 **Date:** 18 November 2026  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
 **Honesty:** Descriptive inventory of the shipped FractiSI Multi-Agent kit. Not a claim that FractiSI wins any comparative benchmark.

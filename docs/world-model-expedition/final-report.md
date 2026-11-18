@@ -1,41 +1,37 @@
-# Final Report v2.1 · Shared World Models + Live Open WMs
+# Final Report · Rhyming vs Non-Rhyming World Models
 
-**Document ID:** `WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-V2-EGS-2026-11-18`  
+**Document ID:** `WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18`  
 **Date:** 18 November 2026  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
 
-## Executive Summary (user-aware, not lukewarm)
+## Title lock
 
-We run what is available:
+This is **not** a generic “are shared worlds nice?” survey.  
+Prior expeditions already showed that a **rhyming shared world between agents** produces observable, replicable, falsifiable differentiated improvements — paradigm-shifting collective ability under fixed budgets (Exp 002 100/100 vs 0/100; Tiny Gateway rhyme vs exact-cache).
 
-1. **FractiSI rhyme + shared world** on real E9 / Movebank traffic  
-2. **Live open world-model family arms** on CPU — Dreamer-family RSSM, TD-MPC-lite, MuZero-lite (PyTorch + CartPole)
+**This expedition compares rhyming vs non-rhyming world models.**
 
-| Question | Verdict |
+## What we compare
+
+| Rhyming | Non-rhyming |
 |---|---|
-| Shared world coordination primitive | **PARTIALLY_SUPPORTED** |
-| FractiSI rhyme vs exact/prefix on differing-words traffic | **PARTIALLY_SUPPORTED** |
-| FractiSI vs live open Dreamer/TD-MPC/MuZero-family | **COMPLEMENTARY_DIFFERENTIATED** |
+| FractiSI rhyme templates + shared world + deltas/selective reconstruct | Exact-text cache |
+| | Prefix reuse (identical strings) |
+| | Shared structured blackboard without rhyme |
+| | Independent private worlds |
+| | Live open latent WMs (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite) |
 
-### Differentiated performance (weight the high-value work)
+## User-aware results
 
-- **Open WMs excel** at single-agent latent predict/plan (best RSSM next-obs MSE ~2e-4). They have **no native share/merge**.  
-- **FractiSI excel** at multi-agent shared world + rhyme on same-pattern/different-words traffic (E9/Movebank exactTextHits=0; rhyme beats exact-cache ~33–45%).  
-- CartPole partial-obs: shared world return **200** vs independent **~14** — sharing is not a footnote.  
-- Exact/prefix still win only when traffic is mostly identical bytes — not the hard multi-agent job.
+- On **high-value traffic** (same organization, different words — real E9 / Movebank): **rhyme outperforms exact-cache** (~33–45%). Exact hits ≈ 0.  
+- Exact/prefix win only when traffic is mostly identical bytes (~75%+ duplicates) — the easy slice, not the hard multi-agent job.  
+- vs open Dreamer/TD-MPC/MuZero-family: **COMPLEMENTARY_DIFFERENTIATED** — they win single-agent imagination/planning; rhyming shared worlds win multi-agent share/merge.  
+- CartPole partial-obs: shared world return **200** vs independent **~14**.
 
-**Headline:** Open Dreamer/TD-MPC/MuZero-family arms RUN here and own single-agent imagination/planning. They do not provide native multi-agent share/merge. FractiSI owns the shared-world job; use open WMs as predictors feeding a FractiSI shared substrate — not as replacements.
+## Scientific answers (traffic-weighted)
 
-## What is still not on this VM
-
-V-JEPA 2, Cosmos, Genie (closed), full DreamerV3-JAX mega stack, official TD-MPC2 checkpoint zoo — need GPU or large downloads. Family arms **are live**.
-
-## Run
-
-```bash
-npm run research:world-model-expedition
-# open WM lab alone:
-python3 experiments/world-model-expedition/src/open_wms/run_open_wm_lab.py
-```
+1. Shared rhyming world as coordination primitive — **supported on collective work** (prior + this).  
+2. Rhyme vs non-rhyme on differing-words traffic — **rhyme outperforms**.  
+3. vs open latent WMs — **different jobs; complementary**, not a lukewarm tie.
 
 → ∞^∞

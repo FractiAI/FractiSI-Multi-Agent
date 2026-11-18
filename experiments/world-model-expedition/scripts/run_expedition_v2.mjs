@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Shared World Models Expedition v2
+ * Rhyming vs Non-Rhyming World Models · Expedition
  *
  * Redesign: accurately compare FractiSI *rhyming* pattern recognition against
  * non-rhyming baselines using real available runners + pinned public fixtures.
@@ -463,8 +463,8 @@ const scientificConclusions = {
 };
 
 const summary = {
-  documentId: 'WP-SHARED-WORLD-COLLECTIVE-INTELLIGENCE-V2-EGS-2026-11-18',
-  expedition: 'Shared World Models for Collective Intelligence — v2 redesign',
+  documentId: 'WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18',
+  expedition: 'Rhyming vs Non-Rhyming World Models — comparative expedition',
   seedDate: '2026-11-18',
   runtimeMs: performance.now() - t0,
   nRecords: runs.length,
@@ -495,7 +495,7 @@ writeFileSync(join(resultsDir, 'summary_v2.json'), JSON.stringify(summary, null,
 writeFileSync(join(resultsDir, 'summary.json'), JSON.stringify(summary, null, 2));
 
 const md = [];
-md.push('# Shared World Models Expedition v2 · Results');
+md.push('# Rhyming vs Non-Rhyming World Models · Expedition · Results');
 md.push('');
 md.push(`**Document ID:** \`${summary.documentId}\``);
 md.push(`**Runtime:** ${summary.runtimeMs.toFixed(1)} ms`);

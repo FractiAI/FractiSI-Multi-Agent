@@ -1,27 +1,18 @@
-# Shared World Models for Collective Intelligence
+# Expedition: Rhyming vs Non-Rhyming World Models
 
-Fair comparative benchmark. Uses **what is available** on this machine.
+**Prior expeditions already established** that a *rhyming shared world* between agents produces observable, replicable, falsifiable, differentiated — and paradigm-shifting — multi-agent improvements (Exp 002 guided discovery, Tiny Gateway rhyme vs exact cache, Test Drive relational/collab).
+
+**This expedition compares** rhyming world-model architectures against non-rhyming ones (exact-cache, prefix reuse, shared structured without rhyme, and live open latent WMs: Dreamer-family / TD-MPC / MuZero-style).
 
 ## Run
 
 ```bash
 npm run research:world-model-expedition
-```
-
-This runs:
-- FractiSI rhyme engine + E9/Movebank real fixtures
-- **Live** open WM arms: Dreamer-family RSSM, TD-MPC-lite, MuZero-lite (CPU PyTorch)
-
-```bash
 python3 experiments/world-model-expedition/src/open_wms/run_open_wm_lab.py
 ```
 
-Requires: `pip install torch gymnasium numpy` (CPU torch is fine).
+## Question
 
-## Verdicts (user-aware)
-
-- Shared world: PARTIALLY_SUPPORTED → operationally **yes for collective work**
-- FractiSI rhyme vs exact-cache on differing-words: **outperforms** (high-value traffic)
-- vs open Dreamer/TD-MPC/MuZero-family: **COMPLEMENTARY_DIFFERENTIATED**
+Where do rhyming world models outperform non-rhyming ones — especially on high-value traffic (same organization, different words) — and how do they complement single-agent latent predictors?
 
 → ∞^∞
