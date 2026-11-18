@@ -102,6 +102,8 @@ For each C1-style long-range partner task on exoplanets, NEOs, OpenNGC, and WMAP
 
 C5 is secondary to C1–C4. Pack-compliant AWARE wins ≠ frontier model superiority ≠ novel physics.
 
+**Legend (map of LLM rhymes → cosmic data):** `LLM_RHYME_LEGEND.md` and code export `LLM_RHYME_COSMIC_LEGEND` in `src/llm-rhyme.mjs`. Domain bridge E9/E10/E11 → exoplanet/neo/ngc/wmap_tt layers; pack arms LINEAR/FLAT/AWARE. Receipts include `c5.legend`.
+
 ## Honesty boundary (locks)
 
 - Application companion expedition — **not** ENGINE_SHELF, not a claim of new fundamental physics, not a Universe ontology.  

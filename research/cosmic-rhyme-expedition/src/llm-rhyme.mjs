@@ -9,10 +9,101 @@
  * Honesty: board couplings are measured from catalog features, not invented by
  * a model. Pack-compliant recovery proves the rhyme lives in the language pack;
  * it is not a frontier bake-off and not novel physics.
+ *
+ * Legend map: see LLM_RHYME_LEGEND.md and export `LLM_RHYME_COSMIC_LEGEND`.
  */
 import { SEED, H1_DELTA, H2_DELTA, BOOTSTRAP_B } from './constants.mjs';
 import { loadExoplanets, loadNeos, loadOpenNgc, loadWmapTt } from './load.mjs';
 import { bootstrapCi, mean, mulberry32, pearson, shuffleInPlace } from './stats.mjs';
+
+/** Canonical legend: prior LLM/folding rhymes → cosmic data layers → pack arms. */
+export const LLM_RHYME_COSMIC_LEGEND = Object.freeze({
+  documentId: 'WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17',
+  arm: 'C5',
+  oneLine:
+    'Protein sequence:MSA board:contact = Knowledge passage:title board:title pair = Macro series:lag board:teleconnection = Cosmic catalog/spectrum:AWARE language pack:partner id',
+  domainBridge: Object.freeze([
+    {
+      rhyme: 'E9 Protein',
+      linear: 'amino-acid sequence + local window',
+      board: 'MSA couplings',
+      gold: 'long-range contact residue',
+      cosmicAnalog: 'catalog object + RA/time neighbors → cosine feature couplings → partner object id',
+    },
+    {
+      rhyme: 'E10 Knowledge',
+      linear: 'one Wikipedia passage',
+      board: 'title Jaccard / overlap board',
+      gold: 'supporting title pair',
+      cosmicAnalog: 'one catalog row feature lines → ranked object couplings → partner id',
+    },
+    {
+      rhyme: 'E11 Macro',
+      linear: 'one FRED series strip',
+      board: 'lagged |corr| board',
+      gold: 'teleconnected series',
+      cosmicAnalog: 'WMAP TT multipole strip → lag |corr| board → partner ell id',
+    },
+    {
+      rhyme: 'C5 Cosmic',
+      linear: 'local sky / spectrum window as text',
+      board: 'LEADING + RELATIONAL AWARENESS BOARD as text',
+      gold: 'partner object / ell id',
+      cosmicAnalog: 'same grammar on NASA / JPL / OpenNGC / WMAP fixtures',
+    },
+  ]),
+  cosmicLayers: Object.freeze([
+    {
+      code: 'exoplanet',
+      source: 'NASA Exoplanet Archive pscomppars',
+      row: 'confirmed planet + host features',
+      linearWindow: 'RA-neighbor planets',
+      board: 'z-scored feature cosine',
+      gold: 'strongest non-local planet id',
+    },
+    {
+      code: 'neo',
+      source: 'JPL SSD CAD',
+      row: 'close-approach encounter',
+      linearWindow: 'time/RA-local encounters',
+      board: 'z-scored encounter features',
+      gold: 'strongest non-local encounter id',
+    },
+    {
+      code: 'ngc',
+      source: 'OpenNGC',
+      row: 'deep-sky object',
+      linearWindow: 'RA-neighbor objects',
+      board: 'z-scored morphology/sky features',
+      gold: 'strongest non-local object id',
+    },
+    {
+      code: 'wmap_tt',
+      source: 'WMAP 9-year TT (LAMBDA)',
+      row: 'multipole ell with Cl',
+      linearWindow: 'local ±ell window',
+      board: 'lag |corr| on Cl series',
+      gold: 'ell + best lag partner',
+    },
+  ]),
+  packArms: Object.freeze([
+    {
+      arm: 'LINEAR',
+      contains: 'query + local window feature lines only',
+      reader: 'first id in local window',
+    },
+    {
+      arm: 'FLAT',
+      contains: 'query + unstructured dump',
+      reader: 'first id in dump',
+    },
+    {
+      arm: 'AWARE',
+      contains: 'query + LEADING candidate + ranked measured board',
+      reader: 'prefer leading relational candidate',
+    },
+  ]),
+});
 
 function featureKeys(objects) {
   return Object.keys(objects[0].features);
@@ -471,6 +562,7 @@ export function runC5LlmRhyme(opts = {}) {
     experiment: 'C5',
     catalog: { exoplanet: exo, neo, ngc },
     wmap,
+    legend: LLM_RHYME_COSMIC_LEGEND,
     summary: {
       h1Layers,
       nH1: h1Layers.length,
@@ -479,11 +571,12 @@ export function runC5LlmRhyme(opts = {}) {
       llmRhymeSignal: h1Layers.length >= 2,
       liveLlmConfigured: liveConfigured,
       liveLlmRan: false,
+      legendOneLine: LLM_RHYME_COSMIC_LEGEND.oneLine,
       verdict: h1Layers.length >= 2
         ? `C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (${h1Layers.join(', ')}); AWARE packs recover long-range partners LINEAR/FLAT packs miss under a pack-compliant reader.`
         : 'C5 MIXED/NULL — language packs did not clear H1 on ≥2 layers under pack-compliant reading.',
       note:
-        'Default C5 is the E9–E11 language-pack rhyme with a deterministic pack-compliant reader (no API). Live LLM optional via COSMIC_LLM_URL/KEY. Lexical-blind baseline reported for contrast.',
+        'Default C5 is the E9–E11 language-pack rhyme with a deterministic pack-compliant reader (no API). Live LLM optional via COSMIC_LLM_URL/KEY. Lexical-blind baseline reported for contrast. Legend: LLM_RHYME_LEGEND.md / legend export on this receipt.',
     },
   };
 }

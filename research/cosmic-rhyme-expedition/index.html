@@ -4,8 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cosmic Rhyme Expedition · Research suite</title>
-  <meta name="description" content="Regenerable Cosmic Rhyme Expedition suite: protocol, fixtures, receipts.">
-  <link rel="stylesheet" href="/css/site.css?v=36">
+  <meta name="description" content="Regenerable Cosmic Rhyme Expedition: protocol, LLM rhyme legend, fixtures, receipts.">
+  <link rel="stylesheet" href="/css/site.css?v=38">
+  <style>
+    .legend-map { width: 100%; border-collapse: collapse; margin: 1.25rem 0 1.75rem; font-size: 0.92rem; }
+    .legend-map th, .legend-map td { border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent); padding: 0.55rem 0.65rem; text-align: left; vertical-align: top; }
+    .legend-map th { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.72; }
+    .legend-map code { font-size: 0.85em; }
+    .legend-eq { margin: 1rem 0 1.5rem; padding: 0.9rem 1rem; border-left: 3px solid color-mix(in srgb, currentColor 35%, transparent); }
+  </style>
 </head>
 <body>
 <header class="nav">
@@ -21,14 +28,57 @@
   <article class="page">
     <p class="kicker">Research suite</p>
     <h1>Cosmic Rhyme Expedition</h1>
-    <p class="lede">Protocol, public fixtures, and regenerable receipts for the cosmic relational-awareness arm.</p>
+    <p class="lede">Protocol, public fixtures, LLM-rhyme legend, and regenerable receipts for the cosmic relational-awareness arm.</p>
     <ul>
+      <li><a href="/research/cosmic-rhyme-expedition/LLM_RHYME_LEGEND.md">LLM_RHYME_LEGEND.md</a> — map of prior LLM rhymes → cosmic data</li>
       <li><a href="/research/cosmic-rhyme-expedition/PROTOCOL.md">PROTOCOL.md</a> (pre-registered)</li>
       <li><a href="/research/cosmic-rhyme-expedition/data/empirical_report.md">empirical_report.md</a></li>
-      <li><a href="/research/cosmic-rhyme-expedition/data/empirical_report.json">empirical_report.json</a></li>
       <li><a href="/library/papers/cosmic-rhyme-expedition/">Library paper</a> · <a href="/blog/cosmic-rhyme-expedition/">Blog</a></li>
     </ul>
+
+    <h2>Legend · LLM rhymes → cosmic data</h2>
+    <p class="legend-eq"><strong>One-line map:</strong> Protein sequence : MSA board : contact residue&nbsp;=&nbsp;Knowledge passage : title board : title pair&nbsp;=&nbsp;Macro series : lag board : teleconnection&nbsp;=&nbsp;Cosmic catalog/spectrum : AWARE language pack : partner id.</p>
+
+    <h3>Domain bridge</h3>
+    <table class="legend-map">
+      <thead>
+        <tr><th>Prior rhyme</th><th>Linear</th><th>Board</th><th>Gold</th><th>Cosmic analog</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>E9 Protein</td><td>sequence + local window</td><td>MSA couplings</td><td>long-range contact</td><td>catalog object → feature couplings → partner <em>id</em></td></tr>
+        <tr><td>E10 Knowledge</td><td>one passage</td><td>title overlap</td><td>title pair</td><td>one row’s feature lines → ranked objects → partner <em>id</em></td></tr>
+        <tr><td>E11 Macro</td><td>one series</td><td>lag |corr|</td><td>teleconnected series</td><td>WMAP multipole strip → lag board → partner <em>ell</em></td></tr>
+        <tr><td>C5 Cosmic</td><td>local sky/spectrum as text</td><td>LEADING + AWARE board as text</td><td>partner id / ell</td><td>same grammar on NASA / JPL / OpenNGC / WMAP</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Fixture layers</h3>
+    <table class="legend-map">
+      <thead>
+        <tr><th>Layer</th><th>Source</th><th>Row</th><th>Linear window</th><th>Board</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>exoplanet</code></td><td>NASA Exoplanet Archive</td><td>planet + host</td><td>RA neighbors</td><td>z-scored cosine</td></tr>
+        <tr><td><code>neo</code></td><td>JPL CAD</td><td>close approach</td><td>time/RA local</td><td>encounter features</td></tr>
+        <tr><td><code>ngc</code></td><td>OpenNGC</td><td>deep-sky object</td><td>RA neighbors</td><td>morphology/sky</td></tr>
+        <tr><td><code>wmap_tt</code></td><td>WMAP 9-yr TT</td><td>multipole ℓ</td><td>±ℓ window</td><td>lag |corr| on Cl</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Language packs (how an LLM sees the same data)</h3>
+    <table class="legend-map">
+      <thead>
+        <tr><th>Arm</th><th>Prompt contains</th><th>C5 result (seed 20261117)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>LINEAR</td><td>query + local window only</td><td>~0%</td></tr>
+        <tr><td>FLAT</td><td>query + unstructured dump</td><td>~0–2%</td></tr>
+        <tr><td>AWARE</td><td>query + LEADING + ranked measured board</td><td><strong>100%</strong> on all four layers</td></tr>
+      </tbody>
+    </table>
+
     <pre><code>npm run research:cosmic-rhyme-expedition</code></pre>
+    <p class="meta">Honesty: pack-compliant language rhyme · not a frontier bake-off · board couplings measured from fixtures · cosmos ≠ Universe ontology.</p>
   </article>
 </main>
 </body>

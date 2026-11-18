@@ -121,6 +121,24 @@ lines.push(
   `Token economics (mean chars÷4): LINEAR ${c5layers[0].tokenEconomics.linearMean.toFixed(0)} · FLAT ${c5layers[0].tokenEconomics.flatMean.toFixed(0)} · AWARE ${c5layers[0].tokenEconomics.awareMean.toFixed(0)} (exo sample); live LLM configured=${report.c5.summary.liveLlmConfigured}.`,
 );
 lines.push('');
+lines.push('### Legend · LLM rhymes → cosmic data');
+lines.push('');
+lines.push(report.c5.legend?.oneLine || report.summary.llmRhymeVerdict);
+lines.push('');
+lines.push('| Prior rhyme | Cosmic analog |');
+lines.push('|---|---|');
+for (const row of report.c5.legend?.domainBridge || []) {
+  lines.push(`| ${row.rhyme} | ${row.cosmicAnalog} |`);
+}
+lines.push('');
+lines.push('| Layer | Source | Gold |');
+lines.push('|---|---|---|');
+for (const row of report.c5.legend?.cosmicLayers || []) {
+  lines.push(`| \`${row.code}\` | ${row.source} | ${row.gold} |`);
+}
+lines.push('');
+lines.push('Full legend: `LLM_RHYME_LEGEND.md` · receipt `c5.legend`.');
+lines.push('');
 lines.push('## Honesty');
 lines.push('');
 lines.push('Cosmos = observable relational layer, not Universe ontology. Application companion — not ENGINE_SHELF. C1–C3 = representation + catalog fingerprints. C4 = residual search for candidate novel physics after removing selection axes / continuum; survivors are candidates under nulls, not confirmed new laws. C5 = E9–E11 language-pack rhyme on the same fixtures (pack-compliant reader by default; not a frontier bake-off). Fixtures: NASA Exoplanet Archive, JPL CAD, OpenNGC, WMAP TT.');

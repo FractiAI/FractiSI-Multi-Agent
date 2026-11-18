@@ -1135,6 +1135,92 @@
         "aware": 0
       }
     },
+    "legend": {
+      "documentId": "WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17",
+      "arm": "C5",
+      "oneLine": "Protein sequence:MSA board:contact = Knowledge passage:title board:title pair = Macro series:lag board:teleconnection = Cosmic catalog/spectrum:AWARE language pack:partner id",
+      "domainBridge": [
+        {
+          "rhyme": "E9 Protein",
+          "linear": "amino-acid sequence + local window",
+          "board": "MSA couplings",
+          "gold": "long-range contact residue",
+          "cosmicAnalog": "catalog object + RA/time neighbors → cosine feature couplings → partner object id"
+        },
+        {
+          "rhyme": "E10 Knowledge",
+          "linear": "one Wikipedia passage",
+          "board": "title Jaccard / overlap board",
+          "gold": "supporting title pair",
+          "cosmicAnalog": "one catalog row feature lines → ranked object couplings → partner id"
+        },
+        {
+          "rhyme": "E11 Macro",
+          "linear": "one FRED series strip",
+          "board": "lagged |corr| board",
+          "gold": "teleconnected series",
+          "cosmicAnalog": "WMAP TT multipole strip → lag |corr| board → partner ell id"
+        },
+        {
+          "rhyme": "C5 Cosmic",
+          "linear": "local sky / spectrum window as text",
+          "board": "LEADING + RELATIONAL AWARENESS BOARD as text",
+          "gold": "partner object / ell id",
+          "cosmicAnalog": "same grammar on NASA / JPL / OpenNGC / WMAP fixtures"
+        }
+      ],
+      "cosmicLayers": [
+        {
+          "code": "exoplanet",
+          "source": "NASA Exoplanet Archive pscomppars",
+          "row": "confirmed planet + host features",
+          "linearWindow": "RA-neighbor planets",
+          "board": "z-scored feature cosine",
+          "gold": "strongest non-local planet id"
+        },
+        {
+          "code": "neo",
+          "source": "JPL SSD CAD",
+          "row": "close-approach encounter",
+          "linearWindow": "time/RA-local encounters",
+          "board": "z-scored encounter features",
+          "gold": "strongest non-local encounter id"
+        },
+        {
+          "code": "ngc",
+          "source": "OpenNGC",
+          "row": "deep-sky object",
+          "linearWindow": "RA-neighbor objects",
+          "board": "z-scored morphology/sky features",
+          "gold": "strongest non-local object id"
+        },
+        {
+          "code": "wmap_tt",
+          "source": "WMAP 9-year TT (LAMBDA)",
+          "row": "multipole ell with Cl",
+          "linearWindow": "local ±ell window",
+          "board": "lag |corr| on Cl series",
+          "gold": "ell + best lag partner"
+        }
+      ],
+      "packArms": [
+        {
+          "arm": "LINEAR",
+          "contains": "query + local window feature lines only",
+          "reader": "first id in local window"
+        },
+        {
+          "arm": "FLAT",
+          "contains": "query + unstructured dump",
+          "reader": "first id in dump"
+        },
+        {
+          "arm": "AWARE",
+          "contains": "query + LEADING candidate + ranked measured board",
+          "reader": "prefer leading relational candidate"
+        }
+      ]
+    },
     "summary": {
       "h1Layers": [
         "exoplanet",
@@ -1148,8 +1234,9 @@
       "llmRhymeSignal": true,
       "liveLlmConfigured": false,
       "liveLlmRan": false,
+      "legendOneLine": "Protein sequence:MSA board:contact = Knowledge passage:title board:title pair = Macro series:lag board:teleconnection = Cosmic catalog/spectrum:AWARE language pack:partner id",
       "verdict": "C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (exoplanet, neo, ngc, wmap_tt); AWARE packs recover long-range partners LINEAR/FLAT packs miss under a pack-compliant reader.",
-      "note": "Default C5 is the E9–E11 language-pack rhyme with a deterministic pack-compliant reader (no API). Live LLM optional via COSMIC_LLM_URL/KEY. Lexical-blind baseline reported for contrast."
+      "note": "Default C5 is the E9–E11 language-pack rhyme with a deterministic pack-compliant reader (no API). Live LLM optional via COSMIC_LLM_URL/KEY. Lexical-blind baseline reported for contrast. Legend: LLM_RHYME_LEGEND.md / legend export on this receipt."
     }
   },
   "summary": {
@@ -1365,5 +1452,5 @@
     ],
     "verdict": "POSITIVE relational rhyme on catalogs. C4 POSITIVE — 2 residual candidate(s) beat nulls after selection/template removal; treat as candidate novel physics under this protocol, not confirmed law. C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (exoplanet, neo, ngc, wmap_tt); AWARE packs recover long-range partners LINEAR/FLAT packs miss under a pack-compliant reader."
   },
-  "ms": 29963
+  "ms": 32000
 }

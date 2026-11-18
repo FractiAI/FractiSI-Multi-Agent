@@ -2,7 +2,7 @@
 
 **Document ID:** `WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17`
 **Seed:** 20261117
-**Runtime:** 29963 ms
+**Runtime:** 32000 ms
 
 ## Verdict
 
@@ -77,6 +77,26 @@ C5 POSITIVE — LLM/language-pack rhyme on cosmic fixtures (exoplanet, neo, ngc,
 | wmap_tt | 48 | 0.0% | 0.0% | **100.0%** | true | true | 0.0% |
 
 Token economics (mean chars÷4): LINEAR 415 · FLAT 523 · AWARE 173 (exo sample); live LLM configured=false.
+
+### Legend · LLM rhymes → cosmic data
+
+Protein sequence:MSA board:contact = Knowledge passage:title board:title pair = Macro series:lag board:teleconnection = Cosmic catalog/spectrum:AWARE language pack:partner id
+
+| Prior rhyme | Cosmic analog |
+|---|---|
+| E9 Protein | catalog object + RA/time neighbors → cosine feature couplings → partner object id |
+| E10 Knowledge | one catalog row feature lines → ranked object couplings → partner id |
+| E11 Macro | WMAP TT multipole strip → lag |corr| board → partner ell id |
+| C5 Cosmic | same grammar on NASA / JPL / OpenNGC / WMAP fixtures |
+
+| Layer | Source | Gold |
+|---|---|---|
+| `exoplanet` | NASA Exoplanet Archive pscomppars | strongest non-local planet id |
+| `neo` | JPL SSD CAD | strongest non-local encounter id |
+| `ngc` | OpenNGC | strongest non-local object id |
+| `wmap_tt` | WMAP 9-year TT (LAMBDA) | ell + best lag partner |
+
+Full legend: `LLM_RHYME_LEGEND.md` · receipt `c5.legend`.
 
 ## Honesty
 
