@@ -26,7 +26,7 @@ Prior expeditions already showed that a **rhyming shared world between agents** 
 - On **high-value traffic** (same organization, different words — real E9 / Movebank): **rhyme outperforms exact-cache** (~33–45%). Exact hits ≈ 0.  
 - Exact/prefix win only when traffic is mostly identical bytes (~75%+ duplicates) — the easy slice, not the hard multi-agent job.  
 - vs open Dreamer/TD-MPC/MuZero-family: **COMPLEMENTARY_DIFFERENTIATED** — they win single-agent imagination/planning; rhyming shared worlds win multi-agent share/merge.  
-- CartPole partial-obs: shared world return **200** vs independent **~14**.
+- CartPole partial-obs, same model with private copies vs one shared world: next-state error 5.7×–20× lower with the shared world (superseded the earlier hand-rule 200 vs ~14; see the update section).
 
 ## Scientific answers (traffic-weighted)
 

@@ -45,7 +45,7 @@ Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated a
 | **Density vs full per-agent copy** | Full copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** · selective ~**99.5%** |
 | **Still wins after gzip** | Naive per-agent copies + gzip | **~42%+** residual (smaller world); **~98%** when world dominates — compression shrinks copies, does not remove them |
 | **Beats exact-text cache when words differ** | Exact-text cache **6,704 B** (40 same-shape sessions) · **22,261 B, 0 hits** (real PDB/Pfam, 48 sessions) | Rhyme **4,758 B** · **14,882 B (−33%)** · calibration **−45%** (exact cache still wins identical text) |
-| **Shared world vs separate worlds** (CartPole, 1 dim per agent) | Independent **~14** return | Shared **200** |
+| **Shared world vs private copies** (same model, 4 agents, 1 dim each) | Private copies · next-state MSE 0.00099–0.00263 | Shared world · **0.00013–0.00017** (5.7×–20× lower) |
 | **Tiny Gateway · DRAM & materialize** | Full / conventional | Aggregate **84.5%** · GPU alloc proxy **81.4%** · materialize **~9.6×** (H100 rhyme-vs-prefix ~34% = simulation only) |
 
 ### World Model features · Rhyme
