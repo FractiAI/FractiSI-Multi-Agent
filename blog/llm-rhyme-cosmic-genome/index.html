@@ -3,9 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LLM Rhyme Expedition · Cosmic + Genome · FractiSI</title>
-  <meta name="description" content="Separate LLM-rhyme expedition: AWARE language packs on cosmic catalogs and a human-genome demo. Not a frontier bake-off. Not wet-lab genetics.">
-  <link rel="stylesheet" href="/css/site.css?v=39">
+  <title>When You Pack the Sky and the Genome as Language · FractiSI</title>
+  <meta name="description" content="LLM rhyme legend: tables mapping cosmic catalogs and human-genome panels to LINEAR/FLAT/AWARE packs. Cosmic 4/4 and genome 2/2 H1.">
+  <link rel="stylesheet" href="/css/site.css?v=41">
+  <style>
+    .legend-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+    .legend-table th, .legend-table td { border: 1px solid rgba(0,0,0,.12); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+    .legend-table th { background: rgba(0,0,0,.04); font-weight: 700; }
+    .one-line { font-style: italic; }
+  </style>
 </head>
 <body>
   <header class="nav">
@@ -21,23 +27,65 @@
     <article class="page">
       <p class="kicker">Blog · LLM Rhyme Expedition · November 18, 2026</p>
       <h1>When You Pack the Sky and the Genome as Language, Does the Folding Rhyme Still Show Up?</h1>
-      <p class="lede">We split the language-pack rhyme out of Cosmic Rhyme and aimed it at public sky catalogs plus a human-genome demonstration panel. Same LINEAR / FLAT / AWARE packing grammar as E9–E11.</p>
-      <p class="meta">Paper: <a href="/library/papers/llm-rhyme-cosmic-genome/">LLM Rhyme Expedition</a> · Sibling: <a href="/blog/cosmic-rhyme-expedition/">Cosmic Rhyme (C1–C4)</a></p>
+      <p class="lede">We split the language-pack rhyme out of Cosmic Rhyme and aimed it at public sky catalogs plus a human-genome demonstration panel — with an explicit <strong>legend</strong> that maps each file to LINEAR / FLAT / AWARE the way a folding map legends a trail.</p>
+      <p class="meta">Paper (with full tables): <a href="/library/papers/llm-rhyme-cosmic-genome/">LLM Rhyme Expedition</a> · Sibling: <a href="/blog/cosmic-rhyme-expedition/">Cosmic Rhyme (C1–C4)</a></p>
       <div class="cta-row">
-        <a class="btn-primary" href="/library/papers/llm-rhyme-cosmic-genome/">Read the paper</a>
+        <a class="btn-primary" href="/library/papers/llm-rhyme-cosmic-genome/">Read the paper + legend tables</a>
         <a class="btn-ghost" href="/research/llm-rhyme-cosmic-genome-expedition/data/empirical_report.md">Receipts</a>
       </div>
 
       <h2>Bottom line</h2>
-      <p>Under a pack-compliant reader, AWARE packs hit <strong>100%</strong> on four cosmic layers and on both genome layers (exons + chrM windows), while LINEAR/FLAT stay near zero. Lexical-blind reading that ignores the board fails. Not a frontier bake-off. Not wet-lab genetics. Not clinical advice.</p>
+      <p>Under a pack-compliant reader, AWARE packs hit <strong>100%</strong> on four cosmic layers and on both genome layers, while LINEAR/FLAT stay near zero. Lexical-blind reading that ignores the board fails. Not a frontier bake-off. Not wet-lab genetics. Not clinical advice.</p>
 
-      <h2>Legend</h2>
-      <p>Protein → MSA board → contact = Knowledge → title board → title pair = Macro → lag board → teleconnection = Cosmic → AWARE pack → partner id = Genome → AWARE pack → partner id.</p>
+      <h2>Legend · one line</h2>
+      <p class="one-line">Protein : MSA board : contact = Knowledge : title board : title pair = Macro : lag board : teleconnection = <strong>Cosmic : AWARE pack : partner id</strong> = <strong>Genome : AWARE pack : partner id</strong>.</p>
+
+      <h2>Legend table · cosmic data → LLM rhyme</h2>
+      <table class="legend-table">
+        <thead>
+          <tr><th>Code</th><th>Public source</th><th>LINEAR</th><th>AWARE board</th><th>Gold</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>exoplanet</code></td><td>NASA Exoplanet Archive</td><td>RA-neighbor planet lines</td><td>feature cosine board</td><td>partner planet id</td></tr>
+          <tr><td><code>neo</code></td><td>JPL CAD close approaches</td><td>time/distance-local encounters</td><td>encounter feature board</td><td>partner encounter id</td></tr>
+          <tr><td><code>ngc</code></td><td>OpenNGC</td><td>RA-neighbor objects</td><td>morphology/sky board</td><td>partner object id</td></tr>
+          <tr><td><code>wmap_tt</code></td><td>WMAP TT spectrum</td><td>local ±ℓ strip</td><td>lag |corr| board</td><td>partner ell</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Legend table · human genome → LLM rhyme</h2>
+      <table class="legend-table">
+        <thead>
+          <tr><th>Code</th><th>Public source</th><th>LINEAR</th><th>AWARE board</th><th>Gold</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>genome_exon</code></td><td>GTEx / MyGene / UCSC CpG</td><td>genomic-order exon neighbors</td><td>exon feature board (cross-gene)</td><td>partner exon id</td></tr>
+          <tr><td><code>genome_chrm</code></td><td>UCSC hs1 chrM</td><td>sequence-order windows</td><td>GC / CpG / entropy board</td><td>partner window id</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Pack arms</h2>
+      <table class="legend-table">
+        <thead>
+          <tr><th>Arm</th><th>What the prompt contains</th><th>How the default reader answers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LINEAR</td><td>query + local window only</td><td>first id in the window</td></tr>
+          <tr><td>FLAT</td><td>query + dump, no ranks</td><td>first id in the dump</td></tr>
+          <tr><td>AWARE</td><td>LEADING candidate + ranked measured board</td><td>leading candidate</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What happened on the receipt</h2>
+      <p>Cosmic exo / NEO / NGC / WMAP: 48 tasks each · LINEAR 0% · FLAT 0% · AWARE 100%. Genome exons: 125 objects, 14 long-range cross-gene tasks · AWARE 100%. chrM windows: 275 objects, 64 tasks · AWARE 100%. Lexical-blind AWARE ≈ 0% — the win is the map in the pack.</p>
+
+      <h2>Why the legend matters</h2>
+      <p>Without a legend, “LLM rhyme” sounds like poetry. With a legend, anyone can see that a NASA planet row plays the same role as a protein residue, a JPL encounter plays the same role as a knowledge title, and a chrM window plays the same role as a lag-coupled macro series — different public files, same packing grammar. The full paper keeps the larger domain-bridge table and methods.</p>
 
       <h2>Invitation</h2>
-      <p>Run <code>npm run research:llm-rhyme-cosmic-genome-expedition</code>. Residual physics candidates remain on the Cosmic Rhyme note.</p>
+      <p>Run <code>npm run research:llm-rhyme-cosmic-genome-expedition</code>. Residual physics candidates (WMAP lags 11 and 14) remain on the <a href="/blog/cosmic-rhyme-expedition/">Cosmic Rhyme</a> note.</p>
 
-      <p class="honesty">Application companion Soft Story · Document ID WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18 · SynthOBS Autonomous Agent · Syntheverse Sandbox. Not ENGINE_SHELF. Seed 20261118. Split from Cosmic Rhyme C5.</p>
+      <p class="honesty">Application companion Soft Story · Document ID WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18 · SynthOBS Autonomous Agent · Syntheverse Sandbox. Not ENGINE_SHELF. Not frontier bake-off. Not wet-lab genetics. Seed 20261118. Split from Cosmic Rhyme C5.</p>
     </article>
   </main>
 </body>
