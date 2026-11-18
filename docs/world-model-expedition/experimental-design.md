@@ -23,7 +23,7 @@
 | Class | Meaning | In this harness |
 |---|---|---|
 | A Shared symbolic/structured | Blackboard / state graph / FractiSI | EXECUTABLE |
-| B Latent predictive | V-JEPA 2, DreamerV3, TD-MPC2, MuZero | NOT EXECUTABLE this seed (open code exists; not wired) |
+| B Latent predictive | Dreamer-family RSSM, TD-MPC-lite, MuZero-lite (live CPU); V-JEPA 2 | LIVE family arms on CPU; V-JEPA needs GPU |
 | C Generative world simulators | Genie 3/4, Cosmos | NOT EXECUTABLE (closed or heavy GPU; visual ≠ shared blackboard) |
 | D Hybrid | language + structured + latent | Future arm |
 

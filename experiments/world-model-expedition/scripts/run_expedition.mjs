@@ -177,8 +177,8 @@ for (const worldKind of WORLDS) {
   }
 }
 
-// --- Literature-only / NOT_EXECUTABLE adapters ---
-const notExecutable = ['vjepa', 'dreamer', 'cosmos', 'genie'].map((id) => {
+// --- Availability matrix: live open WMs vs still-blocked ---
+const notExecutable = ['vjepa', 'cosmos', 'genie'].map((id) => {
   const ep = runEpisode({ worldKind: 'knowledge', condition: id, seed: 1 });
   return {
     id,
@@ -187,6 +187,13 @@ const notExecutable = ['vjepa', 'dreamer', 'cosmos', 'genie'].map((id) => {
     reason: ep.reason,
   };
 });
+// Dreamer/TD-MPC/MuZero-family are EXECUTABLE via open WM lab (see v2 / results/open_wm/)
+const liveOpenWmNote = {
+  dreamer: 'EXECUTABLE — Dreamer-family RSSM via open_wms lab (CPU)',
+  tdmpc: 'EXECUTABLE — TD-MPC-lite via open_wms lab (CPU)',
+  muzero: 'EXECUTABLE — MuZero-lite via open_wms lab (CPU)',
+  see: 'npm run research:world-model-expedition (v2 includes live lab)',
+};
 
 // --- Scientific answers (data-driven, not forced) ---
 function meanSuccess(condition) {
@@ -278,6 +285,7 @@ const summary = {
   scaling,
   specialization,
   notExecutable,
+  liveOpenWmNote,
   reproduction,
   scientificConclusions,
   honesty: [
@@ -355,7 +363,14 @@ for (const s of scaling) {
   );
 }
 lines.push('');
-lines.push('## NOT EXECUTABLE (no fabricated scores)');
+lines.push('## Live open WMs (EXECUTABLE on CPU)');
+lines.push('');
+for (const [k, v] of Object.entries(liveOpenWmNote)) {
+  if (k === 'see') lines.push(`- See: ${v}`);
+  else lines.push(`- **${k}**: ${v}`);
+}
+lines.push('');
+lines.push('## Still NOT EXECUTABLE on this VM');
 lines.push('');
 for (const n of notExecutable) {
   lines.push(`- **${n.id}** (${n.architecture}): ${n.reason}`);

@@ -34,7 +34,7 @@ If those conditions are absent, prefer null/negative outcomes over marketing.
 | **P** | E9 `scenarios.json` (RCSB PDB + Pfam) | **Real** protein relational fixtures |
 | **M** | Movebank trajectories.csv (study 2548892515) | **Real** GPS collar data |
 
-Genie / Cosmos / V-JEPA: still **NOT EXECUTABLE** — no fabricated scores.
+Dreamer/TD-MPC/MuZero-family: **EXECUTABLE** (live CPU lab). Genie closed; Cosmos/V-JEPA need GPU — not fabricated.
 
 ## E9 split (fair — no gold leak)
 

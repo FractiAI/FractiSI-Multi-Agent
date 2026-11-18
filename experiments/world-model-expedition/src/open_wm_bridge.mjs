@@ -11,11 +11,11 @@ const labPy = join(root, 'src/open_wms/run_open_wm_lab.py');
 const summaryPath = join(root, 'results/open_wm/open_wm_lab_summary.json');
 
 export function runOpenWorldModelLab({ force = false } = {}) {
-  if (!force && existsSync(summaryPath)) {
-    // Still re-run — user asked to use what's available; keep fresh unless SKIP_OPEN_WM=1
-    if (process.env.SKIP_OPEN_WM === '1') {
-      return { ok: true, cached: true, summary: JSON.parse(readFileSync(summaryPath, 'utf8')) };
-    }
+  if (process.env.SKIP_OPEN_WM === '1' && existsSync(summaryPath)) {
+    return { ok: true, cached: true, summary: JSON.parse(readFileSync(summaryPath, 'utf8')) };
+  }
+  if (!force && process.env.OPEN_WM_CACHE === '1' && existsSync(summaryPath)) {
+    return { ok: true, cached: true, summary: JSON.parse(readFileSync(summaryPath, 'utf8')) };
   }
   const py = process.env.PYTHON || 'python3';
   const res = spawnSync(py, [labPy], {

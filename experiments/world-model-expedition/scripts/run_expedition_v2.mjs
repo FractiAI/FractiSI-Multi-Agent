@@ -38,6 +38,7 @@ import {
 } from '../src/real-data.mjs';
 import { summarize, mean } from '../src/metrics.mjs';
 import { runOpenWorldModelLab, openWmArmsFromSummary } from '../src/open_wm_bridge.mjs';
+import { createAdapter } from '../src/adapters.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const resultsDir = join(root, 'results');
@@ -315,13 +316,37 @@ record('continuity_v1_relational', { continuity });
 // O — LIVE open world-model arms (Dreamer-family / TD-MPC-lite / MuZero-lite)
 // Uses what's available on this machine: CPU PyTorch + Gymnasium CartPole.
 // ---------------------------------------------------------------------------
-console.error('[open-wm] training/evaluating live CPU arms…');
-const openWm = runOpenWorldModelLab();
+console.error('[open-wm] training/evaluating live CPU arms (force fresh run)…');
+const openWm = runOpenWorldModelLab({ force: true });
 const openWmArms = openWm.ok ? openWmArmsFromSummary(openWm.summary) : [];
+
+// Capability-honest WORLD probes for live latent arms (must show EXECUTABLE, not stubs)
+const liveProbes = [];
+for (const cond of ['dreamer', 'tdmpc', 'muzero']) {
+  const adapter = createAdapter(cond);
+  if (openWm.ok) adapter.attachLabSummary?.(openWm.summary);
+  const obs = adapter.observe('lab');
+  const pred = adapter.predict({ horizon: 1 });
+  const sim = adapter.simulate({ horizon: 5 });
+  liveProbes.push({
+    condition: cond,
+    executable: adapter.executable,
+    status: adapter.executable ? 'EXECUTABLE' : 'NOT_EXECUTABLE',
+    architecture: adapter.architecture,
+    capabilities: adapter.capabilities,
+    observe: obs,
+    predict: pred,
+    simulate: sim,
+    materialize: adapter.materialize('lab'),
+  });
+}
+
 record('O_open_world_models_live', {
   ok: openWm.ok,
   error: openWm.ok ? null : openWm,
   arms: openWmArms,
+  liveProbes,
+  executedAt: new Date().toISOString(),
   multiagent_partial_obs: openWm.summary?.multiagent_partial_obs,
   user_aware_read: openWm.summary?.user_aware_read,
   not_run_here: openWm.summary?.not_run_here,

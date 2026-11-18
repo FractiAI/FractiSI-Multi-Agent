@@ -1,7 +1,7 @@
 # Rhyming vs Non-Rhyming World Models · Expedition · Results
 
 **Document ID:** `WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18`
-**Runtime:** 4895.6 ms
+**Runtime:** 4716.2 ms
 
 ## Why v2
 
@@ -182,10 +182,10 @@ Rhyme wins recorded: R0_differing_bytes_vs_exact_cache, R1_rhyme_beats_conventio
 
 | Arm | status | predict MSE | plan return | share/merge |
 |---|---|---:|---:|---|
-| dreamer_family_rssm | EXECUTABLE | 0.000226 | 19 | unavailable |
-| tdmpc_lite | EXECUTABLE | 0.000494 | 12.7 | unavailable |
-| muzero_lite | EXECUTABLE | 0.000223 | 11.4 | unavailable |
-| identity baseline | — | 0.031429 | 21.9 (random) | — |
+| dreamer_family_rssm | EXECUTABLE | 0.000217 | 16.5 | unavailable |
+| tdmpc_lite | EXECUTABLE | 0.000506 | 10.4 | unavailable |
+| muzero_lite | EXECUTABLE | 0.000181 | 10.4 | unavailable |
+| identity baseline | — | 0.031081 | 19.3 (random) | — |
 
 CartPole partial-obs multi-agent:
 ```json
