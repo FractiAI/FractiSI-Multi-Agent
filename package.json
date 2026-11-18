@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "FractiSI Multi-Agent — Tiny Footprint execution + coordination/composition platform (Workstation kit)",
+  "description": "FractiSI Multi-Agent \u2014 Tiny Footprint execution + coordination/composition platform (Workstation kit)",
   "license": "UNLICENSED",
   "author": "FractiAI",
   "homepage": "https://fractisi.vercel.app",
@@ -43,7 +43,8 @@
     "research:cosmic-rhyme-expedition": "node research/cosmic-rhyme-expedition/scripts/run_empirical_pipeline.mjs",
     "research:world-model-expedition": "node experiments/world-model-expedition/scripts/run_expedition_v2.mjs",
     "research:world-model-expedition:v1": "node experiments/world-model-expedition/scripts/run_expedition.mjs",
-    "research:world-model-expedition:v2": "node experiments/world-model-expedition/scripts/run_expedition_v2.mjs"
+    "research:world-model-expedition:v2": "node experiments/world-model-expedition/scripts/run_expedition_v2.mjs",
+    "research:pilot-rhyme-expedition": "node research/pilot-rhyme-expedition/scripts/run_empirical_pipeline.mjs"
   },
   "dependencies": {
     "isomorphic-git": "^1.30.1"

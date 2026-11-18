@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pilot Rhyme Expedition · FractiSI</title>
+  <meta name="description" content="Director/Pilot role rhyme for multi-agent coordination: 100/100 vs flat 0/100; 22% smaller than exact cache; 80% smaller than private copies.">
+  <link rel="stylesheet" href="/css/site.css?v=46">
+</head>
+<body>
+<header class="nav">
+  <a class="wordmark" href="/">FractiSI</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/product/">Product</a>
+    <a href="/library/">Library</a>
+    <a href="/blog/">Blog</a>
+    <a href="/research/">Research</a>
+    <a class="button" href="/test-drive/">Start Test Drive</a>
+  </nav>
+</header>
+<main class="wrap">
+<article class="paper">
+
+  <p class="kicker">FractiSI Research Expedition · Pilot Rhyme · World Model feature</p>
+  <h1>Pilot Rhyme Expedition — Director and Pilot seats that share one world</h1>
+  <p class="lede">Multi-agent work often needs one agent that holds the map and others that run local steps. Pilot Rhyme makes that Director/Pilot structure a reusable pattern: store the roles once, keep each mission as only what differs, and let everyone write into one shared world.</p>
+  <p class="paper-actions"><a href="/library/">← Library</a> · <a href="/blog/pilot-rhyme-expedition/">Blog</a> · <a href="/research/pilot-rhyme-expedition/">Suite</a> · <a href="/product/#rhyme-features">Features</a></p>
+  <header class="paper-masthead">
+    <p><strong>Document ID:</strong> <code>WP-PILOT-RHYME-EXPEDITION-EGS-2026-11-18</code></p>
+    <p><strong>Operator:</strong> SynthOBS Autonomous Agent · Syntheverse Sandbox</p>
+    <p><strong>Date:</strong> 18 November 2026</p>
+    <p><strong>Seed:</strong> <code>20261118</code></p>
+    <p><strong>Engine:</strong> Infinite Octaves ENGINE_SHELF #55 · FractiSI World Model rhyme feature</p>
+  </header>
+
+  <h2>Honesty boundary</h2>
+  <p>Architectural / structured-state lab. Director/Pilot seats rebuild a published coordination pattern (LingBot-style paper seats); we do not ship or depend on LingBot weights (CC BY-NC-SA). Private Director/Pilot copies and an exact-text role cache also recovered every mission — so the accuracy gain versus flat peers is the role structure, and the differentiated rhyme claim is store size when mission wording differs. Not CapEx, not embodied robotics, not an LLM bake-off.</p>
+
+  <h2>Abstract</h2>
+  <p>We compared five arms on 100 six-hop missions with differing wording: flat peers, shared text without roles, Director/Pilot with private copies, Director/Pilot with an exact-text cache, and Director/Pilot with Pilot Rhyme (role template once + shared world + per-mission deltas). Flat peers and shared text recovered 0 of 100. All three Director/Pilot arms recovered 100 of 100. The exact-text cache hit zero times. Pilot Rhyme stored the work <strong>22% smaller</strong> than the exact-text cache and <strong>80% smaller</strong> than private Director/Pilot copies.</p>
+
+  <h2>Primary research question</h2>
+  <p>Does a Director/Pilot role rhyme outperform flat peers on coordination, and beat an exact-text role cache on store size when mission wording differs?</p>
+
+  <h2>Results</h2>
+  <table class="stack-table">
+    <thead><tr><th>Arm</th><th>Wins / 100</th><th>Store notes</th></tr></thead>
+    <tbody>
+      <tr><td>Flat peers</td><td>0</td><td>429,278 B cumulative skim</td></tr>
+      <tr><td>Shared text (no roles)</td><td>0</td><td>Unstructured board does not walk the chain</td></tr>
+      <tr><td>Director/Pilot · private copies</td><td>100</td><td>344,644 B</td></tr>
+      <tr><td>Director/Pilot · exact-text cache</td><td>100</td><td>86,161 B · <strong>0 hits</strong></td></tr>
+      <tr><td><strong>Director/Pilot · Pilot Rhyme</strong></td><td><strong>100</strong></td><td><strong>67,243 B · 22% vs exact · 80% vs private</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>What Pilot Rhyme adds to the World Model</h2>
+  <p>It is the fifth rhyme feature, beside Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme, and LLM Rhyme. Use it when agents need stable roles (one map-holder, many local executors) across many missions whose wording changes.</p>
+
+  <h2>Reproduce</h2>
+  <pre><code>npm run research:pilot-rhyme-expedition</code></pre>
+  <p class="honesty">Receipts: <code>research/pilot-rhyme-expedition/data/empirical_report.json</code>. Pattern source: LingBot World paper role split — seats rebuilt in-house; NC weights rejected for commercial core.</p>
+
+</article>
+</main>
+<footer class="site-footer"><div class="wrap"><p>FractiSI Multi-Agent · open kit · Fair Exchange</p></div></footer>
+</body>
+</html>

@@ -62,3 +62,10 @@ Correction: the earlier lite planning returns (10–16, below random) came from 
 **Rhyme features of the World Model:** Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53, new), LLM Rhyme (#54, new).
 
 → ∞^∞
+
+
+## Addendum · Pilot Rhyme (#55)
+
+Director/Pilot role rhyme lab: 100/100 vs flat 0/100; exact role cache 0 hits; Pilot Rhyme store 22% smaller than exact cache and 80% smaller than private copies. Paper: `/library/papers/pilot-rhyme-expedition/`. Run: `npm run research:pilot-rhyme-expedition`.
+
+Library paper for this expedition: `/library/papers/shared-world-collective-intelligence/`.

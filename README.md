@@ -56,7 +56,7 @@ Rhyme is a feature category of the FractiSI Multi-Agent World Model. Four member
 |---|---|---|
 | **Rhyming Templates** | Reuses structure across sessions; template once, delta per session | −33% to −49% bytes against an exact cache where wording differs |
 | **Shared-World Rhyme** | Agents that each see a slice write into one world | 5×–20× lower next-state error than private copies of the same model |
-| **Protein Folding Rhyme** (new · #53) | Reads a line of parts as a relationship board and names the hidden long-range partner | Held-out partner recovered 100% vs ~0% for local windows on exoplanets, NEOs, OpenNGC, WMAP · [blog](./blog/cosmic-rhyme-expedition/index.html) |
+| **Protein Folding Rhyme · **Pilot Rhyme**** (new · #53) | Reads a line of parts as a relationship board and names the hidden long-range partner | Held-out partner recovered 100% vs ~0% for local windows on exoplanets, NEOs, OpenNGC, WMAP · [blog](./blog/cosmic-rhyme-expedition/index.html) |
 | **LLM Rhyme** (new · #54) | Writes the board into a prompt as an AWARE language pack | AWARE 100% vs LINEAR / FLAT ~0% (48 tasks per sky layer; 14 exon and 64 chrM genome tasks) · [blog](./blog/llm-rhyme-cosmic-genome/index.html) |
 
 The genome arm is a demonstration on small public panels, not a disease finding. When a reader ignores the ranked board, AWARE falls to ~0%, so the gain is the board in the prompt.

@@ -162,5 +162,47 @@
       "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/research/pilot-rhyme-expedition/",
+      "destination": "/research/pilot-rhyme-expedition/index.html"
+    },
+    {
+      "source": "/research/pilot-rhyme-expedition",
+      "destination": "/research/pilot-rhyme-expedition/"
+    },
+    {
+      "source": "/blog/shared-world-collective-intelligence/",
+      "destination": "/blog/shared-world-collective-intelligence/index.html"
+    },
+    {
+      "source": "/blog/shared-world-collective-intelligence",
+      "destination": "/blog/shared-world-collective-intelligence/"
+    },
+    {
+      "source": "/library/papers/shared-world-collective-intelligence/",
+      "destination": "/library/papers/shared-world-collective-intelligence/index.html"
+    },
+    {
+      "source": "/library/papers/shared-world-collective-intelligence",
+      "destination": "/library/papers/shared-world-collective-intelligence/"
+    },
+    {
+      "source": "/blog/pilot-rhyme-expedition/",
+      "destination": "/blog/pilot-rhyme-expedition/index.html"
+    },
+    {
+      "source": "/blog/pilot-rhyme-expedition",
+      "destination": "/blog/pilot-rhyme-expedition/"
+    },
+    {
+      "source": "/library/papers/pilot-rhyme-expedition/",
+      "destination": "/library/papers/pilot-rhyme-expedition/index.html"
+    },
+    {
+      "source": "/library/papers/pilot-rhyme-expedition",
+      "destination": "/library/papers/pilot-rhyme-expedition/"
+    }
   ]
 }

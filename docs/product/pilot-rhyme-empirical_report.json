@@ -1,0 +1,71 @@
+{
+  "documentId": "WP-PILOT-RHYME-EXPEDITION-EGS-2026-11-18",
+  "seed": 20261118,
+  "scenarios": 100,
+  "hops": 6,
+  "pilots": 3,
+  "arms": {
+    "flat_peers": {
+      "wins": 0,
+      "winRate": 0,
+      "meanOps": 40,
+      "meanRounds": 6,
+      "meanBytes": 4292.78,
+      "hits": 0
+    },
+    "shared_text": {
+      "wins": 0,
+      "winRate": 0,
+      "meanOps": 26,
+      "meanRounds": 6,
+      "meanBytes": 887.57,
+      "hits": 0
+    },
+    "director_pilot_private": {
+      "wins": 100,
+      "winRate": 1,
+      "meanOps": 6,
+      "meanRounds": 6,
+      "meanBytes": 3446.44,
+      "hits": 0
+    },
+    "director_pilot_exact_cache": {
+      "wins": 100,
+      "winRate": 1,
+      "meanOps": 6,
+      "meanRounds": 3,
+      "meanBytes": 861.61,
+      "hits": 0
+    },
+    "director_pilot_rhyme": {
+      "wins": 100,
+      "winRate": 1,
+      "meanOps": 12,
+      "meanRounds": 3,
+      "meanBytes": 672.43,
+      "hits": 0
+    }
+  },
+  "compare": {
+    "rhymeStoreBytes": 67243,
+    "exactCacheStoreBytes": 86161,
+    "privateStoreBytes": 344644,
+    "flatStoreBytes": 429278,
+    "sharedTextStoreBytes": 88757,
+    "exactCacheHits": 0,
+    "rhymeVersusExact": 0.21956569677696403,
+    "rhymeVersusPrivate": 0.804891424194241,
+    "discovery": {
+      "flat": 0,
+      "shared_text": 0,
+      "director_pilot_private": 100,
+      "director_pilot_exact_cache": 100,
+      "director_pilot_rhyme": 100,
+      "n": 100
+    }
+  },
+  "verdict": "SUPPORTED — Pilot Rhyme recovered every mission, flat peers recovered none, exact-text role cache never hit on differing mission wording, and the rhyming store was substantially smaller than exact-cache and private copies.",
+  "positiveExpeditionSignal": true,
+  "honesty": "Architectural / structured-state lab. Director/Pilot seats rebuild a published coordination pattern; no LingBot weights. Not CapEx, not embodied robotics, not an LLM bake-off.",
+  "ms": 30
+}
