@@ -41,7 +41,9 @@
     "research:c-plus-imagine": "node scripts/run_c_plus_imagine.mjs",
     "research:llm-rhyme-cosmic-genome-expedition": "node research/llm-rhyme-cosmic-genome-expedition/scripts/run_empirical_pipeline.mjs",
     "research:cosmic-rhyme-expedition": "node research/cosmic-rhyme-expedition/scripts/run_empirical_pipeline.mjs",
-    "research:world-model-expedition": "node experiments/world-model-expedition/scripts/run_expedition.mjs"
+    "research:world-model-expedition": "node experiments/world-model-expedition/scripts/run_expedition_v2.mjs",
+    "research:world-model-expedition:v1": "node experiments/world-model-expedition/scripts/run_expedition.mjs",
+    "research:world-model-expedition:v2": "node experiments/world-model-expedition/scripts/run_expedition_v2.mjs"
   },
   "dependencies": {
     "isomorphic-git": "^1.30.1"
