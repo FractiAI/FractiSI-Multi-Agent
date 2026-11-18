@@ -8,7 +8,14 @@
   },
   "executable": true,
   "blocker": null,
-  "install_commands": [],
+  "install_commands": [
+    "python3 -m venv --system-site-packages --without-pip /tmp/wm_official/venv_tdmpc2   # ensurepip missing on this VM",
+    "git clone https://github.com/nicklashansen/tdmpc2 /tmp/wm_official/tdmpc2   # HEAD 332f19e4aba4bffe2dc736f45ea7f7bdc585903a",
+    "pip --python /tmp/wm_official/venv_tdmpc2/bin/python install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu",
+    "pip --python /tmp/wm_official/venv_tdmpc2/bin/python install tensordict==0.8.3 torchrl==0.8.1 mujoco==3.1.2 dm-control==1.0.16 gymnasium==0.29.1 numpy==1.26.4 hydra-core omegaconf termcolor tqdm pandas imageio h5py huggingface_hub",
+    "huggingface-hub: hf_hub_download('nicklashansen/tdmpc2', 'dmcontrol/<task>-1.pt')   # model repo sha 8fb2a82efb3bae96941da440128fe1332e4394fd",
+    "OMP_NUM_THREADS=2 MUJOCO_GL=disable /tmp/wm_official/venv_tdmpc2/bin/python src/open_wms_official/run_tdmpc2.py"
+  ],
   "hardware": {
     "device": "cpu",
     "gpu": false,
@@ -33,7 +40,9 @@
     "Env stack differs from upstream pins (torch 2.15 / tensordict 0.15 / mujoco 4.0.1 / dm_control 1.0.52 vs upstream torch 2.7.1 / mujoco 3.1.2 / dm-control 1.0.16).",
     "Eval-mode planning (mean of elite distribution), few episodes only (small n; not a benchmark claim).",
     "TD-MPC2 is a single-agent latent world model: predicts+plans in its own latent; no share/merge/multi-agent shared world interface. It does NOT use the shared CartPole-v1 eval set (different obs/action spaces: DMControl continuous), so identity_baseline_mse 0.0310864 is not applicable to its latent errors; latent error is compared against its own identity baseline instead.",
-    "Reward one-step error: reward head decoded from two-hot bins; env reward = sum over action-repeat 2."
+    "Reward one-step error: reward head decoded from two-hot bins; env reward = sum over action-repeat 2.",
+    "Quality caveat: cartpole-balance MPC returns 999.02 and 999.03 (2 episodes) vs random 232.4 and 428.7 (mean 330.6), so the planner is competent there, but balance starts near upright and may be solved by a weak model, so this is not strong evidence the loaded dynamics are faithful. cartpole-swingup MPC returns 199.1 and 195.1 (mean 197.1) vs random 79.4 and 19.2 (mean 49.3): 4x random but far below the ~800+ published for converged swingup. The checkpoint (dated 2023-06-03) needed a key re-layout to load (INSTALL_NOTES.md item 4); my inferred mapping loads strictly, but swingup quality and the one-step errors below suggest it may be imperfect or that the checkpoint does not match upstream HEAD semantics. Not isolated; do not treat swingup as a faithful reproduction of published TD-MPC2.",
+    "One-step errors (per_task[*].one_step_error_*): next-latent MSE of the learned dynamics is 10-128x WORSE than the trivial identity z_{t+1}=z_t on MPC transitions (latent_rel_to_identity), and the reward head is no better than predicting the mean on swingup random transitions (0.0188 vs 0.0199) and worse than the mean on balance MPC transitions (1.9e-5 vs 5.5e-7). So the extracted one-step latent/reward errors do not show a well-calibrated dynamics model; consistent with a possible checkpoint/layout mismatch, but not diagnosed."
   ],
   "per_task": [
     {
@@ -146,5 +155,23 @@
       "random_mean_return": 330.5560063537523,
       "planner_seconds_per_step": 0.37633735062512275
     }
+  },
+  "measured_summary": {
+    "cartpole_swingup": {
+      "mpc_mean": 197.1,
+      "random_mean": 49.33,
+      "mpc_episodes": 2,
+      "random_episodes": 2
+    },
+    "cartpole_balance": {
+      "mpc_mean": 999.02,
+      "random_mean": 330.56,
+      "mpc_episodes": 2,
+      "random_episodes": 2
+    },
+    "planner_seconds_per_step_under_cpu_contention": [
+      0.63,
+      0.38
+    ]
   }
 }

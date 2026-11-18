@@ -8,7 +8,12 @@
   },
   "executable": true,
   "blocker": null,
-  "install_commands": [],
+  "install_commands": [
+    "python3 -m venv --system-site-packages --without-pip /tmp/wm_official/venv_vjepa2",
+    "pip --python /tmp/wm_official/venv_vjepa2/bin/python install transformers==5.23.0 pygame huggingface_hub scikit-learn   # torch 2.15.0+cpu from system site; do NOT install torchvision (ABI mismatch with system torch)",
+    "huggingface-hub snapshot_download('facebook/vjepa2-vitl-fpc64-256', local_dir='/tmp/wm_official/vjepa2-vitl-fpc64-256')   # sha b3c1679b7c34d3255ef3547f27c7b226aefab26f",
+    "OMP_NUM_THREADS=2 SDL_VIDEODRIVER=dummy /tmp/wm_official/venv_vjepa2/bin/python src/open_wms_official/run_vjepa2.py"
+  ],
   "hardware": {
     "device": "cpu",
     "gpu": false,
