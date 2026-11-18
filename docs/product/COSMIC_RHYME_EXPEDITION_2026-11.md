@@ -1,6 +1,6 @@
 # Cosmic Rhyme Expedition
 
-**Searching for New Relational Patterns in the Cosmic Layer**
+**Exploring Protein Folding Rhymes on Public Sky Catalogs**
 
 **Document ID:** `WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17`  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
@@ -16,10 +16,11 @@
 
 ## Central question
 
-Can the same relational-awareness method that revealed hidden structure in proteins (E9), knowledge (E10), and macroeconomic series (E11) reveal previously unrecognized super-patterns in the cosmos?
+Does the protein-folding rhyme (sequence → relationship board → partner) travel on public cosmic catalogs the way it traveled on proteins (E9), knowledge (E10), and macroeconomic series (E11)?
 
-Not: *What is the Universe doing?*  
-Rather: *What becomes visible in the cosmos when observations are represented as relationships rather than as a sequence of measurements?*
+Title focus: exploring protein-folding rhymes on the sky.  
+Secondary residual arm: two candidates for new physics (WMAP residual lags 11 and 14).  
+Not: *What is the Universe doing as a totality?*
 
 ## Experimental rhyme
 
@@ -61,7 +62,7 @@ Run: `npm run research:cosmic-rhyme-expedition`
 
 ### What the telescope showed
 
-1. **Architecture rhyme holds on cosmic catalogs.** A relational coupling board recovers long-range partners that RA/time-local linear windows and flat dumps miss — the same claim shape as protein / knowledge / macro folds. Honesty: AWARE sees an explicit board derived from the same features LINEAR never ranks; this is representation, not invention of new physics.
+1. **Architecture rhyme holds on cosmic catalogs.** A relational coupling board recovers long-range partners that RA/time-local linear windows and flat dumps miss — the same claim shape as protein / knowledge / macro folds. Honesty: AWARE sees an explicit board derived from the same features LINEAR never ranks; this is representation (folding rhyme). Residual search for new-physics candidates is C4.
 
 2. **Survey-history super-patterns in exoplanet space.** Motifs `disc_year~st_rad` and `disc_year~st_teff` survive held-out replication and feature-permutation nulls. Reading the catalog as relationships surfaces how discovery epoch aligns with host stellar slices — a cosmos-as-observed selection pattern, not a claim about stellar evolution itself.
 
@@ -69,13 +70,13 @@ Run: `npm run research:cosmic-rhyme-expedition`
 
 4. **Spectral lag structure in WMAP TT.** AWARE lag boards recover multipole partners linear local windows miss; strongest absolute lag correlation near lag 5 in the fixture band.
 
-5. **Residual physics search (C4).** After continuum / selection removal, WMAP residual lags 11 and 14 beat nulls off the locked acoustic template — candidates under protocol, not confirmed laws. Acoustic-leaning lags 17–19 and exo mass–radius residuals are rediscoveries.
+5. **Residual physics search (C4).** After continuum / selection removal, WMAP residual lags 11 and 14 beat nulls off the locked acoustic template — **two candidates for new physics** under protocol (not finished laws). Acoustic-leaning lags 17–19 and exo mass–radius residuals are rediscoveries.
 
 6. **LLM / language-pack rhyme (C5).** Packing the same tasks as E9–E11 prompts yields AWARE 100% vs LINEAR/FLAT ~0% under a pack-compliant reader; lexical-blind reading that ignores the board fails. Not a frontier bake-off.
 
 ## Honesty boundary
 
-Application companion expedition. Not ENGINE_SHELF. Not a Universe ontology. C1–C3 = representation + catalog fingerprints. C4 candidates ≠ confirmed new fundamental physics. C5 = language-pack rhyme (pack-compliant default), not a frontier-LLM bake-off. Surviving motifs require held-out replication and FDR against feature-permutation nulls; rediscoveries and selection effects are labeled in the audit column. Cosmos = observable relational layer.
+Application companion expedition. Not ENGINE_SHELF. Not a Universe ontology. C1–C3 = representation + catalog fingerprints. C4: two candidates for new physics (not finished laws). C5 = language-pack rhyme (pack-compliant default), not a frontier-LLM bake-off. Surviving motifs require held-out replication and FDR against feature-permutation nulls; rediscoveries and selection effects are labeled in the audit column. Cosmos = observable relational layer.
 
 ## Document lineage
 
