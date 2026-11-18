@@ -42,8 +42,8 @@ Prior expeditions already showed that a **rhyming shared world between agents** 
 |---|---|---|
 | DreamerV3 | danijar/dreamerv3 `e01491f`, JAX size1m, 5,000 steps | next-state MSE 0.0255 vs 0.0311 copy-forward on held-out data (one seed; 0.0372 on training transitions, which does not beat copy-forward); policy return 65.3 (10 eps) |
 | MuZero | werner-duvaud/muzero-general `8c65818`, 3,000 updates, MCTS | policy return 218.9 (10 eps); no observation decoder |
-| TD-MPC2 | nicklashansen/tdmpc2 `332f19e`, official 5M checkpoints | cartpole-swingup 197 vs 49 random; cartpole-balance 999 vs 331 random (2 eps each) |
-| V-JEPA 2 | facebook/vjepa2-vitl-fpc64-256 encoder | state R² 0.85 on 40 held-out clips; next-state probe 0.056 vs 0.030 copy-forward |
+| TD-MPC2 | nicklashansen/tdmpc2 `332f19e`, official 5M checkpoints | cartpole-swingup 197 vs 49 random (about a quarter of the published ~800+; partial reproduction, checkpoint loaded via an inferred key-rename converter); cartpole-balance 999 vs 331 random; 2 eps each; one-step latent error worse than copy-forward |
+| V-JEPA 2 | facebook/vjepa2-vitl-fpc64-256 encoder | state R² 0.85 on 40 held-out clips (8-frame clips, one split); next-state probe 0.056 vs 0.030 copy-forward, which uses the true state |
 
 None has a share or merge operation. Not run: V-JEPA 2-AC (memory, non-HF checkpoint), Cosmos (GPU), Genie (closed); DIAMOND and Oasis not attempted (GPU-class).
 
