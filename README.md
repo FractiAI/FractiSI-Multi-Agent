@@ -44,8 +44,22 @@ Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated a
 | **Converges on answers faster** | 6 rounds · 40 ops | **3 rounds (−50%)** · **6 ops (−85%)** |
 | **Density vs full per-agent copy** | Full copy | Dup cut **89.6%–99.2%** · **36.91×–62.41×** · selective ~**99.5%** |
 | **Still wins after gzip** | Naive per-agent copies + gzip | **~42%+** residual (smaller world); **~98%** when world dominates — compression shrinks copies, does not remove them |
-| **Beats exact-text cache when words differ** | Exact-text cache **6,704 B** (40 same-shape sessions) | Rhyme **4,758 B** (exact cache still wins identical text) |
+| **Beats exact-text cache when words differ** | Exact-text cache **6,704 B** (40 same-shape sessions) · **22,261 B, 0 hits** (real PDB/Pfam, 48 sessions) | Rhyme **4,758 B** · **14,882 B (−33%)** · calibration **−45%** (exact cache still wins identical text) |
+| **Shared world vs separate worlds** (CartPole, 1 dim per agent) | Independent **~14** return | Shared **200** |
 | **Tiny Gateway · DRAM & materialize** | Full / conventional | Aggregate **84.5%** · GPU alloc proxy **81.4%** · materialize **~9.6×** (H100 rhyme-vs-prefix ~34% = simulation only) |
+
+### Rhyming vs non-rhyming world models
+
+Real agent traffic is mostly the same structure in different words. Exact-text cache and prefix reuse fire only on identical bytes; rhyme matches shape. We ran the head-to-head on public data (RCSB PDB / Pfam, Movebank GPS) and on live open world-model code (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite on CPU).
+
+| Traffic | Non-rhyming | Rhyme |
+|---|---|---|
+| Wording differs (protein contacts, 48 sessions) | Exact cache 22,261 B · 0 hits | **14,882 B (−33%)** |
+| Wording differs (calibration, 40 sessions) | Exact cache 13,424 B · 0 hits | **7,385 B (−45%)** |
+| Guided discovery (100 × 6-hop) | Flat skim 0 / 100 | **100 / 100** |
+| Mostly identical bytes (75%+ repeats) | **Exact cache / prefix reuse win** | Use them; FractiSI keeps them |
+
+Open latent models predict next state 60×–170× better than copy-forward in single-agent CartPole and have no share or merge. FractiSI owns multi-agent share, merge, and relation preservation. Verdict: **complementary, differentiated**. Not run: V-JEPA 2 and Cosmos (GPU), Genie (closed). On the protein task a plain structured blackboard also reached 100%, so that claim is bytes, not accuracy. Report: [`docs/world-model-expedition/final-report.md`](./docs/world-model-expedition/final-report.md).
 
 These are the outcomes multi-agent teams come here for. Digital architectural / structured-state labs — not CapEx guarantees, not an LLM bake-off; “80% DRAM for AI serving” not established as CapEx. Receipts: [`docs/product/expedition-002/`](./docs/product/expedition-002/) · [`docs/benchmarks/RESULTS.md`](./docs/benchmarks/RESULTS.md) · [pricing](./product/pricing/).
 

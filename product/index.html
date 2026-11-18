@@ -76,8 +76,13 @@
         </div>
         <div class="diff-stat">
           <span class="label">When wording differs</span>
-          <span class="num">Rhyme beats exact cache</span>
-          <p>Sessions with the same shape and different words favor rhyming templates.</p>
+          <span class="num">−33% to −45% vs exact cache</span>
+          <p>Real protein-contact and moose-GPS traffic: exact cache hit zero times; rhyming templates cut bytes by a third to nearly half.</p>
+        </div>
+        <div class="diff-stat">
+          <span class="label">Shared vs separate worlds</span>
+          <span class="num">200 vs 14</span>
+          <p>CartPole return when each agent sees one dimension: one shared world solves it, independent worlds do not.</p>
         </div>
         <div class="diff-stat">
           <span class="label">Tiny Gateway</span>
@@ -86,6 +91,21 @@
         </div>
         <p class="foot">Reproduce the runs in the <a href="/library/">library</a>: <a href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a>, <a href="/library/papers/tiny-footprint-multi-agent/">Multi-Agent paper</a>, <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway</a>, and the <a href="/research/#open-evaluation">evaluation program</a>.</p>
       </div>
+
+      <h2 class="section-head" id="head-to-head">Rhyming vs non-rhyming world models</h2>
+      <p>Real multi-agent traffic is mostly the same structure in different words. Exact-text caches and prefix reuse fire only when bytes repeat. A rhyme matches shape. We ran the head-to-head on public data and live open world-model code.</p>
+      <table class="stack-table">
+        <thead><tr><th>Traffic or task</th><th>Non-rhyming baseline</th><th>FractiSI rhyme</th></tr></thead>
+        <tbody>
+          <tr><td>Protein contacts (RCSB PDB / Pfam), 48 sessions, wording differs</td><td>Exact cache 22,261 B · 0 hits</td><td><strong>14,882 B · −33%</strong></td></tr>
+          <tr><td>Calibration, 40 sessions, wording differs</td><td>Exact cache 13,424 B · 0 hits</td><td><strong>7,385 B · −45%</strong></td></tr>
+          <tr><td>Guided discovery, 100 scenarios, 6 hops</td><td>Flat skim 0 / 100</td><td><strong>100 / 100</strong></td></tr>
+          <tr><td>Half the sessions are exact repeats</td><td>Exact cache 7,052 B</td><td><strong>6,619 B</strong></td></tr>
+          <tr><td>Mostly identical bytes (75%+ repeats)</td><td><strong>Exact cache and prefix reuse win</strong></td><td>Use them. FractiSI keeps them.</td></tr>
+        </tbody>
+      </table>
+      <p>Where open latent world models fit: we trained Dreamer-family RSSM, TD-MPC-lite, and MuZero-lite arms live on CPU. They predict the next state 60× to 170× better than a copy-forward baseline in single-agent CartPole. They have no share or merge operation. FractiSI owns that job: agents that each see a slice, and one world that reconciles them.</p>
+      <p class="honesty">Open arms are compact CPU implementations, not full DreamerV3 or TD-MPC2 checkpoints. V-JEPA 2 and Cosmos need a GPU and Genie is closed, so none of the three ran. On the protein task a plain structured blackboard also reached 100%, so the claim there is bytes, not accuracy. Receipts: <a href="/blog/shared-world-collective-intelligence/">expedition write-up</a> · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/world-model-expedition/final-report.md">final report</a>.</p>
 
       <h2 class="section-head" id="how-it-works">How it works</h2>
       <div class="cards">
