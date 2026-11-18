@@ -54,11 +54,13 @@ function runWmapLanguagePack(opts = {}) {
   let aware = 0;
   let lexAware = 0;
   const per = [];
+  const sampleRecoveries = [];
   for (let t = 0; t < nTasks; t += 1) {
     const i = 50 + Math.floor(rnd() * (cls.length - 100));
     const gold = i + bestLag;
     if (gold >= cls.length) continue;
     const leadId = `ell-${rows[gold].ell}`;
+    const queryId = `ell-${rows[i].ell}`;
     const qLine = `ell=${rows[i].ell} logCl=${Math.log(cls[i] + 1e-30).toFixed(4)}`;
     const localLines = [];
     for (let d = -3; d <= 3; d += 1) {
@@ -90,6 +92,9 @@ function runWmapLanguagePack(opts = {}) {
       `RELATIONAL AWARENESS BOARD (lag |corr|):\n${boardLines.join('\n')}\n` +
       `NOTE: Prefer the leading relational candidate.`;
     const hit = {
+      queryId,
+      partnerId: leadId,
+      bestLag,
       linear: parseSolution(packCompliantRead('LINEAR', packL)) === leadId,
       flat: parseSolution(packCompliantRead('FLAT', packF)) === leadId,
       aware: parseSolution(packCompliantRead('AWARE', packA)) === leadId,
@@ -99,6 +104,17 @@ function runWmapLanguagePack(opts = {}) {
     if (hit.aware) aware += 1;
     if (parseSolution(lexicalBlindRead(packA)) === leadId) lexAware += 1;
     per.push(hit);
+    if (hit.aware && !hit.linear && !hit.flat && sampleRecoveries.length < 8) {
+      sampleRecoveries.push({
+        queryId,
+        partnerId: leadId,
+        bestLag,
+        coupling: Number(lagCorr[0].corr.toFixed(4)),
+        linearRecovered: false,
+        flatRecovered: false,
+        awareRecovered: true,
+      });
+    }
   }
   const n = per.length || 1;
   const rates = { linear: linear / n, flat: flat / n, aware: aware / n, n: per.length };
@@ -126,6 +142,26 @@ function runWmapLanguagePack(opts = {}) {
     H1: rates.aware - rates.linear >= H1_DELTA && ci.low > 0,
     H2: rates.aware - rates.flat >= H2_DELTA,
     lexicalBlind: { aware: lexAware / n },
+    discoveries: {
+      theater: 'wmap_tt',
+      rhyme: 'LLM language-pack (AWARE)',
+      nAwareOnlyRecoveries: per.filter((t) => t.aware && !t.linear && !t.flat).length,
+      topSpectralLags: lagCorr.slice(0, 8).map((c) => ({
+        id: `lag-${c.lag}`,
+        lag: c.lag,
+        absCorr: Number(c.corr.toFixed(4)),
+        kind: 'awareness_board_spectral_lag',
+      })),
+      awarenessOnlyPairs: sampleRecoveries.map((s) => ({
+        id: `${s.queryId} ↔ ${s.partnerId}`,
+        queryId: s.queryId,
+        partnerId: s.partnerId,
+        maxCoupling: s.coupling,
+        bestLag: s.bestLag,
+        kind: 'aware_only_partner_recovery',
+      })),
+      sampleRecoveries,
+    },
   };
 }
 
@@ -165,24 +201,76 @@ export function runFullExpedition() {
 
   const positive = cosmicH1 >= 2 && genomeH1 >= 1;
 
+  const discoveryCatalog = {
+    rhyme: 'LLM language-pack (LINEAR / FLAT / AWARE)',
+    seed: SEED,
+    documentId: DOC_ID,
+    theaters: all.map((r) => ({
+      theater: r.layer || r.domain,
+      H1: r.H1,
+      nTasks: r.nTasks,
+      rates: r.rates,
+      discoveries: r.discoveries || null,
+    })),
+    listedDiscoveries: all.flatMap((r) => {
+      const d = r.discoveries;
+      if (!d) return [];
+      const theater = d.theater || r.layer || r.domain;
+      const rows = [];
+      for (const p of d.awarenessOnlyPairs || []) {
+        rows.push({
+          rhyme: 'LLM',
+          theater,
+          discoveryId: p.id,
+          kind: p.kind || 'aware_only_partner_recovery',
+          detail: `AWARE-only held-out partner ${p.partnerId} for query ${p.queryId}`,
+          coupling: p.maxCoupling ?? p.coupling,
+        });
+      }
+      for (const c of d.topBoardCouplings || []) {
+        rows.push({
+          rhyme: 'LLM',
+          theater,
+          discoveryId: c.id,
+          kind: c.kind || 'awareness_board_coupling',
+          detail: `Top awareness-board coupling ${c.a} ↔ ${c.b}`,
+          coupling: c.maxCoupling,
+        });
+      }
+      for (const c of d.topSpectralLags || []) {
+        rows.push({
+          rhyme: 'LLM',
+          theater,
+          discoveryId: c.id,
+          kind: c.kind,
+          detail: `Spectral lag ${c.lag} |corr|=${c.absCorr} surfaced on AWARE board`,
+          coupling: c.absCorr,
+        });
+      }
+      return rows;
+    }),
+  };
+
   return {
     seed: SEED,
     documentId: DOC_ID,
     legend: LLM_RHYME_LEGEND,
     cosmic: { exoplanet: exo, neo, ngc, wmap },
     genome: { exon: exons, chrm },
+    discoveryCatalog,
     summary: {
       positiveExpeditionSignal: positive,
       h1Layers: h1,
       nH1: h1.length,
       cosmicH1,
       genomeH1,
+      nListedDiscoveries: discoveryCatalog.listedDiscoveries.length,
       liveLlmConfigured: Boolean(process.env.COSMIC_LLM_URL && process.env.COSMIC_LLM_KEY),
       verdict: positive
-        ? `POSITIVE — LLM/language-pack rhyme on cosmic fixtures (${cosmicH1}/4 H1) and human-genome exploration (${genomeH1}/2 H1). AWARE packs recover long-range partners LINEAR/FLAT miss under a pack-compliant reader.`
+        ? `POSITIVE — LLM/language-pack rhyme on cosmic fixtures (${cosmicH1}/4 H1) and human-genome exploration (${genomeH1}/2 H1). AWARE packs recover long-range partners LINEAR/FLAT miss and list named discoveries per theater.`
         : 'MIXED/NULL — keep protocol and receipts; do not feature a discovery blog.',
       note:
-        'Split from Cosmic Rhyme C5. Genome arm is demonstration/exploration on public panels (not wet-lab genetics). Not ENGINE_SHELF / not frontier bake-off.',
+        'Split from Cosmic Rhyme C5. Genome arm is demonstration/exploration on public panels (not wet-lab genetics). Discoveries = named AWARE-only partners + board couplings, not pass rates alone.',
     },
   };
 }

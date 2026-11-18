@@ -1,0 +1,1500 @@
+{
+  "generatedAt": "2026-11-18T03:21:30.518Z",
+  "purpose": "Named discoveries from protein-folding and LLM rhymes across theaters — not pass/fail alone.",
+  "theaters": [
+    "protein (E9)",
+    "knowledge (E10)",
+    "macro (E11)",
+    "collaboration (E12)",
+    "cosmic (exoplanet, NEO, OpenNGC, WMAP)",
+    "genome (exon, chrM)"
+  ],
+  "proteinFoldingRhyme": {
+    "n": 48,
+    "discoveries": [
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1VII contact 11-18",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1VII / Pfam PF02209: AWARE recovered contact 11-18; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1NYF contact 7-30",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1NYF / Pfam PF00018: AWARE recovered contact 7-30; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1MJC contact 8-50",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1MJC / Pfam PF00313: AWARE recovered contact 8-50; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1R69 contact 19-35",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1R69 / Pfam PF01381: AWARE recovered contact 19-35; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1ENH contact 18-47",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1ENH / Pfam PF00046: AWARE recovered contact 18-47; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1TTF contact 34-72",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1TTF / Pfam PF00041: AWARE recovered contact 34-72; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1IFC contact 83-91",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1IFC / Pfam PF00061: AWARE recovered contact 83-91; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1RBP contact 84-90",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1RBP / Pfam PF00061: AWARE recovered contact 84-90; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1BPT contact 12-37",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1BPT / Pfam PF00014: AWARE recovered contact 12-37; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "protein (E9 · PDB+Pfam)",
+        "discoveryId": "1CKA contact 39-47",
+        "kind": "aware_only_long_range_contact",
+        "detail": "PDB 1CKA / Pfam PF00018: AWARE recovered contact 39-47; LINEAR/FLAT_MSA missed",
+        "source": "e9_real/allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "New Hampshire General Court||Samuel Leavitt",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair New Hampshire General Court||Samuel Leavitt",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Edward I of England||Year Books",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Edward I of England||Year Books",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Ishq Garaari||Yo Yo Honey Singh",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Ishq Garaari||Yo Yo Honey Singh",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Bombing of Tokyo||Den Tagayasu",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Bombing of Tokyo||Den Tagayasu",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "IPod Classic||IPod+HP",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair IPod Classic||IPod+HP",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Gretchen Gotay||University of Georgia",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Gretchen Gotay||University of Georgia",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Kristian Birkeland||Substorm",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Kristian Birkeland||Substorm",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Economic Cooperation Organization||Gül Train",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Economic Cooperation Organization||Gül Train",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Reid Harrison||Tak and the Power of Juju",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Reid Harrison||Tak and the Power of Juju",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Skyplex||Skyscraper (roller coaster)",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Skyplex||Skyscraper (roller coaster)",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Brian Bosworth||One Tough Bastard",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Brian Bosworth||One Tough Bastard",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Fiapre||Notre Dame High School (Ghana)",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Fiapre||Notre Dame High School (Ghana)",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Fix You||Xyloband",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Fix You||Xyloband",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Libertarianism||The Structure of Liberty",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Libertarianism||The Structure of Liberty",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Bee Cliff (Tennessee)||Watauga River",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Bee Cliff (Tennessee)||Watauga River",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "knowledge (E10 · HotpotQA bridge)",
+        "discoveryId": "Jing Tian||Police Story 2013",
+        "kind": "aware_only_title_pair",
+        "detail": "AWARE recovered supporting title pair Jing Tian||Police Story 2013",
+        "source": "e10_e11/E10_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "macro teleconnection (E11 · FRED)",
+        "discoveryId": "CPIAUCSL||UNRATE",
+        "kind": "aware_only_teleconnection",
+        "detail": "AWARE recovered FRED teleconnection CPIAUCSL||UNRATE (4 tasks)",
+        "n": 4,
+        "source": "e10_e11/E11_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "macro teleconnection (E11 · FRED)",
+        "discoveryId": "CPIAUCSL||FEDFUNDS",
+        "kind": "aware_only_teleconnection",
+        "detail": "AWARE recovered FRED teleconnection CPIAUCSL||FEDFUNDS (3 tasks)",
+        "n": 3,
+        "source": "e10_e11/E11_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "macro teleconnection (E11 · FRED)",
+        "discoveryId": "CPIAUCSL||INDPRO",
+        "kind": "aware_only_teleconnection",
+        "detail": "AWARE recovered FRED teleconnection CPIAUCSL||INDPRO (3 tasks)",
+        "n": 3,
+        "source": "e10_e11/E11_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "macro teleconnection (E11 · FRED)",
+        "discoveryId": "INDPRO||UNRATE",
+        "kind": "aware_only_teleconnection",
+        "detail": "AWARE recovered FRED teleconnection INDPRO||UNRATE (1 tasks)",
+        "n": 1,
+        "source": "e10_e11/E11_allam_2_7b.jsonl"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "collaboration (E12 · HotpotQA)",
+        "discoveryId": "COLLAB_AWARE title-pair synergy",
+        "kind": "collab_synergy_discovery",
+        "detail": "Whole > OR of solos on title-pair recovery under COLLAB_AWARE join (see E12 RESULTS)",
+        "source": "e12_collab/RESULTS.md"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · exoplanet",
+        "discoveryId": "disc_year~st_rad",
+        "kind": "open_motif_survivor",
+        "detail": "Catalog selection motif: discovery epoch aligned with stellar-radius slice — survey-history pattern in the observable cosmos, not new physics.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · exoplanet",
+        "discoveryId": "disc_year~st_teff",
+        "kind": "open_motif_survivor",
+        "detail": "Catalog selection motif: discovery epoch aligned with stellar-temperature slice — survey-history pattern in the observable cosmos, not new physics.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · ngc",
+        "discoveryId": "maj_ax~ra",
+        "kind": "open_motif_survivor",
+        "detail": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · ngc",
+        "discoveryId": "dec~min_ax",
+        "kind": "open_motif_survivor",
+        "detail": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · ngc",
+        "discoveryId": "dec~maj_ax",
+        "kind": "open_motif_survivor",
+        "detail": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · ngc",
+        "discoveryId": "min_ax~ra",
+        "kind": "open_motif_survivor",
+        "detail": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · ngc",
+        "discoveryId": "min_ax~v_mag",
+        "kind": "open_motif_survivor",
+        "detail": "No automatic named-structure match — candidate novel relational motif under this protocol.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · ngc",
+        "discoveryId": "maj_ax~v_mag",
+        "kind": "open_motif_survivor",
+        "detail": "Angular size–brightness coupling in deep-sky catalogs — selection/morphology audit.",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · WMAP residual (C4)",
+        "discoveryId": "WMAP residual lag 11",
+        "kind": "candidate_novel_physics",
+        "detail": "Two-candidate residual sieve: lag 11 corr=0.499 — candidate for new physics under protocol",
+        "coupling": 0.4987107761862873,
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · WMAP residual (C4)",
+        "discoveryId": "WMAP residual lag 14",
+        "kind": "candidate_novel_physics",
+        "detail": "Two-candidate residual sieve: lag 14 corr=0.466 — candidate for new physics under protocol",
+        "coupling": 0.46592098076818395,
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · exoplanet_residual",
+        "discoveryId": "log_bmasse~log_rade",
+        "kind": "known_physics_rediscovery",
+        "detail": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar).",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · exoplanet_residual",
+        "discoveryId": "st_mass~st_rad",
+        "kind": "known_physics_rediscovery",
+        "detail": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar).",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · exoplanet_residual",
+        "discoveryId": "log_orbper~log_rade",
+        "kind": "known_physics_rediscovery",
+        "detail": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar).",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · wmap_tt_residual",
+        "discoveryId": "WMAP residual lag 17",
+        "kind": "known_physics_rediscovery",
+        "detail": "Known-template rediscovery in residual search (control)",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · wmap_tt_residual",
+        "discoveryId": "WMAP residual lag 18",
+        "kind": "known_physics_rediscovery",
+        "detail": "Known-template rediscovery in residual search (control)",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · wmap_tt_residual",
+        "discoveryId": "WMAP residual lag 19",
+        "kind": "known_physics_rediscovery",
+        "detail": "Known-template rediscovery in residual search (control)",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      },
+      {
+        "rhyme": "protein-folding",
+        "theater": "cosmic · neo_residual",
+        "discoveryId": "h_mag~log_v_rel",
+        "kind": "known_physics_rediscovery",
+        "detail": "Known-template rediscovery in residual search (control)",
+        "source": "synthobs-cosmic-rhyme-expedition/data/empirical_report.json"
+      }
+    ]
+  },
+  "llmRhyme": {
+    "n": 136,
+    "discoveries": [
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-8 b ↔ WASP-7 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner WASP-7 b for query HAT-P-8 b",
+        "coupling": 0.9955
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 62509 b ↔ HD 11977 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 11977 b for query HD 62509 b",
+        "coupling": 0.9931
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "91 Aqr b ↔ mu Leo b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner mu Leo b for query 91 Aqr b",
+        "coupling": 0.9917
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "TrES-3 b ↔ CoRoT-2 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner CoRoT-2 b for query TrES-3 b",
+        "coupling": 0.9914
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa b ↔ HD 222582 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 222582 b for query 47 UMa b",
+        "coupling": 0.9898
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-4 b ↔ HAT-P-8 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HAT-P-8 b for query HAT-P-4 b",
+        "coupling": 0.9879
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 197037 b ↔ HD 220773 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 220773 b for query HD 197037 b",
+        "coupling": 0.9876
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 8535 b ↔ HD 220773 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 220773 b for query HD 8535 b",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa d ↔ HD 187123 c",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 187123 c for query 47 UMa d",
+        "coupling": 0.987
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "Kepler-969 c ↔ Kepler-1222 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner Kepler-1222 b for query Kepler-969 c",
+        "coupling": 0.9854
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 147018 c ↔ HD 70573 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 70573 b for query HD 147018 c",
+        "coupling": 0.9851
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 175167 b ↔ HD 147018 c",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 147018 c for query HD 175167 b",
+        "coupling": 0.985
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-8 b ↔ WASP-7 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HAT-P-8 b ↔ WASP-7 b",
+        "coupling": 0.9955
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 62509 b ↔ HD 11977 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 62509 b ↔ HD 11977 b",
+        "coupling": 0.9931
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "91 Aqr b ↔ mu Leo b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 91 Aqr b ↔ mu Leo b",
+        "coupling": 0.9917
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "TrES-3 b ↔ CoRoT-2 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling TrES-3 b ↔ CoRoT-2 b",
+        "coupling": 0.9914
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa b ↔ HD 222582 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 47 UMa b ↔ HD 222582 b",
+        "coupling": 0.9898
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-8 b ↔ HAT-P-4 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HAT-P-8 b ↔ HAT-P-4 b",
+        "coupling": 0.9879
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 197037 b ↔ HD 220773 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 197037 b ↔ HD 220773 b",
+        "coupling": 0.9876
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 8535 b ↔ HD 220773 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 8535 b ↔ HD 220773 b",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 8535 b ↔ HD 132563 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 8535 b ↔ HD 132563 b",
+        "coupling": 0.987
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa d ↔ HD 187123 c",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 47 UMa d ↔ HD 187123 c",
+        "coupling": 0.987
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "HD 197037 b ↔ HD 132563 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 197037 b ↔ HD 132563 b",
+        "coupling": 0.9865
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "exoplanet",
+        "discoveryId": "Kepler-969 c ↔ Kepler-1222 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling Kepler-969 c ↔ Kepler-1222 b",
+        "coupling": 0.9854
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 KS120@2015-Jan-17 22:55 for query 2012 XL16@2015-Jan-22 19:43",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 BC515@2015-Feb-06 14:11 for query 2015 AB45@2015-Jan-18 09:36",
+        "coupling": 0.9984
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2020 SN6@2015-Feb-16 16:25 for query 2019 BU3@2015-Jan-23 16:33",
+        "coupling": 0.9978
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 DN155@2015-Feb-19 03:52 for query 2014 ST143@2015-Jan-23 05:22",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2023 BD10@2015-Feb-05 13:58 for query 2015 BB311@2015-Jan-15 14:02",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 515742@2015-Feb-21 05:02 for query 2014 YS14@2015-Jan-29 09:28",
+        "coupling": 0.9964
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 526826@2015-Jan-16 00:52 for query 2024 LW@2015-Jan-22 08:29",
+        "coupling": 0.9963
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 CA14@2015-Feb-16 03:37 for query 2017 YL6@2015-Jan-21 21:02",
+        "coupling": 0.9959
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2025 BG6@2015-Jan-23 06:44 ↔ 2017 YL6@2015-Jan-21 21:02",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2017 YL6@2015-Jan-21 21:02 for query 2025 BG6@2015-Jan-23 06:44",
+        "coupling": 0.9953
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 DO53@2015-Feb-02 15:12 ↔ 2017 WP28@2015-Feb-01 03:18",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2017 WP28@2015-Feb-01 03:18 for query 2015 DO53@2015-Feb-02 15:12",
+        "coupling": 0.9938
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2023 MC1@2015-Jan-20 04:02 ↔ 2015 BM@2015-Jan-27 13:12",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 BM@2015-Jan-27 13:12 for query 2023 MC1@2015-Jan-20 04:02",
+        "coupling": 0.9936
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 AM44@2015-Jan-24 22:02 ↔ 2015 DS198@2015-Feb-14 01:02",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 DS198@2015-Feb-14 01:02 for query 2015 AM44@2015-Jan-24 22:02",
+        "coupling": 0.9927
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+        "coupling": 0.9984
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+        "coupling": 0.9978
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BT516@2015-Feb-14 08:06",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 AB45@2015-Jan-18 09:36 ↔ 2015 BT516@2015-Feb-14 08:06",
+        "coupling": 0.9971
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+        "coupling": 0.9964
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+        "coupling": 0.9963
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2012 XL16@2015-Jan-22 19:43 ↔ 2013 WR45@2015-Feb-04 00:47",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2012 XL16@2015-Jan-22 19:43 ↔ 2013 WR45@2015-Feb-04 00:47",
+        "coupling": 0.9963
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2014 YS14@2015-Jan-29 09:28 ↔ 526826@2015-Jan-16 00:52",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2014 YS14@2015-Jan-29 09:28 ↔ 526826@2015-Jan-16 00:52",
+        "coupling": 0.9962
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2015 BB311@2015-Jan-15 14:02 ↔ 2024 MT1@2015-Feb-15 09:02",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 BB311@2015-Jan-15 14:02 ↔ 2024 MT1@2015-Feb-15 09:02",
+        "coupling": 0.9962
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "neo",
+        "discoveryId": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+        "coupling": 0.9959
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0069 ↔ IC0096",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0096 for query IC0069",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0058 ↔ IC0036",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0036 for query IC0058",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0122 ↔ IC0169",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0169 for query IC0122",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0144 ↔ IC0243",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0243 for query IC0144",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0095 ↔ IC0125",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0125 for query IC0095",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0062 ↔ IC0075",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0075 for query IC0062",
+        "coupling": 0.9993
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0028 ↔ IC0170",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0170 for query IC0028",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0047 ↔ IC0037",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0037 for query IC0047",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0004 ↔ IC0107",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0107 for query IC0004",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0161 ↔ IC0112",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0112 for query IC0161",
+        "coupling": 0.9991
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0025 ↔ IC0084",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0084 for query IC0025",
+        "coupling": 0.9991
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0027 ↔ IC0060",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0060 for query IC0027",
+        "coupling": 0.999
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0069 ↔ IC0096",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0069 ↔ IC0096",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0058 ↔ IC0036",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0058 ↔ IC0036",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0122 ↔ IC0169",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0122 ↔ IC0169",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0144 ↔ IC0243",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0144 ↔ IC0243",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0095 ↔ IC0125",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0095 ↔ IC0125",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0058 ↔ IC0170",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0058 ↔ IC0170",
+        "coupling": 0.9995
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0095 ↔ IC0098",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0095 ↔ IC0098",
+        "coupling": 0.9994
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0062 ↔ IC0075",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0062 ↔ IC0075",
+        "coupling": 0.9993
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0028 ↔ IC0170",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0028 ↔ IC0170",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0047 ↔ IC0037",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0047 ↔ IC0037",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0004 ↔ IC0107",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0004 ↔ IC0107",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "ngc",
+        "discoveryId": "IC0161 ↔ IC0112",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0161 ↔ IC0112",
+        "coupling": 0.9991
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-604 ↔ ell-609",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-609 for query ell-604",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-581 ↔ ell-586",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-586 for query ell-581",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-106 ↔ ell-111",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-111 for query ell-106",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-202 ↔ ell-207",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-207 for query ell-202",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-107 ↔ ell-112",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-112 for query ell-107",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-654 ↔ ell-659",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-659 for query ell-654",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-793 ↔ ell-798",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-798 for query ell-793",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-385 ↔ ell-390",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-390 for query ell-385",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-5",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 5 |corr|=0.8951 surfaced on AWARE board",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-1",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 1 |corr|=0.8888 surfaced on AWARE board",
+        "coupling": 0.8888
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-11",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 11 |corr|=0.884 surfaced on AWARE board",
+        "coupling": 0.884
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-6",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 6 |corr|=0.8818 surfaced on AWARE board",
+        "coupling": 0.8818
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-10",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 10 |corr|=0.8816 surfaced on AWARE board",
+        "coupling": 0.8816
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-2",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 2 |corr|=0.8779 surfaced on AWARE board",
+        "coupling": 0.8779
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-3",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 3 |corr|=0.8775 surfaced on AWARE board",
+        "coupling": 0.8775
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-9",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 9 |corr|=0.8773 surfaced on AWARE board",
+        "coupling": 0.8773
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner SOD1:ex0@chr21:31659692 for query NPY:ex0@chr7:24284189",
+        "coupling": 0.9139
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner NPY:ex2@chr7:24289498 for query SOD1:ex1@chr21:31663789",
+        "coupling": 0.8387
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner POMC:ex2@chr2:25165635 for query INS:ex2@chr11:2161167",
+        "coupling": 0.7384
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner INS:ex1@chr11:2160784 for query POMC:ex1@chr2:25164640",
+        "coupling": 0.7058
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner POMC:ex0@chr2:25160852 for query PDX1:ex1@chr13:27924255",
+        "coupling": 0.6821
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex3@chr21:25905023 ↔ DYRK1A:ex3@chr21:37478207",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex3@chr21:37478207 for query APP:ex3@chr21:25905023",
+        "coupling": 0.5941
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "DYRK1A:ex9@chr21:37505282 ↔ APP:ex10@chr21:26021839",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner APP:ex10@chr21:26021839 for query DYRK1A:ex9@chr21:37505282",
+        "coupling": 0.5928
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex12@chr21:26053235 ↔ DYRK1A:ex10@chr21:37506098",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex10@chr21:37506098 for query APP:ex12@chr21:26053235",
+        "coupling": 0.5765
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex13@chr21:26089942 ↔ DYRK1A:ex10@chr21:37506098",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex10@chr21:37506098 for query APP:ex13@chr21:26089942",
+        "coupling": 0.5691
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex14@chr21:26111978 ↔ DYRK1A:ex9@chr21:37505282",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex9@chr21:37505282 for query APP:ex14@chr21:26111978",
+        "coupling": 0.5555
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "TMPRSS2:ex1@chr21:41467733 ↔ DYRK1A:ex2@chr21:37472683",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex2@chr21:37472683 for query TMPRSS2:ex1@chr21:41467733",
+        "coupling": 0.5407
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "DNMT1:ex40@chr19:10194819 ↔ DNMT3A:ex23@chr2:25342429",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DNMT3A:ex23@chr2:25342429 for query DNMT1:ex40@chr19:10194819",
+        "coupling": 0.3339
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+        "coupling": 0.9139
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+        "coupling": 0.8387
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex3@chr7:24291662",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling SOD1:ex1@chr21:31663789 ↔ NPY:ex3@chr7:24291662",
+        "coupling": 0.8035
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex1@chr7:24285240",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling SOD1:ex1@chr21:31663789 ↔ NPY:ex1@chr7:24285240",
+        "coupling": 0.7702
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ SOD1:ex1@chr21:31663789",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling NPY:ex0@chr7:24284189 ↔ SOD1:ex1@chr21:31663789",
+        "coupling": 0.7682
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ PDX1:ex0@chr13:27919999",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling NPY:ex0@chr7:24284189 ↔ PDX1:ex0@chr13:27919999",
+        "coupling": 0.7474
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+        "coupling": 0.7384
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+        "coupling": 0.7058
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex1@chr2:25164640 ↔ INS:ex0@chr11:2159778",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling POMC:ex1@chr2:25164640 ↔ INS:ex0@chr11:2159778",
+        "coupling": 0.7005
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+        "coupling": 0.6821
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex2@chr2:25165635 ↔ NPY:ex0@chr7:24284189",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling POMC:ex2@chr2:25165635 ↔ NPY:ex0@chr7:24284189",
+        "coupling": 0.6809
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_exon",
+        "discoveryId": "INS:ex2@chr11:2161167 ↔ POMC:ex1@chr2:25164640",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling INS:ex2@chr11:2161167 ↔ POMC:ex1@chr2:25164640",
+        "coupling": 0.6771
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1860-1980 ↔ chrM:2100-2220",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:2100-2220 for query chrM:1860-1980",
+        "coupling": 0.993
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:9840-9960 ↔ chrM:9420-9540",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:9420-9540 for query chrM:9840-9960",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:2580-2700 ↔ chrM:900-1020",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:900-1020 for query chrM:2580-2700",
+        "coupling": 0.9864
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3300-3420 ↔ chrM:5160-5280",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:5160-5280 for query chrM:3300-3420",
+        "coupling": 0.9862
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5880-6000 ↔ chrM:7200-7320",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:7200-7320 for query chrM:5880-6000",
+        "coupling": 0.9857
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:10260-10380 ↔ chrM:10620-10740",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:10620-10740 for query chrM:10260-10380",
+        "coupling": 0.9837
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:420-540 ↔ chrM:3720-3840",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:3720-3840 for query chrM:420-540",
+        "coupling": 0.9822
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:11280-11400 ↔ chrM:14640-14760",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:14640-14760 for query chrM:11280-11400",
+        "coupling": 0.9809
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3780-3900 ↔ chrM:780-900",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:780-900 for query chrM:3780-3900",
+        "coupling": 0.9785
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1920-2040 ↔ chrM:3060-3180",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:3060-3180 for query chrM:1920-2040",
+        "coupling": 0.9782
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5820-5940 ↔ chrM:2940-3060",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:2940-3060 for query chrM:5820-5940",
+        "coupling": 0.978
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5580-5700 ↔ chrM:6240-6360",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:6240-6360 for query chrM:5580-5700",
+        "coupling": 0.9771
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1860-1980 ↔ chrM:2100-2220",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:1860-1980 ↔ chrM:2100-2220",
+        "coupling": 0.993
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:9840-9960 ↔ chrM:9420-9540",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:9840-9960 ↔ chrM:9420-9540",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:2580-2700 ↔ chrM:900-1020",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:2580-2700 ↔ chrM:900-1020",
+        "coupling": 0.9864
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3300-3420 ↔ chrM:5160-5280",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:3300-3420 ↔ chrM:5160-5280",
+        "coupling": 0.9862
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5880-6000 ↔ chrM:7200-7320",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:5880-6000 ↔ chrM:7200-7320",
+        "coupling": 0.9857
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:10260-10380 ↔ chrM:10620-10740",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:10260-10380 ↔ chrM:10620-10740",
+        "coupling": 0.9837
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:420-540 ↔ chrM:3720-3840",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:420-540 ↔ chrM:3720-3840",
+        "coupling": 0.9822
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:11280-11400 ↔ chrM:14640-14760",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:11280-11400 ↔ chrM:14640-14760",
+        "coupling": 0.9809
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3780-3900 ↔ chrM:780-900",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:3780-3900 ↔ chrM:780-900",
+        "coupling": 0.9785
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1920-2040 ↔ chrM:3060-3180",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:1920-2040 ↔ chrM:3060-3180",
+        "coupling": 0.9782
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5820-5940 ↔ chrM:2940-3060",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:5820-5940 ↔ chrM:2940-3060",
+        "coupling": 0.978
+      },
+      {
+        "rhyme": "LLM language-pack",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5580-5700 ↔ chrM:6240-6360",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:5580-5700 ↔ chrM:6240-6360",
+        "coupling": 0.9771
+      }
+    ]
+  }
+}

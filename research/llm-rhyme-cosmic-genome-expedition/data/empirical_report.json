@@ -62,6 +62,449 @@
         "linear": 0,
         "flat": 0,
         "aware": 0
+      },
+      "discoveries": {
+        "theater": "exoplanet",
+        "rhyme": "LLM language-pack (AWARE)",
+        "nAwareOnlyRecoveries": 48,
+        "awarenessOnlyPairs": [
+          {
+            "id": "HAT-P-8 b ↔ WASP-7 b",
+            "queryId": "HAT-P-8 b",
+            "partnerId": "WASP-7 b",
+            "maxCoupling": 0.9955,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "HD 62509 b ↔ HD 11977 b",
+            "queryId": "HD 62509 b",
+            "partnerId": "HD 11977 b",
+            "maxCoupling": 0.9931,
+            "nTasks": 2,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "91 Aqr b ↔ mu Leo b",
+            "queryId": "91 Aqr b",
+            "partnerId": "mu Leo b",
+            "maxCoupling": 0.9917,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "TrES-3 b ↔ CoRoT-2 b",
+            "queryId": "TrES-3 b",
+            "partnerId": "CoRoT-2 b",
+            "maxCoupling": 0.9914,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "47 UMa b ↔ HD 222582 b",
+            "queryId": "47 UMa b",
+            "partnerId": "HD 222582 b",
+            "maxCoupling": 0.9898,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "HAT-P-4 b ↔ HAT-P-8 b",
+            "queryId": "HAT-P-4 b",
+            "partnerId": "HAT-P-8 b",
+            "maxCoupling": 0.9879,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "HD 197037 b ↔ HD 220773 b",
+            "queryId": "HD 197037 b",
+            "partnerId": "HD 220773 b",
+            "maxCoupling": 0.9876,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "HD 8535 b ↔ HD 220773 b",
+            "queryId": "HD 8535 b",
+            "partnerId": "HD 220773 b",
+            "maxCoupling": 0.9871,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "47 UMa d ↔ HD 187123 c",
+            "queryId": "47 UMa d",
+            "partnerId": "HD 187123 c",
+            "maxCoupling": 0.987,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "Kepler-969 c ↔ Kepler-1222 b",
+            "queryId": "Kepler-969 c",
+            "partnerId": "Kepler-1222 b",
+            "maxCoupling": 0.9854,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "HD 147018 c ↔ HD 70573 b",
+            "queryId": "HD 147018 c",
+            "partnerId": "HD 70573 b",
+            "maxCoupling": 0.9851,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "HD 175167 b ↔ HD 147018 c",
+            "queryId": "HD 175167 b",
+            "partnerId": "HD 147018 c",
+            "maxCoupling": 0.985,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          }
+        ],
+        "topBoardCouplings": [
+          {
+            "id": "HAT-P-8 b ↔ WASP-7 b",
+            "a": "HAT-P-8 b",
+            "b": "WASP-7 b",
+            "maxCoupling": 0.9955,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "HD 62509 b ↔ HD 11977 b",
+            "a": "HD 62509 b",
+            "b": "HD 11977 b",
+            "maxCoupling": 0.9931,
+            "nBoardAppearances": 2,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "91 Aqr b ↔ mu Leo b",
+            "a": "91 Aqr b",
+            "b": "mu Leo b",
+            "maxCoupling": 0.9917,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "TrES-3 b ↔ CoRoT-2 b",
+            "a": "TrES-3 b",
+            "b": "CoRoT-2 b",
+            "maxCoupling": 0.9914,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "47 UMa b ↔ HD 222582 b",
+            "a": "47 UMa b",
+            "b": "HD 222582 b",
+            "maxCoupling": 0.9898,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "HAT-P-8 b ↔ HAT-P-4 b",
+            "a": "HAT-P-8 b",
+            "b": "HAT-P-4 b",
+            "maxCoupling": 0.9879,
+            "nBoardAppearances": 2,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "HD 197037 b ↔ HD 220773 b",
+            "a": "HD 197037 b",
+            "b": "HD 220773 b",
+            "maxCoupling": 0.9876,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "HD 8535 b ↔ HD 220773 b",
+            "a": "HD 8535 b",
+            "b": "HD 220773 b",
+            "maxCoupling": 0.9871,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "HD 8535 b ↔ HD 132563 b",
+            "a": "HD 8535 b",
+            "b": "HD 132563 b",
+            "maxCoupling": 0.987,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "47 UMa d ↔ HD 187123 c",
+            "a": "47 UMa d",
+            "b": "HD 187123 c",
+            "maxCoupling": 0.987,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "HD 197037 b ↔ HD 132563 b",
+            "a": "HD 197037 b",
+            "b": "HD 132563 b",
+            "maxCoupling": 0.9865,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "Kepler-969 c ↔ Kepler-1222 b",
+            "a": "Kepler-969 c",
+            "b": "Kepler-1222 b",
+            "maxCoupling": 0.9854,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          }
+        ],
+        "sampleRecoveries": [
+          {
+            "queryId": "HAT-P-8 b",
+            "partnerId": "WASP-7 b",
+            "coupling": 0.9955,
+            "boardTop": [
+              {
+                "id": "WASP-7 b",
+                "score": 0.9955
+              },
+              {
+                "id": "HAT-P-4 b",
+                "score": 0.9879
+              },
+              {
+                "id": "WASP-21 b",
+                "score": 0.9493
+              },
+              {
+                "id": "HAT-P-28 b",
+                "score": 0.9288
+              },
+              {
+                "id": "CoRoT-2 b",
+                "score": 0.9286
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "HD 62509 b",
+            "partnerId": "HD 11977 b",
+            "coupling": 0.9931,
+            "boardTop": [
+              {
+                "id": "HD 11977 b",
+                "score": 0.9931
+              },
+              {
+                "id": "24 Sex b",
+                "score": 0.9543
+              },
+              {
+                "id": "HD 177830 c",
+                "score": 0.9467
+              },
+              {
+                "id": "HD 110014 b",
+                "score": 0.9205
+              },
+              {
+                "id": "HIP 63242 b",
+                "score": 0.8674
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "HD 11977 b",
+            "partnerId": "HD 62509 b",
+            "coupling": 0.9931,
+            "boardTop": [
+              {
+                "id": "HD 62509 b",
+                "score": 0.9931
+              },
+              {
+                "id": "24 Sex b",
+                "score": 0.9498
+              },
+              {
+                "id": "HD 110014 b",
+                "score": 0.925
+              },
+              {
+                "id": "HD 177830 c",
+                "score": 0.9163
+              },
+              {
+                "id": "HIP 63242 b",
+                "score": 0.8737
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "91 Aqr b",
+            "partnerId": "mu Leo b",
+            "coupling": 0.9917,
+            "boardTop": [
+              {
+                "id": "mu Leo b",
+                "score": 0.9917
+              },
+              {
+                "id": "HIP 63242 b",
+                "score": 0.9842
+              },
+              {
+                "id": "eps CrB b",
+                "score": 0.9574
+              },
+              {
+                "id": "HD 110014 b",
+                "score": 0.9242
+              },
+              {
+                "id": "tau Gem b",
+                "score": 0.912
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "TrES-3 b",
+            "partnerId": "CoRoT-2 b",
+            "coupling": 0.9914,
+            "boardTop": [
+              {
+                "id": "CoRoT-2 b",
+                "score": 0.9914
+              },
+              {
+                "id": "WASP-37 b",
+                "score": 0.9653
+              },
+              {
+                "id": "CoRoT-8 b",
+                "score": 0.962
+              },
+              {
+                "id": "WASP-21 b",
+                "score": 0.958
+              },
+              {
+                "id": "WASP-23 b",
+                "score": 0.9497
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "47 UMa b",
+            "partnerId": "HD 222582 b",
+            "coupling": 0.9898,
+            "boardTop": [
+              {
+                "id": "HD 222582 b",
+                "score": 0.9898
+              },
+              {
+                "id": "HD 114783 b",
+                "score": 0.9805
+              },
+              {
+                "id": "GJ 3021 b",
+                "score": 0.978
+              },
+              {
+                "id": "HD 82943 b",
+                "score": 0.9767
+              },
+              {
+                "id": "HD 82943 c",
+                "score": 0.9754
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "HAT-P-4 b",
+            "partnerId": "HAT-P-8 b",
+            "coupling": 0.9879,
+            "boardTop": [
+              {
+                "id": "HAT-P-8 b",
+                "score": 0.9879
+              },
+              {
+                "id": "WASP-7 b",
+                "score": 0.9813
+              },
+              {
+                "id": "WASP-21 b",
+                "score": 0.9352
+              },
+              {
+                "id": "TrES-3 b",
+                "score": 0.921
+              },
+              {
+                "id": "CoRoT-2 b",
+                "score": 0.9185
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "HD 197037 b",
+            "partnerId": "HD 220773 b",
+            "coupling": 0.9876,
+            "boardTop": [
+              {
+                "id": "HD 220773 b",
+                "score": 0.9876
+              },
+              {
+                "id": "HD 132563 b",
+                "score": 0.9865
+              },
+              {
+                "id": "HD 8535 b",
+                "score": 0.9839
+              },
+              {
+                "id": "HD 13908 c",
+                "score": 0.9602
+              },
+              {
+                "id": "47 UMa d",
+                "score": 0.9558
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          }
+        ]
       }
     },
     "neo": {
@@ -93,6 +536,449 @@
         "linear": 0,
         "flat": 0,
         "aware": 0
+      },
+      "discoveries": {
+        "theater": "neo",
+        "rhyme": "LLM language-pack (AWARE)",
+        "nAwareOnlyRecoveries": 48,
+        "awarenessOnlyPairs": [
+          {
+            "id": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+            "queryId": "2012 XL16@2015-Jan-22 19:43",
+            "partnerId": "2015 KS120@2015-Jan-17 22:55",
+            "maxCoupling": 0.9997,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+            "queryId": "2015 AB45@2015-Jan-18 09:36",
+            "partnerId": "2015 BC515@2015-Feb-06 14:11",
+            "maxCoupling": 0.9984,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+            "queryId": "2019 BU3@2015-Jan-23 16:33",
+            "partnerId": "2020 SN6@2015-Feb-16 16:25",
+            "maxCoupling": 0.9978,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+            "queryId": "2014 ST143@2015-Jan-23 05:22",
+            "partnerId": "2015 DN155@2015-Feb-19 03:52",
+            "maxCoupling": 0.9967,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+            "queryId": "2015 BB311@2015-Jan-15 14:02",
+            "partnerId": "2023 BD10@2015-Feb-05 13:58",
+            "maxCoupling": 0.9967,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+            "queryId": "2014 YS14@2015-Jan-29 09:28",
+            "partnerId": "515742@2015-Feb-21 05:02",
+            "maxCoupling": 0.9964,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+            "queryId": "2024 LW@2015-Jan-22 08:29",
+            "partnerId": "526826@2015-Jan-16 00:52",
+            "maxCoupling": 0.9963,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+            "queryId": "2017 YL6@2015-Jan-21 21:02",
+            "partnerId": "2015 CA14@2015-Feb-16 03:37",
+            "maxCoupling": 0.9959,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2025 BG6@2015-Jan-23 06:44 ↔ 2017 YL6@2015-Jan-21 21:02",
+            "queryId": "2025 BG6@2015-Jan-23 06:44",
+            "partnerId": "2017 YL6@2015-Jan-21 21:02",
+            "maxCoupling": 0.9953,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2015 DO53@2015-Feb-02 15:12 ↔ 2017 WP28@2015-Feb-01 03:18",
+            "queryId": "2015 DO53@2015-Feb-02 15:12",
+            "partnerId": "2017 WP28@2015-Feb-01 03:18",
+            "maxCoupling": 0.9938,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2023 MC1@2015-Jan-20 04:02 ↔ 2015 BM@2015-Jan-27 13:12",
+            "queryId": "2023 MC1@2015-Jan-20 04:02",
+            "partnerId": "2015 BM@2015-Jan-27 13:12",
+            "maxCoupling": 0.9936,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "2015 AM44@2015-Jan-24 22:02 ↔ 2015 DS198@2015-Feb-14 01:02",
+            "queryId": "2015 AM44@2015-Jan-24 22:02",
+            "partnerId": "2015 DS198@2015-Feb-14 01:02",
+            "maxCoupling": 0.9927,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          }
+        ],
+        "topBoardCouplings": [
+          {
+            "id": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+            "a": "2012 XL16@2015-Jan-22 19:43",
+            "b": "2015 KS120@2015-Jan-17 22:55",
+            "maxCoupling": 0.9997,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+            "a": "2015 AB45@2015-Jan-18 09:36",
+            "b": "2015 BC515@2015-Feb-06 14:11",
+            "maxCoupling": 0.9984,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+            "a": "2019 BU3@2015-Jan-23 16:33",
+            "b": "2020 SN6@2015-Feb-16 16:25",
+            "maxCoupling": 0.9978,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BT516@2015-Feb-14 08:06",
+            "a": "2015 AB45@2015-Jan-18 09:36",
+            "b": "2015 BT516@2015-Feb-14 08:06",
+            "maxCoupling": 0.9971,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+            "a": "2014 ST143@2015-Jan-23 05:22",
+            "b": "2015 DN155@2015-Feb-19 03:52",
+            "maxCoupling": 0.9967,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+            "a": "2015 BB311@2015-Jan-15 14:02",
+            "b": "2023 BD10@2015-Feb-05 13:58",
+            "maxCoupling": 0.9967,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+            "a": "2014 YS14@2015-Jan-29 09:28",
+            "b": "515742@2015-Feb-21 05:02",
+            "maxCoupling": 0.9964,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+            "a": "2024 LW@2015-Jan-22 08:29",
+            "b": "526826@2015-Jan-16 00:52",
+            "maxCoupling": 0.9963,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2012 XL16@2015-Jan-22 19:43 ↔ 2013 WR45@2015-Feb-04 00:47",
+            "a": "2012 XL16@2015-Jan-22 19:43",
+            "b": "2013 WR45@2015-Feb-04 00:47",
+            "maxCoupling": 0.9963,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2014 YS14@2015-Jan-29 09:28 ↔ 526826@2015-Jan-16 00:52",
+            "a": "2014 YS14@2015-Jan-29 09:28",
+            "b": "526826@2015-Jan-16 00:52",
+            "maxCoupling": 0.9962,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2015 BB311@2015-Jan-15 14:02 ↔ 2024 MT1@2015-Feb-15 09:02",
+            "a": "2015 BB311@2015-Jan-15 14:02",
+            "b": "2024 MT1@2015-Feb-15 09:02",
+            "maxCoupling": 0.9962,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+            "a": "2017 YL6@2015-Jan-21 21:02",
+            "b": "2015 CA14@2015-Feb-16 03:37",
+            "maxCoupling": 0.9959,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          }
+        ],
+        "sampleRecoveries": [
+          {
+            "queryId": "2012 XL16@2015-Jan-22 19:43",
+            "partnerId": "2015 KS120@2015-Jan-17 22:55",
+            "coupling": 0.9997,
+            "boardTop": [
+              {
+                "id": "2015 KS120@2015-Jan-17 22:55",
+                "score": 0.9997
+              },
+              {
+                "id": "2013 WR45@2015-Feb-04 00:47",
+                "score": 0.9963
+              },
+              {
+                "id": "2025 OT4@2015-Feb-19 16:41",
+                "score": 0.9904
+              },
+              {
+                "id": "2022 VR1@2015-Feb-15 15:02",
+                "score": 0.9881
+              },
+              {
+                "id": "2019 UD@2015-Jan-24 12:10",
+                "score": 0.9802
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2015 AB45@2015-Jan-18 09:36",
+            "partnerId": "2015 BC515@2015-Feb-06 14:11",
+            "coupling": 0.9984,
+            "boardTop": [
+              {
+                "id": "2015 BC515@2015-Feb-06 14:11",
+                "score": 0.9984
+              },
+              {
+                "id": "2015 BT516@2015-Feb-14 08:06",
+                "score": 0.9971
+              },
+              {
+                "id": "2015 AC246@2015-Feb-20 03:09",
+                "score": 0.9881
+              },
+              {
+                "id": "2016 TP11@2015-Feb-10 10:15",
+                "score": 0.9844
+              },
+              {
+                "id": "2015 CR@2015-Feb-11 09:18",
+                "score": 0.984
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2019 BU3@2015-Jan-23 16:33",
+            "partnerId": "2020 SN6@2015-Feb-16 16:25",
+            "coupling": 0.9978,
+            "boardTop": [
+              {
+                "id": "2020 SN6@2015-Feb-16 16:25",
+                "score": 0.9978
+              },
+              {
+                "id": "2015 BE92@2015-Jan-29 01:25",
+                "score": 0.9806
+              },
+              {
+                "id": "2022 CC1@2015-Jan-24 08:30",
+                "score": 0.9805
+              },
+              {
+                "id": "2015 CD1@2015-Feb-07 15:27",
+                "score": 0.973
+              },
+              {
+                "id": "2015 BC518@2015-Feb-03 00:06",
+                "score": 0.9485
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2014 ST143@2015-Jan-23 05:22",
+            "partnerId": "2015 DN155@2015-Feb-19 03:52",
+            "coupling": 0.9967,
+            "boardTop": [
+              {
+                "id": "2015 DN155@2015-Feb-19 03:52",
+                "score": 0.9967
+              },
+              {
+                "id": "2015 AD44@2015-Jan-19 08:03",
+                "score": 0.9901
+              },
+              {
+                "id": "2025 UH127@2015-Jan-02 06:04",
+                "score": 0.9866
+              },
+              {
+                "id": "2015 BM514@2015-Feb-08 07:24",
+                "score": 0.9851
+              },
+              {
+                "id": "2015 BL@2015-Feb-03 14:01",
+                "score": 0.9769
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2015 BB311@2015-Jan-15 14:02",
+            "partnerId": "2023 BD10@2015-Feb-05 13:58",
+            "coupling": 0.9967,
+            "boardTop": [
+              {
+                "id": "2023 BD10@2015-Feb-05 13:58",
+                "score": 0.9967
+              },
+              {
+                "id": "2024 MT1@2015-Feb-15 09:02",
+                "score": 0.9962
+              },
+              {
+                "id": "2019 UY1@2015-Jan-19 20:30",
+                "score": 0.9936
+              },
+              {
+                "id": "2015 BQ515@2015-Jan-11 21:17",
+                "score": 0.9883
+              },
+              {
+                "id": "2025 MB90@2015-Feb-08 20:54",
+                "score": 0.9864
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2014 YS14@2015-Jan-29 09:28",
+            "partnerId": "515742@2015-Feb-21 05:02",
+            "coupling": 0.9964,
+            "boardTop": [
+              {
+                "id": "515742@2015-Feb-21 05:02",
+                "score": 0.9964
+              },
+              {
+                "id": "526826@2015-Jan-16 00:52",
+                "score": 0.9962
+              },
+              {
+                "id": "2022 AC1@2015-Jan-30 19:57",
+                "score": 0.9911
+              },
+              {
+                "id": "2024 LW@2015-Jan-22 08:29",
+                "score": 0.9887
+              },
+              {
+                "id": "2021 YJ@2015-Jan-06 11:30",
+                "score": 0.987
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2024 LW@2015-Jan-22 08:29",
+            "partnerId": "526826@2015-Jan-16 00:52",
+            "coupling": 0.9963,
+            "boardTop": [
+              {
+                "id": "526826@2015-Jan-16 00:52",
+                "score": 0.9963
+              },
+              {
+                "id": "515742@2015-Feb-21 05:02",
+                "score": 0.9938
+              },
+              {
+                "id": "2014 YS14@2015-Jan-29 09:28",
+                "score": 0.9887
+              },
+              {
+                "id": "2021 YJ@2015-Jan-06 11:30",
+                "score": 0.9885
+              },
+              {
+                "id": "2025 BG6@2015-Jan-23 06:44",
+                "score": 0.9885
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "2017 YL6@2015-Jan-21 21:02",
+            "partnerId": "2015 CA14@2015-Feb-16 03:37",
+            "coupling": 0.9959,
+            "boardTop": [
+              {
+                "id": "2015 CA14@2015-Feb-16 03:37",
+                "score": 0.9959
+              },
+              {
+                "id": "2025 BG6@2015-Jan-23 06:44",
+                "score": 0.9953
+              },
+              {
+                "id": "2015 DA156@2015-Feb-05 09:38",
+                "score": 0.9934
+              },
+              {
+                "id": "2015 BY509@2015-Jan-06 15:11",
+                "score": 0.9928
+              },
+              {
+                "id": "2023 BY9@2015-Feb-19 12:41",
+                "score": 0.9911
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          }
+        ]
       }
     },
     "ngc": {
@@ -124,6 +1010,449 @@
         "linear": 0,
         "flat": 0,
         "aware": 0
+      },
+      "discoveries": {
+        "theater": "ngc",
+        "rhyme": "LLM language-pack (AWARE)",
+        "nAwareOnlyRecoveries": 48,
+        "awarenessOnlyPairs": [
+          {
+            "id": "IC0069 ↔ IC0096",
+            "queryId": "IC0069",
+            "partnerId": "IC0096",
+            "maxCoupling": 0.9998,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0058 ↔ IC0036",
+            "queryId": "IC0058",
+            "partnerId": "IC0036",
+            "maxCoupling": 0.9998,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0122 ↔ IC0169",
+            "queryId": "IC0122",
+            "partnerId": "IC0169",
+            "maxCoupling": 0.9997,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0144 ↔ IC0243",
+            "queryId": "IC0144",
+            "partnerId": "IC0243",
+            "maxCoupling": 0.9996,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0095 ↔ IC0125",
+            "queryId": "IC0095",
+            "partnerId": "IC0125",
+            "maxCoupling": 0.9996,
+            "nTasks": 2,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0062 ↔ IC0075",
+            "queryId": "IC0062",
+            "partnerId": "IC0075",
+            "maxCoupling": 0.9993,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0028 ↔ IC0170",
+            "queryId": "IC0028",
+            "partnerId": "IC0170",
+            "maxCoupling": 0.9992,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0047 ↔ IC0037",
+            "queryId": "IC0047",
+            "partnerId": "IC0037",
+            "maxCoupling": 0.9992,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0004 ↔ IC0107",
+            "queryId": "IC0004",
+            "partnerId": "IC0107",
+            "maxCoupling": 0.9992,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0161 ↔ IC0112",
+            "queryId": "IC0161",
+            "partnerId": "IC0112",
+            "maxCoupling": 0.9991,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0025 ↔ IC0084",
+            "queryId": "IC0025",
+            "partnerId": "IC0084",
+            "maxCoupling": 0.9991,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "IC0027 ↔ IC0060",
+            "queryId": "IC0027",
+            "partnerId": "IC0060",
+            "maxCoupling": 0.999,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          }
+        ],
+        "topBoardCouplings": [
+          {
+            "id": "IC0069 ↔ IC0096",
+            "a": "IC0069",
+            "b": "IC0096",
+            "maxCoupling": 0.9998,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0058 ↔ IC0036",
+            "a": "IC0058",
+            "b": "IC0036",
+            "maxCoupling": 0.9998,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0122 ↔ IC0169",
+            "a": "IC0122",
+            "b": "IC0169",
+            "maxCoupling": 0.9997,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0144 ↔ IC0243",
+            "a": "IC0144",
+            "b": "IC0243",
+            "maxCoupling": 0.9996,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0095 ↔ IC0125",
+            "a": "IC0095",
+            "b": "IC0125",
+            "maxCoupling": 0.9996,
+            "nBoardAppearances": 2,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0058 ↔ IC0170",
+            "a": "IC0058",
+            "b": "IC0170",
+            "maxCoupling": 0.9995,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0095 ↔ IC0098",
+            "a": "IC0095",
+            "b": "IC0098",
+            "maxCoupling": 0.9994,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0062 ↔ IC0075",
+            "a": "IC0062",
+            "b": "IC0075",
+            "maxCoupling": 0.9993,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0028 ↔ IC0170",
+            "a": "IC0028",
+            "b": "IC0170",
+            "maxCoupling": 0.9992,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0047 ↔ IC0037",
+            "a": "IC0047",
+            "b": "IC0037",
+            "maxCoupling": 0.9992,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0004 ↔ IC0107",
+            "a": "IC0004",
+            "b": "IC0107",
+            "maxCoupling": 0.9992,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "IC0161 ↔ IC0112",
+            "a": "IC0161",
+            "b": "IC0112",
+            "maxCoupling": 0.9991,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          }
+        ],
+        "sampleRecoveries": [
+          {
+            "queryId": "IC0069",
+            "partnerId": "IC0096",
+            "coupling": 0.9998,
+            "boardTop": [
+              {
+                "id": "IC0096",
+                "score": 0.9998
+              },
+              {
+                "id": "IC0132",
+                "score": 0.9927
+              },
+              {
+                "id": "IC0189",
+                "score": 0.9879
+              },
+              {
+                "id": "IC0188",
+                "score": 0.9795
+              },
+              {
+                "id": "IC0046",
+                "score": 0.9699
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0058",
+            "partnerId": "IC0036",
+            "coupling": 0.9998,
+            "boardTop": [
+              {
+                "id": "IC0036",
+                "score": 0.9998
+              },
+              {
+                "id": "IC0170",
+                "score": 0.9995
+              },
+              {
+                "id": "IC0108",
+                "score": 0.999
+              },
+              {
+                "id": "IC0028",
+                "score": 0.9989
+              },
+              {
+                "id": "IC0128",
+                "score": 0.9977
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0122",
+            "partnerId": "IC0169",
+            "coupling": 0.9997,
+            "boardTop": [
+              {
+                "id": "IC0169",
+                "score": 0.9997
+              },
+              {
+                "id": "IC0099",
+                "score": 0.998
+              },
+              {
+                "id": "IC0243",
+                "score": 0.998
+              },
+              {
+                "id": "IC0144",
+                "score": 0.9977
+              },
+              {
+                "id": "IC0037",
+                "score": 0.9964
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0144",
+            "partnerId": "IC0243",
+            "coupling": 0.9996,
+            "boardTop": [
+              {
+                "id": "IC0243",
+                "score": 0.9996
+              },
+              {
+                "id": "IC0099",
+                "score": 0.9991
+              },
+              {
+                "id": "IC0169",
+                "score": 0.9989
+              },
+              {
+                "id": "IC0122",
+                "score": 0.9977
+              },
+              {
+                "id": "IC0230",
+                "score": 0.9967
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0095",
+            "partnerId": "IC0125",
+            "coupling": 0.9996,
+            "boardTop": [
+              {
+                "id": "IC0125",
+                "score": 0.9996
+              },
+              {
+                "id": "IC0098",
+                "score": 0.9994
+              },
+              {
+                "id": "IC0037",
+                "score": 0.998
+              },
+              {
+                "id": "IC0158",
+                "score": 0.9972
+              },
+              {
+                "id": "IC0047",
+                "score": 0.9952
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0125",
+            "partnerId": "IC0095",
+            "coupling": 0.9996,
+            "boardTop": [
+              {
+                "id": "IC0095",
+                "score": 0.9996
+              },
+              {
+                "id": "IC0098",
+                "score": 0.999
+              },
+              {
+                "id": "IC0037",
+                "score": 0.9972
+              },
+              {
+                "id": "IC0158",
+                "score": 0.9948
+              },
+              {
+                "id": "IC0122",
+                "score": 0.9946
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0062",
+            "partnerId": "IC0075",
+            "coupling": 0.9993,
+            "boardTop": [
+              {
+                "id": "IC0075",
+                "score": 0.9993
+              },
+              {
+                "id": "IC0035",
+                "score": 0.9973
+              },
+              {
+                "id": "IC0156",
+                "score": 0.9967
+              },
+              {
+                "id": "IC0101",
+                "score": 0.9953
+              },
+              {
+                "id": "IC0154",
+                "score": 0.9942
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "IC0028",
+            "partnerId": "IC0170",
+            "coupling": 0.9992,
+            "boardTop": [
+              {
+                "id": "IC0170",
+                "score": 0.9992
+              },
+              {
+                "id": "IC0058",
+                "score": 0.9989
+              },
+              {
+                "id": "IC0036",
+                "score": 0.9988
+              },
+              {
+                "id": "IC0002",
+                "score": 0.9967
+              },
+              {
+                "id": "IC0108",
+                "score": 0.9965
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          }
+        ]
       }
     },
     "wmap": {
@@ -148,6 +1477,201 @@
       "H2": true,
       "lexicalBlind": {
         "aware": 0
+      },
+      "discoveries": {
+        "theater": "wmap_tt",
+        "rhyme": "LLM language-pack (AWARE)",
+        "nAwareOnlyRecoveries": 48,
+        "topSpectralLags": [
+          {
+            "id": "lag-5",
+            "lag": 5,
+            "absCorr": 0.8951,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-1",
+            "lag": 1,
+            "absCorr": 0.8888,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-11",
+            "lag": 11,
+            "absCorr": 0.884,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-6",
+            "lag": 6,
+            "absCorr": 0.8818,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-10",
+            "lag": 10,
+            "absCorr": 0.8816,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-2",
+            "lag": 2,
+            "absCorr": 0.8779,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-3",
+            "lag": 3,
+            "absCorr": 0.8775,
+            "kind": "awareness_board_spectral_lag"
+          },
+          {
+            "id": "lag-9",
+            "lag": 9,
+            "absCorr": 0.8773,
+            "kind": "awareness_board_spectral_lag"
+          }
+        ],
+        "awarenessOnlyPairs": [
+          {
+            "id": "ell-604 ↔ ell-609",
+            "queryId": "ell-604",
+            "partnerId": "ell-609",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-581 ↔ ell-586",
+            "queryId": "ell-581",
+            "partnerId": "ell-586",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-106 ↔ ell-111",
+            "queryId": "ell-106",
+            "partnerId": "ell-111",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-202 ↔ ell-207",
+            "queryId": "ell-202",
+            "partnerId": "ell-207",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-107 ↔ ell-112",
+            "queryId": "ell-107",
+            "partnerId": "ell-112",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-654 ↔ ell-659",
+            "queryId": "ell-654",
+            "partnerId": "ell-659",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-793 ↔ ell-798",
+            "queryId": "ell-793",
+            "partnerId": "ell-798",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "ell-385 ↔ ell-390",
+            "queryId": "ell-385",
+            "partnerId": "ell-390",
+            "maxCoupling": 0.8951,
+            "bestLag": 5,
+            "kind": "aware_only_partner_recovery"
+          }
+        ],
+        "sampleRecoveries": [
+          {
+            "queryId": "ell-604",
+            "partnerId": "ell-609",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-581",
+            "partnerId": "ell-586",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-106",
+            "partnerId": "ell-111",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-202",
+            "partnerId": "ell-207",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-107",
+            "partnerId": "ell-112",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-654",
+            "partnerId": "ell-659",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-793",
+            "partnerId": "ell-798",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "ell-385",
+            "partnerId": "ell-390",
+            "bestLag": 5,
+            "coupling": 0.8951,
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          }
+        ]
       }
     }
   },
@@ -181,6 +1705,449 @@
         "linear": 0,
         "flat": 0,
         "aware": 0
+      },
+      "discoveries": {
+        "theater": "genome_exon",
+        "rhyme": "LLM language-pack (AWARE)",
+        "nAwareOnlyRecoveries": 13,
+        "awarenessOnlyPairs": [
+          {
+            "id": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+            "queryId": "NPY:ex0@chr7:24284189",
+            "partnerId": "SOD1:ex0@chr21:31659692",
+            "maxCoupling": 0.9139,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+            "queryId": "SOD1:ex1@chr21:31663789",
+            "partnerId": "NPY:ex2@chr7:24289498",
+            "maxCoupling": 0.8387,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+            "queryId": "INS:ex2@chr11:2161167",
+            "partnerId": "POMC:ex2@chr2:25165635",
+            "maxCoupling": 0.7384,
+            "nTasks": 2,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+            "queryId": "POMC:ex1@chr2:25164640",
+            "partnerId": "INS:ex1@chr11:2160784",
+            "maxCoupling": 0.7058,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+            "queryId": "PDX1:ex1@chr13:27924255",
+            "partnerId": "POMC:ex0@chr2:25160852",
+            "maxCoupling": 0.6821,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "APP:ex3@chr21:25905023 ↔ DYRK1A:ex3@chr21:37478207",
+            "queryId": "APP:ex3@chr21:25905023",
+            "partnerId": "DYRK1A:ex3@chr21:37478207",
+            "maxCoupling": 0.5941,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "DYRK1A:ex9@chr21:37505282 ↔ APP:ex10@chr21:26021839",
+            "queryId": "DYRK1A:ex9@chr21:37505282",
+            "partnerId": "APP:ex10@chr21:26021839",
+            "maxCoupling": 0.5928,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "APP:ex12@chr21:26053235 ↔ DYRK1A:ex10@chr21:37506098",
+            "queryId": "APP:ex12@chr21:26053235",
+            "partnerId": "DYRK1A:ex10@chr21:37506098",
+            "maxCoupling": 0.5765,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "APP:ex13@chr21:26089942 ↔ DYRK1A:ex10@chr21:37506098",
+            "queryId": "APP:ex13@chr21:26089942",
+            "partnerId": "DYRK1A:ex10@chr21:37506098",
+            "maxCoupling": 0.5691,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "APP:ex14@chr21:26111978 ↔ DYRK1A:ex9@chr21:37505282",
+            "queryId": "APP:ex14@chr21:26111978",
+            "partnerId": "DYRK1A:ex9@chr21:37505282",
+            "maxCoupling": 0.5555,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "TMPRSS2:ex1@chr21:41467733 ↔ DYRK1A:ex2@chr21:37472683",
+            "queryId": "TMPRSS2:ex1@chr21:41467733",
+            "partnerId": "DYRK1A:ex2@chr21:37472683",
+            "maxCoupling": 0.5407,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "DNMT1:ex40@chr19:10194819 ↔ DNMT3A:ex23@chr2:25342429",
+            "queryId": "DNMT1:ex40@chr19:10194819",
+            "partnerId": "DNMT3A:ex23@chr2:25342429",
+            "maxCoupling": 0.3339,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          }
+        ],
+        "topBoardCouplings": [
+          {
+            "id": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+            "a": "NPY:ex0@chr7:24284189",
+            "b": "SOD1:ex0@chr21:31659692",
+            "maxCoupling": 0.9139,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+            "a": "SOD1:ex1@chr21:31663789",
+            "b": "NPY:ex2@chr7:24289498",
+            "maxCoupling": 0.8387,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex3@chr7:24291662",
+            "a": "SOD1:ex1@chr21:31663789",
+            "b": "NPY:ex3@chr7:24291662",
+            "maxCoupling": 0.8035,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex1@chr7:24285240",
+            "a": "SOD1:ex1@chr21:31663789",
+            "b": "NPY:ex1@chr7:24285240",
+            "maxCoupling": 0.7702,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "NPY:ex0@chr7:24284189 ↔ SOD1:ex1@chr21:31663789",
+            "a": "NPY:ex0@chr7:24284189",
+            "b": "SOD1:ex1@chr21:31663789",
+            "maxCoupling": 0.7682,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "NPY:ex0@chr7:24284189 ↔ PDX1:ex0@chr13:27919999",
+            "a": "NPY:ex0@chr7:24284189",
+            "b": "PDX1:ex0@chr13:27919999",
+            "maxCoupling": 0.7474,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+            "a": "INS:ex2@chr11:2161167",
+            "b": "POMC:ex2@chr2:25165635",
+            "maxCoupling": 0.7384,
+            "nBoardAppearances": 2,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+            "a": "POMC:ex1@chr2:25164640",
+            "b": "INS:ex1@chr11:2160784",
+            "maxCoupling": 0.7058,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "POMC:ex1@chr2:25164640 ↔ INS:ex0@chr11:2159778",
+            "a": "POMC:ex1@chr2:25164640",
+            "b": "INS:ex0@chr11:2159778",
+            "maxCoupling": 0.7005,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+            "a": "PDX1:ex1@chr13:27924255",
+            "b": "POMC:ex0@chr2:25160852",
+            "maxCoupling": 0.6821,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "POMC:ex2@chr2:25165635 ↔ NPY:ex0@chr7:24284189",
+            "a": "POMC:ex2@chr2:25165635",
+            "b": "NPY:ex0@chr7:24284189",
+            "maxCoupling": 0.6809,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "INS:ex2@chr11:2161167 ↔ POMC:ex1@chr2:25164640",
+            "a": "INS:ex2@chr11:2161167",
+            "b": "POMC:ex1@chr2:25164640",
+            "maxCoupling": 0.6771,
+            "nBoardAppearances": 2,
+            "kind": "awareness_board_coupling"
+          }
+        ],
+        "sampleRecoveries": [
+          {
+            "queryId": "NPY:ex0@chr7:24284189",
+            "partnerId": "SOD1:ex0@chr21:31659692",
+            "coupling": 0.9139,
+            "boardTop": [
+              {
+                "id": "SOD1:ex0@chr21:31659692",
+                "score": 0.9139
+              },
+              {
+                "id": "SOD1:ex1@chr21:31663789",
+                "score": 0.7682
+              },
+              {
+                "id": "PDX1:ex0@chr13:27919999",
+                "score": 0.7474
+              },
+              {
+                "id": "POMC:ex3@chr2:25168497",
+                "score": 0.7292
+              },
+              {
+                "id": "DYRK1A:ex0@chr21:37366072",
+                "score": 0.7211
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "SOD1:ex1@chr21:31663789",
+            "partnerId": "NPY:ex2@chr7:24289498",
+            "coupling": 0.8387,
+            "boardTop": [
+              {
+                "id": "NPY:ex2@chr7:24289498",
+                "score": 0.8387
+              },
+              {
+                "id": "NPY:ex3@chr7:24291662",
+                "score": 0.8035
+              },
+              {
+                "id": "NPY:ex1@chr7:24285240",
+                "score": 0.7702
+              },
+              {
+                "id": "NPY:ex0@chr7:24284189",
+                "score": 0.7682
+              },
+              {
+                "id": "DYRK1A:ex0@chr21:37366072",
+                "score": 0.7203
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "INS:ex2@chr11:2161167",
+            "partnerId": "POMC:ex2@chr2:25165635",
+            "coupling": 0.7384,
+            "boardTop": [
+              {
+                "id": "POMC:ex2@chr2:25165635",
+                "score": 0.7384
+              },
+              {
+                "id": "POMC:ex1@chr2:25164640",
+                "score": 0.6771
+              },
+              {
+                "id": "NPY:ex0@chr7:24284189",
+                "score": 0.6399
+              },
+              {
+                "id": "POMC:ex3@chr2:25168497",
+                "score": 0.6178
+              },
+              {
+                "id": "NPY:ex2@chr7:24289498",
+                "score": 0.5318
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "POMC:ex2@chr2:25165635",
+            "partnerId": "INS:ex2@chr11:2161167",
+            "coupling": 0.7384,
+            "boardTop": [
+              {
+                "id": "INS:ex2@chr11:2161167",
+                "score": 0.7384
+              },
+              {
+                "id": "NPY:ex0@chr7:24284189",
+                "score": 0.6809
+              },
+              {
+                "id": "NPY:ex2@chr7:24289498",
+                "score": 0.6532
+              },
+              {
+                "id": "INS:ex1@chr11:2160784",
+                "score": 0.6385
+              },
+              {
+                "id": "INS:ex0@chr11:2159778",
+                "score": 0.622
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "POMC:ex1@chr2:25164640",
+            "partnerId": "INS:ex1@chr11:2160784",
+            "coupling": 0.7058,
+            "boardTop": [
+              {
+                "id": "INS:ex1@chr11:2160784",
+                "score": 0.7058
+              },
+              {
+                "id": "INS:ex0@chr11:2159778",
+                "score": 0.7005
+              },
+              {
+                "id": "INS:ex2@chr11:2161167",
+                "score": 0.6771
+              },
+              {
+                "id": "NPY:ex0@chr7:24284189",
+                "score": 0.6627
+              },
+              {
+                "id": "NPY:ex1@chr7:24285240",
+                "score": 0.6607
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "PDX1:ex1@chr13:27924255",
+            "partnerId": "POMC:ex0@chr2:25160852",
+            "coupling": 0.6821,
+            "boardTop": [
+              {
+                "id": "POMC:ex0@chr2:25160852",
+                "score": 0.6821
+              },
+              {
+                "id": "POMC:ex3@chr2:25168497",
+                "score": 0.6299
+              },
+              {
+                "id": "SOD1:ex4@chr21:31668470",
+                "score": 0.5853
+              },
+              {
+                "id": "NPY:ex1@chr7:24285240",
+                "score": 0.5677
+              },
+              {
+                "id": "NPY:ex3@chr7:24291662",
+                "score": 0.5058
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "APP:ex3@chr21:25905023",
+            "partnerId": "DYRK1A:ex3@chr21:37478207",
+            "coupling": 0.5941,
+            "boardTop": [
+              {
+                "id": "DYRK1A:ex3@chr21:37478207",
+                "score": 0.5941
+              },
+              {
+                "id": "DYRK1A:ex1@chr21:37420298",
+                "score": 0.5797
+              },
+              {
+                "id": "DYRK1A:ex5@chr21:37486466",
+                "score": 0.5417
+              },
+              {
+                "id": "DYRK1A:ex10@chr21:37506098",
+                "score": 0.5379
+              },
+              {
+                "id": "DYRK1A:ex8@chr21:37496117",
+                "score": 0.5345
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "DYRK1A:ex9@chr21:37505282",
+            "partnerId": "APP:ex10@chr21:26021839",
+            "coupling": 0.5928,
+            "boardTop": [
+              {
+                "id": "APP:ex10@chr21:26021839",
+                "score": 0.5928
+              },
+              {
+                "id": "APP:ex4@chr21:25911740",
+                "score": 0.589
+              },
+              {
+                "id": "APP:ex11@chr21:26050999",
+                "score": 0.5875
+              },
+              {
+                "id": "APP:ex7@chr21:25975069",
+                "score": 0.5742
+              },
+              {
+                "id": "APP:ex0@chr21:25880549",
+                "score": 0.5653
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          }
+        ]
       }
     },
     "chrm": {
@@ -212,8 +2179,4024 @@
         "linear": 0,
         "flat": 0.015625,
         "aware": 0
+      },
+      "discoveries": {
+        "theater": "genome_chrm",
+        "rhyme": "LLM language-pack (AWARE)",
+        "nAwareOnlyRecoveries": 64,
+        "awarenessOnlyPairs": [
+          {
+            "id": "chrM:1860-1980 ↔ chrM:2100-2220",
+            "queryId": "chrM:1860-1980",
+            "partnerId": "chrM:2100-2220",
+            "maxCoupling": 0.993,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:9840-9960 ↔ chrM:9420-9540",
+            "queryId": "chrM:9840-9960",
+            "partnerId": "chrM:9420-9540",
+            "maxCoupling": 0.9871,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:2580-2700 ↔ chrM:900-1020",
+            "queryId": "chrM:2580-2700",
+            "partnerId": "chrM:900-1020",
+            "maxCoupling": 0.9864,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:3300-3420 ↔ chrM:5160-5280",
+            "queryId": "chrM:3300-3420",
+            "partnerId": "chrM:5160-5280",
+            "maxCoupling": 0.9862,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:5880-6000 ↔ chrM:7200-7320",
+            "queryId": "chrM:5880-6000",
+            "partnerId": "chrM:7200-7320",
+            "maxCoupling": 0.9857,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:10260-10380 ↔ chrM:10620-10740",
+            "queryId": "chrM:10260-10380",
+            "partnerId": "chrM:10620-10740",
+            "maxCoupling": 0.9837,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:420-540 ↔ chrM:3720-3840",
+            "queryId": "chrM:420-540",
+            "partnerId": "chrM:3720-3840",
+            "maxCoupling": 0.9822,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:11280-11400 ↔ chrM:14640-14760",
+            "queryId": "chrM:11280-11400",
+            "partnerId": "chrM:14640-14760",
+            "maxCoupling": 0.9809,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:3780-3900 ↔ chrM:780-900",
+            "queryId": "chrM:3780-3900",
+            "partnerId": "chrM:780-900",
+            "maxCoupling": 0.9785,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:1920-2040 ↔ chrM:3060-3180",
+            "queryId": "chrM:1920-2040",
+            "partnerId": "chrM:3060-3180",
+            "maxCoupling": 0.9782,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:5820-5940 ↔ chrM:2940-3060",
+            "queryId": "chrM:5820-5940",
+            "partnerId": "chrM:2940-3060",
+            "maxCoupling": 0.978,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          },
+          {
+            "id": "chrM:5580-5700 ↔ chrM:6240-6360",
+            "queryId": "chrM:5580-5700",
+            "partnerId": "chrM:6240-6360",
+            "maxCoupling": 0.9771,
+            "nTasks": 1,
+            "kind": "aware_only_partner_recovery"
+          }
+        ],
+        "topBoardCouplings": [
+          {
+            "id": "chrM:1860-1980 ↔ chrM:2100-2220",
+            "a": "chrM:1860-1980",
+            "b": "chrM:2100-2220",
+            "maxCoupling": 0.993,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:9840-9960 ↔ chrM:9420-9540",
+            "a": "chrM:9840-9960",
+            "b": "chrM:9420-9540",
+            "maxCoupling": 0.9871,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:2580-2700 ↔ chrM:900-1020",
+            "a": "chrM:2580-2700",
+            "b": "chrM:900-1020",
+            "maxCoupling": 0.9864,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:3300-3420 ↔ chrM:5160-5280",
+            "a": "chrM:3300-3420",
+            "b": "chrM:5160-5280",
+            "maxCoupling": 0.9862,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:5880-6000 ↔ chrM:7200-7320",
+            "a": "chrM:5880-6000",
+            "b": "chrM:7200-7320",
+            "maxCoupling": 0.9857,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:10260-10380 ↔ chrM:10620-10740",
+            "a": "chrM:10260-10380",
+            "b": "chrM:10620-10740",
+            "maxCoupling": 0.9837,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:420-540 ↔ chrM:3720-3840",
+            "a": "chrM:420-540",
+            "b": "chrM:3720-3840",
+            "maxCoupling": 0.9822,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:11280-11400 ↔ chrM:14640-14760",
+            "a": "chrM:11280-11400",
+            "b": "chrM:14640-14760",
+            "maxCoupling": 0.9809,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:3780-3900 ↔ chrM:780-900",
+            "a": "chrM:3780-3900",
+            "b": "chrM:780-900",
+            "maxCoupling": 0.9785,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:1920-2040 ↔ chrM:3060-3180",
+            "a": "chrM:1920-2040",
+            "b": "chrM:3060-3180",
+            "maxCoupling": 0.9782,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:5820-5940 ↔ chrM:2940-3060",
+            "a": "chrM:5820-5940",
+            "b": "chrM:2940-3060",
+            "maxCoupling": 0.978,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          },
+          {
+            "id": "chrM:5580-5700 ↔ chrM:6240-6360",
+            "a": "chrM:5580-5700",
+            "b": "chrM:6240-6360",
+            "maxCoupling": 0.9771,
+            "nBoardAppearances": 1,
+            "kind": "awareness_board_coupling"
+          }
+        ],
+        "sampleRecoveries": [
+          {
+            "queryId": "chrM:1860-1980",
+            "partnerId": "chrM:2100-2220",
+            "coupling": 0.993,
+            "boardTop": [
+              {
+                "id": "chrM:2100-2220",
+                "score": 0.993
+              },
+              {
+                "id": "chrM:180-300",
+                "score": 0.9556
+              },
+              {
+                "id": "chrM:2160-2280",
+                "score": 0.9483
+              },
+              {
+                "id": "chrM:1260-1380",
+                "score": 0.9431
+              },
+              {
+                "id": "chrM:1080-1200",
+                "score": 0.9423
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:9840-9960",
+            "partnerId": "chrM:9420-9540",
+            "coupling": 0.9871,
+            "boardTop": [
+              {
+                "id": "chrM:9420-9540",
+                "score": 0.9871
+              },
+              {
+                "id": "chrM:9480-9600",
+                "score": 0.9622
+              },
+              {
+                "id": "chrM:9780-9900",
+                "score": 0.9239
+              },
+              {
+                "id": "chrM:12060-12180",
+                "score": 0.9107
+              },
+              {
+                "id": "chrM:9900-10020",
+                "score": 0.9042
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:2580-2700",
+            "partnerId": "chrM:900-1020",
+            "coupling": 0.9864,
+            "boardTop": [
+              {
+                "id": "chrM:900-1020",
+                "score": 0.9864
+              },
+              {
+                "id": "chrM:2160-2280",
+                "score": 0.975
+              },
+              {
+                "id": "chrM:960-1080",
+                "score": 0.9554
+              },
+              {
+                "id": "chrM:780-900",
+                "score": 0.9463
+              },
+              {
+                "id": "chrM:720-840",
+                "score": 0.9156
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:3300-3420",
+            "partnerId": "chrM:5160-5280",
+            "coupling": 0.9862,
+            "boardTop": [
+              {
+                "id": "chrM:5160-5280",
+                "score": 0.9862
+              },
+              {
+                "id": "chrM:5100-5220",
+                "score": 0.9579
+              },
+              {
+                "id": "chrM:7260-7380",
+                "score": 0.9532
+              },
+              {
+                "id": "chrM:7500-7620",
+                "score": 0.9051
+              },
+              {
+                "id": "chrM:2820-2940",
+                "score": 0.9041
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:5880-6000",
+            "partnerId": "chrM:7200-7320",
+            "coupling": 0.9857,
+            "boardTop": [
+              {
+                "id": "chrM:7200-7320",
+                "score": 0.9857
+              },
+              {
+                "id": "chrM:5640-5760",
+                "score": 0.9246
+              },
+              {
+                "id": "chrM:5580-5700",
+                "score": 0.9139
+              },
+              {
+                "id": "chrM:4560-4680",
+                "score": 0.9137
+              },
+              {
+                "id": "chrM:8400-8520",
+                "score": 0.8865
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:10260-10380",
+            "partnerId": "chrM:10620-10740",
+            "coupling": 0.9837,
+            "boardTop": [
+              {
+                "id": "chrM:10620-10740",
+                "score": 0.9837
+              },
+              {
+                "id": "chrM:13440-13560",
+                "score": 0.9546
+              },
+              {
+                "id": "chrM:11760-11880",
+                "score": 0.9032
+              },
+              {
+                "id": "chrM:11400-11520",
+                "score": 0.8699
+              },
+              {
+                "id": "chrM:11340-11460",
+                "score": 0.8638
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:420-540",
+            "partnerId": "chrM:3720-3840",
+            "coupling": 0.9822,
+            "boardTop": [
+              {
+                "id": "chrM:3720-3840",
+                "score": 0.9822
+              },
+              {
+                "id": "chrM:360-480",
+                "score": 0.9703
+              },
+              {
+                "id": "chrM:1740-1860",
+                "score": 0.97
+              },
+              {
+                "id": "chrM:1680-1800",
+                "score": 0.9594
+              },
+              {
+                "id": "chrM:1500-1620",
+                "score": 0.9515
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          },
+          {
+            "queryId": "chrM:11280-11400",
+            "partnerId": "chrM:14640-14760",
+            "coupling": 0.9809,
+            "boardTop": [
+              {
+                "id": "chrM:14640-14760",
+                "score": 0.9809
+              },
+              {
+                "id": "chrM:11220-11340",
+                "score": 0.8932
+              },
+              {
+                "id": "chrM:14700-14820",
+                "score": 0.8822
+              },
+              {
+                "id": "chrM:13140-13260",
+                "score": 0.8613
+              },
+              {
+                "id": "chrM:14520-14640",
+                "score": 0.8604
+              }
+            ],
+            "linearRecovered": false,
+            "flatRecovered": false,
+            "awareRecovered": true
+          }
+        ]
       }
     }
+  },
+  "discoveryCatalog": {
+    "rhyme": "LLM language-pack (LINEAR / FLAT / AWARE)",
+    "seed": 20261118,
+    "documentId": "WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18",
+    "theaters": [
+      {
+        "theater": "exoplanet",
+        "H1": true,
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 48
+        },
+        "discoveries": {
+          "theater": "exoplanet",
+          "rhyme": "LLM language-pack (AWARE)",
+          "nAwareOnlyRecoveries": 48,
+          "awarenessOnlyPairs": [
+            {
+              "id": "HAT-P-8 b ↔ WASP-7 b",
+              "queryId": "HAT-P-8 b",
+              "partnerId": "WASP-7 b",
+              "maxCoupling": 0.9955,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "HD 62509 b ↔ HD 11977 b",
+              "queryId": "HD 62509 b",
+              "partnerId": "HD 11977 b",
+              "maxCoupling": 0.9931,
+              "nTasks": 2,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "91 Aqr b ↔ mu Leo b",
+              "queryId": "91 Aqr b",
+              "partnerId": "mu Leo b",
+              "maxCoupling": 0.9917,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "TrES-3 b ↔ CoRoT-2 b",
+              "queryId": "TrES-3 b",
+              "partnerId": "CoRoT-2 b",
+              "maxCoupling": 0.9914,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "47 UMa b ↔ HD 222582 b",
+              "queryId": "47 UMa b",
+              "partnerId": "HD 222582 b",
+              "maxCoupling": 0.9898,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "HAT-P-4 b ↔ HAT-P-8 b",
+              "queryId": "HAT-P-4 b",
+              "partnerId": "HAT-P-8 b",
+              "maxCoupling": 0.9879,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "HD 197037 b ↔ HD 220773 b",
+              "queryId": "HD 197037 b",
+              "partnerId": "HD 220773 b",
+              "maxCoupling": 0.9876,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "HD 8535 b ↔ HD 220773 b",
+              "queryId": "HD 8535 b",
+              "partnerId": "HD 220773 b",
+              "maxCoupling": 0.9871,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "47 UMa d ↔ HD 187123 c",
+              "queryId": "47 UMa d",
+              "partnerId": "HD 187123 c",
+              "maxCoupling": 0.987,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "Kepler-969 c ↔ Kepler-1222 b",
+              "queryId": "Kepler-969 c",
+              "partnerId": "Kepler-1222 b",
+              "maxCoupling": 0.9854,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "HD 147018 c ↔ HD 70573 b",
+              "queryId": "HD 147018 c",
+              "partnerId": "HD 70573 b",
+              "maxCoupling": 0.9851,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "HD 175167 b ↔ HD 147018 c",
+              "queryId": "HD 175167 b",
+              "partnerId": "HD 147018 c",
+              "maxCoupling": 0.985,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            }
+          ],
+          "topBoardCouplings": [
+            {
+              "id": "HAT-P-8 b ↔ WASP-7 b",
+              "a": "HAT-P-8 b",
+              "b": "WASP-7 b",
+              "maxCoupling": 0.9955,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "HD 62509 b ↔ HD 11977 b",
+              "a": "HD 62509 b",
+              "b": "HD 11977 b",
+              "maxCoupling": 0.9931,
+              "nBoardAppearances": 2,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "91 Aqr b ↔ mu Leo b",
+              "a": "91 Aqr b",
+              "b": "mu Leo b",
+              "maxCoupling": 0.9917,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "TrES-3 b ↔ CoRoT-2 b",
+              "a": "TrES-3 b",
+              "b": "CoRoT-2 b",
+              "maxCoupling": 0.9914,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "47 UMa b ↔ HD 222582 b",
+              "a": "47 UMa b",
+              "b": "HD 222582 b",
+              "maxCoupling": 0.9898,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "HAT-P-8 b ↔ HAT-P-4 b",
+              "a": "HAT-P-8 b",
+              "b": "HAT-P-4 b",
+              "maxCoupling": 0.9879,
+              "nBoardAppearances": 2,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "HD 197037 b ↔ HD 220773 b",
+              "a": "HD 197037 b",
+              "b": "HD 220773 b",
+              "maxCoupling": 0.9876,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "HD 8535 b ↔ HD 220773 b",
+              "a": "HD 8535 b",
+              "b": "HD 220773 b",
+              "maxCoupling": 0.9871,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "HD 8535 b ↔ HD 132563 b",
+              "a": "HD 8535 b",
+              "b": "HD 132563 b",
+              "maxCoupling": 0.987,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "47 UMa d ↔ HD 187123 c",
+              "a": "47 UMa d",
+              "b": "HD 187123 c",
+              "maxCoupling": 0.987,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "HD 197037 b ↔ HD 132563 b",
+              "a": "HD 197037 b",
+              "b": "HD 132563 b",
+              "maxCoupling": 0.9865,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "Kepler-969 c ↔ Kepler-1222 b",
+              "a": "Kepler-969 c",
+              "b": "Kepler-1222 b",
+              "maxCoupling": 0.9854,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            }
+          ],
+          "sampleRecoveries": [
+            {
+              "queryId": "HAT-P-8 b",
+              "partnerId": "WASP-7 b",
+              "coupling": 0.9955,
+              "boardTop": [
+                {
+                  "id": "WASP-7 b",
+                  "score": 0.9955
+                },
+                {
+                  "id": "HAT-P-4 b",
+                  "score": 0.9879
+                },
+                {
+                  "id": "WASP-21 b",
+                  "score": 0.9493
+                },
+                {
+                  "id": "HAT-P-28 b",
+                  "score": 0.9288
+                },
+                {
+                  "id": "CoRoT-2 b",
+                  "score": 0.9286
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "HD 62509 b",
+              "partnerId": "HD 11977 b",
+              "coupling": 0.9931,
+              "boardTop": [
+                {
+                  "id": "HD 11977 b",
+                  "score": 0.9931
+                },
+                {
+                  "id": "24 Sex b",
+                  "score": 0.9543
+                },
+                {
+                  "id": "HD 177830 c",
+                  "score": 0.9467
+                },
+                {
+                  "id": "HD 110014 b",
+                  "score": 0.9205
+                },
+                {
+                  "id": "HIP 63242 b",
+                  "score": 0.8674
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "HD 11977 b",
+              "partnerId": "HD 62509 b",
+              "coupling": 0.9931,
+              "boardTop": [
+                {
+                  "id": "HD 62509 b",
+                  "score": 0.9931
+                },
+                {
+                  "id": "24 Sex b",
+                  "score": 0.9498
+                },
+                {
+                  "id": "HD 110014 b",
+                  "score": 0.925
+                },
+                {
+                  "id": "HD 177830 c",
+                  "score": 0.9163
+                },
+                {
+                  "id": "HIP 63242 b",
+                  "score": 0.8737
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "91 Aqr b",
+              "partnerId": "mu Leo b",
+              "coupling": 0.9917,
+              "boardTop": [
+                {
+                  "id": "mu Leo b",
+                  "score": 0.9917
+                },
+                {
+                  "id": "HIP 63242 b",
+                  "score": 0.9842
+                },
+                {
+                  "id": "eps CrB b",
+                  "score": 0.9574
+                },
+                {
+                  "id": "HD 110014 b",
+                  "score": 0.9242
+                },
+                {
+                  "id": "tau Gem b",
+                  "score": 0.912
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "TrES-3 b",
+              "partnerId": "CoRoT-2 b",
+              "coupling": 0.9914,
+              "boardTop": [
+                {
+                  "id": "CoRoT-2 b",
+                  "score": 0.9914
+                },
+                {
+                  "id": "WASP-37 b",
+                  "score": 0.9653
+                },
+                {
+                  "id": "CoRoT-8 b",
+                  "score": 0.962
+                },
+                {
+                  "id": "WASP-21 b",
+                  "score": 0.958
+                },
+                {
+                  "id": "WASP-23 b",
+                  "score": 0.9497
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "47 UMa b",
+              "partnerId": "HD 222582 b",
+              "coupling": 0.9898,
+              "boardTop": [
+                {
+                  "id": "HD 222582 b",
+                  "score": 0.9898
+                },
+                {
+                  "id": "HD 114783 b",
+                  "score": 0.9805
+                },
+                {
+                  "id": "GJ 3021 b",
+                  "score": 0.978
+                },
+                {
+                  "id": "HD 82943 b",
+                  "score": 0.9767
+                },
+                {
+                  "id": "HD 82943 c",
+                  "score": 0.9754
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "HAT-P-4 b",
+              "partnerId": "HAT-P-8 b",
+              "coupling": 0.9879,
+              "boardTop": [
+                {
+                  "id": "HAT-P-8 b",
+                  "score": 0.9879
+                },
+                {
+                  "id": "WASP-7 b",
+                  "score": 0.9813
+                },
+                {
+                  "id": "WASP-21 b",
+                  "score": 0.9352
+                },
+                {
+                  "id": "TrES-3 b",
+                  "score": 0.921
+                },
+                {
+                  "id": "CoRoT-2 b",
+                  "score": 0.9185
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "HD 197037 b",
+              "partnerId": "HD 220773 b",
+              "coupling": 0.9876,
+              "boardTop": [
+                {
+                  "id": "HD 220773 b",
+                  "score": 0.9876
+                },
+                {
+                  "id": "HD 132563 b",
+                  "score": 0.9865
+                },
+                {
+                  "id": "HD 8535 b",
+                  "score": 0.9839
+                },
+                {
+                  "id": "HD 13908 c",
+                  "score": 0.9602
+                },
+                {
+                  "id": "47 UMa d",
+                  "score": 0.9558
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            }
+          ]
+        }
+      },
+      {
+        "theater": "neo",
+        "H1": true,
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 48
+        },
+        "discoveries": {
+          "theater": "neo",
+          "rhyme": "LLM language-pack (AWARE)",
+          "nAwareOnlyRecoveries": 48,
+          "awarenessOnlyPairs": [
+            {
+              "id": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+              "queryId": "2012 XL16@2015-Jan-22 19:43",
+              "partnerId": "2015 KS120@2015-Jan-17 22:55",
+              "maxCoupling": 0.9997,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+              "queryId": "2015 AB45@2015-Jan-18 09:36",
+              "partnerId": "2015 BC515@2015-Feb-06 14:11",
+              "maxCoupling": 0.9984,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+              "queryId": "2019 BU3@2015-Jan-23 16:33",
+              "partnerId": "2020 SN6@2015-Feb-16 16:25",
+              "maxCoupling": 0.9978,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+              "queryId": "2014 ST143@2015-Jan-23 05:22",
+              "partnerId": "2015 DN155@2015-Feb-19 03:52",
+              "maxCoupling": 0.9967,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+              "queryId": "2015 BB311@2015-Jan-15 14:02",
+              "partnerId": "2023 BD10@2015-Feb-05 13:58",
+              "maxCoupling": 0.9967,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+              "queryId": "2014 YS14@2015-Jan-29 09:28",
+              "partnerId": "515742@2015-Feb-21 05:02",
+              "maxCoupling": 0.9964,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+              "queryId": "2024 LW@2015-Jan-22 08:29",
+              "partnerId": "526826@2015-Jan-16 00:52",
+              "maxCoupling": 0.9963,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+              "queryId": "2017 YL6@2015-Jan-21 21:02",
+              "partnerId": "2015 CA14@2015-Feb-16 03:37",
+              "maxCoupling": 0.9959,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2025 BG6@2015-Jan-23 06:44 ↔ 2017 YL6@2015-Jan-21 21:02",
+              "queryId": "2025 BG6@2015-Jan-23 06:44",
+              "partnerId": "2017 YL6@2015-Jan-21 21:02",
+              "maxCoupling": 0.9953,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2015 DO53@2015-Feb-02 15:12 ↔ 2017 WP28@2015-Feb-01 03:18",
+              "queryId": "2015 DO53@2015-Feb-02 15:12",
+              "partnerId": "2017 WP28@2015-Feb-01 03:18",
+              "maxCoupling": 0.9938,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2023 MC1@2015-Jan-20 04:02 ↔ 2015 BM@2015-Jan-27 13:12",
+              "queryId": "2023 MC1@2015-Jan-20 04:02",
+              "partnerId": "2015 BM@2015-Jan-27 13:12",
+              "maxCoupling": 0.9936,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "2015 AM44@2015-Jan-24 22:02 ↔ 2015 DS198@2015-Feb-14 01:02",
+              "queryId": "2015 AM44@2015-Jan-24 22:02",
+              "partnerId": "2015 DS198@2015-Feb-14 01:02",
+              "maxCoupling": 0.9927,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            }
+          ],
+          "topBoardCouplings": [
+            {
+              "id": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+              "a": "2012 XL16@2015-Jan-22 19:43",
+              "b": "2015 KS120@2015-Jan-17 22:55",
+              "maxCoupling": 0.9997,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+              "a": "2015 AB45@2015-Jan-18 09:36",
+              "b": "2015 BC515@2015-Feb-06 14:11",
+              "maxCoupling": 0.9984,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+              "a": "2019 BU3@2015-Jan-23 16:33",
+              "b": "2020 SN6@2015-Feb-16 16:25",
+              "maxCoupling": 0.9978,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BT516@2015-Feb-14 08:06",
+              "a": "2015 AB45@2015-Jan-18 09:36",
+              "b": "2015 BT516@2015-Feb-14 08:06",
+              "maxCoupling": 0.9971,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+              "a": "2014 ST143@2015-Jan-23 05:22",
+              "b": "2015 DN155@2015-Feb-19 03:52",
+              "maxCoupling": 0.9967,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+              "a": "2015 BB311@2015-Jan-15 14:02",
+              "b": "2023 BD10@2015-Feb-05 13:58",
+              "maxCoupling": 0.9967,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+              "a": "2014 YS14@2015-Jan-29 09:28",
+              "b": "515742@2015-Feb-21 05:02",
+              "maxCoupling": 0.9964,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+              "a": "2024 LW@2015-Jan-22 08:29",
+              "b": "526826@2015-Jan-16 00:52",
+              "maxCoupling": 0.9963,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2012 XL16@2015-Jan-22 19:43 ↔ 2013 WR45@2015-Feb-04 00:47",
+              "a": "2012 XL16@2015-Jan-22 19:43",
+              "b": "2013 WR45@2015-Feb-04 00:47",
+              "maxCoupling": 0.9963,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2014 YS14@2015-Jan-29 09:28 ↔ 526826@2015-Jan-16 00:52",
+              "a": "2014 YS14@2015-Jan-29 09:28",
+              "b": "526826@2015-Jan-16 00:52",
+              "maxCoupling": 0.9962,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2015 BB311@2015-Jan-15 14:02 ↔ 2024 MT1@2015-Feb-15 09:02",
+              "a": "2015 BB311@2015-Jan-15 14:02",
+              "b": "2024 MT1@2015-Feb-15 09:02",
+              "maxCoupling": 0.9962,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+              "a": "2017 YL6@2015-Jan-21 21:02",
+              "b": "2015 CA14@2015-Feb-16 03:37",
+              "maxCoupling": 0.9959,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            }
+          ],
+          "sampleRecoveries": [
+            {
+              "queryId": "2012 XL16@2015-Jan-22 19:43",
+              "partnerId": "2015 KS120@2015-Jan-17 22:55",
+              "coupling": 0.9997,
+              "boardTop": [
+                {
+                  "id": "2015 KS120@2015-Jan-17 22:55",
+                  "score": 0.9997
+                },
+                {
+                  "id": "2013 WR45@2015-Feb-04 00:47",
+                  "score": 0.9963
+                },
+                {
+                  "id": "2025 OT4@2015-Feb-19 16:41",
+                  "score": 0.9904
+                },
+                {
+                  "id": "2022 VR1@2015-Feb-15 15:02",
+                  "score": 0.9881
+                },
+                {
+                  "id": "2019 UD@2015-Jan-24 12:10",
+                  "score": 0.9802
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2015 AB45@2015-Jan-18 09:36",
+              "partnerId": "2015 BC515@2015-Feb-06 14:11",
+              "coupling": 0.9984,
+              "boardTop": [
+                {
+                  "id": "2015 BC515@2015-Feb-06 14:11",
+                  "score": 0.9984
+                },
+                {
+                  "id": "2015 BT516@2015-Feb-14 08:06",
+                  "score": 0.9971
+                },
+                {
+                  "id": "2015 AC246@2015-Feb-20 03:09",
+                  "score": 0.9881
+                },
+                {
+                  "id": "2016 TP11@2015-Feb-10 10:15",
+                  "score": 0.9844
+                },
+                {
+                  "id": "2015 CR@2015-Feb-11 09:18",
+                  "score": 0.984
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2019 BU3@2015-Jan-23 16:33",
+              "partnerId": "2020 SN6@2015-Feb-16 16:25",
+              "coupling": 0.9978,
+              "boardTop": [
+                {
+                  "id": "2020 SN6@2015-Feb-16 16:25",
+                  "score": 0.9978
+                },
+                {
+                  "id": "2015 BE92@2015-Jan-29 01:25",
+                  "score": 0.9806
+                },
+                {
+                  "id": "2022 CC1@2015-Jan-24 08:30",
+                  "score": 0.9805
+                },
+                {
+                  "id": "2015 CD1@2015-Feb-07 15:27",
+                  "score": 0.973
+                },
+                {
+                  "id": "2015 BC518@2015-Feb-03 00:06",
+                  "score": 0.9485
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2014 ST143@2015-Jan-23 05:22",
+              "partnerId": "2015 DN155@2015-Feb-19 03:52",
+              "coupling": 0.9967,
+              "boardTop": [
+                {
+                  "id": "2015 DN155@2015-Feb-19 03:52",
+                  "score": 0.9967
+                },
+                {
+                  "id": "2015 AD44@2015-Jan-19 08:03",
+                  "score": 0.9901
+                },
+                {
+                  "id": "2025 UH127@2015-Jan-02 06:04",
+                  "score": 0.9866
+                },
+                {
+                  "id": "2015 BM514@2015-Feb-08 07:24",
+                  "score": 0.9851
+                },
+                {
+                  "id": "2015 BL@2015-Feb-03 14:01",
+                  "score": 0.9769
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2015 BB311@2015-Jan-15 14:02",
+              "partnerId": "2023 BD10@2015-Feb-05 13:58",
+              "coupling": 0.9967,
+              "boardTop": [
+                {
+                  "id": "2023 BD10@2015-Feb-05 13:58",
+                  "score": 0.9967
+                },
+                {
+                  "id": "2024 MT1@2015-Feb-15 09:02",
+                  "score": 0.9962
+                },
+                {
+                  "id": "2019 UY1@2015-Jan-19 20:30",
+                  "score": 0.9936
+                },
+                {
+                  "id": "2015 BQ515@2015-Jan-11 21:17",
+                  "score": 0.9883
+                },
+                {
+                  "id": "2025 MB90@2015-Feb-08 20:54",
+                  "score": 0.9864
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2014 YS14@2015-Jan-29 09:28",
+              "partnerId": "515742@2015-Feb-21 05:02",
+              "coupling": 0.9964,
+              "boardTop": [
+                {
+                  "id": "515742@2015-Feb-21 05:02",
+                  "score": 0.9964
+                },
+                {
+                  "id": "526826@2015-Jan-16 00:52",
+                  "score": 0.9962
+                },
+                {
+                  "id": "2022 AC1@2015-Jan-30 19:57",
+                  "score": 0.9911
+                },
+                {
+                  "id": "2024 LW@2015-Jan-22 08:29",
+                  "score": 0.9887
+                },
+                {
+                  "id": "2021 YJ@2015-Jan-06 11:30",
+                  "score": 0.987
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2024 LW@2015-Jan-22 08:29",
+              "partnerId": "526826@2015-Jan-16 00:52",
+              "coupling": 0.9963,
+              "boardTop": [
+                {
+                  "id": "526826@2015-Jan-16 00:52",
+                  "score": 0.9963
+                },
+                {
+                  "id": "515742@2015-Feb-21 05:02",
+                  "score": 0.9938
+                },
+                {
+                  "id": "2014 YS14@2015-Jan-29 09:28",
+                  "score": 0.9887
+                },
+                {
+                  "id": "2021 YJ@2015-Jan-06 11:30",
+                  "score": 0.9885
+                },
+                {
+                  "id": "2025 BG6@2015-Jan-23 06:44",
+                  "score": 0.9885
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "2017 YL6@2015-Jan-21 21:02",
+              "partnerId": "2015 CA14@2015-Feb-16 03:37",
+              "coupling": 0.9959,
+              "boardTop": [
+                {
+                  "id": "2015 CA14@2015-Feb-16 03:37",
+                  "score": 0.9959
+                },
+                {
+                  "id": "2025 BG6@2015-Jan-23 06:44",
+                  "score": 0.9953
+                },
+                {
+                  "id": "2015 DA156@2015-Feb-05 09:38",
+                  "score": 0.9934
+                },
+                {
+                  "id": "2015 BY509@2015-Jan-06 15:11",
+                  "score": 0.9928
+                },
+                {
+                  "id": "2023 BY9@2015-Feb-19 12:41",
+                  "score": 0.9911
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            }
+          ]
+        }
+      },
+      {
+        "theater": "ngc",
+        "H1": true,
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 48
+        },
+        "discoveries": {
+          "theater": "ngc",
+          "rhyme": "LLM language-pack (AWARE)",
+          "nAwareOnlyRecoveries": 48,
+          "awarenessOnlyPairs": [
+            {
+              "id": "IC0069 ↔ IC0096",
+              "queryId": "IC0069",
+              "partnerId": "IC0096",
+              "maxCoupling": 0.9998,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0058 ↔ IC0036",
+              "queryId": "IC0058",
+              "partnerId": "IC0036",
+              "maxCoupling": 0.9998,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0122 ↔ IC0169",
+              "queryId": "IC0122",
+              "partnerId": "IC0169",
+              "maxCoupling": 0.9997,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0144 ↔ IC0243",
+              "queryId": "IC0144",
+              "partnerId": "IC0243",
+              "maxCoupling": 0.9996,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0095 ↔ IC0125",
+              "queryId": "IC0095",
+              "partnerId": "IC0125",
+              "maxCoupling": 0.9996,
+              "nTasks": 2,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0062 ↔ IC0075",
+              "queryId": "IC0062",
+              "partnerId": "IC0075",
+              "maxCoupling": 0.9993,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0028 ↔ IC0170",
+              "queryId": "IC0028",
+              "partnerId": "IC0170",
+              "maxCoupling": 0.9992,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0047 ↔ IC0037",
+              "queryId": "IC0047",
+              "partnerId": "IC0037",
+              "maxCoupling": 0.9992,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0004 ↔ IC0107",
+              "queryId": "IC0004",
+              "partnerId": "IC0107",
+              "maxCoupling": 0.9992,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0161 ↔ IC0112",
+              "queryId": "IC0161",
+              "partnerId": "IC0112",
+              "maxCoupling": 0.9991,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0025 ↔ IC0084",
+              "queryId": "IC0025",
+              "partnerId": "IC0084",
+              "maxCoupling": 0.9991,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "IC0027 ↔ IC0060",
+              "queryId": "IC0027",
+              "partnerId": "IC0060",
+              "maxCoupling": 0.999,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            }
+          ],
+          "topBoardCouplings": [
+            {
+              "id": "IC0069 ↔ IC0096",
+              "a": "IC0069",
+              "b": "IC0096",
+              "maxCoupling": 0.9998,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0058 ↔ IC0036",
+              "a": "IC0058",
+              "b": "IC0036",
+              "maxCoupling": 0.9998,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0122 ↔ IC0169",
+              "a": "IC0122",
+              "b": "IC0169",
+              "maxCoupling": 0.9997,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0144 ↔ IC0243",
+              "a": "IC0144",
+              "b": "IC0243",
+              "maxCoupling": 0.9996,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0095 ↔ IC0125",
+              "a": "IC0095",
+              "b": "IC0125",
+              "maxCoupling": 0.9996,
+              "nBoardAppearances": 2,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0058 ↔ IC0170",
+              "a": "IC0058",
+              "b": "IC0170",
+              "maxCoupling": 0.9995,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0095 ↔ IC0098",
+              "a": "IC0095",
+              "b": "IC0098",
+              "maxCoupling": 0.9994,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0062 ↔ IC0075",
+              "a": "IC0062",
+              "b": "IC0075",
+              "maxCoupling": 0.9993,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0028 ↔ IC0170",
+              "a": "IC0028",
+              "b": "IC0170",
+              "maxCoupling": 0.9992,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0047 ↔ IC0037",
+              "a": "IC0047",
+              "b": "IC0037",
+              "maxCoupling": 0.9992,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0004 ↔ IC0107",
+              "a": "IC0004",
+              "b": "IC0107",
+              "maxCoupling": 0.9992,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "IC0161 ↔ IC0112",
+              "a": "IC0161",
+              "b": "IC0112",
+              "maxCoupling": 0.9991,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            }
+          ],
+          "sampleRecoveries": [
+            {
+              "queryId": "IC0069",
+              "partnerId": "IC0096",
+              "coupling": 0.9998,
+              "boardTop": [
+                {
+                  "id": "IC0096",
+                  "score": 0.9998
+                },
+                {
+                  "id": "IC0132",
+                  "score": 0.9927
+                },
+                {
+                  "id": "IC0189",
+                  "score": 0.9879
+                },
+                {
+                  "id": "IC0188",
+                  "score": 0.9795
+                },
+                {
+                  "id": "IC0046",
+                  "score": 0.9699
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0058",
+              "partnerId": "IC0036",
+              "coupling": 0.9998,
+              "boardTop": [
+                {
+                  "id": "IC0036",
+                  "score": 0.9998
+                },
+                {
+                  "id": "IC0170",
+                  "score": 0.9995
+                },
+                {
+                  "id": "IC0108",
+                  "score": 0.999
+                },
+                {
+                  "id": "IC0028",
+                  "score": 0.9989
+                },
+                {
+                  "id": "IC0128",
+                  "score": 0.9977
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0122",
+              "partnerId": "IC0169",
+              "coupling": 0.9997,
+              "boardTop": [
+                {
+                  "id": "IC0169",
+                  "score": 0.9997
+                },
+                {
+                  "id": "IC0099",
+                  "score": 0.998
+                },
+                {
+                  "id": "IC0243",
+                  "score": 0.998
+                },
+                {
+                  "id": "IC0144",
+                  "score": 0.9977
+                },
+                {
+                  "id": "IC0037",
+                  "score": 0.9964
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0144",
+              "partnerId": "IC0243",
+              "coupling": 0.9996,
+              "boardTop": [
+                {
+                  "id": "IC0243",
+                  "score": 0.9996
+                },
+                {
+                  "id": "IC0099",
+                  "score": 0.9991
+                },
+                {
+                  "id": "IC0169",
+                  "score": 0.9989
+                },
+                {
+                  "id": "IC0122",
+                  "score": 0.9977
+                },
+                {
+                  "id": "IC0230",
+                  "score": 0.9967
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0095",
+              "partnerId": "IC0125",
+              "coupling": 0.9996,
+              "boardTop": [
+                {
+                  "id": "IC0125",
+                  "score": 0.9996
+                },
+                {
+                  "id": "IC0098",
+                  "score": 0.9994
+                },
+                {
+                  "id": "IC0037",
+                  "score": 0.998
+                },
+                {
+                  "id": "IC0158",
+                  "score": 0.9972
+                },
+                {
+                  "id": "IC0047",
+                  "score": 0.9952
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0125",
+              "partnerId": "IC0095",
+              "coupling": 0.9996,
+              "boardTop": [
+                {
+                  "id": "IC0095",
+                  "score": 0.9996
+                },
+                {
+                  "id": "IC0098",
+                  "score": 0.999
+                },
+                {
+                  "id": "IC0037",
+                  "score": 0.9972
+                },
+                {
+                  "id": "IC0158",
+                  "score": 0.9948
+                },
+                {
+                  "id": "IC0122",
+                  "score": 0.9946
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0062",
+              "partnerId": "IC0075",
+              "coupling": 0.9993,
+              "boardTop": [
+                {
+                  "id": "IC0075",
+                  "score": 0.9993
+                },
+                {
+                  "id": "IC0035",
+                  "score": 0.9973
+                },
+                {
+                  "id": "IC0156",
+                  "score": 0.9967
+                },
+                {
+                  "id": "IC0101",
+                  "score": 0.9953
+                },
+                {
+                  "id": "IC0154",
+                  "score": 0.9942
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "IC0028",
+              "partnerId": "IC0170",
+              "coupling": 0.9992,
+              "boardTop": [
+                {
+                  "id": "IC0170",
+                  "score": 0.9992
+                },
+                {
+                  "id": "IC0058",
+                  "score": 0.9989
+                },
+                {
+                  "id": "IC0036",
+                  "score": 0.9988
+                },
+                {
+                  "id": "IC0002",
+                  "score": 0.9967
+                },
+                {
+                  "id": "IC0108",
+                  "score": 0.9965
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            }
+          ]
+        }
+      },
+      {
+        "theater": "wmap_tt",
+        "H1": true,
+        "nTasks": 48,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 48
+        },
+        "discoveries": {
+          "theater": "wmap_tt",
+          "rhyme": "LLM language-pack (AWARE)",
+          "nAwareOnlyRecoveries": 48,
+          "topSpectralLags": [
+            {
+              "id": "lag-5",
+              "lag": 5,
+              "absCorr": 0.8951,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-1",
+              "lag": 1,
+              "absCorr": 0.8888,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-11",
+              "lag": 11,
+              "absCorr": 0.884,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-6",
+              "lag": 6,
+              "absCorr": 0.8818,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-10",
+              "lag": 10,
+              "absCorr": 0.8816,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-2",
+              "lag": 2,
+              "absCorr": 0.8779,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-3",
+              "lag": 3,
+              "absCorr": 0.8775,
+              "kind": "awareness_board_spectral_lag"
+            },
+            {
+              "id": "lag-9",
+              "lag": 9,
+              "absCorr": 0.8773,
+              "kind": "awareness_board_spectral_lag"
+            }
+          ],
+          "awarenessOnlyPairs": [
+            {
+              "id": "ell-604 ↔ ell-609",
+              "queryId": "ell-604",
+              "partnerId": "ell-609",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-581 ↔ ell-586",
+              "queryId": "ell-581",
+              "partnerId": "ell-586",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-106 ↔ ell-111",
+              "queryId": "ell-106",
+              "partnerId": "ell-111",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-202 ↔ ell-207",
+              "queryId": "ell-202",
+              "partnerId": "ell-207",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-107 ↔ ell-112",
+              "queryId": "ell-107",
+              "partnerId": "ell-112",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-654 ↔ ell-659",
+              "queryId": "ell-654",
+              "partnerId": "ell-659",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-793 ↔ ell-798",
+              "queryId": "ell-793",
+              "partnerId": "ell-798",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "ell-385 ↔ ell-390",
+              "queryId": "ell-385",
+              "partnerId": "ell-390",
+              "maxCoupling": 0.8951,
+              "bestLag": 5,
+              "kind": "aware_only_partner_recovery"
+            }
+          ],
+          "sampleRecoveries": [
+            {
+              "queryId": "ell-604",
+              "partnerId": "ell-609",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-581",
+              "partnerId": "ell-586",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-106",
+              "partnerId": "ell-111",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-202",
+              "partnerId": "ell-207",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-107",
+              "partnerId": "ell-112",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-654",
+              "partnerId": "ell-659",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-793",
+              "partnerId": "ell-798",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "ell-385",
+              "partnerId": "ell-390",
+              "bestLag": 5,
+              "coupling": 0.8951,
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            }
+          ]
+        }
+      },
+      {
+        "theater": "genome_exon",
+        "H1": true,
+        "nTasks": 14,
+        "rates": {
+          "linear": 0,
+          "flat": 0.07142857142857142,
+          "aware": 1,
+          "n": 14
+        },
+        "discoveries": {
+          "theater": "genome_exon",
+          "rhyme": "LLM language-pack (AWARE)",
+          "nAwareOnlyRecoveries": 13,
+          "awarenessOnlyPairs": [
+            {
+              "id": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+              "queryId": "NPY:ex0@chr7:24284189",
+              "partnerId": "SOD1:ex0@chr21:31659692",
+              "maxCoupling": 0.9139,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+              "queryId": "SOD1:ex1@chr21:31663789",
+              "partnerId": "NPY:ex2@chr7:24289498",
+              "maxCoupling": 0.8387,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+              "queryId": "INS:ex2@chr11:2161167",
+              "partnerId": "POMC:ex2@chr2:25165635",
+              "maxCoupling": 0.7384,
+              "nTasks": 2,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+              "queryId": "POMC:ex1@chr2:25164640",
+              "partnerId": "INS:ex1@chr11:2160784",
+              "maxCoupling": 0.7058,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+              "queryId": "PDX1:ex1@chr13:27924255",
+              "partnerId": "POMC:ex0@chr2:25160852",
+              "maxCoupling": 0.6821,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "APP:ex3@chr21:25905023 ↔ DYRK1A:ex3@chr21:37478207",
+              "queryId": "APP:ex3@chr21:25905023",
+              "partnerId": "DYRK1A:ex3@chr21:37478207",
+              "maxCoupling": 0.5941,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "DYRK1A:ex9@chr21:37505282 ↔ APP:ex10@chr21:26021839",
+              "queryId": "DYRK1A:ex9@chr21:37505282",
+              "partnerId": "APP:ex10@chr21:26021839",
+              "maxCoupling": 0.5928,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "APP:ex12@chr21:26053235 ↔ DYRK1A:ex10@chr21:37506098",
+              "queryId": "APP:ex12@chr21:26053235",
+              "partnerId": "DYRK1A:ex10@chr21:37506098",
+              "maxCoupling": 0.5765,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "APP:ex13@chr21:26089942 ↔ DYRK1A:ex10@chr21:37506098",
+              "queryId": "APP:ex13@chr21:26089942",
+              "partnerId": "DYRK1A:ex10@chr21:37506098",
+              "maxCoupling": 0.5691,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "APP:ex14@chr21:26111978 ↔ DYRK1A:ex9@chr21:37505282",
+              "queryId": "APP:ex14@chr21:26111978",
+              "partnerId": "DYRK1A:ex9@chr21:37505282",
+              "maxCoupling": 0.5555,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "TMPRSS2:ex1@chr21:41467733 ↔ DYRK1A:ex2@chr21:37472683",
+              "queryId": "TMPRSS2:ex1@chr21:41467733",
+              "partnerId": "DYRK1A:ex2@chr21:37472683",
+              "maxCoupling": 0.5407,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "DNMT1:ex40@chr19:10194819 ↔ DNMT3A:ex23@chr2:25342429",
+              "queryId": "DNMT1:ex40@chr19:10194819",
+              "partnerId": "DNMT3A:ex23@chr2:25342429",
+              "maxCoupling": 0.3339,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            }
+          ],
+          "topBoardCouplings": [
+            {
+              "id": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+              "a": "NPY:ex0@chr7:24284189",
+              "b": "SOD1:ex0@chr21:31659692",
+              "maxCoupling": 0.9139,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+              "a": "SOD1:ex1@chr21:31663789",
+              "b": "NPY:ex2@chr7:24289498",
+              "maxCoupling": 0.8387,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex3@chr7:24291662",
+              "a": "SOD1:ex1@chr21:31663789",
+              "b": "NPY:ex3@chr7:24291662",
+              "maxCoupling": 0.8035,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "SOD1:ex1@chr21:31663789 ↔ NPY:ex1@chr7:24285240",
+              "a": "SOD1:ex1@chr21:31663789",
+              "b": "NPY:ex1@chr7:24285240",
+              "maxCoupling": 0.7702,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "NPY:ex0@chr7:24284189 ↔ SOD1:ex1@chr21:31663789",
+              "a": "NPY:ex0@chr7:24284189",
+              "b": "SOD1:ex1@chr21:31663789",
+              "maxCoupling": 0.7682,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "NPY:ex0@chr7:24284189 ↔ PDX1:ex0@chr13:27919999",
+              "a": "NPY:ex0@chr7:24284189",
+              "b": "PDX1:ex0@chr13:27919999",
+              "maxCoupling": 0.7474,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+              "a": "INS:ex2@chr11:2161167",
+              "b": "POMC:ex2@chr2:25165635",
+              "maxCoupling": 0.7384,
+              "nBoardAppearances": 2,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+              "a": "POMC:ex1@chr2:25164640",
+              "b": "INS:ex1@chr11:2160784",
+              "maxCoupling": 0.7058,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "POMC:ex1@chr2:25164640 ↔ INS:ex0@chr11:2159778",
+              "a": "POMC:ex1@chr2:25164640",
+              "b": "INS:ex0@chr11:2159778",
+              "maxCoupling": 0.7005,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+              "a": "PDX1:ex1@chr13:27924255",
+              "b": "POMC:ex0@chr2:25160852",
+              "maxCoupling": 0.6821,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "POMC:ex2@chr2:25165635 ↔ NPY:ex0@chr7:24284189",
+              "a": "POMC:ex2@chr2:25165635",
+              "b": "NPY:ex0@chr7:24284189",
+              "maxCoupling": 0.6809,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "INS:ex2@chr11:2161167 ↔ POMC:ex1@chr2:25164640",
+              "a": "INS:ex2@chr11:2161167",
+              "b": "POMC:ex1@chr2:25164640",
+              "maxCoupling": 0.6771,
+              "nBoardAppearances": 2,
+              "kind": "awareness_board_coupling"
+            }
+          ],
+          "sampleRecoveries": [
+            {
+              "queryId": "NPY:ex0@chr7:24284189",
+              "partnerId": "SOD1:ex0@chr21:31659692",
+              "coupling": 0.9139,
+              "boardTop": [
+                {
+                  "id": "SOD1:ex0@chr21:31659692",
+                  "score": 0.9139
+                },
+                {
+                  "id": "SOD1:ex1@chr21:31663789",
+                  "score": 0.7682
+                },
+                {
+                  "id": "PDX1:ex0@chr13:27919999",
+                  "score": 0.7474
+                },
+                {
+                  "id": "POMC:ex3@chr2:25168497",
+                  "score": 0.7292
+                },
+                {
+                  "id": "DYRK1A:ex0@chr21:37366072",
+                  "score": 0.7211
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "SOD1:ex1@chr21:31663789",
+              "partnerId": "NPY:ex2@chr7:24289498",
+              "coupling": 0.8387,
+              "boardTop": [
+                {
+                  "id": "NPY:ex2@chr7:24289498",
+                  "score": 0.8387
+                },
+                {
+                  "id": "NPY:ex3@chr7:24291662",
+                  "score": 0.8035
+                },
+                {
+                  "id": "NPY:ex1@chr7:24285240",
+                  "score": 0.7702
+                },
+                {
+                  "id": "NPY:ex0@chr7:24284189",
+                  "score": 0.7682
+                },
+                {
+                  "id": "DYRK1A:ex0@chr21:37366072",
+                  "score": 0.7203
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "INS:ex2@chr11:2161167",
+              "partnerId": "POMC:ex2@chr2:25165635",
+              "coupling": 0.7384,
+              "boardTop": [
+                {
+                  "id": "POMC:ex2@chr2:25165635",
+                  "score": 0.7384
+                },
+                {
+                  "id": "POMC:ex1@chr2:25164640",
+                  "score": 0.6771
+                },
+                {
+                  "id": "NPY:ex0@chr7:24284189",
+                  "score": 0.6399
+                },
+                {
+                  "id": "POMC:ex3@chr2:25168497",
+                  "score": 0.6178
+                },
+                {
+                  "id": "NPY:ex2@chr7:24289498",
+                  "score": 0.5318
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "POMC:ex2@chr2:25165635",
+              "partnerId": "INS:ex2@chr11:2161167",
+              "coupling": 0.7384,
+              "boardTop": [
+                {
+                  "id": "INS:ex2@chr11:2161167",
+                  "score": 0.7384
+                },
+                {
+                  "id": "NPY:ex0@chr7:24284189",
+                  "score": 0.6809
+                },
+                {
+                  "id": "NPY:ex2@chr7:24289498",
+                  "score": 0.6532
+                },
+                {
+                  "id": "INS:ex1@chr11:2160784",
+                  "score": 0.6385
+                },
+                {
+                  "id": "INS:ex0@chr11:2159778",
+                  "score": 0.622
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "POMC:ex1@chr2:25164640",
+              "partnerId": "INS:ex1@chr11:2160784",
+              "coupling": 0.7058,
+              "boardTop": [
+                {
+                  "id": "INS:ex1@chr11:2160784",
+                  "score": 0.7058
+                },
+                {
+                  "id": "INS:ex0@chr11:2159778",
+                  "score": 0.7005
+                },
+                {
+                  "id": "INS:ex2@chr11:2161167",
+                  "score": 0.6771
+                },
+                {
+                  "id": "NPY:ex0@chr7:24284189",
+                  "score": 0.6627
+                },
+                {
+                  "id": "NPY:ex1@chr7:24285240",
+                  "score": 0.6607
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "PDX1:ex1@chr13:27924255",
+              "partnerId": "POMC:ex0@chr2:25160852",
+              "coupling": 0.6821,
+              "boardTop": [
+                {
+                  "id": "POMC:ex0@chr2:25160852",
+                  "score": 0.6821
+                },
+                {
+                  "id": "POMC:ex3@chr2:25168497",
+                  "score": 0.6299
+                },
+                {
+                  "id": "SOD1:ex4@chr21:31668470",
+                  "score": 0.5853
+                },
+                {
+                  "id": "NPY:ex1@chr7:24285240",
+                  "score": 0.5677
+                },
+                {
+                  "id": "NPY:ex3@chr7:24291662",
+                  "score": 0.5058
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "APP:ex3@chr21:25905023",
+              "partnerId": "DYRK1A:ex3@chr21:37478207",
+              "coupling": 0.5941,
+              "boardTop": [
+                {
+                  "id": "DYRK1A:ex3@chr21:37478207",
+                  "score": 0.5941
+                },
+                {
+                  "id": "DYRK1A:ex1@chr21:37420298",
+                  "score": 0.5797
+                },
+                {
+                  "id": "DYRK1A:ex5@chr21:37486466",
+                  "score": 0.5417
+                },
+                {
+                  "id": "DYRK1A:ex10@chr21:37506098",
+                  "score": 0.5379
+                },
+                {
+                  "id": "DYRK1A:ex8@chr21:37496117",
+                  "score": 0.5345
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "DYRK1A:ex9@chr21:37505282",
+              "partnerId": "APP:ex10@chr21:26021839",
+              "coupling": 0.5928,
+              "boardTop": [
+                {
+                  "id": "APP:ex10@chr21:26021839",
+                  "score": 0.5928
+                },
+                {
+                  "id": "APP:ex4@chr21:25911740",
+                  "score": 0.589
+                },
+                {
+                  "id": "APP:ex11@chr21:26050999",
+                  "score": 0.5875
+                },
+                {
+                  "id": "APP:ex7@chr21:25975069",
+                  "score": 0.5742
+                },
+                {
+                  "id": "APP:ex0@chr21:25880549",
+                  "score": 0.5653
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            }
+          ]
+        }
+      },
+      {
+        "theater": "genome_chrm",
+        "H1": true,
+        "nTasks": 64,
+        "rates": {
+          "linear": 0,
+          "flat": 0,
+          "aware": 1,
+          "n": 64
+        },
+        "discoveries": {
+          "theater": "genome_chrm",
+          "rhyme": "LLM language-pack (AWARE)",
+          "nAwareOnlyRecoveries": 64,
+          "awarenessOnlyPairs": [
+            {
+              "id": "chrM:1860-1980 ↔ chrM:2100-2220",
+              "queryId": "chrM:1860-1980",
+              "partnerId": "chrM:2100-2220",
+              "maxCoupling": 0.993,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:9840-9960 ↔ chrM:9420-9540",
+              "queryId": "chrM:9840-9960",
+              "partnerId": "chrM:9420-9540",
+              "maxCoupling": 0.9871,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:2580-2700 ↔ chrM:900-1020",
+              "queryId": "chrM:2580-2700",
+              "partnerId": "chrM:900-1020",
+              "maxCoupling": 0.9864,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:3300-3420 ↔ chrM:5160-5280",
+              "queryId": "chrM:3300-3420",
+              "partnerId": "chrM:5160-5280",
+              "maxCoupling": 0.9862,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:5880-6000 ↔ chrM:7200-7320",
+              "queryId": "chrM:5880-6000",
+              "partnerId": "chrM:7200-7320",
+              "maxCoupling": 0.9857,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:10260-10380 ↔ chrM:10620-10740",
+              "queryId": "chrM:10260-10380",
+              "partnerId": "chrM:10620-10740",
+              "maxCoupling": 0.9837,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:420-540 ↔ chrM:3720-3840",
+              "queryId": "chrM:420-540",
+              "partnerId": "chrM:3720-3840",
+              "maxCoupling": 0.9822,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:11280-11400 ↔ chrM:14640-14760",
+              "queryId": "chrM:11280-11400",
+              "partnerId": "chrM:14640-14760",
+              "maxCoupling": 0.9809,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:3780-3900 ↔ chrM:780-900",
+              "queryId": "chrM:3780-3900",
+              "partnerId": "chrM:780-900",
+              "maxCoupling": 0.9785,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:1920-2040 ↔ chrM:3060-3180",
+              "queryId": "chrM:1920-2040",
+              "partnerId": "chrM:3060-3180",
+              "maxCoupling": 0.9782,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:5820-5940 ↔ chrM:2940-3060",
+              "queryId": "chrM:5820-5940",
+              "partnerId": "chrM:2940-3060",
+              "maxCoupling": 0.978,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            },
+            {
+              "id": "chrM:5580-5700 ↔ chrM:6240-6360",
+              "queryId": "chrM:5580-5700",
+              "partnerId": "chrM:6240-6360",
+              "maxCoupling": 0.9771,
+              "nTasks": 1,
+              "kind": "aware_only_partner_recovery"
+            }
+          ],
+          "topBoardCouplings": [
+            {
+              "id": "chrM:1860-1980 ↔ chrM:2100-2220",
+              "a": "chrM:1860-1980",
+              "b": "chrM:2100-2220",
+              "maxCoupling": 0.993,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:9840-9960 ↔ chrM:9420-9540",
+              "a": "chrM:9840-9960",
+              "b": "chrM:9420-9540",
+              "maxCoupling": 0.9871,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:2580-2700 ↔ chrM:900-1020",
+              "a": "chrM:2580-2700",
+              "b": "chrM:900-1020",
+              "maxCoupling": 0.9864,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:3300-3420 ↔ chrM:5160-5280",
+              "a": "chrM:3300-3420",
+              "b": "chrM:5160-5280",
+              "maxCoupling": 0.9862,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:5880-6000 ↔ chrM:7200-7320",
+              "a": "chrM:5880-6000",
+              "b": "chrM:7200-7320",
+              "maxCoupling": 0.9857,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:10260-10380 ↔ chrM:10620-10740",
+              "a": "chrM:10260-10380",
+              "b": "chrM:10620-10740",
+              "maxCoupling": 0.9837,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:420-540 ↔ chrM:3720-3840",
+              "a": "chrM:420-540",
+              "b": "chrM:3720-3840",
+              "maxCoupling": 0.9822,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:11280-11400 ↔ chrM:14640-14760",
+              "a": "chrM:11280-11400",
+              "b": "chrM:14640-14760",
+              "maxCoupling": 0.9809,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:3780-3900 ↔ chrM:780-900",
+              "a": "chrM:3780-3900",
+              "b": "chrM:780-900",
+              "maxCoupling": 0.9785,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:1920-2040 ↔ chrM:3060-3180",
+              "a": "chrM:1920-2040",
+              "b": "chrM:3060-3180",
+              "maxCoupling": 0.9782,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:5820-5940 ↔ chrM:2940-3060",
+              "a": "chrM:5820-5940",
+              "b": "chrM:2940-3060",
+              "maxCoupling": 0.978,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            },
+            {
+              "id": "chrM:5580-5700 ↔ chrM:6240-6360",
+              "a": "chrM:5580-5700",
+              "b": "chrM:6240-6360",
+              "maxCoupling": 0.9771,
+              "nBoardAppearances": 1,
+              "kind": "awareness_board_coupling"
+            }
+          ],
+          "sampleRecoveries": [
+            {
+              "queryId": "chrM:1860-1980",
+              "partnerId": "chrM:2100-2220",
+              "coupling": 0.993,
+              "boardTop": [
+                {
+                  "id": "chrM:2100-2220",
+                  "score": 0.993
+                },
+                {
+                  "id": "chrM:180-300",
+                  "score": 0.9556
+                },
+                {
+                  "id": "chrM:2160-2280",
+                  "score": 0.9483
+                },
+                {
+                  "id": "chrM:1260-1380",
+                  "score": 0.9431
+                },
+                {
+                  "id": "chrM:1080-1200",
+                  "score": 0.9423
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:9840-9960",
+              "partnerId": "chrM:9420-9540",
+              "coupling": 0.9871,
+              "boardTop": [
+                {
+                  "id": "chrM:9420-9540",
+                  "score": 0.9871
+                },
+                {
+                  "id": "chrM:9480-9600",
+                  "score": 0.9622
+                },
+                {
+                  "id": "chrM:9780-9900",
+                  "score": 0.9239
+                },
+                {
+                  "id": "chrM:12060-12180",
+                  "score": 0.9107
+                },
+                {
+                  "id": "chrM:9900-10020",
+                  "score": 0.9042
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:2580-2700",
+              "partnerId": "chrM:900-1020",
+              "coupling": 0.9864,
+              "boardTop": [
+                {
+                  "id": "chrM:900-1020",
+                  "score": 0.9864
+                },
+                {
+                  "id": "chrM:2160-2280",
+                  "score": 0.975
+                },
+                {
+                  "id": "chrM:960-1080",
+                  "score": 0.9554
+                },
+                {
+                  "id": "chrM:780-900",
+                  "score": 0.9463
+                },
+                {
+                  "id": "chrM:720-840",
+                  "score": 0.9156
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:3300-3420",
+              "partnerId": "chrM:5160-5280",
+              "coupling": 0.9862,
+              "boardTop": [
+                {
+                  "id": "chrM:5160-5280",
+                  "score": 0.9862
+                },
+                {
+                  "id": "chrM:5100-5220",
+                  "score": 0.9579
+                },
+                {
+                  "id": "chrM:7260-7380",
+                  "score": 0.9532
+                },
+                {
+                  "id": "chrM:7500-7620",
+                  "score": 0.9051
+                },
+                {
+                  "id": "chrM:2820-2940",
+                  "score": 0.9041
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:5880-6000",
+              "partnerId": "chrM:7200-7320",
+              "coupling": 0.9857,
+              "boardTop": [
+                {
+                  "id": "chrM:7200-7320",
+                  "score": 0.9857
+                },
+                {
+                  "id": "chrM:5640-5760",
+                  "score": 0.9246
+                },
+                {
+                  "id": "chrM:5580-5700",
+                  "score": 0.9139
+                },
+                {
+                  "id": "chrM:4560-4680",
+                  "score": 0.9137
+                },
+                {
+                  "id": "chrM:8400-8520",
+                  "score": 0.8865
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:10260-10380",
+              "partnerId": "chrM:10620-10740",
+              "coupling": 0.9837,
+              "boardTop": [
+                {
+                  "id": "chrM:10620-10740",
+                  "score": 0.9837
+                },
+                {
+                  "id": "chrM:13440-13560",
+                  "score": 0.9546
+                },
+                {
+                  "id": "chrM:11760-11880",
+                  "score": 0.9032
+                },
+                {
+                  "id": "chrM:11400-11520",
+                  "score": 0.8699
+                },
+                {
+                  "id": "chrM:11340-11460",
+                  "score": 0.8638
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:420-540",
+              "partnerId": "chrM:3720-3840",
+              "coupling": 0.9822,
+              "boardTop": [
+                {
+                  "id": "chrM:3720-3840",
+                  "score": 0.9822
+                },
+                {
+                  "id": "chrM:360-480",
+                  "score": 0.9703
+                },
+                {
+                  "id": "chrM:1740-1860",
+                  "score": 0.97
+                },
+                {
+                  "id": "chrM:1680-1800",
+                  "score": 0.9594
+                },
+                {
+                  "id": "chrM:1500-1620",
+                  "score": 0.9515
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            },
+            {
+              "queryId": "chrM:11280-11400",
+              "partnerId": "chrM:14640-14760",
+              "coupling": 0.9809,
+              "boardTop": [
+                {
+                  "id": "chrM:14640-14760",
+                  "score": 0.9809
+                },
+                {
+                  "id": "chrM:11220-11340",
+                  "score": 0.8932
+                },
+                {
+                  "id": "chrM:14700-14820",
+                  "score": 0.8822
+                },
+                {
+                  "id": "chrM:13140-13260",
+                  "score": 0.8613
+                },
+                {
+                  "id": "chrM:14520-14640",
+                  "score": 0.8604
+                }
+              ],
+              "linearRecovered": false,
+              "flatRecovered": false,
+              "awareRecovered": true
+            }
+          ]
+        }
+      }
+    ],
+    "listedDiscoveries": [
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-8 b ↔ WASP-7 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner WASP-7 b for query HAT-P-8 b",
+        "coupling": 0.9955
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 62509 b ↔ HD 11977 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 11977 b for query HD 62509 b",
+        "coupling": 0.9931
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "91 Aqr b ↔ mu Leo b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner mu Leo b for query 91 Aqr b",
+        "coupling": 0.9917
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "TrES-3 b ↔ CoRoT-2 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner CoRoT-2 b for query TrES-3 b",
+        "coupling": 0.9914
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa b ↔ HD 222582 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 222582 b for query 47 UMa b",
+        "coupling": 0.9898
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-4 b ↔ HAT-P-8 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HAT-P-8 b for query HAT-P-4 b",
+        "coupling": 0.9879
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 197037 b ↔ HD 220773 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 220773 b for query HD 197037 b",
+        "coupling": 0.9876
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 8535 b ↔ HD 220773 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 220773 b for query HD 8535 b",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa d ↔ HD 187123 c",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 187123 c for query 47 UMa d",
+        "coupling": 0.987
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "Kepler-969 c ↔ Kepler-1222 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner Kepler-1222 b for query Kepler-969 c",
+        "coupling": 0.9854
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 147018 c ↔ HD 70573 b",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 70573 b for query HD 147018 c",
+        "coupling": 0.9851
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 175167 b ↔ HD 147018 c",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner HD 147018 c for query HD 175167 b",
+        "coupling": 0.985
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-8 b ↔ WASP-7 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HAT-P-8 b ↔ WASP-7 b",
+        "coupling": 0.9955
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 62509 b ↔ HD 11977 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 62509 b ↔ HD 11977 b",
+        "coupling": 0.9931
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "91 Aqr b ↔ mu Leo b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 91 Aqr b ↔ mu Leo b",
+        "coupling": 0.9917
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "TrES-3 b ↔ CoRoT-2 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling TrES-3 b ↔ CoRoT-2 b",
+        "coupling": 0.9914
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa b ↔ HD 222582 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 47 UMa b ↔ HD 222582 b",
+        "coupling": 0.9898
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HAT-P-8 b ↔ HAT-P-4 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HAT-P-8 b ↔ HAT-P-4 b",
+        "coupling": 0.9879
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 197037 b ↔ HD 220773 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 197037 b ↔ HD 220773 b",
+        "coupling": 0.9876
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 8535 b ↔ HD 220773 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 8535 b ↔ HD 220773 b",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 8535 b ↔ HD 132563 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 8535 b ↔ HD 132563 b",
+        "coupling": 0.987
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "47 UMa d ↔ HD 187123 c",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 47 UMa d ↔ HD 187123 c",
+        "coupling": 0.987
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "HD 197037 b ↔ HD 132563 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling HD 197037 b ↔ HD 132563 b",
+        "coupling": 0.9865
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "exoplanet",
+        "discoveryId": "Kepler-969 c ↔ Kepler-1222 b",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling Kepler-969 c ↔ Kepler-1222 b",
+        "coupling": 0.9854
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 KS120@2015-Jan-17 22:55 for query 2012 XL16@2015-Jan-22 19:43",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 BC515@2015-Feb-06 14:11 for query 2015 AB45@2015-Jan-18 09:36",
+        "coupling": 0.9984
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2020 SN6@2015-Feb-16 16:25 for query 2019 BU3@2015-Jan-23 16:33",
+        "coupling": 0.9978
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 DN155@2015-Feb-19 03:52 for query 2014 ST143@2015-Jan-23 05:22",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2023 BD10@2015-Feb-05 13:58 for query 2015 BB311@2015-Jan-15 14:02",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 515742@2015-Feb-21 05:02 for query 2014 YS14@2015-Jan-29 09:28",
+        "coupling": 0.9964
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 526826@2015-Jan-16 00:52 for query 2024 LW@2015-Jan-22 08:29",
+        "coupling": 0.9963
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 CA14@2015-Feb-16 03:37 for query 2017 YL6@2015-Jan-21 21:02",
+        "coupling": 0.9959
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2025 BG6@2015-Jan-23 06:44 ↔ 2017 YL6@2015-Jan-21 21:02",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2017 YL6@2015-Jan-21 21:02 for query 2025 BG6@2015-Jan-23 06:44",
+        "coupling": 0.9953
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 DO53@2015-Feb-02 15:12 ↔ 2017 WP28@2015-Feb-01 03:18",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2017 WP28@2015-Feb-01 03:18 for query 2015 DO53@2015-Feb-02 15:12",
+        "coupling": 0.9938
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2023 MC1@2015-Jan-20 04:02 ↔ 2015 BM@2015-Jan-27 13:12",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 BM@2015-Jan-27 13:12 for query 2023 MC1@2015-Jan-20 04:02",
+        "coupling": 0.9936
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 AM44@2015-Jan-24 22:02 ↔ 2015 DS198@2015-Feb-14 01:02",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner 2015 DS198@2015-Feb-14 01:02 for query 2015 AM44@2015-Jan-24 22:02",
+        "coupling": 0.9927
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2012 XL16@2015-Jan-22 19:43 ↔ 2015 KS120@2015-Jan-17 22:55",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 AB45@2015-Jan-18 09:36 ↔ 2015 BC515@2015-Feb-06 14:11",
+        "coupling": 0.9984
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2019 BU3@2015-Jan-23 16:33 ↔ 2020 SN6@2015-Feb-16 16:25",
+        "coupling": 0.9978
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 AB45@2015-Jan-18 09:36 ↔ 2015 BT516@2015-Feb-14 08:06",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 AB45@2015-Jan-18 09:36 ↔ 2015 BT516@2015-Feb-14 08:06",
+        "coupling": 0.9971
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2014 ST143@2015-Jan-23 05:22 ↔ 2015 DN155@2015-Feb-19 03:52",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 BB311@2015-Jan-15 14:02 ↔ 2023 BD10@2015-Feb-05 13:58",
+        "coupling": 0.9967
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2014 YS14@2015-Jan-29 09:28 ↔ 515742@2015-Feb-21 05:02",
+        "coupling": 0.9964
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2024 LW@2015-Jan-22 08:29 ↔ 526826@2015-Jan-16 00:52",
+        "coupling": 0.9963
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2012 XL16@2015-Jan-22 19:43 ↔ 2013 WR45@2015-Feb-04 00:47",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2012 XL16@2015-Jan-22 19:43 ↔ 2013 WR45@2015-Feb-04 00:47",
+        "coupling": 0.9963
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2014 YS14@2015-Jan-29 09:28 ↔ 526826@2015-Jan-16 00:52",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2014 YS14@2015-Jan-29 09:28 ↔ 526826@2015-Jan-16 00:52",
+        "coupling": 0.9962
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2015 BB311@2015-Jan-15 14:02 ↔ 2024 MT1@2015-Feb-15 09:02",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2015 BB311@2015-Jan-15 14:02 ↔ 2024 MT1@2015-Feb-15 09:02",
+        "coupling": 0.9962
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "neo",
+        "discoveryId": "2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling 2017 YL6@2015-Jan-21 21:02 ↔ 2015 CA14@2015-Feb-16 03:37",
+        "coupling": 0.9959
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0069 ↔ IC0096",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0096 for query IC0069",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0058 ↔ IC0036",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0036 for query IC0058",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0122 ↔ IC0169",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0169 for query IC0122",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0144 ↔ IC0243",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0243 for query IC0144",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0095 ↔ IC0125",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0125 for query IC0095",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0062 ↔ IC0075",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0075 for query IC0062",
+        "coupling": 0.9993
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0028 ↔ IC0170",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0170 for query IC0028",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0047 ↔ IC0037",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0037 for query IC0047",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0004 ↔ IC0107",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0107 for query IC0004",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0161 ↔ IC0112",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0112 for query IC0161",
+        "coupling": 0.9991
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0025 ↔ IC0084",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0084 for query IC0025",
+        "coupling": 0.9991
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0027 ↔ IC0060",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner IC0060 for query IC0027",
+        "coupling": 0.999
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0069 ↔ IC0096",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0069 ↔ IC0096",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0058 ↔ IC0036",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0058 ↔ IC0036",
+        "coupling": 0.9998
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0122 ↔ IC0169",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0122 ↔ IC0169",
+        "coupling": 0.9997
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0144 ↔ IC0243",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0144 ↔ IC0243",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0095 ↔ IC0125",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0095 ↔ IC0125",
+        "coupling": 0.9996
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0058 ↔ IC0170",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0058 ↔ IC0170",
+        "coupling": 0.9995
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0095 ↔ IC0098",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0095 ↔ IC0098",
+        "coupling": 0.9994
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0062 ↔ IC0075",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0062 ↔ IC0075",
+        "coupling": 0.9993
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0028 ↔ IC0170",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0028 ↔ IC0170",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0047 ↔ IC0037",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0047 ↔ IC0037",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0004 ↔ IC0107",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0004 ↔ IC0107",
+        "coupling": 0.9992
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "ngc",
+        "discoveryId": "IC0161 ↔ IC0112",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling IC0161 ↔ IC0112",
+        "coupling": 0.9991
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-604 ↔ ell-609",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-609 for query ell-604",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-581 ↔ ell-586",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-586 for query ell-581",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-106 ↔ ell-111",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-111 for query ell-106",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-202 ↔ ell-207",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-207 for query ell-202",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-107 ↔ ell-112",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-112 for query ell-107",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-654 ↔ ell-659",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-659 for query ell-654",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-793 ↔ ell-798",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-798 for query ell-793",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "ell-385 ↔ ell-390",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner ell-390 for query ell-385",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-5",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 5 |corr|=0.8951 surfaced on AWARE board",
+        "coupling": 0.8951
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-1",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 1 |corr|=0.8888 surfaced on AWARE board",
+        "coupling": 0.8888
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-11",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 11 |corr|=0.884 surfaced on AWARE board",
+        "coupling": 0.884
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-6",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 6 |corr|=0.8818 surfaced on AWARE board",
+        "coupling": 0.8818
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-10",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 10 |corr|=0.8816 surfaced on AWARE board",
+        "coupling": 0.8816
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-2",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 2 |corr|=0.8779 surfaced on AWARE board",
+        "coupling": 0.8779
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-3",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 3 |corr|=0.8775 surfaced on AWARE board",
+        "coupling": 0.8775
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "wmap_tt",
+        "discoveryId": "lag-9",
+        "kind": "awareness_board_spectral_lag",
+        "detail": "Spectral lag 9 |corr|=0.8773 surfaced on AWARE board",
+        "coupling": 0.8773
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner SOD1:ex0@chr21:31659692 for query NPY:ex0@chr7:24284189",
+        "coupling": 0.9139
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner NPY:ex2@chr7:24289498 for query SOD1:ex1@chr21:31663789",
+        "coupling": 0.8387
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner POMC:ex2@chr2:25165635 for query INS:ex2@chr11:2161167",
+        "coupling": 0.7384
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner INS:ex1@chr11:2160784 for query POMC:ex1@chr2:25164640",
+        "coupling": 0.7058
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner POMC:ex0@chr2:25160852 for query PDX1:ex1@chr13:27924255",
+        "coupling": 0.6821
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex3@chr21:25905023 ↔ DYRK1A:ex3@chr21:37478207",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex3@chr21:37478207 for query APP:ex3@chr21:25905023",
+        "coupling": 0.5941
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "DYRK1A:ex9@chr21:37505282 ↔ APP:ex10@chr21:26021839",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner APP:ex10@chr21:26021839 for query DYRK1A:ex9@chr21:37505282",
+        "coupling": 0.5928
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex12@chr21:26053235 ↔ DYRK1A:ex10@chr21:37506098",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex10@chr21:37506098 for query APP:ex12@chr21:26053235",
+        "coupling": 0.5765
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex13@chr21:26089942 ↔ DYRK1A:ex10@chr21:37506098",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex10@chr21:37506098 for query APP:ex13@chr21:26089942",
+        "coupling": 0.5691
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "APP:ex14@chr21:26111978 ↔ DYRK1A:ex9@chr21:37505282",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex9@chr21:37505282 for query APP:ex14@chr21:26111978",
+        "coupling": 0.5555
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "TMPRSS2:ex1@chr21:41467733 ↔ DYRK1A:ex2@chr21:37472683",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DYRK1A:ex2@chr21:37472683 for query TMPRSS2:ex1@chr21:41467733",
+        "coupling": 0.5407
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "DNMT1:ex40@chr19:10194819 ↔ DNMT3A:ex23@chr2:25342429",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner DNMT3A:ex23@chr2:25342429 for query DNMT1:ex40@chr19:10194819",
+        "coupling": 0.3339
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling NPY:ex0@chr7:24284189 ↔ SOD1:ex0@chr21:31659692",
+        "coupling": 0.9139
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling SOD1:ex1@chr21:31663789 ↔ NPY:ex2@chr7:24289498",
+        "coupling": 0.8387
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex3@chr7:24291662",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling SOD1:ex1@chr21:31663789 ↔ NPY:ex3@chr7:24291662",
+        "coupling": 0.8035
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "SOD1:ex1@chr21:31663789 ↔ NPY:ex1@chr7:24285240",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling SOD1:ex1@chr21:31663789 ↔ NPY:ex1@chr7:24285240",
+        "coupling": 0.7702
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ SOD1:ex1@chr21:31663789",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling NPY:ex0@chr7:24284189 ↔ SOD1:ex1@chr21:31663789",
+        "coupling": 0.7682
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "NPY:ex0@chr7:24284189 ↔ PDX1:ex0@chr13:27919999",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling NPY:ex0@chr7:24284189 ↔ PDX1:ex0@chr13:27919999",
+        "coupling": 0.7474
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling INS:ex2@chr11:2161167 ↔ POMC:ex2@chr2:25165635",
+        "coupling": 0.7384
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling POMC:ex1@chr2:25164640 ↔ INS:ex1@chr11:2160784",
+        "coupling": 0.7058
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex1@chr2:25164640 ↔ INS:ex0@chr11:2159778",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling POMC:ex1@chr2:25164640 ↔ INS:ex0@chr11:2159778",
+        "coupling": 0.7005
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling PDX1:ex1@chr13:27924255 ↔ POMC:ex0@chr2:25160852",
+        "coupling": 0.6821
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "POMC:ex2@chr2:25165635 ↔ NPY:ex0@chr7:24284189",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling POMC:ex2@chr2:25165635 ↔ NPY:ex0@chr7:24284189",
+        "coupling": 0.6809
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_exon",
+        "discoveryId": "INS:ex2@chr11:2161167 ↔ POMC:ex1@chr2:25164640",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling INS:ex2@chr11:2161167 ↔ POMC:ex1@chr2:25164640",
+        "coupling": 0.6771
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1860-1980 ↔ chrM:2100-2220",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:2100-2220 for query chrM:1860-1980",
+        "coupling": 0.993
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:9840-9960 ↔ chrM:9420-9540",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:9420-9540 for query chrM:9840-9960",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:2580-2700 ↔ chrM:900-1020",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:900-1020 for query chrM:2580-2700",
+        "coupling": 0.9864
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3300-3420 ↔ chrM:5160-5280",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:5160-5280 for query chrM:3300-3420",
+        "coupling": 0.9862
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5880-6000 ↔ chrM:7200-7320",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:7200-7320 for query chrM:5880-6000",
+        "coupling": 0.9857
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:10260-10380 ↔ chrM:10620-10740",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:10620-10740 for query chrM:10260-10380",
+        "coupling": 0.9837
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:420-540 ↔ chrM:3720-3840",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:3720-3840 for query chrM:420-540",
+        "coupling": 0.9822
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:11280-11400 ↔ chrM:14640-14760",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:14640-14760 for query chrM:11280-11400",
+        "coupling": 0.9809
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3780-3900 ↔ chrM:780-900",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:780-900 for query chrM:3780-3900",
+        "coupling": 0.9785
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1920-2040 ↔ chrM:3060-3180",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:3060-3180 for query chrM:1920-2040",
+        "coupling": 0.9782
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5820-5940 ↔ chrM:2940-3060",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:2940-3060 for query chrM:5820-5940",
+        "coupling": 0.978
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5580-5700 ↔ chrM:6240-6360",
+        "kind": "aware_only_partner_recovery",
+        "detail": "AWARE-only held-out partner chrM:6240-6360 for query chrM:5580-5700",
+        "coupling": 0.9771
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1860-1980 ↔ chrM:2100-2220",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:1860-1980 ↔ chrM:2100-2220",
+        "coupling": 0.993
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:9840-9960 ↔ chrM:9420-9540",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:9840-9960 ↔ chrM:9420-9540",
+        "coupling": 0.9871
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:2580-2700 ↔ chrM:900-1020",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:2580-2700 ↔ chrM:900-1020",
+        "coupling": 0.9864
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3300-3420 ↔ chrM:5160-5280",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:3300-3420 ↔ chrM:5160-5280",
+        "coupling": 0.9862
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5880-6000 ↔ chrM:7200-7320",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:5880-6000 ↔ chrM:7200-7320",
+        "coupling": 0.9857
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:10260-10380 ↔ chrM:10620-10740",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:10260-10380 ↔ chrM:10620-10740",
+        "coupling": 0.9837
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:420-540 ↔ chrM:3720-3840",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:420-540 ↔ chrM:3720-3840",
+        "coupling": 0.9822
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:11280-11400 ↔ chrM:14640-14760",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:11280-11400 ↔ chrM:14640-14760",
+        "coupling": 0.9809
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:3780-3900 ↔ chrM:780-900",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:3780-3900 ↔ chrM:780-900",
+        "coupling": 0.9785
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:1920-2040 ↔ chrM:3060-3180",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:1920-2040 ↔ chrM:3060-3180",
+        "coupling": 0.9782
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5820-5940 ↔ chrM:2940-3060",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:5820-5940 ↔ chrM:2940-3060",
+        "coupling": 0.978
+      },
+      {
+        "rhyme": "LLM",
+        "theater": "genome_chrm",
+        "discoveryId": "chrM:5580-5700 ↔ chrM:6240-6360",
+        "kind": "awareness_board_coupling",
+        "detail": "Top awareness-board coupling chrM:5580-5700 ↔ chrM:6240-6360",
+        "coupling": 0.9771
+      }
+    ]
   },
   "summary": {
     "positiveExpeditionSignal": true,
@@ -228,9 +6211,10 @@
     "nH1": 6,
     "cosmicH1": 4,
     "genomeH1": 2,
+    "nListedDiscoveries": 136,
     "liveLlmConfigured": false,
-    "verdict": "POSITIVE — LLM/language-pack rhyme on cosmic fixtures (4/4 H1) and human-genome exploration (2/2 H1). AWARE packs recover long-range partners LINEAR/FLAT miss under a pack-compliant reader.",
-    "note": "Split from Cosmic Rhyme C5. Genome arm is demonstration/exploration on public panels (not wet-lab genetics). Not ENGINE_SHELF / not frontier bake-off."
+    "verdict": "POSITIVE — LLM/language-pack rhyme on cosmic fixtures (4/4 H1) and human-genome exploration (2/2 H1). AWARE packs recover long-range partners LINEAR/FLAT miss and list named discoveries per theater.",
+    "note": "Split from Cosmic Rhyme C5. Genome arm is demonstration/exploration on public panels (not wet-lab genetics). Discoveries = named AWARE-only partners + board couplings, not pass rates alone."
   },
-  "ms": 386
+  "ms": 352
 }

@@ -1,0 +1,126 @@
+{
+  "documentId": "WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17",
+  "seed": 20261117,
+  "rhyme": "protein-folding on cosmic theaters",
+  "discoveries": [
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·exoplanet",
+      "discoveryId": "disc_year~st_rad",
+      "kind": "open_motif_survivor",
+      "detail": "Catalog selection motif: discovery epoch aligned with stellar-radius slice — survey-history pattern in the observable cosmos, not new physics."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·exoplanet",
+      "discoveryId": "disc_year~st_teff",
+      "kind": "open_motif_survivor",
+      "detail": "Catalog selection motif: discovery epoch aligned with stellar-temperature slice — survey-history pattern in the observable cosmos, not new physics."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·ngc",
+      "discoveryId": "maj_ax~ra",
+      "kind": "open_motif_survivor",
+      "detail": "No automatic named-structure match — candidate novel relational motif under this protocol."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·ngc",
+      "discoveryId": "dec~min_ax",
+      "kind": "open_motif_survivor",
+      "detail": "No automatic named-structure match — candidate novel relational motif under this protocol."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·ngc",
+      "discoveryId": "dec~maj_ax",
+      "kind": "open_motif_survivor",
+      "detail": "No automatic named-structure match — candidate novel relational motif under this protocol."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·ngc",
+      "discoveryId": "min_ax~ra",
+      "kind": "open_motif_survivor",
+      "detail": "No automatic named-structure match — candidate novel relational motif under this protocol."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·ngc",
+      "discoveryId": "min_ax~v_mag",
+      "kind": "open_motif_survivor",
+      "detail": "No automatic named-structure match — candidate novel relational motif under this protocol."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·ngc",
+      "discoveryId": "maj_ax~v_mag",
+      "kind": "open_motif_survivor",
+      "detail": "Angular size–brightness coupling in deep-sky catalogs — selection/morphology audit."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·WMAP residual",
+      "discoveryId": "WMAP residual lag 11",
+      "kind": "candidate_novel_physics",
+      "detail": "candidate for new physics · corr=0.499"
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·WMAP residual",
+      "discoveryId": "WMAP residual lag 14",
+      "kind": "candidate_novel_physics",
+      "detail": "candidate for new physics · corr=0.466"
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·exoplanet_residual",
+      "discoveryId": "log_bmasse~log_rade",
+      "kind": "known_physics_rediscovery",
+      "detail": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·exoplanet_residual",
+      "discoveryId": "st_mass~st_rad",
+      "kind": "known_physics_rediscovery",
+      "detail": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·exoplanet_residual",
+      "discoveryId": "log_orbper~log_rade",
+      "kind": "known_physics_rediscovery",
+      "detail": "Matches a known exoplanet-population template family (period–radius / irradiation / mass–radius / stellar)."
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·wmap_tt_residual",
+      "discoveryId": "WMAP residual lag 17",
+      "kind": "known_physics_rediscovery",
+      "detail": "known-template rediscovery"
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·wmap_tt_residual",
+      "discoveryId": "WMAP residual lag 18",
+      "kind": "known_physics_rediscovery",
+      "detail": "known-template rediscovery"
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·wmap_tt_residual",
+      "discoveryId": "WMAP residual lag 19",
+      "kind": "known_physics_rediscovery",
+      "detail": "known-template rediscovery"
+    },
+    {
+      "rhyme": "protein-folding",
+      "theater": "cosmic·neo_residual",
+      "discoveryId": "h_mag~log_v_rel",
+      "kind": "known_physics_rediscovery",
+      "detail": "known-template rediscovery"
+    }
+  ]
+}

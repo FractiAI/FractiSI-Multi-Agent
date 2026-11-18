@@ -79,6 +79,8 @@ Treat WMAP TT multipoles as a linear sequence. Compare LINEAR local multipole wi
 
 C1–C3 answer whether the protein-folding rhyme (relational representation vs linear reading) travels on cosmic catalogs. That is the expedition focus. Separately, C4 searches for new-physics candidates: leftovers after known selection and known templates are removed. Survivors are reported as candidates for new physics under this protocol.
 
+**Discovery requirement:** H1/H2 pass rates are gates, not the product. Motif survivors (C2), residual candidates (C4), and cross-theater fold discoveries must be listed in `data/DISCOVERY_CATALOG.md` and the unified `data/RHYME_DISCOVERY_CATALOG.md`.
+
 C4a exoplanets: residualize physics axes against disc_year/RA/Dec/distance; nulls = column shuffle + footprint scramble.
 C4b WMAP TT: residualize log Cl against smooth log-ell continuum; null = residual shuffle; acoustic-peak lean → rediscovery.
 C4c OpenNGC: size residual vs brightness; isotropic sky scramble.

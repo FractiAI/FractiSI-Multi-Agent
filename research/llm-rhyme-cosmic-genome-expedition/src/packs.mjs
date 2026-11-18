@@ -243,11 +243,24 @@ export function runLanguagePackRhyme(objects, opts = {}) {
     AWARE: score('AWARE', (_a, p) => lexicalBlindRead(p)),
   };
 
-  const per = capped.map((t) => ({
-    linear: parseSolution(packCompliantRead('LINEAR', packLinear(t))) === t.goldId,
-    flat: parseSolution(packCompliantRead('FLAT', packFlat(t))) === t.goldId,
-    aware: parseSolution(packCompliantRead('AWARE', packAware(t))) === t.goldId,
-  }));
+  const per = capped.map((t) => {
+    const linearHit =
+      parseSolution(packCompliantRead('LINEAR', packLinear(t))) === t.goldId;
+    const flatHit = parseSolution(packCompliantRead('FLAT', packFlat(t))) === t.goldId;
+    const awareHit =
+      parseSolution(packCompliantRead('AWARE', packAware(t))) === t.goldId;
+    return {
+      queryId: t.query.id,
+      partnerId: t.goldId,
+      coupling: t.board[0]?.score ?? 0,
+      boardTop: t.board.slice(0, 5).map((c) => ({ id: c.id, score: Number(c.score.toFixed(4)) })),
+      features: t.query.features,
+      linear: linearHit,
+      flat: flatHit,
+      aware: awareHit,
+      awareOnly: awareHit && !linearHit && !flatHit,
+    };
+  });
   const n = per.length || 1;
   const deltas = [];
   for (let b = 0; b < BOOTSTRAP_B; b += 1) {
@@ -267,6 +280,72 @@ export function runLanguagePackRhyme(objects, opts = {}) {
     aware: compliant.AWARE.rate,
     n: capped.length,
   };
+
+  // Discoveries = named awareness findings, not pass/fail alone.
+  const pairKey = (a, b) => [a, b].sort().join('||');
+  const pairCounts = new Map();
+  for (const t of per) {
+    if (!t.awareOnly) continue;
+    const k = pairKey(t.queryId, t.partnerId);
+    const prev = pairCounts.get(k) || { queryId: t.queryId, partnerId: t.partnerId, n: 0, maxCoupling: 0 };
+    prev.n += 1;
+    prev.maxCoupling = Math.max(prev.maxCoupling, t.coupling);
+    pairCounts.set(k, prev);
+  }
+  const awarenessOnlyPairs = [...pairCounts.values()]
+    .sort((a, b) => b.maxCoupling - a.maxCoupling || b.n - a.n)
+    .slice(0, 12)
+    .map((d) => ({
+      id: `${d.queryId} ↔ ${d.partnerId}`,
+      queryId: d.queryId,
+      partnerId: d.partnerId,
+      maxCoupling: Number(d.maxCoupling.toFixed(4)),
+      nTasks: d.n,
+      kind: 'aware_only_partner_recovery',
+    }));
+
+  // Global top couplings across all queries (awareness board surface).
+  const globalCoupling = new Map();
+  for (const t of capped) {
+    for (const c of t.board.slice(0, 3)) {
+      const k = pairKey(t.query.id, c.id);
+      const prev = globalCoupling.get(k) || {
+        a: t.query.id,
+        b: c.id,
+        maxScore: 0,
+        n: 0,
+      };
+      prev.maxScore = Math.max(prev.maxScore, c.score);
+      prev.n += 1;
+      globalCoupling.set(k, prev);
+    }
+  }
+  const topBoardCouplings = [...globalCoupling.values()]
+    .sort((a, b) => b.maxScore - a.maxScore || b.n - a.n)
+    .slice(0, 12)
+    .map((d) => ({
+      id: `${d.a} ↔ ${d.b}`,
+      a: d.a,
+      b: d.b,
+      maxCoupling: Number(d.maxScore.toFixed(4)),
+      nBoardAppearances: d.n,
+      kind: 'awareness_board_coupling',
+    }));
+
+  const sampleRecoveries = per
+    .filter((t) => t.awareOnly)
+    .sort((a, b) => b.coupling - a.coupling)
+    .slice(0, 8)
+    .map((t) => ({
+      queryId: t.queryId,
+      partnerId: t.partnerId,
+      coupling: Number(t.coupling.toFixed(4)),
+      boardTop: t.boardTop,
+      linearRecovered: t.linear,
+      flatRecovered: t.flat,
+      awareRecovered: t.aware,
+    }));
+
   return {
     domain,
     layer: objects[0]?.layer,
@@ -287,6 +366,14 @@ export function runLanguagePackRhyme(objects, opts = {}) {
       linear: lexical.LINEAR.rate,
       flat: lexical.FLAT.rate,
       aware: lexical.AWARE.rate,
+    },
+    discoveries: {
+      theater: objects[0]?.layer || domain,
+      rhyme: 'LLM language-pack (AWARE)',
+      nAwareOnlyRecoveries: per.filter((t) => t.awareOnly).length,
+      awarenessOnlyPairs,
+      topBoardCouplings,
+      sampleRecoveries,
     },
   };
 }

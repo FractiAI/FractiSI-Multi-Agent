@@ -41,6 +41,10 @@ Protein sequence : MSA board : contact
 ## Observations & novelty (plain)
 
 1. **Observed:** AWARE 100% vs LINEAR/FLAT ~0% on 4 cosmic + 2 genome layers (seed 20261118).  
-2. **Novelty:** method / language-pack generalization (high for this program); genome = demo (moderate); **not** novel physics; **not** frontier bake-off.
+2. **Novelty:** method / language-pack generalization (high for this program); genome = demo (moderate); Cosmic sibling reports two candidates for new physics; this catalog lists LLM-pack discoveries. **Not** a frontier bake-off.
 
 → ∞^∞
+
+## Discovery catalog
+
+Named AWARE-only partners and board couplings per theater are required product — not H1/H2 alone. See `data/DISCOVERY_CATALOG.md` and unified `data/RHYME_DISCOVERY_CATALOG.md` (includes protein-fold theaters + Cosmic two candidates for new physics).
