@@ -48,6 +48,19 @@ Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated a
 | **Shared world vs separate worlds** (CartPole, 1 dim per agent) | Independent **~14** return | Shared **200** |
 | **Tiny Gateway · DRAM & materialize** | Full / conventional | Aggregate **84.5%** · GPU alloc proxy **81.4%** · materialize **~9.6×** (H100 rhyme-vs-prefix ~34% = simulation only) |
 
+### World Model features · Rhyme
+
+Rhyme is a feature category of the FractiSI Multi-Agent World Model. Four members, each measured on public data:
+
+| Rhyme feature | What it does | Measured |
+|---|---|---|
+| **Rhyming Templates** | Reuses structure across sessions; template once, delta per session | −33% to −49% bytes against an exact cache where wording differs |
+| **Shared-World Rhyme** | Agents that each see a slice write into one world | 5×–20× lower next-state error than private copies of the same model |
+| **Protein Folding Rhyme** (new · #53) | Reads a line of parts as a relationship board and names the hidden long-range partner | Held-out partner recovered 100% vs ~0% for local windows on exoplanets, NEOs, OpenNGC, WMAP · [blog](./blog/cosmic-rhyme-expedition/index.html) |
+| **LLM Rhyme** (new · #54) | Writes the board into a prompt as an AWARE language pack | AWARE 100% vs LINEAR / FLAT ~0% (48 tasks per sky layer; 14 exon and 64 chrM genome tasks) · [blog](./blog/llm-rhyme-cosmic-genome/index.html) |
+
+The genome arm is a demonstration on small public panels, not a disease finding. When a reader ignores the ranked board, AWARE falls to ~0%, so the gain is the board in the prompt.
+
 ### Rhyming vs non-rhyming world models
 
 Real agent traffic is mostly the same structure in different words. Exact-text cache and prefix reuse fire only on identical bytes; rhyme matches shape. We ran the head-to-head on public data (RCSB PDB / Pfam, Movebank GPS) and on live open world-model code (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite on CPU).

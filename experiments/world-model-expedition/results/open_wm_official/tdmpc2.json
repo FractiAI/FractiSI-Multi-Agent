@@ -1,0 +1,150 @@
+{
+  "model": "TD-MPC2 (5M params, official single-task pretrained checkpoint, seed 1)",
+  "upstream_repo": "https://github.com/nicklashansen/tdmpc2",
+  "commit_or_revision": {
+    "github": "332f19e4aba4bffe2dc736f45ea7f7bdc585903a",
+    "hf_model_repo": "nicklashansen/tdmpc2",
+    "hf_model_sha": "8fb2a82efb3bae96941da440128fe1332e4394fd"
+  },
+  "executable": true,
+  "blocker": null,
+  "install_commands": [],
+  "hardware": {
+    "device": "cpu",
+    "gpu": false,
+    "cores_visible": 4,
+    "torch_threads": 2,
+    "torch": "2.7.1+cpu",
+    "python": "3.12.3",
+    "mujoco": "3.1.2",
+    "dm_control": "1.0.16"
+  },
+  "identity_baseline_mse": 0.0310864,
+  "capabilities": {
+    "predict": true,
+    "simulate": true,
+    "share": false,
+    "merge": false,
+    "multi_agent_shared_world": false
+  },
+  "notes": [
+    "Real upstream TD-MPC2 agent/world-model/MPPI planner executed on CPU; official HF checkpoint; real dm_control (MuJoCo) physics.",
+    "Upstream hard-codes cuda:0 and asserts CUDA in evaluate.py; evaluated via own loop on a mechanically CPU-patched COPY (see tdmpc2_cpu_patch.diff). Planner/model math unmodified.",
+    "Env stack differs from upstream pins (torch 2.15 / tensordict 0.15 / mujoco 4.0.1 / dm_control 1.0.52 vs upstream torch 2.7.1 / mujoco 3.1.2 / dm-control 1.0.16).",
+    "Eval-mode planning (mean of elite distribution), few episodes only (small n; not a benchmark claim).",
+    "TD-MPC2 is a single-agent latent world model: predicts+plans in its own latent; no share/merge/multi-agent shared world interface. It does NOT use the shared CartPole-v1 eval set (different obs/action spaces: DMControl continuous), so identity_baseline_mse 0.0310864 is not applicable to its latent errors; latent error is compared against its own identity baseline instead.",
+    "Reward one-step error: reward head decoded from two-hot bins; env reward = sum over action-repeat 2."
+  ],
+  "per_task": [
+    {
+      "task": "cartpole-swingup",
+      "checkpoint": "/tmp/wm_official/ckpt/dmcontrol/cartpole-swingup-1.pt",
+      "obs_dim": 5,
+      "action_dim": 1,
+      "model_params": 4932704,
+      "episode_len": 500,
+      "mpc_returns": [
+        199.095855508368,
+        195.11044819322433
+      ],
+      "mpc_mean_return": 197.10315185079617,
+      "mpc_std_return": 1.9927036575718375,
+      "random_returns": [
+        79.4137666400145,
+        19.249414640663417
+      ],
+      "random_mean_return": 49.33159064033896,
+      "planner_seconds_per_step": 0.6281311093200201,
+      "one_step_error_on_mpc_transitions": {
+        "n": 1000,
+        "latent_next_mse": 0.0035787152592092752,
+        "latent_identity_mse": 0.00034146648249588907,
+        "latent_target_variance": 0.03397289663553238,
+        "latent_rel_to_identity": 10.48042909819812,
+        "reward_mse": 0.09118983894586563,
+        "reward_variance": 0.23445384204387665,
+        "reward_mean_baseline_mse": 0.23421941697597504
+      },
+      "one_step_error_on_random_transitions": {
+        "n": 1000,
+        "latent_next_mse": 0.004799484740942717,
+        "latent_identity_mse": 0.00029732080292887986,
+        "latent_target_variance": 0.029247265309095383,
+        "latent_rel_to_identity": 16.14244510866187,
+        "reward_mse": 0.018750308081507683,
+        "reward_variance": 0.019924655556678772,
+        "reward_mean_baseline_mse": 0.01990473084151745
+      },
+      "planner": {
+        "mpc": true,
+        "iterations": 6,
+        "num_samples": 512,
+        "horizon": 3,
+        "num_pi_trajs": 24,
+        "num_elites": 64
+      },
+      "wall_seconds": 630.5740237236023
+    },
+    {
+      "task": "cartpole-balance",
+      "checkpoint": "/tmp/wm_official/ckpt/dmcontrol/cartpole-balance-1.pt",
+      "obs_dim": 5,
+      "action_dim": 1,
+      "model_params": 4932704,
+      "episode_len": 500,
+      "mpc_returns": [
+        999.0163699388504,
+        999.0252532958984
+      ],
+      "mpc_mean_return": 999.0208116173744,
+      "mpc_std_return": 0.004441678524017334,
+      "random_returns": [
+        232.4221884259532,
+        428.6898242815514
+      ],
+      "random_mean_return": 330.5560063537523,
+      "planner_seconds_per_step": 0.37633735062512275,
+      "one_step_error_on_mpc_transitions": {
+        "n": 1000,
+        "latent_next_mse": 0.0017065046122297645,
+        "latent_identity_mse": 1.3355682312976569e-05,
+        "latent_target_variance": 0.0002169182407669723,
+        "latent_rel_to_identity": 127.77367507249708,
+        "reward_mse": 1.9324308595969342e-05,
+        "reward_variance": 5.468988319989876e-07,
+        "reward_mean_baseline_mse": 5.463519414661278e-07
+      },
+      "one_step_error_on_random_transitions": {
+        "n": 1000,
+        "latent_next_mse": 0.0020315421279519796,
+        "latent_identity_mse": 0.00045607986976392567,
+        "latent_target_variance": 0.030181463807821274,
+        "latent_rel_to_identity": 4.454356051722999,
+        "reward_mse": 0.07175319641828537,
+        "reward_variance": 0.36334940791130066,
+        "reward_mean_baseline_mse": 0.36298608779907227
+      },
+      "planner": {
+        "mpc": true,
+        "iterations": 6,
+        "num_samples": 512,
+        "horizon": 3,
+        "num_pi_trajs": 24,
+        "num_elites": 64
+      },
+      "wall_seconds": 377.8535602092743
+    }
+  ],
+  "measured": {
+    "cartpole-swingup": {
+      "mpc_mean_return": 197.10315185079617,
+      "random_mean_return": 49.33159064033896,
+      "planner_seconds_per_step": 0.6281311093200201
+    },
+    "cartpole-balance": {
+      "mpc_mean_return": 999.0208116173744,
+      "random_mean_return": 330.5560063537523,
+      "planner_seconds_per_step": 0.37633735062512275
+    }
+  }
+}

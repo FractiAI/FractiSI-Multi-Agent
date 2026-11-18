@@ -1,0 +1,147 @@
+{
+  "model": "V-JEPA 2 ViT-L/16 fpc64-256 (HF transformers VJEPA2Model, encoder only)",
+  "upstream_repo": "https://github.com/facebookresearch/vjepa2",
+  "commit_or_revision": {
+    "hf_model": "facebook/vjepa2-vitl-fpc64-256",
+    "hf_sha": "b3c1679b7c34d3255ef3547f27c7b226aefab26f",
+    "transformers": "5.23.0"
+  },
+  "executable": true,
+  "blocker": null,
+  "install_commands": [],
+  "hardware": {
+    "device": "cpu",
+    "gpu": false,
+    "cores_visible": 4,
+    "torch_threads": 2,
+    "torch": "2.15.0+cpu",
+    "python": "3.12.3",
+    "dtype": "float32"
+  },
+  "identity_baseline_mse": 0.0310864,
+  "capabilities": {
+    "predict": true,
+    "simulate": false,
+    "share": false,
+    "merge": false,
+    "multi_agent_shared_world": false
+  },
+  "notes": [
+    "Real facebook/vjepa2-vitl-fpc64-256 encoder weights executed on CPU fp32 via HF transformers VJEPA2Model(skip_predictor=True); frames are real gymnasium CartPole-v1 pygame renders (rows of the shared eval npz re-rendered by setting env state).",
+    "Clips use 8 frames (native fpc is 64; 64x256^2 = 8192 tokens is impractical on 2 CPU threads). Temporal RoPE positions are index-based in HF implementation so a shorter clip is a prefix of the native layout, but this is outside the pretraining clip length.",
+    "Frames are squash-resized 600x400 -> 256x256 (no center-crop, which would cut the cart off). ImageNet mean/std normalization as in the model's preprocessor.",
+    "Probes: ridge with 5-fold CV alpha on train; features = mean over all tokens, mean over last temporal token group, or 4x4 spatially pooled last temporal group. Next-state probe input = [latent, action*10 repeated 8x]. Small N (train/test clips as listed); single split; R2 is test-set R2 per state dim.",
+    "Windows are drawn from the shared train/test transitions (random-policy CartPole, episodes are short), so test states have small variance; compare MSE with the identity baseline on the same clips AND with the full-set 0.0310864.",
+    "V-JEPA 2 is a video representation model (predict-in-latent masked prediction). The encoder alone was run; there is no share/merge/multi-agent shared-world mechanism. The V-JEPA 2-AC action-conditioned predictor (ViT-g, ~1B params encoder + predictor, distributed as .pt via dl.fbaipublicfiles, not as an HF transformers checkpoint) was NOT run."
+  ],
+  "model_load_seconds": 0.2202746868133545,
+  "model_params_encoder_M": 303.885312,
+  "model_params_predictor_M": 22.086016,
+  "measured": {
+    "frames_per_clip": 8,
+    "native_frames_per_clip": 64,
+    "resolution": 256,
+    "tokens_per_clip": 1024,
+    "n_train_clips": 100,
+    "n_test_clips": 40,
+    "seconds_per_clip_mean": 4.275223272170947,
+    "seconds_per_clip_median": 4.196497906508739,
+    "seconds_per_clip_min": 3.155838633989333,
+    "seconds_per_clip_max": 5.908575046007172,
+    "latent_dim": 1024,
+    "probes": {
+      "mean_all": {
+        "state_alpha": 100,
+        "state_mse_per_dim": [
+          0.0010539819011201493,
+          0.08537537950542345,
+          0.0004929263214501739,
+          0.19016607839865704
+        ],
+        "state_mse": 0.06927209153166272,
+        "state_r2_per_dim": [
+          0.8623632129101262,
+          0.7721889786400948,
+          0.9526552878780798,
+          0.7497814942430314
+        ],
+        "state_r2_mean": 0.8342472434178331,
+        "state_mse_mean_predictor": 0.29538290146293084,
+        "next_alpha": 100,
+        "next_mse": 0.0723431226688179,
+        "next_r2_per_dim": [
+          0.8891692733894593,
+          0.7694901722083753,
+          0.9516680199410813,
+          0.7488619081426228
+        ],
+        "next_r2_mean": 0.8397973434203847
+      },
+      "last_slice_mean": {
+        "state_alpha": 100,
+        "state_mse_per_dim": [
+          0.0013113265937094143,
+          0.06547916213154525,
+          0.0005388855280867846,
+          0.14121087765085427
+        ],
+        "state_mse": 0.05213506297604893,
+        "state_r2_per_dim": [
+          0.8287572310379763,
+          0.8252789634506918,
+          0.9482409863630773,
+          0.8141962273189708
+        ],
+        "state_r2_mean": 0.854118352042679,
+        "state_mse_mean_predictor": 0.29538290146293084,
+        "next_alpha": 100,
+        "next_mse": 0.056438828280121124,
+        "next_r2_per_dim": [
+          0.8650898970489127,
+          0.8190821627407595,
+          0.9520754152543028,
+          0.8053191243350323
+        ],
+        "next_r2_mean": 0.8603916498447518
+      },
+      "last_slice_4x4": {
+        "state_alpha": 1000.0,
+        "state_mse_per_dim": [
+          0.0005563353051931219,
+          0.08681026804174265,
+          0.0006770950994129537,
+          0.15399983589103566
+        ],
+        "state_mse": 0.0605108835843461,
+        "state_r2_per_dim": [
+          0.9273496026164525,
+          0.7683602000754769,
+          0.9349661984643894,
+          0.7973686519280642
+        ],
+        "state_r2_mean": 0.8570111632710957,
+        "state_mse_mean_predictor": 0.29538290146293084,
+        "next_alpha": 1000.0,
+        "next_mse": 0.08931712067942398,
+        "next_r2_per_dim": [
+          0.9396683872522298,
+          0.6698152162855975,
+          0.9465093528920854,
+          0.7104110139555517
+        ],
+        "next_r2_mean": 0.8166009925963662
+      }
+    },
+    "best_next_feature": "last_slice_mean",
+    "identity_baseline_mse_full_shared_test": 0.0310864,
+    "identity_baseline_mse_on_probe_test_clips": 0.030232393173310813,
+    "mean_predictor_next_mse_on_probe_test_clips": 0.30894024166552836,
+    "reference_linear_true_state_plus_action_next_mse": 1.1075610980190181e-06,
+    "test_state_variance_per_dim": [
+      0.007657704915996924,
+      0.37476404344170844,
+      0.010411433491892627,
+      0.7600000560444597
+    ]
+  }
+}

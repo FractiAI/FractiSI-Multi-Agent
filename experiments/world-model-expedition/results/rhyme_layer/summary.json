@@ -1,0 +1,35 @@
+{
+  "documentId": "RHYME-LAYER-WM-2026-11-18",
+  "title": "Rhyming vs non-rhyming world models: same model, two deployments",
+  "controller": "each model drives its own 4-step rollout controller; no hand-written balancing rule",
+  "returns": {
+    "dreamer_family_rssm": {
+      "nonRhymingPrivateWorlds": 139.3,
+      "rhymingSharedWorld": 199.5,
+      "nextStateMsePrivate": 0.0009938490842663374,
+      "nextStateMseShared": 0.00017426958354405998
+    },
+    "tdmpc_lite": {
+      "nonRhymingPrivateWorlds": 200,
+      "rhymingSharedWorld": 200,
+      "nextStateMsePrivate": 0.0012696517495876713,
+      "nextStateMseShared": 0.00012553598471015448
+    },
+    "muzero_lite": {
+      "nonRhymingPrivateWorlds": 200,
+      "rhymingSharedWorld": 199.4,
+      "nextStateMsePrivate": 0.0026253746964588066,
+      "nextStateMseShared": 0.00013302515472219057
+    }
+  },
+  "randomBaselineReturn": 20.45,
+  "telemetryBytes": {
+    "messages": 400,
+    "naiveBytes": 136546,
+    "exactCacheBytes": 136546,
+    "exactTextHits": 0,
+    "rhymeBytes": 69912,
+    "rhymeVersusCache": 0.4879967190543846,
+    "equivalent": true
+  }
+}

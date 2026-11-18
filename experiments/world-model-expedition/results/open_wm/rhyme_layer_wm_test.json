@@ -1,0 +1,62 @@
+{
+  "documentId": "RHYME-LAYER-WM-TEST-2026-11-18",
+  "design": "same world model, private copies vs rhyming shared world",
+  "episodes": 20,
+  "horizon": 4,
+  "agents": 4,
+  "train_seconds": 4.406749718007632,
+  "random_baseline": {
+    "mean_return": 20.45,
+    "std_return": 9.211270270706423
+  },
+  "models": {
+    "dreamer_family_rssm": {
+      "non_rhyming_private_worlds": {
+        "mean_return": 139.3,
+        "std_return": 21.92966028008642
+      },
+      "rhyming_shared_world": {
+        "mean_return": 199.5,
+        "std_return": 1.9621416870348585
+      },
+      "next_state_mse_under_partial_observation": {
+        "shared_world_mse": 0.00017426958354405998,
+        "private_worlds_mse": 0.0009938490842663374,
+        "n": 400
+      },
+      "seconds": 75.21617479200359
+    },
+    "tdmpc_lite": {
+      "non_rhyming_private_worlds": {
+        "mean_return": 200.0,
+        "std_return": 0.0
+      },
+      "rhyming_shared_world": {
+        "mean_return": 200.0,
+        "std_return": 0.0
+      },
+      "next_state_mse_under_partial_observation": {
+        "shared_world_mse": 0.00012553598471015448,
+        "private_worlds_mse": 0.0012696517495876713,
+        "n": 400
+      },
+      "seconds": 85.09160464900197
+    },
+    "muzero_lite": {
+      "non_rhyming_private_worlds": {
+        "mean_return": 200.0,
+        "std_return": 0.0
+      },
+      "rhyming_shared_world": {
+        "mean_return": 199.4,
+        "std_return": 2.395829710142188
+      },
+      "next_state_mse_under_partial_observation": {
+        "shared_world_mse": 0.00013302515472219057,
+        "private_worlds_mse": 0.0026253746964588066,
+        "n": 400
+      },
+      "seconds": 66.5726873800013
+    }
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rhyming vs Non-Rhyming World Models · FractiSI Multi-Agent</title>
+  <meta name="description" content="Rhyming vs non-rhyming world models, head to head on real data and on upstream open models executed locally: DreamerV3, MuZero, TD-MPC2, V-JEPA 2. Same model, two deployments.">
+  <link rel="stylesheet" href="../css/site.css?v=35">
+  <style>
+    .stack-table td:first-child { font-weight: 600; }
+    .section-head { margin: 3.2rem 0 0.4rem; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/test-drive/">Test Drive</a>
+      <a href="/blog/">Blog</a>
+      <a href="/research/">Research</a>
+      <a href="/library/">Library</a>
+      <a href="/open/">Open</a>
+      <a href="/company/">Company</a>
+      <a href="/recruit/">Recruit</a>
+      <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <section class="hero" aria-labelledby="rvn-title">
+      <p class="kicker">Expedition · FractiSI Multi-Agent World Model</p>
+      <h1 id="rvn-title">Rhyming vs Non-Rhyming World Models</h1>
+      <p class="lede">A world model that recognizes structure against one that recognizes only words. Same models, same data, one question: which one does more work when agents share a world?</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#same-model">See the head-to-head</a>
+        <a class="btn-ghost" href="/blog/shared-world-collective-intelligence/">Read the write-up</a>
+        <a class="btn-ghost" href="#rerun">Re-run it</a>
+      </div>
+    </section>
+  </div>
+
+  <main class="wrap">
+    <article class="page">
+
+      <div class="metrics">
+        <div><b>−33% to −49%</b><span>Bytes against an exact cache on real protein, GPS and agent telemetry where wording differs.</span></div>
+        <div><b>5× to 20×</b><span>Lower next-state error with one shared world than with private copies of the same model.</span></div>
+        <div><b>100 / 100</b><span>Guided discovery with a rhyming shared world, against 0 / 100 for a flat skim.</span></div>
+        <div><b>4 upstream</b><span>Open world models executed locally on CPU, plus three compact arms.</span></div>
+      </div>
+
+      <h2 class="section-head" id="same-model">Same model, two deployments</h2>
+      <p>The cleanest test of rhyming against non-rhyming keeps the world model fixed and changes only how agents share it. Four agents each see one CartPole dimension. In the non-rhyming deployment every agent keeps a private copy of the model and the group votes. In the rhyming deployment agents write into one shared world and a single model reads the merged state. Each model drives its own controller by rolling its learned dynamics four steps ahead. No hand-written balancing rule is used for any model arm. Random play scores 20.5.</p>
+      <table class="stack-table">
+        <thead><tr><th>World model</th><th>Return · private copies</th><th>Return · shared world</th><th>Next-state error · private</th><th>Next-state error · shared</th></tr></thead>
+        <tbody>
+          <tr><td>Dreamer-family RSSM</td><td>139.3</td><td><strong>199.5</strong></td><td>0.00099</td><td><strong>0.00017</strong> (5.7× lower)</td></tr>
+          <tr><td>TD-MPC-lite</td><td>200</td><td>200</td><td>0.00127</td><td><strong>0.00013</strong> (10× lower)</td></tr>
+          <tr><td>MuZero-lite</td><td>200</td><td>199.4</td><td>0.00263</td><td><strong>0.00013</strong> (20× lower)</td></tr>
+        </tbody>
+      </table>
+      <p>The shared world predicts the next state 5.7× to 20× better for every model. It changes the outcome for one of three: the Dreamer-family arm falls from 199.5 to 139.3 when its agents are cut off from each other. The other two stay at 200 because the pole-angle agent alone carries enough signal for this task. We report that rather than hide it. A task where several agents hold different necessary facts is the next step.</p>
+
+      <h2 class="section-head" id="traffic">Same structure, different words</h2>
+      <p>Real agent traffic is mostly one structure carrying different content. Exact-text caches and prefix reuse fire only on identical bytes. Rhyming Templates match the shape and store each session as a delta.</p>
+      <table class="stack-table">
+        <thead><tr><th>Traffic</th><th>Non-rhyming</th><th>Rhyming</th></tr></thead>
+        <tbody>
+          <tr><td>Agent telemetry from the CartPole runs, 400 messages</td><td>Exact cache 136,546 B · 0 hits</td><td><strong>69,912 B · −49%</strong></td></tr>
+          <tr><td>Protein contacts (RCSB PDB / Pfam), 48 sessions</td><td>Exact cache 22,261 B · 0 hits</td><td><strong>14,882 B · −33%</strong></td></tr>
+          <tr><td>Calibration, 40 sessions</td><td>Exact cache 13,424 B · 0 hits</td><td><strong>7,385 B · −45%</strong></td></tr>
+          <tr><td>Guided discovery, 100 scenarios, 6 hops</td><td>Flat skim 0 / 100</td><td><strong>100 / 100</strong></td></tr>
+          <tr><td>Mostly identical bytes (75%+ repeats)</td><td><strong>Exact cache and prefix reuse win</strong></td><td>Use them. FractiSI keeps them.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-head" id="executed">Open world models executed locally</h2>
+      <p>Every model we can run on this hardware was run. No arm is a stub.</p>
+      <table class="stack-table">
+        <thead><tr><th>Upstream model</th><th>What ran</th><th>Measured</th><th>Share / merge</th></tr></thead>
+        <tbody>
+          <tr><td>DreamerV3</td><td>danijar/dreamerv3, JAX, size1m, 5,000 steps, 824 s on CPU</td><td>Next-state error 0.0255 vs 0.0311 copy-forward. Policy return 65.3 over 10 episodes.</td><td>None</td></tr>
+          <tr><td>MuZero</td><td>werner-duvaud/muzero-general, 3,000 updates, 656 s, MCTS</td><td>Policy return 218.9 over 10 episodes. No observation decoder, so next-state error is not defined; reward error 0.003.</td><td>None</td></tr>
+          <tr><td>TD-MPC2</td><td>nicklashansen/tdmpc2, official 5M-parameter checkpoints, real MuJoCo physics</td><td>cartpole-swingup 197 vs 49 random. cartpole-balance 999 vs 331 random. 2 episodes each.</td><td>None</td></tr>
+          <tr><td>V-JEPA 2</td><td>facebook/vjepa2-vitl-fpc64-256 encoder, 4.3 s per clip on CPU, real CartPole renders</td><td>Keeps the state: R² 0.85 across 40 held-out clips. A probe predicting the next state scores 0.056 against 0.030 for copy-forward, so it does not beat it.</td><td>None</td></tr>
+        </tbody>
+      </table>
+      <p>The three compact arms (Dreamer-family RSSM, TD-MPC-lite, MuZero-lite) are small PyTorch models trained in seconds. They carry the same-model test above because their dynamics can be queried for any partial state. None of the seven arms has a share or merge operation, which is the job the rhyming shared world does.</p>
+      <p>Not run: V-JEPA 2-AC (about 1B parameters, not distributed as a standard checkpoint, beyond this machine's memory), Cosmos (GPU) and Genie (closed). DIAMOND and Oasis are GPU-class and were not attempted. Upstream arms were trained for minutes, so returns reflect short training. Each model is scored on its own task, so the returns are not a ranking.</p>
+
+      <h2 class="section-head" id="rhyme-features">Rhyme features of the World Model</h2>
+      <p>Rhyming is a feature category, not one trick. Two members are new.</p>
+      <table class="stack-table">
+        <thead><tr><th>Feature</th><th>Role in the World Model</th><th>Measured</th></tr></thead>
+        <tbody>
+          <tr><td>Rhyming Templates</td><td>Structure reuse across sessions</td><td>−33% to −49% bytes where wording differs</td></tr>
+          <tr><td>Shared-World Rhyme</td><td>Multi-agent share and merge</td><td>5× to 20× lower next-state error</td></tr>
+          <tr><td><a href="/blog/cosmic-rhyme-expedition/">Protein Folding Rhyme</a> <span class="quiet">(new)</span></td><td>Names the hidden long-range partner from a relationship board</td><td>100% vs ~0% on exoplanets, NEOs, OpenNGC, WMAP</td></tr>
+          <tr><td><a href="/blog/llm-rhyme-cosmic-genome/">LLM Rhyme</a> <span class="quiet">(new)</span></td><td>Gives a language model the board as an AWARE pack</td><td>AWARE 100% vs LINEAR / FLAT ~0%</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-head" id="verdict">Verdict</h2>
+      <p>Rhyming and non-rhyming world models do different jobs. Open latent models own single-agent imagination and planning. A rhyming shared world owns share, merge and structure reuse, which is where multi-agent work happens. The two are complementary, and the measured differences above are specific to the second job.</p>
+
+      <p class="honesty"><strong>What this does not show.</strong> On the protein task a plain structured blackboard also reached 100%, so the claim there is bytes, not accuracy. The shared-world accuracy gain comes from sharing, and a blackboard would match it. The rhyme layer's own contribution is the byte saving and structure reuse. Compact arms are small CPU implementations, not full checkpoints. Upstream arms were trained for minutes, so their numbers describe short training, not each model's ceiling. V-JEPA 2-AC, Cosmos and Genie are not run. Architectural and structured-state measurements, not production fleet benchmarks.</p>
+
+      <h2 class="section-head" id="rerun">Re-run it</h2>
+      <pre><code>git clone https://github.com/FractiAI/FractiSI-Multi-Agent.git
+cd FractiSI-Multi-Agent
+node experiments/world-model-expedition/scripts/run_expedition_v2.mjs
+node experiments/world-model-expedition/scripts/run_rhyme_layer.mjs</code></pre>
+      <p>Receipts: <a href="https://github.com/FractiAI/FractiSI-Multi-Agent/blob/main/docs/world-model-expedition/final-report.md">final report</a> · <a href="/blog/shared-world-collective-intelligence/">write-up</a> · <a href="/product/#rhyme-features">feature table</a>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>FractiSI</span>
+    <span>
+      <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      · <a href="/product/">Product</a>
+      · <a href="/company/">Company</a>
+      · <a href="/recruit/">Recruit</a>
+      · <a href="https://github.com/FractiAI">GitHub</a>
+    </span>
+  </footer>
+</body>
+</html>

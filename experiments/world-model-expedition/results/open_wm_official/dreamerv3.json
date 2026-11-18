@@ -1,0 +1,98 @@
+{
+  "model": "DreamerV3 (upstream JAX, size1m config)",
+  "upstream_repo": "https://github.com/danijar/dreamerv3",
+  "commit": "e01491fad6434b2245a3b8ca201dd7faedcc458c",
+  "install_commands": [
+    "git clone https://github.com/danijar/dreamerv3 /tmp/wm_official/dreamerv3",
+    "python3 -m virtualenv /tmp/wm_official/venv_dreamer  # python3-venv/ensurepip unavailable on VM",
+    "/tmp/wm_official/venv_dreamer/bin/pip install 'jax[cpu]==0.4.33' 'numpy<2' chex einops 'elements>=3.19.1' 'granular>=0.20.3' jaxtyping ninjax optax 'portal>=3.5.0' 'scope>=0.4.4' tqdm colored_traceback gymnasium 'google-resumable-media>=2.7.2' ruamel.yaml",
+    "OMP_NUM_THREADS=2 /tmp/wm_official/venv_dreamer/bin/python src/open_wms_official/run_dreamerv3.py --steps 5000 --train_ratio 256"
+  ],
+  "executable": true,
+  "blocker": null,
+  "hardware": {
+    "cpu_only": true,
+    "cores_available": 4,
+    "threads_limited_to": 2,
+    "jax_devices": [
+      "TFRT_CPU_0"
+    ],
+    "jax": "0.4.33",
+    "platform": "Linux-6.12.113+-x86_64-with-glibc2.39"
+  },
+  "train_steps": 5000,
+  "train_seconds": 823.8,
+  "train_config": {
+    "configs": "size1m",
+    "train_ratio": 256.0,
+    "batch_size": 16,
+    "batch_length": 64,
+    "compute_dtype": "float32",
+    "online_envs": 1,
+    "seed": 0,
+    "gradient_updates_approx": 1250
+  },
+  "predict_next_obs_mse": 0.02551155351102352,
+  "predict_next_obs_mse_method": "teacher-forced posterior context along each held-out test episode, then one RSSM prior step with the dataset action, decoded by the trained decoder (upstream imagine+decode, single stochastic sample). Trained ONLINE in CartPole; test_* never used for training.",
+  "predict_next_obs_per_dim_mse": [
+    0.004584531299769878,
+    0.030548401176929474,
+    0.006374632008373737,
+    0.0605386421084404
+  ],
+  "posterior_recon_mse_test": 0.01844135671854019,
+  "train_split_next_obs_mse": 0.03717528283596039,
+  "test_transitions": 798,
+  "test_episodes": 40,
+  "identity_baseline_mse": 0.0310864,
+  "beats_identity_baseline": true,
+  "policy_mean_return": 65.3,
+  "policy_std_return": 11.419719786404569,
+  "policy_returns": [
+    54.0,
+    61.0,
+    71.0,
+    83.0,
+    48.0,
+    76.0,
+    73.0,
+    62.0,
+    75.0,
+    50.0
+  ],
+  "policy_episodes": 10,
+  "policy_note": "upstream stochastic policy (sampled), CartPole-v1 seeds 1000-1009, cap 500 steps",
+  "online_training_episode_scores_first10": [
+    27.0,
+    33.0,
+    11.0,
+    23.0,
+    15.0,
+    13.0,
+    13.0,
+    15.0,
+    11.0,
+    15.0
+  ],
+  "online_training_episode_scores_last10": [
+    41.0,
+    70.0,
+    68.0,
+    41.0,
+    54.0,
+    58.0,
+    129.0,
+    62.0,
+    32.0,
+    57.0
+  ],
+  "online_training_episodes": 185,
+  "capabilities": {
+    "predict": true,
+    "simulate": true,
+    "share": false,
+    "merge": false,
+    "multi_agent_shared_world": false
+  },
+  "notes": "Actual upstream code executed (embodied.run.train + dreamerv3.agent.Agent subclass for eval hooks only; upstream tree unmodified). Short training (a few thousand env steps) so numbers reflect an under-trained smallest-size model. Capabilities: predict/simulate (latent imagination) are native; DreamerV3 has no model sharing/merging or multi-agent shared world protocol (single-agent, per-run checkpoint). Wall time (823.8s) was measured while MuZero training and a smoke run shared the 4 cores, plus another agent, so it is inflated. train_steps = env steps (5000) at train_ratio 256 (~1250 gradient updates). Next-obs MSE beats the identity baseline on test_* (0.0255 vs 0.0311) but on train_* transitions it does not (0.0372); single seed, single stochastic sample, so treat as indicative not conclusive."
+}

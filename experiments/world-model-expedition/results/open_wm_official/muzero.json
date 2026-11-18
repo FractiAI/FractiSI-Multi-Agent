@@ -1,0 +1,319 @@
+{
+  "model": "MuZero (upstream muzero-general, cartpole config, fullyconnected net, MCTS)",
+  "upstream_repo": "https://github.com/werner-duvaud/muzero-general",
+  "commit": "8c65818f917fa6b601c013e0ca65e19c472f8c35",
+  "install_commands": [
+    "git clone https://github.com/werner-duvaud/muzero-general /tmp/wm_official/muzero-general",
+    "python3 -m virtualenv /tmp/wm_official/venv_muzero  # python3-venv/ensurepip unavailable on VM",
+    "/tmp/wm_official/venv_muzero/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu",
+    "/tmp/wm_official/venv_muzero/bin/pip install ray nevergrad tensorboard seaborn graphviz 'gymnasium[classic-control]' numpy matplotlib",
+    "OMP_NUM_THREADS=1 /tmp/wm_official/venv_muzero/bin/python src/open_wms_official/run_muzero.py --training_steps 3000 --num_simulations 25"
+  ],
+  "executable": true,
+  "blocker": null,
+  "hardware": {
+    "cpu_only": true,
+    "cores_available": 4,
+    "threads_limited_to": 2,
+    "ray_num_cpus": 2,
+    "torch": "2.15.0+cpu",
+    "ray": "2.60.0",
+    "platform": "Linux-6.12.113+-x86_64-with-glibc2.39"
+  },
+  "train_steps": 3000,
+  "train_steps_unit": "gradient updates (includes 300 random-data warmup updates)",
+  "env_steps_collected": 5645,
+  "games_collected": 220,
+  "train_seconds": 655.6,
+  "config_overrides": {
+    "num_workers": 1,
+    "num_threads": 1,
+    "num_simulations": 25,
+    "training_steps": 3000,
+    "random_bootstrap_episodes": 300,
+    "random_bootstrap_training_steps": 300,
+    "validation_interval": 0,
+    "checkpoint_selection": "last",
+    "evaluation_episodes": 10,
+    "save_model": false,
+    "results_path": "/tmp/wm_official/muzero_results/run",
+    "selfplay_on_gpu": false,
+    "train_on_gpu": false,
+    "reanalyse_on_gpu": false,
+    "max_num_gpus": 0
+  },
+  "predict_next_obs_mse": null,
+  "predict_next_obs_mse_null_reason": "MuZero is a value-equivalent model: dynamics(latent, action) -> (latent', reward); the prediction function gives (policy, value). It has no observation decoder, so next-observation MSE is not defined for the upstream model.",
+  "identity_baseline_mse": 0.0310864,
+  "what_it_predicts": {
+    "reward_mse_dynamics_head_vs_dataset_reward_test": 0.0030667895916849375,
+    "reward_note": "CartPole reward is constant 1.0 so this is a trivially-learnable target",
+    "value_mse_vs_discounted_mc_return_test": 26.908842086791992,
+    "value_mse_mean_return_baseline_test": 56.279544830322266,
+    "value_note": "off-policy: dataset is random-policy episodes; value head estimates MuZero-policy return",
+    "value_mean_pred": 12.20958137512207,
+    "value_mean_target": 11.495153427124023,
+    "latent_value_consistency_mse_test": 5.685838222503662,
+    "latent_value_consistency_note": "v(dynamics(h(o_t),a_t)) vs v(h(o_{t+1})) with real o_{t+1}",
+    "discount": 0.997
+  },
+  "diagnostic_probes_not_part_of_muzero": {
+    "ridge_probe_dynamics_latent_to_next_obs_mse_test": 0.0071090576335017955,
+    "ridge_probe_repr_latent_of_real_next_obs_to_next_obs_mse_test": 0.0026352908956147644,
+    "note": "Linear ridge regression fit on train_* latents -> next obs, scored on test_*. This is an external probe of how much observation info the latent keeps; it is NOT a MuZero prediction and not comparable to a decoder-based world model's native MSE."
+  },
+  "policy_mean_return": 218.9,
+  "policy_returns": [
+    163.0,
+    245.0,
+    272.0,
+    205.0,
+    308.0,
+    204.0,
+    170.0,
+    205.0,
+    213.0,
+    204.0
+  ],
+  "policy_episodes": 10,
+  "policy_note": "upstream evaluate(): greedy MCTS (25 simulations), no root noise, seeds 1000000.., cap 500 moves",
+  "upstream_evaluation_report": {
+    "episode_count": 10,
+    "mean_reward": 218.9,
+    "std_reward": 42.214807828533345,
+    "median_reward": 205.0,
+    "minimum_reward": 163.0,
+    "maximum_reward": 308.0,
+    "target_reward": 475,
+    "target_met": false,
+    "episodes": [
+      {
+        "seed": 1000000,
+        "reward": 163.0,
+        "length": 163
+      },
+      {
+        "seed": 1000001,
+        "reward": 245.0,
+        "length": 245
+      },
+      {
+        "seed": 1000002,
+        "reward": 272.0,
+        "length": 272
+      },
+      {
+        "seed": 1000003,
+        "reward": 205.0,
+        "length": 205
+      },
+      {
+        "seed": 1000004,
+        "reward": 308.0,
+        "length": 308
+      },
+      {
+        "seed": 1000005,
+        "reward": 204.0,
+        "length": 204
+      },
+      {
+        "seed": 1000006,
+        "reward": 170.0,
+        "length": 170
+      },
+      {
+        "seed": 1000007,
+        "reward": 205.0,
+        "length": 205
+      },
+      {
+        "seed": 1000008,
+        "reward": 213.0,
+        "length": 213
+      },
+      {
+        "seed": 1000009,
+        "reward": 204.0,
+        "length": 204
+      }
+    ],
+    "game": "cartpole",
+    "training_step": 3000,
+    "training_steps_completed": 3000,
+    "training_origin": {
+      "type": "fresh_self_play"
+    },
+    "policy": "MCTS",
+    "temperature": 0,
+    "root_exploration_noise": false,
+    "reward_units": "environment",
+    "config": {
+      "seed": 0,
+      "max_num_gpus": 0,
+      "num_threads": 1,
+      "observation_shape": [
+        1,
+        1,
+        4
+      ],
+      "observation_scale": 1,
+      "reward_scale": 1,
+      "action_space": [
+        0,
+        1
+      ],
+      "players": [
+        0
+      ],
+      "stacked_observations": 0,
+      "muzero_player": 0,
+      "opponent": null,
+      "num_workers": 1,
+      "selfplay_batch_size": 1,
+      "selfplay_on_gpu": false,
+      "max_moves": 500,
+      "num_simulations": 25,
+      "discount": 0.997,
+      "temperature_threshold": null,
+      "root_dirichlet_alpha": 0.25,
+      "root_exploration_fraction": 0.5,
+      "pb_c_base": 19652,
+      "pb_c_init": 5.0,
+      "known_bounds": null,
+      "network": "fullyconnected",
+      "support_size": 20,
+      "train_reward": true,
+      "downsample": false,
+      "blocks": 1,
+      "channels": 2,
+      "resnet_state_normalization": "global",
+      "reduced_channels_reward": 2,
+      "reduced_channels_value": 2,
+      "reduced_channels_policy": 2,
+      "resnet_fc_reward_layers": [],
+      "resnet_fc_value_layers": [],
+      "resnet_fc_policy_layers": [],
+      "encoding_size": 32,
+      "fc_representation_layers": [
+        32
+      ],
+      "fc_dynamics_layers": [
+        64
+      ],
+      "fc_reward_layers": [
+        32
+      ],
+      "fc_value_layers": [
+        32
+      ],
+      "fc_policy_layers": [
+        32
+      ],
+      "results_path": "/tmp/wm_official/muzero_results/run",
+      "save_model": false,
+      "training_steps": 3000,
+      "temperature_schedule": [
+        [
+          0,
+          1.0
+        ],
+        [
+          5000,
+          0.5
+        ],
+        [
+          12500,
+          0.25
+        ],
+        [
+          20000,
+          0.1
+        ]
+      ],
+      "batch_size": 128,
+      "checkpoint_interval": 10,
+      "value_loss_weight": 0.25,
+      "policy_loss_weight": 1,
+      "train_on_gpu": false,
+      "optimizer": "Adam",
+      "max_grad_norm": null,
+      "weight_decay": 0.0001,
+      "momentum": 0.9,
+      "lr_init": 0.001,
+      "lr_decay_rate": 0.4,
+      "lr_decay_steps": 25000,
+      "replay_buffer_size": 500,
+      "num_unroll_steps": 10,
+      "td_steps": 500,
+      "PER": false,
+      "PER_alpha": 0.5,
+      "random_bootstrap_episodes": 300,
+      "random_bootstrap_keep_best": 3,
+      "random_bootstrap_training_steps": 300,
+      "reanalyse_batch_size": 32,
+      "use_last_model_value": false,
+      "reanalyse_policy": false,
+      "reanalyse_policy_ratio": 0.8,
+      "reanalyse_on_gpu": false,
+      "self_play_delay": 0,
+      "training_delay": 0,
+      "ratio": 0.5,
+      "evaluation_both_players": false,
+      "evaluation_episodes": 10,
+      "evaluation_seed": 1000000,
+      "evaluation_target": 475,
+      "validation_interval": 0,
+      "validation_episodes": 20,
+      "validation_seed": 5000000,
+      "checkpoint_selection": "last"
+    },
+    "runtime": {
+      "python": "3.12.3",
+      "packages": {
+        "torch": "2.15.0+cpu",
+        "numpy": "2.5.5",
+        "ray": "2.60.0",
+        "gymnasium": "1.4.0"
+      },
+      "git_commit": "8c65818f917fa6b601c013e0ca65e19c472f8c35",
+      "tracked_code_dirty": false,
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_sha256": {
+        "config.py": "9ba4adb60cf18329341ef53114b33afad2117e85b2a32b6d1923bdff0f252e71",
+        "diagnose_model.py": "21514adc8a2b28afb03aa40aaf5fb6e1a5f90c5af3fa3259250126874365afe6",
+        "evaluation.py": "ec468556d87ab55b6515c55c61181df797b4b5ed59438deb7bbcedbd88226512",
+        "game_history.py": "4396cd2c7955ab12c866596ebe4640d544b1de4d356e51639964cb59a43475f5",
+        "models.py": "238106063e9e691a840c1dfd33c4368ec32fd1723718b8bee69c5a68a0cf6980",
+        "muzero.py": "fb5423b44b9a99cb90e1e965fd28efad5876a0f2d3e7229c103c465d494314f8",
+        "random_bootstrap.py": "b37e67ad7004230c608f3fe8e4ed114fc900fb68a8e7aafcad8fe45d5fd722af",
+        "replay_buffer.py": "b35c89303638d62fc80d7baf59b1c100a4aff8af547672de575515d5d586eddf",
+        "self_play.py": "5dda843fa007ad9e2f8da295ed00d61c08d6e3e45f87c5c9756a42da199643a1",
+        "shared_storage.py": "bd1dd3617f12f0b6e498bf6ab40532be2db63ba04808e9074cd7ddbf523c7a2e",
+        "trainer.py": "5792212bb368be6d2f45386904779fe8ed0e0b4d00eac3c1e8ef18d80b5d1dd6",
+        "games/abstract_game.py": "7aff56602de8cc6e85ca062694b6949ae2e205483fd5be995342cfc272f28001",
+        "games/atari.py": "3655f7499213582751656fd3830eb051373a228fb0d571bbceba9aff69761429",
+        "games/breakout.py": "4ac4c1469eb3648eaf329d970e730322dfe1a0f89803dbd369b90773711fb8e2",
+        "games/cartpole.py": "8c435b94351100ec7bce65363cbf980f3b03d4523c3ba57b98ddc935140d9c13",
+        "games/connect4.py": "0baa482bfc0a3b9170873a7dd177c34d70fab9718a72b05d6cb3c5fd379666b3",
+        "games/gomoku.py": "60156c723f7a2b734b311b23055bf4fc8c94e05fd1278bbaf1c9976cf8958ee6",
+        "games/gridworld.py": "59c4dda77e8bc178be1e69a3ab79e3640c8c9cb5f20ea498bc48c934179dbe10",
+        "games/lunarlander.py": "dcadd27392daa7210d34d7bb5df207582b82598d1a837396fa381216d565d29c",
+        "games/openspiel.py": "26d42916062068d8909817a381cd60f7e9e8e3bfae70dc6551b2eb13fac8a27b",
+        "games/simple_grid.py": "e54cf116bc6f1259e6490d6db97f5e2d04378851b874fd7a82645dc324f30d98",
+        "games/tictactoe.py": "3fcb932f1375c55bcc2fa4e7c564d97c1013a404342deabc6376d1809fda85c9",
+        "games/twentyone.py": "aad50fef775b904601141fb12d05651ea7f48f9f79c262da3df55669b2b2e176"
+      }
+    },
+    "checkpoint": null,
+    "checkpoint_sha256": null
+  },
+  "capabilities": {
+    "predict": true,
+    "simulate": true,
+    "share": false,
+    "merge": false,
+    "multi_agent_shared_world": false
+  },
+  "notes": "Actual upstream training (Ray actors: trainer, replay buffer, self-play) executed on CPU. predict = reward/value/policy in latent space only (no observation prediction); simulate = latent rollouts for MCTS planning. No model sharing/merging or multi-agent shared-world mechanism in upstream. Short training so results reflect an under-trained model. Wall time (655.6s) was measured while DreamerV3 training shared the 4 cores, plus another agent, so it is inflated. Policy return is greedy MCTS (25 sims) from the upstream evaluate() on 10 seeds; single training seed, final-checkpoint ('last') weights, no validation selection. Upstream evaluation target (475) NOT met."
+}

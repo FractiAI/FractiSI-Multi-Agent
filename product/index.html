@@ -93,6 +93,7 @@
       </div>
 
       <h2 class="section-head" id="head-to-head">Rhyming vs non-rhyming world models</h2>
+      <p><a href="/rhyming-vs-non-rhyming/">Full expedition page →</a></p>
       <p>Real multi-agent traffic is mostly the same structure in different words. Exact-text caches and prefix reuse fire only when bytes repeat. A rhyme matches shape. We ran the head-to-head on public data and live open world-model code.</p>
       <table class="stack-table">
         <thead><tr><th>Traffic or task</th><th>Non-rhyming baseline</th><th>FractiSI rhyme</th></tr></thead>
@@ -140,6 +141,19 @@
           <tr><td>Deploy</td><td>Approval-gated publishing. Paid editions, Team and above.</td></tr>
         </tbody>
       </table>
+      <h2 class="section-head" id="rhyme-features">World Model features · Rhyme</h2>
+      <p>The FractiSI World Model recognizes structure, not only words. Rhyme is a feature category with four members, each measured on public data.</p>
+      <table class="stack-table">
+        <thead><tr><th>Rhyme feature</th><th>What it does</th><th>Measured</th></tr></thead>
+        <tbody>
+          <tr><td>Rhyming Templates</td><td>Reuses structure across sessions. Stores the template once and each session as a delta.</td><td>−33% to −45% bytes vs exact cache where wording differs</td></tr>
+          <tr><td>Shared-World Rhyme</td><td>Lets agents that each see a slice write into one world and read the merged state.</td><td>Next-state error 5× to 20× lower than private copies</td></tr>
+          <tr><td><a href="/blog/cosmic-rhyme-expedition/">Protein Folding Rhyme</a> <span class="quiet">(new · #53)</span></td><td>Reads a line of parts as a relationship board and names the hidden long-range partner, the way a folded protein reveals distant contacts.</td><td>Held-out partner recovered 100% vs ~0% for local windows on exoplanets, NEOs, OpenNGC and WMAP</td></tr>
+          <tr><td><a href="/blog/llm-rhyme-cosmic-genome/">LLM Rhyme</a> <span class="quiet">(new · #54)</span></td><td>Writes the relationship board into a prompt as an AWARE language pack, so a language model can use it.</td><td>AWARE 100% vs LINEAR / FLAT ~0% (48 tasks per sky layer; 14 exon and 64 chrM genome tasks)</td></tr>
+        </tbody>
+      </table>
+      <p class="honesty">Protein Folding Rhyme and LLM Rhyme are measured as held-out partner recovery on public sky catalogs and small public genome panels. The genome arm is a demonstration, not a disease finding. When a reader ignores the ranked board and matches only overlapping words, AWARE falls to about 0%, so the gain comes from the board in the prompt. Papers: <a href="/library/papers/cosmic-rhyme-expedition/">Cosmic Rhyme</a> · <a href="/library/papers/llm-rhyme-cosmic-genome/">LLM Rhyme</a>.</p>
+
       <p>Under the product, the Tiny Gateway uses Rhyming Templates to reuse structure across sessions. A rhyme is a pattern that repeats, is self-similar, corrects itself, and recurses across scale. It is not an exact-text or prefix cache. See the <a href="/library/papers/holographic-rhyme/">holographic rhyme paper</a> and the <a href="/library/papers/tiny-gateway-rhyming-templates/">Tiny Gateway paper</a>.</p>
       <p class="foundations">Foundations: Base Mainnet → Syntheverse Sandbox → Generative possibility → Net Zero → Φ<sub>EGS</sub> → Infinite Octaves → Boundary nodes → Holographic rhyme → Recursive trees → 3D hexagon, eight-node honeycomb → Wave–Node–Fq → Awareness → Rhyming Templates → Tiny Gateway → Tiny Footprint → Coordination · Shared state · Composition · Git awareness · Deploy → FractiSI Multi-Agent.</p>
       <figure class="figure">
