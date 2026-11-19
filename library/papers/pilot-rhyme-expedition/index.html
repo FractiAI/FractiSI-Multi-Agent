@@ -34,7 +34,7 @@
   </header>
 
   <h2>Honesty boundary</h2>
-  <p>Architectural / structured-state lab. Director/Pilot seats rebuild a published coordination pattern (LingBot-style paper seats); we do not ship or depend on LingBot weights (CC BY-NC-SA). Private Director/Pilot copies and an exact-text role cache also recovered every mission — so the accuracy gain versus flat peers is the role structure, and the differentiated rhyme claim is store size when mission wording differs. Not CapEx, not embodied robotics, not an LLM bake-off.</p>
+  <p>Architectural / structured-state lab. Director/Pilot seats rebuild a published coordination pattern (LingBot-style paper seats); we do not ship or depend on LingBot weights (CC BY-NC-SA). Private Director/Pilot copies and an exact-text role cache also recovered every mission — so the accuracy gain versus flat peers is the role structure, and the differentiated rhyme claim is store size when mission wording differs. Theater candidates: Pilot recovers long-range partners flat peers miss (692 named); private Director/Pilot also recovers board gold. Not CapEx, not embodied robotics, not an LLM bake-off.</p>
 
   <h2>Abstract</h2>
   <p>We compared five arms on 100 six-hop missions with differing wording: flat peers, shared text without roles, Director/Pilot with private copies, Director/Pilot with an exact-text cache, and Director/Pilot with Pilot Rhyme (role template once + shared world + per-mission deltas). Flat peers and shared text recovered 0 of 100. All three Director/Pilot arms recovered 100 of 100. The exact-text cache hit zero times. Pilot Rhyme stored the work <strong>22% smaller</strong> than the exact-text cache and <strong>80% smaller</strong> than private Director/Pilot copies.</p>
@@ -53,6 +53,22 @@
       <tr><td><strong>Director/Pilot · Pilot Rhyme</strong></td><td><strong>100</strong></td><td><strong>67,243 B · 22% vs exact · 80% vs private</strong></td></tr>
     </tbody>
   </table>
+
+  
+  <h2>Theater candidate recovery</h2>
+  <p>Director holds the coupling map; Pilots hold local slices; flat peers only see nearby rows. On the same public Cosmic and genome fixtures used by the other rhyme expeditions, Pilot Rhyme recovered every long-range held-out partner task and flat peers recovered none — <strong>692</strong> named candidates (Pilot hit, flat miss).</p>
+  <table class="stack-table">
+    <thead><tr><th>Theater</th><th>Tasks</th><th>Flat</th><th>Pilot Rhyme</th><th>Candidates</th></tr></thead>
+    <tbody>
+      <tr><td>Exoplanets</td><td>169</td><td>0%</td><td><strong>100%</strong></td><td>169</td></tr>
+      <tr><td>NEO encounters</td><td>96</td><td>0%</td><td><strong>100%</strong></td><td>96</td></tr>
+      <tr><td>OpenNGC</td><td>173</td><td>0%</td><td><strong>100%</strong></td><td>173</td></tr>
+      <tr><td>WMAP TT</td><td>148</td><td>0%</td><td><strong>100%</strong></td><td>148</td></tr>
+      <tr><td>Genome exons</td><td>39</td><td>0%</td><td><strong>100%</strong></td><td>39</td></tr>
+      <tr><td>chrM windows</td><td>67</td><td>0%</td><td><strong>100%</strong></td><td>67</td></tr>
+    </tbody>
+  </table>
+  <p>Examples: <code>Kepler-607 c ↔ TOI-1758 b</code>, <code>2022 AP1 ↔ 2025 WO</code>, <code>INS:ex2 ↔ POMC:ex2</code>. Catalog: <code>research/pilot-rhyme-expedition/data/DISCOVERY_CATALOG.md</code>. Genome rows are demos; cosmic rows are fixture partners — candidates for follow-up, not finished discoveries.</p>
 
   <h2>What Pilot Rhyme adds to the World Model</h2>
   <p>It is the fifth rhyme feature, beside Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme, and LLM Rhyme. Use it when agents need stable roles (one map-holder, many local executors) across many missions whose wording changes.</p>

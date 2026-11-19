@@ -8,6 +8,7 @@
  * Not: LingBot weights, embodied robotics, CapEx, LLM bake-off.
  */
 import { DOCUMENT_ID, SEED, SCENARIOS, HOPS, PILOTS, FLAT_BUDGET, ARMS } from './constants.mjs';
+import { runAllPilotTheaters } from './theaters.mjs';
 
 function mulberry32(a) {
   return function rand() {
@@ -282,7 +283,21 @@ export function runFullExpedition(opts = {}) {
     : 'MIXED / NOT SUPPORTED — see arm table.';
   summary.positiveExpeditionSignal = positive;
   summary.honesty =
-    'Architectural / structured-state lab. Director/Pilot seats rebuild a published coordination pattern; no LingBot weights. Not CapEx, not embodied robotics, not an LLM bake-off.';
+    'Architectural / structured-state lab. Director/Pilot seats rebuild a published coordination pattern; no LingBot weights. Theater candidate arm reuses Cosmic/LLM public fixtures. Not CapEx, not embodied robotics, not an LLM bake-off, not clinical genetics, not finished physics.';
+
+  const theaters = runAllPilotTheaters({ seed });
+  summary.theaters = {
+    layers: theaters.results.map((r) => ({
+      theater: r.theater,
+      nTasks: r.nTasks,
+      rates: r.rates,
+      wins: r.wins,
+      nDiscoveries: r.discoveries.length,
+    })),
+    discoveries: theaters.discoveries,
+    nDiscoveries: theaters.discoveries.length,
+  };
+  summary.positiveTheaterSignal = theaters.discoveries.length > 0;
 
   return summary;
 }

@@ -21,3 +21,12 @@ test('Pilot Rhyme surfaces exist', () => {
   assert.ok(existsSync(join(root, 'blog/pilot-rhyme-expedition/index.html')));
   assert.ok(existsSync(join(root, 'library/papers/shared-world-collective-intelligence/index.html')));
 });
+
+test('Pilot Rhyme surfaces theater candidates flat peers miss', async () => {
+  const { runFullExpedition } = await import('../../research/pilot-rhyme-expedition/src/experiments.mjs');
+  const r = runFullExpedition({ scenarios: 20 });
+  assert.ok(r.theaters.nDiscoveries > 0);
+  assert.ok(r.theaters.layers.every((l) => l.rates.flat_peers === 0));
+  assert.ok(r.theaters.layers.every((l) => l.rates.director_pilot_rhyme === 1));
+  assert.ok(existsSync(join(root, 'research/pilot-rhyme-expedition/data/DISCOVERY_CATALOG.json')));
+});
