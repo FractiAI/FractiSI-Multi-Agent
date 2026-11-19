@@ -1,3 +1,12 @@
+## Wiring wet lab (new)
+
+- `wiring-discoveries/`
+- `wiring-bridge-thickening/`
+- `combo-rhyme-wiring/`
+- `npy-sod1-rhyme-validation/`
+- `app-dnmt3a-rhyme-validation/`
+- `wmap-residual-lag11-validation/`
+
 # Library papers
 
 One folder per paper page on the FractiSI site.
