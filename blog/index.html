@@ -4,8 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog · FractiSI</title>
-  <meta name="description" content="FractiSI blog: product context, open research, and archival event notes.">
-  <link rel="stylesheet" href="../css/site.css?v=47">
+  <meta name="description" content="Research notes on the experiments behind FractiSI Multi-Agent.">
+  <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Research notes on the experiments behind FractiSI Multi-Agent.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fractisi.vercel.app/blog/">
+  <link rel="canonical" href="https://fractisi.vercel.app/blog/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
 </head>
 <body>
   <header class="nav">
@@ -13,99 +18,159 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="/product/">Product</a>
       <a href="/product/pricing/">Pricing</a>
-      <a href="/test-drive/">Test Drive</a>
-      <a href="/blog/">Blog</a>
       <a href="/research/">Research</a>
       <a href="/library/">Library</a>
-      <a href="/open/">Open</a>
+      <a href="/blog/" aria-current="page">Blog</a>
       <a href="/company/">Company</a>
       <a class="button" href="/test-drive/">Start Test Drive</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <article class="page">
-      <p class="kicker">FractiSI</p>
-      <h1>Blog</h1>
-      <p class="lede">Posts on what we are testing and how to run it yourself.</p>
-
-      <section class="list" aria-label="Posts">
-                                
-                                <a class="row" href="/blog/wiring-bridge-thickening/">
-                                  <span class="row-title">Bridge Thickening — When Different Rhymes Keep Landing on the Same Pair</span>
-                                  <span class="row-meta">Nov 20 · methodology</span>
-                                </a>
-                                <a class="row" href="/blog/wiring-discoveries/">
-                                  <span class="row-title">The Wiring Wet Lab — Why Re-Spend Time and Money When the Work Is Already Done?</span>
-                                  <span class="row-meta">Nov 20 · wiring wet lab</span>
-                                </a>
-                                <a class="row" href="/blog/combo-rhyme-wiring/">
-                                  <span class="row-title">Combo Rhyme Wiring — New STRING-empty Candidates from Three Rhymes</span>
-                                  <span class="row-meta">Nov 20 · expedition</span>
-                                </a>
-                                <a class="row" href="/blog/npy-sod1-rhyme-validation/">
-                                  <span class="row-title">NPY ↔ SOD1 — Wiring Wet Lab Peer</span>
-                                  <span class="row-meta">Nov 19 · peer</span>
-                                </a>
-                                <a class="row" href="/blog/app-dnmt3a-rhyme-validation/">
-                                  <span class="row-title">APP ↔ DNMT3A — Wiring Wet Lab Peer</span>
-                                  <span class="row-meta">Nov 19 · peer</span>
-                                </a>
-                                <a class="row" href="/blog/wmap-residual-lag11-validation/">
-                                  <span class="row-title">WMAP Lags 11/14 — Provisional Spectrum Wiring</span>
-                                  <span class="row-meta">Nov 19 · peer</span>
-                                </a>
-                                <a class="row" href="/blog/pilot-rhyme-expedition/">
-                  <h3>Pilot Rhyme: one map-holder, many local agents, one shared world</h3>
-                </a>
-            <p class="meta">New World Model rhyme feature. Director/Pilot seats, shared world, 100/100 vs flat 0, 22% smaller than exact role cache.</p>
-                <a class="row" href="/blog/shared-world-collective-intelligence/">
-          <time>Nov 18, 2026</time>
-          <div>
-            <h3>Do Rhyming World Models Outperform Non-Rhyming Ones?</h3>
-            <p class="meta">Rhyming vs non-rhyming world models — prior shared-world gains, now head-to-head against exact-cache and open latent WMs.</p>
-          </div>
+    <section class="index-page">
+      <header class="index-head">
+        <p class="kicker">Blog</p>
+        <h1>What we are testing, in plain language</h1>
+        <p class="dek">Short research notes on the experiments behind FractiSI. Each links to the full paper and to the code that regenerates the numbers.</p>
+      </header>
+      <div class="index-list" aria-label="Posts">
+        <a class="row" href="/blog/wiring-bridge-thickening/">
+          <time datetime="2026-11-20">Nov 20</time>
+          <span class="row-main">
+            <span class="row-title">Bridge Thickening — When Different Rhymes Keep Landing on the Same Pair</span>
+            <span class="row-dek">Finding a new name on a list is one kind of work. Asking whether five different shelves keep pointing at that same name is another.</span>
+          </span>
+          <span class="row-tag">Wiring stack</span>
         </a>
-<a class="row" href="/blog/llm-rhyme-cosmic-genome/">
-          <time>Nov 18, 2026</time>
-          <div>
-            <h3>Exploring the LLM Rhyme on Sky Catalogs and the Genome</h3>
-            <p class="meta">Explore the LLM Rhyme: AWARE packs recover partners on cosmic catalogs (4/4) and a human-genome demo (2/2).</p>
-          </div>
+        <a class="row" href="/blog/wiring-discoveries/">
+          <time datetime="2026-11-20">Nov 20</time>
+          <span class="row-main">
+            <span class="row-title">The Wiring Wet Lab — Why Re-Spend Time and Money When the Work Is Already Done?</span>
+            <span class="row-dek">There should be no reason to spend the time and money when it has already been done.</span>
+          </span>
+          <span class="row-tag">Wiring stack</span>
+        </a>
+        <a class="row" href="/blog/aware-attention-head/">
+          <time datetime="2026-11-20">Nov 20</time>
+          <span class="row-main">
+            <span class="row-title">What Does a Persistent Orchestrating Head Actually Need to Beat a Voting Crowd?</span>
+            <span class="row-dek">A mechanism test on scripted agents: evidence-checked attention, on-demand specialist shells, and careful hand-off. The advantage tracks how much the baseline loses.</span>
+          </span>
+          <span class="row-tag">Multi-agent design</span>
+        </a>
+        <a class="row" href="/blog/combo-rhyme-wiring/">
+          <time datetime="2026-11-20">Nov 20</time>
+          <span class="row-main">
+            <span class="row-title">When Protein-Folding, LLM, and Pilot Rhymes Share One Catalog, Do New Wires Appear?</span>
+            <span class="row-dek">Night workers who merge three spreadsheets after the kids are asleep already know that a new row can appear only when joins are allowed.</span>
+          </span>
+          <span class="row-tag">Wiring stack</span>
+        </a>
+        <a class="row" href="/blog/app-dnmt3a-rhyme-validation/">
+          <time datetime="2026-11-19">Nov 19</time>
+          <span class="row-main">
+            <span class="row-title">Can Published DNMT3A Tools That Edit APP Be Filed as New Wiring?</span>
+            <span class="row-dek">Adult children rearranging work around a parent’s memory clinic, and nurses charting myeloid counts between overtime hours, live where Alzheimer genetics and epigenetic…</span>
+          </span>
+          <span class="row-tag">Wiring stack</span>
+        </a>
+        <a class="row" href="/blog/wmap-residual-lag11-validation/">
+          <time datetime="2026-11-19">Nov 19</time>
+          <span class="row-main">
+            <span class="row-title">Is Residual Lag Wiring on the Real WMAP Spectrum a Discovery If Beam Stories Can Still Explain It?</span>
+            <span class="row-dek">Night-shift engineers who still pull NASA tables after the kids are asleep already know that a bump in one spectrum is not a breakthrough.</span>
+          </span>
+          <span class="row-tag">Wiring stack</span>
+        </a>
+        <a class="row" href="/blog/npy-sod1-rhyme-validation/">
+          <time datetime="2026-11-19">Nov 19</time>
+          <span class="row-main">
+            <span class="row-title">When Existing ALS Wet Labs Wire NPY to SOD1, Is That a New Discovery?</span>
+            <span class="row-dek">Families waiting on ALS clinic news already know that science often advances by connecting work that lived in separate folders.</span>
+          </span>
+          <span class="row-tag">Wiring stack</span>
+        </a>
+        <a class="row" href="/blog/shared-world-collective-intelligence/">
+          <time datetime="2026-11-18">Nov 18</time>
+          <span class="row-main">
+            <span class="row-title">Do Rhyming World Models Outperform Non-Rhyming Ones?</span>
+            <span class="row-dek">Fair comparative harness. Shared worlds beat independent agents on collective knowledge, planning, and relational tasks.</span>
+          </span>
+          <span class="row-tag">Shared World Models Expedition</span>
+        </a>
+        <a class="row" href="/blog/llm-rhyme-cosmic-genome/">
+          <time datetime="2026-11-18">Nov 18</time>
+          <span class="row-main">
+            <span class="row-title">Exploring the LLM Rhyme on Sky Catalogs and the Genome</span>
+            <span class="row-dek">This expedition explores the LLM Rhyme: writing public sky catalogs and a small human-genome panel as LINEAR, FLAT, and AWARE language packs, then asking whether a careful reader…</span>
+          </span>
+          <span class="row-tag">LLM Rhyme Expedition</span>
+        </a>
+        <a class="row" href="/blog/pilot-rhyme-expedition/">
+          <time datetime="2026-11-18">Nov 18</time>
+          <span class="row-main">
+            <span class="row-title">Pilot Rhyme: one map-holder, many local agents, one shared world</span>
+            <span class="row-dek">A new World Model rhyme feature. Keep the Director and Pilot roles once. Write each mission as only what differs. Let the team share one world instead of private copies.</span>
+          </span>
+          <span class="row-tag">Pilot Rhyme Expedition</span>
         </a>
         <a class="row" href="/blog/cosmic-rhyme-expedition/">
-          <time>Nov 17, 2026</time>
-          <div>
-            <h3>Protein Folding as a Rhyme for the Sky</h3>
-            <p class="meta">Explore the protein-folding rhyme on public sky catalogs. Secondary: two candidates for new physics (WMAP residual lags 11 and 14).</p>
-          </div>
+          <time datetime="2026-11-17">Nov 17</time>
+          <span class="row-main">
+            <span class="row-title">Protein Folding as a Rhyme for the Sky</span>
+            <span class="row-dek">Can the same grammar that recovers a hidden long-range contact in a protein — line of parts → relationship board → partner — open public sky catalogs the same way?</span>
+          </span>
+          <span class="row-tag">Cosmic Rhyme Expedition</span>
         </a>
         <a class="row" href="/blog/nvidia-goldilocks-moment/">
-          <time>Nov 15, 2026</time>
-          <div>
-            <h3>What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO</h3>
-            <p class="meta">World Model migration for NVIDIA — and protein folding as a rhyme for intelligence: linear sequences to relational worlds.</p>
-          </div>
+          <time datetime="2026-11-15">Nov 15</time>
+          <span class="row-main">
+            <span class="row-title">What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO</span>
+            <span class="row-dek">Can human and digital agents be upgraded together by changing the World Model through which they coordinate? NVIDIA is the natural place to ask.</span>
+          </span>
+          <span class="row-tag">Fractal Holographic Goldilocks Superintelligence Awareness Expedition</span>
         </a>
         <a class="row" href="/blog/aai-symposium-2026/">
-          <time>Archive · Nov 2026</time>
-          <div>
-            <h3>Applied Active Inference Symposium (archive)</h3>
-            <p class="meta">Historical note from the Nov 12–13, 2026 session. The live track remains the evergreen Test Drive.</p>
-          </div>
+          <time datetime="2026-11-12">Nov 12</time>
+          <span class="row-main">
+            <span class="row-title">The Multi-Agent World Inference Rhyme?</span>
+            <span class="row-dek">FractiSI is presenting at the Applied Active Inference Symposium.</span>
+          </span>
+          <span class="row-tag">Symposium</span>
         </a>
-      </section>
-
-      <div class="cta-row">
-        <a class="btn-primary" href="/test-drive/">Open the Test Drive</a>
-        <a class="btn-ghost" href="/library/">Library</a>
       </div>
-    </article>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <span>FractiSI · Blog</span>
-    <span><a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a></span>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
   </footer>
 </body>
 </html>

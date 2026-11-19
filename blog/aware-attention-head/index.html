@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Does a Persistent Orchestrating Head Actually Need to Beat a Voting Crowd? · FractiSI</title>
+  <meta name="description" content="A mechanism test on scripted agents: evidence-checked attention, on-demand specialist shells, and careful hand-off. The advantage tracks how much the baseline loses.">
+  <meta property="og:title" content="What Does a Persistent Orchestrating Head Actually Need to Beat a Voting Crowd?">
+  <meta property="og:description" content="A mechanism test on scripted agents: evidence-checked attention, on-demand specialist shells, and careful hand-off. The advantage tracks how much the baseline loses.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/blog/aware-attention-head/">
+  <link rel="canonical" href="https://fractisi.vercel.app/blog/aware-attention-head/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/">Library</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="doc doc-blog">
+      <header class="doc-head">
+        <p class="kicker">Blog · Multi-agent design</p>
+        <h1>What Does a Persistent Orchestrating Head Actually Need to Beat a Voting Crowd?</h1>
+        <p class="dek">A mechanism test on scripted agents: evidence-checked attention, on-demand specialist shells, and careful hand-off. The advantage tracks how much the baseline loses.</p>
+        <dl class="doc-meta">
+          <div><dt>Published</dt><dd>November 20, 2026</dd></div>
+          <div><dt>By</dt><dd>FractiAI Research</dd></div>
+          <div><dt>Reading time</dt><dd>5 min</dd></div>
+        </dl>
+        <div class="doc-actions">
+          <a class="btn-primary" href="/library/papers/aware-attention-head/">Read the full paper</a>
+          <a class="btn-ghost" href="/library/papers/fractisi-expedition-002-beyond-memory/">Expedition 002</a>
+        </div>
+      </header>
+      <div class="prose">
+<p>Anyone who has sat through a committee meeting knows the failure. Six people agree because the first speaker sounded sure, and the one person who read the contract says so quietly and is outvoted. Teams of software agents inherit the same habit, because the usual way to combine them is to count votes or add up confidence. Long jobs add a second problem: by the fourth hand-off between contexts, nobody remembers what the job was for. This note asks which parts of an orchestrating layer actually fix those two failures, and which parts only sound good.</p>
+
+    <h2 id="the-problem-in-two-pieces">The problem, in two pieces</h2>
+    <p>The first piece is attention. When a small group holds an answer that is backed by independent evidence and a large group holds a different answer with thin support, a vote picks the large group. Weighting by confidence does not rescue it, because the large group’s combined weight still wins. The second piece is continuity. A mission stated at the start of a long task is corrupted a little at every switch of context, and a fact established early is dropped at some hand-off. A family planning a move across three states, with a mortgage lender, a school registrar, and a landlord each holding part of the story, has the same trouble. The details leak at the seams.</p>
+
+    <h2 id="the-experiment">The experiment</h2>
+    <p>We built a scripted simulator and compared three designs on 200 randomized trials in each of four task families. The first design is flat agents that vote. The second is a shared world where every signal is read and votes are weighted by confidence, which is a deliberately strong baseline. The third adds an orchestrating head with four abilities: it checks whether a signal is independently corroborated instead of counting it, it builds a specialist shell when a capability gap appears, it keeps a persistent record of the mission, and it reconstructs only what the next context needs.</p>
+    <p>One family is built to catch the head being gullible. In about a third of the attention trials the confident minority is a decoy: its members are sure of themselves, nothing corroborates them, and the majority is right. A head that simply trusts the minority should fail those trials. We also ran every ability alone with the others on, and swept how much the baselines lose at each hand-off.</p>
+
+    <h2 id="hypothesis">Hypothesis</h2>
+    <p>If the head matters, removing any one ability should cost it accuracy in the family that ability serves, and the decoy trials should punish a head that follows the minority without checking. If the head’s advantage on continuity is real rather than assumed, it should shrink as the baselines get better at keeping their own missions and facts, and vanish when they match the head.</p>
+
+    <h2 id="results">Results</h2>
+    <p>Across the four families the head is right 94.8 percent of the time, against 68.4 percent for the shared world and 63.1 percent for flat voting, at about the same compute per trial. The gap is largest on attention, where the corroborated minority beats the majority every time in the simulator, and smallest on hand-off, where the shared world already does reasonably well.</p>
+    <p>The decoy trials tell the more useful story. The head that follows any minority is right on none of them. The head that checks corroboration gets all of them. Following the minority is not the ability that matters. Checking the minority is. Removing the check costs 39.5 points, and removing meta-attention entirely costs 58. Removing shell creation costs 18.5 points on the capability-gap family, removing the persistent mission costs 19.5 on the long-task family, and removing selective reconstruction costs 9.5 on hand-offs.</p>
+
+    <h2 id="qualifications">Qualifications</h2>
+    <p>Two of these numbers are consequences of how we built the test, and they should be read that way. The head’s perfect score on attention exists because corroboration is a clean flag in the simulator. In real systems corroboration is noisy, and a head can be fooled by agreeable evidence or by someone gaming it. The head’s lead on continuity depends on loss rates we chose rather than measured: the baselines drift on fifteen percent of context switches and the head on two percent.</p>
+    <p>The sensitivity sweep makes that dependence explicit. When the baselines lose only two percent per hand-off, the same as the head, the advantage on continuity falls to zero. At five percent it is six points on missions and two and a half on facts. At fifteen percent it is nineteen and a half and thirteen and a half. The head pays off in proportion to how leaky the alternative is. That is a testable prediction rather than a slogan, and it is the part we would most like someone to check on live agents.</p>
+
+    <h2 id="why-a-framework-like-this-is-worth-testing">Why a framework like this is worth testing</h2>
+    <p>Teams building agent systems are making these choices now: whether to add an orchestrator, what it should be responsible for, and how much to pay for it. A map from ability to failure mode helps them spend on the part that matters. An orchestrator that only counts votes adds cost and nothing else. One that checks evidence, funds specialists when they are needed, and carries the mission forward earns its place on long jobs where the cost of a dropped detail is a missed closing date or a repeated week of work. The name we use for the design, an aware attention head, is a label for those four abilities and carries no claim beyond them.</p>
+
+    <h2 id="invitation">Invitation</h2>
+    <p>The paper lays out the simulator, the assumptions, the ablations, and the gates, and the repository reproduces every number with a single command. The next step is to replace the scripted agents with live ones, measure the real loss rates and the real reliability of corroboration, and see whether the break-even in the sweep predicts where the head helps. If you run that replication and the head loses, we want the result more than we want the win.</p>
+
+    <p class="honesty">Honesty rail: Application companion computational mechanism test on scripted agent simulators, not a measurement of live LLM agents, not a claim about consciousness or spirit, and not engine shelf — the pin is deferred until a live-agent replication exists. Baseline loss rates are stated assumptions. Φ_EGS filing grammar only.</p>
+
+      </div>
+      <section class="related" aria-label="Related">
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/library/papers/aware-attention-head/"><span class="related-kind">Paper</span><span class="related-title">The Aware Attention Head Expedition — Which Mechanisms Does a Persistent Orchestrating Head Actually Need?</span></a>
+        <a class="related-card" href="/blog/combo-rhyme-wiring/"><span class="related-kind">Blog</span><span class="related-title">When Protein-Folding, LLM, and Pilot Rhymes Share One Catalog, Do New Wires Appear?</span></a>
+        <a class="related-card" href="/blog/wiring-bridge-thickening/"><span class="related-kind">Blog</span><span class="related-title">Bridge Thickening — When Different Rhymes Keep Landing on the Same Pair</span></a>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
+</body>
+</html>

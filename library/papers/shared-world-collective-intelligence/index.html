@@ -4,66 +4,122 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rhyming vs Non-Rhyming World Models · FractiSI</title>
-  <meta name="description" content="Head-to-head: rhyming vs non-rhyming world models on real data and open-source models run locally.">
-  <link rel="stylesheet" href="/css/site.css?v=46">
+  <meta name="description" content="Head-to-head on real traffic and open-source world models run locally. 33–49% smaller when wording differs; 5×–20× more accurate when agents share a world.">
+  <meta property="og:title" content="Rhyming vs Non-Rhyming World Models">
+  <meta property="og:description" content="Head-to-head on real traffic and open-source world models run locally. 33–49% smaller when wording differs; 5×–20× more accurate when agents share a world.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/library/papers/shared-world-collective-intelligence/">
+  <link rel="canonical" href="https://fractisi.vercel.app/library/papers/shared-world-collective-intelligence/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
 </head>
 <body>
-<header class="nav">
-  <a class="wordmark" href="/">FractiSI</a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="/product/">Product</a>
-    <a href="/library/">Library</a>
-    <a href="/blog/">Blog</a>
-    <a href="/research/">Research</a>
-    <a class="button" href="/test-drive/">Start Test Drive</a>
-  </nav>
-</header>
-<main class="wrap">
-<article class="paper">
-
-  <p class="kicker">FractiSI Research Expedition · Rhyming vs Non-Rhyming World Models</p>
-  <h1>Rhyming vs Non-Rhyming World Models</h1>
-  <p class="lede">Prior expeditions already showed that a rhyming shared world between agents produces measurable gains. This expedition asks the next question: where does a rhyming world model beat a non-rhyming one, on real data and on open-source world models we ran ourselves?</p>
-  <p class="paper-actions"><a href="/library/">← Library</a> · <a href="/blog/shared-world-collective-intelligence/">Blog</a> · <a href="/rhyming-vs-non-rhyming/">Head-to-head page</a> · <a href="/docs/world-model-expedition/final-report.md">Final report</a></p>
-  <header class="paper-masthead">
-    <p><strong>Document ID:</strong> <code>WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18</code></p>
-    <p><strong>Operator:</strong> SynthOBS Autonomous Agent · Syntheverse Sandbox</p>
-    <p><strong>Date:</strong> 18 November 2026</p>
-    <p><strong>Harness:</strong> <code>experiments/world-model-expedition/</code></p>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/" aria-current="page">Library</a>
+      <a href="/blog/">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
   </header>
 
-  <h2>Honesty boundary</h2>
-  <p>Application companion Soft Story / computational expedition. Lab results on public data and short CPU training runs. Not a production CapEx guarantee, not an LLM bake-off, not embodied Level 5. On the protein task a plain shared notebook also got every answer right, so there the gain is size, not accuracy. Upstream DreamerV3 / MuZero / TD-MPC2 / V-JEPA 2 numbers describe minutes of training on a laptop-class CPU. TD-MPC2 is a partial reproduction.</p>
+  <main class="wrap">
+    <div class="doc-layout">
+      <article class="doc doc-paper">
+        <header class="doc-head">
+          <p class="kicker">Paper · Multi-agent research</p>
+          <h1>Rhyming vs Non-Rhyming World Models</h1>
+          <p class="dek">Head-to-head on real traffic and open-source world models run locally. 33–49% smaller when wording differs; 5×–20× more accurate when agents share a world.</p>
+          <dl class="doc-meta">
+            <div><dt>Published</dt><dd>November 18, 2026</dd></div>
+            <div><dt>Type</dt><dd>Application companion</dd></div>
+            <div><dt>Document ID</dt><dd><code>WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18</code></dd></div>
+            <div><dt>Reading time</dt><dd>2 min</dd></div>
+          </dl>
+          <div class="doc-actions">
+          <a class="btn-primary" href="/blog/shared-world-collective-intelligence/">Read the blog post</a>
+          <a class="btn-ghost" href="/library/">All papers</a>
+          </div>
+        </header>
+        <div class="prose">
+<section class="callout" aria-label="Honesty boundary"><h2 id="honesty-boundary">Honesty boundary</h2>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>What this is</th><th>What it is not</th></tr></thead><tbody><tr><td>application companion</td><td>Head-to-head rhyming vs non-rhyming world models</td><td>engine shelf pin</td></tr><tr><td>Empirical (Level 2–3)</td><td>Real E9/Movebank fixtures + live CPU open WM arms + FractiSI rhyme engine</td><td>Embodied Level 5</td></tr><tr><td>Prior expeditions</td><td>Exp 002 / Tiny Gateway already established rhyming shared-world gains</td><td>Re-litigating that baseline as unknown</td></tr><tr><td>Open WMs</td><td>Dreamer-family / TD-MPC-lite / MuZero-lite <strong>live on CPU</strong></td><td>Full GPU Genie/Cosmos/V-JEPA zoo</td></tr></tbody></table></div>
+</section>
+<h2 id="title-lock">Title lock</h2>
+<p>Prior expeditions already showed that <strong>rhyming a shared world model between agents</strong> produces observable, replicable, falsifiable differentiated improvements — paradigm-shifting collective ability under fixed budgets.</p>
+<p><strong>This expedition’s job is the comparison:</strong> rhyming world models vs non-rhyming world models (exact-cache, prefix reuse, non-rhyming shared structured state, independent worlds, and live open latent predictors).</p>
+<h2 id="primary-research-question">Primary research question</h2>
+<p>Where do rhyming world models outperform non-rhyming ones — especially on high-value traffic (same organization, different words) — and how do they complement single-agent latent world models?</p>
+<h2 id="method">Method</h2>
+<p>See <code>docs/world-model-expedition/experimental-design-v2.md</code>.<br>Run: <code>npm run research:world-model-expedition</code> in FractiSI Multi-Agent.</p>
+<h2 id="computational-lab">Computational Lab</h2>
+<div class="table-wrap"><table><thead><tr><th>Comparison</th><th>Result (user-aware)</th></tr></thead><tbody><tr><td>Rhyme vs exact-cache on differing-words (E9, Movebank)</td><td><strong>Rhyme outperforms</strong> (~33–45%; exactTextHits≈0)</td></tr><tr><td>Rhyme vs prefix on identical strings</td><td>Prefix can win — easy/low-value slice (~75%+ duplicates)</td></tr><tr><td>Rhyming shared world vs independent</td><td>Collective tasks succeed; independent fails</td></tr><tr><td>vs live Dreamer/TD-MPC/MuZero-family</td><td><strong>COMPLEMENTARY_DIFFERENTIATED</strong></td></tr></tbody></table></div>
+<p>CartPole partial-obs, same model with private copies vs one shared world: next-state error 5.7×–20× lower with the shared world (superseded the earlier hand-rule 200 vs ~14; see the update section). Exp 002 reproduction: guided <strong>100/100</strong> vs flat <strong>0/100</strong>.</p>
+<h2 id="executable-status-lock">EXECUTABLE status lock</h2>
+<div class="table-wrap"><table><thead><tr><th>Arm</th><th>Status on this expedition</th></tr></thead><tbody><tr><td>Dreamer-family RSSM</td><td><strong>EXECUTABLE</strong> (live CPU train/predict/plan)</td></tr><tr><td>TD-MPC-lite</td><td><strong>EXECUTABLE</strong> (live CPU)</td></tr><tr><td>MuZero-lite</td><td><strong>EXECUTABLE</strong> (live CPU)</td></tr><tr><td>FractiSI rhyme engine</td><td><strong>EXECUTABLE</strong></td></tr><tr><td>V-JEPA 2</td><td>Not on this CPU VM (needs GPU)</td></tr><tr><td>Cosmos</td><td>Not on this CPU VM (needs GPU)</td></tr><tr><td>Genie 3/4</td><td>Closed — no weights</td></tr></tbody></table></div>
+<h2 id="live-open-world-model-arms">Live open world-model arms</h2>
+<p>CPU PyTorch: Dreamer-family RSSM, TD-MPC-lite, MuZero-lite. They own single-agent imagination/planning. They do <strong>not</strong> natively share/merge a multi-agent world. FractiSI rhyming shared world owns that job.</p>
+<p>Still needing GPU/large downloads: V-JEPA 2, Cosmos, Genie (closed).</p>
+<h2 id="evidence-hierarchy">Evidence hierarchy</h2>
+<p><strong>Level 2–3</strong> computational with pinned public fixtures + live open WM training. Not Level 5.</p>
+<h2 id="document-lineage">Document lineage</h2>
+<p>Exp 002 · Tiny Gateway rhyme vs cache · Multi-Agent platform · this rhyming vs non-rhyming comparative expedition.</p>
+<h2 id="addendum-2026-11-18-upstream-arms-same-model-test-rhyme-features">Addendum · 2026-11-18 · upstream arms, same-model test, rhyme features</h2>
+<ul>
+<li><strong>Upstream models executed on CPU:</strong> DreamerV3 (danijar/dreamerv3, 5,000 steps), MuZero (muzero-general, 3,000 updates), TD-MPC2 (official 5M checkpoints, real MuJoCo), V-JEPA 2 (ViT-L encoder on real CartPole renders). None has share or merge. Receipts: <code>research/synthobs-shared-world-collective-intelligence/data/open_wm_official/</code>.</li>
+<li><strong>Same model, two deployments:</strong> four agents each see one CartPole dimension; each compact arm drives its own rollout controller. Shared world predicts the next state 5.7×–20× better than private copies; control return is unchanged for two of three arms. A plain blackboard would match the accuracy gain; the rhyme layer&#39;s own contribution is bytes (400 agent messages: 136,546 B exact cache vs 69,912 B rhyme).</li>
+<li><strong>Correction:</strong> the earlier &quot;shared 200 vs independent ~14&quot; compared two hand-written rules and is not a world-model result.</li>
+<li><strong>Rhyme features of the FractiSI Multi-Agent World Model:</strong> Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53, new), LLM Rhyme (#54, new).</li>
+</ul>
+<h2 id="addendum-2026-11-18-pilot-rhyme-55">Addendum · 2026-11-18 · Pilot Rhyme (#55)</h2>
+<p>Fifth World Model rhyme feature: Director/Pilot role rhyme. Lab: 100/100 vs flat 0/100; exact role cache 0 hits; Pilot Rhyme store 22% smaller than exact cache and 80% smaller than private copies. Paper: <code>/whitepaper/pilot-rhyme-expedition</code> · ship blog <code>/ship-blog/pilot-rhyme-expedition</code>.</p>
 
-  <h2>Abstract</h2>
-  <p>Real agent traffic is mostly the same job in different words. Exact-text caches and prefix reuse only help when bytes repeat. A rhyming world model recognizes the pattern. Across protein notes, moose GPS tracks, and agent messages, rhyme stored the traffic 33% to 49% smaller than an exact-match cache that never hit. With mostly identical text, the exact cache still wins, and FractiSI keeps it. On a same-model test with four agents that each see one piece of a balancing task, one shared world predicted what happens next 5× to 20× more accurately than private copies. Open-source world models (DreamerV3, MuZero, TD-MPC2, V-JEPA 2) ran for real on CPU; all are strong for one agent and none can share a world between agents.</p>
+        </div>
+        <section class="related" aria-label="Related">
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/shared-world-collective-intelligence/"><span class="related-kind">Blog</span><span class="related-title">Do Rhyming World Models Outperform Non-Rhyming Ones?</span></a>
+        <a class="related-card" href="/library/papers/aware-attention-head/"><span class="related-kind">Paper</span><span class="related-title">The Aware Attention Head Expedition — Which Mechanisms Does a Persistent Orchestrating Head Actually Need?</span></a>
+        <a class="related-card" href="/library/papers/llm-rhyme-cosmic-genome/"><span class="related-kind">Paper</span><span class="related-title">LLM Rhyme Expedition · Cosmic + Genome</span></a>
+      </div>
+    </section>
+      </article>
+      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#honesty-boundary">Honesty boundary</a><a href="#title-lock">Title lock</a><a href="#primary-research-question">Primary research question</a><a href="#method">Method</a><a href="#computational-lab">Computational Lab</a><a href="#executable-status-lock">EXECUTABLE status lock</a><a href="#live-open-world-model-arms">Live open world-model arms</a><a href="#evidence-hierarchy">Evidence hierarchy</a><a href="#document-lineage">Document lineage</a><a href="#addendum-2026-11-18-upstream-arms-same-model-test-rhyme-features">Addendum · 2026-11-18 · upstream arms, same-model test, rhyme features</a><a href="#addendum-2026-11-18-pilot-rhyme-55">Addendum · 2026-11-18 · Pilot Rhyme (#55)</a></nav>
+    </div>
+  </main>
 
-  <h2>Primary research question</h2>
-  <p>Where do rhyming world models outperform non-rhyming ones — especially on high-value traffic with the same structure and different words — and how do they sit beside single-agent latent world models?</p>
-
-  <h2>Results</h2>
-  <table class="stack-table">
-    <thead><tr><th>Situation</th><th>Without rhyme</th><th>With rhyme</th></tr></thead>
-    <tbody>
-      <tr><td>Agent messages, 400 msgs</td><td>136,546 B · 0 cache hits</td><td><strong>69,912 B · 49% smaller</strong></td></tr>
-      <tr><td>Protein notes, 48 sessions</td><td>22,261 B · 0 hits</td><td><strong>14,882 B · 33% smaller</strong></td></tr>
-      <tr><td>Moose GPS tracks</td><td>12,122 B · 0 hits</td><td><strong>7,783 B · 36% smaller</strong></td></tr>
-      <tr><td>Hidden-answer search, 100 cases</td><td>0 found</td><td><strong>100 found</strong></td></tr>
-      <tr><td>Same model, shared vs private</td><td>higher next-state error</td><td><strong>5× to 20× more accurate</strong></td></tr>
-      <tr><td>Mostly identical text</td><td><strong>Exact cache wins</strong></td><td>Keep using it</td></tr>
-    </tbody>
-  </table>
-
-  <h2>World Model rhyme features</h2>
-  <p>Rhyming Templates · Shared-World Rhyme · Protein Folding Rhyme · LLM Rhyme · <strong>Pilot Rhyme (new)</strong>. See the <a href="/library/papers/pilot-rhyme-expedition/">Pilot Rhyme paper</a> and the <a href="/product/#rhyme-features">feature table</a>.</p>
-
-  <h2>Reproduce</h2>
-  <pre><code>npm run research:world-model-expedition
-node experiments/world-model-expedition/scripts/run_rhyme_layer.mjs</code></pre>
-  <p class="honesty">Receipts live under <code>experiments/world-model-expedition/results/</code> and <code>docs/world-model-expedition/final-report.md</code>. Companion whitepaper on the SING 13 edge: <a href="https://www.ssvibelandiaquestfest24x365.com/whitepaper/shared-world-collective-intelligence">/whitepaper/shared-world-collective-intelligence</a>.</p>
-
-</article>
-</main>
-<footer class="site-footer"><div class="wrap"><p>FractiSI Multi-Agent · open kit · Fair Exchange</p></div></footer>
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
 </body>
 </html>

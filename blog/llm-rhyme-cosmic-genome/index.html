@@ -3,41 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Exploring the LLM Rhyme on Sky and Genome · FractiSI</title>
-  <meta name="description" content="Explore the LLM Rhyme: LINEAR/FLAT/AWARE language packs on sky catalogs and a genome panel. AWARE recovers held-out partners; LINEAR/FLAT do not.">
-  <link rel="stylesheet" href="/css/site.css?v=43">
-  <style>
-    .legend-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.86rem; }
-    .legend-table th, .legend-table td { border: 1px solid rgba(0,0,0,.12); padding: 0.5rem 0.55rem; text-align: left; vertical-align: top; }
-    .legend-table th { background: rgba(0,0,0,.04); font-weight: 700; }
-    .findings { margin: 1.25rem 0; padding: 0; list-style: none; }
-    .findings li { margin: 0 0 0.85rem; padding: 0.75rem 0.9rem; border-left: 3px solid rgba(0,0,0,.2); background: rgba(0,0,0,.03); }
-    .findings strong.label { display: block; margin-bottom: 0.25rem; }
-  </style>
+  <title>Exploring the LLM Rhyme on Sky Catalogs and the Genome · FractiSI</title>
+  <meta name="description" content="This expedition explores the LLM Rhyme: writing public sky catalogs and a small human-genome panel as LINEAR, FLAT, and AWARE language packs, then asking whether a careful reader can name a held-out…">
+  <meta property="og:title" content="Exploring the LLM Rhyme on Sky Catalogs and the Genome">
+  <meta property="og:description" content="This expedition explores the LLM Rhyme: writing public sky catalogs and a small human-genome panel as LINEAR, FLAT, and AWARE language packs, then asking whether a careful reader can name a held-out…">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/blog/llm-rhyme-cosmic-genome/">
+  <link rel="canonical" href="https://fractisi.vercel.app/blog/llm-rhyme-cosmic-genome/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
 </head>
 <body>
   <header class="nav">
     <a class="wordmark" href="/">FractiSI</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
       <a href="/research/">Research</a>
       <a href="/library/">Library</a>
-      <a class="button" href="/test-drive/">Test Drive</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
     </nav>
   </header>
+
   <main class="wrap">
-    <article class="page">
-      <p class="kicker">Blog · LLM Rhyme Expedition · November 18, 2026</p>
-      <h1>Exploring the LLM Rhyme on Sky Catalogs and the Genome</h1>
-      <p class="lede">This expedition explores the LLM Rhyme: writing public sky catalogs and a small human-genome panel as LINEAR, FLAT, and AWARE language packs, then asking whether a careful reader can name a held-out long-range partner. AWARE recovered the partner. LINEAR and FLAT did not. Nested under every layer is the protein-folding rhyme — but the title focus is the language-pack grammar.</p>
-      <p class="meta"><strong>FractiSI engine pin:</strong> Protein-folding rhyme + LLM language-pack rhyme — both pinned. · <a href="/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md">Pin lock</a> · <a href="/library/papers/llm-rhyme-cosmic-genome/">Paper</a> · <a href="/blog/cosmic-rhyme-expedition/">Cosmic Rhyme</a></p>
-      <div class="cta-row">
-        <a class="btn-primary" href="/library/papers/llm-rhyme-cosmic-genome/">Paper + nested legend tables</a>
-        <a class="btn-ghost" href="/research/llm-rhyme-cosmic-genome-expedition/data/empirical_report.md">Receipts</a>
-      </div>
-
-
-      <h2>What “held-out partner” means (follow along here)</h2>
+    <article class="doc doc-blog">
+      <header class="doc-head">
+        <p class="kicker">Blog · LLM Rhyme Expedition</p>
+        <h1>Exploring the LLM Rhyme on Sky Catalogs and the Genome</h1>
+        
+        <dl class="doc-meta">
+          <div><dt>Published</dt><dd>November 18, 2026</dd></div>
+          <div><dt>By</dt><dd>FractiAI Research</dd></div>
+          <div><dt>Reading time</dt><dd>6 min</dd></div>
+        </dl>
+        <div class="doc-actions">
+          <a class="btn-primary" href="/library/papers/llm-rhyme-cosmic-genome/">Paper + nested legend tables</a>
+          <a class="btn-ghost" href="/research/llm-rhyme-cosmic-genome-expedition/data/empirical_report.md">Receipts</a>
+        </div>
+      </header>
+      <div class="prose">
+<p class="lead">This expedition explores the LLM Rhyme: writing public sky catalogs and a small human-genome panel as LINEAR, FLAT, and AWARE language packs, then asking whether a careful reader can name a held-out long-range partner. AWARE recovered the partner. LINEAR and FLAT did not. Nested under every layer is the protein-folding rhyme — but the title focus is the language-pack grammar.</p>
+<h2 id="what-held-out-partner-means-follow-along-here">What “held-out partner” means (follow along here)</h2>
       <p>Think of a seating chart. We pick one row (the <strong>query</strong>). From measured relationship numbers we find who it couples with most strongly who is <em>not</em> in the next few seats (the <strong>partner</strong>). Then we <strong>hold that name out</strong>: we do not print “the answer is X” in the prompt. We only give the query plus one of three ways of writing the room. The test asks: can a careful reader still <strong>name that hidden partner</strong>?</p>
       <ul>
         <li><strong>Query</strong> — the row we start from (planet, encounter, sky object, spectrum multipole, exon, DNA window).</li>
@@ -46,7 +53,7 @@
       </ul>
       <p>Kitchen example: start from planet A. The board says planet Q is the strongest non-neighbor match. Hide Q. Give the reader nearby planets in order (LINEAR), a messy pile (FLAT), or a ranked “strongest links” list with a leading candidate (AWARE). Did they name Q? That yes/no is one task.</p>
 
-      <h2>What we observed (plain language)</h2>
+      <h2 id="what-we-observed-plain-language">What we observed (plain language)</h2>
       <ul class="findings">
         <li>
           <strong class="label">Observation 1 · Cosmic language packs</strong>
@@ -63,7 +70,7 @@
       </ul>
 
 
-      <h2>Discovery catalog · what the LLM Rhyme actually found</h2>
+      <h2 id="discovery-catalog-what-the-llm-rhyme-actually-found">Discovery catalog · what the LLM Rhyme actually found</h2>
       <p>H1 is a gate. The product is the named list. AWARE packs recovered partners LINEAR/FLAT missed and catalogued them per theater:</p>
       <ul>
         <li><strong>Exoplanets</strong> — HAT-P-8 b ↔ WASP-7 b · HD 62509 b ↔ HD 11977 b · TrES-3 b ↔ CoRoT-2 b</li>
@@ -75,7 +82,7 @@
       </ul>
       <p>Full lists: <a href="/research/llm-rhyme-cosmic-genome-expedition/data/DISCOVERY_CATALOG.md">LLM DISCOVERY_CATALOG</a> · <a href="/data/RHYME_DISCOVERY_CATALOG.md">unified catalog</a> (includes protein-fold theaters + Cosmic’s two candidates for new physics).</p>
 
-      <h2>How novel is that?</h2>
+      <h2 id="how-novel-is-that">How novel is that?</h2>
       <ol>
         <li><strong>Highest novelty here (named discoveries).</strong> AWARE packs list concrete partners and couplings per theater — not only a 0% → 100% pass rate — on public sky files and a public genome panel.</li>
         <li><strong>Moderate novelty (demonstration).</strong> The genome arm is a careful demo on small public panels. Same packing shape. Not a disease finding. Not clinical. Not wet-lab genetics.</li>
@@ -83,7 +90,7 @@
         <li><strong>Not a frontier-model contest.</strong> Default score uses a pack-compliant reader (no API key). That proves the rhyme lives in the pack. A live commercial model is optional follow-up, not this receipt.</li>
       </ol>
 
-      <h2>Two nested rhymes (why the map has two columns)</h2>
+      <h2 id="two-nested-rhymes-why-the-map-has-two-columns">Two nested rhymes (why the map has two columns)</h2>
       <p>Every layer wears <strong>two</strong> rhymes at once:</p>
       <ol>
         <li><strong>Protein-folding rhyme</strong> — parts in a line → relationship board → long-range partner (the “fold”).</li>
@@ -91,7 +98,7 @@
       </ol>
       <p>Cosmic Rhyme already tested the first nest in feature space. This expedition tests the second nest: writing those same materials as language. The tables below show both nests for each public file.</p>
 
-      <h2>Nested map · cosmic data</h2>
+      <h2 id="nested-map-cosmic-data">Nested map · cosmic data</h2>
       <p>Read left to right: public file → what it rhymes with in protein folding → how that becomes an LLM pack.</p>
       <table class="legend-table" aria-label="Cosmic nested rhymes">
         <thead>
@@ -130,7 +137,7 @@
         </tbody>
       </table>
 
-      <h2>Nested map · human genome demo</h2>
+      <h2 id="nested-map-human-genome-demo">Nested map · human genome demo</h2>
       <table class="legend-table" aria-label="Genome nested rhymes">
         <thead>
           <tr>
@@ -156,17 +163,58 @@
         </tbody>
       </table>
 
-      <h2>How to read the nested map in one breath</h2>
+      <h2 id="how-to-read-the-nested-map-in-one-breath">How to read the nested map in one breath</h2>
       <p>Protein folding says: line of parts → relationship board → long-range partner. The LLM rhyme says: write that as a local paragraph, as a dump, or as a ranked board for a language reader. Cosmos and genome each sit inside both stories. That is what “nested rhymes” means here — not that planets are amino acids, and not that DNA is a chatbot.</p>
 
-      <h2>What we did not observe</h2>
+      <h2 id="what-we-did-not-observe">What we did not observe</h2>
       <p>This expedition does not own Cosmic Rhyme’s residual sieve (there: two candidates for new physics). We did not observe a clinical genome result. We did not run a bake-off that crowns a commercial model. Those boundaries keep the LLM Rhyme claim honest.</p>
 
-      <h2>Try it</h2>
+      <h2 id="try-it">Try it</h2>
       <p><code>npm run research:llm-rhyme-cosmic-genome-expedition</code> · seed <code>20261118</code> · no account required for the default receipt.</p>
 
-      <p class="honesty">Infinite Octaves ENGINE_SHELF #53 protein-folding rhyme + #54 LLM language-pack rhyme (LINEAR / FLAT / AWARE), hosted on FractiSI / Tiny Footprint. Soft Story honesty · WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18 · SynthOBS Autonomous Agent · Syntheverse Sandbox. Infinite Octaves ENGINE_SHELF #54 (LLM rhyme) nested with #53 (protein-folding rhyme); Tiny Gateway memory shelf remains #52. Not frontier bake-off. Not wet-lab genetics. Cosmic Rhyme C4 (elsewhere): two candidates for new physics. Seed 20261118.</p>
+      <p class="honesty">Infinite Octaves engine shelf #53 protein-folding rhyme + #54 LLM language-pack rhyme (LINEAR / FLAT / AWARE), hosted on FractiSI / Tiny Footprint. computational honesty · WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18 · SynthOBS Autonomous Agent · Syntheverse Sandbox. Infinite Octaves engine shelf #54 (LLM rhyme) nested with #53 (protein-folding rhyme); Tiny Gateway memory shelf remains #52. Not frontier bake-off. Not wet-lab genetics. Cosmic Rhyme C4 (elsewhere): two candidates for new physics. Seed 20261118.</p>
+
+      </div>
+      <section class="related" aria-label="Related">
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/library/papers/llm-rhyme-cosmic-genome/"><span class="related-kind">Paper</span><span class="related-title">LLM Rhyme Expedition · Cosmic + Genome</span></a>
+        <a class="related-card" href="/blog/combo-rhyme-wiring/"><span class="related-kind">Blog</span><span class="related-title">When Protein-Folding, LLM, and Pilot Rhymes Share One Catalog, Do New Wires Appear?</span></a>
+        <a class="related-card" href="/blog/wiring-bridge-thickening/"><span class="related-kind">Blog</span><span class="related-title">Bridge Thickening — When Different Rhymes Keep Landing on the Same Pair</span></a>
+      </div>
+    </section>
     </article>
   </main>
+
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
 </body>
 </html>

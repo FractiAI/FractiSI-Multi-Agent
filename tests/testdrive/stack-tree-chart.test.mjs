@@ -63,7 +63,7 @@ test('Test Drive opens on the hero title and introduces the case', async () => {
   const { readFile } = await import('node:fs/promises');
   const page = await readFile(join(root, 'test-drive/index.html'), 'utf8');
   assert.match(page, /<h1>The Multi-Agent World Inference Rhyme\?<\/h1>/);
-  assert.match(page, /\/css\/site\.css\?v=35/);
+  assert.match(page, /\/css\/site\.css\?v=\d+/);
   assert.match(page, />Begin →</);
   assert.doesNotMatch(page, /Applied Active Inference Symposium · Nov 12/);
   assert.doesNotMatch(page, /<p class="event">/);

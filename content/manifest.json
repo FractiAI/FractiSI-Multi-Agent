@@ -1,0 +1,496 @@
+{
+  "blog": [
+    {
+      "slug": "aai-symposium-2026",
+      "title": "The Multi-Agent World Inference Rhyme?",
+      "dek": "FractiSI is presenting at the Applied Active Inference Symposium. We give a six-minute opening and invitation; the audience track is a self-paced Test Drive — eight live tests in the browser or an IDE — plus a Musical Training playlist on Suno.",
+      "date": "2026-11-12",
+      "label": "Symposium",
+      "actions": [
+        {
+          "href": "/test-drive/",
+          "text": "Open the Test Drive"
+        },
+        {
+          "href": "/talks/aai-symposium-2026/",
+          "text": "Speaker deck"
+        },
+        {
+          "href": "https://github.com/FractiAI/FractiSI-Multi-Agent",
+          "text": "GitHub"
+        }
+      ],
+      "links": "FractiSI · Applied Active Inference Symposium 2026 · online"
+    },
+    {
+      "slug": "app-dnmt3a-rhyme-validation",
+      "title": "Can Published DNMT3A Tools That Edit APP Be Filed as New Wiring?",
+      "dek": "Adult children rearranging work around a parent’s memory clinic, and nurses charting myeloid counts between overtime hours, live where Alzheimer genetics and epigenetic blood-cancer tools usually stay in different buildings. Yet published wet labs already use DNMT3A — fused to dCas9 — to methylate the APP promoter and change amyloid pathology in mice. Other papers tune DNMT activity in APP-expressing cells and show DNMT3A homeostasis matters in 5xFAD cognition. STRING still lists no APP–DNMT3A protein-interaction edge. This note asks whether filing that published path as regulatory wiring is a discovery in its own right.",
+      "date": "2026-11-19",
+      "label": "Wiring stack",
+      "actions": [
+        {
+          "href": "/library/papers/app-dnmt3a-rhyme-validation/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Wiring Wet Lab"
+        },
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Bridge thickening"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/app-dnmt3a-rhyme-validation/\">Can Published DNMT3A Tools That Edit APP Be File</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/app-dnmt3a-rhyme-validation\">app-dnmt3a-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/app-dnmt3a-rhyme-validation\">QUESTFEST whitepaper</a>"
+    },
+    {
+      "slug": "combo-rhyme-wiring",
+      "title": "When Protein-Folding, LLM, and Pilot Rhymes Share One Catalog, Do New Wires Appear?",
+      "dek": "Night workers who merge three spreadsheets after the kids are asleep already know that a new row can appear only when joins are allowed. This expedition asks the same of three rhyme boards. Protein-folding rhyme recovers long-range contacts linear windows miss. LLM rhyme packs sky and genome theaters into language boards. Pilot rhyme puts Director and Pilot seats in one FractiSI shared world. Merge their real discovery catalogs, classify genome partners with live STRING, and ask: do new STRING-empty wiring candidates surface beyond the pairs we already filed?",
+      "date": "2026-11-20",
+      "label": "Wiring stack",
+      "actions": [
+        {
+          "href": "/library/papers/combo-rhyme-wiring/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Wiring Wet Lab"
+        },
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Bridge thickening"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/combo-rhyme-wiring/\">When Protein-Folding, LLM, and Pilot Rhymes Shar</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/combo-rhyme-wiring\">combo-rhyme-wiring</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/combo-rhyme-wiring\">QUESTFEST whitepaper</a>"
+    },
+    {
+      "slug": "cosmic-rhyme-expedition",
+      "title": "Protein Folding as a Rhyme for the Sky",
+      "dek": "Can the same grammar that recovers a hidden long-range contact in a protein — line of parts → relationship board → partner — open public sky catalogs the same way? That is the focus of this expedition. Residual search later returns two candidates for new physics (WMAP residual lags 11 and 14). Those candidates are a secondary finding, not the title.",
+      "date": "2026-11-17",
+      "label": "Cosmic Rhyme Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/cosmic-rhyme-expedition/",
+          "text": "Expedition paper"
+        },
+        {
+          "href": "/research/cosmic-rhyme-expedition/data/empirical_report.md",
+          "text": "Receipts"
+        },
+        {
+          "href": "/blog/llm-rhyme-cosmic-genome/",
+          "text": "LLM Rhyme"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/cosmic-rhyme-expedition/\">Cosmic Rhyme</a> · Engine pins: <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">#53 protein-fold · #54 LLM packs</a> · Language packs: <a href=\"/blog/llm-rhyme-cosmic-genome/\">LLM Rhyme</a>"
+    },
+    {
+      "slug": "llm-rhyme-cosmic-genome",
+      "title": "Exploring the LLM Rhyme on Sky Catalogs and the Genome",
+      "dek": "This expedition explores the LLM Rhyme: writing public sky catalogs and a small human-genome panel as LINEAR, FLAT, and AWARE language packs, then asking whether a careful reader can name a held-out long-range partner. AWARE recovered the partner. LINEAR and FLAT did not. Nested under every layer is the protein-folding rhyme — but the title focus is the language-pack grammar.",
+      "date": "2026-11-18",
+      "label": "LLM Rhyme Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/llm-rhyme-cosmic-genome/",
+          "text": "Paper + nested legend tables"
+        },
+        {
+          "href": "/research/llm-rhyme-cosmic-genome-expedition/data/empirical_report.md",
+          "text": "Receipts"
+        }
+      ],
+      "links": "<strong>FractiSI engine pin:</strong> Protein-folding rhyme + LLM language-pack rhyme — both pinned. · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/llm-rhyme-cosmic-genome/\">Paper</a> · <a href=\"/blog/cosmic-rhyme-expedition/\">Cosmic Rhyme</a>"
+    },
+    {
+      "slug": "npy-sod1-rhyme-validation",
+      "title": "When Existing ALS Wet Labs Wire NPY to SOD1, Is That a New Discovery?",
+      "dek": "Families waiting on ALS clinic news already know that science often advances by connecting work that lived in separate folders. One lab counts NPY interneurons in a SOD1 mouse cortex. Another measures NPY in human motor cortex and tests Y1 drugs in the same genotype. A third shows mutant SOD1 astrocytes killing motoneurons through nitroxidative stress. Protein-interaction catalogs still show no NPY–SOD1 edge. The question in this note is whether assembling those published wet labs into one relationship — a wire — is itself a discovery worth filing, and whether that wire stays falsifiable.",
+      "date": "2026-11-19",
+      "label": "Wiring stack",
+      "actions": [
+        {
+          "href": "/library/papers/npy-sod1-rhyme-validation/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Wiring Wet Lab"
+        },
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Bridge thickening"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/npy-sod1-rhyme-validation/\">When Existing ALS Wet Labs Wire NPY to SOD1, Is </a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/npy-sod1-rhyme-validation\">npy-sod1-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/npy-sod1-rhyme-validation\">QUESTFEST whitepaper</a>"
+    },
+    {
+      "slug": "nvidia-goldilocks-moment",
+      "title": "What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO",
+      "dek": "Can human and digital agents be upgraded together by changing the World Model through which they coordinate? NVIDIA is the natural place to ask.",
+      "date": "2026-11-15",
+      "label": "Fractal Holographic Goldilocks Superintelligence Awareness Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/nvidia-goldilocks-awareness-expedition/",
+          "text": "Read the expedition paper"
+        },
+        {
+          "href": "/test-drive/",
+          "text": "Test Drive"
+        },
+        {
+          "href": "/library/papers/fractisi-expedition-002-beyond-memory/",
+          "text": "Expedition 002"
+        }
+      ],
+      "links": "FractiSI · Companion paper: <a href=\"/library/papers/nvidia-goldilocks-awareness-expedition/\">Full expedition paper</a>"
+    },
+    {
+      "slug": "pilot-rhyme-expedition",
+      "title": "Pilot Rhyme: one map-holder, many local agents, one shared world",
+      "dek": "A new World Model rhyme feature. Keep the Director and Pilot roles once. Write each mission as only what differs. Let the team share one world instead of private copies.",
+      "date": "2026-11-18",
+      "label": "Pilot Rhyme Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/pilot-rhyme-expedition/",
+          "text": "Read the paper"
+        },
+        {
+          "href": "/product/#rhyme-features",
+          "text": "See all rhyme features"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/pilot-rhyme-expedition/\">Pilot Rhyme</a> · Suite: <a href=\"/research/pilot-rhyme-expedition/\">research/pilot-rhyme-expedition</a> · Features: <a href=\"/product/#rhyme-features\">product</a>"
+    },
+    {
+      "slug": "shared-world-collective-intelligence",
+      "title": "Do Rhyming World Models Outperform Non-Rhyming Ones?",
+      "dek": "Fair comparative harness. Shared worlds beat independent agents on collective knowledge, planning, and relational tasks. FractiSI-shaped arms tied a competent shared structured blackboard. Dreamer-family, TD-MPC-lite, and MuZero-lite ran live on CPU. Genie remains closed; V-JEPA/Cosmos need GPU not on this VM.",
+      "date": "2026-11-18",
+      "label": "Shared World Models Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/shared-world-collective-intelligence/",
+          "text": "Read the paper"
+        },
+        {
+          "href": "/rhyming-vs-non-rhyming/",
+          "text": "Head-to-head"
+        },
+        {
+          "href": "/docs/world-model-expedition/final-report.md",
+          "text": "Final report"
+        }
+      ],
+      "links": "Docs: <a href=\"/docs/world-model-expedition/\">Expedition folder</a> · <a href=\"/docs/world-model-expedition/final-report.md\">Final report</a> · Run: <code>npm run research:world-model-expedition</code>"
+    },
+    {
+      "slug": "wiring-bridge-thickening",
+      "title": "Bridge Thickening — When Different Rhymes Keep Landing on the Same Pair",
+      "dek": "Finding a new name on a list is one kind of work. Asking whether five different shelves keep pointing at that same name is another. Parents checking homework already know the difference: one matching answer can be luck; the same answer from the book, the worksheet, and last week’s quiz is a thicker kind of trust. Bridge thickening is that second job for the wiring wet lab — a different effort from hunting new pairs, and the one that decides whether anyone should spend the next weekend (or the next grant) on a full write-up.",
+      "date": "2026-11-20",
+      "label": "Wiring stack",
+      "actions": [
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Wiring Wet Lab"
+        },
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Bridge thickening"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/wiring-bridge-thickening/\">Bridge Thickening</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wiring-bridge-thickening\">wiring-bridge-thickening</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wiring-bridge-thickening\">QUESTFEST whitepaper</a>"
+    },
+    {
+      "slug": "wiring-discoveries",
+      "title": "The Wiring Wet Lab — Why Re-Spend Time and Money When the Work Is Already Done?",
+      "dek": "There should be no reason to spend the time and money when it has already been done. Parents stretching rent across another “must re-measure” grant cycle already feel that sentence in their bones. Caregivers waiting on clinic calendars feel it as lost years. This note names a new wet-lab form for exactly that case: the wiring wet lab — immediate, no new assay spend — that treats published wet labs, clinical series, and public spectra as reagents already paid for, then assembles them into a relationship edge the catalog still leaves blank.",
+      "date": "2026-11-20",
+      "label": "Wiring stack",
+      "actions": [
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Wiring Wet Lab"
+        },
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Bridge thickening"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/wiring-discoveries/\">The Wiring Wet Lab</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wiring-discoveries\">wiring-discoveries</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wiring-discoveries\">QUESTFEST whitepaper</a>"
+    },
+    {
+      "slug": "wmap-residual-lag11-validation",
+      "title": "Is Residual Lag Wiring on the Real WMAP Spectrum a Discovery If Beam Stories Can Still Explain It?",
+      "dek": "Night-shift engineers who still pull NASA tables after the kids are asleep already know that a bump in one spectrum is not a breakthrough. Beam windows, sky masks, and instrument leftovers can mint ghosts. This note reframes the WMAP residual lags eleven and fourteen as a wiring discovery: connect the real public temperature spectrum, the residual-lag gate, the acoustic rediscovery controls, and a pre-registered kill board — then refuse to crown a law until those kills are run.",
+      "date": "2026-11-19",
+      "label": "Wiring stack",
+      "actions": [
+        {
+          "href": "/library/papers/wmap-residual-lag11-validation/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/wiring-discoveries/",
+          "text": "Wiring Wet Lab"
+        },
+        {
+          "href": "/library/papers/wiring-bridge-thickening/",
+          "text": "Bridge thickening"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/wmap-residual-lag11-validation/\">Is Residual Lag Wiring on the Real WMAP Spectrum</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wmap-residual-lag11-validation\">wmap-residual-lag11-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wmap-residual-lag11-validation\">QUESTFEST whitepaper</a>"
+    },
+    {
+      "slug": "aware-attention-head",
+      "title": "What Does a Persistent Orchestrating Head Actually Need to Beat a Voting Crowd?",
+      "dek": "A mechanism test on scripted agents: evidence-checked attention, on-demand specialist shells, and careful hand-off. The advantage tracks how much the baseline loses.",
+      "date": "2026-11-20",
+      "label": "Multi-agent design",
+      "actions": [
+        {
+          "href": "/library/papers/aware-attention-head/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/library/papers/fractisi-expedition-002-beyond-memory/",
+          "text": "Expedition 002"
+        }
+      ],
+      "links": ""
+    }
+  ],
+  "papers": [
+    {
+      "slug": "app-dnmt3a-rhyme-validation",
+      "title": "APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge",
+      "group": "Wiring wet lab",
+      "summary": null,
+      "docId": "WP-APP-DNMT3A-RHYME-VALIDATION-EGS-2026-11-19",
+      "source": "md",
+      "date": "2026-11-19"
+    },
+    {
+      "slug": "combo-rhyme-wiring",
+      "title": "Combo Rhyme Wiring Expedition",
+      "group": "Wiring wet lab",
+      "summary": "Protein-folding + LLM + Pilot catalogs surface new STRING-empty candidates.",
+      "docId": "WP-COMBO-RHYME-WIRING-EXPEDITION-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    },
+    {
+      "slug": "cosmic-rhyme-expedition",
+      "title": "Cosmic Rhyme Expedition",
+      "group": "Multi-agent research",
+      "summary": "WMAP residual candidates (lags 11, 14) plus folding rhyme on public catalogs. Language packs live in LLM Rhyme.",
+      "docId": "WP-COSMIC-RHYME-EXPEDITION-EGS-2026-11-17",
+      "source": "md",
+      "date": "2026-11-17"
+    },
+    {
+      "slug": "fractisi-expedition-002-beyond-memory",
+      "title": "Expedition 002 · Beyond Memory Savings",
+      "group": "Multi-agent research",
+      "summary": "Discovery under a fixed budget: 100/100 against flat 0/100.",
+      "docId": "WP-FRACTISI-EXPEDITION-002-BEYOND-MEMORY-EGS-2026-11-05",
+      "source": "html",
+      "date": "2026-11-05"
+    },
+    {
+      "slug": "fractisi-multi-agent-platform",
+      "title": "FractiSI Multi-Agent Platform Architecture",
+      "group": "Multi-agent research",
+      "summary": "Tiny Footprint as the execution core, with coordination, composition, Git awareness, and approval-gated deploy.",
+      "docId": null,
+      "source": "html",
+      "date": null
+    },
+    {
+      "slug": "holographic-rhyme",
+      "title": "The Holographic Rhyme",
+      "group": "Architecture",
+      "summary": "Four pillars: repeating, self-similar, self-correcting, recursive.",
+      "docId": "WP-SYNTHOBS-HOLOGRAPHIC-RHYME-FRACTAL-EGS-2026-09-05R",
+      "source": "html",
+      "date": "2026-09-05"
+    },
+    {
+      "slug": "infinite-octaves-omniversal",
+      "title": "Infinite Octaves Omniversal Lattice",
+      "group": "Architecture",
+      "summary": "The octave frame for the architecture. A filing map, not infinite physical tiers.",
+      "docId": "WP-SYNTHOBS-INFINITE-OCTAVES-OMNIVERSAL-LATTICE-CHAT-2026-08-25R",
+      "source": "html",
+      "date": "2026-08-25"
+    },
+    {
+      "slug": "llm-rhyme-cosmic-genome",
+      "title": "LLM Rhyme Expedition · Cosmic + Genome",
+      "group": "Multi-agent research",
+      "summary": "FractiSI engine pin (protein-fold + LLM language-pack). LINEAR / FLAT / AWARE on sky + genome demo. AWARE 100% vs ~0%.",
+      "docId": "WP-LLM-RHYME-COSMIC-GENOME-EXPEDITION-EGS-2026-11-18",
+      "source": "md",
+      "date": "2026-11-18"
+    },
+    {
+      "slug": "multidimensional-holographic-rhyme",
+      "title": "Multi-Dimensional Holographic Rhyme",
+      "group": "Architecture",
+      "summary": "Cross-scale rhyme as catalog architecture.",
+      "docId": "WP-SYNTHOBS-MULTIDIMENSIONAL-HOLOGRAPHIC-RHYME-EGS-2026-09-05R",
+      "source": "html",
+      "date": "2026-09-05"
+    },
+    {
+      "slug": "npy-sod1-rhyme-validation",
+      "title": "NPY ↔ SOD1 New Wiring Discovery — Assembling Existing ALS Wet Labs into a Catalog-Empty Edge",
+      "group": "Wiring wet lab",
+      "summary": null,
+      "docId": "WP-NPY-SOD1-RHYME-VALIDATION-EGS-2026-11-19",
+      "source": "md",
+      "date": "2026-11-19"
+    },
+    {
+      "slug": "nvidia-goldilocks-awareness-expedition",
+      "title": "New World Model, Not a New CEO",
+      "group": "Multi-agent research",
+      "summary": "Legacy Linear → Fractal Holographic Goldilocks Superintelligence Awareness, with NVIDIA and Jensen Huang as the leadership case.",
+      "docId": "WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15",
+      "source": "md",
+      "date": "2026-11-15"
+    },
+    {
+      "slug": "pilot-rhyme-expedition",
+      "title": "Pilot Rhyme Expedition",
+      "group": "Multi-agent research",
+      "summary": "Director/Pilot role rhyme. 100 of 100 vs flat 0; 22% smaller than exact role cache; 80% smaller than private copies.",
+      "docId": "WP-PILOT-RHYME-EXPEDITION-EGS-2026-11-18",
+      "source": "md",
+      "date": "2026-11-18"
+    },
+    {
+      "slug": "shared-world-collective-intelligence",
+      "title": "Rhyming vs Non-Rhyming World Models",
+      "group": "Multi-agent research",
+      "summary": "Head-to-head on real traffic and open-source world models run locally. 33–49% smaller when wording differs; 5×–20× more accurate when agents share a world.",
+      "docId": "WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18",
+      "source": "md",
+      "date": "2026-11-18"
+    },
+    {
+      "slug": "tiny-footprint-multi-agent",
+      "title": "Shared Worlds for Concurrent Agents",
+      "group": "Multi-agent research",
+      "summary": "The flagship paper. Discovery, convergence, gzip residual, rhyme against exact cache, density, selective reconstruction.",
+      "docId": "WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11",
+      "source": "html",
+      "date": "2026-11-05"
+    },
+    {
+      "slug": "tiny-gateway-language-radar",
+      "title": "Language & high-rate fusion",
+      "group": "Tiny Gateway labs",
+      "summary": "Language and fusion labs, including what did not win.",
+      "docId": "WP-SYNTHOBS-TINY-GATEWAY-LANGUAGE-RADAR-EGS-2026-10-30",
+      "source": "md",
+      "date": "2026-10-30"
+    },
+    {
+      "slug": "tiny-gateway-rhyming-templates",
+      "title": "Tiny Gateway · Rhyming Templates",
+      "group": "Multi-agent research",
+      "summary": "The engine under Multi-Agent: nested vectors, selective reconstruction, lab receipts.",
+      "docId": "WP-SYNTHOBS-TINY-GATEWAY-RHYMING-TEMPLATES-EGS-2026-11-03",
+      "source": "md",
+      "date": "2026-11-04"
+    },
+    {
+      "slug": "tiny-reality-generation-model",
+      "title": "Tiny Reality Generation Model",
+      "group": "Tiny Gateway labs",
+      "summary": "The nested generator. A digital lab, not a measured neural bitrate.",
+      "docId": "WP-SYNTHOBS-TINY-REALITY-GENERATION-MODEL-EGS-2026-10-25",
+      "source": "md",
+      "date": "2026-10-25"
+    },
+    {
+      "slug": "trgm-gateway-agent-performance",
+      "title": "Gateway agent performance",
+      "group": "Tiny Gateway labs",
+      "summary": "Agents with and without the gateway in a digital lab.",
+      "docId": "WP-SYNTHOBS-TRGM-GATEWAY-AGENT-PERFORMANCE-EGS-2026-10-25",
+      "source": "md",
+      "date": "2026-10-25"
+    },
+    {
+      "slug": "trgm-predictive-reality-catalog",
+      "title": "TRGM predictive catalog",
+      "group": "Tiny Gateway labs",
+      "summary": "Held-out checks on the generator that precedes the gateway.",
+      "docId": "WP-SYNTHOBS-TRGM-PREDICTIVE-REALITY-CATALOG-EGS-2026-10-25",
+      "source": "md",
+      "date": "2026-10-25"
+    },
+    {
+      "slug": "wave-node-mathematics",
+      "title": "Wave–Node Mathematics",
+      "group": "Tiny Gateway labs",
+      "summary": "Nodes, waves, and phases under mathematical check. Not robot hardware.",
+      "docId": "WP-SYNTHOBS-WAVE-NODE-MATHEMATICS-EGS-2026-10-24",
+      "source": "md",
+      "date": "2026-10-24"
+    },
+    {
+      "slug": "wiring-bridge-thickening",
+      "title": "Bridge Thickening",
+      "group": "Wiring wet lab",
+      "summary": "Separate from pair search: independent rhymes/rails that land on the same pair. NPY↔PDX1 thickened; APP↔TMPRSS2 chr21 confound.",
+      "docId": "WP-WIRING-BRIDGE-THICKENING-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    },
+    {
+      "slug": "wiring-discoveries",
+      "title": "The Wiring Wet Lab",
+      "group": "Wiring wet lab",
+      "summary": "A new wet-lab form: assemble existing assays into catalog-empty wires — no reason to re-spend when the work is already done.",
+      "docId": "WP-WIRING-DISCOVERIES-RHYMING-WORLD-MODEL-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    },
+    {
+      "slug": "wmap-residual-lag11-validation",
+      "title": "WMAP Residual Lag Wiring — Provisional Multipole Wire at Lags 11 and 14 with a Kill Board",
+      "group": "Wiring wet lab",
+      "summary": null,
+      "docId": "WP-WMAP-RESIDUAL-LAG11-VALIDATION-EGS-2026-11-19",
+      "source": "md",
+      "date": "2026-11-19"
+    },
+    {
+      "slug": "aware-attention-head",
+      "title": "The Aware Attention Head Expedition — Which Mechanisms Does a Persistent Orchestrating Head Actually Need?",
+      "group": "Multi-agent research",
+      "summary": "Mechanism test on scripted agents: evidence-checked attention, on-demand specialist shells, and careful hand-off, with ablations, a decoy control, and a baseline-loss sweep.",
+      "docId": "WP-AWARE-ATTENTION-HEAD-SPIRIT-OCTAVES-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    }
+  ]
+}

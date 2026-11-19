@@ -1,89 +1,190 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge · FractiSI</title><link rel="stylesheet" href="/css/site.css?v=48"></head><body>
-<header class="nav"><a class="wordmark" href="/">FractiSI</a><nav class="nav-links"><a href="/library/">Library</a><a href="/blog/">Blog</a><a class="button" href="/test-drive/">Start Test Drive</a></nav></header>
-<main class="wrap"><article class="paper"><p class="kicker">FractiSI · full paper mirror</p><h1>APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge</h1><p class="paper-actions"><a href="/library/">← Library</a> · <a href="/blog/app-dnmt3a-rhyme-validation/">Blog</a> · <a href="https://www.ssvibelandiaquestfest24x365.com/whitepaper/app-dnmt3a-rhyme-validation">QUESTFEST whitepaper</a></p>
-<p>Document ID: `WP-APP-DNMT3A-RHYME-VALIDATION-EGS-2026-11-19`  </p>
-<p>Registry ID: `synthobs-app-dnmt3a-rhyme-validation-2026-11`  </p>
-<p>Operator: SynthOBS Autonomous Agent · Syntheverse Sandbox  </p>
-<p>Classification: Application companion Soft Story · new wiring discovery · not Infinite Octaves ENGINE_SHELF  </p>
-<p>Date: 19 November 2026  </p>
-<p>Harness: `research/synthobs-app-dnmt3a-rhyme-validation/`  </p>
-<p>FractiSI mirror: https://fractisi.vercel.app/library/papers/app-dnmt3a-rhyme-validation/  </p>
-<p>Ship blog: `/ship-blog/app-dnmt3a-rhyme-validation`  </p>
-<p>Data: REAL GTEx/MyGene exon panels · live-cached STRING + OpenTargets · curated existing wet-lab literature (`fixtures/wiring_literature.json`)</p>
-<h2>Honesty boundary</h2>
-<table class="stack-table"><tr><th>Tier</th><th>What this is</th><th>What it is not</th></tr><tr><td><strong>New wiring discovery</strong></td><td>A <strong>regulatory / epigenetic relationship edge</strong> assembled from <strong>existing</strong> DNMT3A→APP wet-lab papers + rhyme geometry while STRING lists <strong>no PPI</strong> for APP↔DNMT3A</td><td>A wet-lab assay we performed</td></tr><tr><td>Soft Story / application companion</td><td>Epigenetic promoter-targeting and amyloid-pathway neighborhood wiring</td><td>Proven Alzheimer treatment · direct obligatory PPI · clinical advice · ENGINE_SHELF</td></tr><tr><td>Positive control</td><td>INS↔POMC STRING <strong>0.947</strong></td><td>Insulin novelty claim</td></tr></table>
-<h2>Abstract</h2>
-<p>This companion is intentionally long-form so QUESTFEST and FractiSI readers receive a complete methods-and-results report rather than a stub abstract.</p>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge · FractiSI</title>
+  <meta name="description" content="Amyloid precursor protein (APP) and DNA methyltransferase 3A (DNMT3A) sit in overlapping neurodegenerative and epigenetic research neighborhoods, yet our live-cached STRING query returns no PPI edge for the pair.">
+  <meta property="og:title" content="APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge">
+  <meta property="og:description" content="Amyloid precursor protein (APP) and DNA methyltransferase 3A (DNMT3A) sit in overlapping neurodegenerative and epigenetic research neighborhoods, yet our live-cached STRING query returns no PPI edge for the pair.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/library/papers/app-dnmt3a-rhyme-validation/">
+  <link rel="canonical" href="https://fractisi.vercel.app/library/papers/app-dnmt3a-rhyme-validation/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/" aria-current="page">Library</a>
+      <a href="/blog/">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="doc-layout">
+      <article class="doc doc-paper">
+        <header class="doc-head">
+          <p class="kicker">Paper · Wiring wet lab</p>
+          <h1>APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge</h1>
+          <p class="dek">Amyloid precursor protein (APP) and DNA methyltransferase 3A (DNMT3A) sit in overlapping neurodegenerative and epigenetic research neighborhoods, yet our live-cached STRING query returns no PPI edge for the pair.</p>
+          <dl class="doc-meta">
+            <div><dt>Published</dt><dd>November 19, 2026</dd></div>
+            <div><dt>Type</dt><dd>Application companion</dd></div>
+            <div><dt>Document ID</dt><dd><code>WP-APP-DNMT3A-RHYME-VALIDATION-EGS-2026-11-19</code></dd></div>
+            <div><dt>Reading time</dt><dd>6 min</dd></div>
+          </dl>
+          <div class="doc-actions">
+          <a class="btn-primary" href="/blog/app-dnmt3a-rhyme-validation/">Read the blog post</a>
+          <a class="btn-ghost" href="/library/">All papers</a>
+          </div>
+        </header>
+        <div class="prose">
+<section class="callout" aria-label="Honesty boundary"><h2 id="honesty-boundary">Honesty boundary</h2>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>What this is</th><th>What it is not</th></tr></thead><tbody><tr><td><strong>New wiring discovery</strong></td><td>A <strong>regulatory / epigenetic relationship edge</strong> assembled from <strong>existing</strong> DNMT3A→APP wet-lab papers + rhyme geometry while STRING lists <strong>no PPI</strong> for APP↔DNMT3A</td><td>A wet-lab assay we performed</td></tr><tr><td>application companion</td><td>Epigenetic promoter-targeting and amyloid-pathway neighborhood wiring</td><td>Proven Alzheimer treatment · direct obligatory PPI · clinical advice · engine shelf</td></tr><tr><td>Positive control</td><td>INS↔POMC STRING <strong>0.947</strong></td><td>Insulin novelty claim</td></tr></tbody></table></div>
+</section>
+<h2 id="abstract">Abstract</h2>
 <p>Amyloid precursor protein (APP) and DNA methyltransferase 3A (DNMT3A) sit in overlapping neurodegenerative and epigenetic research neighborhoods, yet our live-cached STRING query returns <strong>no PPI edge</strong> for the pair. This expedition asks whether Pilot/LLM rhyme recovery of APP↔DNMT3A on real exon feature boards can be assembled into a <strong>wiring wet lab discovery</strong>: catalog-empty, literature-backed, regenerable, and killable.</p>
 <p>On seed <code>20261119</code>, the suite reproduces cross-gene exon coupling, ranks the pair among panel pairs, confirms STRING emptiness against an INS↔POMC control at <strong>0.947</strong>, and reads OpenTargets disease rails. The E6 wiring gate assembles published dCas9-DNMT3A / APP-promoter and related epigenetic wet-lab pieces into a regulatory wiring path and <strong>passes</strong>. Verdict: <strong>NEW WIRING DISCOVERY</strong> — not a pipette we ran, not a clinic door opened.</p>
-<h2>Primary research question</h2>
+<h2 id="primary-research-question">Primary research question</h2>
 <p>Can existing epigenetic wet-lab literature be assembled into <strong>APP↔DNMT3A regulatory wiring</strong> that remains STRING-empty as a PPI and clears a regenerable new-wiring gate?</p>
-<p>Secondary: Does rhyme geometry hold the pair still with competitive coupling? Do disease rails support an epigenetic/neurodegeneration reading without upgrading Soft Story to mechanism proof?</p>
-<h2>Background and motivation</h2>
+<p>Secondary: Does rhyme geometry hold the pair still with competitive coupling? Do disease rails support an epigenetic/neurodegeneration reading without upgrading computational to mechanism proof?</p>
+<h2 id="background-and-motivation">Background and motivation</h2>
 <p>Alzheimer and related research already spent decades on APP processing (BACE, γ-secretase, plaque pathology). Separately, epigenetic editing tools such as dCas9-DNMT3A have been aimed at promoters including APP in published wet labs. Those papers exist. The association catalog still often fails to list APP–DNMT3A as a protein interaction edge. Caregivers waiting on clinic calendars should not be told that the only honest next step is to rebuy both literatures before a relationship can be filed.</p>
 <p>The wiring wet lab answers with a different experiment: assemble the pieces, prove emptiness, control the lane, publish falsifiers.</p>
-<h2>Thesis</h2>
+<h2 id="thesis">Thesis</h2>
 <p>Wiring is higher-layer than a single assay and lower than a miracle. For APP↔DNMT3A the wire is <strong>regulatory/epigenetic context</strong>, not a claim that DNMT3A is the secretase. The discovery object is the filed path.</p>
-<h2>Method</h2>
-<pre><code>npm run research:synthobs-app-dnmt3a-rhyme-validation</code></pre>
+<h2 id="method">Method</h2>
+<pre><code class="language-bash">npm run research:synthobs-app-dnmt3a-rhyme-validation
+</code></pre>
 <p>Seed <code>20261119</code>. Harness mirrors the NPY↔SOD1 unknown-pair validation grammar with FOCUS_A=<code>APP</code>, FOCUS_B=<code>DNMT3A</code>.</p>
-<table class="stack-table"><tr><th>Lane</th><th>Role</th></tr><tr><td>E1–E2</td><td>Real exon coupling + null rank / permutation</td></tr><tr><td>E3</td><td>STRING empty focus; INS↔POMC ≥ 0.9</td></tr><tr><td>E4</td><td>OpenTargets rails for APP vs DNMT3A</td></tr><tr><td>E5</td><td>Unknown catalog gate</td></tr><tr><td>E6</td><td>Assemble wiring from wet-lab pieces with pre-registered roles</td></tr></table>
-<p>### Assembled path (existing wet labs)</p>
-<ol><li><strong>W1 — Targeted methylation / APP promoter:</strong> Published dCas9-DNMT3A (or equivalent epigenetic editor) experiments targeting APP regulatory sequence.</li><li><strong>W2 — APP expression / processing neighborhood:</strong> Wet-lab and clinical-lab literature linking epigenetic state to APP expression or amyloid-pathway readouts.</li><li><strong>W3 — DNMT3A disease / development rails:</strong> DNMT3A wet-lab roles in methylation and disease models that contextualize why an APP promoter wire is biologically discussable.</li><li><strong>W4 — Literature bridge:</strong> Explicit Soft Story bridge — regulatory wiring, not PPI cosplay.</li></ol>
+<div class="table-wrap"><table><thead><tr><th>Lane</th><th>Role</th></tr></thead><tbody><tr><td>E1–E2</td><td>Real exon coupling + null rank / permutation</td></tr><tr><td>E3</td><td>STRING empty focus; INS↔POMC ≥ 0.9</td></tr><tr><td>E4</td><td>OpenTargets rails for APP vs DNMT3A</td></tr><tr><td>E5</td><td>Unknown catalog gate</td></tr><tr><td>E6</td><td>Assemble wiring from wet-lab pieces with pre-registered roles</td></tr></tbody></table></div>
+<h3 id="assembled-path-existing-wet-labs">Assembled path (existing wet labs)</h3>
+<ol>
+<li><strong>W1 — Targeted methylation / APP promoter:</strong> Published dCas9-DNMT3A (or equivalent epigenetic editor) experiments targeting APP regulatory sequence.</li>
+<li><strong>W2 — APP expression / processing neighborhood:</strong> Wet-lab and clinical-lab literature linking epigenetic state to APP expression or amyloid-pathway readouts.</li>
+<li><strong>W3 — DNMT3A disease / development rails:</strong> DNMT3A wet-lab roles in methylation and disease models that contextualize why an APP promoter wire is biologically discussable.</li>
+<li><strong>W4 — Literature bridge:</strong> Explicit computational bridge — regulatory wiring, not PPI cosplay.</li>
+</ol>
 <p>Fixtures: <code>fixtures/wiring_literature.json</code>, <code>string_edges.json</code>, <code>opentargets.json</code>, shared exon panels, <code>PROVENANCE.json</code>.</p>
-<h2>Results</h2>
-<table class="stack-table"><tr><th>Gate</th><th>Result</th></tr><tr><td>Exon coupling / rank</td><td>Regenerable on shared panel (see empirical receipt)</td></tr><tr><td>STRING</td><td>Focus <strong>empty</strong>; INS↔POMC <strong>0.947</strong></td></tr><tr><td>OpenTargets</td><td>APP Alzheimer / amyloid rails; DNMT3A methylation / developmental / myeloid rails</td></tr><tr><td>E5 unknown gate</td><td><strong>PASS</strong></td></tr><tr><td>E6 wiring</td><td><strong>PASS</strong> — <code>new_wiring_from_existing_wet_labs</code></td></tr><tr><td><strong>Verdict</strong></td><td><strong><code>newWiringDiscovery: true</code></strong></td></tr></table>
-<p>### Qualitative reading</p>
+<h2 id="results">Results</h2>
+<div class="table-wrap"><table><thead><tr><th>Gate</th><th>Result</th></tr></thead><tbody><tr><td>Exon coupling / rank</td><td>Regenerable on shared panel (see empirical receipt)</td></tr><tr><td>STRING</td><td>Focus <strong>empty</strong>; INS↔POMC <strong>0.947</strong></td></tr><tr><td>OpenTargets</td><td>APP Alzheimer / amyloid rails; DNMT3A methylation / developmental / myeloid rails</td></tr><tr><td>E5 unknown gate</td><td><strong>PASS</strong></td></tr><tr><td>E6 wiring</td><td><strong>PASS</strong> — <code>new_wiring_from_existing_wet_labs</code></td></tr><tr><td><strong>Verdict</strong></td><td><strong><code>newWiringDiscovery: true</code></strong></td></tr></tbody></table></div>
+<h3 id="qualitative-reading">Qualitative reading</h3>
 <p>The wire says: published epigenetic tools already touch APP regulation; rhyme boards recover the pair; STRING does not list PPI; therefore a <strong>regulatory wiring discovery</strong> can be filed without pretending we ran dCas9 ourselves.</p>
-<h2>Falsifiers and demotion rules</h2>
-<ol><li>STRING gains high-confidence APP–DNMT3A PPI → rediscovery.</li><li>Required epigenetic / promoter wet-lab roles fail citation audit.</li><li>Coupling collapses on regenerable panel protocol.</li><li>INS↔POMC control fails → stop interpreting emptiness.</li><li>Any clinical-efficacy claim appears in the body → editorial demotion (honesty rail only).</li></ol>
-<h2>Discussion</h2>
-<p>### Wiring wet lab instantiation</p>
+<h2 id="falsifiers-and-demotion-rules">Falsifiers and demotion rules</h2>
+<ol>
+<li>STRING gains high-confidence APP–DNMT3A PPI → rediscovery.</li>
+<li>Required epigenetic / promoter wet-lab roles fail citation audit.</li>
+<li>Coupling collapses on regenerable panel protocol.</li>
+<li>INS↔POMC control fails → stop interpreting emptiness.</li>
+<li>Any clinical-efficacy claim appears in the body → editorial demotion (honesty rail only).</li>
+</ol>
+<h2 id="discussion">Discussion</h2>
+<h3 id="wiring-wet-lab-instantiation">Wiring wet lab instantiation</h3>
 <p>APP↔DNMT3A is the epigenetic twin of NPY↔SOD1’s disease-context twin. Same gates, different literature shelf. Together they show the form is not ALS-specific.</p>
-<p>### Relation to Pilot / LLM rhyme</p>
+<h3 id="relation-to-pilot-llm-rhyme">Relation to Pilot / LLM rhyme</h3>
 <p>Pilot catalogs list APP↔DNMT3A among genome exon aware-only partners. This suite converts a catalog hit into a wiring claim with emptiness + assembly.</p>
-<p>### Limitations</p>
-<p>Soft Story · not ENGINE_SHELF · not treatment · small exon panel · associative OpenTargets · no wet lab performed here · regulatory wiring ≠ binding.</p>
-<p>### Human stakes without hype</p>
+<h3 id="limitations">Limitations</h3>
+<p>computational · not engine shelf · not treatment · small exon panel · associative OpenTargets · no wet lab performed here · regulatory wiring ≠ binding.</p>
+<h3 id="human-stakes-without-hype">Human stakes without hype</h3>
 <p>Families living with dementia already fund overlapping literatures. Filing a killable wire is triage, not a cure. The paycheck claim is refusal to demand duplicate spend before the relationship can be inspected.</p>
-<h2>Methods reproducibility appendix</h2>
-<pre><code>npm run research:synthobs-app-dnmt3a-rhyme-validation</code></pre>
+<h2 id="methods-reproducibility-appendix">Methods reproducibility appendix</h2>
+<pre><code class="language-bash">npm run research:synthobs-app-dnmt3a-rhyme-validation
+</code></pre>
 <p>Outputs under <code>research/synthobs-app-dnmt3a-rhyme-validation/data/</code>. Tests: <code>tests/research/app-dnmt3a-rhyme-validation.test.mjs</code>.</p>
-<h2>Φ_EGS note</h2>
+<h2 id="egs-note">Φ_EGS note</h2>
 <p>$\Phi_{\mathrm{EGS}}$ is filing grammar only.</p>
-<h2>References</h2>
-<ol><li><code>fixtures/wiring_literature.json</code> — curated epigenetic / APP pieces  </li><li><code>fixtures/string_edges.json</code> — empty focus + INS–POMC control  </li><li><code>fixtures/opentargets.json</code>  </li><li>Framework — <code>docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md</code>  </li><li>Peer — <code>docs/SYNTHOBS_NPY_SOD1_RHYME_VALIDATION_EGS_2026-11.md</code>  </li><li>Bridge thickening — <code>docs/SYNTHOBS_WIRING_BRIDGE_THICKENING_EGS_2026-11.md</code>  </li><li>Empirical receipt — <code>data/empirical_report.json</code>  </li><li>QUESTFEST ship blog — <code>/ship-blog/app-dnmt3a-rhyme-validation</code></li></ol>
-<h2>Related work and positioning</h2>
+<h2 id="references">References</h2>
+<ol>
+<li><code>fixtures/wiring_literature.json</code> — curated epigenetic / APP pieces  </li>
+<li><code>fixtures/string_edges.json</code> — empty focus + INS–POMC control  </li>
+<li><code>fixtures/opentargets.json</code>  </li>
+<li>Framework — <code>docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md</code>  </li>
+<li>Peer — <code>docs/SYNTHOBS_NPY_SOD1_RHYME_VALIDATION_EGS_2026-11.md</code>  </li>
+<li>Bridge thickening — <code>docs/SYNTHOBS_WIRING_BRIDGE_THICKENING_EGS_2026-11.md</code>  </li>
+<li>Empirical receipt — <code>data/empirical_report.json</code>  </li>
+<li>QUESTFEST ship blog — <code>/ship-blog/app-dnmt3a-rhyme-validation</code></li>
+</ol>
+<h2 id="related-work-and-positioning">Related work and positioning</h2>
 <p>Prior rhyme expeditions (protein-folding, LLM language-pack, Pilot shared-world) recover long-range partners that linear windows miss. Those catalogs answer “what pair appeared?” Wiring peers answer “what empty catalog edge can be honestly assembled from existing spend?” Bridge thickening then asks “do independent rails agree?” This three-step ladder — search → wire → thicken — is the methodological contribution of the November 2026 wiring stack.</p>
 <p>Compared with classical systematic review, a wiring wet lab is regenerable: fixtures, seeds, STRING caches, and gates are executable. Compared with knowledge-graph completion, the emphasis is <strong>catalog emptiness + kill switches</strong>, not maximizing edge count.</p>
-<h2>Worked example for a reader after dinner</h2>
-<ol><li>Open the empirical JSON.  </li><li>Confirm focus STRING empty and INS↔POMC ≥ 0.9.  </li><li>Read W1–W4 citations.  </li><li>Ask whether any kill condition already fires in your head.  </li><li>If not, file the wire as triage — then stop before clinic language.</li></ol>
-<h2>Comparison table across wiring peers</h2>
-<table class="stack-table"><tr><th>Peer</th><th>Catalog novelty</th><th>Reagent shelf</th><th>Verdict class</th></tr><tr><td>NPY↔SOD1</td><td>STRING-empty PPI</td><td>ALS / SOD1 wet labs</td><td>Disease-context wiring PASS</td></tr><tr><td>APP↔DNMT3A</td><td>STRING-empty PPI</td><td>Epigenetic / APP promoter wet labs</td><td>Regulatory wiring PASS</td></tr><tr><td>WMAP 11↔14</td><td>Residual vs acoustic</td><td>Public TT spectrum</td><td>Provisional spectrum wiring</td></tr><tr><td>Combo new empty</td><td>STRING-empty candidates</td><td>Three-rhyme catalogs</td><td>Search layer</td></tr><tr><td>Bridge E7</td><td>Multi-layer agreement</td><td>OT + EuropePMC + exon + chr</td><td>Thicken / park</td></tr></table>
-<h2>Extended limitations and non-claims</h2>
-<p>We do not claim: clinical efficacy; finished particle or CMB laws; that rhyme geometry equals causality; that Soft Story upgrades to ENGINE_SHELF without a separate pin review; that Vercel deploy state proves scientific validity; that absence of STRING edge equals biological absence.</p>
+<h2 id="worked-example-for-a-reader-after-dinner">Worked example for a reader after dinner</h2>
+<ol>
+<li>Open the empirical JSON.  </li>
+<li>Confirm focus STRING empty and INS↔POMC ≥ 0.9.  </li>
+<li>Read W1–W4 citations.  </li>
+<li>Ask whether any kill condition already fires in your head.  </li>
+<li>If not, file the wire as triage — then stop before clinic language.</li>
+</ol>
+<h2 id="comparison-table-across-wiring-peers">Comparison table across wiring peers</h2>
+<div class="table-wrap"><table><thead><tr><th>Peer</th><th>Catalog novelty</th><th>Reagent shelf</th><th>Verdict class</th></tr></thead><tbody><tr><td>NPY↔SOD1</td><td>STRING-empty PPI</td><td>ALS / SOD1 wet labs</td><td>Disease-context wiring PASS</td></tr><tr><td>APP↔DNMT3A</td><td>STRING-empty PPI</td><td>Epigenetic / APP promoter wet labs</td><td>Regulatory wiring PASS</td></tr><tr><td>WMAP 11↔14</td><td>Residual vs acoustic</td><td>Public TT spectrum</td><td>Provisional spectrum wiring</td></tr><tr><td>Combo new empty</td><td>STRING-empty candidates</td><td>Three-rhyme catalogs</td><td>Search layer</td></tr><tr><td>Bridge E7</td><td>Multi-layer agreement</td><td>OT + EuropePMC + exon + chr</td><td>Thicken / park</td></tr></tbody></table></div>
+<h2 id="extended-limitations-and-non-claims">Extended limitations and non-claims</h2>
+<p>We do not claim: clinical efficacy; finished particle or CMB laws; that rhyme geometry equals causality; that computational upgrades to engine shelf without a separate pin review; that Vercel deploy state proves scientific validity; that absence of STRING edge equals biological absence.</p>
 <p>We do claim: regenerable gates; honest emptiness; citeable assembly; daylight falsifiers; a higher-layer discovery class useful for triage.</p>
-<h2>Extended experimental narrative</h2>
+<h2 id="extended-experimental-narrative">Extended experimental narrative</h2>
 <p>The regenerable receipt is the primary evidence object. Readers should treat tables in this paper as guides to the JSON, not as replacements for it. When seeds, fixtures, or STRING snapshots move, the paper’s locked numbers are historical; the suite’s current run is authoritative for reproduction.</p>
-<p>### Seed and environment</p>
-<p>All gates in this companion were locked on the November 2026 wiring stack environment: Node ESM harnesses under <code>research/</code>, Vitest assertions under <code>tests/research/</code>, and QUESTFEST ship-blog magazine notes under <code>interfaces/blog-*.html</code>. Φ_EGS appears only as filing grammar.</p>
-<p>### What “full paper” means here</p>
-<p>A full Soft Story paper in this repository is not a journal reprint of a wet-lab methods section. It is a complete, sectioned research report: honesty boundary, abstract, questions, background, thesis, methods with lanes, results with locked numbers, falsifiers, discussion, limitations, reproducibility appendix, references, and Fair Exchange. The November 2026 rewrite brings each wiring peer to that standard so FractiSI mirrors and QUESTFEST readers are not handed stub paragraphs.</p>
-<p>### Interpretation discipline</p>
-<ol><li>Prefer demotion over upgrade when evidence is mixed.  </li><li>Keep clinic language out of the body.  </li><li>Name Soft Story only in honesty rails and classification lines.  </li><li>Cite existing assays as reagents, never as work performed here.  </li><li>When chromosome or acoustic rediscovery can explain a hit, say so in the results — not only in a footnote.</li></ol>
-<p>### Implications for FractiSI product surfaces</p>
+<h3 id="implications-for-fractisi-product-surfaces">Implications for FractiSI product surfaces</h3>
 <p>FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring peers teach the product to file <strong>relationship objects</strong> with kill switches. Bridge thickening teaches the product to <strong>park</strong> some objects. That is collective intelligence as triage, not as slogan.</p>
-<p>### Forward experiments</p>
-<ul><li>Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  </li><li>Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  </li><li>Cross-mission CMB kills for WMAP provisional wire.  </li><li>Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.</li></ul>
-<h2>Reader checklist</h2>
-<ul><li>[ ] Honesty boundary read first  </li><li>[ ] Empirical JSON opened  </li><li>[ ] Positive control checked  </li><li>[ ] Kill switches named  </li><li>[ ] No clinic sentence quoted from the body  </li><li>[ ] FractiSI mirror URL resolves after deploy secrets are restored  </li></ul>
-<h2>Glossary</h2>
-<table class="stack-table"><tr><th>Term</th><th>Meaning in this stack</th></tr><tr><td>Wiring wet lab</td><td>Experimental form that reuses existing assays as reagents</td></tr><tr><td>Bridge thickening</td><td>Independent layers agreeing on the same pair</td></tr><tr><td>STRING-empty</td><td>No PPI edge in the live-cached focus query</td></tr><tr><td>Provisional wire</td><td>Spectrum wiring still facing systematics kills</td></tr><tr><td>Soft Story</td><td>Application companion claim tier — not ENGINE_SHELF</td></tr></table>
-<h2>Closing synthesis</h2>
-<p>The wiring stack’s lasting contribution is procedural: search, wire, thicken, demote. Full papers exist so that procedure can be audited without depending on chat memory. If a future ENGINE_SHELF pin is ever considered for a related architectural primitive, it will need its own necessity tests — these Soft Story companions are the empirical and methodological floor, not an automatic shelf promotion.</p>
-<h2>Fair Exchange</h2>
-<p>Fair Exchange clause in effect.</p>
-<h2>Document close</h2>
-<p>→ ∞^∞</p>
-<p class="honesty">Full Soft Story paper mirror. → ∞^∞</p></article></main></body></html>
+<h3 id="forward-experiments">Forward experiments</h3>
+<ul>
+<li>Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  </li>
+<li>Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  </li>
+<li>Cross-mission CMB kills for WMAP provisional wire.  </li>
+<li>Optional engine shelf pin review only after separate architectural necessity tests — not automatic from computational PASS.</li>
+</ul>
+<h2 id="glossary">Glossary</h2>
+<div class="table-wrap"><table><thead><tr><th>Term</th><th>Meaning in this stack</th></tr></thead><tbody><tr><td>Wiring wet lab</td><td>Experimental form that reuses existing assays as reagents</td></tr><tr><td>Bridge thickening</td><td>Independent layers agreeing on the same pair</td></tr><tr><td>STRING-empty</td><td>No PPI edge in the live-cached focus query</td></tr><tr><td>Provisional wire</td><td>Spectrum wiring still facing systematics kills</td></tr><tr><td>computational</td><td>Application companion claim tier — not engine shelf</td></tr></tbody></table></div>
+<h2 id="closing-synthesis">Closing synthesis</h2>
+<p>The wiring stack’s lasting contribution is procedural: search, wire, thicken, demote. Full papers exist so that procedure can be audited without depending on chat memory. If a future engine shelf pin is ever considered for a related architectural primitive, it will need its own necessity tests — these computational companions are the empirical and methodological floor, not an automatic shelf promotion.</p>
+
+        </div>
+        <section class="related" aria-label="Related">
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/app-dnmt3a-rhyme-validation/"><span class="related-kind">Blog</span><span class="related-title">Can Published DNMT3A Tools That Edit APP Be Filed as New Wiring?</span></a>
+        <a class="related-card" href="/library/papers/combo-rhyme-wiring/"><span class="related-kind">Paper</span><span class="related-title">Combo Rhyme Wiring Expedition</span></a>
+        <a class="related-card" href="/library/papers/wiring-bridge-thickening/"><span class="related-kind">Paper</span><span class="related-title">Bridge Thickening</span></a>
+      </div>
+    </section>
+      </article>
+      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#honesty-boundary">Honesty boundary</a><a href="#abstract">Abstract</a><a href="#primary-research-question">Primary research question</a><a href="#background-and-motivation">Background and motivation</a><a href="#thesis">Thesis</a><a href="#method">Method</a><a href="#results">Results</a><a href="#falsifiers-and-demotion-rules">Falsifiers and demotion rules</a><a href="#discussion">Discussion</a><a href="#methods-reproducibility-appendix">Methods reproducibility appendix</a><a href="#egs-note">Φ_EGS note</a><a href="#references">References</a><a href="#related-work-and-positioning">Related work and positioning</a><a href="#worked-example-for-a-reader-after-dinner">Worked example for a reader after dinner</a><a href="#comparison-table-across-wiring-peers">Comparison table across wiring peers</a><a href="#extended-limitations-and-non-claims">Extended limitations and non-claims</a><a href="#extended-experimental-narrative">Extended experimental narrative</a><a href="#glossary">Glossary</a><a href="#closing-synthesis">Closing synthesis</a></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
+</body>
+</html>

@@ -3,30 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FractiSI Multi-Agent · FractiSI Library</title>
-  <meta name="description" content="FractiSI Multi-Agent paper: shared worlds for concurrent agents. Empirical receipts after gzip.">
-  <link rel="stylesheet" href="/css/site.css?v=35">
+  <title>Shared Worlds for Concurrent Agents · FractiSI</title>
+  <meta name="description" content="The flagship paper. Discovery, convergence, gzip residual, rhyme against exact cache, density, selective reconstruction.">
+  <meta property="og:title" content="Shared Worlds for Concurrent Agents">
+  <meta property="og:description" content="The flagship paper. Discovery, convergence, gzip residual, rhyme against exact cache, density, selective reconstruction.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/">
+  <link rel="canonical" href="https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
 </head>
 <body>
-<header class="nav">
-  <a class="wordmark" href="/">FractiSI</a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="/product/">Product</a>
-    <a href="/product/pricing/">Pricing</a>
-    <a href="/test-drive/">Test Drive</a>
-    <a href="/blog/">Blog</a>
-    <a href="/research/">Research</a>
-    <a href="/library/">Library</a>
-    <a href="/open/">Open</a>
-    <a href="/company/">Company</a>
-    <a href="/recruit/">Recruit</a>
-    <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
-  </nav>
-</header>
-<main class="wrap">
-<article class="paper">
-<h1>FractiSI Multi-Agent: Shared Worlds for Concurrent Agents</h1>
-<p class="paper-actions"><a href="/library/">← Library</a> · <a href="/product/">Product</a> · <a href="/product/pricing/">Pricing</a></p>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/" aria-current="page">Library</a>
+      <a href="/blog/">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="doc-layout">
+      <article class="doc doc-paper">
+        <header class="doc-head">
+          <p class="kicker">Paper · Multi-agent research</p>
+          <h1>Shared Worlds for Concurrent Agents</h1>
+          <p class="dek">The flagship paper. Discovery, convergence, gzip residual, rhyme against exact cache, density, selective reconstruction.</p>
+          <dl class="doc-meta">
+            <div><dt>Published</dt><dd>November 5, 2026</dd></div>
+            <div><dt>Type</dt><dd>Research paper</dd></div>
+            <div><dt>Document ID</dt><dd><code>WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11</code></dd></div>
+            <div><dt>Reading time</dt><dd>3 min</dd></div>
+          </dl>
+          <div class="doc-actions">
+          
+          <a class="btn-ghost" href="/library/">All papers</a>
+          </div>
+        </header>
+        <div class="prose">
 <header class="paper-masthead">
 <p><strong>Research / product paper · Version 1.0 · 5 November 2026</strong>  </p>
 <p><strong>Operator:</strong> SynthOBS Autonomous Agent · Syntheverse Sandbox  </p>
@@ -34,7 +52,7 @@
 <p><strong>Suite:</strong> <code>FractiAI/tiny-oracle-lob-pilot</code> · Product family: FractiSI Tiny Footprint  </p>
 <p><strong>Engine:</strong> Tiny Gateway · Rhyming Templates · nested vectors · selective reconstruction  </p>
 </header>
-<h2>Honesty boundary</h2>
+<section class="callout" aria-label="Honesty boundary"><h2 id="honesty-boundary">Honesty boundary</h2>
 
 <table>
 <tr><th>Tier</th><th>Claims</th><th>Does not claim</th></tr>
@@ -47,7 +65,8 @@
 
 <hr>
 
-<h2>Abstract</h2>
+</section>
+<h2 id="abstract">Abstract</h2>
 
 <p>Multi-agent AI systems—and the broader pattern of many workers sharing one organizational context—default to an expensive habit: <strong>copy the shared world into every agent</strong>. Compression (gzip/zstd) shrinks each copy; it does not remove <strong>cross-agent duplication</strong>.</p>
 
@@ -59,7 +78,7 @@
 
 <hr>
 
-<h2>1. Problem</h2>
+<h2 id="1-problem">1. Problem</h2>
 
 <p>Frontier “cloud AI” is increasingly <strong>multi-agent</strong>: tool workers, planners, simulators, copilots. They share policies, maps, corpora, and environments. Naive stacks still do:</p>
 
@@ -69,7 +88,7 @@ agent_i = { local_state_i, world_full_copy }
 
 <p>Cost scales roughly <strong>N × |world|</strong> in DRAM and in packs that embed the world per agent. That is the concurrency tax Tiny Footprint was built to attack—now named for the market that looks like the whole agentic cloud.</p>
 
-<h2>2. Method</h2>
+<h2 id="2-method">2. Method</h2>
 
 <p>1. Build synthetic shared worlds (map, landmarks, policy docs) + N agents (high/medium/low divergence).  </p>
 <p>2. <strong>Conventional pack:</strong> each agent JSON embeds a full world copy.  </p>
@@ -84,7 +103,7 @@ npm run multi-agent
 npm run shine
 </code></pre>
 
-<h2>3. Results (summary)</h2>
+<h2 id="3-results-summary">3. Results (summary)</h2>
 
 <table>
 <tr><th>Experiment</th><th>Result</th></tr>
@@ -96,7 +115,7 @@ npm run shine
 <tr><td>Generic JSON LOBs after gzip</td><td>**~10–14%** residual — weak as general SQL compressor</td></tr>
 </table>
 
-<h2>4. Product implications</h2>
+<h2 id="4-product-implications">4. Product implications</h2>
 
 <table>
 <tr><th>Do</th><th>Don’t</th></tr>
@@ -105,21 +124,59 @@ npm run shine
 <tr><td>Phase-2 adapters: network fan-out, durable template store</td><td>Generic “beat zstd everywhere” marketing</td></tr>
 </table>
 
-<h2>5. Speakable claims (labeled)</h2>
+<h2 id="5-speakable-claims-labeled">5. Speakable claims (labeled)</h2>
 
 <p>&gt; One shared world for many agents — <strong>~40%+ less</strong> duplicated shared-context footprint after gzip in smaller-world labs, and <strong>much larger</strong> cuts when the world dominates agent state — with a path to <strong>order-of-magnitude more concurrent agents</strong> in a fixed DRAM budget.</p>
 
 <p>Always qualify: lab proxies; partner measurement required for production fleets.</p>
 
-<h2>6. Document ID</h2>
+<h2 id="6-document-id">6. Document ID</h2>
 
 <p><code>WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11</code> · FractiSI · FractiSI Multi-Agent · SynthOBS Autonomous Agent · Syntheverse Sandbox · → ∞^∞</p>
 <p class="honesty">Hosted library rendering of the Multi-Agent paper. Source: <a href="https://github.com/FractiAI/tiny-oracle-lob-pilot">tiny-oracle-lob-pilot</a> · <a href="/product/">Product</a>.</p>
-</article>
-</main>
-<footer class="site-footer">
-  <span>FractiSI · Library</span>
-  <span><a href="/library/">All papers</a></span>
-</footer>
+
+        </div>
+        <section class="related" aria-label="Related">
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/library/papers/aware-attention-head/"><span class="related-kind">Paper</span><span class="related-title">The Aware Attention Head Expedition — Which Mechanisms Does a Persistent Orchestrating Head Actually Need?</span></a>
+        <a class="related-card" href="/library/papers/llm-rhyme-cosmic-genome/"><span class="related-kind">Paper</span><span class="related-title">LLM Rhyme Expedition · Cosmic + Genome</span></a>
+      </div>
+    </section>
+      </article>
+      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#honesty-boundary">Honesty boundary</a><a href="#abstract">Abstract</a><a href="#1-problem">1. Problem</a><a href="#2-method">2. Method</a><a href="#3-results-summary">3. Results (summary)</a><a href="#4-product-implications">4. Product implications</a><a href="#5-speakable-claims-labeled">5. Speakable claims (labeled)</a><a href="#6-document-id">6. Document ID</a></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
 </body>
 </html>

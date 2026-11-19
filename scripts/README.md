@@ -10,6 +10,7 @@ Thin entry points. Each one parses its arguments, calls one function in [`src/`]
 | [`benchmark_child.mjs`](benchmark_child.mjs) | Run one measurement in this fresh process and print its JSON. |
 | [`generate_figures.py`](generate_figures.py) | Render manuscript figures from output/data/analysis_summary.json. |
 | [`generate_results_doc.mjs`](generate_results_doc.mjs) | Write docs/benchmarks/RESULTS.md and the README's evidence block. |
+| [`build-site.mjs`](build-site.mjs) | Build the blog, library and shared page chrome from content/. |
 | [`gpu_live_chat_hbm_lab.py`](gpu_live_chat_hbm_lab.py) | Run the live GPU chat-stack lab and write its receipt. |
 | [`gpu_llm_real_lab.py`](gpu_llm_real_lab.py) | Run the real-model lab for one model and backend, and write its receipt. |
 | [`h100_prefix_cache_sim.py`](h100_prefix_cache_sim.py) | Compute the H100 KV-cache roofline and write its receipt. |

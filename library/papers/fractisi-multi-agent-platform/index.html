@@ -3,31 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FractiSI Multi-Agent — Architecture Assessment (Phase 1) · FractiSI Library</title>
-  <meta name="description" content="FractiSI Multi-Agent platform architecture — Tiny Footprint core with coordination, composition, Git awareness, and approval-gated deploy.">
-  <link rel="stylesheet" href="/css/site.css?v=35">
+  <title>FractiSI Multi-Agent Platform Architecture · FractiSI</title>
+  <meta name="description" content="Tiny Footprint as the execution core, with coordination, composition, Git awareness, and approval-gated deploy.">
+  <meta property="og:title" content="FractiSI Multi-Agent Platform Architecture">
+  <meta property="og:description" content="Tiny Footprint as the execution core, with coordination, composition, Git awareness, and approval-gated deploy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/library/papers/fractisi-multi-agent-platform/">
+  <link rel="canonical" href="https://fractisi.vercel.app/library/papers/fractisi-multi-agent-platform/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
 </head>
 <body>
-<header class="nav">
-  <a class="wordmark" href="/">FractiSI</a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="/product/">Product</a>
-    <a href="/product/pricing/">Pricing</a>
-    <a href="/test-drive/">Test Drive</a>
-    <a href="/blog/">Blog</a>
-    <a href="/research/">Research</a>
-    <a href="/library/">Library</a>
-    <a href="/open/">Open</a>
-    <a href="/company/">Company</a>
-    <a href="/recruit/">Recruit</a>
-    <a class="button" href="https://github.com/FractiAI/FractiSI-Multi-Agent">Try FractiSI Multi-Agent</a>
-  </nav>
-</header>
-<main class="wrap">
-<article class="paper">
-<p class="kicker">FractiSI · Library</p>
-<h1>FractiSI Multi-Agent — Architecture Assessment (Phase 1)</h1>
-<p class="paper-actions"><a href="/library/">← Library</a> · <a href="/product/">Product</a> · <a href="/product/pricing/">Pricing</a></p>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/" aria-current="page">Library</a>
+      <a href="/blog/">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="doc-layout">
+      <article class="doc doc-paper">
+        <header class="doc-head">
+          <p class="kicker">Paper · Multi-agent research</p>
+          <h1>FractiSI Multi-Agent Platform Architecture</h1>
+          <p class="dek">Tiny Footprint as the execution core, with coordination, composition, Git awareness, and approval-gated deploy.</p>
+          <dl class="doc-meta">
+            <div><dt>Type</dt><dd>Research paper</dd></div>
+            <div><dt>Reading time</dt><dd>2 min</dd></div>
+          </dl>
+          <div class="doc-actions">
+          
+          <a class="btn-ghost" href="/library/">All papers</a>
+          </div>
+        </header>
+        <div class="prose">
 <header class="paper-masthead">
 <p><strong>Date:</strong> 2026-11-06</p>
 <p><strong>Company:</strong> FractiSI</p>
@@ -35,7 +50,7 @@
 <p><strong>Core technology:</strong> Tiny Footprint (Tiny Gateway™)</p>
 <p><strong>Edition:</strong> Workstation kit evolution (not a greenfield rewrite)</p>
 </header>
-<h2>Current architecture map</h2>
+<h2 id="current-architecture-map">Current architecture map</h2>
 <table>
 <tr><th>Layer</th><th>Location</th><th>Status before this evolution</th></tr>
 <tr><td>A · Agent execution / memory</td><td><code>src/engine/<em></code>, <code>src/sdk/</em></code>, <code>tiny-footprint/sdk</code></td><td>Shipped — templates, deltas, selective reconstruct, rhyme gate, vectors, broadcast</td></tr>
@@ -44,10 +59,10 @@
 <tr><td>D · Composition</td><td>—</td><td>Missing</td></tr>
 <tr><td>E · Git / versioning</td><td>None (Git used only as host tooling)</td><td>Missing</td></tr>
 <tr><td>F · Test / deploy</td><td>Benchmark + manuscript pipeline only</td><td>Missing product deploy capability</td></tr>
-<tr><td>Install UX</td><td>`node scripts/tiny.mjs doctor</td><td>install</td><td>demo</td><td>benchmark</td><td>report`</td><td>Partial — verify-only install</td></tr>
+<tr><td>Install UX</td><td><code>node scripts/tiny.mjs doctor | install | demo | benchmark | report</code></td><td>Partial — verify-only install</td></tr>
 <tr><td>External agents</td><td>Adapters README (planned)</td><td>Missing concrete adapters</td></tr>
 </table>
-<h2>Existing capabilities retained</h2>
+<h2 id="existing-capabilities-retained">Existing capabilities retained</h2>
 <ul>
 <li>Tiny Gateway rhyming templates, codec, catalog, gate</li>
 <li>Nested vectors / selective working sets</li>
@@ -58,7 +73,7 @@
 <li>FractiSI static marketing site</li>
 <li>Expedition 002 discovery receipts (product docs)</li>
 </ul>
-<h2>Gaps addressed by this evolution</h2>
+<h2 id="gaps-addressed-by-this-evolution">Gaps addressed by this evolution</h2>
 <ul>
 <li>Agent registration, lifecycle, permissions, capacity</li>
 <li>Shared project representation + task ownership + dependencies</li>
@@ -71,14 +86,14 @@
 <li>Plug-and-play <code>init</code> + config templates + Docker self-host option</li>
 <li>Comparative A/B/C coordination benchmark (measured simulation)</li>
 </ul>
-<h2>Reusable components extended (not replaced)</h2>
+<h2 id="reusable-components-extended-not-replaced">Reusable components extended (not replaced)</h2>
 <ul>
 <li><code>src/engine/gateway.mjs</code> — execution core inside <code>createPlatform()</code></li>
 <li><code>src/sdk/index.mjs</code> — now also exports <code>createPlatform</code></li>
 <li><code>src/cli/*</code> — additive commands (<code>init</code>, <code>status</code>, <code>agents</code>, <code>compose</code>, <code>coord-bench</code>)</li>
 <li>Layer gate — new <code>platform</code> layer between <code>engine</code> and <code>sdk</code></li>
 </ul>
-<h2>Target architecture</h2>
+<h2 id="target-architecture">Target architecture</h2>
 <pre><code>External agents (Cursor / Claude Code / VS Code / OpenAI)
         │ adapters
         ▼
@@ -91,7 +106,7 @@ Composition Engine (D) ◄──────── Git awareness (E)
 Validation / FractiSI Deploy (F)
         │
 Tiny Footprint execution (A) · Tiny Gateway</code></pre>
-<h2>Implementation priorities</h2>
+<h2 id="implementation-priorities">Implementation priorities</h2>
 <ul>
 <li>Platform foundation in <code>src/platform/</code> (complete in this change set)</li>
 <li>CLI + config + admin surface</li>
@@ -99,7 +114,7 @@ Tiny Footprint execution (A) · Tiny Gateway</code></pre>
 <li>SING13 architecture paper / ship-blog companion (catalog sync)</li>
 <li>Deeper IDE connectors and live LLM agent trials (remaining)</li>
 </ul>
-<h2>Risks</h2>
+<h2 id="risks">Risks</h2>
 <table>
 <tr><th>Risk</th><th>Mitigation</th></tr>
 <tr><td>Overclaiming multi-agent intelligence</td><td>Honesty rails; architectural sims labeled</td></tr>
@@ -108,7 +123,7 @@ Tiny Footprint execution (A) · Tiny Gateway</code></pre>
 <tr><td>Git replacement temptation</td><td>Git integration is awareness + workflow above Git</td></tr>
 <tr><td>Stale SING13 <code>products/</code> mirror</td><td>Prefer standalone kit as source of truth</td></tr>
 </table>
-<h2>Known limitations / remaining work</h2>
+<h2 id="known-limitations-remaining-work">Known limitations / remaining work</h2>
 <ul>
 <li>Adapters normalize messages; they do not yet drive live Cursor/Claude sessions.</li>
 <li>Composition semantic analysis is marker/heuristic-based, not full program analysis.</li>
@@ -118,15 +133,48 @@ Tiny Footprint execution (A) · Tiny Gateway</code></pre>
 </ul>
 <p class="honesty">Architecture assessment for FractiSI Multi-Agent. Lab and product claims stay within honesty rails in companion papers.</p>
 
-</article>
-</main>
-<footer class="site-footer">
-  <span>FractiSI · Library</span>
-  <span>
-    <a href="/library/">All papers</a>
-    · <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
-    · <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
-  </span>
-</footer>
+        </div>
+        <section class="related" aria-label="Related">
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/library/papers/aware-attention-head/"><span class="related-kind">Paper</span><span class="related-title">The Aware Attention Head Expedition — Which Mechanisms Does a Persistent Orchestrating Head Actually Need?</span></a>
+        <a class="related-card" href="/library/papers/llm-rhyme-cosmic-genome/"><span class="related-kind">Paper</span><span class="related-title">LLM Rhyme Expedition · Cosmic + Genome</span></a>
+      </div>
+    </section>
+      </article>
+      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#current-architecture-map">Current architecture map</a><a href="#existing-capabilities-retained">Existing capabilities retained</a><a href="#gaps-addressed-by-this-evolution">Gaps addressed by this evolution</a><a href="#reusable-components-extended-not-replaced">Reusable components extended (not replaced)</a><a href="#target-architecture">Target architecture</a><a href="#implementation-priorities">Implementation priorities</a><a href="#risks">Risks</a><a href="#known-limitations-remaining-work">Known limitations / remaining work</a></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
 </body>
 </html>
