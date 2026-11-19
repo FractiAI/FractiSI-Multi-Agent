@@ -1,4 +1,6 @@
-# APP ↔ DNMT3A New Wiring Discovery — Assembling Existing Epigenetic Wet Labs into a Catalog-Empty Edge
+# Can Published DNMT3A Tools That Edit APP Be Filed as New Wiring?
+
+**Short answer: Yes.** On the filed receipt, STRING shows no APP–DNMT3A edge while its live control INS↔POMC scores 0.947, rhyme coupling is about 0.745, and three wet-lab roles pass. The wiring is built from existing dCas9-DNMT3A work, not a new experiment.
 
 **Document ID:** `WP-APP-DNMT3A-RHYME-VALIDATION-EGS-2026-11-19`  
 **Registry ID:** `synthobs-app-dnmt3a-rhyme-validation-2026-11`  

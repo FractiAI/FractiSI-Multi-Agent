@@ -1,4 +1,6 @@
-# Rhyming vs Non-Rhyming World Models
+# Do Rhyming World Models Outperform Non-Rhyming Ones?
+
+**Short answer: Yes.** Against exact-text caches on real non-identical observations (PDB and Movebank data); on task success it only matched a shared structured blackboard, and prefix reuse still won when strings were identical. Genie, Cosmos and V-JEPA were not executable, so no scores were reported for them.
 
 **Do rhyming world models outperform non-rhyming ones — after prior expeditions already showed that rhyming a shared world between agents produces observable, replicable, falsifiable, paradigm-shifting gains?**
 

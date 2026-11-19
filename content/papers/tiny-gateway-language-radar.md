@@ -1,4 +1,6 @@
-# Tiny Gateway: A Reusable Fractal-Holographic Computational Architecture for Language Processing, High-Rate Data Fusion, and Agentic Intelligence
+# Can a Tiny Gateway Reuse Templates Faster Than Ordinary Pipelines on Real Data?
+
+**Short answer: No.** Warm end-to-end template reuse took about eleven microseconds median versus about four-tenths of a microsecond for a bare conventional rebuild, so the reuse gate failed. Language accuracy was 0.585 versus about 0.377 for the baselines, and fusion F1 was 0.261 for both arms.
 
 **Homeostasis Expedition follow-on · Leo Computational Lab · application companion (not ENGINE_SHELF) · Infinite Octave / SynthOBS · 30 October 2026**
 

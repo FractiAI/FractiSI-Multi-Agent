@@ -1,4 +1,6 @@
-# Combo Rhyme Wiring Expedition — Protein-Folding + LLM + Pilot Rhymes Surface New Wiring Candidates
+# When Protein-Folding, LLM, and Pilot Rhymes Share One Catalog, Do New Wires Appear?
+
+**Short answer: Yes.** On the merged catalog, two new STRING-empty pairs cleared the 0.5 coupling floor: NPY↔PDX1 at about 0.747 and APP↔TMPRSS2 at about 0.707. Both are triage candidates; APP↔TMPRSS2 has a thin published bridge, and no wet-lab test has been run.
 
 **Document ID:** `WP-COMBO-RHYME-WIRING-EXPEDITION-EGS-2026-11-20`  
 **Registry ID:** `synthobs-combo-rhyme-wiring-expedition-2026-11`  

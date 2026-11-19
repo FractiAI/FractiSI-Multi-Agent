@@ -1,4 +1,6 @@
-# NPY ↔ SOD1 New Wiring Discovery — Assembling Existing ALS Wet Labs into a Catalog-Empty Edge
+# When Existing ALS Wet Labs Wire NPY to SOD1, Is That a New Discovery?
+
+**Short answer: Yes.** As a wiring discovery, not a new assay: exon coupling was about 0.881 (rank 6 of 45, permutation p near 0.17), live STRING was empty while the INS↔POMC control scored 0.947, and three published wet-lab pieces assembled. A new STRING edge or a failed citation would demote it.
 
 **Document ID:** `WP-NPY-SOD1-RHYME-VALIDATION-EGS-2026-11-19`  
 **Registry ID:** `synthobs-npy-sod1-rhyme-validation-2026-11`  

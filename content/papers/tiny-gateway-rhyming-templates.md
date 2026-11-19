@@ -1,4 +1,6 @@
-# Tiny Gateway: Rhyming Templates and a New Architecture for Memory-Efficient Computing
+# Can Shared Patterns Cut AI Memory by Four-Fifths Without Losing the Answer?
+
+**Short answer: Yes.** In process, aggregate reduction was about 84.5% with exact reconstruction, and a GTX 860M lab cut allocated memory about 81%. The rhyme-KV path on distilgpt2 matched only about 14.6% of cells, and that claim gate stays closed until spliced-cache resume is logit-equivalent.
 
 **An Architectural Framework for Infinite-Octave Organization, Nested-Vector Representation, Selective Reconstruction, Tiny Footprint productization, and an 80% DRAM / accelerator-resident reduction research target**
 

@@ -1,4 +1,6 @@
-# Cosmic Rhyme Expedition
+# Does a Protein-Folding Relationship Board Recover Hidden Partners on Public Sky Catalogs?
+
+**Short answer: Yes.** On NASA exoplanets, JPL close approaches, OpenNGC and WMAP, AWARE boards recovered held-out long-range partners while LINEAR and FLAT did not. Two residual multipole lags are filed as provisional secondary candidates.
 
 **Exploring Protein Folding Rhymes on Public Sky Catalogs**
 

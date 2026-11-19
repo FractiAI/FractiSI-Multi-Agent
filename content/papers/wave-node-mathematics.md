@@ -1,4 +1,6 @@
-# Wave–Node Mathematics for Robotics: Mathematical Validation, Algorithmic Benchmarks, and a Reproducible Research Framework
+# When Nodes Carry Waves and Phases, Does the Mathematics Survive a Hard Check?
+
+**Short answer: Yes.** The mathematical components survive: the wave solver's observed order was about 2.001, Kuramoto synchronization behaved as theory predicts, and placement errors were at numerical zero. Planning did not beat A* on path length (about 52.84 versus 55.71), though Wave–Node used about 41 iterations versus 186.
 
 **Infinite Octaves / SynthOBS research paper · 24 October 2026**
 

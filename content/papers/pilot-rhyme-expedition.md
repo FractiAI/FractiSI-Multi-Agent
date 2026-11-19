@@ -1,4 +1,6 @@
-# Pilot Rhyme Expedition — Director and Pilot Seats that Share One World
+# Does a Director/Pilot Role Rhyme Beat Flat Peers on Multi-Hop Coordination and Exact-Text Caches on Store Size?
+
+**Short answer: Yes.** On 100 six-hop missions, all three Director/Pilot arms recovered 100 of 100 while flat peers recovered 0. Pilot Rhyme's store was 67,243 B, 22% smaller than the exact-text cache (0 hits) and 80% smaller than private copies; the accuracy gain comes from the roles, not the rhyme.
 
 **Document ID:** `WP-PILOT-RHYME-EXPEDITION-EGS-2026-11-18`  
 **Registry ID:** `synthobs-pilot-rhyme-expedition-2026-11`  

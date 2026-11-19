@@ -1,4 +1,6 @@
-# The Wiring Wet Lab — A New Form of Wet Lab That Repurposes Work Already Done
+# Can a Wiring Wet Lab Build New Relationship Edges From Published Results Without New Assays?
+
+**Short answer: Yes.** NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates using published data, with no new physical assays run. A wire that needs a new kill test still requires follow-up lab work.
 
 **Document ID:** `WP-WIRING-DISCOVERIES-RHYMING-WORLD-MODEL-EGS-2026-11-20`  
 **Registry ID:** `synthobs-wiring-discoveries-rhyming-world-model-2026-11`  

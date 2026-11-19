@@ -1,4 +1,6 @@
-# Tiny Reality Generation Model: Triadic–Polygon–Octave Tree on Folded DNA
+# Can a Three-Symbol Cycle, Spun Like a Polygon and Folded into DNA, Stay Coherent?
+
+**Short answer: Yes.** On the held-out run (seed 20261025) T1 through T7 passed seven of seven, with full-stack coherence 1.000 against 0.911 for unstructured noise, 0.850 unclocked, 0.650 flat and 0.850 unfolded. The historical Movebank ledger stayed mixed at one of three, and this is architecture, not wet-lab genetics.
 
 **Homeostasis Expedition research paper · Infinite Octave / SynthOBS · 25 October 2026**
 

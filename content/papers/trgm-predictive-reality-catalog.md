@@ -1,4 +1,6 @@
-# TRGM #51: Independent Predictive Validation and Functional Reality Catalog
+# After a Generator Passes Once, Does It Still Predict on Held-Out Biology?
+
+**Short answer: Yes.** On the tested cases, the eight-check battery passed 8 of 8, and held-out feature-kind grammar reached balanced accuracy 1.000 versus 0.341 for shuffle and about 0.799 for conventional heuristics. A sequence-proxy tied it at 1.000, and no molecular mechanism was tested.
 
 **Homeostasis Expedition research paper · Infinite Octave / SynthOBS · 25 October 2026**
 

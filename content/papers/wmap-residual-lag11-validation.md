@@ -1,4 +1,6 @@
-# WMAP Residual Lag Wiring — Provisional Multipole Wire at Lags 11 and 14 with a Kill Board
+# Is Residual Lag Wiring on the Real WMAP Spectrum a Discovery If Beam Stories Can Still Kill It?
+
+**Short answer: Yes.** Only as provisional wiring, not new physics: After a smooth continuum, lags 11 and 14 correlate about 0.50 and 0.47 with shuffle p near 0.003, beside rediscovered lags 17–19. The kill tests X1–X5 (Planck, continuum, beam, mask) are still pending, and any could demote it.
 
 **Document ID:** `WP-WMAP-RESIDUAL-LAG11-VALIDATION-EGS-2026-11-19`  
 **Registry ID:** `synthobs-wmap-residual-lag11-validation-2026-11`  

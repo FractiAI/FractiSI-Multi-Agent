@@ -1,4 +1,6 @@
-# Wiring Bridge Thickening — Independent Rhymes That Land on the Same Pair
+# Can Bridge Thickening Separate Well-Supported Gene Pairs From Chromosome-Locus Artifacts?
+
+**Short answer: Yes.** On the combo panel, NPY↔PDX1 thickened through diabetes rails, literature co-mentions and exon similarity without sharing a chromosome. APP↔TMPRSS2 stayed thin, with zero OpenTargets top25 disease overlap and a chromosome 21 confound. No assay has tested the NPY↔PDX1 wire directly.
 
 **Document ID:** `WP-WIRING-BRIDGE-THICKENING-EGS-2026-11-20`  
 **Registry ID:** `synthobs-wiring-bridge-thickening-2026-11`  

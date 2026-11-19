@@ -1,4 +1,6 @@
-# LLM Rhyme Expedition — Exploring the LLM Rhyme on Cosmic Catalogs and the Human Genome
+# When Sky Rows and Genome Panels Are Packed as Language, Does the AWARE Board Recover Hidden Partners?
+
+**Short answer: Yes.** On public NASA, JPL, OpenNGC, WMAP, exon and mitochondrial panels, AWARE packs recovered held-out partners while LINEAR and FLAT stayed near zero. The genome arm is a public-panel demonstration, not a clinical finding.
 
 **Exploring the LLM Rhyme: when sky rows and genome panels are packed as LINEAR / FLAT / AWARE language, does the E9–E11 language-pack rhyme still appear?**
 
