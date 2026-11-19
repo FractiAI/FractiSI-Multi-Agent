@@ -8,4 +8,4 @@ The vendored research suite, kept for its history and receipts, and the website'
 |---|---|
 | [`synthobs-tiny-gateway-rhyming-templates/`](synthobs-tiny-gateway-rhyming-templates/README.md) | The vendored suite: history, receipts and compatibility paths |
 | [`nvidia-goldilocks-lab/`](nvidia-goldilocks-lab/) | Receipts mirror for the NVIDIA Goldilocks awareness expedition |
-| [`index.html`](index.html) | The FractiSI site's research page · mentions **WhatsApp Holographic Root Lab** (WhatsApp channel) and **Mens Room Holographic Behavioral Theater Lab** (live theater) |
+| [`index.html`](index.html) | The FractiSI site's research page · hero **Research assets** roster (live behavioral labs, Wiring Wet Lab stack, Rhyming World Model expeditions, platform/engine suites, homeostasis & octave companions) |
