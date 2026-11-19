@@ -26,7 +26,7 @@ This companion is intentionally long-form so QUESTFEST and FractiSI readers rece
 
 **Question.** If we combine protein-folding, LLM, and Pilot rhymes, do new wiring candidates surface beyond already-filed pairs — and which of those candidates thicken under independent rails?
 
-**Answer.** Yes. On the locked unified catalog + live STRING panel, two **new STRING-empty** candidates clear the coupling floor: **NPY↔PDX1** (≈0.747, LLM) and **APP↔TMPRSS2** (≈0.707, Pilot). Cross-rhyme recoveries include NPY↔SOD1, INS↔POMC, APP↔DYRK1A (STRING 0.57 — not empty), and DNMT1↔DNMT3A (0.999 — rediscovery). Protein-folding rhyme attests the long-range partner grammar. Bridge thickening **promotes NPY↔PDX1** and **parks APP↔TMPRSS2** (chr21 confound). Combo wiring discovery gate **PASS**; bridge thickening gate **PASS**.
+**Answer.** Yes. On the locked unified catalog + live STRING panel, two **new STRING-empty** candidates clear the coupling floor: **NPY↔PDX1** (≈0.747, LLM) and **APP↔TMPRSS2** (≈0.707, Pilot). Cross-rhyme recoveries include NPY↔SOD1, INS↔POMC, APP↔DYRK1A (STRING 0.57 — not empty), and DNMT1↔DNMT3A (0.999 — rediscovery). Protein-folding rhyme attests the long-range partner grammar. Bridge thickening **promotes NPY↔PDX1** and **parks APP↔TMPRSS2** (chr21 confound). Combo wiring discovery gate **PASS**; bridge thickening gate **PASS**. E8 turns the thickened pair into wet-lab support: two papers match the direction of NPY↔PDX1 (NPY marks PDX1-low, immature β cells and returns under stress), none tested the wire directly, three new rhymes surround the pair (PDX1↔POMC, POMC↔NPY, DNMT1↔PDX1), and an assay package with a falsifier is filed. APP↔TMPRSS2 is marked not advised.
 
 ## Primary research question
 
@@ -53,6 +53,7 @@ Seed `20261120`.
 | E5 | Protein-folding AWARE long-range contact attestation |
 | E6 | Combo wiring discovery gate |
 | E7 | Multi-layer bridge thickening (LLM · Pilot · OpenTargets · EuropePMC · exon · chr) |
+| E8 | Wet-lab support for the thickened pair: literature matches by type, new rhymes, assay package, falsifier |
 
 ### Inputs
 
@@ -76,6 +77,7 @@ Seed `20261120`.
 | Protein grammar | AWARE long-range contacts attested |
 | E7 thickened | **NPY↔PDX1** |
 | E7 thin/confounded | **APP↔TMPRSS2** (chr21) |
+| E8 wet-lab support | **NPY↔PDX1** recommended (2 supporting papers, 0 direct tests); **APP↔TMPRSS2** not advised |
 | **Verdict** | **COMBO WIRING EXPEDITION PASS** · **bridge thicken PASS** |
 
 ### Wet-lab neighborhood notes (assembly, not our assays)
@@ -153,13 +155,13 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  
+- Run the NPY↔PDX1 assay package specified by E8.  
 - Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
 - Cross-mission CMB kills for WMAP provisional wire.  
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
 
 
-## Detailed lane narratives (E1–E7)
+## Detailed lane narratives (E1–E8)
 
 ### E1 — Load three rhyme catalogs
 The unified `RHYME_DISCOVERY_CATALOG.json` must contain nonzero protein-folding, LLM, and Pilot discovery lists. Protein-folding entries attest long-range contact grammar (AWARE recoveries). LLM and Pilot entries supply genome theaters for partner extraction. If any catalog is empty, the expedition fails closed.
@@ -181,6 +183,9 @@ Conjunction of E1–E5. Locked: PASS.
 
 ### E7 — Bridge thickening
 Independent layers vote. Locked: NPY↔PDX1 thickened (diabetes rails); APP↔TMPRSS2 thin/chr21 confound. See the bridge-thickening paper for methodology detail; this expedition owns the executable lane.
+
+### E8 — Wet-lab support
+Files what the literature does and does not show for the thickened pair. JCI Insight 2017 (doi 10.1172/jci.insight.94005) reports NPY in partially differentiated β cells, excluded from Pdx1-positive progenitors and re-expressed under high-fat diet. Diabetes 2013 (doi 10.2337/db12-1833) reports NPY/PYY in PDX1-low β cells, with the caveat that its antibody cannot separate NPY from PYY. Four context papers and three reagent sources are filed. No paper tested the wire. New rhymes: PDX1↔POMC (0.682), POMC↔NPY (0.681), DNMT1↔PDX1 (0.326). The assay package (triple immunostain, Pdx1 knockdown with NPY qPCR, NPY versus PYY probes) carries a falsifier. Full tables are in the bridge-thickening paper.
 
 ## Resource and compute notes
 

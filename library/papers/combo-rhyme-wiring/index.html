@@ -37,7 +37,7 @@
             <div><dt>Published</dt><dd>November 20, 2026</dd></div>
             <div><dt>Type</dt><dd>Application companion</dd></div>
             <div><dt>Document ID</dt><dd><code>WP-COMBO-RHYME-WIRING-EXPEDITION-EGS-2026-11-20</code></dd></div>
-            <div><dt>Reading time</dt><dd>5 min</dd></div>
+            <div><dt>Reading time</dt><dd>6 min</dd></div>
           </dl>
           <div class="doc-actions">
           <a class="btn-primary" href="/blog/combo-rhyme-wiring/">Read the blog post</a>
@@ -50,7 +50,7 @@
 </section>
 <h2 id="abstract">Abstract</h2>
 <p><strong>Question.</strong> If we combine protein-folding, LLM, and Pilot rhymes, do new wiring candidates surface beyond already-filed pairs — and which of those candidates thicken under independent rails?</p>
-<p><strong>Answer.</strong> Yes. On the locked unified catalog + live STRING panel, two <strong>new STRING-empty</strong> candidates clear the coupling floor: <strong>NPY↔PDX1</strong> (≈0.747, LLM) and <strong>APP↔TMPRSS2</strong> (≈0.707, Pilot). Cross-rhyme recoveries include NPY↔SOD1, INS↔POMC, APP↔DYRK1A (STRING 0.57 — not empty), and DNMT1↔DNMT3A (0.999 — rediscovery). Protein-folding rhyme attests the long-range partner grammar. Bridge thickening <strong>promotes NPY↔PDX1</strong> and <strong>parks APP↔TMPRSS2</strong> (chr21 confound). Combo wiring discovery gate <strong>PASS</strong>; bridge thickening gate <strong>PASS</strong>.</p>
+<p><strong>Answer.</strong> Yes. On the locked unified catalog + live STRING panel, two <strong>new STRING-empty</strong> candidates clear the coupling floor: <strong>NPY↔PDX1</strong> (≈0.747, LLM) and <strong>APP↔TMPRSS2</strong> (≈0.707, Pilot). Cross-rhyme recoveries include NPY↔SOD1, INS↔POMC, APP↔DYRK1A (STRING 0.57 — not empty), and DNMT1↔DNMT3A (0.999 — rediscovery). Protein-folding rhyme attests the long-range partner grammar. Bridge thickening <strong>promotes NPY↔PDX1</strong> and <strong>parks APP↔TMPRSS2</strong> (chr21 confound). Combo wiring discovery gate <strong>PASS</strong>; bridge thickening gate <strong>PASS</strong>. E8 turns the thickened pair into wet-lab support: two papers match the direction of NPY↔PDX1 (NPY marks PDX1-low, immature β cells and returns under stress), none tested the wire directly, three new rhymes surround the pair (PDX1↔POMC, POMC↔NPY, DNMT1↔PDX1), and an assay package with a falsifier is filed. APP↔TMPRSS2 is marked not advised.</p>
 <h2 id="primary-research-question">Primary research question</h2>
 <p>Does a combo of protein-folding + LLM + Pilot rhymes surface <strong>new STRING-empty wiring candidates</strong> on real discovery catalogs, and does multi-layer bridge thickening discriminate which candidates deserve a full wiring wet lab?</p>
 <h2 id="background">Background</h2>
@@ -59,7 +59,7 @@
 <pre><code class="language-bash">npm run research:synthobs-combo-rhyme-wiring-expedition
 </code></pre>
 <p>Seed <code>20261120</code>.</p>
-<div class="table-wrap"><table><thead><tr><th>Lane</th><th>Action</th></tr></thead><tbody><tr><td>E1</td><td>Load unified RHYME_DISCOVERY_CATALOG</td></tr><tr><td>E2</td><td>Merge genome partners across LLM + Pilot</td></tr><tr><td>E3</td><td>STRING-classify panel; require INS↔POMC ≥0.9</td></tr><tr><td>E4</td><td>New empty candidates (not prior companions; coupling ≥0.5)</td></tr><tr><td>E5</td><td>Protein-folding AWARE long-range contact attestation</td></tr><tr><td>E6</td><td>Combo wiring discovery gate</td></tr><tr><td>E7</td><td>Multi-layer bridge thickening (LLM · Pilot · OpenTargets · EuropePMC · exon · chr)</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Lane</th><th>Action</th></tr></thead><tbody><tr><td>E1</td><td>Load unified RHYME_DISCOVERY_CATALOG</td></tr><tr><td>E2</td><td>Merge genome partners across LLM + Pilot</td></tr><tr><td>E3</td><td>STRING-classify panel; require INS↔POMC ≥0.9</td></tr><tr><td>E4</td><td>New empty candidates (not prior companions; coupling ≥0.5)</td></tr><tr><td>E5</td><td>Protein-folding AWARE long-range contact attestation</td></tr><tr><td>E6</td><td>Combo wiring discovery gate</td></tr><tr><td>E7</td><td>Multi-layer bridge thickening (LLM · Pilot · OpenTargets · EuropePMC · exon · chr)</td></tr><tr><td>E8</td><td>Wet-lab support for the thickened pair: literature matches by type, new rhymes, assay package, falsifier</td></tr></tbody></table></div>
 <h3 id="inputs">Inputs</h3>
 <ul>
 <li><code>data/RHYME_DISCOVERY_CATALOG.json</code>  </li>
@@ -71,7 +71,7 @@
 <li>Shared exon feature loader from NPY↔SOD1 suite</li>
 </ul>
 <h2 id="results">Results</h2>
-<div class="table-wrap"><table><thead><tr><th>Class</th><th>Pairs / notes</th></tr></thead><tbody><tr><td><strong>New STRING-empty</strong></td><td><strong>NPY↔PDX1</strong>, <strong>APP↔TMPRSS2</strong></td></tr><tr><td>Cross-rhyme</td><td>NPY↔SOD1, INS↔POMC, APP↔DYRK1A, DNMT1↔DNMT3A</td></tr><tr><td>STRING control</td><td>INS↔POMC <strong>0.947</strong></td></tr><tr><td>APP↔DYRK1A</td><td>STRING <strong>0.57</strong> — cross-rhyme recovery, not empty unknown</td></tr><tr><td>DNMT1↔DNMT3A</td><td>STRING <strong>0.999</strong> — rediscovery control</td></tr><tr><td>Protein grammar</td><td>AWARE long-range contacts attested</td></tr><tr><td>E7 thickened</td><td><strong>NPY↔PDX1</strong></td></tr><tr><td>E7 thin/confounded</td><td><strong>APP↔TMPRSS2</strong> (chr21)</td></tr><tr><td><strong>Verdict</strong></td><td><strong>COMBO WIRING EXPEDITION PASS</strong> · <strong>bridge thicken PASS</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Class</th><th>Pairs / notes</th></tr></thead><tbody><tr><td><strong>New STRING-empty</strong></td><td><strong>NPY↔PDX1</strong>, <strong>APP↔TMPRSS2</strong></td></tr><tr><td>Cross-rhyme</td><td>NPY↔SOD1, INS↔POMC, APP↔DYRK1A, DNMT1↔DNMT3A</td></tr><tr><td>STRING control</td><td>INS↔POMC <strong>0.947</strong></td></tr><tr><td>APP↔DYRK1A</td><td>STRING <strong>0.57</strong> — cross-rhyme recovery, not empty unknown</td></tr><tr><td>DNMT1↔DNMT3A</td><td>STRING <strong>0.999</strong> — rediscovery control</td></tr><tr><td>Protein grammar</td><td>AWARE long-range contacts attested</td></tr><tr><td>E7 thickened</td><td><strong>NPY↔PDX1</strong></td></tr><tr><td>E7 thin/confounded</td><td><strong>APP↔TMPRSS2</strong> (chr21)</td></tr><tr><td>E8 wet-lab support</td><td><strong>NPY↔PDX1</strong> recommended (2 supporting papers, 0 direct tests); <strong>APP↔TMPRSS2</strong> not advised</td></tr><tr><td><strong>Verdict</strong></td><td><strong>COMBO WIRING EXPEDITION PASS</strong> · <strong>bridge thicken PASS</strong></td></tr></tbody></table></div>
 <h3 id="wet-lab-neighborhood-notes-assembly-not-our-assays">Wet-lab neighborhood notes (assembly, not our assays)</h3>
 <ul>
 <li><strong>NPY↔PDX1:</strong> β-cell developmental/functional literature places NPY in immature β cells and PDX1 as identity TF — disease-context wiring candidate (JCI Insight 2017; Endocrinology 2021 neighborhood).  </li>
@@ -110,12 +110,12 @@
 <p>FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring peers teach the product to file <strong>relationship objects</strong> with kill switches. Bridge thickening teaches the product to <strong>park</strong> some objects. That is collective intelligence as triage, not as slogan.</p>
 <h3 id="forward-experiments">Forward experiments</h3>
 <ul>
-<li>Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  </li>
+<li>Run the NPY↔PDX1 assay package specified by E8.  </li>
 <li>Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  </li>
 <li>Cross-mission CMB kills for WMAP provisional wire.  </li>
 <li>Optional engine shelf pin review only after separate architectural necessity tests — not automatic from computational PASS.</li>
 </ul>
-<h2 id="detailed-lane-narratives-e1-e7">Detailed lane narratives (E1–E7)</h2>
+<h2 id="detailed-lane-narratives-e1-e8">Detailed lane narratives (E1–E8)</h2>
 <h3 id="e1-load-three-rhyme-catalogs">E1 — Load three rhyme catalogs</h3>
 <p>The unified <code>RHYME_DISCOVERY_CATALOG.json</code> must contain nonzero protein-folding, LLM, and Pilot discovery lists. Protein-folding entries attest long-range contact grammar (AWARE recoveries). LLM and Pilot entries supply genome theaters for partner extraction. If any catalog is empty, the expedition fails closed.</p>
 <h3 id="e2-merge-genome-partners">E2 — Merge genome partners</h3>
@@ -130,6 +130,8 @@
 <p>Conjunction of E1–E5. Locked: PASS.</p>
 <h3 id="e7-bridge-thickening">E7 — Bridge thickening</h3>
 <p>Independent layers vote. Locked: NPY↔PDX1 thickened (diabetes rails); APP↔TMPRSS2 thin/chr21 confound. See the bridge-thickening paper for methodology detail; this expedition owns the executable lane.</p>
+<h3 id="e8-wet-lab-support">E8 — Wet-lab support</h3>
+<p>Files what the literature does and does not show for the thickened pair. JCI Insight 2017 (doi 10.1172/jci.insight.94005) reports NPY in partially differentiated β cells, excluded from Pdx1-positive progenitors and re-expressed under high-fat diet. Diabetes 2013 (doi 10.2337/db12-1833) reports NPY/PYY in PDX1-low β cells, with the caveat that its antibody cannot separate NPY from PYY. Four context papers and three reagent sources are filed. No paper tested the wire. New rhymes: PDX1↔POMC (0.682), POMC↔NPY (0.681), DNMT1↔PDX1 (0.326). The assay package (triple immunostain, Pdx1 knockdown with NPY qPCR, NPY versus PYY probes) carries a falsifier. Full tables are in the bridge-thickening paper.</p>
 <h2 id="resource-and-compute-notes">Resource and compute notes</h2>
 <p>The combo suite is intentionally cheap: catalog merge + fixture reads + exon cosines. That is a feature of the wiring wet lab thesis — relationship triage should not require a new wet-lab invoice. Compute used is laptop-scale Node ESM.</p>
 <h2 id="failure-cases-observed-or-anticipated">Failure cases observed or anticipated</h2>
@@ -156,7 +158,7 @@
       </div>
     </section>
       </article>
-      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#honesty-boundary">Honesty boundary</a><a href="#abstract">Abstract</a><a href="#primary-research-question">Primary research question</a><a href="#background">Background</a><a href="#method">Method</a><a href="#results">Results</a><a href="#discussion">Discussion</a><a href="#methods-reproducibility-appendix">Methods reproducibility appendix</a><a href="#egs-note">Φ_EGS note</a><a href="#references">References</a><a href="#extended-experimental-narrative">Extended experimental narrative</a><a href="#detailed-lane-narratives-e1-e7">Detailed lane narratives (E1–E7)</a><a href="#resource-and-compute-notes">Resource and compute notes</a><a href="#failure-cases-observed-or-anticipated">Failure cases observed or anticipated</a><a href="#statistical-and-ranking-notes">Statistical and ranking notes</a><a href="#glossary">Glossary</a><a href="#closing-synthesis">Closing synthesis</a></nav>
+      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#honesty-boundary">Honesty boundary</a><a href="#abstract">Abstract</a><a href="#primary-research-question">Primary research question</a><a href="#background">Background</a><a href="#method">Method</a><a href="#results">Results</a><a href="#discussion">Discussion</a><a href="#methods-reproducibility-appendix">Methods reproducibility appendix</a><a href="#egs-note">Φ_EGS note</a><a href="#references">References</a><a href="#extended-experimental-narrative">Extended experimental narrative</a><a href="#detailed-lane-narratives-e1-e8">Detailed lane narratives (E1–E8)</a><a href="#resource-and-compute-notes">Resource and compute notes</a><a href="#failure-cases-observed-or-anticipated">Failure cases observed or anticipated</a><a href="#statistical-and-ranking-notes">Statistical and ranking notes</a><a href="#glossary">Glossary</a><a href="#closing-synthesis">Closing synthesis</a></nav>
     </div>
   </main>
 

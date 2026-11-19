@@ -15,6 +15,7 @@
 | Tier | What this is | What it is not |
 |---|---|---|
 | **Methodology Soft Story** | Defines **bridge thickening** as a separate effort from pair search: ask whether independent rhymes / rails arrive at the *same* already-surfaced pair, and whether locus confounds explain the join | A new physical wet lab · ENGINE_SHELF · clinical advice · claim every thick bridge is a finished pathway |
+| Wet-lab support (E8) | Files literature matches by type, new rhymes, and an assay package with a falsifier for the thickened pair | Evidence that NPY drives PDX1 or the reverse; no harvested paper tested the wire |
 | Empirical illustration | Locked E7 on REAL OpenTargets / EuropePMC / exon / chromosome fixtures + rhyme catalogs | Proof NPY↔PDX1 is ready for clinic |
 | Confound honesty | Same-chromosome recovery is scored as risk, not as disease-wiring proof | Silent promotion of chr21 neighborhood hits |
 
@@ -27,6 +28,8 @@ This companion is intentionally long-form so QUESTFEST and FractiSI readers rece
 Finding a new STRING-empty pair is one job. **Thickening the bridge** is another: once a pair is on the board, ask whether *different* rhymes and public rails land on that same pair without rebuying assays. This paper names that effort, separates it from discovery search, and locks a multi-layer gate (LLM rhyme · Pilot rhyme · OpenTargets disease rails · EuropePMC co-mention · exon cosine · chromosome locus as confounder).
 
 On the combo panel, **NPY↔PDX1** thickens (diabetes rails + literature + exon; not same chromosome). **APP↔TMPRSS2** stays thin and carries **chr21 confound risk** (rhyme without disease-rail overlap). The wiring wet lab needs both jobs: search finds candidates; thickening decides which wires deserve a full expedition.
+
+Thickening exists to produce wet-lab support, so the paper also files that support (E8). For NPY↔PDX1 the literature matches the direction of the wire from two sides: NPY is excluded from Pdx1-positive progenitors and marks immature β cells (JCI Insight 2017), and PDX1-low β cells coexpress NPY/PYY (Diabetes 2013). Nobody has tested the wire directly. The paper lists three new rhymes around the pair (PDX1↔POMC, POMC↔NPY, DNMT1↔PDX1), an assay package with a falsifier, and marks APP↔TMPRSS2 not advised.
 
 ## Primary research question
 
@@ -104,6 +107,56 @@ Controls: INS↔POMC (known) and prior wiring peers NPY↔SOD1 / APP↔DNMT3A fo
 
 NPY↔PDX1 Jaccard ≈ 0.136 with shared names including type 2 diabetes mellitus and diabetes mellitus. APP↔TMPRSS2 Jaccard = 0.000 in the locked fixture. That single contrast is why the methodology earns rent money: it can say promote and park in the same receipt.
 
+## Wet-lab support from the thickened bridge (E8)
+
+The point of thickening is to decide what the bench should test. E8 takes the one thickened new pair, **NPY↔PDX1**, and files it as wet-lab support: literature matches sorted by what they actually show, the new rhymes around the pair, and an assay package with a falsifier. The thin pair is filed too, as not advised.
+
+### Literature matches
+
+| Type | Source | What it shows | Read depth |
+|---|---|---|---|
+| Supports | JCI Insight 2017, doi 10.1172/jci.insight.94005 | NPY marks partially differentiated β cells; excluded from Pdx1-positive progenitors at E12.5; falls from about 48% of islet cells at P0 to 3.5% at P30; returns under high-fat diet (about 2% to 15%), in db/db and in NOD; NPY knockdown reduces replication and enhances glucose-stimulated insulin secretion | Abstract and results summary |
+| Supports | Diabetes 2013, doi 10.2337/db12-1833 | Pdx1 deletion in ducts leaves postnatal β-cell formation intact but impairs maturation; PDX1-low β cells coexpress MAFB and NPY/PYY (antibody cannot separate them); PYY mRNA rises, NPY mRNA does not | Abstract |
+| Context | PMC4917419 | Pdx1 and Oc1 cooperate in pancreatic gene regulation | Search summary |
+| Context | PMID 32646628 | Y1 agonist studied in islets of diet-induced obese mice | Abstract head |
+| Context | PMID 22186407 | FoxO1 overexpression in hypothalamus and pancreas causes obesity and glucose intolerance; a shared upstream regulator is a candidate mechanism | Abstract head |
+| Context | PMID 29433879 | NPY, Y1 and Y2 expressed in pancreatic neoplasia in mouse and human | Abstract head |
+| Reagent | PMC6026541 | High-content β-cell replication platform using PDX1 as marker | Search summary |
+| Reagent | PMID 17717131 and PMID 21898210 | Extracellular Pdx1 and Npy mRNA from insulin-producing cultures; RT-PCR protocol | Abstract head |
+
+Counts: 2 supports, 4 context, 3 reagent, **0 direct tests**. No paper in the harvest tested an NPY to PDX1 wire. The two supporting papers point the same direction from opposite sides: NPY is high where PDX1-driven maturity is low, and NPY returns when β cells are stressed. That is a literature match for the **direction** of the wire, not for its mechanism. The 2013 study carries a qualifier worth keeping: its antibody cannot separate NPY from PYY, and the mRNA that rose was PYY.
+
+### New rhymes around the pair
+
+| Rhyme | Source | Coupling | Role |
+|---|---|---|---|
+| PDX1↔POMC | LLM | 0.682 | Endocrine neighbor; POMC is the control gene in INS↔POMC |
+| POMC↔NPY | LLM | 0.681 | Closes a triangle with NPY↔PDX1 and PDX1↔POMC; NPY and POMC neurons are a textbook antagonistic pair in appetite control, so this one is expected to be known (STRING not queried here) |
+| DNMT1↔PDX1 | Pilot | 0.326 | Low-coupling epigenetic neighbor; a follow-up candidate, not a support |
+
+The triangle matters because it shows the thickened pair is part of an endocrine and energy-balance neighborhood rather than a stray hit. The Pilot neighbor is weak, and we list it as a candidate, not as support.
+
+### Assay package for NPY↔PDX1 (proposal)
+
+| Item | Content |
+|---|---|
+| Hypothesis | NPY expression in β cells is inversely tied to PDX1 level: low-PDX1, immature cells express NPY; mature PDX1-high cells do not |
+| Assay 1 | Triple immunostain for NPY, PDX1 and MAFB in mouse islets at P0, P30 and after high-fat diet; score the NPY-positive fraction in PDX1-low and PDX1-high bins |
+| Assay 2 | Pdx1 knockdown in a β-cell line with NPY mRNA by qPCR, then the reverse knockdown of NPY with PDX1 and insulin readouts |
+| Assay 3 | Isoform-specific probes to separate NPY from PYY |
+| Controls | Non-rhyme β-cell gene pair as negative wire; INS and POMC as positive wire; NPY on chr7 and PDX1 on chr13, so a locus effect is not expected |
+| Falsifier | No NPY change after Pdx1 manipulation, or NPY-positive cells equally common in PDX1-high and PDX1-low bins |
+
+The direction in the hypothesis is an inference from the two supporting papers. The package exists to test it.
+
+### Not advised: APP↔TMPRSS2
+
+No shared disease rail, and both genes sit on chr21. A positive result would not separate wiring from locus. If anyone runs it, a chr21 non-rhyme pair is the required locus control before any signal is read.
+
+### E8 gate
+
+E8 passes when at least two supporting papers and one reagent source are filed, every new rhyme appears in the merged catalog, every recommended package is on a thickened pair, and every not-advised package is on a pair that did not thicken. All conditions hold in the locked run.
+
 ## Discussion
 
 ### Thickening as honesty engine
@@ -132,7 +185,7 @@ Methodology Soft Story · not ENGINE_SHELF · top25 disease lists are incomplete
 npm run research:synthobs-combo-rhyme-wiring-expedition
 ```
 
-Inspect `experiments.e7` in `research/synthobs-combo-rhyme-wiring-expedition/data/empirical_report.json`.  
+Inspect `experiments.e7` and `experiments.e8` in `research/synthobs-combo-rhyme-wiring-expedition/data/empirical_report.json`.  
 Tests: `tests/research/combo-rhyme-wiring-expedition.test.mjs` (bridge thickening assertions).
 
 ## Related work and positioning
@@ -152,7 +205,7 @@ Filing grammar only.
 5. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/chromosome_loci.json`  
 6. Open Targets Platform GraphQL API v4  
 7. Europe PMC REST search  
-8. QUESTFEST — `/ship-blog/wiring-bridge-thickening`
+10. QUESTFEST — `/ship-blog/wiring-bridge-thickening`
 
 
 
@@ -182,7 +235,7 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  
+- Run the NPY↔PDX1 assay package (promoted by E7, specified by E8): triple immunostain, Pdx1 knockdown with NPY qPCR, and NPY versus PYY probes.  
 - Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
 - Cross-mission CMB kills for WMAP provisional wire.  
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
