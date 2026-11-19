@@ -37,7 +37,7 @@ Can bridge thickening be defined as a **falsifiable, independent methodology** �
 
 ## Background — why search alone burns trust
 
-A single Pilot recovery of two genes on the same chromosome can look like a wire and still be neighborhood rhyme. A single language-pack hit without disease rails can be a bright coupling that never meets the clinic hallway. Pair search without thickening promotes noise. Thickening without search starves the map. Parents checking homework already know the difference between one matching answer and the same answer from the book, the worksheet, and last week’s quiz.
+A single Pilot recovery of two genes on the same chromosome can look like a wire and still be neighborhood rhyme. A single language-pack hit without disease rails can be a strong coupling that never meets disease evidence. Pair search without thickening promotes noise. Thickening without search starves the map. One match can be luck; agreement among methods that can fail independently is stronger evidence.
 
 ## Why this is a different effort
 
@@ -105,7 +105,7 @@ Controls: INS↔POMC (known) and prior wiring peers NPY↔SOD1 / APP↔DNMT3A fo
 
 ### Disease Jaccard detail (top25)
 
-NPY↔PDX1 Jaccard ≈ 0.136 with shared names including type 2 diabetes mellitus and diabetes mellitus. APP↔TMPRSS2 Jaccard = 0.000 in the locked fixture. That single contrast is why the methodology earns rent money: it can say promote and park in the same receipt.
+NPY↔PDX1 Jaccard ≈ 0.136 with shared names including type 2 diabetes mellitus and diabetes mellitus. APP↔TMPRSS2 Jaccard = 0.000 in the locked fixture. That single contrast is what the method is for: it can say promote and park in the same receipt.
 
 ## Wet-lab support from the thickened bridge (E8)
 

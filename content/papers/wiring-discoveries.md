@@ -31,7 +31,7 @@ Can a **wiring wet lab** be defined as a first-class wet-lab form — immediate,
 
 ## Background — the missing middle
 
-Assay discovery is familiar. Catalog discovery is familiar. Between them sits a quiet failure mode that burns paychecks and years. Pieces already exist in the literature; a rhyme board already recovers a pair; the catalog still shows empty; nobody files the relationship as a first-class object with falsifiers. Caregivers waiting on clinic calls feel that gap as lost years. Students stretching rent across journal fees feel it as duplicated work.
+Assay discovery is familiar. Catalog discovery is familiar. Between them sits a quiet failure mode that burns assay time and grant money. Pieces already exist in the literature; a rhyme board already recovers a pair; the catalog still shows empty; nobody files the relationship as a first-class object with falsifiers. The cost is duplicated assays and delayed follow-up.
 
 Systematic reviews help humans read. They rarely emit regenerable JSON gates. Knowledge-graph completion maximizes edges. It rarely celebrates catalog silence as a novelty condition. The wiring wet lab sits in the middle with a different virtue: **reuse**.
 
@@ -105,7 +105,7 @@ The form is operational. Regenerable suites emit wiring discoveries with literat
 
 ### Immediate reuse as the virtue
 
-The wiring wet lab’s virtue is **immediate reuse**. Parents, patients, and grant writers should not be told “come back after another five years of duplicate pipettes” when the papers already exist and the catalog is silent. AI does not invent the original assay. FractiSI does not replace STRING. Together they make the assembly and falsification loop cheap enough that “already done” becomes the first experiment, not the last excuse.
+The wiring wet lab’s virtue is **immediate reuse**. Follow-up work should not wait on five more years of duplicate assays when the papers already exist and the catalog is silent. AI does not invent the original assay. FractiSI does not replace STRING. Together they make the assembly and falsification loop cheap enough that “already done” becomes the first experiment, not the last excuse.
 
 ### Relation to FractiSI Multi-Agent
 

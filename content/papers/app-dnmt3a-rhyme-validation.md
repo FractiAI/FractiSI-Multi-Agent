@@ -36,7 +36,7 @@ Secondary: Does rhyme geometry hold the pair still with competitive coupling? Do
 
 ## Background and motivation
 
-Alzheimer and related research already spent decades on APP processing (BACE, γ-secretase, plaque pathology). Separately, epigenetic editing tools such as dCas9-DNMT3A have been aimed at promoters including APP in published wet labs. Those papers exist. The association catalog still often fails to list APP–DNMT3A as a protein interaction edge. Caregivers waiting on clinic calendars should not be told that the only honest next step is to rebuy both literatures before a relationship can be filed.
+Alzheimer and related research already spent decades on APP processing (BACE, γ-secretase, plaque pathology). Separately, epigenetic editing tools such as dCas9-DNMT3A have been aimed at promoters including APP in published wet labs. Those papers exist. The association catalog still often fails to list APP–DNMT3A as a protein interaction edge. The only honest next step should not be to rebuy both literatures before a relationship can be filed.
 
 The wiring wet lab answers with a different experiment: assemble the pieces, prove emptiness, control the lane, publish falsifiers.
 
@@ -108,7 +108,7 @@ Soft Story · not ENGINE_SHELF · not treatment · small exon panel · associati
 
 ### Human stakes without hype
 
-Families living with dementia already fund overlapping literatures. Filing a killable wire is triage, not a cure. The paycheck claim is refusal to demand duplicate spend before the relationship can be inspected.
+Dementia and epigenetic-editing research already fund overlapping literatures. Filing a killable wire is triage, not a cure. The cost claim is a refusal to demand duplicate spend before the relationship can be inspected.
 
 ## Methods reproducibility appendix
 
@@ -139,7 +139,7 @@ Prior rhyme expeditions (protein-folding, LLM language-pack, Pilot shared-world)
 
 Compared with classical systematic review, a wiring wet lab is regenerable: fixtures, seeds, STRING caches, and gates are executable. Compared with knowledge-graph completion, the emphasis is **catalog emptiness + kill switches**, not maximizing edge count.
 
-## Worked example for a reader after dinner
+## Worked example: reproducing the receipt
 
 1. Open the empirical JSON.  
 2. Confirm focus STRING empty and INS↔POMC ≥ 0.9.  

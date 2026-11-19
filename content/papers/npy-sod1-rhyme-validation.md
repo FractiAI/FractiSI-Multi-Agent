@@ -37,7 +37,7 @@ Secondary questions: (1) Does the rhyme board recover the pair with coupling com
 
 Amyotrophic lateral sclerosis (ALS) research has produced dense SOD1 literature — transgenic SOD1G93A models, human post-mortem cortex assays, and oxidative / excitability mechanism boards. Separately, neuropeptide Y (NPY) appears in cortical interneuron remodeling and human ALS motor cortex studies. STRING, however, does not list a scored NPY–SOD1 protein interaction in our live-cached focus query. That silence is not proof of biological irrelevance; it is a catalog gap.
 
-Parents, caregivers, and grant writers already pay for duplicate assays when relationship edges are never filed from work that exists. The **wiring wet lab** form names the higher-layer experiment: hold the rhyme-recovered pair still, prove catalog emptiness, assemble published pieces into a falsifiable path, and publish kill switches before celebration. This paper instantiates that form for NPY↔SOD1.
+Duplicate assays get paid for when relationship edges are never filed from work that already exists. The **wiring wet lab** form names the higher-layer experiment: hold the rhyme-recovered pair still, prove catalog emptiness, assemble published pieces into a falsifiable path, and publish kill switches before celebration. This paper instantiates that form for NPY↔SOD1.
 
 ## Thesis — wiring is the higher-level discovery
 
@@ -120,7 +120,7 @@ LLM and Pilot rhyme catalogs independently recover NPY↔SOD1 as aware-only / Pi
 
 ### What would make this more important — and what would not
 
-A future physical co-IP, proximity ligation, or targeted interventional study could thicken the wire toward mechanism. That would be new spend. Until then, the honest human stake is triage: caregivers and scientists get an inspectable path through papers already paid for, without a false requirement to rebuy the shelf before the relationship can be discussed.
+A future physical co-IP, proximity ligation, or targeted interventional study could thicken the wire toward mechanism. That would be new spend. Until then, the practical value is triage: readers get an inspectable path through papers already paid for, without a false requirement to rebuy the shelf before the relationship can be discussed.
 
 ### Limitations
 
@@ -161,7 +161,7 @@ Prior rhyme expeditions (protein-folding, LLM language-pack, Pilot shared-world)
 
 Compared with classical systematic review, a wiring wet lab is regenerable: fixtures, seeds, STRING caches, and gates are executable. Compared with knowledge-graph completion, the emphasis is **catalog emptiness + kill switches**, not maximizing edge count.
 
-## Worked example for a reader after dinner
+## Worked example: reproducing the receipt
 
 1. Open the empirical JSON.  
 2. Confirm focus STRING empty and INS↔POMC ≥ 0.9.  
