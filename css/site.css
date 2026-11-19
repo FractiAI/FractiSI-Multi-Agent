@@ -418,6 +418,8 @@ pre {
 .campus-list article { display: grid; grid-template-columns: 4.2rem 1fr; gap: 0.8rem 1.2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
 .campus-list .num { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.45rem; }
 .campus-list h2 { font-size: 1.3rem; font-weight: 620; letter-spacing: -0.025em; margin: 0 0 0.35rem; }
+.campus-list h3 { font-size: 1.05rem; font-weight: 620; letter-spacing: -0.02em; margin: 1.25rem 0 0.2rem; color: var(--ink); }
+.campus-list h3:first-of-type { margin-top: 0.85rem; }
 .campus-list p { margin: 0.35rem 0 0; color: var(--ink-2); }
 .loop { margin: 1.4rem 0 0; font-family: var(--sans); font-size: 1rem; line-height: 1.5; }
 .places { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.6rem; }
