@@ -1,8 +1,8 @@
 # FractiSI Multi-Agent
 
-### The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents.
+### The Fractal Holographic Goldilocks Rhyming World Model for Digital (and Human) Agents.
 
-**FractiSI Multi-Agent** — The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents. FractiSI’s flagship coordination platform for agentic engineering. It sits **beside** Cursor, Claude Code, VS Code, and Git — not another coding assistant, and not a model swap. **Tiny Footprint** (powered by **Tiny Gateway™**) keeps the shared world once; layers above coordinate ownership, compose contributions, and optionally publish behind an approval gate.
+**FractiSI Multi-Agent** — The Fractal Holographic Goldilocks Rhyming World Model for Digital (and Human) Agents. FractiSI’s flagship coordination platform for agentic engineering. It sits **beside** Cursor, Claude Code, VS Code, and Git — not another coding assistant, and not a model swap. **Tiny Footprint** (powered by **Tiny Gateway™**) keeps the shared world once; layers above coordinate ownership, compose contributions, and optionally publish behind an approval gate.
 
 **Problems it solves.** Agent fleets still pay a hidden tax: every agent reprints the same context, exact-text caches only help when the words repeat, gzip shrinks copies without removing them, and parallel work collides at merge time. Teams lose density in scarce DRAM/HBM, miss relationships a flat skim never assembles, and spend cycles reconciling branches instead of shipping composed results.
 
@@ -48,9 +48,9 @@ Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated a
 | **Shared world vs private copies** (same model, 4 agents, 1 dim each) | Private copies · next-state MSE 0.00099–0.00263 | Shared world · **0.00013–0.00017** (5.7×–20× lower) |
 | **Tiny Gateway · DRAM & materialize** | Full / conventional | Aggregate **84.5%** · GPU alloc proxy **81.4%** · materialize **~9.6×** (H100 rhyme-vs-prefix ~34% = simulation only) |
 
-### World Model features · Rhyme
+### Rhyming World Model features · Rhyme
 
-Rhyme is a feature category of the FractiSI Multi-Agent World Model. Four members, each measured on public data:
+Rhyme is a feature category of the FractiSI Multi-Agent Rhyming World Model. Four members, each measured on public data:
 
 | Rhyme feature | What it does | Measured |
 |---|---|---|

@@ -1,7 +1,7 @@
 /**
  * World Model Assimilation · experimental suite (isolated)
  *
- * Experiments 1–5 from the Open World Model Intelligence Assimilation Initiative.
+ * Experiments 1–5 from the Open Rhyming World Model Intelligence Assimilation Initiative.
  * All results are measured in-process. No external model weights downloaded.
  */
 import { performance } from 'node:perf_hooks';

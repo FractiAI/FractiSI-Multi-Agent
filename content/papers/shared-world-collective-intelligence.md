@@ -80,11 +80,11 @@ Exp 002 · Tiny Gateway rhyme vs cache · Multi-Agent platform · this rhyming v
 - **Upstream models executed on CPU:** DreamerV3 (danijar/dreamerv3, 5,000 steps), MuZero (muzero-general, 3,000 updates), TD-MPC2 (official 5M checkpoints, real MuJoCo), V-JEPA 2 (ViT-L encoder on real CartPole renders). None has share or merge. Receipts: `research/synthobs-shared-world-collective-intelligence/data/open_wm_official/`.
 - **Same model, two deployments:** four agents each see one CartPole dimension; each compact arm drives its own rollout controller. Shared world predicts the next state 5.7×–20× better than private copies; control return is unchanged for two of three arms. A plain blackboard would match the accuracy gain; the rhyme layer's own contribution is bytes (400 agent messages: 136,546 B exact cache vs 69,912 B rhyme).
 - **Correction:** the earlier "shared 200 vs independent ~14" compared two hand-written rules and is not a world-model result.
-- **Rhyme features of the FractiSI Multi-Agent World Model:** Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53, new), LLM Rhyme (#54, new).
+- **Rhyme features of the FractiSI Multi-Agent Rhyming World Model:** Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53, new), LLM Rhyme (#54, new).
 
 → ∞^∞
 
 
 ## Addendum · 2026-11-18 · Pilot Rhyme (#55)
 
-Fifth World Model rhyme feature: Director/Pilot role rhyme. Lab: 100/100 vs flat 0/100; exact role cache 0 hits; Pilot Rhyme store 22% smaller than exact cache and 80% smaller than private copies. Paper: `/whitepaper/pilot-rhyme-expedition` · ship blog `/ship-blog/pilot-rhyme-expedition`.
+Fifth Rhyming World Model rhyme feature: Director/Pilot role rhyme. Lab: 100/100 vs flat 0/100; exact role cache 0 hits; Pilot Rhyme store 22% smaller than exact cache and 80% smaller than private copies. Paper: `/whitepaper/pilot-rhyme-expedition` · ship blog `/ship-blog/pilot-rhyme-expedition`.

@@ -77,7 +77,7 @@ export const STEP_CATALOG = Object.freeze([
     n: 'relational',
     title: 'Relationships beat linear reading.',
     short: 'LINEAR · FLAT · AWARE partner recovery',
-    layer: 'Relational World Model',
+    layer: 'Relational Rhyming World Model',
     component: 'LINEAR / FLAT / AWARE architecture control · E9–E11 claim shape',
   },
   {
@@ -779,7 +779,7 @@ function runRelational() {
   const awarePct = Math.round(demo.awareRate * 100);
   return base(m, {
     problem: 'Linear reading and flat dumps miss long-range partners that a relational map holds.',
-    opportunity: 'A shared World Model of couplings recovers partners sequence-local reading cannot.',
+    opportunity: 'A shared Rhyming World Model of couplings recovers partners sequence-local reading cannot.',
     fractisi: [
       'LINEAR — local window only.',
       'FLAT — same material without structure.',
@@ -822,7 +822,7 @@ function runRelational() {
         better: 'higher',
       },
       also: `FLAT (unstructured dump) recovered ${flatPct}%. The board is a better organization of information — that is the thesis.`,
-      summary: `On ${demo.n} regenerable tasks, linear reading recovered ${demo.linear} partners and the relational board recovered ${demo.aware}. Same material; different World Model.`,
+      summary: `On ${demo.n} regenerable tasks, linear reading recovered ${demo.linear} partners and the relational board recovered ${demo.aware}. Same material; different Rhyming World Model.`,
       implication: 'Intelligence here means recovering relationships invisible in a linear stream — the computational fold claim you can run yourself.',
       beyondTheory: `AWARE beating LINEAR on exact partner recovery is a coherent, predictable consequence of holding couplings in a shared map — well beyond theory, and open to re-run on this machine.`,
     },
@@ -882,7 +882,7 @@ function runCollab() {
       },
       also: `Solos and wrong-join also scored ${Math.round(demo.soloARate * 100)}% / ${Math.round(demo.siloRate * 100)}%. Synergy appears when the job is truly complementary.`,
       summary: `Independent parts never formed the joint product (${orPct}%). With a shared join rule the team recovered it on ${collabPct}% of items — whole greater than the sum of parts.`,
-      implication: 'Multi-agent synergy is real when information is complementary and the World Model supports a shared join — not a claim that more chat always wins.',
+      implication: 'Multi-agent synergy is real when information is complementary and the Rhyming World Model supports a shared join — not a claim that more chat always wins.',
       beyondTheory: `Zero solos/OR versus full recovery under a shared join is a coherent, predictable architecture result — well beyond theory — and you just ran it.`,
     },
   });

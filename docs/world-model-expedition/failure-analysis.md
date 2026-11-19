@@ -1,4 +1,4 @@
-# Failure Analysis · Shared World Models Expedition
+# Failure Analysis · Shared Rhyming World Models Expedition
 
 ## Where we were wrong / tempered
 

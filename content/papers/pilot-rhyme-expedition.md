@@ -5,7 +5,7 @@
 **Document ID:** `WP-PILOT-RHYME-EXPEDITION-EGS-2026-11-18`  
 **Registry ID:** `synthobs-pilot-rhyme-expedition-2026-11`  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Application companion Soft Story / computational expedition · Infinite Octaves ENGINE_SHELF #55 · FractiSI World Model rhyme feature  
+**Classification:** Application companion Soft Story / computational expedition · Infinite Octaves ENGINE_SHELF #55 · FractiSI Rhyming World Model rhyme feature  
 **Date:** 18 November 2026  
 **Harness:** FractiSI Multi-Agent `research/pilot-rhyme-expedition/` · mirror `research/synthobs-pilot-rhyme-expedition/`  
 **Ship blog:** `/ship-blog/pilot-rhyme-expedition`
@@ -21,7 +21,7 @@
 
 ## Title lock
 
-**Pilot Rhyme** is the fifth World Model rhyme feature of FractiSI Multi-Agent, beside Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53), and LLM Rhyme (#54).
+**Pilot Rhyme** is the fifth Rhyming World Model rhyme feature of FractiSI Multi-Agent, beside Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53), and LLM Rhyme (#54).
 
 ## Primary research question
 
@@ -53,7 +53,7 @@ Run: `npm run research:pilot-rhyme-expedition` (kit) or `npm run research:syntho
 
 **Verdict:** SUPPORTED for the stated question. Role structure recovers the chain; Pilot Rhyme keeps the store smaller when wording differs.
 
-## World Model feature lock
+## Rhyming World Model feature lock
 
 Pilot Rhyme = Director holds the map · Pilots run local steps · roles stored once · each mission as only what differs · one shared world.
 

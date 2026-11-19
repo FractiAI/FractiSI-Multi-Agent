@@ -1,4 +1,4 @@
-# What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO
+# What Both Jensen Huang and NVIDIA Need Is a New Rhyming World Model, Not a New CEO
 
 **A Fractal Holographic Goldilocks Superintelligence Awareness Expedition**
 
@@ -10,7 +10,7 @@
 **System under observation:** NVIDIA organizational + technological ecosystem → human + digital agents → humanity  
 **Computational environment:** FractiSI Computational Lab · kit [`FractiAI/FractiSI-Multi-Agent`](https://github.com/FractiAI/FractiSI-Multi-Agent)  
 **Suite:** `research/synthobs-nvidia-goldilocks-awareness-expedition/` · `npm run research:synthobs-nvidia-goldilocks-awareness-expedition`  
-**Primary hypothesis:** Human and digital agents can be upgraded together by migrating the World Model through which they coordinate.  
+**Primary hypothesis:** Human and digital agents can be upgraded together by migrating the Rhyming World Model through which they coordinate.  
 **Ship blog:** `/ship-blog/nvidia-goldilocks-moment`  
 **FractiSI mirrors:** `/blog/nvidia-goldilocks-moment/` · `/library/papers/nvidia-goldilocks-awareness-expedition/`
 
@@ -20,7 +20,7 @@
 
 | Tier | Claims | Does not claim |
 |---|---|---|
-| Soft Story / organizational | NVIDIA + Jensen Huang are a useful World Model case study for Legacy Linear → Fractal Holographic Goldilocks migration | Scandal adjudication; succession prediction; that NVIDIA needs / does not need a particular CEO; career, legal, or investment advice |
+| Soft Story / organizational | NVIDIA + Jensen Huang are a useful Rhyming World Model case study for Legacy Linear → Fractal Holographic Goldilocks migration | Scandal adjudication; succession prediction; that NVIDIA needs / does not need a particular CEO; career, legal, or investment advice |
 | Terminology | “Players / super-performers” and “NPCs / standard agents” are **operating configurations**, not human worth | That any person is permanently a “Player” or “NPC” |
 | Empirical (this suite) | E0–E6 regenerable; E9 real PDB+Pfam long-range contact rhyme (allam 0/0/62.5% LINEAR/FLAT/AWARE on 16 coevolution-consistent chains): Exp 002 cite; FRED UNRATE walk-forward; Movebank+Kp sequence structure; competition vs Goldilocks dup cut; closed vs open byte cut; measured scorecard composites; matched-budget architecture test (deterministic control plus one live open-weight LLM, 12 synthetic tasks) | Live GPU-HBM / production LLM bake-off at scale; frontier-model or multi-model generality; that human orgs inherit lab numbers as NVIDIA KPIs or forecasts |
 | Scorecard | E5 composites from **E0–E6** dimensions (Goldilocks **77.1** still ranks first; E9–E12 cognitive/synergy arms sit beside the board unless amended into the weights) | Soft Story illustrative 39/51/55/91 numbers (retired); silent score inflation from later arms |
@@ -34,7 +34,7 @@
 
 The central question facing increasingly capable human and digital intelligence is not simply how to make individual agents more capable. It is how to organize increasingly capable agents without suppressing their capabilities, fragmenting their context, wasting resources, increasing unnecessary risk, or making participation unnecessarily difficult and unpleasant.
 
-This expedition proposes a migration from the **Legacy Linear Awareness World Model** to the **Fractal Holographic Goldilocks Awareness World Model**.
+This expedition proposes a migration from the **Legacy Linear Awareness World Model** to the **Fractal Holographic Goldilocks Awareness Rhyming World Model**.
 
 The Legacy Linear model is closed, competitive, shareholder-profit focused, hierarchical, rules-based, plan-based, role-driven, and control-oriented. It produces coordination through standardization, predefined objectives, centralized authority, and compliance.
 
@@ -51,23 +51,23 @@ These terms describe **operating configurations rather than human worth**. A per
 
 The expedition therefore investigates:
 
-> Can human and digital agents be upgraded together by changing the World Model through which they coordinate, rather than forcing increasingly capable agents into increasingly standardized structures?
+> Can human and digital agents be upgraded together by changing the Rhyming World Model through which they coordinate, rather than forcing increasingly capable agents into increasingly standardized structures?
 
 The Goldilocks test is broader than capability alone:
 
-> Can the World Model produce greater useful intelligence and collective capability while making the system safer, less costly, more sustainable, and more enjoyable to participate in?
+> Can the Rhyming World Model produce greater useful intelligence and collective capability while making the system safer, less costly, more sustainable, and more enjoyable to participate in?
 
 NVIDIA is a natural hardware ecosystem focus because its position spans accelerated computation, AI infrastructure, models, agents, multi-agent systems, and the organizations built around them. Jensen Huang provides a highly visible leadership case, while NVIDIA provides the larger organizational and technological system in which the experiment can be conducted.
 
 The deeper experiment is architectural:
 
-> Can the organization building the infrastructure for increasingly capable intelligence also experiment with the World Model that increasingly capable intelligence will require?
+> Can the organization building the infrastructure for increasingly capable intelligence also experiment with the Rhyming World Model that increasingly capable intelligence will require?
 
 ---
 
 ## 1. Primary Research Question
 
-Can human and digital agents be upgraded together by migrating from the Legacy Linear Awareness World Model to the Fractal Holographic Goldilocks Awareness World Model?
+Can human and digital agents be upgraded together by migrating from the Legacy Linear Awareness World Model to the Fractal Holographic Goldilocks Awareness Rhyming World Model?
 
 The expedition tests whether the migration produces measurable improvements in: agent capability utilization; collective intelligence; coordination efficiency; contextual awareness; autonomy; agency; creativity; adaptation; consent; boundary quality; information preservation; agent density; system resilience; useful output per unit of resource; safety; cost efficiency; sustainability; participation quality; enjoyment.
 
@@ -87,7 +87,7 @@ This model is highly effective when the environment is stable, the task is well 
 
 Increasingly capable human and digital agents create conditions in which those assumptions become less reliable. A capable agent can generate new objectives, discover relationships not contained in the plan, recognize information outside its assigned role, create a better solution than the one specified, and become constrained by the architecture designed to coordinate it.
 
-The resulting problem is not simply insufficient intelligence. It is **World Model mismatch**. The same mismatch can produce four systemic costs: unnecessary risk; unnecessary expense; unnecessary resource consumption; unnecessary friction. A system can therefore be highly optimized locally while becoming more expensive, less sustainable, less safe, and less enjoyable as a whole.
+The resulting problem is not simply insufficient intelligence. It is **Rhyming World Model mismatch**. The same mismatch can produce four systemic costs: unnecessary risk; unnecessary expense; unnecessary resource consumption; unnecessary friction. A system can therefore be highly optimized locally while becoming more expensive, less sustainable, less safe, and less enjoyable as a whole.
 
 ---
 
@@ -95,7 +95,7 @@ The resulting problem is not simply insufficient intelligence. It is **World Mod
 
 The Legacy Linear World Model also carries inherited assumptions about human behavior. One particularly persistent Soft Story pattern is the Victorian human template: respectable behavior standardized; sexuality compartmentalized; social roles rigid; desire separated from public identity; hierarchy determining legitimacy; deviation treated as pathology; conformity as normality; private and public selves artificially separated.
 
-When the World Model cannot represent the full range of legitimate human variation, the system compresses the human agent until the agent fits the model. Capability is lost; unnecessary conflict is generated; people spend energy managing artificial constraints; relationships become less transparent; institutions require additional enforcement; participants experience greater friction. The same structural pattern appears in organizations, institutions, digital systems, and AI agents.
+When the Rhyming World Model cannot represent the full range of legitimate human variation, the system compresses the human agent until the agent fits the model. Capability is lost; unnecessary conflict is generated; people spend energy managing artificial constraints; relationships become less transparent; institutions require additional enforcement; participants experience greater friction. The same structural pattern appears in organizations, institutions, digital systems, and AI agents.
 
 ---
 
@@ -119,9 +119,9 @@ In player/NPC terminology: **Players actively shape the game.** The term describ
 
 ### 5.2 Standard agents / NPCs
 
-Agents whose behavior is more strongly organized by inherited roles, routines, institutions, rules, incentives, social expectations, environmental scripts, conventional plans, and established pathways. This does not mean these humans lack awareness, value, creativity, or agency. It means their available agency is more strongly shaped by the World Model surrounding them.
+Agents whose behavior is more strongly organized by inherited roles, routines, institutions, rules, incentives, social expectations, environmental scripts, conventional plans, and established pathways. This does not mean these humans lack awareness, value, creativity, or agency. It means their available agency is more strongly shaped by the Rhyming World Model surrounding them.
 
-A World Model can either constrain agency into inherited scripts or create conditions under which agency can expand.
+A Rhyming World Model can either constrain agency into inherited scripts or create conditions under which agency can expand.
 
 ---
 
@@ -129,7 +129,7 @@ A World Model can either constrain agency into inherited scripts or create condi
 
 A standardized organization may recruit or produce an extraordinary agent and then place that agent inside an architecture optimized for ordinary organizational behavior. The capability tax can come from excessive standardization, forced conformity, compartmentalization, rigid roles, approval layers, political incentives, narrow metrics, suppression of unconventional behavior, and separation of agent from context.
 
-The appropriate response is neither unrestricted autonomy nor forced normalization. The World Model must recognize exceptional capability; provide autonomy proportional to capability and context; maintain appropriate boundaries; preserve accountability; protect consent; augment capability; integrate exceptional agents with other agents; and prevent exceptional capability from becoming unrestricted authority. It should also reduce the cost of being exceptional: a high-capability agent should not need to spend unnecessary energy fighting the architecture merely to use its capability.
+The appropriate response is neither unrestricted autonomy nor forced normalization. The Rhyming World Model must recognize exceptional capability; provide autonomy proportional to capability and context; maintain appropriate boundaries; preserve accountability; protect consent; augment capability; integrate exceptional agents with other agents; and prevent exceptional capability from becoming unrestricted authority. It should also reduce the cost of being exceptional: a high-capability agent should not need to spend unnecessary energy fighting the architecture merely to use its capability.
 
 Safer, less costly, more sustainable, and more enjoyable become architectural outcomes rather than lifestyle preferences.
 
@@ -167,7 +167,7 @@ We ask whether the folding grammar helps **only** proteins or also higher system
 
 Complex systems that produce coherent behavior — folds, minds, teams, multi-agent stacks — share a structural rhyme. The **linear** description (sequence, token stream, private ticket queue) is always available and often fluent. The **fold** is the coherent whole. What turns sequence into fold is not more local reading; it is **long-range relational pattern**: contacts, couplings, who-depends-on-whom.
 
-In proteins, residues far apart in the chain can sit adjacent in 3D. Evolutionary couplings in families of related sequences reveal those contacts. That is why statistical / MSA-aware folding models could see what a single-sequence linear pass could not. In agents and organizations the same move applies: a shared World Model that holds relationships is the awareness layer; private silos and flat dumps are the linear pass.
+In proteins, residues far apart in the chain can sit adjacent in 3D. Evolutionary couplings in families of related sequences reveal those contacts. That is why statistical / MSA-aware folding models could see what a single-sequence linear pass could not. In agents and organizations the same move applies: a shared Rhyming World Model that holds relationships is the awareness layer; private silos and flat dumps are the linear pass.
 
 This paper’s E9 lab operationalizes that rhyme on **real PDB structures and real Pfam seed alignments**, with honesty boundaries intact: architectural evidence, not a claim that AlphaFold is retired or that NVIDIA KPIs follow.
 
@@ -243,7 +243,7 @@ Selective openness matched the closed accuracy band while cutting duplication.
 
 Composites are derived from this suite’s **E0–E6** measured dimensions — **not** Soft Story illustration scores and **not** NVIDIA KPIs. Cognitive / folding / synergy arms **E9–E12** (and the mixed E7/E8 awareness protocols) are directional evidence that sits **beside** this board; they do **not** silently rewrite the regenerable **77.1** unless a scorecard amendment folds those arms into the weighted composite.
 
-### E6 — Matched-budget agent architecture (same model, prompt, budget; only the World Model changes)
+### E6 — Matched-budget agent architecture (same model, prompt, budget; only the Rhyming World Model changes)
 
 This is the test the earlier suite lacked: does the architecture change outcomes when the agent, the prompt, the per-turn context budget, and the round limit are held fixed? Each task is a six-hop chain. A private-silo arm gives each turn one silo (forty filler lines, then the hop record) plus the prior message, truncated to a 64-token budget. A shared-world arm gives each turn only the current hop and its edge, under the same 64-token budget. A third arm, linear unbounded, gives the private silo with no truncation, as a capability control.
 
@@ -259,14 +259,14 @@ The live arm used `openai/gpt-oss-20b` (open weights) served through Groq, tempe
 
 **Limits.** One model, one provider, twelve synthetic chain tasks, one seed. The task is a retrieval-and-follow-links toy, not an organizational workload. The result supports “shared-world context assembly can preserve task success where private-silo assembly under the same budget cannot”; it does not show that the same margin appears with frontier models, real documents, or human teams.
 
-These are FractiSI Computational Lab / public-data experiments. They establish regenerable architectural and temporal-structure signals for the World Model migration hypothesis.
+These are FractiSI Computational Lab / public-data experiments. They establish regenerable architectural and temporal-structure signals for the Rhyming World Model migration hypothesis.
 
 ---
 
 
 ### E9 — Protein-folding rhyme on real PDB + Pfam (long-range pattern vs linear)
 
-**Rhyme:** A protein sequence is to a fold as a linear observation stream is to intelligence. Long-range contacts (residues far in sequence, near in structure) are the fold’s relational secret. AlphaFold-class systems worked by exploiting **patterns across homologs**, not by reading one chain more carefully. The same rhyme applies to agents and organizations: a World Model that holds relationships should see structure a linear pass systematically cannot.
+**Rhyme:** A protein sequence is to a fold as a linear observation stream is to intelligence. Long-range contacts (residues far in sequence, near in structure) are the fold’s relational secret. AlphaFold-class systems worked by exploiting **patterns across homologs**, not by reading one chain more carefully. The same rhyme applies to agents and organizations: a Rhyming World Model that holds relationships should see structure a linear pass systematically cannot.
 
 **Data (public, not simulated):** RCSB PDB structures for gold CA contacts; InterPro/Pfam seed MSAs for homologs. Couplings for the AWARE board are computed from the MSA only — never from coordinates. Primary cohort: 16 chains where the top MSA coupling at the query residue agrees with a true long-range contact.
 
@@ -297,7 +297,7 @@ Socioeconomic rhyme: query series + partners among UNRATE / CPIAUCSL / FEDFUNDS 
 | allam-2-7b (N=24) | 0.00 | 0.00 | **0.458** |
 | Qwen2.5-1.5B (N=24) | 0.00 | 0.00 | **1.00** |
 
-**Cross-rhyme reading.** “Beat linear” means higher exact partner-recovery under the same model and question: AWARE’s rate exceeded LINEAR (and FLAT) on protein contacts, HotpotQA supporting title pairs, and FRED lagged series partners. The board supplies measured couplings; LINEAR never sees that map. That is the generalization step toward smarter agents: a World Model that holds long-range relationships unlocks recovery tasks sequence-local reading misses — not a claim that HotpotQA or FRED are proteins.
+**Cross-rhyme reading.** “Beat linear” means higher exact partner-recovery under the same model and question: AWARE’s rate exceeded LINEAR (and FLAT) on protein contacts, HotpotQA supporting title pairs, and FRED lagged series partners. The board supplies measured couplings; LINEAR never sees that map. That is the generalization step toward smarter agents: a Rhyming World Model that holds long-range relationships unlocks recovery tasks sequence-local reading misses — not a claim that HotpotQA or FRED are proteins.
 
 
 
@@ -318,9 +318,9 @@ Socioeconomic rhyme: query series + partners among UNRATE / CPIAUCSL / FEDFUNDS 
 
 NVIDIA is especially interesting because extraordinary technical and creative performance sits near the center of its historical and technological position.
 
-**Question:** Can an organization built to produce extraordinary capability also build a World Model capable of accommodating the extraordinary agents it produces?
+**Question:** Can an organization built to produce extraordinary capability also build a Rhyming World Model capable of accommodating the extraordinary agents it produces?
 
-Jensen Huang represents one unusually visible human-agent case. The same question applies to exceptional engineers, researchers, scientists, architects, entrepreneurs, designers, managers, AI researchers, digital agents, and multi-agent systems. The World Model must accommodate exceptional capability without converting capability into unrestricted authority.
+Jensen Huang represents one unusually visible human-agent case. The same question applies to exceptional engineers, researchers, scientists, architects, entrepreneurs, designers, managers, AI researchers, digital agents, and multi-agent systems. The Rhyming World Model must accommodate exceptional capability without converting capability into unrestricted authority.
 
 ---
 
@@ -348,7 +348,7 @@ Goldilocks information: enough context to support useful action without overwhel
 
 ---
 
-## 13. The Two World Models
+## 13. The Two Rhyming World Models
 
 | Dimension | Legacy Linear Awareness | Fractal Holographic Goldilocks Awareness |
 |---|---|---|
@@ -400,7 +400,7 @@ Construct a synthetic population with varying latent dimensions (creativity, aut
 
 Metrics: mean/median/upper-tail performance; retention of exceptional agents; agency; adaptation; coordination; collective output; resource efficiency; safety; sustainability; participation quality; enjoyment.
 
-Critical test: the upper tail. If a system designed for the median systematically suppresses the highest-capability agents, average performance can conceal World Model failure.
+Critical test: the upper tail. If a system designed for the median systematically suppresses the highest-capability agents, average performance can conceal Rhyming World Model failure.
 
 ---
 
@@ -444,7 +444,7 @@ The two failures rhyme. FractiSI addresses the first computationally; the human-
 
 NVIDIA’s ecosystem spans: semiconductor → accelerated computation → AI infrastructure → models → agents → multi-agent systems → organizations → ecosystems.
 
-Its technology increasingly determines the computational environment in which the next generation of agents will operate. A World Model experiment here can connect hardware efficiency, agent density, multi-agent coordination, AI infrastructure, human organization, collective intelligence, energy/resource efficiency, and user experience.
+Its technology increasingly determines the computational environment in which the next generation of agents will operate. A Rhyming World Model experiment here can connect hardware efficiency, agent density, multi-agent coordination, AI infrastructure, human organization, collective intelligence, energy/resource efficiency, and user experience.
 
 The expedition does not assume NVIDIA caused the Legacy Linear World Model. It proposes NVIDIA as a natural experimental focus because its technological position makes the human–digital transition unusually visible.
 
@@ -454,9 +454,9 @@ The expedition does not assume NVIDIA caused the Legacy Linear World Model. It p
 
 Jensen Huang provides a visible human focal point because the organization around him is strongly associated with extraordinary technical execution, ambition, speed, innovation, and ecosystem formation.
 
-Research question: What World Model allows an unusually capable human agent to remain highly capable while participating in a much larger system of human and digital agents?
+Research question: What Rhyming World Model allows an unusually capable human agent to remain highly capable while participating in a much larger system of human and digital agents?
 
-A World Model that works only for one exceptional individual has limited value. A World Model that accommodates super-performers, standard agents, AI agents, teams, organizations, and ecosystems has substantially greater explanatory and practical value.
+A Rhyming World Model that works only for one exceptional individual has limited value. A Rhyming World Model that accommodates super-performers, standard agents, AI agents, teams, organizations, and ecosystems has substantially greater explanatory and practical value.
 
 ---
 
@@ -465,7 +465,7 @@ A World Model that works only for one exceptional individual has limited value. 
 1. **Digital Agent Architecture** — linear vs FractiSI shared-world coordination (convergence, communication, duplication, density, resources, success, cost per useful result).  
 2. **Human Agent Architecture** — standardized vs Goldilocks environments (capability utilization, agency, adaptation, creativity, retention, upper-tail, collective output, cost, safety, sustainability, participation).  
 3. **Super-Performer Integration** — autonomy, boundaries, context, compatible environments, AI augmentation, high-quality relationships; measure capability and system cost.  
-4. **Human + Digital Agents** — standard humans, super-performers, specialized and general AI agents in a shared World Model.  
+4. **Human + Digital Agents** — standard humans, super-performers, specialized and general AI agents in a shared Rhyming World Model.  
 5. **Organizational Migration** — individual → team → organization → ecosystem while preserving the pattern.
 
 Final test: safer + less costly + more sustainable + more enjoyable while maintaining or increasing useful capability.
@@ -474,7 +474,7 @@ Final test: safer + less costly + more sustainable + more enjoyable while mainta
 
 ## 23. Sexuality as a High-Sensitivity Test
 
-Sexuality provides an unusually sensitive Soft Story probe of the inherited human World Model because it exposes differences between private and public identity, desire and social role, consent and coercion, authenticity and performance, freedom and boundary, attraction and obligation, individual preference and institutional norms.
+Sexuality provides an unusually sensitive Soft Story probe of the inherited human Rhyming World Model because it exposes differences between private and public identity, desire and social role, consent and coercion, authenticity and performance, freedom and boundary, attraction and obligation, individual preference and institutional norms.
 
 Goldilocks asks: What boundaries allow genuine human variation while preserving consent, dignity, safety, and the agency of every participant? Better representation, better boundaries, better consent, better context — and whether a more truthful architecture can reduce unnecessary secrecy, conflict, enforcement, and social friction.
 
@@ -491,7 +491,7 @@ Begin with an organizational audit rather than a leadership replacement:
 - **Boundary architecture** — privacy, consent, authority, accountability, escalation, reversibility, safety  
 - **Organizational flow** — where information stops, decisions wait, agents lose context, capability becomes invisible, exceptional behavior is normalized, useful autonomy is blocked, resources are wasted, friction accumulates  
 
-Objective: locate World Model bottlenecks.
+Objective: locate Rhyming World Model bottlenecks.
 
 ---
 
@@ -514,7 +514,7 @@ Summary: **More useful capability, with less unnecessary risk, cost, waste, and 
 
 ## 26. Falsification
 
-Reject or modify the Fractal Holographic Goldilocks World Model if experiments show that: shared worlds provide no meaningful coordination advantage; differentiated agents perform worse with appropriate autonomy; consent-based coordination is systematically inferior; Goldilocks boundaries cannot maintain coherence; super-performer accommodation produces no measurable benefit; human-agent variation provides no useful system-level information; FractiSI’s architecture provides no meaningful advantage under realistic workloads; human and digital coordination problems lack useful structural rhymes; migration increases complexity without capability/resilience gains; safety, cost, sustainability, or enjoyment fail to improve; additional architecture creates more friction than value.
+Reject or modify the Fractal Holographic Goldilocks Rhyming World Model if experiments show that: shared worlds provide no meaningful coordination advantage; differentiated agents perform worse with appropriate autonomy; consent-based coordination is systematically inferior; Goldilocks boundaries cannot maintain coherence; super-performer accommodation produces no measurable benefit; human-agent variation provides no useful system-level information; FractiSI’s architecture provides no meaningful advantage under realistic workloads; human and digital coordination problems lack useful structural rhymes; migration increases complexity without capability/resilience gains; safety, cost, sustainability, or enjoyment fail to improve; additional architecture creates more friction than value.
 
 Credibility through measurable improvement, not philosophical appeal.
 
@@ -524,7 +524,7 @@ Credibility through measurable improvement, not philosophical appeal.
 
 The Grand Story is the emergence of increasingly capable intelligence and whether humanity can develop it in a way that expands freedom, creativity, dignity, cooperation, agency, participation, capability, and genuine human variation.
 
-Humanity inherited a World Model optimized for relatively stable, standardized, hierarchical agents. The next generation contains increasingly capable humans, digital agents, hybrid teams, autonomous systems, multi-agent organizations, and complex ecosystems. The architecture that coordinates them may become as important as the intelligence itself.
+Humanity inherited a Rhyming World Model optimized for relatively stable, standardized, hierarchical agents. The next generation contains increasingly capable humans, digital agents, hybrid teams, autonomous systems, multi-agent organizations, and complex ecosystems. The architecture that coordinates them may become as important as the intelligence itself.
 
 A successful migration should make the resulting system safer, less costly, more sustainable, and more enjoyable. That is the Goldilocks condition.
 
@@ -532,7 +532,7 @@ A successful migration should make the resulting system safer, less costly, more
 
 ## 28. Central Finding
 
-The limiting factor may increasingly be the **World Model through which agents are organized** rather than the raw capability of the agents themselves.
+The limiting factor may increasingly be the **Rhyming World Model through which agents are organized** rather than the raw capability of the agents themselves.
 
 Legacy Linear organizes through: **rules + plans + roles + authority**  
 Fractal Holographic Goldilocks organizes through: **flow + shared worlds + relationships + appropriate boundaries + feedback + differentiation + consent**
@@ -547,7 +547,7 @@ Super-performers and standard agents provide two useful human configurations. Di
 
 The question facing Jensen Huang and NVIDIA is larger than whether they need a new CEO.
 
-The deeper question is whether the organization building infrastructure for next-generation intelligence will experiment with the World Model that next-generation intelligence itself may require — accommodating Players and NPCs (configurations), humans and digital agents, exceptional and ordinary capability, autonomy and accountability, privacy and openness, individual agency and collective intelligence, differentiation and coherence — and producing a measurable Goldilocks outcome:
+The deeper question is whether the organization building infrastructure for next-generation intelligence will experiment with the Rhyming World Model that next-generation intelligence itself may require — accommodating Players and NPCs (configurations), humans and digital agents, exceptional and ordinary capability, autonomy and accountability, privacy and openness, individual agency and collective intelligence, differentiation and coherence — and producing a measurable Goldilocks outcome:
 
 **safer + less costly + more sustainable + more enjoyable** while maintaining or increasing useful capability.
 
@@ -555,7 +555,7 @@ The objective is not to make every human a super-performer, every AI agent auton
 
 Core migration: **from standardized agents operating inside predefined plans → to differentiated agents operating inside a shared, adaptive world.**
 
-Ultimate test: Does the new World Model allow more of the capability already present in the system to become useful collective intelligence—while making the system safer, less costly, more sustainable, and more enjoyable?
+Ultimate test: Does the new Rhyming World Model allow more of the capability already present in the system to become useful collective intelligence—while making the system safer, less costly, more sustainable, and more enjoyable?
 
 That is the expedition.
 

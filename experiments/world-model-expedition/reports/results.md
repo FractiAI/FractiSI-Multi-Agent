@@ -1,4 +1,4 @@
-# Shared World Models Expedition · Results
+# Shared Rhyming World Models Expedition · Results
 
 **Document ID:** `WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18`
 **Runtime:** 62.6 ms · **Runs:** 300

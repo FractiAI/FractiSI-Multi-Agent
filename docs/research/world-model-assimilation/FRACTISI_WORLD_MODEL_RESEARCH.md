@@ -1,4 +1,4 @@
-# FractiSI World Model Research
+# FractiSI Rhyming World Model Research
 
 **Document ID:** `fractisi-world-model-research-2026-11`  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  

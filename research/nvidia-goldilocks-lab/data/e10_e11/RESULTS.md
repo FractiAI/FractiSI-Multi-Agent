@@ -18,7 +18,7 @@ Protocol: `E10_E11_HIGHER_SYSTEM_RHYMES.md` (pre-registered). Protein E9 remains
 
 **What “beat linear” means here.** Under the same model and the same recovery question, AWARE’s exact-recovery rate was higher than LINEAR’s (and higher than FLAT’s) on all three rhymes above — not a preference rating, and not a claim that the base model invented the couplings. The board supplies a leading relational candidate from real MSA / passage-overlap / lag-correlation structure; LINEAR never sees that map.
 
-**Why it matters.** The lift is not limited to protein folds. Multi-hop knowledge and macro coupling are systems agents actually use, so the same relational World Model move generalizes beyond biology.
+**Why it matters.** The lift is not limited to protein folds. Multi-hop knowledge and macro coupling are systems agents actually use, so the same relational Rhyming World Model move generalizes beyond biology.
 
 Honesty: AWARE often succeeds by using an explicit leading relational candidate derived from real couplings (MSA overlap / FRED lag-corr / Pfam). LINEAR never gets that map. This demonstrates **new ability vs linear under a shared world model**, not that the base model invented couplings from nothing.
 

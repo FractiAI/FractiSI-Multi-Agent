@@ -1,4 +1,4 @@
-# Experimental Design · Shared World Models Expedition
+# Experimental Design · Shared Rhyming World Models Expedition
 
 **Document ID:** `WP-RHYMING-VS-NON-RHYMING-WORLD-MODELS-EGS-2026-11-18`  
 **Date:** 18 November 2026  

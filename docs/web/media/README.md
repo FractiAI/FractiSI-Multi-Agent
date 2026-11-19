@@ -4,11 +4,11 @@ Canonical marketing visuals for **FractiSI Multi-Agent** (Tiny Footprint = share
 
 | File | Role |
 |------|------|
-| `fractisi-hero.jpg` | Home / product hero — Fractal Holographic Goldilocks World Model |
+| `fractisi-hero.jpg` | Home / product hero — Fractal Holographic Goldilocks Rhyming World Model |
 | `fractisi-markets.jpg` | Local · Server · Cloud — one engine |
 | `fractisi-architecture.jpg` | Platform stack beside runtimes you already run |
 | `fractisi-workstation.jpg` | Workstation try path · shared world · approval gate |
 
 Legacy filenames `tiny-footprint-*.jpg` are kept as identical copies for older links.
 
-Voice lock: *The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents.*
+Voice lock: *The Fractal Holographic Goldilocks Rhyming World Model for Digital (and Human) Agents.*

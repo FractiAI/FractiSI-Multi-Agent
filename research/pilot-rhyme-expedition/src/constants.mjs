@@ -2,7 +2,7 @@
  * Pilot Rhyme Expedition · constants
  * Director/Pilot role rhyme for multi-agent coordination.
  * Rebuild of LingBot-style Director/Pilot seats (paper pattern only — no NC weights).
- * ENGINE_SHELF candidate #55 · FractiSI World Model rhyme feature.
+ * ENGINE_SHELF candidate #55 · FractiSI Rhyming World Model rhyme feature.
  */
 export const DOCUMENT_ID = 'WP-PILOT-RHYME-EXPEDITION-EGS-2026-11-18';
 export const SEED = 20261118;

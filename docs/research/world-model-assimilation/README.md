@@ -1,4 +1,4 @@
-# Open World Model Intelligence Assimilation Initiative
+# Open Rhyming World Model Intelligence Assimilation Initiative
 
 **Product:** FractiSI Multi-Agent  
 **Branch / suite:** `research/world-model-assimilation` · `npm run research:world-model-assimilation`  

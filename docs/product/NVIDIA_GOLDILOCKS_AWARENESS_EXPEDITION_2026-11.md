@@ -1,4 +1,4 @@
-# What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO
+# What Both Jensen Huang and NVIDIA Need Is a New Rhyming World Model, Not a New CEO
 
 **A Fractal Holographic Goldilocks Superintelligence Awareness Expedition**
 

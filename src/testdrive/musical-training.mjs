@@ -178,9 +178,9 @@ export const MUSICAL_TRAINING = Object.freeze({
         Object.freeze({
           n: 15,
           slug: 'goldilocks-world-model',
-          title: 'Goldilocks World Model',
+          title: 'Goldilocks Rhyming World Model',
           body:
-            'The Goldilocks World Model brings the journey into a coherent, continuously evolving representation of reality. It integrates the infinite possibilities, nested scales, shared context, and recursive awareness into a navigable whole. Human and AI agents can perceive, predict, act, and update together, maintaining the right balance of information, complexity, and coordination as the world changes.',
+            'The Goldilocks Rhyming World Model brings the journey into a coherent, continuously evolving representation of reality. It integrates the infinite possibilities, nested scales, shared context, and recursive awareness into a navigable whole. Human and AI agents can perceive, predict, act, and update together, maintaining the right balance of information, complexity, and coordination as the world changes.',
           testDrive: Object.freeze({ step: 'futures', label: 'Predictive Shared State' }),
         }),
         Object.freeze({

@@ -38,7 +38,7 @@ test('Test Drive hero is evergreen — no past-symposium event subtitle', () => 
 test('Test Drive carries the locked FractiSI Multi-Agent tagline', () => {
   assert.equal(
     LOCK.tagline,
-    'The Fractal Holographic Goldilocks World Model for Digital (and Human) Agents.',
+    'The Fractal Holographic Goldilocks Rhyming World Model for Digital (and Human) Agents.',
   );
   assert.ok(page.includes(LOCK.tagline), 'hero tagline must match lock');
 });

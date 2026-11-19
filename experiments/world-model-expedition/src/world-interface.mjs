@@ -1,5 +1,5 @@
 /**
- * Common WORLD interface for Shared World Models expedition.
+ * Common WORLD interface for Shared Rhyming World Models expedition.
  * Capability classes: native | adapter | unavailable
  * Never silently invent unsupported ops.
  */

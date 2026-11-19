@@ -1,4 +1,4 @@
-# What Both Jensen Huang and NVIDIA Need Is a New World Model, Not a New CEO — Computational Lab Receipts
+# What Both Jensen Huang and NVIDIA Need Is a New Rhyming World Model, Not a New CEO — Computational Lab Receipts
 
 **Document ID:** `WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15`
 **Registry ID:** `synthobs-nvidia-goldilocks-awareness-expedition-2026-11`

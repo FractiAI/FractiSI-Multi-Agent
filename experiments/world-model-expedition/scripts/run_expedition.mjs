@@ -304,7 +304,7 @@ writeFileSync(join(resultsDir, 'grid_summary.json'), JSON.stringify(gridSummary,
 
 // Markdown results
 const lines = [];
-lines.push('# Shared World Models Expedition · Results');
+lines.push('# Shared Rhyming World Models Expedition · Results');
 lines.push('');
 lines.push(`**Document ID:** \`${summary.documentId}\``);
 lines.push(`**Runtime:** ${summary.runtimeMs.toFixed(1)} ms · **Runs:** ${summary.nRuns}`);

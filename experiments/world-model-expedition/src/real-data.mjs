@@ -1,5 +1,5 @@
 /**
- * Real / pinned available data loaders for Shared World Models v2.
+ * Real / pinned available data loaders for Shared Rhyming World Models v2.
  * Prefer committed fixtures over invented synthetic chains.
  */
 import { createReadStream, existsSync, readFileSync } from 'node:fs';

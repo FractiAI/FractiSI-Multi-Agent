@@ -1,4 +1,4 @@
-# Benchmark Spec · Shared World Models Expedition
+# Benchmark Spec · Shared Rhyming World Models Expedition
 
 ## Single command
 

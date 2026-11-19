@@ -68,7 +68,7 @@ The wiring wet lab does not replace physical labs. It **stops forcing physical l
 | Existing wet labs / clinical series / public spectra | Published reagents |
 | Protein-folding rhyme | Long-range partner-recovery grammar |
 | LLM rhyme | Language-pack boards on cosmic + genome theaters |
-| Pilot rhyme / FractiSI World Model | Director map + Pilot slices in one shared world |
+| Pilot rhyme / FractiSI Rhyming World Model | Director map + Pilot slices in one shared world |
 | AI agents | Scale triage, citation assembly, regenerable receipts |
 | Falsifiers | STRING fill → rediscovery; missing wet-lab roles → fail; beam/Planck kills for spectrum wiring |
 

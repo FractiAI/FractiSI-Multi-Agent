@@ -59,7 +59,7 @@ Shared-world accuracy gain is from sharing; a plain blackboard would match it. T
 
 Correction: the earlier lite planning returns (10–16, below random) came from reward-based planning on CartPole's constant reward. They are superseded by the state-cost controller above. The earlier "shared 200 vs independent ~14" used a hand-written rule for both sides and is not a world-model result.
 
-**Rhyme features of the World Model:** Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53, new), LLM Rhyme (#54, new).
+**Rhyme features of the Rhyming World Model:** Rhyming Templates, Shared-World Rhyme, Protein Folding Rhyme (#53, new), LLM Rhyme (#54, new).
 
 → ∞^∞
 
