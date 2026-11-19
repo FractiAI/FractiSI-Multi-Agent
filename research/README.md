@@ -8,4 +8,4 @@ The vendored research suite, kept for its history and receipts, and the website'
 |---|---|
 | [`synthobs-tiny-gateway-rhyming-templates/`](synthobs-tiny-gateway-rhyming-templates/README.md) | The vendored suite: history, receipts and compatibility paths |
 | [`nvidia-goldilocks-lab/`](nvidia-goldilocks-lab/) | Receipts mirror for the NVIDIA Goldilocks awareness expedition |
-| [`index.html`](index.html) | Research page · labs = **El Cortez**, **Mens Restroom**, **WhatsApp**, **Wiring Wet Lab**; expeditions = **Rhyming World Model** (arms nested, incl. Aware Attention Head for now), **Homeostasis**, **Net Zero** |
+| [`index.html`](index.html) | Research page · labs = **El Cortez**, **Mens Restroom**, **WhatsApp**, **Wiring Wet Lab**; expedition categories = **Rhyming**, **Infinite Octaves** (Aware Attention Head), **Homeostasis**, **Net Zero** |
