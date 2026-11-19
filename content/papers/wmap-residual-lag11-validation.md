@@ -2,14 +2,14 @@
 
 **Short answer: Yes.** Only as provisional wiring, not new physics: After a smooth continuum, lags 11 and 14 correlate about 0.50 and 0.47 with shuffle p near 0.003, beside rediscovered lags 17–19. The kill tests X1–X5 (Planck, continuum, beam, mask) are still pending, and any could demote it.
 
-**Document ID:** `WP-WMAP-RESIDUAL-LAG11-VALIDATION-EGS-2026-11-19`  
-**Registry ID:** `synthobs-wmap-residual-lag11-validation-2026-11`  
-**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Application companion Soft Story · **provisional new wiring discovery** · **not** Infinite Octaves ENGINE_SHELF  
-**Date:** 19 November 2026  
-**Harness:** `research/synthobs-wmap-residual-lag11-validation/`  
-**FractiSI mirror:** https://fractisi.vercel.app/library/papers/wmap-residual-lag11-validation/  
-**Ship blog:** `/ship-blog/wmap-residual-lag11-validation`  
+**Document ID:** `WP-WMAP-RESIDUAL-LAG11-VALIDATION-EGS-2026-11-19`
+**Registry ID:** `synthobs-wmap-residual-lag11-validation-2026-11`
+**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
+**Classification:** Application companion Soft Story · **provisional new wiring discovery** · **not** Infinite Octaves ENGINE_SHELF
+**Date:** 19 November 2026
+**Harness:** `research/synthobs-wmap-residual-lag11-validation/`
+**FractiSI mirror:** https://fractisi.vercel.app/library/papers/wmap-residual-lag11-validation/
+**Ship blog:** `/ship-blog/wmap-residual-lag11-validation`
 **Data:** REAL WMAP 9-year TT spectrum fixture · residual / acoustic control lanes · pre-registered falsifiers X1–X5
 
 ## Honesty boundary
@@ -24,9 +24,7 @@ Beam, mask, and instrument systematics can still explain residual structure. Thi
 
 ## Abstract
 
-
 This companion is intentionally long-form so QUESTFEST and FractiSI readers receive a complete methods-and-results report rather than a stub abstract.
-
 
 Cosmic rhyme expeditions flagged residual multipole structure near lags 11 and 14 on public microwave data. This validation suite asks the wiring question: can those lags be assembled into a **falsifiable residual wiring discovery** — with acoustic rediscovery controls so we do not mistake known physics for novelty, and with a pre-registered kill board so beam stories can demote the wire?
 
@@ -64,10 +62,10 @@ Fixtures include `wmap_tt_spectrum_9yr.txt`, `wiring_literature.json` (spectrum 
 
 ### Pre-registered falsifiers (summary)
 
-- **X1** — Planck (or equivalent) cross-mission fails to support the residual wire.  
-- **X3** — Continuum / foreground stress absorbs the residual correlation.  
-- **X4** — Beam-injection simulations recreate the lag wire.  
-- **X5** — Mask coupling recreates the lag wire.  
+- **X1** — Planck (or equivalent) cross-mission fails to support the residual wire.
+- **X3** — Continuum / foreground stress absorbs the residual correlation.
+- **X4** — Beam-injection simulations recreate the lag wire.
+- **X5** — Mask coupling recreates the lag wire.
 
 Any single hard kill demotes “provisional wiring” to “systematics candidate.”
 
@@ -89,9 +87,9 @@ The wire is a **relationship between residual multipole lags**, not a new satell
 
 ## Falsifiers and demotion rules
 
-1. Any of X1–X5 fires → demote.  
-2. Acoustic rediscovery control fails (lag is near known spacing sold as novel) → reclassify as rediscovery.  
-3. Fixture regeneration with protocol change collapses significance → demote until re-locked.  
+1. Any of X1–X5 fires → demote.
+2. Acoustic rediscovery control fails (lag is near known spacing sold as novel) → reclassify as rediscovery.
+3. Fixture regeneration with protocol change collapses significance → demote until re-locked.
 4. Upgrading Soft Story language to “new law of physics” without kills → editorial failure.
 
 ## Discussion
@@ -106,9 +104,9 @@ Overclaimed CMB anomalies have burned careers and public trust. A provisional wi
 
 ### Limitations
 
-- Soft Story · not ENGINE_SHELF.  
-- Single-mission WMAP TT fixture emphasis — cross-mission is a falsifier, not a completed proof.  
-- Beam/mask not exhaustively simulated in this Soft Story receipt — they are named kills.  
+- Soft Story · not ENGINE_SHELF.
+- Single-mission WMAP TT fixture emphasis — cross-mission is a falsifier, not a completed proof.
+- Beam/mask not exhaustively simulated in this Soft Story receipt — they are named kills.
 - Not a dark-matter or inflation replacement claim.
 
 ## Methods reproducibility appendix
@@ -125,13 +123,13 @@ $\Phi_{\mathrm{EGS}}$ is filing grammar only — not a substitute for CMB likeli
 
 ## References
 
-1. WMAP TT fixture — `fixtures/wmap_tt_spectrum_9yr.txt`  
-2. Wiring / falsifier notes — `fixtures/wiring_literature.json`  
-3. Cosmic Rhyme expedition paper — `docs/SYNTHOBS_COSMIC_RHYME_EXPEDITION_EGS_2026-11.md`  
-4. Wiring Wet Lab framework — `docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md`  
-5. Empirical receipt — `data/empirical_report.json`  
-6. WMAP 9-year results literature (public mission products)  
-7. QUESTFEST — `/ship-blog/wmap-residual-lag11-validation`  
+1. WMAP TT fixture — `fixtures/wmap_tt_spectrum_9yr.txt`
+2. Wiring / falsifier notes — `fixtures/wiring_literature.json`
+3. Cosmic Rhyme expedition paper — `docs/SYNTHOBS_COSMIC_RHYME_EXPEDITION_EGS_2026-11.md`
+4. Wiring Wet Lab framework — `docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md`
+5. Empirical receipt — `data/empirical_report.json`
+6. WMAP 9-year results literature (public mission products)
+7. QUESTFEST — `/ship-blog/wmap-residual-lag11-validation`
 8. FractiSI mirror — `/library/papers/wmap-residual-lag11-validation/`
 
 ## Related work and positioning
@@ -142,11 +140,11 @@ Compared with classical systematic review, a wiring wet lab is regenerable: fixt
 
 ## Worked example: reproducing the receipt
 
-1. Open the empirical JSON.  
-2. Confirm focus STRING empty and INS↔POMC ≥ 0.9.  
-3. Read W1–W4 citations.  
-4. Ask whether any kill condition already fires in your head.  
-5. If not, file the wire as triage — then stop before clinic language.
+1. Open the empirical JSON.
+2. Confirm lags 11 and 14 are flagged on the locked real spectrum and the acoustic neighbors are labeled rediscovery.
+3. Read the kill board X1–X5 and note which tests have not been run.
+4. Check whether any kill condition already fires on public data.
+5. If none does, file the wire as provisional triage and stop before claiming a new constant.
 
 ## Comparison table across wiring peers
 
@@ -164,8 +162,6 @@ We do not claim: clinical efficacy; finished particle or CMB laws; that rhyme ge
 
 We do claim: regenerable gates; honest emptiness; citeable assembly; daylight falsifiers; a higher-layer discovery class useful for triage.
 
-
-
 ## Extended experimental narrative
 
 The regenerable receipt is the primary evidence object. Readers should treat tables in this paper as guides to the JSON, not as replacements for it. When seeds, fixtures, or STRING snapshots move, the paper’s locked numbers are historical; the suite’s current run is authoritative for reproduction.
@@ -180,10 +176,10 @@ A full Soft Story paper in this repository is not a journal reprint of a wet-lab
 
 ### Interpretation discipline
 
-1. Prefer demotion over upgrade when evidence is mixed.  
-2. Keep clinic language out of the body.  
-3. Name Soft Story only in honesty rails and classification lines.  
-4. Cite existing assays as reagents, never as work performed here.  
+1. Prefer demotion over upgrade when evidence is mixed.
+2. Keep clinic language out of the body.
+3. Name Soft Story only in honesty rails and classification lines.
+4. Cite existing assays as reagents, never as work performed here.
 5. When chromosome or acoustic rediscovery can explain a hit, say so in the results — not only in a footnote.
 
 ### Implications for FractiSI product surfaces
@@ -192,20 +188,19 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  
-- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
-- Cross-mission CMB kills for WMAP provisional wire.  
+- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).
+- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).
+- Cross-mission CMB kills for WMAP provisional wire.
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
-
 
 ## Reader checklist
 
 - [ ] Honesty boundary read first  
-- [ ] Empirical JSON opened  
-- [ ] Positive control checked  
-- [ ] Kill switches named  
-- [ ] No clinic sentence quoted from the body  
-- [ ] FractiSI mirror URL resolves after deploy secrets are restored  
+- [ ] Empirical JSON opened
+- [ ] Positive control checked
+- [ ] Kill switches named
+- [ ] No clinic sentence quoted from the body
+- [ ] FractiSI mirror URL resolves after deploy secrets are restored
 
 ## Glossary
 
@@ -216,7 +211,6 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 | STRING-empty | No PPI edge in the live-cached focus query |
 | Provisional wire | Spectrum wiring still facing systematics kills |
 | Soft Story | Application companion claim tier — not ENGINE_SHELF |
-
 
 ## Closing synthesis
 

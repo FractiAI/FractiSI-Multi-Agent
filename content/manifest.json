@@ -235,7 +235,7 @@
     {
       "slug": "wiring-discoveries",
       "title": "Can a Wiring Wet Lab Build New Relationship Edges From Published Results Without New Assays?",
-      "dek": "There should be no reason to spend the time and money when it has already been done. Re-measuring what published work already measured delays the next real experiment. This note names a new wet-lab form for exactly that case: the wiring wet lab — immediate, no new assay spend — that treats published wet labs, clinical series, and public spectra as reagents already paid for, then assembles them into a relationship edge the catalog still leaves blank.",
+      "dek": "There should be no reason to spend the time and money when it has already been done. Re-measuring what published work already measured delays the next real experiment. This note names a new wet-lab form for exactly that case: the wiring wet lab — immediate, no new assay spend — that treats published wet labs, clinical series, and public spectra as published reagents, then assembles them into a relationship edge the catalog still leaves blank.",
       "date": "2026-11-20",
       "label": "Wiring stack",
       "actions": [

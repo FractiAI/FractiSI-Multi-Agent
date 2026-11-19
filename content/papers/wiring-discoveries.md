@@ -2,14 +2,14 @@
 
 **Short answer: Yes.** NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates using published data, with no new physical assays run. A wire that needs a new kill test still requires follow-up lab work.
 
-**Document ID:** `WP-WIRING-DISCOVERIES-RHYMING-WORLD-MODEL-EGS-2026-11-20`  
-**Registry ID:** `synthobs-wiring-discoveries-rhyming-world-model-2026-11`  
-**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Application companion Soft Story / framework · **not** Infinite Octaves ENGINE_SHELF  
-**Date:** 20 November 2026  
-**FractiSI mirror:** https://fractisi.vercel.app/library/papers/wiring-discoveries/  
-**Ship blog:** `/ship-blog/wiring-discoveries`  
-**Peers:** NPY↔SOD1 · APP↔DNMT3A · WMAP lag wiring · Combo Rhyme Wiring Expedition · Bridge Thickening  
+**Document ID:** `WP-WIRING-DISCOVERIES-RHYMING-WORLD-MODEL-EGS-2026-11-20`
+**Registry ID:** `synthobs-wiring-discoveries-rhyming-world-model-2026-11`
+**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
+**Classification:** Application companion Soft Story / framework · **not** Infinite Octaves ENGINE_SHELF
+**Date:** 20 November 2026
+**FractiSI mirror:** https://fractisi.vercel.app/library/papers/wiring-discoveries/
+**Ship blog:** `/ship-blog/wiring-discoveries`
+**Peers:** NPY↔SOD1 · APP↔DNMT3A · WMAP lag wiring · Combo Rhyme Wiring Expedition · Bridge Thickening
 
 ## Honesty boundary
 
@@ -23,7 +23,7 @@
 
 **There should be no reason to spend the time and money when it has already been done.**
 
-Classical wet labs invent new measurements. Catalogs score known edges. The **wiring wet lab** is a new form: it treats published assays, clinical series, and public spectra as reusable reagents, then assembles them into a relationship edge the catalog does not yet list — with kill switches. The product is not a remade pipette. The product is the **wire**.
+Classical wet labs invent new measurements. Catalogs score known edges. The **wiring wet lab** is a new form: it treats published assays, clinical series, and public spectra as reusable reagents, then assembles them into a relationship edge the catalog does not yet list — with kill switches. The product is not a repeated assay. The product is the **wire**.
 
 This paper titles that form, argues AI and FractiSI multiagent Rhyming World Models make it routine, defines definitional gates, and points to regenerable peers: NPY↔SOD1, APP↔DNMT3A, WMAP residual lag wiring, the combo protein-folding+LLM+Pilot expedition, and bridge thickening. The framework is Soft Story / application companion — not Infinite Octaves ENGINE_SHELF — until a separate pin review says otherwise.
 
@@ -39,14 +39,14 @@ Systematic reviews help humans read. They rarely emit regenerable JSON gates. Kn
 
 ## Thesis: the best wet lab for the already-done case
 
-If three labs already paid for the measurements, and the association database is still empty for the pair you care about, **re-running the same spend is the wrong default**. The right default is a wiring wet lab:
+If three labs already published the measurements, and the association database is still empty for the pair you care about, **re-running the same spend is the wrong default**. The right default is a wiring wet lab:
 
-1. Recover the relationship on a rhyme board (coupling).  
-2. Confirm the catalog edge is empty (or provisional with named kills).  
-3. Prove the catalog lane works with a positive control.  
-4. Assemble existing empirical pieces into pre-registered roles.  
-5. Publish kill conditions before celebration.  
-6. Cite the assays — do not pretend the assembling team paid for them.
+1. Recover the relationship on a rhyme board (coupling).
+2. Confirm the catalog edge is empty (or provisional with named kills).
+3. Prove the catalog lane works with a positive control.
+4. Assemble existing empirical pieces into pre-registered roles.
+5. Publish kill conditions before celebration.
+6. Cite the assays — do not pretend the assembling team ran them.
 
 That is still experimental method. The bench is the literature + catalogs + rhyme world. The reagent cost is citation and compute, not a second grant to re-measure what is already on the shelf.
 
@@ -65,7 +65,7 @@ The wiring wet lab does not replace physical labs. It **stops forcing physical l
 
 | Piece | Role in the wiring wet lab |
 |---|---|
-| Existing wet labs / clinical series / public spectra | Reagents already paid for |
+| Existing wet labs / clinical series / public spectra | Published reagents |
 | Protein-folding rhyme | Long-range partner-recovery grammar |
 | LLM rhyme | Language-pack boards on cosmic + genome theaters |
 | Pilot rhyme / FractiSI World Model | Director map + Pilot slices in one shared world |
@@ -78,12 +78,12 @@ $\Phi_{\mathrm{EGS}}$ remains filing grammar only.
 
 A claim may be labeled a **wiring wet lab discovery** only if:
 
-1. A rhyme board recovers the relationship with measurable coupling.  
-2. The relevant catalog edge is empty (or explicitly provisional with named kills).  
-3. A positive control proves the catalog lane works.  
-4. ≥N existing empirical pieces assemble into a path with pre-registered roles.  
-5. Kill conditions are written before celebration.  
-6. The claim does **not** pretend the assembling team paid for the underlying assays — it cites them.
+1. A rhyme board recovers the relationship with measurable coupling.
+2. The relevant catalog edge is empty (or explicitly provisional with named kills).
+3. A positive control proves the catalog lane works.
+4. ≥N existing empirical pieces assemble into a path with pre-registered roles.
+5. Kill conditions are written before celebration.
+6. The claim does **not** pretend the assembling team ran the underlying assays — it cites them.
 
 ### Recommended peer harness shape
 
@@ -115,9 +115,9 @@ Pilot Rhyme and shared-world features make long-range partners recoverable. The 
 
 ### Failure modes
 
-- Celebrating a single rhyme hit without emptiness + assembly.  
-- Treating same-chromosome recovery as disease wiring (bridge thickening’s chr21 lesson).  
-- Upgrading Soft Story into unfinished clinical or CMB laws.  
+- Celebrating a single rhyme hit without emptiness + assembly.
+- Treating same-chromosome recovery as disease wiring (bridge thickening’s chr21 lesson).
+- Upgrading Soft Story into unfinished clinical or CMB laws.
 - Skipping positive controls so emptiness becomes an API blackout story.
 
 ### Limitations
@@ -151,17 +151,15 @@ Filing grammar only.
 
 ## References
 
-1. `docs/SYNTHOBS_NPY_SOD1_RHYME_VALIDATION_EGS_2026-11.md`  
-2. `docs/SYNTHOBS_APP_DNMT3A_RHYME_VALIDATION_EGS_2026-11.md`  
-3. `docs/SYNTHOBS_WMAP_RESIDUAL_LAG11_VALIDATION_EGS_2026-11.md`  
-4. `docs/SYNTHOBS_COMBO_RHYME_WIRING_EXPEDITION_EGS_2026-11.md`  
-5. `docs/SYNTHOBS_WIRING_BRIDGE_THICKENING_EGS_2026-11.md`  
-6. `docs/SYNTHOBS_PILOT_RHYME_EXPEDITION_EGS_2026-11.md`  
-7. `docs/SYNTHOBS_LLM_RHYME_COSMIC_GENOME_EXPEDITION_EGS_2026-11.md`  
-8. `docs/SYNTHOBS_FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_EGS_2026-11.md`  
+1. `docs/SYNTHOBS_NPY_SOD1_RHYME_VALIDATION_EGS_2026-11.md`
+2. `docs/SYNTHOBS_APP_DNMT3A_RHYME_VALIDATION_EGS_2026-11.md`
+3. `docs/SYNTHOBS_WMAP_RESIDUAL_LAG11_VALIDATION_EGS_2026-11.md`
+4. `docs/SYNTHOBS_COMBO_RHYME_WIRING_EXPEDITION_EGS_2026-11.md`
+5. `docs/SYNTHOBS_WIRING_BRIDGE_THICKENING_EGS_2026-11.md`
+6. `docs/SYNTHOBS_PILOT_RHYME_EXPEDITION_EGS_2026-11.md`
+7. `docs/SYNTHOBS_LLM_RHYME_COSMIC_GENOME_EXPEDITION_EGS_2026-11.md`
+8. `docs/SYNTHOBS_FRACTISI_MULTI_AGENT_PLATFORM_ARCHITECTURE_EGS_2026-11.md`
 9. `data/RHYME_DISCOVERY_CATALOG.json`
-
-
 
 ## Extended experimental narrative
 
@@ -177,10 +175,10 @@ A full Soft Story paper in this repository is not a journal reprint of a wet-lab
 
 ### Interpretation discipline
 
-1. Prefer demotion over upgrade when evidence is mixed.  
-2. Keep clinic language out of the body.  
-3. Name Soft Story only in honesty rails and classification lines.  
-4. Cite existing assays as reagents, never as work performed here.  
+1. Prefer demotion over upgrade when evidence is mixed.
+2. Keep clinic language out of the body.
+3. Name Soft Story only in honesty rails and classification lines.
+4. Cite existing assays as reagents, never as work performed here.
 5. When chromosome or acoustic rediscovery can explain a hit, say so in the results — not only in a footnote.
 
 ### Implications for FractiSI product surfaces
@@ -189,20 +187,19 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  
-- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
-- Cross-mission CMB kills for WMAP provisional wire.  
+- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).
+- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).
+- Cross-mission CMB kills for WMAP provisional wire.
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
-
 
 ## Reader checklist
 
 - [ ] Honesty boundary read first  
-- [ ] Empirical JSON opened  
-- [ ] Positive control checked  
-- [ ] Kill switches named  
-- [ ] No clinic sentence quoted from the body  
-- [ ] FractiSI mirror URL resolves after deploy secrets are restored  
+- [ ] Empirical JSON opened
+- [ ] Positive control checked
+- [ ] Kill switches named
+- [ ] No clinic sentence quoted from the body
+- [ ] FractiSI mirror URL resolves after deploy secrets are restored
 
 ## Glossary
 
@@ -213,7 +210,6 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 | STRING-empty | No PPI edge in the live-cached focus query |
 | Provisional wire | Spectrum wiring still facing systematics kills |
 | Soft Story | Application companion claim tier — not ENGINE_SHELF |
-
 
 ## Closing synthesis
 

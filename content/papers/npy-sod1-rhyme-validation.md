@@ -2,15 +2,15 @@
 
 **Short answer: Yes.** As a wiring discovery, not a new assay: exon coupling was about 0.881 (rank 6 of 45, permutation p near 0.17), live STRING was empty while the INS↔POMC control scored 0.947, and three published wet-lab pieces assembled. A new STRING edge or a failed citation would demote it.
 
-**Document ID:** `WP-NPY-SOD1-RHYME-VALIDATION-EGS-2026-11-19`  
-**Registry ID:** `synthobs-npy-sod1-rhyme-validation-2026-11`  
-**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Application companion Soft Story · **new wiring discovery** · **not** Infinite Octaves ENGINE_SHELF  
-**Date:** 19 November 2026  
-**Harness:** `research/synthobs-npy-sod1-rhyme-validation/`  
-**FractiSI mirror:** https://fractisi.vercel.app/library/papers/npy-sod1-rhyme-validation/  
-**Ship blog:** `/ship-blog/npy-sod1-rhyme-validation`  
-**Data:** REAL GTEx/MyGene exon panels · live-cached STRING + OpenTargets · curated existing wet-lab literature (`fixtures/wiring_literature.json`)  
+**Document ID:** `WP-NPY-SOD1-RHYME-VALIDATION-EGS-2026-11-19`
+**Registry ID:** `synthobs-npy-sod1-rhyme-validation-2026-11`
+**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
+**Classification:** Application companion Soft Story · **new wiring discovery** · **not** Infinite Octaves ENGINE_SHELF
+**Date:** 19 November 2026
+**Harness:** `research/synthobs-npy-sod1-rhyme-validation/`
+**FractiSI mirror:** https://fractisi.vercel.app/library/papers/npy-sod1-rhyme-validation/
+**Ship blog:** `/ship-blog/npy-sod1-rhyme-validation`
+**Data:** REAL GTEx/MyGene exon panels · live-cached STRING + OpenTargets · curated existing wet-lab literature (`fixtures/wiring_literature.json`)
 
 ## Honesty boundary
 
@@ -27,7 +27,7 @@ This paper is a **wiring wet lab** peer: the reagents are published assays; the 
 
 Interaction catalogs such as STRING file protein–protein edges. Disease wet labs often publish tissue, physiology, and pharmacology pieces that never become those edges. This expedition asks whether **NPY↔SOD1** — recovered as a long-range rhyme coupling on real human exon feature boards — can be assembled into a **new wiring discovery**: a STRING-empty relationship path built from existing ALS / SOD1 wet-lab literature, with a live positive control and kill switches.
 
-On the locked seed (`20261119`), cross-gene exon coupling for NPY↔SOD1 reaches approximately **0.881** (rank #6 among 45 panel pairs). STRING returns an **empty** focus edge while INS↔POMC scores **0.947**. OpenTargets rails place SOD1 on ALS / motor-neuron disease and NPY on metabolic / neuroendocrine neighborhoods. The wiring gate (E6) assembles ≥3 published wet-lab roles into a disease-context path and passes. Verdict: **NEW WIRING DISCOVERY** — catalog-empty, literature-assembled, regenerable — not a pipette we ran and not a clinic claim.
+On the locked seed (`20261119`), cross-gene exon coupling for NPY↔SOD1 reaches approximately **0.881** (rank #6 among 45 panel pairs). STRING returns an **empty** focus edge while INS↔POMC scores **0.947**. OpenTargets rails place SOD1 on ALS / motor-neuron disease and NPY on metabolic / neuroendocrine neighborhoods. The wiring gate (E6) assembles ≥3 published wet-lab roles into a disease-context path and passes. Verdict: **NEW WIRING DISCOVERY** — catalog-empty, literature-assembled, regenerable — not an assay we ran and not a clinic claim.
 
 ## Primary research question
 
@@ -39,7 +39,7 @@ Secondary questions: (1) Does the rhyme board recover the pair with coupling com
 
 Amyotrophic lateral sclerosis (ALS) research has produced dense SOD1 literature — transgenic SOD1G93A models, human post-mortem cortex assays, and oxidative / excitability mechanism boards. Separately, neuropeptide Y (NPY) appears in cortical interneuron remodeling and human ALS motor cortex studies. STRING, however, does not list a scored NPY–SOD1 protein interaction in our live-cached focus query. That silence is not proof of biological irrelevance; it is a catalog gap.
 
-Duplicate assays get paid for when relationship edges are never filed from work that already exists. The **wiring wet lab** form names the higher-layer experiment: hold the rhyme-recovered pair still, prove catalog emptiness, assemble published pieces into a falsifiable path, and publish kill switches before celebration. This paper instantiates that form for NPY↔SOD1.
+Duplicate assays get repeated when relationship edges are never filed from work that already exists. The **wiring wet lab** form names the higher-layer experiment: hold the rhyme-recovered pair still, prove catalog emptiness, assemble published pieces into a falsifiable path, and publish kill switches before celebration. This paper instantiates that form for NPY↔SOD1.
 
 ## Thesis — wiring is the higher-level discovery
 
@@ -122,7 +122,7 @@ LLM and Pilot rhyme catalogs independently recover NPY↔SOD1 as aware-only / Pi
 
 ### What would make this more important — and what would not
 
-A future physical co-IP, proximity ligation, or targeted interventional study could thicken the wire toward mechanism. That would be new spend. Until then, the practical value is triage: readers get an inspectable path through papers already paid for, without a false requirement to rebuy the shelf before the relationship can be discussed.
+A future physical co-IP, proximity ligation, or targeted interventional study could thicken the wire toward mechanism. That would be new spend. Until then, the practical value is triage: readers get an inspectable path through published papers, without a false requirement to repeat finished work before the relationship can be discussed.
 
 ### Limitations
 
@@ -138,8 +138,8 @@ A future physical co-IP, proximity ligation, or targeted interventional study co
 npm run research:synthobs-npy-sod1-rhyme-validation
 ```
 
-Outputs: `research/synthobs-npy-sod1-rhyme-validation/data/empirical_report.json` and `.md`.  
-Tests: `tests/research/npy-sod1-rhyme-validation.test.mjs`.  
+Outputs: `research/synthobs-npy-sod1-rhyme-validation/data/empirical_report.json` and `.md`.
+Tests: `tests/research/npy-sod1-rhyme-validation.test.mjs`.
 Math lemmas: coupling symmetry and z-score checks in `src/math.mjs`.
 
 ## Φ_EGS note
@@ -165,10 +165,10 @@ Compared with classical systematic review, a wiring wet lab is regenerable: fixt
 
 ## Worked example: reproducing the receipt
 
-1. Open the empirical JSON.  
-2. Confirm focus STRING empty and INS↔POMC ≥ 0.9.  
-3. Read W1–W4 citations.  
-4. Ask whether any kill condition already fires in your head.  
+1. Open the empirical JSON.
+2. Confirm focus STRING empty and INS↔POMC ≥ 0.9.
+3. Read W1–W4 citations.
+4. Ask whether any kill condition already fires in your head.
 5. If not, file the wire as triage — then stop before clinic language.
 
 ## Comparison table across wiring peers
@@ -187,8 +187,6 @@ We do not claim: clinical efficacy; finished particle or CMB laws; that rhyme ge
 
 We do claim: regenerable gates; honest emptiness; citeable assembly; daylight falsifiers; a higher-layer discovery class useful for triage.
 
-
-
 ## Extended experimental narrative
 
 The regenerable receipt is the primary evidence object. Readers should treat tables in this paper as guides to the JSON, not as replacements for it. When seeds, fixtures, or STRING snapshots move, the paper’s locked numbers are historical; the suite’s current run is authoritative for reproduction.
@@ -203,10 +201,10 @@ A full Soft Story paper in this repository is not a journal reprint of a wet-lab
 
 ### Interpretation discipline
 
-1. Prefer demotion over upgrade when evidence is mixed.  
-2. Keep clinic language out of the body.  
-3. Name Soft Story only in honesty rails and classification lines.  
-4. Cite existing assays as reagents, never as work performed here.  
+1. Prefer demotion over upgrade when evidence is mixed.
+2. Keep clinic language out of the body.
+3. Name Soft Story only in honesty rails and classification lines.
+4. Cite existing assays as reagents, never as work performed here.
 5. When chromosome or acoustic rediscovery can explain a hit, say so in the results — not only in a footnote.
 
 ### Implications for FractiSI product surfaces
@@ -215,9 +213,9 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).  
-- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
-- Cross-mission CMB kills for WMAP provisional wire.  
+- Full NPY↔PDX1 wiring wet lab peer (promoted by E7).
+- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).
+- Cross-mission CMB kills for WMAP provisional wire.
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
 
 ## Fair Exchange

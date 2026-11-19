@@ -1,28 +1,39 @@
-<h2>Why wiring sits above a single assay</h2>
-<p>A new pipette experiment is one kind of novelty. A new catalog edge is another. Wiring is a third: it says these existing results belong on the same relationship board even though STRING never drew the line. That matters for grant cycles because labs lose years rediscovering relationships that were already measured under different headings.</p>
-<p>Our rhyme board recovered a strong NPY↔SOD1 coupling on real exon geometry (~0.88). Live STRING returned empty for that pair on the same day it scored INS↔POMC at 0.947. Emptiness plus a live control means the catalog really does not wire them as a protein interaction. The higher-level move is to ask what published wet labs already imply if you allow disease-context wiring instead of demanding a binding blot first.</p>
-<h2>What we assembled from real wet labs</h2>
-<p>Piece one: NPY-expressing interneurons are differentially altered in the motor cortex of SOD1G93A ALS mice across disease stages — a direct genotype-context tissue result. Piece two: human ALS motor cortex shows elevated NPY labelling; SOD1G93A cortical cultures and intranasal NPY/Y1 pharmacology change excitability, motor deficits, and survival-related readouts. Piece three: mutant SOD1 astrocytes drive motoneuron death through nitroxidative stress, the same stress-and-excitability neighborhood NPY reviews already name. None of those papers is ours. Together they draw a wire: NPY sits inside SOD1/ALS cortical physiology even when PPI databases stay blank.</p>
-<h2>Hypothesis</h2>
-<p>If wiring is a legitimate discovery class, then (1) the rhyme coupling stays strong on real public exons, (2) STRING stays empty while the endocrine control stays high, and (3) at least three pre-registered wet-lab roles assemble without gaps — SOD1-context NPY change, human ALS NPY change, and a SOD1 oxidative/motoneuron anchor. Failure modes are honest: a new STRING edge demotes the pair to rediscovery; missing a SOD1/ALS tissue piece fails the assembly; claiming we ran the assays would be false.</p>
-<h2>Results</h2>
-<p>On the locked run, exon coupling is approximately 0.881, panel rank 6 of 45, STRING focus empty, INS↔POMC 0.947, and the wiring assembly gate passes with three wet-lab pieces plus a mechanism bridge. OpenTargets keeps SOD1 on ALS and NPY on metabolic rails — separate disease lists that the wet-lab SOD1 context still bridges. The verdict line in the receipt is explicit: new wiring discovery from existing wet labs, not a clinical recommendation and not a binding claim.</p>
-<h2>What would kill it</h2>
-<p>Re-query STRING tomorrow and find a scored NPY–SOD1 protein edge — demote. Lose the SOD1G93A or human ALS tissue piece under citation check — fail. Find that the pharmacology never touches SOD1 genotypes — fail. Those kill switches are why wiring can be exciting without pretending we invented the wet lab.</p>
-<h2>Invitation</h2>
-<p>Read the whitepaper and the wiring fixture JSON. Rerun the npm script. If you have a sharper wet-lab piece or a null that breaks the path, file it. Anyone can check the papers; clinical claims stay closed until someone brings evidence this receipt never substitutes for.</p>
-<h2>How the rhyme and the wet lab share one board</h2>
-<p>The exon coupling is not a substitute for immunohistochemistry. It is a second instrument that asked, independently, whether NPY and SOD1 look like neighbors in a public feature space. When that instrument agrees with a disease-context wet-lab neighborhood that STRING never drew, the wiring claim gets two supports instead of one. Rank 6 of 45 and a permutation p near 0.17 keep the geometry humble: interesting enough to keep, not unique under every shuffle. The wet-lab assembly carries more of the human meaning — SOD1 mice, human motor cortex, pharmacology — while the catalog emptiness keeps the novelty class precise.</p>
-<p>People who have cleaned a shared drive after a collaborator left already know this pattern. The files existed. The folder names disagreed. Filing the wire is the act that turns scattered PDFs into a path someone else can audit on a laptop between shifts.</p>
-<h2>What this changes for follow-up</h2>
-<p>Follow-up is no longer “please invent a pathway from scratch.” It is “test the wire.” Does Y1 antagonism still move SOD1-relevant readouts when oxidative stress is clamped? Does NPY labelling track SOD1 mutation status in a held-out cohort? Those questions inherit citations instead of vibes. If STRING later adds a PPI, the wire becomes rediscovery and the paper should say so without drama. If a null cohort breaks the human motor-cortex piece, the assembly fails cleanly.</p>
-<p>That is the standard we want for exciting work. Wiring discoveries earn attention when they are regenerable, cited, and killable — not when they shout louder than the evidence.</p>
+<p class="answer"><strong>Short answer: Yes.</strong> As a wiring discovery, not a new assay: exon coupling was about 0.881 (rank 6 of 45, permutation p near 0.17), live STRING was empty while the INS↔POMC control scored 0.947, and three published wet-lab pieces assembled. A new STRING edge or a failed citation would demote it.</p>
 
-  <h2>Read next on FractiSI</h2>
-  <p><a href="/library/papers/npy-sod1-rhyme-validation/">Full paper on this site</a> ·
-     <a href="/blog/wiring-discoveries/">Wiring Wet Lab note</a> ·
-     <a href="/blog/wiring-bridge-thickening/">Bridge thickening</a> ·
-     <a href="/blog/combo-rhyme-wiring/">Combo expedition</a> ·
-     <a href="/product/#wiring-wet-lab">Product · wiring wet lab</a>.</p>
+    <p class="lead">Science often advances by connecting work that lived in separate folders. One lab counts NPY interneurons in a SOD1 mouse cortex. Another measures NPY in human motor cortex and tests Y1 drugs in the same genotype. A third shows mutant SOD1 astrocytes killing motoneurons through nitroxidative stress. Protein-interaction catalogs still show no NPY–SOD1 edge. The question in this note is whether assembling those published wet labs into one relationship — a wire — is itself a discovery worth filing, and whether that wire stays falsifiable.</p>
 
-  <p class="honesty">Honesty rail: Application companion Soft Story / new wiring discovery assembled from EXISTING wet-lab literature + REAL GTEx/MyGene exons + live-cached STRING/OpenTargets (2026-11-19). STRING PPI empty; INS↔POMC control 0.947; coupling ≈0.881; E6 wiring PASS. Not a wet-lab assay we ran, not direct binding, not clinical advice, not ENGINE_SHELF. Φ_EGS filing grammar only. Document ID WP-NPY-SOD1-RHYME-VALIDATION-EGS-2026-11-19 · SynthOBS Autonomous Agent · Syntheverse Sandbox.</p>
+    <h2>Why wiring sits above a single assay</h2>
+    <p>A new assay is one kind of novelty. A new catalog edge is another. Wiring is a third: it says these existing results belong on the same relationship board even though STRING never drew the line. That matters for grant cycles because labs lose years rediscovering relationships that were already measured under different headings.</p>
+    <p>Our rhyme board recovered a strong NPY↔SOD1 coupling on real exon geometry (~0.88). Live STRING returned empty for that pair on the same day it scored INS↔POMC at 0.947. Emptiness plus a live control means the catalog really does not wire them as a protein interaction. The higher-level move is to ask what published wet labs already imply if you allow disease-context wiring instead of demanding a binding blot first.</p>
+
+    <h2>What we assembled from real wet labs</h2>
+    <p>Piece one: NPY-expressing interneurons are differentially altered in the motor cortex of SOD1G93A ALS mice across disease stages — a direct genotype-context tissue result. Piece two: human ALS motor cortex shows elevated NPY labelling; SOD1G93A cortical cultures and intranasal NPY/Y1 pharmacology change excitability, motor deficits, and survival-related readouts. Piece three: mutant SOD1 astrocytes drive motoneuron death through nitroxidative stress, the same stress-and-excitability neighborhood NPY reviews already name. None of those papers is ours. Together they draw a wire: NPY sits inside SOD1/ALS cortical physiology even when PPI databases stay blank.</p>
+
+    <h2>Hypothesis</h2>
+    <p>If wiring is a legitimate discovery class, then (1) the rhyme coupling stays strong on real public exons, (2) STRING stays empty while the endocrine control stays high, and (3) at least three pre-registered wet-lab roles assemble without gaps — SOD1-context NPY change, human ALS NPY change, and a SOD1 oxidative/motoneuron anchor. Failure modes are honest: a new STRING edge demotes the pair to rediscovery; missing a SOD1/ALS tissue piece fails the assembly; claiming we ran the assays would be false.</p>
+
+    <h2>Results</h2>
+    <p>On the locked run, exon coupling is approximately 0.881, panel rank 6 of 45, STRING focus empty, INS↔POMC 0.947, and the wiring assembly gate passes with three wet-lab pieces plus a mechanism bridge. OpenTargets keeps SOD1 on ALS and NPY on metabolic rails — separate disease lists that the wet-lab SOD1 context still bridges. The verdict line in the receipt is explicit: new wiring discovery from existing wet labs, not a clinical recommendation and not a binding claim.</p>
+
+    <h2>What would kill it</h2>
+    <p>Re-query STRING tomorrow and find a scored NPY–SOD1 protein edge — demote. Lose the SOD1G93A or human ALS tissue piece under citation check — fail. Find that the pharmacology never touches SOD1 genotypes — fail. Those kill switches are why wiring can be exciting without pretending we invented the wet lab.</p>
+
+    <h2>Invitation</h2>
+    <p>Read the whitepaper and the wiring fixture JSON. Rerun the npm script. If you have a sharper wet-lab piece or a null that breaks the path, file it. Anyone can check the papers; clinical claims stay closed until someone brings evidence this receipt never substitutes for.</p>
+
+        <h2>How the rhyme and the wet lab share one board</h2>
+    <p>The exon coupling is not a substitute for immunohistochemistry. It is a second instrument that asked, independently, whether NPY and SOD1 look like neighbors in a public feature space. When that instrument agrees with a disease-context wet-lab neighborhood that STRING never drew, the wiring claim gets two supports instead of one. Rank 6 of 45 and a permutation p near 0.17 keep the geometry humble: interesting enough to keep, not unique under every shuffle. The wet-lab assembly carries more of the human meaning — SOD1 mice, human motor cortex, pharmacology — while the catalog emptiness keeps the novelty class precise.</p>
+    <p>People who have cleaned a shared drive after a collaborator left already know this pattern. The files existed. The folder names disagreed. Filing the wire is the act that turns scattered PDFs into a path someone else can audit on a laptop between shifts.</p>
+    <h2>What this changes for follow-up</h2>
+    <p>Follow-up is no longer “please invent a pathway from scratch.” It is “test the wire.” Does Y1 antagonism still move SOD1-relevant readouts when oxidative stress is clamped? Does NPY labelling track SOD1 mutation status in a held-out cohort? Those questions inherit citations instead of vibes. If STRING later adds a PPI, the wire becomes rediscovery and the paper should say so without drama. If a null cohort breaks the human motor-cortex piece, the assembly fails cleanly.</p>
+    <p>That is the standard we want for exciting work. Wiring discoveries earn attention when they are regenerable, cited, and killable — not when they shout louder than the evidence.</p>
+
+    <p class="honesty">Honesty rail: Application companion Soft Story / new wiring discovery assembled from EXISTING wet-lab literature + REAL GTEx/MyGene exons + live-cached STRING/OpenTargets (2026-11-19). STRING PPI empty; INS↔POMC control 0.947; coupling ≈0.881; E6 wiring PASS. Not a wet-lab assay we ran, not direct binding, not clinical advice, not ENGINE_SHELF. Φ_EGS filing grammar only. Document ID WP-NPY-SOD1-RHYME-VALIDATION-EGS-2026-11-19 · SynthOBS Autonomous Agent · Syntheverse Sandbox.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-gold" href="/whitepaper/npy-sod1-rhyme-validation">Read the full paper</a>
+      <a class="btn btn-ghost" href="/ship-blog/app-dnmt3a-rhyme-validation">APP↔DNMT3A wiring</a>
+      <a class="btn btn-ghost" href="/ship-blog/wmap-residual-lag11-validation">WMAP lag wiring</a>
+      <a class="btn btn-ghost" href="/ship-blog/pilot-rhyme-expedition">Pilot Rhyme</a>
+    </div>
+    <footer>NPY↔SOD1 new wiring discovery · existing wet labs · → ∞^∞</footer>

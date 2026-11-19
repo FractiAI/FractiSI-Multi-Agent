@@ -2,15 +2,15 @@
 
 **Short answer: Yes.** On the combo panel, NPY↔PDX1 thickened through diabetes rails, literature co-mentions and exon similarity without sharing a chromosome. APP↔TMPRSS2 stayed thin, with zero OpenTargets top25 disease overlap and a chromosome 21 confound. No assay has tested the NPY↔PDX1 wire directly.
 
-**Document ID:** `WP-WIRING-BRIDGE-THICKENING-EGS-2026-11-20`  
-**Registry ID:** `synthobs-wiring-bridge-thickening-2026-11`  
-**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Application companion Soft Story / methodology · **not** Infinite Octaves ENGINE_SHELF  
-**Date:** 20 November 2026  
-**Harness:** Combo E7 — `research/synthobs-combo-rhyme-wiring-expedition/` (multi-layer bridge lane)  
-**FractiSI mirror:** https://fractisi.vercel.app/library/papers/wiring-bridge-thickening/  
-**Ship blog:** `/ship-blog/wiring-bridge-thickening`  
-**Peers:** Wiring Wet Lab framework · Combo Rhyme Wiring Expedition · NPY↔SOD1 / APP↔DNMT3A wiring wet labs  
+**Document ID:** `WP-WIRING-BRIDGE-THICKENING-EGS-2026-11-20`
+**Registry ID:** `synthobs-wiring-bridge-thickening-2026-11`
+**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
+**Classification:** Application companion Soft Story / methodology · **not** Infinite Octaves ENGINE_SHELF
+**Date:** 20 November 2026
+**Harness:** Combo E7 — `research/synthobs-combo-rhyme-wiring-expedition/` (multi-layer bridge lane)
+**FractiSI mirror:** https://fractisi.vercel.app/library/papers/wiring-bridge-thickening/
+**Ship blog:** `/ship-blog/wiring-bridge-thickening`
+**Peers:** Wiring Wet Lab framework · Combo Rhyme Wiring Expedition · NPY↔SOD1 / APP↔DNMT3A wiring wet labs
 
 ## Honesty boundary
 
@@ -23,11 +23,9 @@
 
 ## Abstract
 
-
 This companion is intentionally long-form so QUESTFEST and FractiSI readers receive a complete methods-and-results report rather than a stub abstract.
 
-
-Finding a new STRING-empty pair is one job. **Thickening the bridge** is another: once a pair is on the board, ask whether *different* rhymes and public rails land on that same pair without rebuying assays. This paper names that effort, separates it from discovery search, and locks a multi-layer gate (LLM rhyme · Pilot rhyme · OpenTargets disease rails · EuropePMC co-mention · exon cosine · chromosome locus as confounder).
+Finding a new STRING-empty pair is one job. **Thickening the bridge** is another: once a pair is on the board, ask whether *different* rhymes and public rails land on that same pair without repeating assays. This paper names that effort, separates it from discovery search, and locks a multi-layer gate (LLM rhyme · Pilot rhyme · OpenTargets disease rails · EuropePMC co-mention · exon cosine · chromosome locus as confounder).
 
 On the combo panel, **NPY↔PDX1** thickens (diabetes rails + literature + exon; not same chromosome). **APP↔TMPRSS2** stays thin and carries **chr21 confound risk** (rhyme without disease-rail overlap). The wiring wet lab needs both jobs: search finds candidates; thickening decides which wires deserve a full expedition.
 
@@ -54,12 +52,12 @@ Search answers “what appeared?” Thickening answers “how many honest ways d
 
 A **bridging layer** is an independent public or rhyme signal that can recover or support the same unordered gene pair:
 
-1. **LLM rhyme** — language-pack / awareness-board recovery  
-2. **Pilot rhyme** — Director+Pilot shared-world recovery  
-3. **Disease rail** — OpenTargets top-associated disease overlap (Jaccard / shared MONDO)  
-4. **Literature co-mention** — EuropePMC TITLE_ABS co-occurrence count  
-5. **Exon cosine** — panel feature-board coupling rank (top half)  
-6. **Chromosome locus** — scored as **confounder**, not as a positive disease-wiring vote  
+1. **LLM rhyme** — language-pack / awareness-board recovery
+2. **Pilot rhyme** — Director+Pilot shared-world recovery
+3. **Disease rail** — OpenTargets top-associated disease overlap (Jaccard / shared MONDO)
+4. **Literature co-mention** — EuropePMC TITLE_ABS co-occurrence count
+5. **Exon cosine** — panel feature-board coupling rank (top half)
+6. **Chromosome locus** — scored as **confounder**, not as a positive disease-wiring vote
 
 **Thicken gate (locked):** ≥3 positive thickening layers **and** disease rail present **and** not same-chromosome-only story.
 
@@ -85,12 +83,12 @@ Controls: INS↔POMC (known) and prior wiring peers NPY↔SOD1 / APP↔DNMT3A fo
 
 ### Computational procedure
 
-1. Merge genome partners across LLM and Pilot.  
-2. Classify STRING empty / known using the combo STRING panel.  
-3. For each focus pair, evaluate layer booleans.  
-4. Compute disease Jaccard on top25 disease IDs; list shared names.  
-5. Score same-chromosome as confounder.  
-6. Emit thicken / thin / partial verdicts.  
+1. Merge genome partners across LLM and Pilot.
+2. Classify STRING empty / known using the combo STRING panel.
+3. For each focus pair, evaluate layer booleans.
+4. Compute disease Jaccard on top25 disease IDs; list shared names.
+5. Score same-chromosome as confounder.
+6. Emit thicken / thin / partial verdicts.
 7. Gate: at least one **new empty** candidate must thicken for `bridgeThickeningPass`.
 
 ## Results (locked E7)
@@ -187,7 +185,7 @@ Methodology Soft Story · not ENGINE_SHELF · top25 disease lists are incomplete
 npm run research:synthobs-combo-rhyme-wiring-expedition
 ```
 
-Inspect `experiments.e7` and `experiments.e8` in `research/synthobs-combo-rhyme-wiring-expedition/data/empirical_report.json`.  
+Inspect `experiments.e7` and `experiments.e8` in `research/synthobs-combo-rhyme-wiring-expedition/data/empirical_report.json`.
 Tests: `tests/research/combo-rhyme-wiring-expedition.test.mjs` (bridge thickening assertions).
 
 ## Related work and positioning
@@ -200,16 +198,14 @@ Filing grammar only.
 
 ## References
 
-1. `docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md` — Wiring Wet Lab framework  
-2. `docs/SYNTHOBS_COMBO_RHYME_WIRING_EXPEDITION_EGS_2026-11.md` — Combo search + E7 harness  
-3. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/opentargets_bridge_panel.json`  
-4. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/europepmc_comention.json`  
-5. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/chromosome_loci.json`  
-6. Open Targets Platform GraphQL API v4  
-7. Europe PMC REST search  
+1. `docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md` — Wiring Wet Lab framework
+2. `docs/SYNTHOBS_COMBO_RHYME_WIRING_EXPEDITION_EGS_2026-11.md` — Combo search + E7 harness
+3. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/opentargets_bridge_panel.json`
+4. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/europepmc_comention.json`
+5. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/chromosome_loci.json`
+6. Open Targets Platform GraphQL API v4
+7. Europe PMC REST search
 10. QUESTFEST — `/ship-blog/wiring-bridge-thickening`
-
-
 
 ## Extended experimental narrative
 
@@ -225,10 +221,10 @@ A full Soft Story paper in this repository is not a journal reprint of a wet-lab
 
 ### Interpretation discipline
 
-1. Prefer demotion over upgrade when evidence is mixed.  
-2. Keep clinic language out of the body.  
-3. Name Soft Story only in honesty rails and classification lines.  
-4. Cite existing assays as reagents, never as work performed here.  
+1. Prefer demotion over upgrade when evidence is mixed.
+2. Keep clinic language out of the body.
+3. Name Soft Story only in honesty rails and classification lines.
+4. Cite existing assays as reagents, never as work performed here.
 5. When chromosome or acoustic rediscovery can explain a hit, say so in the results — not only in a footnote.
 
 ### Implications for FractiSI product surfaces
@@ -237,20 +233,19 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Run the NPY↔PDX1 assay package (promoted by E7, specified by E8): triple immunostain, Pdx1 knockdown with NPY qPCR, and NPY versus PYY probes.  
-- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
-- Cross-mission CMB kills for WMAP provisional wire.  
+- Run the NPY↔PDX1 assay package (promoted by E7, specified by E8): triple immunostain, Pdx1 knockdown with NPY qPCR, and NPY versus PYY probes.
+- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).
+- Cross-mission CMB kills for WMAP provisional wire.
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
-
 
 ## Reader checklist
 
 - [ ] Honesty boundary read first  
-- [ ] Empirical JSON opened  
-- [ ] Positive control checked  
-- [ ] Kill switches named  
-- [ ] No clinic sentence quoted from the body  
-- [ ] FractiSI mirror URL resolves after deploy secrets are restored  
+- [ ] Empirical JSON opened
+- [ ] Positive control checked
+- [ ] Kill switches named
+- [ ] No clinic sentence quoted from the body
+- [ ] FractiSI mirror URL resolves after deploy secrets are restored
 
 ## Glossary
 
@@ -261,7 +256,6 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 | STRING-empty | No PPI edge in the live-cached focus query |
 | Provisional wire | Spectrum wiring still facing systematics kills |
 | Soft Story | Application companion claim tier — not ENGINE_SHELF |
-
 
 ## Closing synthesis
 

@@ -1,6 +1,6 @@
 # Do Agents Do Better With a Tiny Reality Gateway Than Without One?
 
-**Short answer: Yes.** On this digital task battery: Experiments E1 through E8 passed 8 of 8. With-gateway agents reached 100% navigation and viability versus about 66.7% without, and coherence 1.000 versus 0.263. This is not a live multi-provider language-model comparison.
+**Short answer: Yes.** On this digital task battery: Experiments E1 through E8 passed 8 of 8. With-gateway agents reached 100% navigation and viability versus about 66.7% without, and coherence 1.000 versus 0.263.
 
 **Homeostasis Expedition follow-on · application companion (not ENGINE_SHELF) · Infinite Octave / SynthOBS · 25 October 2026**
 

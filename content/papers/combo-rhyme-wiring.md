@@ -2,15 +2,15 @@
 
 **Short answer: Yes.** On the merged catalog, two new STRING-empty pairs cleared the 0.5 coupling floor: NPY↔PDX1 at about 0.747 and APP↔TMPRSS2 at about 0.707. Both are triage candidates; APP↔TMPRSS2 has a thin published bridge, and no wet-lab test has been run.
 
-**Document ID:** `WP-COMBO-RHYME-WIRING-EXPEDITION-EGS-2026-11-20`  
-**Registry ID:** `synthobs-combo-rhyme-wiring-expedition-2026-11`  
-**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Application companion Soft Story / computational expedition · **not** ENGINE_SHELF  
-**Date:** 20 November 2026  
-**Harness:** `research/synthobs-combo-rhyme-wiring-expedition/`  
-**FractiSI mirror:** https://fractisi.vercel.app/library/papers/combo-rhyme-wiring/  
-**Ship blog:** `/ship-blog/combo-rhyme-wiring`  
-**Data:** REAL `data/RHYME_DISCOVERY_CATALOG.json` · live-cached STRING panel (2026-11-19) · OpenTargets / EuropePMC / chromosome bridge fixtures  
+**Document ID:** `WP-COMBO-RHYME-WIRING-EXPEDITION-EGS-2026-11-20`
+**Registry ID:** `synthobs-combo-rhyme-wiring-expedition-2026-11`
+**Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox
+**Classification:** Application companion Soft Story / computational expedition · **not** ENGINE_SHELF
+**Date:** 20 November 2026
+**Harness:** `research/synthobs-combo-rhyme-wiring-expedition/`
+**FractiSI mirror:** https://fractisi.vercel.app/library/papers/combo-rhyme-wiring/
+**Ship blog:** `/ship-blog/combo-rhyme-wiring`
+**Data:** REAL `data/RHYME_DISCOVERY_CATALOG.json` · live-cached STRING panel (2026-11-19) · OpenTargets / EuropePMC / chromosome bridge fixtures
 
 ## Honesty boundary
 
@@ -22,9 +22,7 @@
 
 ## Abstract
 
-
 This companion is intentionally long-form so QUESTFEST and FractiSI readers receive a complete methods-and-results report rather than a stub abstract.
-
 
 **Question.** If we combine protein-folding, LLM, and Pilot rhymes, do new wiring candidates surface beyond already-filed pairs — and which of those candidates thicken under independent rails?
 
@@ -59,13 +57,13 @@ Seed `20261120`.
 
 ### Inputs
 
-- `data/RHYME_DISCOVERY_CATALOG.json`  
-- `fixtures/string_panel.json`  
-- `fixtures/wiring_new_candidates.json`  
-- `fixtures/opentargets_bridge_panel.json`  
-- `fixtures/europepmc_comention.json`  
-- `fixtures/chromosome_loci.json`  
-- Shared exon feature loader from NPY↔SOD1 suite  
+- `data/RHYME_DISCOVERY_CATALOG.json`
+- `fixtures/string_panel.json`
+- `fixtures/wiring_new_candidates.json`
+- `fixtures/opentargets_bridge_panel.json`
+- `fixtures/europepmc_comention.json`
+- `fixtures/chromosome_loci.json`
+- Shared exon feature loader from NPY↔SOD1 suite
 
 ## Results
 
@@ -84,7 +82,7 @@ Seed `20261120`.
 
 ### Wet-lab neighborhood notes (assembly, not our assays)
 
-- **NPY↔PDX1:** β-cell developmental/functional literature places NPY in immature β cells and PDX1 as identity TF — disease-context wiring candidate (JCI Insight 2017; Endocrinology 2021 neighborhood).  
+- **NPY↔PDX1:** β-cell developmental/functional literature places NPY in immature β cells and PDX1 as identity TF — disease-context wiring candidate (JCI Insight 2017; Endocrinology 2021 neighborhood).
 - **APP↔TMPRSS2:** thinner bridge (TMPRSS2 in AD/DS CSF contexts) — speculative triage only; chr21 co-location raises confound risk.
 
 ### Falsifiers
@@ -119,17 +117,15 @@ Filing grammar only.
 
 ## References
 
-1. `data/RHYME_DISCOVERY_CATALOG.json`  
-2. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/string_panel.json`  
-3. Wiring wet lab framework — `docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md`  
-4. Bridge thickening — `docs/SYNTHOBS_WIRING_BRIDGE_THICKENING_EGS_2026-11.md`  
-5. JCI Insight NPY β-cell — https://doi.org/10.1172/jci.insight.94005  
-6. NPY β-cell system — https://doi.org/10.1210/endocr/bqab070  
-7. TMPRSS2 in DS/AD — https://link.springer.com/article/10.1186/s40478-026-02289-9  
-8. Pilot / LLM / Cosmic rhyme papers in `docs/`  
+1. `data/RHYME_DISCOVERY_CATALOG.json`
+2. `research/synthobs-combo-rhyme-wiring-expedition/fixtures/string_panel.json`
+3. Wiring wet lab framework — `docs/SYNTHOBS_WIRING_DISCOVERIES_RHYMING_WORLD_MODEL_EGS_2026-11.md`
+4. Bridge thickening — `docs/SYNTHOBS_WIRING_BRIDGE_THICKENING_EGS_2026-11.md`
+5. JCI Insight NPY β-cell — https://doi.org/10.1172/jci.insight.94005
+6. NPY β-cell system — https://doi.org/10.1210/endocr/bqab070
+7. TMPRSS2 in DS/AD — https://link.springer.com/article/10.1186/s40478-026-02289-9
+8. Pilot / LLM / Cosmic rhyme papers in `docs/`
 9. Empirical receipt — `data/empirical_report.json`
-
-
 
 ## Extended experimental narrative
 
@@ -145,10 +141,10 @@ A full Soft Story paper in this repository is not a journal reprint of a wet-lab
 
 ### Interpretation discipline
 
-1. Prefer demotion over upgrade when evidence is mixed.  
-2. Keep clinic language out of the body.  
-3. Name Soft Story only in honesty rails and classification lines.  
-4. Cite existing assays as reagents, never as work performed here.  
+1. Prefer demotion over upgrade when evidence is mixed.
+2. Keep clinic language out of the body.
+3. Name Soft Story only in honesty rails and classification lines.
+4. Cite existing assays as reagents, never as work performed here.
 5. When chromosome or acoustic rediscovery can explain a hit, say so in the results — not only in a footnote.
 
 ### Implications for FractiSI product surfaces
@@ -157,11 +153,10 @@ FractiSI Multi-Agent already ships rhyme features that recover partners. Wiring 
 
 ### Forward experiments
 
-- Run the NPY↔PDX1 assay package specified by E8.  
-- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).  
-- Cross-mission CMB kills for WMAP provisional wire.  
+- Run the NPY↔PDX1 assay package specified by E8.
+- Additional thickening layers (pathways, domains, hard cross-rhyme intersection).
+- Cross-mission CMB kills for WMAP provisional wire.
 - Optional ENGINE_SHELF pin review only after separate architectural necessity tests — not automatic from Soft Story PASS.
-
 
 ## Detailed lane narratives (E1–E8)
 
@@ -195,24 +190,23 @@ The combo suite is intentionally cheap: catalog merge + fixture reads + exon cos
 
 ## Failure cases observed or anticipated
 
-1. Catalog drift removes a pair → new empty list changes; re-lock before claiming.  
-2. STRING API fill → candidate demoted to rediscovery.  
-3. Treating APP↔TMPRSS2 as thickened despite zero disease Jaccard → methodology failure.  
+1. Catalog drift removes a pair → new empty list changes; re-lock before claiming.
+2. STRING API fill → candidate demoted to rediscovery.
+3. Treating APP↔TMPRSS2 as thickened despite zero disease Jaccard → methodology failure.
 4. Claiming protein-folding “found NPY” because E5 passed → category error.
 
 ## Statistical and ranking notes
 
 Coupling values are cosine-like board scores from rhyme packs, not p-values. STRING scores are association confidence. OpenTargets scores are platform association scores. EuropePMC counts are hitCounts for TITLE_ABS AND queries. Bridge thickening combines these heterogeneous layers with boolean gates rather than a single latent score — on purpose, so one loud layer cannot drown a confound.
 
-
 ## Reader checklist
 
 - [ ] Honesty boundary read first  
-- [ ] Empirical JSON opened  
-- [ ] Positive control checked  
-- [ ] Kill switches named  
-- [ ] No clinic sentence quoted from the body  
-- [ ] FractiSI mirror URL resolves after deploy secrets are restored  
+- [ ] Empirical JSON opened
+- [ ] Positive control checked
+- [ ] Kill switches named
+- [ ] No clinic sentence quoted from the body
+- [ ] FractiSI mirror URL resolves after deploy secrets are restored
 
 ## Glossary
 
@@ -223,7 +217,6 @@ Coupling values are cosine-like board scores from rhyme packs, not p-values. STR
 | STRING-empty | No PPI edge in the live-cached focus query |
 | Provisional wire | Spectrum wiring still facing systematics kills |
 | Soft Story | Application companion claim tier — not ENGINE_SHELF |
-
 
 ## Closing synthesis
 
