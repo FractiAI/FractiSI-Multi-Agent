@@ -321,7 +321,8 @@ ${html}
 function buildBlog(entry) {
   const raw = read(`content/blog/${entry.slug}.html`);
   const longDek = (entry.dek || '').length > 240;
-  const lead = longDek ? `<p class="lead">${esc(entry.dek)}</p>\n` : '';
+  const answer = entry.answerHead ? `<p class="answer"><strong>${esc(entry.answerHead)}</strong>${esc(entry.answerBody || '')}</p>\n` : '';
+  const lead = answer + (longDek ? `<p class="lead">${esc(entry.dek)}</p>\n` : '');
   const body = lead + publicWording(raw).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
   const peerPaper = paperBySlug[entry.slug];
   const actions = (entry.actions || []).slice(0, 3).map((a, i) =>

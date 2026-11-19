@@ -20,7 +20,9 @@
           "text": "GitHub"
         }
       ],
-      "links": "FractiSI · Applied Active Inference Symposium 2026 · online"
+      "links": "FractiSI · Applied Active Inference Symposium 2026 · online",
+      "answerHead": "Short answer: No.",
+      "answerBody": " Not shown yet: the note offers FractiSI Multi-Agent as a possible rhyme with Active Inference and invites joint experiments; it reports no test of that mapping."
     },
     {
       "slug": "app-dnmt3a-rhyme-validation",
@@ -42,7 +44,9 @@
           "text": "Bridge thickening"
         }
       ],
-      "links": "Paper: <a href=\"/library/papers/app-dnmt3a-rhyme-validation/\">Can Published DNMT3A Tools That Edit APP Be File</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/app-dnmt3a-rhyme-validation\">app-dnmt3a-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/app-dnmt3a-rhyme-validation\">QUESTFEST whitepaper</a>"
+      "links": "Paper: <a href=\"/library/papers/app-dnmt3a-rhyme-validation/\">Can Published DNMT3A Tools That Edit APP Be File</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/app-dnmt3a-rhyme-validation\">app-dnmt3a-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/app-dnmt3a-rhyme-validation\">QUESTFEST whitepaper</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " On the filed receipt, STRING shows no APP–DNMT3A edge while its live control INS↔POMC scores 0.947, rhyme coupling is about 0.745, and three wet-lab roles pass. The wiring is built from existing dCas9-DNMT3A work, not a new experiment."
     },
     {
       "slug": "combo-rhyme-wiring",
@@ -64,7 +68,9 @@
           "text": "Bridge thickening"
         }
       ],
-      "links": "Paper: <a href=\"/library/papers/combo-rhyme-wiring/\">When Protein-Folding, LLM, and Pilot Rhymes Shar</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/combo-rhyme-wiring\">combo-rhyme-wiring</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/combo-rhyme-wiring\">QUESTFEST whitepaper</a>"
+      "links": "Paper: <a href=\"/library/papers/combo-rhyme-wiring/\">When Protein-Folding, LLM, and Pilot Rhymes Shar</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/combo-rhyme-wiring\">combo-rhyme-wiring</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/combo-rhyme-wiring\">QUESTFEST whitepaper</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " On the merged catalog, two new STRING-empty pairs cleared the 0.5 coupling floor: NPY↔PDX1 at about 0.747 and APP↔TMPRSS2 at about 0.707. Both are triage candidates; APP↔TMPRSS2 has a thin published bridge, and no wet-lab test has been run."
     },
     {
       "slug": "cosmic-rhyme-expedition",
@@ -126,7 +132,9 @@
           "text": "Bridge thickening"
         }
       ],
-      "links": "Paper: <a href=\"/library/papers/npy-sod1-rhyme-validation/\">When Existing ALS Wet Labs Wire NPY to SOD1, Is </a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/npy-sod1-rhyme-validation\">npy-sod1-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/npy-sod1-rhyme-validation\">QUESTFEST whitepaper</a>"
+      "links": "Paper: <a href=\"/library/papers/npy-sod1-rhyme-validation/\">When Existing ALS Wet Labs Wire NPY to SOD1, Is </a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/npy-sod1-rhyme-validation\">npy-sod1-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/npy-sod1-rhyme-validation\">QUESTFEST whitepaper</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " As a wiring discovery, not a new assay: exon coupling was about 0.881 (rank 6 of 45, permutation p near 0.17), live STRING was empty while the INS↔POMC control scored 0.947, and three published wet-lab pieces assembled. A new STRING edge or a failed citation would demote it."
     },
     {
       "slug": "nvidia-goldilocks-moment",
@@ -188,7 +196,9 @@
           "text": "Final report"
         }
       ],
-      "links": "Docs: <a href=\"/docs/world-model-expedition/\">Expedition folder</a> · <a href=\"/docs/world-model-expedition/final-report.md\">Final report</a> · Run: <code>npm run research:world-model-expedition</code>"
+      "links": "Docs: <a href=\"/docs/world-model-expedition/\">Expedition folder</a> · <a href=\"/docs/world-model-expedition/final-report.md\">Final report</a> · Run: <code>npm run research:world-model-expedition</code>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " Against exact-text caches on real non-identical observations (PDB and Movebank data); on task success it only matched a shared structured blackboard, and prefix reuse still won when strings were identical. Genie, Cosmos and V-JEPA were not executable, so no scores were reported for them."
     },
     {
       "slug": "wiring-bridge-thickening",
@@ -232,7 +242,9 @@
           "text": "Bridge thickening"
         }
       ],
-      "links": "Paper: <a href=\"/library/papers/wiring-discoveries/\">The Wiring Wet Lab</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wiring-discoveries\">wiring-discoveries</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wiring-discoveries\">QUESTFEST whitepaper</a>"
+      "links": "Paper: <a href=\"/library/papers/wiring-discoveries/\">The Wiring Wet Lab</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wiring-discoveries\">wiring-discoveries</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wiring-discoveries\">QUESTFEST whitepaper</a>",
+      "answerHead": "Short answer.",
+      "answerBody": " Because re-measuring published work delays the next real experiment. The wiring approach assembles existing wet-lab results into relationship edges the catalog leaves empty; NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates using published data. No new physical assays were run."
     },
     {
       "slug": "wmap-residual-lag11-validation",
@@ -254,7 +266,9 @@
           "text": "Bridge thickening"
         }
       ],
-      "links": "Paper: <a href=\"/library/papers/wmap-residual-lag11-validation/\">Is Residual Lag Wiring on the Real WMAP Spectrum</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wmap-residual-lag11-validation\">wmap-residual-lag11-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wmap-residual-lag11-validation\">QUESTFEST whitepaper</a>"
+      "links": "Paper: <a href=\"/library/papers/wmap-residual-lag11-validation/\">Is Residual Lag Wiring on the Real WMAP Spectrum</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wmap-residual-lag11-validation\">wmap-residual-lag11-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wmap-residual-lag11-validation\">QUESTFEST whitepaper</a>",
+      "answerHead": "Short answer: Yes",
+      "answerBody": ", only as provisional wiring, not new physics: After a smooth continuum, lags 11 and 14 correlate about 0.50 and 0.47 with shuffle p near 0.003, beside rediscovered lags 17–19. The kill tests X1–X5 (Planck, continuum, beam, mask) are still pending, and any could demote it."
     },
     {
       "slug": "aware-attention-head",
@@ -272,7 +286,9 @@
           "text": "Expedition 002"
         }
       ],
-      "links": ""
+      "links": "",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " Under a six-property profile the authors chose, on scripted simulators: the head was right 94.8 percent versus 68.4 for a shared world and 63.1 for flat voting, and with five copies plus majority repair kept 91.7 percent mission survival at 1,024 levels. Copies must grow roughly logarithmically with depth."
     }
   ],
   "papers": [
