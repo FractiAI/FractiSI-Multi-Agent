@@ -43,6 +43,6 @@ Same rhyme. Different public file. Cosmos = observable relational layer, not Uni
 
 ## Honesty
 
-C5 proves the packing rhyme on cosmic fixtures under a pack-compliant reader — a measured board on cosmic fixtures under a pack-compliant reader — a measured board from the fixtures, rather than a frontier-LLM bake-off, confirmed new physics, or a claim that a model invented sky couplings.
+C5 proves the packing rhyme on cosmic fixtures under a pack-compliant reader — a measured board from the fixtures, rather than a frontier-LLM bake-off, confirmed new physics, or a claim that a model invented sky couplings.
 
 → ∞^∞
