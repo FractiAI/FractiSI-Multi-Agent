@@ -1,0 +1,369 @@
+{
+  "documentId": "WP-RELATIONAL-CONTINUITY-RHYME-EGS-2026-11-20",
+  "title": "Can Relational Rhyme Connect Partners, Questions to Answers, and Seed to Edge Across Infinite Octaves?",
+  "seed": 20261120,
+  "rhymingExpeditionArm": true,
+  "engineShelfPin": "deferred",
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "H1",
+    "H2",
+    "H2b",
+    "H3",
+    "ABL"
+  ],
+  "h1": {
+    "id": "H1",
+    "name": "Relational partners",
+    "n": 120,
+    "rates": {
+      "exact_cache": {
+        "accuracy": 0,
+        "meanCost": 155.325
+      },
+      "embedding_sim": {
+        "accuracy": 0.14166666666666666,
+        "meanCost": 155.325
+      },
+      "shared_structured": {
+        "accuracy": 0.14166666666666666,
+        "meanCost": 174.1
+      },
+      "fractisi_minus_rhyme": {
+        "accuracy": 0.14166666666666666,
+        "meanCost": 174.1
+      },
+      "fractisi_rhyme": {
+        "accuracy": 1,
+        "meanCost": 39.166666666666664
+      }
+    },
+    "signal": true,
+    "deltaVsBestBaseline": 0.8583
+  },
+  "h2": {
+    "id": "H2",
+    "name": "Question ↔ Answer relational gap",
+    "n": 120,
+    "rates": {
+      "exact_cache": {
+        "accuracy": 0,
+        "meanCost": 226.875
+      },
+      "embedding_sim": {
+        "accuracy": 0,
+        "meanCost": 226.875
+      },
+      "shared_structured": {
+        "accuracy": 0,
+        "meanCost": 237.55
+      },
+      "fractisi_minus_rhyme": {
+        "accuracy": 0,
+        "meanCost": 237.55
+      },
+      "fractisi_rhyme": {
+        "accuracy": 1,
+        "meanCost": 64.16666666666667
+      }
+    },
+    "lexicalTrapWins": 0,
+    "rhymeWinsWhenLexicalLoses": 120,
+    "signal": true,
+    "deltaVsEmbedding": 1
+  },
+  "h2b": {
+    "id": "H2b",
+    "name": "Agent world ↔ Agent world",
+    "n": 80,
+    "rates": {
+      "fractisi_rhyme": {
+        "accuracy": 1
+      },
+      "shared_structured": {
+        "accuracy": 0
+      },
+      "embedding_sim": {
+        "accuracy": 0.1375
+      }
+    },
+    "signal": true
+  },
+  "h3": {
+    "id": "H3",
+    "name": "Seed ↔ Edge across Infinite Octaves",
+    "n": 80,
+    "octaveDepth": 8,
+    "curve": {
+      "1": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 172.925
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 172.925
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 179.7
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 179.7
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "2": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 172.2625
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 172.2625
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 179.0375
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 179.0375
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "3": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 174.0375
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 174.0375
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 180.8125
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 180.8125
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "4": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 174.7875
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 174.7875
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 181.5625
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 181.5625
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "5": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 173.0625
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 173.0625
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 179.8375
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 179.8375
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "6": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 173.0125
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 173.0125
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 179.7875
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 179.7875
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "7": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 175.125
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 175.125
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 181.9
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 181.9
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      },
+      "8": {
+        "exact_cache": {
+          "accuracy": 0,
+          "meanCost": 172.8375
+        },
+        "embedding_sim": {
+          "accuracy": 0,
+          "meanCost": 172.8375
+        },
+        "shared_structured": {
+          "accuracy": 0,
+          "meanCost": 179.6125
+        },
+        "fractisi_minus_rhyme": {
+          "accuracy": 0,
+          "meanCost": 179.6125
+        },
+        "fractisi_rhyme": {
+          "accuracy": 1,
+          "meanCost": 36.875
+        }
+      }
+    },
+    "edge": {
+      "exact_cache": {
+        "accuracy": 0,
+        "meanCost": 172.8375
+      },
+      "embedding_sim": {
+        "accuracy": 0,
+        "meanCost": 172.8375
+      },
+      "shared_structured": {
+        "accuracy": 0,
+        "meanCost": 179.6125
+      },
+      "fractisi_minus_rhyme": {
+        "accuracy": 0,
+        "meanCost": 179.6125
+      },
+      "fractisi_rhyme": {
+        "accuracy": 1,
+        "meanCost": 36.875
+      }
+    },
+    "propagationControl": {
+      "embeddingOnCopiedEdge": 0.975,
+      "rhymeOnCopiedEdge": 1
+    },
+    "transformedEdgeControl": {
+      "exact": 0,
+      "embedding": 0,
+      "rhyme": 1
+    },
+    "signal": true,
+    "deltaVsEmbeddingAtEdge": 1
+  },
+  "abl": {
+    "id": "ABL",
+    "name": "Ablations",
+    "rates": {
+      "full": {
+        "accuracy": 1,
+        "meanCost": 45
+      },
+      "minus_rhyme": {
+        "accuracy": 0.08333333333333333,
+        "meanCost": 138.65
+      },
+      "minus_shared_world": {
+        "accuracy": 0,
+        "meanCost": 34.85
+      },
+      "minus_relational_index": {
+        "accuracy": 0.15,
+        "meanCost": 136.48333333333332
+      },
+      "minus_selective_recon": {
+        "accuracy": 1,
+        "meanCost": 45
+      }
+    },
+    "signal": true,
+    "deltaFullMinusRhyme": 0.9167
+  },
+  "rrs": {
+    "rrs": 3.6783,
+    "altLinear": 0.9717,
+    "components": {
+      "recovery": 1,
+      "crossRepresentationRobustness": 0.9292,
+      "crossScaleRobustness": 1,
+      "predictionAccuracy": 1,
+      "costRatio": 0.2526
+    },
+    "ablationSupport": true
+  },
+  "previouslyDemonstrated": [
+    "Shared-World Collective Intelligence: rhyming shared worlds beat non-rhyming caches on store size and coordination under changing wording",
+    "Pilot Rhyme: Director/Pilot role rhyme recovers multi-hop missions vs flat peers",
+    "Rhyming Templates / Tiny Gateway: selective reconstruction from shared patterns"
+  ],
+  "newHypotheses": [
+    "H1 Relational partners recover via structural rhyme despite wording change",
+    "H2 Question↔Answer completion follows relational gap, not lexical overlap",
+    "H3 Seed↔Edge continuity across recursive octaves is relational rhyme, not mere propagation",
+    "Unified: partner / QA / agent-world / seed-edge are one operation"
+  ],
+  "newFindings": [
+    "Partner recovery: rhyme accuracy 1.000 vs best baseline gap 0.8583",
+    "QA: rhyme 1.000 vs embedding 0.000 (Δ 1); rhyme wins when lexical loses: 120/120",
+    "Agent-world: rhyme 1.000 vs embedding 0.138",
+    "Seed↔Edge at depth 8: rhyme 1.000 vs embedding 0.000",
+    "Ablation: full − minus_rhyme Δ 0.9167",
+    "RRS=3.6783 (altLinear=0.9717)"
+  ],
+  "honesty": "Soft Story / computational expedition · Rhyming Expedition arm · regenerable Node lab · rhyme = structural relational recovery, not embeddings/exact cache · H3 transformations are controlled Soft Story octaves, not physical cosmology · ENGINE_SHELF pin deferred · Φ_EGS architectural key only · Fair Exchange · → ∞^∞"
+}
