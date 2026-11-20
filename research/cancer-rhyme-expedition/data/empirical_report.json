@@ -1,0 +1,516 @@
+{
+  "documentId": "WP-CANCER-RHYME-EGS-2026-11-20",
+  "title": "Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?",
+  "seed": 20261120,
+  "rhymingExpeditionArm": true,
+  "engineShelfPin": "deferred",
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "C_beats_A",
+    "C_beats_B",
+    "oracle_planted",
+    "compression",
+    "transfer",
+    "local_vs_shared",
+    "goldilocks_proxy"
+  ],
+  "nCancers": 24,
+  "labelSource": "public-TCGA-project-abbreviations",
+  "models": {
+    "A_disease": 0,
+    "B_relBag": 0.4583333333333333,
+    "C_rhymeFp": 1,
+    "oracle_plantedMotifs": 1
+  },
+  "compression": {
+    "diseaseTaxonomyComplexity": 24,
+    "pathwayBagComplexity": 5,
+    "strongRhymeComplexity": 6,
+    "strongRhymeFpCount": 172,
+    "compressionDiseaseOverRhymes": 4,
+    "phenotypeAccuracy": {
+      "modelA_disease": 0,
+      "modelB_relBag": 0.4583333333333333,
+      "modelC_rhymeFp": 1,
+      "oracle_plantedMotifs": 1
+    }
+  },
+  "nullTest": {
+    "nullMeanStructuralHitsAtSpan": 16.32,
+    "pAtLeastOneHit": 1,
+    "obsPlantedSpanCancers": 12
+  },
+  "transfer": {
+    "n": 40,
+    "transferAccuracy": 0.8,
+    "diseaseIdentityBaseline": 0,
+    "samplePairs": [
+      {
+        "from": "TCGA-OV",
+        "to": "TCGA-LAML",
+        "sharedFps": 0,
+        "predicted": "indeterminate",
+        "actual": "indeterminate",
+        "ok": true
+      },
+      {
+        "from": "TCGA-COAD",
+        "to": "TCGA-LUSC",
+        "sharedFps": 0,
+        "predicted": "indeterminate",
+        "actual": "resistant_high_local_opt",
+        "ok": false
+      },
+      {
+        "from": "TCGA-OV",
+        "to": "TCGA-ESCA",
+        "sharedFps": 0,
+        "predicted": "indeterminate",
+        "actual": "indeterminate",
+        "ok": true
+      },
+      {
+        "from": "TCGA-STAD",
+        "to": "TCGA-PRAD",
+        "sharedFps": 117,
+        "predicted": "resistant_high_local_opt",
+        "actual": "resistant_high_local_opt",
+        "ok": true
+      },
+      {
+        "from": "TCGA-LUSC",
+        "to": "TCGA-GBM",
+        "sharedFps": 111,
+        "predicted": "resistant_high_local_opt",
+        "actual": "resistant_high_local_opt",
+        "ok": true
+      },
+      {
+        "from": "TCGA-SARC",
+        "to": "TCGA-DLBC",
+        "sharedFps": 0,
+        "predicted": "indeterminate",
+        "actual": "indeterminate",
+        "ok": true
+      },
+      {
+        "from": "TCGA-LUSC",
+        "to": "TCGA-READ",
+        "sharedFps": 111,
+        "predicted": "resistant_high_local_opt",
+        "actual": "resistant_high_local_opt",
+        "ok": true
+      },
+      {
+        "from": "TCGA-BRCA",
+        "to": "TCGA-LAML",
+        "sharedFps": 0,
+        "predicted": "indeterminate",
+        "actual": "indeterminate",
+        "ok": true
+      }
+    ]
+  },
+  "localShared": {
+    "meanDivergenceMalignantLike": 0.213,
+    "meanDivergenceIndeterminate": 0.002,
+    "meanIntegrationMalignantLike": 0.416,
+    "meanIntegrationIndeterminate": 0.503,
+    "signal": true
+  },
+  "goldilocks": {
+    "nInBand": 23,
+    "nOutBand": 1,
+    "indeterminateRateInBand": 0.522,
+    "indeterminateRateOutBand": 0,
+    "signal": true
+  },
+  "rhymeAtlas": [
+    {
+      "fingerprint": "R3|ignores,increases",
+      "nCancers": 12,
+      "cancers": [
+        "TCGA-CESC",
+        "TCGA-GBM",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LGG",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-STAD",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": "M4",
+      "recurrence": 0.5,
+      "tier": "rediscovered_planted",
+      "postHocHint": "local opt vs shared constraint (post-hoc)"
+    },
+    {
+      "fingerprint": "R3|activates,drives",
+      "nCancers": 12,
+      "cancers": [
+        "TCGA-CESC",
+        "TCGA-GBM",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LGG",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-STAD",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": "M2",
+      "recurrence": 0.5,
+      "tier": "rediscovered_planted",
+      "postHocHint": "signal→response chain (post-hoc)"
+    },
+    {
+      "fingerprint": "R3|leads_to,leads_to",
+      "nCancers": 12,
+      "cancers": [
+        "TCGA-CESC",
+        "TCGA-GBM",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LGG",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-STAD",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": "M5",
+      "recurrence": 0.5,
+      "tier": "rediscovered_planted",
+      "postHocHint": "seed→bridge→edge trajectory (post-hoc)"
+    },
+    {
+      "fingerprint": "R3|competes,consumes,consumes",
+      "nCancers": 12,
+      "cancers": [
+        "TCGA-CESC",
+        "TCGA-GBM",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LGG",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-STAD",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": "M1",
+      "recurrence": 0.5,
+      "tier": "rediscovered_planted",
+      "postHocHint": "resource competition (post-hoc; not a Hallmark input)"
+    },
+    {
+      "fingerprint": "R3|leaks_to,separates,separates",
+      "nCancers": 12,
+      "cancers": [
+        "TCGA-CESC",
+        "TCGA-GBM",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LGG",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-STAD",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": "M3",
+      "recurrence": 0.5,
+      "tier": "rediscovered_planted",
+      "postHocHint": "boundary leak (post-hoc)"
+    },
+    {
+      "fingerprint": "R3|enables,evades,targets",
+      "nCancers": 12,
+      "cancers": [
+        "TCGA-CESC",
+        "TCGA-GBM",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LGG",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-STAD",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": "M6",
+      "recurrence": 0.5,
+      "tier": "rediscovered_planted",
+      "postHocHint": "immune–tumor–escape triangle (post-hoc)"
+    },
+    {
+      "fingerprint": "R3|binds_weak,contacts",
+      "nCancers": 24,
+      "cancers": [
+        "TCGA-BLCA",
+        "TCGA-BRCA",
+        "TCGA-CESC",
+        "TCGA-COAD",
+        "TCGA-DLBC",
+        "TCGA-ESCA",
+        "TCGA-GBM",
+        "TCGA-HNSC",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LAML",
+        "TCGA-LGG",
+        "TCGA-LIHC",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-OV",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-SARC",
+        "TCGA-SKCM",
+        "TCGA-STAD",
+        "TCGA-THCA",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": null,
+      "recurrence": 1,
+      "tier": "novel_candidate_needs_lit",
+      "postHocHint": null
+    },
+    {
+      "fingerprint": "R3|binds_weak,exchanges",
+      "nCancers": 24,
+      "cancers": [
+        "TCGA-BLCA",
+        "TCGA-BRCA",
+        "TCGA-CESC",
+        "TCGA-COAD",
+        "TCGA-DLBC",
+        "TCGA-ESCA",
+        "TCGA-GBM",
+        "TCGA-HNSC",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LAML",
+        "TCGA-LGG",
+        "TCGA-LIHC",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-OV",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-SARC",
+        "TCGA-SKCM",
+        "TCGA-STAD",
+        "TCGA-THCA",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": null,
+      "recurrence": 1,
+      "tier": "novel_candidate_needs_lit",
+      "postHocHint": null
+    },
+    {
+      "fingerprint": "R3|binds_weak,binds_weak",
+      "nCancers": 24,
+      "cancers": [
+        "TCGA-BLCA",
+        "TCGA-BRCA",
+        "TCGA-CESC",
+        "TCGA-COAD",
+        "TCGA-DLBC",
+        "TCGA-ESCA",
+        "TCGA-GBM",
+        "TCGA-HNSC",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LAML",
+        "TCGA-LGG",
+        "TCGA-LIHC",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-OV",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-SARC",
+        "TCGA-SKCM",
+        "TCGA-STAD",
+        "TCGA-THCA",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": null,
+      "recurrence": 1,
+      "tier": "novel_candidate_needs_lit",
+      "postHocHint": null
+    },
+    {
+      "fingerprint": "R3|exchanges,exchanges",
+      "nCancers": 24,
+      "cancers": [
+        "TCGA-BLCA",
+        "TCGA-BRCA",
+        "TCGA-CESC",
+        "TCGA-COAD",
+        "TCGA-DLBC",
+        "TCGA-ESCA",
+        "TCGA-GBM",
+        "TCGA-HNSC",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LAML",
+        "TCGA-LGG",
+        "TCGA-LIHC",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-OV",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-SARC",
+        "TCGA-SKCM",
+        "TCGA-STAD",
+        "TCGA-THCA",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": null,
+      "recurrence": 1,
+      "tier": "novel_candidate_needs_lit",
+      "postHocHint": null
+    },
+    {
+      "fingerprint": "R3|exchanges,proximity",
+      "nCancers": 24,
+      "cancers": [
+        "TCGA-BLCA",
+        "TCGA-BRCA",
+        "TCGA-CESC",
+        "TCGA-COAD",
+        "TCGA-DLBC",
+        "TCGA-ESCA",
+        "TCGA-GBM",
+        "TCGA-HNSC",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LAML",
+        "TCGA-LGG",
+        "TCGA-LIHC",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-OV",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-SARC",
+        "TCGA-SKCM",
+        "TCGA-STAD",
+        "TCGA-THCA",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": null,
+      "recurrence": 1,
+      "tier": "novel_candidate_needs_lit",
+      "postHocHint": null
+    },
+    {
+      "fingerprint": "R3|modulates,proximity",
+      "nCancers": 24,
+      "cancers": [
+        "TCGA-BLCA",
+        "TCGA-BRCA",
+        "TCGA-CESC",
+        "TCGA-COAD",
+        "TCGA-DLBC",
+        "TCGA-ESCA",
+        "TCGA-GBM",
+        "TCGA-HNSC",
+        "TCGA-KIRC",
+        "TCGA-KIRP",
+        "TCGA-LAML",
+        "TCGA-LGG",
+        "TCGA-LIHC",
+        "TCGA-LUAD",
+        "TCGA-LUSC",
+        "TCGA-OV",
+        "TCGA-PAAD",
+        "TCGA-PRAD",
+        "TCGA-READ",
+        "TCGA-SARC",
+        "TCGA-SKCM",
+        "TCGA-STAD",
+        "TCGA-THCA",
+        "TCGA-UCEC"
+      ],
+      "plantedMotif": null,
+      "recurrence": 1,
+      "tier": "novel_candidate_needs_lit",
+      "postHocHint": null
+    }
+  ],
+  "plantedMotifs": [
+    {
+      "id": "M1",
+      "fingerprint": "R3|competes,consumes,consumes",
+      "nOwners": 12
+    },
+    {
+      "id": "M2",
+      "fingerprint": "R3|activates,drives",
+      "nOwners": 12
+    },
+    {
+      "id": "M3",
+      "fingerprint": "R3|leaks_to,separates,separates",
+      "nOwners": 12
+    },
+    {
+      "id": "M4",
+      "fingerprint": "R3|ignores,increases",
+      "nOwners": 12
+    },
+    {
+      "id": "M5",
+      "fingerprint": "R3|leads_to,leads_to",
+      "nOwners": 12
+    },
+    {
+      "id": "M6",
+      "fingerprint": "R3|enables,evades,targets",
+      "nOwners": 12
+    }
+  ],
+  "previouslyDemonstrated": [
+    "Relational Continuity: structural rhyme recovers partners / QA / seed↔edge on Soft Story boards",
+    "Shared-World Collective Intelligence: rhyme beats exact caches under wording change"
+  ],
+  "newHypotheses": [
+    "Cancer diversity compresses into fewer relational rhymes than disease labels",
+    "Relational fingerprints transfer across cancer types better than disease identity",
+    "Local optimization vs shared-world compatibility diverges on progressed synthetic phenotypes"
+  ],
+  "newFindings": [
+    "Model C phenotype LOO accuracy 1.000 vs A 0.000 vs B 0.458",
+    "Disease labels 24 vs strong rhymes 6 (compression 4)",
+    "Top planted rhyme spans 12 cancers; null p≈1",
+    "Cross-cancer transfer accuracy 0.800 (disease-identity baseline 0)",
+    "Local−shared divergence malignant-like 0.213 vs indeterminate 0.002",
+    "Rediscovered planted rhymes: 6"
+  ],
+  "honesty": "Soft Story / computational expedition · Rhyming Expedition arm · synthetic relational worlds labeled with public TCGA project ids · Hallmarks NOT used as discovery features (post-hoc hints only) · not patient-level clinical data · not a cure claim · not consciousness · ENGINE_SHELF pin deferred · Φ_EGS architectural key only · Fair Exchange · → ∞^∞"
+}

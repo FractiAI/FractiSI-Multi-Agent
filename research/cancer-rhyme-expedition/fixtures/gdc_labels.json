@@ -1,0 +1,102 @@
+{
+  "source": "public-TCGA-project-abbreviations",
+  "note": "Stable Soft Story labels; GDC live pull optional and not required for regenerability.",
+  "hits": [
+    {
+      "projectId": "TCGA-BRCA",
+      "primarySite": "Breast"
+    },
+    {
+      "projectId": "TCGA-LUAD",
+      "primarySite": "Lung"
+    },
+    {
+      "projectId": "TCGA-LUSC",
+      "primarySite": "Lung"
+    },
+    {
+      "projectId": "TCGA-COAD",
+      "primarySite": "Colon"
+    },
+    {
+      "projectId": "TCGA-READ",
+      "primarySite": "Rectum"
+    },
+    {
+      "projectId": "TCGA-STAD",
+      "primarySite": "Stomach"
+    },
+    {
+      "projectId": "TCGA-LIHC",
+      "primarySite": "Liver"
+    },
+    {
+      "projectId": "TCGA-PAAD",
+      "primarySite": "Pancreas"
+    },
+    {
+      "projectId": "TCGA-PRAD",
+      "primarySite": "Prostate"
+    },
+    {
+      "projectId": "TCGA-OV",
+      "primarySite": "Ovary"
+    },
+    {
+      "projectId": "TCGA-UCEC",
+      "primarySite": "Uterus"
+    },
+    {
+      "projectId": "TCGA-CESC",
+      "primarySite": "Cervix"
+    },
+    {
+      "projectId": "TCGA-BLCA",
+      "primarySite": "Bladder"
+    },
+    {
+      "projectId": "TCGA-KIRC",
+      "primarySite": "Kidney"
+    },
+    {
+      "projectId": "TCGA-KIRP",
+      "primarySite": "Kidney"
+    },
+    {
+      "projectId": "TCGA-THCA",
+      "primarySite": "Thyroid"
+    },
+    {
+      "projectId": "TCGA-GBM",
+      "primarySite": "Brain"
+    },
+    {
+      "projectId": "TCGA-LGG",
+      "primarySite": "Brain"
+    },
+    {
+      "projectId": "TCGA-SKCM",
+      "primarySite": "Skin"
+    },
+    {
+      "projectId": "TCGA-HNSC",
+      "primarySite": "Head and neck"
+    },
+    {
+      "projectId": "TCGA-ESCA",
+      "primarySite": "Esophagus"
+    },
+    {
+      "projectId": "TCGA-SARC",
+      "primarySite": "Soft tissue"
+    },
+    {
+      "projectId": "TCGA-LAML",
+      "primarySite": "Blood"
+    },
+    {
+      "projectId": "TCGA-DLBC",
+      "primarySite": "Lymph node"
+    }
+  ]
+}

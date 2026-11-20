@@ -1,0 +1,24 @@
+{
+  "documentId": "WP-CANCER-RHYME-EGS-2026-11-20",
+  "title": "Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?",
+  "seed": 20261120,
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "C_beats_A",
+    "C_beats_B",
+    "oracle_planted",
+    "compression",
+    "transfer",
+    "local_vs_shared",
+    "goldilocks_proxy"
+  ],
+  "models": {
+    "A_disease": 0,
+    "B_relBag": 0.4583333333333333,
+    "C_rhymeFp": 1,
+    "oracle_plantedMotifs": 1
+  },
+  "compression": 4,
+  "transfer": 0.8,
+  "ms": 805
+}
