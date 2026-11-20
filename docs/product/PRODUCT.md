@@ -20,6 +20,18 @@ See [FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md](./FRACTISI_MULTI_AGENT_P
 | **Server / Enterprise** | **From $30,000 / year** | Organizational intelligence infrastructure |
 | **Cloud Platform** | Custom | Provider-scale intelligence infrastructure |
 
+### Security add-on · FractiSI Multiagent Rhyming Shield
+
+Separate top-tier Rhyming Protection against malicious agents and information. Ladder is **self-similar** to Multi-Agent. Spec: [FRACTISI_RHYMING_SHIELD_PRICING_PACKAGING_2026-11.md](./FRACTISI_RHYMING_SHIELD_PRICING_PACKAGING_2026-11.md) · live [`/product/rhyming-shield/`](/product/rhyming-shield/).
+
+| Shield package | Price | What you buy |
+|----------------|------:|--------------|
+| **Soft Story Lab** | Free | Docs + Soft Story adversarial suite |
+| **Shield Developer Pro** | **$59 / month add-on** | Personal Rhyming Protection |
+| **Shield Team** | **$299 / month add-on** | Fleet Rhyming Protection |
+| **Shield Enterprise** | **From $30,000 / year add-on** | Top-tier security on your servers |
+| **Shield Cloud** | Custom | Provider-scale Rhyming Protection |
+
 ## Install and use
 
 **Real workload (recommended):** Git + Node 18+. **Optional cloud preview:** add `VERCEL_TOKEN` / `FRACTISI_CLOUD_TOKEN`.
