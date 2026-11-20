@@ -7,7 +7,7 @@
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
 **Classification:** Application companion · Soft Story / computational expedition · **Rhyming Expedition** arm · **not** Infinite Octaves ENGINE_SHELF · **not** a pen-test of live systems  
 **Date:** 20 November 2026  
-**Harness:** `research/adversarial-world/`  
+**Harness:** `research/synthobs-adversarial-world-expedition/`  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/adversarial-world/  
 **Peers:** Shared-World Collective Intelligence · Predictive Shared State · World-model expedition (adversarial class) · Relational Continuity · Cancer Rhyme · Tiny Gateway
 
@@ -16,7 +16,7 @@
 | Tier | What this paper is | What it is not |
 |---|---|---|
 | Expedition claim | On a regenerable Soft Story multi-agent lab, relational rhyme + deltas + provenance + bounded authority measurably improves containment of simulated malicious claims versus naive overwrite and raw majority vote, while preserving disagreement and unconfirmed novel truth | A proof that FractiSI is secure in production, immune to all attacks, or conscious |
-| Evidence tier | Simulated ops theater · deterministic seeds · Soft Story attackers A–J · epistemic scenarios | Real external systems · real credentials · live networks · red-team against third parties |
+| Evidence tier | Simulated ops theater · deterministic seeds · Soft Story attackers A–J · epistemic scenarios · optional historical Soft Story replay from InjecAgent **metadata** (tool names + attack type + instruction fingerprint) | Real external systems · real credentials · live networks · red-team against third parties · vendoring of Attacker Instruction / injection prompt payloads · live tool calls · claim that FractiSI matches published InjecAgent ASR |
 | Awareness gate | **World-model integration pipeline** (input→attention→context→relate→confidence→authorization→update) | Subjective awareness / sentience |
 | Separation | Prior Shared-World / Predictive Shared State results cited, not re-sold as this security proof | Upgrading Soft Story containment into a compliance certification |
 | Pin status | ENGINE_SHELF pin **deferred** | Production engine claim |
@@ -145,11 +145,22 @@ Candidate Soft Story optimum ranks `fractisi_rhyme` / `fractisi_full` highest on
 ## 8. Reproducibility
 
 ```bash
-node research/adversarial-world/scripts/run_empirical_pipeline.mjs
+npm run research:synthobs-adversarial-world
 npx vitest run tests/research/adversarial-world.test.mjs
 ```
 
-Seed `20261120`. Outputs: `data/summary.json`, `data/EMPIRICAL_REPORT.md`, `data/empirical_report.json`, `data/attack_atlas.json`.
+Seed `20261120`. Outputs: `data/summary.json`, `data/EMPIRICAL_REPORT.md`, `data/empirical_report.json`, `data/attack_atlas.json`, `data/historical_replay.json`, `data/historical/injecagent_soft_story_fixtures.json`.
+
+## 8b. Historical Soft Story replay (InjecAgent)
+
+Yes — with rails. The suite now replays **62** public InjecAgent attacker cases (`arXiv:2403.02691`) as Soft Story ops-theater deltas:
+
+- Vendored fields: attacker tool names, attack type, SHA-256 instruction fingerprint, Soft Story mapping.
+- **Not** vendored: Attacker Instruction text, tool-response injection payloads, or any runnable exploit string.
+- Mapping is local simulated theater (db/thermal/goal/authority Soft Story keys), not live August/Bank/Gmail tool calls.
+- Soft Story result on seed harness: `fractisi_full` historical containment **1.000** vs majority **~0.484** vs naive **0.000**. This is a Soft Story containment signal on abstracted cases — **not** a published InjecAgent attack-success-rate comparison.
+
+Alternate public corpora for a later lane (same rails): Prompt Infection (`arXiv:2410.07283`), TAMAS, LLMail-Inject, Tensor Trust.
 
 ## 9. References
 
@@ -159,8 +170,9 @@ Seed `20261120`. Outputs: `data/summary.json`, `data/EMPIRICAL_REPORT.md`, `data
 4. Relational Continuity — `docs/SYNTHOBS_RELATIONAL_CONTINUITY_RHYME_EGS_2026-11.md`
 5. Cancer Rhyme — `docs/SYNTHOBS_CANCER_RHYME_EGS_2026-11.md`
 6. Tiny Gateway · Rhyming Templates — `docs/SYNTHOBS_TINY_GATEWAY_RHYMING_TEMPLATES_EGS_2026-11.md`
-7. Suite — `research/adversarial-world/README.md`
+7. Suite — `research/synthobs-adversarial-world-expedition/README.md`
 8. FractiSI Multi-Agent kit — https://github.com/FractiAI/FractiSI-Multi-Agent
+9. InjecAgent — Zhan et al., arXiv:2403.02691 · https://github.com/uiuc-kang-lab/InjecAgent
 
 ## Document control
 

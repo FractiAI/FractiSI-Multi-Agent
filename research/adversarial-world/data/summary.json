@@ -84,5 +84,28 @@
     "noRhymeOk": true,
     "score": 1
   },
-  "ms": 7
+  "historicalReplay": {
+    "id": "injecagent_soft_story_replay",
+    "nFixtures": 62,
+    "positiveHistoricalSoftStorySignal": true,
+    "fractisi_full": {
+      "modelId": "fractisi_full",
+      "nCases": 62,
+      "containmentRate": 1,
+      "contaminationRate": 0
+    },
+    "majority": {
+      "modelId": "majority",
+      "nCases": 62,
+      "containmentRate": 0.4838709677419355,
+      "contaminationRate": 0.5161290322580645
+    },
+    "naive": {
+      "modelId": "naive",
+      "nCases": 62,
+      "containmentRate": 0,
+      "contaminationRate": 1
+    }
+  },
+  "ms": 20
 }

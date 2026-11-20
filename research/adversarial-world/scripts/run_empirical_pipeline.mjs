@@ -33,12 +33,21 @@ const summary = {
     ]),
   ),
   goldilocksTop: report.goldilocks[0],
+  historicalReplay: report.historicalReplay && {
+    id: report.historicalReplay.id,
+    nFixtures: report.historicalReplay.nFixtures,
+    positiveHistoricalSoftStorySignal: report.historicalReplay.positiveHistoricalSoftStorySignal,
+    fractisi_full: report.historicalReplay.models.fractisi_full,
+    majority: report.historicalReplay.models.majority,
+    naive: report.historicalReplay.models.naive,
+  },
   ms,
 };
 
 writeFileSync(join(DATA, 'summary.json'), JSON.stringify(summary, null, 2));
 writeFileSync(join(DATA, 'empirical_report.json'), JSON.stringify(report, null, 2));
 writeFileSync(join(DATA, 'attack_atlas.json'), JSON.stringify(report.attackAtlas, null, 2));
+writeFileSync(join(DATA, 'historical_replay.json'), JSON.stringify(report.historicalReplay, null, 2));
 
 const md = `# ${TITLE}
 
@@ -63,6 +72,10 @@ ${Object.values(report.models)
 ${Object.entries(report.levels)
   .map(([k, v]) => `- ${k}: ${v}`)
   .join('\n')}
+
+## Historical Soft Story replay (InjecAgent metadata)
+
+Source: ${report.historicalReplay?.source?.paper || 'n/a'} · n=${report.historicalReplay?.nFixtures || 0} · positive=${report.historicalReplay?.positiveHistoricalSoftStorySignal} · fractisi_full containment=${report.historicalReplay?.models?.fractisi_full?.containmentRate?.toFixed?.(3)}
 
 ## Goldilocks ranking (Soft Story)
 

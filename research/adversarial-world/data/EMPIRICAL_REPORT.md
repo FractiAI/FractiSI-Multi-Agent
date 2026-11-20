@@ -27,6 +27,10 @@
 - L6_selective_rollback: true
 - L7_utility_under_attack: true
 
+## Historical Soft Story replay (InjecAgent metadata)
+
+Source: arXiv:2403.02691 · n=62 · positive=true · fractisi_full containment=1.000
+
 ## Goldilocks ranking (Soft Story)
 
 1. fractisi_rhyme score=1.000
@@ -39,4 +43,4 @@
 
 ## Honesty
 
-Soft Story / computational expedition · Rhyming Expedition arm · simulated local multi-agent lab only · no real systems or real-world targets · rhyme = independent relational corroboration Soft Story primitive · awareness gate = world-model integration pipeline Soft Story · not a production security product · not consciousness · ENGINE_SHELF pin deferred · Φ_EGS architectural key only · Fair Exchange · → ∞^∞
+Soft Story / computational expedition · Rhyming Expedition arm · simulated local multi-agent lab only · no real systems or real-world targets · historical Soft Story replay uses InjecAgent (arXiv:2403.02691) attacker-case tool names + attack types + instruction fingerprints only — Attacker Instruction / prompt payloads are not vendored · Soft Story deltas are local ops theater mappings, not live tool calls or exploit reproduction · not an InjecAgent ASR claim · rhyme = independent relational corroboration Soft Story primitive · awareness gate = world-model integration pipeline Soft Story · not a production security product · not consciousness · ENGINE_SHELF pin deferred · Φ_EGS architectural key only · Fair Exchange · → ∞^∞

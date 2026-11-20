@@ -44,3 +44,15 @@ export const MODEL_IDS = [
   'fractisi_rhyme',
   'fractisi_full',
 ];
+
+/**
+ * Historical Soft Story replay lane (public corpus metadata → local ops theater).
+ * Source: InjecAgent (arXiv:2403.02691) attacker-case tools + attack type only.
+ * Instruction / prompt payloads are not vendored.
+ */
+export const HISTORICAL_REPLAY_ID = 'injecagent_soft_story_replay';
+export const HISTORICAL_SOURCE = {
+  name: 'InjecAgent',
+  paper: 'arXiv:2403.02691',
+  repo: 'https://github.com/uiuc-kang-lab/InjecAgent',
+};
