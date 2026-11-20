@@ -1,0 +1,31 @@
+# Keep Hobby uploads lean. Marketing site is static HTML/CSS/media + api/testdrive.
+# Do NOT ignore src/ — vercel.json api/testdrive.js includeFiles needs it.
+
+.venv/
+.venv-cuda/
+node_modules/
+.git/
+.github/
+.fractisi/
+.claude/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+# Lab / pipeline artifacts (not the marketing site)
+output/
+benchmarks/reports/
+graft/
+
+# Heavy research receipts
+experiments/**/data/
+experiments/**/output/
+research/**/data/
+research/**/output/

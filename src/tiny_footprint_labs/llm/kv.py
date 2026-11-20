@@ -111,10 +111,10 @@ def rhyme_kv_residency_bytes(
         "sessions": sessions,
         "fullKvBytesOneSession": full_kv_bytes_one_session,
         "matchingCellFraction": fraction,
-        "sharedSpineBytes": int(round(shared)),
-        "privateBytesPerSession": int(round(private)),
+        "sharedSpineBytes": round(shared),
+        "privateBytesPerSession": round(private),
         "naiveBytes": int(naive),
-        "rhymeKvBytes": int(round(tiny)),
+        "rhymeKvBytes": round(tiny),
         "reductionVersusNaive": 0.0 if naive == 0 else 1.0 - tiny / naive,
         "reductionVersusPrefixWhenNoExactHits": 0.0 if naive == 0 else 1.0 - tiny / naive,
     }
