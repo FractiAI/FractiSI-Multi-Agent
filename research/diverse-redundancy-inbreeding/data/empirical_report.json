@@ -1,0 +1,3275 @@
+{
+  "documentId": "WP-DIVERSE-REDUNDANCY-INBREEDING-EGS-2026-11-19",
+  "title": "Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?",
+  "seed": 20261119,
+  "rhyme": "diverse-redundancy-inbreeding",
+  "rhymingExpeditionArm": true,
+  "engineShelfPin": "deferred",
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+  ],
+  "e1": {
+    "id": "E1",
+    "name": "Correlated-copy depth simulator",
+    "lambda": 0.02,
+    "rows": [
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.98
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.999992
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.9999999968
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9999999999999994
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.98
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.999992
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.9999999968
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9999999999999994
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.9603999999999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.999984000064
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9999999935999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9999999999999989
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.9603999999999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.999984000064
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9999999935999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9999999999999989
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.9411919999999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.9999760001919995
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9999999903999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9999999999999983
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.9411919999999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.9999760001919995
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9999999903999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9999999999999983
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.92236816
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.9999680003839979
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.9999999871999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9999999999999978
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.92236816
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.9999680003839979
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.9999999871999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9999999999999978
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.9039207967999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.9999600006399948
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.9999999839999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9999999999999972
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.9039207967999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.9999600006399948
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.9999999839999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9999999999999972
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.8858423808639999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.9999520009599897
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.9999999807999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.9999999999999967
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.8858423808639999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.9999520009599897
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.9999999807999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.9999999999999967
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.8681255332467199
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.999944001343982
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.9999999775999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9999999999999961
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.8681255332467199
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.999944001343982
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.9999999775999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9999999999999961
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.8507630225817855
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.9999360017919713
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.9999999744
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.9999999999999956
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.8507630225817855
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.9999360017919713
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.9999999744
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.9999999999999956
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.8337477621301498
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.999928002303957
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.9999999712
+      },
+      {
+        "arm": "clone",
+        "beta": 0,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.999999999999995
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.8337477621301498
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.999928002303957
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.9999999712
+      },
+      {
+        "arm": "diverse",
+        "beta": 0,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.999999999999995
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.9309999999999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.9499924
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.9499999969599999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9499999999999994
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.931
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.999671491
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.999998435968651
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9999999999645479
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.8667609999999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.9024855600577599
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9024999942239998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9024999999999989
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.8667610000000001
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.999343089918163
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9999968719397482
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9999999999290958
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.8069544909999998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.8573544231646155
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.8573749917691998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.8573749999999983
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.8069544910000002
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.999014796719037
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9999953079132916
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9999999998936437
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.7512746311209998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.8144801861127686
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.8145062395743198
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.814506249999998
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.7512746311210001
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.9986866113671816
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.9999937438892812
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9999999998581917
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.6994366815736508
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.7737499867577157
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.7737809251195048
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.7737809374999975
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.6994366815736512
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.998358533827168
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.9999921798677169
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9999999998227396
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.6511755505450688
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.7350566069199305
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.7350918765112355
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.7350918906249972
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.6511755505450693
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.9980305640635789
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.9999906158485989
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.9999999997872875
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.606244437557459
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.6982981901437213
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.6983372804509944
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.6983372960937468
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.6062444375574595
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.997702702041009
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.999989051831927
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9999999997518354
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.5644135713659943
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.6633779735702902
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.6634204143054993
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.6634204312890591
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.5644135713659949
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.9973749477240641
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.9999874878177013
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.9999999997163833
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.5254690349417407
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.6302040332191765
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.6302493915734262
+      },
+      {
+        "arm": "clone",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.6302494097246059
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.5254690349417412
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.9970473010773622
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.9999859238059218
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.05,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.9999999996809312
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.882
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.8999928
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.89999999712
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.8999999999999995
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.882
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.998356968
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.999977122422432
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9999999955645461
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.7779240000000001
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.8099870400518401
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.809999994816
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.809999999999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.7779240000000001
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.9967166355541529
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9999542453682475
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9999999911290922
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.686128968
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.7289825041399677
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.7289999930016
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.7289999999999988
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.686128968
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.9950789982270051
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9999313688374346
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9999999866936384
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.605165749776
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.6560790050519412
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.6560999916019201
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.6560999999999985
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.605165749776
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.9934440515903902
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.9999084928299813
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9999999822581845
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.533756191302432
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.5904663807779107
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.5904899905521601
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.5904899999999983
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.533756191302432
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.9918117912234174
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.9998856173458757
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9999999778227308
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.470772960728745
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.531415491342178
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.5314409897963329
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.531440999999998
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.470772960728745
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.99018221271246
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.9998627423851058
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.999999973387277
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.41522175136275313
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.4782701160164226
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.47829688928614955
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.478296899999998
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.41522175136275313
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.9885553116511425
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.9998398679476594
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9999999689518232
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.36622558470194827
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.430439660869945
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.4304671989800396
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.43046720999999794
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.36622558470194827
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.9869310836403297
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.9998169940335249
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.9999999645163694
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.3230109657071184
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.3873925956173923
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.38742047784229006
+      },
+      {
+        "arm": "clone",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.3874204889999979
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.3230109657071184
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.9853095242881139
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.99979412064269
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.1,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.9999999600809156
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.784
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.7999936000000001
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.79999999744
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.7999999999999996
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.784
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.989922304
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.999529815015424
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9999989765096309
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.6146560000000001
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.6399897600409601
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.6399999959040001
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.6399999999999993
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.6146560000000001
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.9799461679566684
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9990598511047678
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9999979530203092
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.48189030400000005
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.5119877120983038
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.5119999950848001
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.5119999999999992
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.48189030400000005
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.9700705683796362
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9985901081640857
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9999969295320352
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.37780199833600003
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.40958689295728573
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.40959999475712017
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.4095999999999992
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.37780199833600003
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.9602944920929591
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.9981205860894808
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9999959060448087
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.29619676669542405
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.3276668930097137
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.3276799947571202
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.3276799999999992
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.29619676669542405
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.9506169361311719
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.9976512847771054
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9999948825586297
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.23221826508921248
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.2621314173396557
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.2621439949668353
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.2621439999999992
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.23221826508921248
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.9410369076363906
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.9971822041231603
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.9999938590734982
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.18205911982994258
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.20970345623065362
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.20971519530237967
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.20971519999999927
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.18205911982994258
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.931553423756451
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.9967133440238952
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9999928355894143
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.142734349946675
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.16776142288240303
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.16777215570503284
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.16777215999999934
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.142734349946675
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.9221655115440743
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.9962447043756086
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.9999918121063779
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.1119037303581932
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.134208064632816
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.13421772413452956
+      },
+      {
+        "arm": "clone",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.1342177279999994
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.1119037303581932
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.9128722078570486
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.9957762850746479
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.2,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.999990788624389
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.637
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.6499948
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.64999999792
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.6499999999999997
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.637
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.952167853
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.993697205821957
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9998905641475185
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.405769
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.42249324002704
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.42249999729599996
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.4224999999999996
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.405769
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.9066236202866296
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9874341368583647
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9997811402712429
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.258474853
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.27461840905272783
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.27462499736359997
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.2746249999999996
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.258474853
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.8632578660074073
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9812105427293729
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9996717283698624
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.16464848136100002
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.17850053786854603
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.17850624771511997
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.17850624999999964
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.16464848136100002
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.8219663888616346
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.9750261746332237
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9995623284420666
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.104881082626957
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.11602442141175799
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.11602906064353498
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.11602906249999972
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.104881082626957
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.7826499717205457
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.968880785336306
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9994529404865452
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.06680924963337162
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.07541527059065135
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.07541888917695729
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.07541889062499979
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.06680924963337162
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.7452141432236628
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.9627741291632705
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.9993435645019879
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.04255749201645772
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.049019533724516305
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.049022277808150945
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.049022278906249835
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.04255749201645772
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.7095689507785093
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.9567059619872098
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9992342004870848
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.02710912241448357
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.03186244201936023
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.03186448047333177
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.03186448128906238
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.02710912241448357
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.6756287444182358
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.9506760412198978
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.9991248484405258
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.017268510978026032
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.02071042162788565
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.020711912241387534
+      },
+      {
+        "arm": "clone",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.020711912837890534
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.017268510978026032
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.6433119709977974
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.9446841258020919
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.35,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.9990155083610014
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.49
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.499996
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.4999999984
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.4999999999999997
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 1,
+        "survival": 0.49
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 3,
+        "survival": 0.8673489999999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 5,
+        "survival": 0.9654974749
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 1,
+        "n": 9,
+        "survival": 0.9976658348269095
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.24009999999999998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.249996000016
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.24999999839999998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.24999999999999972
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 1,
+        "survival": 0.24009999999999998
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 3,
+        "survival": 0.7522942878009998
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 5,
+        "survival": 0.9321853740382762
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 2,
+        "n": 9,
+        "survival": 0.9953371179808743
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.11764899999999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.12499700002399994
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.12499999879999998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.12499999999999979
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 1,
+        "survival": 0.11764899999999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 3,
+        "survival": 0.6525016982299093
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 5,
+        "survival": 0.9000226247726677
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 3,
+        "n": 9,
+        "survival": 0.9930138367445991
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.05764801
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.06249800002399987
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.062499999199999996
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.06249999999999986
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 1,
+        "survival": 0.05764801
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 3,
+        "survival": 0.5659466954580137
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 5,
+        "survival": 0.868969571570881
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 4,
+        "n": 9,
+        "survival": 0.9906959784304729
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.028247524899999998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.031248750019999837
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.031249999499999997
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.031249999999999913
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 1,
+        "survival": 0.028247524899999998
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 3,
+        "survival": 0.4908733003588126
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 5,
+        "survival": 0.8389879271166204
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 5,
+        "n": 9,
+        "survival": 0.9883835303804996
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.013841287200999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.01562425001499984
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.015624999699999998
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.015624999999999948
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 1,
+        "survival": 0.013841287200999999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 3,
+        "survival": 0.42575846619291574
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 5,
+        "survival": 0.8100407251026822
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 6,
+        "n": 9,
+        "survival": 0.9860764799662293
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.006782230728489999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.007812062510499859
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.007812499824999999
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.00781249999999997
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 1,
+        "survival": 0.006782230728489999
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 3,
+        "survival": 0.36928117989395925
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 5,
+        "survival": 0.7820922746528048
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 7,
+        "n": 9,
+        "survival": 0.9837748145886884
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.0033232930569600996
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.003906000006999888
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.0039062499
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.0039062499999999827
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 1,
+        "survival": 0.0033232930569600996
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 3,
+        "survival": 0.3202956620998456
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 5,
+        "survival": 0.7551081163160803
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 8,
+        "n": 9,
+        "survival": 0.981478521678312
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.0016284135979104488
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.001952984379499916
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.00195312494375
+      },
+      {
+        "arm": "clone",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.0019531249999999902
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 1,
+        "survival": 0.0016284135979104488
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 3,
+        "survival": 0.277808122226639
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 5,
+        "survival": 0.729054979579671
+      },
+      {
+        "arm": "diverse",
+        "beta": 0.5,
+        "depth": 9,
+        "n": 9,
+        "survival": 0.9791875886948741
+      }
+    ],
+    "headline": {
+      "beta": 0.2,
+      "depth": 6,
+      "clone5": 0.2621439949668353,
+      "diverse5": 0.9971822041231603,
+      "clone9": 0.2621439999999992,
+      "diverse9": 0.9999938590734982
+    },
+    "signal": true,
+    "note": "Identical copies share a common-cause channel; adding clones past a few barely lifts survival when β>0. Diverse classes keep stacking."
+  },
+  "e2": {
+    "id": "E2",
+    "name": "Backblaze same-model co-failure β",
+    "source": "Backblaze Hard Drive Stats, 2019 Q1 and Q2 daily snapshots (public)",
+    "url": "https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data",
+    "windowDays": 7,
+    "nDays": 181,
+    "nModelsWithMultiFail": 17,
+    "nFailures": 928,
+    "observedWindowPairs": 9955,
+    "nullMeanWindowPairs": 9488.05,
+    "betaHat": 0.0469,
+    "signal": true,
+    "topExcess": [
+      {
+        "model": "ST12000NM0007",
+        "mfr": "Seagate",
+        "failures": 413,
+        "observedWindowPairs": 7278,
+        "nullMeanWindowPairs": 6917.725,
+        "excess": 360.275
+      },
+      {
+        "model": "ST4000DM000",
+        "mfr": "Seagate",
+        "failures": 210,
+        "observedWindowPairs": 1876,
+        "nullMeanWindowPairs": 1798.45,
+        "excess": 77.55
+      },
+      {
+        "model": "ST8000NM0055",
+        "mfr": "Seagate",
+        "failures": 121,
+        "observedWindowPairs": 618,
+        "nullMeanWindowPairs": 584.85,
+        "excess": 33.15
+      },
+      {
+        "model": "HGST HMS5C4040BLE640",
+        "mfr": "HGST",
+        "failures": 26,
+        "observedWindowPairs": 38,
+        "nullMeanWindowPairs": 24.95,
+        "excess": 13.05
+      },
+      {
+        "model": "ST10000NM0086",
+        "mfr": "Seagate",
+        "failures": 5,
+        "observedWindowPairs": 1,
+        "nullMeanWindowPairs": 0.75,
+        "excess": 0.25
+      },
+      {
+        "model": "HGST HUH728080ALE600",
+        "mfr": "HGST",
+        "failures": 5,
+        "observedWindowPairs": 1,
+        "nullMeanWindowPairs": 0.775,
+        "excess": 0.225
+      },
+      {
+        "model": "TOSHIBA MQ01ABF050",
+        "mfr": "Toshiba",
+        "failures": 31,
+        "observedWindowPairs": 36,
+        "nullMeanWindowPairs": 36,
+        "excess": 0
+      },
+      {
+        "model": "WDC WD5000LPCX",
+        "mfr": "WDC",
+        "failures": 2,
+        "observedWindowPairs": 0,
+        "nullMeanWindowPairs": 0.1,
+        "excess": -0.1
+      }
+    ],
+    "note": "β̂ is the share of same-model window pairs above an exposure-aware independent null — a lower bound on common-cause clustering, not a claim about agent fleets."
+  },
+  "e3": {
+    "id": "E3",
+    "name": "Plug measured β into depth model",
+    "betaUsed": 0.05,
+    "table": [
+      {
+        "depth": 3,
+        "beta": 0.05,
+        "clone3": 0.8573544231646155,
+        "clone5": 0.8573749917691998,
+        "clone9": 0.8573749999999983,
+        "diverse3": 0.999014796719037,
+        "diverse5": 0.9999953079132916,
+        "diverse9": 0.9999999998936437
+      },
+      {
+        "depth": 6,
+        "beta": 0.05,
+        "clone3": 0.7350566069199305,
+        "clone5": 0.7350918765112355,
+        "clone9": 0.7350918906249972,
+        "diverse3": 0.9980305640635789,
+        "diverse5": 0.9999906158485989,
+        "diverse9": 0.9999999997872875
+      },
+      {
+        "depth": 9,
+        "beta": 0.05,
+        "clone3": 0.6302040332191765,
+        "clone5": 0.6302493915734262,
+        "clone9": 0.6302494097246059,
+        "diverse3": 0.9970473010773622,
+        "diverse5": 0.9999859238059218,
+        "diverse9": 0.9999999996809312
+      }
+    ],
+    "signal": true,
+    "note": "Structural plug-in only. Backblaze β is storage hardware; the depth model is an Infinite Octaves nesting analogy, not a live multi-agent bake-off."
+  },
+  "e4": {
+    "id": "E4",
+    "name": "Yeast paralog buffering (SGD null inviable)",
+    "source": "SGD phenotype_data.tab (null mutants) and SGD_features.tab; Ensembl BioMart paralogues for S. cerevisiae",
+    "overall": {
+      "n": 5729,
+      "essentialRate": 0.1691,
+      "withParalogN": 2428,
+      "withParalogEssentialRate": 0.1446,
+      "noParalogN": 3301,
+      "noParalogEssentialRate": 0.1872
+    },
+    "stratified": [
+      {
+        "lengthBin": 0,
+        "noParalogN": 1102,
+        "noParalogEssentialRate": 0.1316,
+        "withParalogN": 413,
+        "withParalogEssentialRate": 0.109
+      },
+      {
+        "lengthBin": 1,
+        "noParalogN": 1100,
+        "noParalogEssentialRate": 0.1918,
+        "withParalogN": 854,
+        "withParalogEssentialRate": 0.1323
+      },
+      {
+        "lengthBin": 2,
+        "noParalogN": 1099,
+        "noParalogEssentialRate": 0.2384,
+        "withParalogN": 1161,
+        "withParalogEssentialRate": 0.1662
+      }
+    ],
+    "identityBins": [
+      {
+        "label": "id<30",
+        "n": 966,
+        "essentialRate": 0.266
+      },
+      {
+        "label": "30≤id<50",
+        "n": 589,
+        "essentialRate": 0.1138
+      },
+      {
+        "label": "id≥50",
+        "n": 873,
+        "essentialRate": 0.0309
+      }
+    ],
+    "signal": true,
+    "deltaEssential": -0.0514,
+    "note": "Public SGD null phenotypes + Ensembl yeast paralogs. Soft Story for agent fleets: a second diverged copy buffers single-copy loss more than a near-clone does."
+  },
+  "e5": {
+    "id": "E5",
+    "name": "Human paralog × gnomAD LOEUF",
+    "source": "gnomAD v2.1.1 constraint by gene (LOEUF = oe_lof_upper; genes with expected LoF >= 10); Ensembl BioMart human paralogues",
+    "overall": {
+      "n": 13841,
+      "meanLoeuf": 0.775,
+      "withParalogN": 903,
+      "withParalogMeanLoeuf": 0.8387,
+      "noParalogN": 12938,
+      "noParalogMeanLoeuf": 0.7705
+    },
+    "stratified": [
+      {
+        "lengthBin": 0,
+        "noParalogN": 4318,
+        "noParalogMeanLoeuf": 0.9448,
+        "withParalogN": 251,
+        "withParalogMeanLoeuf": 1.0438
+      },
+      {
+        "lengthBin": 1,
+        "noParalogN": 4309,
+        "noParalogMeanLoeuf": 0.7931,
+        "withParalogN": 327,
+        "withParalogMeanLoeuf": 0.9098
+      },
+      {
+        "lengthBin": 2,
+        "noParalogN": 4311,
+        "noParalogMeanLoeuf": 0.5734,
+        "withParalogN": 325,
+        "withParalogMeanLoeuf": 0.6088
+      }
+    ],
+    "signal": true,
+    "deltaLoeuf": 0.0837,
+    "note": "gnomAD constraint + Ensembl human paralogs. Soft Story only — not clinical genetics, not a claim that LOEUF proves agent-fleet diversity."
+  },
+  "verdict": "Positive expedition signal on E1, E2, E3, E4, E5: cloned copies share failure modes under common-cause β while diverse classes keep nesting depth; public yeast/human paralog boards and Backblaze same-model clustering support the rhyme.",
+  "honesty": "Soft Story / computational expedition · Rhyming Expedition arm · real public fixtures (Backblaze 2019 H1, SGD yeast, gnomAD + Ensembl paralogs) · depth simulator is structural nesting grammar, not live agent fleets · Backblaze measures drive hardware · yeast/human boards are Soft Story for agent diversity, not wet-lab genetics claims · ENGINE_SHELF pin deferred · Φ_EGS architectural key only · Fair Exchange · → ∞^∞",
+  "ms": 85
+}

@@ -1,0 +1,23 @@
+{
+  "documentId": "WP-DIVERSE-REDUNDANCY-INBREEDING-EGS-2026-11-19",
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+  ],
+  "betaHat": 0.0469,
+  "e1": {
+    "beta": 0.2,
+    "depth": 6,
+    "clone5": 0.2621439949668353,
+    "diverse5": 0.9971822041231603,
+    "clone9": 0.2621439999999992,
+    "diverse9": 0.9999938590734982
+  },
+  "e4delta": -0.0514,
+  "e5delta": 0.0837,
+  "ms": 85
+}
