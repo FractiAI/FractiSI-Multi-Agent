@@ -165,7 +165,6 @@
   ],
   "rewrites": [
     {
-    {
       "source": "/research/adversarial-world/",
       "destination": "/research/adversarial-world/index.html"
     },
@@ -189,6 +188,7 @@
       "source": "/library/papers/adversarial-world",
       "destination": "/library/papers/adversarial-world/"
     },
+    {
       "source": "/research/cancer-rhyme-expedition/",
       "destination": "/research/cancer-rhyme-expedition/index.html"
     },
