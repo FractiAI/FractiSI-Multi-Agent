@@ -63,6 +63,41 @@
       "permanent": true
     },
     {
+      "source": "/rhyming-shield",
+      "destination": "/product/rhyming-shield/",
+      "permanent": true
+    },
+    {
+      "source": "/rhyming-shield/",
+      "destination": "/product/rhyming-shield/",
+      "permanent": true
+    },
+    {
+      "source": "/product/rhyming-shield",
+      "destination": "/product/rhyming-shield/",
+      "permanent": false
+    },
+    {
+      "source": "/shield",
+      "destination": "/product/rhyming-shield/",
+      "permanent": true
+    },
+    {
+      "source": "/shield/",
+      "destination": "/product/rhyming-shield/",
+      "permanent": true
+    },
+    {
+      "source": "/shield/pricing",
+      "destination": "/product/rhyming-shield/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/shield/pricing/",
+      "destination": "/product/rhyming-shield/pricing/",
+      "permanent": true
+    },
+    {
       "source": "/cosmic-rhyme-expedition",
       "destination": "/blog/cosmic-rhyme-expedition/",
       "permanent": false

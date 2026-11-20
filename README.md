@@ -32,6 +32,20 @@
 
 Revised November 2026 (was $39 / $149 / $12k). Meter: **concurrent coordinated agents** + edition capability — not model tokens, not per discovery. **Cloud deploy is paid** (Team · Enterprise · Cloud). Community is free and useful for local work + Git commits. Full packaging: [/product/pricing/](./product/pricing/) · [spec](./docs/product/FRACTISI_MULTI_AGENT_PRICING_PACKAGING_2026-11.md)
 
+### Security add-on · FractiSI Multiagent Rhyming Shield
+
+Separate **Rhyming Protection** against malicious agents and information. Top-tier security packages with a ladder **self-similar** to Multi-Agent:
+
+| Shield package | Price | What you buy |
+|----------------|------:|--------------|
+| **Soft Story Lab** | Free | Docs + Soft Story adversarial suite |
+| **Shield Developer Pro** | **$59 / month add-on** | Personal Rhyming Protection |
+| **Shield Team** | **$299 / month add-on** | Fleet Rhyming Protection |
+| **Shield Enterprise** | **From $30,000 / year add-on** | Top-tier security on your servers |
+| **Shield Cloud** | Custom | Provider-scale Rhyming Protection |
+
+Live: [/product/rhyming-shield/](./product/rhyming-shield/) · [/product/rhyming-shield/pricing/](./product/rhyming-shield/pricing/) · [spec](./docs/product/FRACTISI_RHYMING_SHIELD_PRICING_PACKAGING_2026-11.md)
+
 ---
 
 ## Lab differentiators
@@ -58,6 +72,7 @@ Rhyme is a feature category of the FractiSI Multi-Agent Rhyming World Model. Fou
 | **Shared-World Rhyme** | Agents that each see a slice write into one world | 5×–20× lower next-state error than private copies of the same model |
 | **Protein Folding Rhyme · **Pilot Rhyme**** (new · #53) | Reads a line of parts as a relationship board and names the hidden long-range partner | Held-out partner recovered 100% vs ~0% for local windows on exoplanets, NEOs, OpenNGC, WMAP · [blog](./blog/cosmic-rhyme-expedition/index.html) |
 | **LLM Rhyme** (new · #54) | Writes the board into a prompt as an AWARE language pack | AWARE 100% vs LINEAR / FLAT ~0% (48 tasks per sky layer; 14 exon and 64 chrM genome tasks) · [blog](./blog/llm-rhyme-cosmic-genome/index.html) |
+| **Rhyming Shield** (security add-on · new) | Rhyming Protection against malicious agents and poisoned information in the shared world | Soft Story A–J containment 1.000 vs majority 0.400 · [product](./product/rhyming-shield/) · [pricing](./product/rhyming-shield/pricing/) |
 
 The genome arm is a demonstration on small public panels, not a disease finding. When a reader ignores the ranked board, AWARE falls to ~0%, so the gain is the board in the prompt.
 

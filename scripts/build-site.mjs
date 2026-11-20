@@ -47,6 +47,7 @@ const manifest = JSON.parse(read('content/manifest.json'));
 
 const NAV = [
   ['/product/', 'Product'],
+  ['/product/rhyming-shield/', 'Rhyming Shield'],
   ['/product/pricing/', 'Pricing'],
   ['/research/', 'Research'],
   ['/library/', 'Library'],
@@ -56,6 +57,7 @@ const NAV = [
 
 function sectionOf(path) {
   const hit = NAV.find(([href]) => href !== '/' && path.startsWith(href) && href !== '/product/');
+  if (path.startsWith('/product/rhyming-shield')) return '/product/rhyming-shield/';
   if (path.startsWith('/product/pricing')) return '/product/pricing/';
   if (path.startsWith('/product')) return '/product/';
   return hit ? hit[0] : null;
@@ -83,6 +85,7 @@ const FOOTER = `<footer class="site-footer">
         <h2>Product</h2>
         <a href="/product/">Overview</a>
         <a href="/product/pricing/">Pricing</a>
+        <a href="/product/rhyming-shield/">Rhyming Shield</a>
         <a href="/test-drive/">Test Drive</a>
         <a href="/open/">Open source</a>
       </nav>

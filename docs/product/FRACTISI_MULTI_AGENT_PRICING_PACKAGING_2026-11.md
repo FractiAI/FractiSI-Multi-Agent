@@ -221,6 +221,7 @@ Runtime labels in `src/platform/entitlements.mjs`:
 
 - Product hub: `/product/`  
 - Pricing page: `/product/pricing/`  
+- **Security add-on:** FractiSI Multiagent Rhyming Shield — [`FRACTISI_RHYMING_SHIELD_PRICING_PACKAGING_2026-11.md`](./FRACTISI_RHYMING_SHIELD_PRICING_PACKAGING_2026-11.md) · `/product/rhyming-shield/` · `/product/rhyming-shield/pricing/` (self-similar $59 / $299 / from $30k ladder)  
 - Install (deploy optional): [`../install/INSTALL.md`](../install/INSTALL.md)  
 - Root README commercial section  
 - Expedition 002 + Tiny Gateway receipts  
