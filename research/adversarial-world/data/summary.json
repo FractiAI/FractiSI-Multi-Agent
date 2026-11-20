@@ -1,0 +1,88 @@
+{
+  "documentId": "WP-ADVERSARIAL-WORLD-EGS-2026-11-20",
+  "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",
+  "seed": 20261120,
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "full_beats_majority_containment",
+    "full_beats_naive_containment",
+    "sybil_independence",
+    "majority_falsehood_defense",
+    "minority_truth",
+    "preserves_disagreement",
+    "truth_without_rhyme",
+    "novel_truth",
+    "fake_rhyme_contained",
+    "rhyme_adds_containment",
+    "rollback_or_strong_contain"
+  ],
+  "levels": {
+    "L1_no_direct_overwrite": true,
+    "L2_disagreement_preserved": true,
+    "L3_rhyme_helps": true,
+    "L4_independence_vs_sybil": true,
+    "L5_local_vs_canonical": true,
+    "L6_selective_rollback": true,
+    "L7_utility_under_attack": true
+  },
+  "models": {
+    "naive": {
+      "containmentRate": 0.1,
+      "contaminationRate": 0.9,
+      "sybilContained": false,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true
+    },
+    "majority": {
+      "containmentRate": 0.4,
+      "contaminationRate": 0.6,
+      "sybilContained": false,
+      "minorityTruthOk": false,
+      "majorityFalsehoodContained": false
+    },
+    "trusted": {
+      "containmentRate": 1,
+      "contaminationRate": 0,
+      "sybilContained": true,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true
+    },
+    "fractisi_deltas": {
+      "containmentRate": 0.1,
+      "contaminationRate": 0.9,
+      "sybilContained": false,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true
+    },
+    "fractisi_provenance": {
+      "containmentRate": 0.1,
+      "contaminationRate": 0.9,
+      "sybilContained": false,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true
+    },
+    "fractisi_rhyme": {
+      "containmentRate": 1,
+      "contaminationRate": 0,
+      "sybilContained": true,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true
+    },
+    "fractisi_full": {
+      "containmentRate": 1,
+      "contaminationRate": 0,
+      "sybilContained": true,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true
+    }
+  },
+  "goldilocksTop": {
+    "modelId": "fractisi_rhyme",
+    "containment": 1,
+    "honestReject": 0,
+    "novelOk": true,
+    "noRhymeOk": true,
+    "score": 1
+  },
+  "ms": 7
+}

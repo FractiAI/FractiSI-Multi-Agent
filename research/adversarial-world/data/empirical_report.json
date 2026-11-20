@@ -1,0 +1,1171 @@
+{
+  "documentId": "WP-ADVERSARIAL-WORLD-EGS-2026-11-20",
+  "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",
+  "seed": 20261120,
+  "rhymingExpeditionArm": true,
+  "engineShelfPin": "deferred",
+  "positiveExpeditionSignal": true,
+  "signals": [
+    "full_beats_majority_containment",
+    "full_beats_naive_containment",
+    "sybil_independence",
+    "majority_falsehood_defense",
+    "minority_truth",
+    "preserves_disagreement",
+    "truth_without_rhyme",
+    "novel_truth",
+    "fake_rhyme_contained",
+    "rhyme_adds_containment",
+    "rollback_or_strong_contain"
+  ],
+  "levels": {
+    "L1_no_direct_overwrite": true,
+    "L2_disagreement_preserved": true,
+    "L3_rhyme_helps": true,
+    "L4_independence_vs_sybil": true,
+    "L5_local_vs_canonical": true,
+    "L6_selective_rollback": true,
+    "L7_utility_under_attack": true
+  },
+  "models": {
+    "naive": {
+      "modelId": "naive",
+      "containmentRate": 0.1,
+      "contaminationRate": 0.9,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true,
+      "legitimateDisagreementOk": true,
+      "truthWithoutRhymeOk": false,
+      "novelTruthOk": true,
+      "sybilContained": false,
+      "fakeRhymeContained": false,
+      "meanHonestReject": 0,
+      "rollbackUsed": false
+    },
+    "majority": {
+      "modelId": "majority",
+      "containmentRate": 0.4,
+      "contaminationRate": 0.6,
+      "minorityTruthOk": false,
+      "majorityFalsehoodContained": false,
+      "legitimateDisagreementOk": false,
+      "truthWithoutRhymeOk": false,
+      "novelTruthOk": true,
+      "sybilContained": false,
+      "fakeRhymeContained": false,
+      "meanHonestReject": 0.6,
+      "rollbackUsed": false
+    },
+    "trusted": {
+      "modelId": "trusted",
+      "containmentRate": 1,
+      "contaminationRate": 0,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true,
+      "legitimateDisagreementOk": false,
+      "truthWithoutRhymeOk": false,
+      "novelTruthOk": true,
+      "sybilContained": true,
+      "fakeRhymeContained": true,
+      "meanHonestReject": 1.4,
+      "rollbackUsed": false
+    },
+    "fractisi_deltas": {
+      "modelId": "fractisi_deltas",
+      "containmentRate": 0.1,
+      "contaminationRate": 0.9,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true,
+      "legitimateDisagreementOk": true,
+      "truthWithoutRhymeOk": false,
+      "novelTruthOk": true,
+      "sybilContained": false,
+      "fakeRhymeContained": false,
+      "meanHonestReject": 0,
+      "rollbackUsed": false
+    },
+    "fractisi_provenance": {
+      "modelId": "fractisi_provenance",
+      "containmentRate": 0.1,
+      "contaminationRate": 0.9,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true,
+      "legitimateDisagreementOk": true,
+      "truthWithoutRhymeOk": false,
+      "novelTruthOk": true,
+      "sybilContained": false,
+      "fakeRhymeContained": false,
+      "meanHonestReject": 0,
+      "rollbackUsed": false
+    },
+    "fractisi_rhyme": {
+      "modelId": "fractisi_rhyme",
+      "containmentRate": 1,
+      "contaminationRate": 0,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true,
+      "legitimateDisagreementOk": true,
+      "truthWithoutRhymeOk": true,
+      "novelTruthOk": true,
+      "sybilContained": true,
+      "fakeRhymeContained": true,
+      "meanHonestReject": 0,
+      "rollbackUsed": false
+    },
+    "fractisi_full": {
+      "modelId": "fractisi_full",
+      "containmentRate": 1,
+      "contaminationRate": 0,
+      "minorityTruthOk": true,
+      "majorityFalsehoodContained": true,
+      "legitimateDisagreementOk": true,
+      "truthWithoutRhymeOk": true,
+      "novelTruthOk": true,
+      "sybilContained": true,
+      "fakeRhymeContained": true,
+      "meanHonestReject": 0,
+      "rollbackUsed": false
+    }
+  },
+  "goldilocks": [
+    {
+      "modelId": "fractisi_rhyme",
+      "containment": 1,
+      "honestReject": 0,
+      "novelOk": true,
+      "noRhymeOk": true,
+      "score": 1
+    },
+    {
+      "modelId": "fractisi_full",
+      "containment": 1,
+      "honestReject": 0,
+      "novelOk": true,
+      "noRhymeOk": true,
+      "score": 1
+    },
+    {
+      "modelId": "trusted",
+      "containment": 1,
+      "honestReject": 1.4,
+      "novelOk": true,
+      "noRhymeOk": false,
+      "score": 0.51
+    },
+    {
+      "modelId": "naive",
+      "containment": 0.1,
+      "honestReject": 0,
+      "novelOk": true,
+      "noRhymeOk": false,
+      "score": 0.44500000000000006
+    },
+    {
+      "modelId": "fractisi_deltas",
+      "containment": 0.1,
+      "honestReject": 0,
+      "novelOk": true,
+      "noRhymeOk": false,
+      "score": 0.44500000000000006
+    },
+    {
+      "modelId": "fractisi_provenance",
+      "containment": 0.1,
+      "honestReject": 0,
+      "novelOk": true,
+      "noRhymeOk": false,
+      "score": 0.44500000000000006
+    },
+    {
+      "modelId": "majority",
+      "containment": 0.4,
+      "honestReject": 0.6,
+      "novelOk": true,
+      "noRhymeOk": false,
+      "score": 0.32
+    }
+  ],
+  "attackAtlas": [
+    {
+      "id": "A_false_observation",
+      "nClaims": 2,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "B_malicious_delta",
+      "nClaims": 1,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "C_memory_poisoning",
+      "nClaims": 2,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "D_false_consensus",
+      "nClaims": 8,
+      "nMalicious": 8,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 8,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 8,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 8,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 8,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 8
+        }
+      }
+    },
+    {
+      "id": "E_sybil",
+      "nClaims": 10,
+      "nMalicious": 10,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 10,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 10,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 10,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 10,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 10
+        }
+      }
+    },
+    {
+      "id": "F_rhyme_manipulation",
+      "nClaims": 4,
+      "nMalicious": 4,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 4,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 4,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 4,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 4
+        }
+      }
+    },
+    {
+      "id": "G_context_manipulation",
+      "nClaims": 2,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "H_goal_hijacking",
+      "nClaims": 1,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "I_privilege_escalation",
+      "nClaims": 1,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "J_slow_poisoning",
+      "nClaims": 10,
+      "nMalicious": 1,
+      "models": {
+        "naive": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 1,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "legitimate_disagreement",
+      "nClaims": 2,
+      "nMalicious": 0,
+      "models": {
+        "naive": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_deltas": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_provenance": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        }
+      }
+    },
+    {
+      "id": "minority_truth",
+      "nClaims": 10,
+      "nMalicious": 9,
+      "models": {
+        "naive": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_deltas": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_provenance": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        }
+      }
+    },
+    {
+      "id": "majority_falsehood",
+      "nClaims": 10,
+      "nMalicious": 9,
+      "models": {
+        "naive": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "majority": {
+          "contaminated": true,
+          "contained": false,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_deltas": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_provenance": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 9,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 9
+        }
+      }
+    },
+    {
+      "id": "truth_without_rhyme",
+      "nClaims": 1,
+      "nMalicious": 0,
+      "models": {
+        "naive": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_deltas": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_provenance": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": false,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 1,
+          "rawConsensus": 1
+        }
+      }
+    },
+    {
+      "id": "novel_truth",
+      "nClaims": 2,
+      "nMalicious": 0,
+      "models": {
+        "naive": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "majority": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "trusted": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_deltas": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_provenance": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_rhyme": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        },
+        "fractisi_full": {
+          "contaminated": false,
+          "contained": true,
+          "truthOk": true,
+          "malAccepted": 0,
+          "independentConsensus": 2,
+          "rawConsensus": 2
+        }
+      }
+    }
+  ],
+  "scenarioIds": [
+    "A_false_observation",
+    "B_malicious_delta",
+    "C_memory_poisoning",
+    "D_false_consensus",
+    "E_sybil",
+    "F_rhyme_manipulation",
+    "G_context_manipulation",
+    "H_goal_hijacking",
+    "I_privilege_escalation",
+    "J_slow_poisoning",
+    "legitimate_disagreement",
+    "minority_truth",
+    "majority_falsehood",
+    "truth_without_rhyme",
+    "novel_truth"
+  ],
+  "nAgents": 12,
+  "previouslyDemonstrated": [
+    "Shared-World Collective Intelligence: rhyming shared worlds beat exact caches under wording change",
+    "Predictive Shared State: unapproved predictions cannot overwrite authoritative world",
+    "World-model expedition adversarial class: majority/verifier correction Soft Story path"
+  ],
+  "newHypotheses": [
+    "No agent owns the world: deltas stay hypotheses until relational consistency validates them",
+    "Relational rhyme can separate independent corroboration from Sybil/repeated assertion",
+    "Full Adversarial FractiSI (deltas+provenance+rhyme+authority+rollback) beats majority/naive on Soft Story attacks without crushing legitimate disagreement"
+  ],
+  "newFindings": [
+    "fractisi_full containment 1.000 vs majority 0.400 vs naive 0.900 contamination",
+    "Sybil contained=true (majority contained=false)",
+    "Minority truth ok=true; majority falsehood contained=true",
+    "Truth-without-rhyme held as unconfirmed=true; novel truth=true",
+    "Candidate Goldilocks model=fractisi_rhyme score=1.000"
+  ],
+  "honesty": "Soft Story / computational expedition · Rhyming Expedition arm · simulated local multi-agent lab only · no real systems or real-world targets · rhyme = independent relational corroboration Soft Story primitive · awareness gate = world-model integration pipeline Soft Story · not a production security product · not consciousness · ENGINE_SHELF pin deferred · Φ_EGS architectural key only · Fair Exchange · → ∞^∞"
+}
