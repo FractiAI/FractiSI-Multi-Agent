@@ -1,6 +1,98 @@
 {
   "blog": [
     {
+      "slug": "adversarial-world",
+      "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",
+      "dek": "Shared-world deltas plus relational rhyme versus simulated malicious agents. Full FractiSI containment 1.0 versus majority 0.4 and naive 0.1 — without crushing legitimate disagreement or novel first sightings.",
+      "date": "2026-11-20",
+      "label": "Rhyming Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/adversarial-world/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/research/adversarial-world/",
+          "text": "Suite"
+        },
+        {
+          "href": "/library/papers/shared-world-collective-intelligence/",
+          "text": "Shared-World"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/adversarial-world/\">Adversarial World</a> · Suite: <a href=\"/research/adversarial-world/\">research/adversarial-world</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " On the regenerable Soft Story board, full FractiSI contained every attack class A–J at rate 1.0 while majority vote contained 0.4 and naive overwrite contained 0.1. Sybil choruses fooled voting; independence-aware rhyme did not."
+    },
+    {
+      "slug": "cancer-rhyme-expedition",
+      "title": "Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?",
+      "dek": "Soft Story cancer worlds: relational fingerprints compress 24 labels to 6 rhymes and transfer across types better than disease identity.",
+      "date": "2026-11-20",
+      "label": "Rhyming Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/cancer-rhyme-expedition/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/research/cancer-rhyme-expedition/",
+          "text": "Suite"
+        },
+        {
+          "href": "/library/papers/relational-continuity-rhyme/",
+          "text": "Relational Continuity"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/cancer-rhyme-expedition/\">Cancer Rhyme</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " Model C fingerprints scored 1.0 phenotype accuracy versus disease labels 0 and relation bags about 0.46. Compression 24→6 (×4); cross-cancer transfer 0.8. Null span inconclusive."
+    },
+    {
+      "slug": "relational-continuity-rhyme",
+      "title": "Can Relational Rhyme Connect Partners, Questions to Answers, and Seed to Edge Across Infinite Octaves?",
+      "dek": "One relational-rhyme operation across partners, QA gaps, agent worlds, and seed↔edge — versus exact cache and lexical similarity.",
+      "date": "2026-11-20",
+      "label": "Rhyming Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/relational-continuity-rhyme/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/research/relational-continuity-rhyme/",
+          "text": "Suite"
+        },
+        {
+          "href": "/library/papers/shared-world-collective-intelligence/",
+          "text": "Shared-World"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/relational-continuity-rhyme/\">Relational Continuity</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " Rhyme accuracy 1.0 across partners, QA, agent worlds, and seed↔edge; exact cache 0; lexical similarity ≤0.14. Removing rhyme dropped partners to 0.083."
+    },
+    {
+      "slug": "diverse-redundancy-inbreeding",
+      "title": "Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?",
+      "dek": "Cloned copies cap under common-cause β while diverse classes keep nesting depth on Soft Story boards.",
+      "date": "2026-11-20",
+      "label": "Rhyming Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/diverse-redundancy-inbreeding/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/research/diverse-redundancy-inbreeding/",
+          "text": "Suite"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/diverse-redundancy-inbreeding/\">Diverse Redundancy</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " On the locked Soft Story boards, diverse redundancy held nesting depth where cloned copies capped under shared-cause failure."
+    },
+    {
       "slug": "aai-symposium-2026",
       "title": "The Multi-Agent World Inference Rhyme?",
       "dek": "FractiSI is presenting at the Applied Active Inference Symposium. We give a six-minute opening and invitation; the audience track is a self-paced Test Drive — eight live tests in the browser or an IDE — plus a Musical Training playlist on Suno.",
@@ -302,6 +394,42 @@
     }
   ],
   "papers": [
+    {
+      "slug": "adversarial-world",
+      "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",
+      "group": "Multi-agent research",
+      "summary": "Shared-world deltas + relational rhyme vs simulated malicious agents. Full FractiSI containment 1.0 vs majority 0.4 / naive 0.1.",
+      "docId": "WP-ADVERSARIAL-WORLD-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    },
+    {
+      "slug": "cancer-rhyme-expedition",
+      "title": "Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?",
+      "group": "Multi-agent research",
+      "summary": "Soft Story pan-cancer board: relational fingerprints 1.0 vs disease labels 0; compression 24→6; transfer 0.8.",
+      "docId": "WP-CANCER-RHYME-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    },
+    {
+      "slug": "relational-continuity-rhyme",
+      "title": "Can Relational Rhyme Connect Partners, Questions to Answers, and Seed to Edge Across Infinite Octaves?",
+      "group": "Multi-agent research",
+      "summary": "One relational-rhyme operation across partners, QA, and seed↔edge. Rhyme 1.0 vs exact 0 / lexical ≤0.14.",
+      "docId": "WP-RELATIONAL-CONTINUITY-RHYME-EGS-2026-11-20",
+      "source": "md",
+      "date": "2026-11-20"
+    },
+    {
+      "slug": "diverse-redundancy-inbreeding",
+      "title": "Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?",
+      "group": "Multi-agent research",
+      "summary": "Diverse redundancy vs cloned copies under common-cause failure. Soft Story E1–E5.",
+      "docId": "WP-DIVERSE-REDUNDANCY-INBREEDING-EGS-2026-11-19",
+      "source": "md",
+      "date": "2026-11-20"
+    },
     {
       "slug": "app-dnmt3a-rhyme-validation",
       "title": "Can Published DNMT3A Tools That Edit APP Be Filed as New Wiring?",

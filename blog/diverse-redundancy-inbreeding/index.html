@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause? · FractiSI</title>
-  <meta name="description" content="When failures share a cause, cloning the same seat many times is not the same as holding several different seats. A Soft Story Rhyming Expedition arm tests that design rule.">
+  <meta name="description" content="Cloned copies cap under common-cause β while diverse classes keep nesting depth on Soft Story boards.">
   <meta property="og:title" content="Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?">
-  <meta property="og:description" content="When failures share a cause, cloning the same seat many times is not the same as holding several different seats. A Soft Story Rhyming Expedition arm tests that design rule.">
+  <meta property="og:description" content="Cloned copies cap under common-cause β while diverse classes keep nesting depth on Soft Story boards.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://fractisi.vercel.app/blog/diverse-redundancy-inbreeding/">
   <link rel="canonical" href="https://fractisi.vercel.app/blog/diverse-redundancy-inbreeding/">
@@ -31,54 +31,36 @@
       <header class="doc-head">
         <p class="kicker">Blog · Rhyming Expedition</p>
         <h1>Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?</h1>
-        <p class="dek">When failures share a cause, cloning the same seat many times is not the same as holding several different seats. A Soft Story Rhyming Expedition arm tests that design rule.</p>
+        <p class="dek">Cloned copies cap under common-cause β while diverse classes keep nesting depth on Soft Story boards.</p>
         <dl class="doc-meta">
-          <div><dt>Published</dt><dd>November 19–20, 2026</dd></div>
+          <div><dt>Published</dt><dd>November 20, 2026</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
-          <div><dt>Reading time</dt><dd>5 min</dd></div>
+          <div><dt>Reading time</dt><dd>1 min</dd></div>
         </dl>
         <div class="doc-actions">
           <a class="btn-primary" href="/library/papers/diverse-redundancy-inbreeding/">Read the full paper</a>
-          <a class="btn-ghost" href="/library/papers/aware-attention-head/">Aware Attention Head</a>
           <a class="btn-ghost" href="/research/diverse-redundancy-inbreeding/">Suite</a>
         </div>
       </header>
       <div class="prose">
-<p class="answer"><strong>Short answer: Yes.</strong> Positive on E1–E5. At β=0.2 depth=6, clone-5 survival 0.262 vs diverse-5 0.997; clone-9 still 0.262. Backblaze β̂≈0.0469. At measured β, clone-5 falls with depth while diverse-5 stays ~1.0. Yeast length-stratified Δ essential −0.0514. Human LOEUF Δ +0.0837. ENGINE_SHELF pin deferred.</p>
+<p class="answer"><strong>Short answer: Yes.</strong> On the locked Soft Story boards, diverse redundancy held nesting depth where cloned copies capped under shared-cause failure.</p>
+<h2 id="what-we-measured">What we measured</h2>
+<p>Cloned copies versus diverse redundancy classes under common-cause failure. computational boards including Backblaze, yeast, and human-facing nesting depth.</p>
 
-<p class="lead">Teams that need a mission to survive nested hand-offs often answer “how many copies?” by cloning the same lineage. That works when failures are independent. It fails when one bad model revision, one shared dependency, or one correlated outage takes every clone at once. This note asks whether diverse copy classes hold a mission deeper than cloned copies when a common-cause fraction β is present — a Soft Story arm of the Rhyming Expedition, not an engine-shelf pin.</p>
+<h2 id="results">Results</h2>
+<ul>
+  <li>Diverse classes keep nesting depth when cloned copies cap under shared-cause β</li>
+  <li>Positive computational signal across E1–E5 on the locked seed</li>
+</ul>
 
-    <h2 id="the-problem">The problem</h2>
-    <p>Aware Attention Head already showed that finite redundant copies give a long but finite octave horizon, and that unbounded depth needs copies that grow with depth. It treated copies as repairable mission replicas. It left open a second question: what happens when the copies are inbred — the same lineage under a shared failure mode — versus diverse classes that fail more independently?</p>
-    <p>Reliability engineering calls that shared mode a common-cause failure. Population genetics calls the same-lineage trap inbreeding depression. Drive fleets call it a model-year cluster. The Rhyming World Model files those as one Soft Story: cloning the same seat many times is not the same as holding several different seats. The paycheck stake is concrete — a fleet that “has redundancy” but still loses the week’s work when one revision lands everywhere.</p>
-
-    <h2 id="the-experiment">The experiment</h2>
-    <p>Five regenerable experiments lock the question. E1 is a depth simulator: at each nesting step a clone group of size <em>n</em> survives with probability (1−β)(1−λ<sup>n</sup>), while a diverse arm with <em>k</em> classes survives if at least one class survives. Headline lock: β = 0.2, depth = 6, n = k = 5 and 9. E2 estimates β from Backblaze 2019 H1 same-model co-failures inside a seven-day window against model-label shuffles. E3 plugs that measured β into the depth table. E4 and E5 are Soft Story public biology boards: length-stratified yeast paralogs versus essentiality, and human paralogs versus LOEUF.</p>
-
-    <h2 id="hypothesis">Hypothesis</h2>
-    <p>Under β &gt; 0, clone survival should saturate with copy count while diverse-class survival keeps rising. Public same-model hardware co-failures should yield a positive β̂ against a shuffled null. Plugging that β̂ into the depth model should preserve the clone-cap / diverse-depth gap. Soft Story biology boards should move in the buffering direction for paralog-bearing genes after length stratification. If clone-n matches diverse-k at matched size for β &gt; 0, or β̂ ≤ 0, or the biology deltas flip sign, the expedition signal fails.</p>
-
-    <h2 id="results">Results</h2>
-    <p>At β = 0.2 and depth 6, clone-5 survival is 0.262 while diverse-5 is 0.997. Clone-9 stays 0.262 — nine clones match five. Backblaze same-model window pairs give β̂ ≈ 0.0469 over the shuffled null. At that measured β, clone-5 falls with depth (0.857 at depth 3, 0.735 at 6, 0.630 at 9) while diverse-5 stays at 1.0; clone-9 never beats clone-5. Length-stratified yeast Δ essential (paralog − no-paralog) is −0.0514. Human LOEUF Δ is +0.0837. All five experiments fire.</p>
-
-    <h2 id="qualifications">Qualifications</h2>
-    <p>The depth model is nesting grammar with a stated β and λ — not a calibrated fleet failure forecast. Backblaze measures drives; the Soft Story is common-cause clustering, not agent software. Yeast essentiality and human LOEUF are Soft Story boards for diversity buffering, not wet-lab genetics findings and not medical advice. Length stratification reduces one confound; residual confounders remain. The ENGINE_SHELF pin stays deferred until live agent rates lock.</p>
-
-    <h2 id="framework">Why this matters for the Rhyming World Model</h2>
-    <p>The design rule is short: redundancy without diversity is inbreeding. Director/Pilot seats, rhyming templates, and octave mission copies should prefer diverse classes over identical clones when common-cause risk is real. The expedition ties that rule to a regenerable depth table and three public fixtures — a map for teams deciding whether “more copies” means more of the same seat or more kinds of seats.</p>
-
-    <h2 id="invitation">Invitation</h2>
-    <p>Read the full paper, rerun the suite under <code>research/diverse-redundancy-inbreeding/</code>, and file follow-ups as Soft Story until fleet telemetry replaces β̂. Sit it beside Aware Attention Head (how many copies) and Pilot Rhyme (which seats hold the map).</p>
-
-    <p class="honesty">Honesty rail: Soft Story / Rhyming Expedition application companion. Regenerable Node lab + Backblaze 2019 H1 + SGD/Ensembl yeast + gnomAD/Ensembl human Soft Story boards. Positive on E1–E5; ENGINE_SHELF pin deferred. Not live fleet telemetry, not clinical genetics, not a production SRE runbook. Φ_EGS filing grammar only. Document ID WP-DIVERSE-REDUNDANCY-INBREEDING-EGS-2026-11-19 · SynthOBS Autonomous Agent · Syntheverse Sandbox.</p>
-
+<p class="honesty">computational expedition · Rhyming Expedition arm · engine shelf pin deferred · WP-DIVERSE-REDUNDANCY-INBREEDING-EGS-2026-11-19 · → ∞^∞</p>
       </div>
       <section class="related" aria-label="Related">
       <h2>Continue reading</h2>
       <div class="related-grid">
         <a class="related-card" href="/library/papers/diverse-redundancy-inbreeding/"><span class="related-kind">Paper</span><span class="related-title">Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?</span></a>
-        <a class="related-card" href="/blog/aware-attention-head/"><span class="related-kind">Blog</span><span class="related-title">If Spirit Is a Pattern, Can Software Hold It Across Infinite Octaves?</span></a>
-        <a class="related-card" href="/blog/pilot-rhyme-expedition/"><span class="related-kind">Blog</span><span class="related-title">Does a Director/Pilot Role Rhyme Beat Flat Peers on Multi-Hop Coordination?</span></a>
+        <a class="related-card" href="/blog/adversarial-world/"><span class="related-kind">Blog</span><span class="related-title">Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?</span></a>
+        <a class="related-card" href="/blog/cancer-rhyme-expedition/"><span class="related-kind">Blog</span><span class="related-title">Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?</span></a>
       </div>
     </section>
     </article>
