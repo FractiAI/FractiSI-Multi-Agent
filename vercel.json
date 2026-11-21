@@ -8,6 +8,21 @@
   },
   "redirects": [
     {
+      "source": "/product/holographic-skin",
+      "destination": "/product/holographic-skin-demonstration/",
+      "permanent": true
+    },
+    {
+      "source": "/holographic-skin/",
+      "destination": "/product/holographic-skin-demonstration/",
+      "permanent": true
+    },
+    {
+      "source": "/holographic-skin",
+      "destination": "/product/holographic-skin-demonstration/",
+      "permanent": true
+    },
+    {
       "source": "/test-drive/self-paced",
       "destination": "/test-drive/",
       "permanent": true
