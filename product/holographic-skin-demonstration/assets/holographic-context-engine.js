@@ -10,6 +10,9 @@
 export const PEOPLE_STORAGE_KEY = 'hl-soft-story-people-v1';
 export const MISSION_DECK_KEY = 'hl-soft-story-mission-deck-v1';
 
+/** Calm Soft Story mission deck — one subtle swap every 15 minutes (not attention-getting). */
+export const MISSION_CYCLE_MS = 15 * 60 * 1000;
+
 /** Default Soft Story mission / Enrichment deck — cycles when no person hit. */
 export const DEFAULT_MISSION_DECK = [
   'superhero',

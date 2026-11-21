@@ -13,6 +13,7 @@ import {
 } from './holographic-scene-catalog.js';
 import {
   DEFAULT_MISSION_DECK,
+  MISSION_CYCLE_MS,
   loadPeopleFromLocalStorage,
   savePeopleToLocalStorage,
   loadMissionDeckFromLocalStorage,
@@ -21,6 +22,7 @@ import {
 } from './holographic-context-engine.js';
 
 const PROTOCOL = 'fractisi-skin://start';
+const PROTOCOL_FLAG = 'hl-fractisi-skin-protocol-ok';
 const params = new URLSearchParams(location.search);
 const companionPort = Number(params.get('companion') || DEFAULT_COMPANION_PORT);
 const companionBase = `http://127.0.0.1:${companionPort}`;
@@ -75,6 +77,7 @@ let pictureMode = config.pictureMode || 'manual';
 let skinWindow = null;
 let launchingHelper = false;
 let localMissionIndex = 0;
+let lastLocalMissionAdvance = 0;
 
 function isHandheldDevice() {
   const ua = navigator.userAgent || '';
@@ -102,7 +105,7 @@ function loadConfig() {
         activityMap: parsed.activityMap?.length ? parsed.activityMap : DEFAULT_ACTIVITY_MAP,
         otherApp: parsed.otherApp || 'Cursor',
         defaultScene: parsed.defaultScene || 'superhero',
-        cycleSeconds: Number(parsed.cycleSeconds) || 45,
+        cycleSeconds: Number(parsed.cycleSeconds) || 15 * 60,
         pictureMode: parsed.pictureMode === 'autodetect' ? 'autodetect' : 'manual',
       };
     }
@@ -113,14 +116,15 @@ function loadConfig() {
     activityMap: DEFAULT_ACTIVITY_MAP,
     otherApp: 'Cursor',
     defaultScene: 'superhero',
-    cycleSeconds: 45,
+    cycleSeconds: 15 * 60, // calm Soft Story deck — 15 minutes
     pictureMode: 'manual',
   };
 }
 
 function saveConfig() {
   config.otherApp = (els.otherApp?.value || 'Cursor').trim() || 'Cursor';
-  config.cycleSeconds = Math.max(8, Number(els.cycleSec?.value) || 45);
+  // Floor at 15 minutes so the deck stays subtle / calming
+  config.cycleSeconds = Math.max(15 * 60, Number(els.cycleSec?.value) || 15 * 60);
   config.pictureMode = pictureMode;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
   pushConfigToCompanion();
@@ -262,26 +266,44 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
   else startPolling();
 }
 
-function launchHelperViaProtocol() {
-  const url = `${PROTOCOL}?port=${companionPort}&ts=${Date.now()}`;
+function protocolLikelyInstalled() {
   try {
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = url;
-    document.body.appendChild(iframe);
-    setTimeout(() => iframe.remove(), 2500);
+    return localStorage.getItem(PROTOCOL_FLAG) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function markProtocolOk() {
+  try {
+    localStorage.setItem(PROTOCOL_FLAG, '1');
   } catch {
     /* ignore */
   }
+}
+
+/**
+ * Try custom-protocol launch only when previously known good.
+ * Avoids browser error dialogs when fractisi-skin:// is not installed.
+ */
+function launchHelperViaProtocol() {
+  if (!protocolLikelyInstalled()) return false;
+  const url = `${PROTOCOL}?port=${companionPort}&ts=${Date.now()}`;
   try {
-    const a = document.createElement('a');
-    a.href = url;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+    // Prefer hidden window over iframe (iframes often flash "failed to launch" pages).
+    const w = window.open(url, '_blank', 'noopener,noreferrer,width=1,height=1');
+    if (w) {
+      setTimeout(() => {
+        try {
+          w.close();
+        } catch {
+          /* ignore */
+        }
+      }, 800);
+    }
+    return true;
   } catch {
-    /* ignore */
+    return false;
   }
 }
 
@@ -291,51 +313,75 @@ function sleep(ms) {
 
 async function ensureHelperAndSession() {
   if (handheld) return false;
-  setText(els.status, 'Looking for helper…');
-  if (await pingCompanion()) {
-    setText(els.status, 'Helper already running. Mapping activity → skins.');
-    await finishAutodetectStart();
-    return true;
-  }
+  try {
+    const startScene = config.defaultScene || missionDeck[0] || 'superhero';
+    // Always open the skin half first — never depends on helper / protocol.
+    openOrFocusSkin(startScene);
+    broadcastScene(startScene, { source: 'start' });
 
-  launchingHelper = true;
-  setText(els.companion, 'Starting helper automatically…');
-  setText(els.status, 'Asking this computer to start the FractiSI Skin helper…');
-  launchHelperViaProtocol();
-
-  for (let i = 0; i < 16; i++) {
-    await sleep(500);
+    setText(els.status, 'Looking for helper…');
     if (await pingCompanion()) {
-      launchingHelper = false;
-      setText(els.status, 'Helper started. Mapping activity → skins.');
-      await finishAutodetectStart();
+      markProtocolOk();
+      setText(els.status, 'Helper connected. Mapping activity → skins (mission deck swaps every 15 min).');
+      await finishAutodetectStart({ alreadyOpened: true });
       return true;
     }
-  }
 
-  launchingHelper = false;
-  setText(els.companion, 'Helper did not start — install once, then select Autodetect again');
-  setText(
-    els.status,
-    'Could not auto-start. Run npm run skin:auto-session:install once (or npm run skin:auto-session now).',
-  );
-  startPolling();
-  return false;
+    launchingHelper = true;
+    if (protocolLikelyInstalled()) {
+      setText(els.companion, 'Starting helper…');
+      setText(els.status, 'Asking this computer to start the Soft Story helper…');
+      launchHelperViaProtocol();
+      for (let i = 0; i < 12; i++) {
+        await sleep(500);
+        if (await pingCompanion()) {
+          launchingHelper = false;
+          markProtocolOk();
+          setText(els.status, 'Helper started. Mapping activity → skins (mission deck every 15 min).');
+          await finishAutodetectStart({ alreadyOpened: true });
+          return true;
+        }
+      }
+    }
+
+    launchingHelper = false;
+    setText(els.companion, 'Helper not running yet — skin half is open');
+    setText(
+      els.status,
+      'Skin half is open. To map WhatsApp / Uber Eats / workstation activity, open a terminal in the FractiSI repo and run: npm run skin:auto-session   (optional one-time: npm run skin:auto-session:install). No browser error needed — that command starts the helper quietly.',
+    );
+    startPolling();
+    return false;
+  } catch (err) {
+    launchingHelper = false;
+    setText(els.status, 'Autodetect hit a snag, but you can still use Manual picks. ' + String(err?.message || err));
+    try {
+      openOrFocusSkin(config.defaultScene || 'superhero');
+    } catch {
+      /* ignore */
+    }
+    return false;
+  }
 }
 
-async function finishAutodetectStart() {
+async function finishAutodetectStart({ alreadyOpened = false } = {}) {
   await pushConfigToCompanion();
+  if (!alreadyOpened) {
+    try {
+      await fetch(`${companionBase}/open-skin`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sceneId: config.defaultScene || missionDeck[0] || 'superhero' }),
+      });
+    } catch {
+      openOrFocusSkin(config.defaultScene || missionDeck[0] || 'superhero');
+    }
+  }
   try {
-    await fetch(`${companionBase}/open-skin`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sceneId: config.defaultScene || missionDeck[0] || 'superhero' }),
-    });
     await fetch(`${companionBase}/split`, { method: 'POST' });
   } catch {
-    openOrFocusSkin(config.defaultScene || missionDeck[0] || 'superhero');
+    /* split is optional */
   }
-  broadcastScene(config.defaultScene || missionDeck[0] || 'superhero', { source: 'start' });
   startPolling();
 }
 
@@ -527,20 +573,29 @@ function sourceLabel(source) {
 async function pollState() {
   if (handheld || pictureMode !== 'autodetect') return;
   if (!(await pingCompanion())) {
-    // Offline fallback: still cycle mission deck locally so the story keeps moving
-    localMissionIndex = (localMissionIndex + 1) % Math.max(missionDeck.length, 1);
-    const resolved = resolveContext({
-      win: { app: 'local', title: 'Soft Story offline cycle' },
-      people,
-      activityMap: config.activityMap,
-      missionDeck,
-      missionIndex: localMissionIndex,
-    });
-    setText(els.doing, 'Helper offline — cycling Soft Story mission deck locally');
-    setText(els.source, sourceLabel('mission-deck'));
-    if (resolved.sceneId !== lastSceneId) {
-      broadcastScene(resolved.sceneId, { source: 'mission-deck' });
-      openOrFocusSkin(resolved.sceneId);
+    // Offline: calm 15-minute mission deck only (never every poll)
+    const cycleMs = Math.max(MISSION_CYCLE_MS, (config.cycleSeconds || 900) * 1000);
+    const now = Date.now();
+    if (!lastLocalMissionAdvance) lastLocalMissionAdvance = now;
+    if (now - lastLocalMissionAdvance >= cycleMs) {
+      lastLocalMissionAdvance = now;
+      localMissionIndex = (localMissionIndex + 1) % Math.max(missionDeck.length, 1);
+      const resolved = resolveContext({
+        win: { app: 'local', title: 'Soft Story offline cycle' },
+        people,
+        activityMap: config.activityMap,
+        missionDeck,
+        missionIndex: localMissionIndex,
+      });
+      setText(els.doing, 'Helper offline — calm Soft Story mission deck (15 min)');
+      setText(els.source, sourceLabel('mission-deck'));
+      if (resolved.sceneId !== lastSceneId) {
+        broadcastScene(resolved.sceneId, { source: 'mission-deck' });
+        openOrFocusSkin(resolved.sceneId);
+      }
+    } else {
+      setText(els.doing, 'Helper offline — skin holds steady until the next calm 15‑min deck swap');
+      setText(els.source, sourceLabel('mission-deck'));
     }
     return;
   }
@@ -640,7 +695,8 @@ async function startSession() {
 function startPolling() {
   clearInterval(pollTimer);
   if (handheld || pictureMode !== 'autodetect') return;
-  pollTimer = setInterval(pollState, Math.max(8, config.cycleSeconds) * 1000 > 2000 ? 1600 : 1600);
+  // Poll activity often; deck itself only advances every 15 minutes
+  pollTimer = setInterval(pollState, 2000);
   pollState();
 }
 
@@ -656,9 +712,17 @@ function wireUi() {
     if (els.modeManual.checked) setPictureMode('manual', { autoStart: false });
   });
   els.modeAuto?.addEventListener('change', () => {
-    if (els.modeAuto.checked) setPictureMode('autodetect', { autoStart: true });
+    if (els.modeAuto.checked) {
+      setPictureMode('autodetect', { autoStart: true }).catch((err) => {
+        setText(els.status, 'Could not start Autodetect cleanly: ' + String(err?.message || err));
+      });
+    }
   });
-  els.btnStart?.addEventListener('click', startSession);
+  els.btnStart?.addEventListener('click', () => {
+    startSession().catch((err) => {
+      setText(els.status, 'Could not start Autodetect cleanly: ' + String(err?.message || err));
+    });
+  });
   els.btnOpenSkin?.addEventListener('click', () => openOrFocusSkin(lastSceneId));
   els.btnSplit?.addEventListener('click', async () => {
     if (!(await pingCompanion())) {

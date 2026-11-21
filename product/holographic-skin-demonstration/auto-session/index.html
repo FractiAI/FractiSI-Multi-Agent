@@ -76,9 +76,9 @@
 
       <section class="hl-as__panel" aria-labelledby="hl-auto-title" id="hl-as-auto-block" hidden>
         <h2 id="hl-auto-title">Autodetect</h2>
-        <p class="hl-as__lead">Selecting Autodetect asks this page to start the local helper automatically (<code>fractisi-skin://</code>). If the helper is not installed yet, install once, then try again.</p>
-        <pre class="hl-as__code" tabindex="0">npm run skin:auto-session:install</pre>
-        <p class="hl-as__hint">That registers auto-launch. Afterward, Autodetect starts the helper without you typing <code>npm run skin:auto-session</code> each time.</p>
+        <p class="hl-as__lead">Start opens the skin half right away. For live activity mapping, keep the helper running in a terminal (no scary browser popups required).</p>
+        <pre class="hl-as__code" tabindex="0">npm run skin:auto-session</pre>
+        <p class="hl-as__hint">Optional one-time auto-launch: <code>npm run skin:auto-session:install</code>. Mission deck images swap every 15 minutes so the Soft Story stays calming.</p>
         <div class="hl-as__actions" role="group" aria-label="Autodetect controls">
           <button type="button" class="hl-game__cta" id="hl-as-start">Start Autodetect now</button>
           <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-open-skin">Open skin half</button>
@@ -146,7 +146,7 @@
 
       <section class="hl-as__panel" aria-labelledby="hl-deck-title" id="hl-as-deck-block">
         <h2 id="hl-deck-title">Mission cycling deck</h2>
-        <p class="hl-as__lead">When you are not matched to a person, Autodetect cycles this Soft Story mission set so the pictures keep supporting the story.</p>
+        <p class="hl-as__lead">When you are not matched to a person or app theater, Autodetect calmly swaps this Soft Story mission set every <strong>15 minutes</strong> — subtle, not attention-getting.</p>
         <p class="hl-as__hint" id="hl-as-deck-list">—</p>
         <label class="hl-as__field">
           <span>Deck scene ids (comma separated)</span>
@@ -163,8 +163,8 @@
           <input id="hl-as-other" type="text" maxlength="80" value="Cursor" autocomplete="off" placeholder="Cursor, Slack, Mail, Chrome…" />
         </label>
         <label class="hl-as__field">
-          <span>Cycle seconds</span>
-          <input id="hl-as-cycle-sec" type="number" min="8" max="600" value="45" />
+          <span>Mission deck swap (seconds) — calm default 900 = 15 minutes</span>
+          <input id="hl-as-cycle-sec" type="number" min="900" max="7200" step="60" value="900" />
         </label>
         <ul class="hl-as__map" id="hl-as-map"></ul>
         <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-save">Save app rules</button>

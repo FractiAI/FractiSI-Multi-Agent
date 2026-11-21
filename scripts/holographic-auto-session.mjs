@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import {
   resolveContext,
   DEFAULT_MISSION_DECK,
+  MISSION_CYCLE_MS,
 } from '../product/holographic-skin-demonstration/assets/holographic-context-engine.js';
 import { DEFAULT_ACTIVITY_MAP } from '../product/holographic-skin-demonstration/assets/holographic-scene-catalog.js';
 
@@ -331,14 +332,22 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    // Chrome Private Network Access: HTTPS page → localhost helper
+    'Access-Control-Allow-Private-Network': 'true',
+    'Cache-Control': 'no-store',
+  };
+}
+
 function sendJson(res, code, body) {
   const raw = JSON.stringify(body);
   res.writeHead(code, {
     'Content-Type': 'application/json; charset=utf-8',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Cache-Control': 'no-store',
+    ...corsHeaders(),
   });
   res.end(raw);
 }
@@ -362,11 +371,7 @@ function readBody(req) {
 
 const server = http.createServer(async (req, res) => {
   if (req.method === 'OPTIONS') {
-    res.writeHead(204, {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    });
+    res.writeHead(204, corsHeaders());
     return res.end();
   }
   const url = new URL(req.url || '/', `http://127.0.0.1:${PORT}`);
@@ -459,14 +464,16 @@ server.listen(PORT, '127.0.0.1', async () => {
     });
   }
 
+  // Calm mission / cycle advances — every 15 minutes (subtle, not distracting)
   setInterval(() => {
     advanceCycles();
     refreshState().catch(() => {});
-  }, 12_000);
+  }, MISSION_CYCLE_MS);
 
+  // Fast poll for "what am I doing now?" (person / app theater) — does not advance the deck
   setInterval(() => {
     refreshState().catch(() => {});
-  }, 1500);
+  }, 2000);
 });
 
 process.on('SIGINT', () => {
