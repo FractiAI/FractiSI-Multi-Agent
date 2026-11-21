@@ -7,20 +7,23 @@
 | Auto Session | `/product/holographic-skin-demonstration/auto-session/` |
 | Create | `/product/holographic-skin-demonstration/create/` |
 
-**Desktop only for Auto Session** — phones and tablets see a clear “not available yet” notice. Enrichment Menu Play still works on handheld.
+**Desktop only for Auto Session** — phones/tablets see “not available yet.” Play still works on handheld.
 
-## Simple desk instructions
+## What the helper does
 
-1. Split the screen: any work app on one half (not required to be an IDE), skin browser on the other.
-2. **Manual** — tap pictures on Auto Session.
-3. **Autodetect** — select Autodetect; the page tries to start the local helper automatically and pictures follow activity.
+It answers **what am I doing now?** from the active window, then maps that to Soft Story skins:
 
-### One-time helper auto-launch (desktop)
+1. **People skins** — if the window title mentions someone you registered (e.g. emailing Daniel), show the image you created for them.
+2. **App activity** — code / chat / terminal rules when useful.
+3. **Mission cycling deck** — default Soft Story set that keeps supporting the story mission when no person is matched.
+
+## Simple desk use
+
+1. Split screen: any work app + skin browser.
+2. **Manual** — tap pictures.
+3. **Autodetect** — helper maps activity → skins (people first, then mission deck).
 
 ```bash
-npm run skin:auto-session:install
+npm run skin:auto-session:install   # one-time auto-launch
+npm run skin:auto-session           # manual helper start
 ```
-
-Registers `fractisi-skin://` so choosing Autodetect can start the helper without typing a command each time.
-
-Manual start still works: `npm run skin:auto-session`

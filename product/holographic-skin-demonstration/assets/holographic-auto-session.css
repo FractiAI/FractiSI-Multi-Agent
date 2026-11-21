@@ -39,6 +39,59 @@ body.hl-as--handheld .hl-game__tag::after {
   content: " · Desktop only for now";
 }
 
+.hl-as__people {
+  list-style: none;
+  margin: 0.75rem 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.hl-as__person {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  border-radius: 0.4rem;
+  background: rgba(8, 6, 4, 0.55);
+}
+
+.hl-as__person img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.hl-as__person strong {
+  display: block;
+  font-family: var(--hl-sans, "Oswald", sans-serif);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--hl-gold-hi, #f0d9a0);
+}
+
+.hl-as__person button {
+  appearance: none;
+  border: 1px solid rgba(176, 141, 87, 0.45);
+  background: rgba(26, 18, 12, 0.9);
+  color: var(--hl-gold-hi, #f0d9a0);
+  border-radius: 0.3rem;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  font-family: var(--hl-sans, "Oswald", sans-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hl-as__person-form {
+  display: grid;
+  gap: 0.35rem;
+}
+
 .hl-as__howto,
 .hl-as__panel,
 .hl-as__card,

@@ -153,10 +153,40 @@
     if (gameBg && url) gameBg.style.backgroundImage = 'url("' + url + '")';
   }
 
-  function resolveScene(id) {
+  function loadPeopleSkins() {
+    try {
+      var raw = localStorage.getItem('hl-soft-story-people-v1');
+      if (!raw) return [];
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function resolveScene(id, imageOverride) {
+    if (imageOverride) {
+      var base = scenes[id] || {};
+      var peopleHit = loadPeopleSkins().find(function (x) { return x.id === id; });
+      return {
+        id: id,
+        label: (peopleHit && peopleHit.label) || base.label || id,
+        blurb: (peopleHit && peopleHit.blurb) || base.blurb || 'Person Soft Story',
+        image: imageOverride,
+      };
+    }
     if (scenes[id]) return scenes[id];
     const s = sirens.find(function (x) { return x.id === id; });
     if (s) return { id: s.id, label: s.label, blurb: 'Mermaid Soft Story', image: s.image };
+    var person = loadPeopleSkins().find(function (x) { return x.id === id; });
+    if (person && person.image) {
+      return {
+        id: person.id,
+        label: person.label || person.id,
+        blurb: person.blurb || 'Person Soft Story',
+        image: person.image,
+      };
+    }
     return null;
   }
 
@@ -232,11 +262,13 @@
     if (!stage.classList.contains('is-open')) document.body.classList.remove('hl-lock');
   }
 
-  function applyAutoScene(sceneId) {
-    if (!sceneId || sceneId === lastAutoSceneId) return;
-    var scene = resolveScene(sceneId);
+  function applyAutoScene(sceneId, imageOverride) {
+    if (!sceneId) return;
+    var scene = resolveScene(sceneId, imageOverride || null);
     if (!scene) return;
-    lastAutoSceneId = sceneId;
+    var key = sceneId + '|' + (scene.image || '');
+    if (key === lastAutoSceneId) return;
+    lastAutoSceneId = key;
     suppressMenuBroadcast = true;
     closePanel();
     openStage(scene, { fromAuto: true, quietFocus: true });
@@ -294,7 +326,7 @@
     bc.addEventListener('message', function (ev) {
       var msg = ev.data;
       if (!msg) return;
-      if (msg.type === 'select-scene' && msg.sceneId) applyAutoScene(msg.sceneId);
+      if (msg.type === 'select-scene' && msg.sceneId) applyAutoScene(msg.sceneId, msg.image || null);
     });
   }
 
@@ -303,7 +335,7 @@
       fetch(companionBase + '/state', { cache: 'no-store' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (state) {
-          if (state && state.sceneId) applyAutoScene(state.sceneId);
+          if (state && state.sceneId) applyAutoScene(state.sceneId, state.image || null);
         })
         .catch(function () {});
     }, 1600);

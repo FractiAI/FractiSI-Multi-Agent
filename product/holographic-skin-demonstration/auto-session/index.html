@@ -42,9 +42,9 @@
           <li><strong>Split your screen.</strong> Work on one half. Skin (browser) on the other.</li>
           <li><strong>Other half = any app you choose</strong> — not only an IDE. Cursor, Slack, Mail, Chrome, a spreadsheet…</li>
           <li><strong>Manual</strong> — tap a picture below; it stays until you pick another.</li>
-          <li><strong>Autodetect</strong> — select Autodetect and the page tries to start the desktop helper by itself. Pictures then follow which app is in front.</li>
+          <li><strong>Autodetect</strong> — the helper answers <em>what am I doing now?</em> and maps that to your Soft Story skins. Emailing Daniel → Daniel’s image. Otherwise it cycles your mission deck.</li>
         </ol>
-        <p class="hl-as__hint">First time on a computer: run <code>npm run skin:auto-session:install</code> once in the FractiSI repo so Autodetect can auto-launch the helper. After that, choosing Autodetect is enough.</p>
+        <p class="hl-as__hint">First time on a computer: run <code>npm run skin:auto-session:install</code> once so Autodetect can auto-launch the helper.</p>
       </section>
 
       <section class="hl-as__panel" aria-labelledby="hl-mode-title">
@@ -82,6 +82,10 @@
       </section>
 
       <section class="hl-as__grid" aria-label="Live status">
+        <div class="hl-as__card hl-as__card--wide">
+          <h3>What am I doing now?</h3>
+          <p id="hl-as-doing">—</p>
+        </div>
         <div class="hl-as__card">
           <h3>Mode</h3>
           <p id="hl-as-mode-label">Manual</p>
@@ -91,7 +95,7 @@
           <p id="hl-as-companion">Checking…</p>
         </div>
         <div class="hl-as__card">
-          <h3>Active app (other half)</h3>
+          <h3>Active window</h3>
           <p id="hl-as-activity">—</p>
         </div>
         <div class="hl-as__card">
@@ -113,19 +117,51 @@
         <p id="hl-as-preview-label">Superhero</p>
       </section>
 
-      <section class="hl-as__panel" aria-labelledby="hl-config-title" id="hl-as-rules-block" hidden>
-        <h2 id="hl-config-title">Autodetect rules</h2>
-        <p class="hl-as__lead">Name the app on your other half (any app). Matched apps pick or cycle Soft Story stills.</p>
+      <section class="hl-as__panel" aria-labelledby="hl-people-title" id="hl-as-people-block">
+        <h2 id="hl-people-title">People skins</h2>
+        <p class="hl-as__lead">Add people you created Soft Story pictures for. If the helper sees their name in your window title (mail, chat, browser tab), it shows their image — e.g. emailing Daniel → Daniel’s skin.</p>
+        <ul class="hl-as__people" id="hl-as-people"></ul>
+        <form class="hl-as__person-form" id="hl-as-person-form">
+          <label class="hl-as__field">
+            <span>Name</span>
+            <input id="hl-as-person-name" type="text" maxlength="80" required placeholder="Daniel" autocomplete="off" />
+          </label>
+          <label class="hl-as__field">
+            <span>Also match (aliases, emails — comma separated)</span>
+            <input id="hl-as-person-aliases" type="text" maxlength="200" placeholder="Dan, daniel@company.com" autocomplete="off" />
+          </label>
+          <label class="hl-as__field">
+            <span>Their Soft Story image</span>
+            <input id="hl-as-person-file" type="file" accept="image/*" />
+          </label>
+          <button type="submit" class="hl-game__cta">Save person skin</button>
+        </form>
+      </section>
+
+      <section class="hl-as__panel" aria-labelledby="hl-deck-title" id="hl-as-deck-block">
+        <h2 id="hl-deck-title">Mission cycling deck</h2>
+        <p class="hl-as__lead">When you are not matched to a person, Autodetect cycles this Soft Story mission set so the pictures keep supporting the story.</p>
+        <p class="hl-as__hint" id="hl-as-deck-list">—</p>
         <label class="hl-as__field">
-          <span>Other half app (any app — not required to be an IDE)</span>
+          <span>Deck scene ids (comma separated)</span>
+          <input id="hl-as-deck-input" type="text" maxlength="400" autocomplete="off" />
+        </label>
+        <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-deck-save">Save mission deck</button>
+      </section>
+
+      <section class="hl-as__panel" aria-labelledby="hl-config-title" id="hl-as-rules-block" hidden>
+        <h2 id="hl-config-title">App activity rules</h2>
+        <p class="hl-as__lead">Fallback when no person name is in the window. Other half may be any app.</p>
+        <label class="hl-as__field">
+          <span>Other half app name (for window split hints)</span>
           <input id="hl-as-other" type="text" maxlength="80" value="Cursor" autocomplete="off" placeholder="Cursor, Slack, Mail, Chrome…" />
         </label>
         <label class="hl-as__field">
-          <span>Cycle seconds (when a rule’s mode is cycle)</span>
+          <span>Cycle seconds</span>
           <input id="hl-as-cycle-sec" type="number" min="8" max="600" value="45" />
         </label>
         <ul class="hl-as__map" id="hl-as-map"></ul>
-        <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-save">Save rules on this device</button>
+        <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-save">Save app rules</button>
       </section>
     </div>
 

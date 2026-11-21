@@ -1,7 +1,6 @@
 /**
  * Holographic Skin · Auto Session client
- * Manual pick OR Autodetect (auto-launches local helper via fractisi-skin://).
- * Desktop only — handheld sessions get a clear "not available yet" gate.
+ * Helper answers "what am I doing now?" → person skins or Soft Story mission deck.
  */
 import {
   SCENES,
@@ -12,6 +11,14 @@ import {
   STORAGE_KEY,
   DEFAULT_COMPANION_PORT,
 } from './holographic-scene-catalog.js';
+import {
+  DEFAULT_MISSION_DECK,
+  loadPeopleFromLocalStorage,
+  savePeopleToLocalStorage,
+  loadMissionDeckFromLocalStorage,
+  saveMissionDeckToLocalStorage,
+  resolveContext,
+} from './holographic-context-engine.js';
 
 const PROTOCOL = 'fractisi-skin://start';
 const params = new URLSearchParams(location.search);
@@ -24,6 +31,7 @@ const els = {
   activity: document.getElementById('hl-as-activity'),
   scene: document.getElementById('hl-as-scene'),
   source: document.getElementById('hl-as-source'),
+  doing: document.getElementById('hl-as-doing'),
   split: document.getElementById('hl-as-split'),
   mapList: document.getElementById('hl-as-map'),
   otherApp: document.getElementById('hl-as-other'),
@@ -38,7 +46,6 @@ const els = {
   picker: document.getElementById('hl-as-picker'),
   modeManual: document.getElementById('hl-as-mode-manual'),
   modeAuto: document.getElementById('hl-as-mode-auto'),
-  modeAutoLabel: document.getElementById('hl-as-mode-auto-label'),
   modeHint: document.getElementById('hl-as-mode-hint'),
   modeLabel: document.getElementById('hl-as-mode-label'),
   manualBlock: document.getElementById('hl-as-manual-block'),
@@ -46,17 +53,28 @@ const els = {
   rulesBlock: document.getElementById('hl-as-rules-block'),
   handheld: document.getElementById('hl-as-handheld'),
   desktop: document.getElementById('hl-as-desktop'),
+  peopleList: document.getElementById('hl-as-people'),
+  personForm: document.getElementById('hl-as-person-form'),
+  personName: document.getElementById('hl-as-person-name'),
+  personAliases: document.getElementById('hl-as-person-aliases'),
+  personFile: document.getElementById('hl-as-person-file'),
+  deckList: document.getElementById('hl-as-deck-list'),
+  deckInput: document.getElementById('hl-as-deck-input'),
+  deckSave: document.getElementById('hl-as-deck-save'),
 };
 
 const bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(CHANNEL) : null;
 const handheld = isHandheldDevice();
 let config = loadConfig();
+let people = loadPeopleFromLocalStorage();
+let missionDeck = loadMissionDeckFromLocalStorage();
 let lastSceneId = config.defaultScene || 'superhero';
 let companionOnline = false;
 let pollTimer = null;
 let pictureMode = config.pictureMode || 'manual';
 let skinWindow = null;
 let launchingHelper = false;
+let localMissionIndex = 0;
 
 function isHandheldDevice() {
   const ua = navigator.userAgent || '';
@@ -113,7 +131,23 @@ function setText(el, text) {
   if (el) el.textContent = text;
 }
 
-function sceneRecord(id) {
+function slugify(name) {
+  return String(name || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 40) || 'person';
+}
+
+function sceneRecord(id, imageOverride) {
+  if (imageOverride) {
+    const person = people.find((p) => p.id === id);
+    if (person) return { id, label: person.label, blurb: person.blurb || 'Person Soft Story', image: imageOverride };
+    if (SCENES[id]) return { id, ...SCENES[id], image: imageOverride };
+  }
+  const person = people.find((p) => p.id === id);
+  if (person) return { id: person.id, label: person.label, blurb: person.blurb || 'Person Soft Story', image: person.image };
   if (SCENES[id]) return { id, ...SCENES[id] };
   const s = SIRENS.find((x) => x.id === id);
   if (s) return { id: s.id, label: s.label, blurb: 'Mermaid Soft Story', image: s.image };
@@ -146,7 +180,7 @@ function openOrFocusSkin(sceneId) {
 }
 
 function broadcastScene(sceneId, meta = {}) {
-  const rec = sceneRecord(sceneId);
+  const rec = sceneRecord(sceneId, meta.image || null);
   if (!rec) return;
   lastSceneId = sceneId;
   config.defaultScene = sceneId;
@@ -185,8 +219,7 @@ function applyHandheldGate() {
   if (els.desktop) els.desktop.hidden = true;
   setText(els.modeLabel, 'Unavailable on handheld');
   setText(els.companion, 'Desktop helper not available on phones/tablets yet');
-  setText(els.source, 'Open this page on a computer');
-  setText(els.activity, '—');
+  setText(els.doing, 'Open Auto Session on a computer');
 }
 
 async function setPictureMode(mode, { autoStart = true } = {}) {
@@ -212,7 +245,7 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
   setText(
     els.modeHint,
     isAuto
-      ? 'Autodetect is on. Starting the desktop helper automatically…'
+      ? 'Autodetect is on. Helper maps what you are doing now → Soft Story skins (people first, then mission deck).'
       : 'Manual is on. Tap a picture below to put it on the skin half.',
   );
 
@@ -220,7 +253,8 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
     clearInterval(pollTimer);
     pollTimer = null;
     setText(els.source, 'Manual pick');
-    setText(els.activity, 'Not used in Manual — pick pictures yourself');
+    setText(els.doing, 'You are choosing pictures by hand');
+    setText(els.activity, '—');
     return;
   }
 
@@ -229,7 +263,6 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
 }
 
 function launchHelperViaProtocol() {
-  // Hidden iframe / navigation tricks are the usual custom-protocol kick from a page.
   const url = `${PROTOCOL}?port=${companionPort}&ts=${Date.now()}`;
   try {
     const iframe = document.createElement('iframe');
@@ -260,7 +293,7 @@ async function ensureHelperAndSession() {
   if (handheld) return false;
   setText(els.status, 'Looking for helper…');
   if (await pingCompanion()) {
-    setText(els.status, 'Helper already running. Autodetect live.');
+    setText(els.status, 'Helper already running. Mapping activity → skins.');
     await finishAutodetectStart();
     return true;
   }
@@ -274,20 +307,17 @@ async function ensureHelperAndSession() {
     await sleep(500);
     if (await pingCompanion()) {
       launchingHelper = false;
-      setText(els.status, 'Helper started. Autodetect live.');
+      setText(els.status, 'Helper started. Mapping activity → skins.');
       await finishAutodetectStart();
       return true;
     }
   }
 
   launchingHelper = false;
-  setText(
-    els.companion,
-    'Helper did not start — install once, then select Autodetect again',
-  );
+  setText(els.companion, 'Helper did not start — install once, then select Autodetect again');
   setText(
     els.status,
-    'Could not auto-start the helper. On this computer, in the FractiSI repo, run npm run skin:auto-session:install once. After that, Autodetect starts it for you. Or run npm run skin:auto-session now.',
+    'Could not auto-start. Run npm run skin:auto-session:install once (or npm run skin:auto-session now).',
   );
   startPolling();
   return false;
@@ -299,19 +329,20 @@ async function finishAutodetectStart() {
     await fetch(`${companionBase}/open-skin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sceneId: config.defaultScene || 'superhero' }),
+      body: JSON.stringify({ sceneId: config.defaultScene || missionDeck[0] || 'superhero' }),
     });
     await fetch(`${companionBase}/split`, { method: 'POST' });
   } catch {
-    openOrFocusSkin(config.defaultScene || 'superhero');
+    openOrFocusSkin(config.defaultScene || missionDeck[0] || 'superhero');
   }
-  broadcastScene(config.defaultScene || 'superhero', { source: 'start' });
+  broadcastScene(config.defaultScene || missionDeck[0] || 'superhero', { source: 'start' });
   startPolling();
 }
 
 function renderPicker() {
   if (!els.picker) return;
   els.picker.innerHTML = '';
+  people.forEach((p) => appendPick(p.id, p.label, p.image, 'Person skin'));
   TOP_LEVEL.forEach((id) => {
     if (id === 'sirens') {
       SIRENS.forEach((s) => appendPick(s.id, s.label, s.image, 'Siren'));
@@ -337,15 +368,16 @@ function appendPick(id, label, image, blurb) {
   btn.addEventListener('click', () => {
     if (handheld) return;
     setPictureMode('manual', { autoStart: false });
-    broadcastScene(id, { source: 'manual' });
+    broadcastScene(id, { source: 'manual', image });
     setText(els.source, 'Manual pick');
+    setText(els.doing, `You chose ${label}`);
     setText(els.status, `Showing ${label} on the skin half.`);
     openOrFocusSkin(id);
     if (companionOnline) {
       fetch(`${companionBase}/menu`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sceneId: id, label }),
+        body: JSON.stringify({ sceneId: id, label, image }),
       }).catch(() => {});
     }
   });
@@ -359,15 +391,93 @@ function highlightPicker(sceneId) {
   });
 }
 
+function renderPeople() {
+  if (!els.peopleList) return;
+  els.peopleList.innerHTML = '';
+  if (!people.length) {
+    const li = document.createElement('li');
+    li.className = 'hl-as__hint';
+    li.textContent = 'No people skins yet. Add Daniel (or anyone) with the image you made for them.';
+    els.peopleList.appendChild(li);
+    return;
+  }
+  people.forEach((p) => {
+    const li = document.createElement('li');
+    li.className = 'hl-as__person';
+    li.innerHTML =
+      `<img src="${escapeHtml(p.image)}" alt="" />` +
+      `<div><strong>${escapeHtml(p.label)}</strong>` +
+      `<span class="hl-as__meta">matches: ${escapeHtml([p.label, ...(p.aliases || []), ...(p.emails || [])].join(', '))}</span></div>`;
+    const del = document.createElement('button');
+    del.type = 'button';
+    del.textContent = 'Remove';
+    del.addEventListener('click', () => {
+      people = people.filter((x) => x.id !== p.id);
+      savePeopleToLocalStorage(people);
+      renderPeople();
+      renderPicker();
+      pushConfigToCompanion();
+    });
+    li.appendChild(del);
+    els.peopleList.appendChild(li);
+  });
+}
+
+function renderDeck() {
+  const labels = missionDeck.map((id) => SCENES[id]?.label || id).join(' · ');
+  setText(els.deckList, labels || '—');
+  if (els.deckInput) els.deckInput.value = missionDeck.join(', ');
+}
+
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function onPersonSubmit(ev) {
+  ev.preventDefault();
+  const name = (els.personName?.value || '').trim();
+  if (!name) return;
+  const file = els.personFile?.files?.[0];
+  if (!file) {
+    setText(els.status, 'Choose an image file for this person skin.');
+    return;
+  }
+  const image = await readFileAsDataUrl(file);
+  const aliasesRaw = (els.personAliases?.value || '')
+    .split(/[,;\n]+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const emails = aliasesRaw.filter((a) => a.includes('@'));
+  const aliases = aliasesRaw.filter((a) => !a.includes('@'));
+  const id = slugify(name);
+  const person = {
+    id,
+    label: name,
+    aliases,
+    emails,
+    image,
+    blurb: `Soft Story person · ${name}`,
+  };
+  people = [person, ...people.filter((p) => p.id !== id)];
+  savePeopleToLocalStorage(people);
+  renderPeople();
+  renderPicker();
+  await pushConfigToCompanion();
+  if (els.personForm) els.personForm.reset();
+  setText(els.status, `Saved ${name}. When their name shows in a window title, Autodetect will show their image.`);
+}
+
 async function pingCompanion() {
   try {
     const r = await fetch(`${companionBase}/health`, { cache: 'no-store' });
     if (!r.ok) throw new Error('bad');
     companionOnline = true;
-    setText(
-      els.companion,
-      launchingHelper ? `Helper online · port ${companionPort}` : `Helper online · port ${companionPort}`,
-    );
+    setText(els.companion, `Helper online · port ${companionPort}`);
     return true;
   } catch {
     companionOnline = false;
@@ -377,7 +487,7 @@ async function pingCompanion() {
         pictureMode === 'autodetect'
           ? launchingHelper
             ? 'Starting helper…'
-            : 'Helper offline — Autodetect will try auto-start (install once if needed)'
+            : 'Helper offline — Autodetect will try auto-start'
           : 'Helper optional in Manual mode',
       );
     }
@@ -391,16 +501,48 @@ async function pushConfigToCompanion() {
     await fetch(`${companionBase}/config`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ activityMap: config.activityMap }),
+      body: JSON.stringify({
+        activityMap: config.activityMap,
+        people,
+        missionDeck,
+      }),
     });
   } catch {
     /* ignore */
   }
 }
 
+function sourceLabel(source) {
+  if (source === 'person') return 'Person skin match';
+  if (source === 'mission-deck') return 'Soft Story mission deck';
+  if (source === 'menu') return 'Menu selection (pinned briefly)';
+  if (source === 'activity') return 'App activity rule';
+  if (source === 'manual') return 'Manual pick';
+  if (source === 'ignore-skin-window') return 'Skin window (holding last context)';
+  if (source === 'boot' || source === 'start') return 'Session start';
+  return source || '—';
+}
+
 async function pollState() {
   if (handheld || pictureMode !== 'autodetect') return;
-  if (!(await pingCompanion())) return;
+  if (!(await pingCompanion())) {
+    // Offline fallback: still cycle mission deck locally so the story keeps moving
+    localMissionIndex = (localMissionIndex + 1) % Math.max(missionDeck.length, 1);
+    const resolved = resolveContext({
+      win: { app: 'local', title: 'Soft Story offline cycle' },
+      people,
+      activityMap: config.activityMap,
+      missionDeck,
+      missionIndex: localMissionIndex,
+    });
+    setText(els.doing, 'Helper offline — cycling Soft Story mission deck locally');
+    setText(els.source, sourceLabel('mission-deck'));
+    if (resolved.sceneId !== lastSceneId) {
+      broadcastScene(resolved.sceneId, { source: 'mission-deck' });
+      openOrFocusSkin(resolved.sceneId);
+    }
+    return;
+  }
   try {
     const r = await fetch(`${companionBase}/state`, { cache: 'no-store' });
     if (!r.ok) return;
@@ -411,30 +553,25 @@ async function pollState() {
         ? `${state.activeApp || 'app'}${state.title ? ' — ' + state.title : ''}`
         : 'No active window read yet',
     );
+    setText(els.doing, state.doing || '—');
     setText(els.source, sourceLabel(state.source));
     if (state.split?.attempted) {
       setText(els.split, state.split.ok ? `Split ok — ${state.split.detail}` : `Split note — ${state.split.detail}`);
     }
-    if (state.sceneId && state.sceneId !== lastSceneId) {
-      broadcastScene(state.sceneId, { source: state.source || 'companion' });
+    if (state.sceneId && (state.sceneId !== lastSceneId || state.image)) {
+      broadcastScene(state.sceneId, {
+        source: state.source || 'companion',
+        image: state.image || undefined,
+      });
       openOrFocusSkin(state.sceneId);
     } else if (state.sceneId) {
-      const rec = sceneRecord(state.sceneId);
+      const rec = sceneRecord(state.sceneId, state.image || null);
       if (rec) updatePreview(rec);
       setText(els.scene, rec?.label || state.sceneId);
     }
   } catch {
     companionOnline = false;
   }
-}
-
-function sourceLabel(source) {
-  if (source === 'menu') return 'Menu selection (pinned briefly)';
-  if (source === 'activity') return 'Detected activity';
-  if (source === 'manual') return 'Manual pick';
-  if (source === 'ignore-skin-window') return 'Skin window (holding last work scene)';
-  if (source === 'boot' || source === 'start') return 'Session start';
-  return source || '—';
 }
 
 function renderMap() {
@@ -501,7 +638,7 @@ async function startSession() {
 function startPolling() {
   clearInterval(pollTimer);
   if (handheld || pictureMode !== 'autodetect') return;
-  pollTimer = setInterval(pollState, 1600);
+  pollTimer = setInterval(pollState, Math.max(8, config.cycleSeconds) * 1000 > 2000 ? 1600 : 1600);
   pollState();
 }
 
@@ -523,7 +660,7 @@ function wireUi() {
   els.btnOpenSkin?.addEventListener('click', () => openOrFocusSkin(lastSceneId));
   els.btnSplit?.addEventListener('click', async () => {
     if (!(await pingCompanion())) {
-      setText(els.split, 'Helper offline — snap the two windows yourself, or select Autodetect to auto-start.');
+      setText(els.split, 'Helper offline — snap windows yourself, or select Autodetect.');
       return;
     }
     try {
@@ -535,31 +672,44 @@ function wireUi() {
     }
   });
   els.btnSave?.addEventListener('click', saveConfig);
+  els.personForm?.addEventListener('submit', onPersonSubmit);
+  els.deckSave?.addEventListener('click', () => {
+    const raw = (els.deckInput?.value || '')
+      .split(/[,;\s]+/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    missionDeck = raw.length ? raw : [...DEFAULT_MISSION_DECK];
+    saveMissionDeckToLocalStorage(missionDeck);
+    renderDeck();
+    pushConfigToCompanion();
+    setText(els.status, 'Mission deck saved.');
+  });
   bc?.addEventListener('message', (ev) => {
     const msg = ev.data;
     if (!msg || msg.type !== 'menu-selection') return;
     setText(els.source, 'Menu selection');
-    if (msg.sceneId) broadcastScene(msg.sceneId, { source: 'menu' });
+    setText(els.doing, `Menu: ${msg.label || msg.sceneId}`);
+    if (msg.sceneId) broadcastScene(msg.sceneId, { source: 'menu', image: msg.image });
     if (companionOnline) {
       fetch(`${companionBase}/menu`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sceneId: msg.sceneId, label: msg.label }),
+        body: JSON.stringify({ sceneId: msg.sceneId, label: msg.label, image: msg.image }),
       }).catch(() => {});
     }
   });
+  renderPeople();
+  renderDeck();
   renderPicker();
   renderMap();
-  const boot = sceneRecord(config.defaultScene || 'superhero');
+  const boot = sceneRecord(config.defaultScene || missionDeck[0] || 'superhero');
   if (boot) updatePreview(boot);
 
   const wantAuto =
     params.get('mode') === 'autodetect' ||
     params.get('started') === '1' ||
     config.pictureMode === 'autodetect';
-  setPictureMode(wantAuto ? 'autodetect' : 'manual', {
-    autoStart: wantAuto,
-  });
+  setPictureMode(wantAuto ? 'autodetect' : 'manual', { autoStart: wantAuto });
   if (!wantAuto) pingCompanion();
 }
 

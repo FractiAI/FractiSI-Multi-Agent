@@ -19,6 +19,10 @@ import { execFile, execFileSync, spawn, spawnSync } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  resolveContext,
+  DEFAULT_MISSION_DECK,
+} from '../product/holographic-skin-demonstration/assets/holographic-context-engine.js';
 
 const execFileAsync = promisify(execFile);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -48,6 +52,10 @@ const COMPANION_ONLY =
 
 /** @type {{ id: string, label: string, match: string, scenes: string[], mode: string }[]} */
 let activityMap = defaultActivityMap();
+/** @type {import('../product/holographic-skin-demonstration/assets/holographic-context-engine.js').PersonSkin[]} */
+let people = [];
+let missionDeck = [...DEFAULT_MISSION_DECK];
+let missionIndex = 0;
 let lastMenuSelection = null;
 let lastState = {
   activeApp: '',
@@ -55,6 +63,9 @@ let lastState = {
   sceneId: SCENE,
   cycleIndex: 0,
   source: 'boot',
+  doing: 'Booting Soft Story helper',
+  kind: 'idle',
+  personId: null,
   ts: Date.now(),
   companion: true,
   otherApp: OTHER,
@@ -167,42 +178,15 @@ async function readActiveWindow() {
 }
 
 function pickScene(win) {
-  const hay = `${win?.app || ''} ${win?.title || ''}`.toLowerCase();
-  // Ignore our own skin browser chrome so we do not thrash away from work context.
-  if (/holographic.?skin|enrichment menu|fractisi/i.test(hay)) {
-    return {
-      sceneId: lastState.sceneId || SCENE,
-      ruleId: 'skin-self',
-      source: 'ignore-skin-window',
-      cycleIndex: lastState.cycleIndex || 0,
-    };
-  }
-  for (const rule of activityMap) {
-    let re;
-    try {
-      re = new RegExp(rule.match, 'i');
-    } catch {
-      continue;
-    }
-    if (!re.test(hay)) continue;
-    const scenes = Array.isArray(rule.scenes) && rule.scenes.length ? rule.scenes : [SCENE];
-    let cycleIndex = cycleBuckets.get(rule.id) || 0;
-    if (rule.mode === 'cycle') {
-      // advance slowly via tick; here just report current index
-      cycleIndex = cycleIndex % scenes.length;
-    } else {
-      cycleIndex = 0;
-    }
-    return {
-      sceneId: scenes[cycleIndex] || scenes[0],
-      ruleId: rule.id,
-      source: 'activity',
-      cycleIndex,
-      scenes,
-      mode: rule.mode,
-    };
-  }
-  return { sceneId: SCENE, ruleId: 'fallback', source: 'fallback', cycleIndex: 0 };
+  return resolveContext({
+    win: win || {},
+    people,
+    activityMap,
+    missionDeck,
+    missionIndex,
+    cycleBuckets,
+    fallbackScene: SCENE,
+  });
 }
 
 function advanceCycles() {
@@ -211,29 +195,44 @@ function advanceCycles() {
     const cur = cycleBuckets.get(rule.id) || 0;
     cycleBuckets.set(rule.id, (cur + 1) % rule.scenes.length);
   }
+  if (missionDeck.length) {
+    missionIndex = (missionIndex + 1) % missionDeck.length;
+  }
 }
 
 async function refreshState() {
   const win = await readActiveWindow();
   const picked = pickScene(win);
-  // Menu selection wins for a short pin window (90s) unless activity rule is cursor-work.
   let sceneId = picked.sceneId;
   let source = picked.source;
-  if (lastMenuSelection && Date.now() - lastMenuSelection.ts < 90_000) {
+  let doing = picked.doing;
+  let image = picked.image || null;
+  // Explicit menu pick pins briefly (still yields to a fresh person match).
+  if (lastMenuSelection && Date.now() - lastMenuSelection.ts < 90_000 && picked.priority !== 'person') {
     sceneId = lastMenuSelection.sceneId;
     source = 'menu';
+    doing = `Pinned from menu: ${lastMenuSelection.label || sceneId}`;
+    image = lastMenuSelection.image || image;
   }
   lastState = {
     activeApp: win?.app || '',
     title: win?.title || '',
     sceneId,
     cycleIndex: picked.cycleIndex || 0,
-    ruleId: picked.ruleId,
+    ruleId: picked.matchedRule || picked.ruleId || null,
     source,
+    doing,
+    kind: picked.kind || 'work',
+    personId: picked.personId || null,
+    personLabel: picked.personLabel || null,
+    image,
+    priority: picked.priority || source,
     ts: Date.now(),
     companion: true,
     otherApp: OTHER,
     menu: lastMenuSelection,
+    peopleCount: people.length,
+    missionDeck,
     split: lastState.split,
   };
   return lastState;
@@ -423,14 +422,29 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, lastState);
     }
     if (req.method === 'GET' && url.pathname === '/config') {
-      return sendJson(res, 200, { activityMap, otherApp: OTHER, defaultScene: SCENE, port: PORT });
+      return sendJson(res, 200, {
+        activityMap,
+        people,
+        missionDeck,
+        otherApp: OTHER,
+        defaultScene: SCENE,
+        port: PORT,
+      });
     }
     if (req.method === 'POST' && url.pathname === '/config') {
       const body = await readBody(req);
       if (Array.isArray(body.activityMap) && body.activityMap.length) {
         activityMap = body.activityMap;
       }
-      return sendJson(res, 200, { ok: true, activityMap });
+      if (Array.isArray(body.people)) {
+        people = body.people.filter((p) => p && p.id && p.image);
+      }
+      if (Array.isArray(body.missionDeck) && body.missionDeck.length) {
+        missionDeck = body.missionDeck.map(String);
+        missionIndex = 0;
+      }
+      await refreshState();
+      return sendJson(res, 200, { ok: true, activityMap, people, missionDeck });
     }
     if (req.method === 'POST' && url.pathname === '/menu') {
       const body = await readBody(req);
@@ -438,6 +452,7 @@ const server = http.createServer(async (req, res) => {
         lastMenuSelection = {
           sceneId: String(body.sceneId),
           label: body.label || '',
+          image: body.image || null,
           ts: Date.now(),
         };
       }
