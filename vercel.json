@@ -18,6 +18,16 @@
       "permanent": true
     },
     {
+      "source": "/holographic-skin/living/",
+      "destination": "/product/holographic-skin-demonstration/living/",
+      "permanent": true
+    },
+    {
+      "source": "/holographic-skin/living",
+      "destination": "/product/holographic-skin-demonstration/living/",
+      "permanent": true
+    },
+    {
       "source": "/product/holographic-skin",
       "destination": "/product/holographic-skin-demonstration/",
       "permanent": true

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="vbi18n-ready">
+<head>
+  <script>(function(){var h=document.documentElement;if(!h)return;h.classList.remove("vbi18n-pending");h.classList.add("vbi18n-ready");})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Holographic Living · FractiSI</title>
+  <meta name="description" content="Holographic Living — reskinned aspects of daily life as a FractiSI navy-and-gold menu. Enrichment nests errands, frontier work, work, and daily life." />
+  <link rel="canonical" href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-living" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/brand-gold-surfaces.css" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/tiny-footprint-product.css" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-living.css" />
+</head>
+<body class="tf-product hl-page">
+  <nav class="tf-nav" aria-label="FractiSI">
+    <a href="/">FractiSI</a>
+    <a href="/product/holographic-skin-demonstration/">Holographic Skin Demo</a>
+    <a href="/product/holographic-skin-demonstration/living/" aria-current="page">Holographic Living</a>
+    <a href="/product/holographic-skin-demonstration/create/">Create</a>
+    <a href="/product/pricing/">Pricing</a>
+    <a href="/product/rhyming-shield/">Rhyming Shield</a>
+    <a href="https://www.ssvibelandiaquestfest24x365.com/questfest">SS Vibelandia</a>
+  </nav>
+
+  <main class="tf-wrap">
+    <header class="hl-hero-band">
+      <p class="tf-kicker">FractiSI · Holographic Skin Demonstration · interactive menu</p>
+      <h1>Holographic Living</h1>
+      <p>Daily life, reskinned as holographic menu buttons. Press an aspect for a fullscreen image. <strong>Enrichment</strong> is recursive — errands, frontier work, work, and daily life nest inside it as well as appearing on their own. Product framing: <a href="/product/holographic-skin-demonstration/">Holographic Skin Demonstration</a>.</p>
+    </header>
+
+    <section aria-label="Holographic Living menu">
+      <div class="hl-menu" id="hl-menu" role="list"></div>
+      <p class="honesty">Placeholder holographic imagery · personal Soft Story theater · not a production product claim · navy/gold FractiSI visual language.</p>
+    </section>
+  </main>
+
+  <div class="hl-panel" id="hl-panel" role="dialog" aria-modal="true" aria-labelledby="hl-panel-title" hidden>
+    <div class="hl-panel__sheet">
+      <div class="hl-panel__head">
+        <h2 id="hl-panel-title">Panel</h2>
+        <button type="button" class="hl-panel__close" id="hl-panel-close">Close</button>
+      </div>
+      <p class="hl-panel__note" id="hl-panel-note"></p>
+      <div id="hl-panel-body"></div>
+    </div>
+  </div>
+
+  <div class="hl-stage" id="hl-stage" hidden>
+    <img class="hl-stage__img" id="hl-stage-img" alt="" />
+    <div class="hl-stage__veil" aria-hidden="true"></div>
+    <button type="button" class="hl-stage__close" id="hl-stage-close">Close</button>
+    <div class="hl-stage__caption">
+      <h2 id="hl-stage-title"></h2>
+      <p id="hl-stage-blurb"></p>
+    </div>
+  </div>
+
+  <script>
+(function () {
+  const MEDIA = '/product/holographic-skin-demonstration/media/';
+
+  const scenes = {
+    'clark-kent': {
+      label: 'Clark Kent',
+      blurb: 'Himself as Clark Kent — the daytime face of the theater.',
+      image: MEDIA + 'hl-clark-kent.jpg',
+    },
+    superhero: {
+      label: 'Superhero',
+      blurb: 'Himself as a superhero — the night signature.',
+      image: MEDIA + 'hl-superhero.jpg',
+    },
+    vibelandia: {
+      label: 'Vibelandia',
+      blurb: 'SS Vibelandia — the festival and music world.',
+      image: MEDIA + 'hl-vibelandia.jpg',
+    },
+    'bat-cave': {
+      label: 'Bat cave',
+      blurb: 'The inventor cave — schematics, benches, and gold holography.',
+      image: MEDIA + 'hl-bat-cave.jpg',
+    },
+    'duck-hunting': {
+      label: 'Duck hunting',
+      blurb: 'Delivery opportunities theater — Uber Eats–class routes as hunt paths.',
+      image: MEDIA + 'hl-duck-hunting.jpg',
+    },
+    'big-game-fishing': {
+      label: 'Big game fishing',
+      blurb: 'TrackDSI shopping / fishing for a big sponsor.',
+      image: MEDIA + 'hl-big-game-fishing.jpg',
+    },
+    'bottom-fishing': {
+      label: 'Bottom fishing',
+      blurb: 'At the club awaiting tips — some big, some small, some pass by.',
+      image: MEDIA + 'hl-bottom-fishing.jpg',
+    },
+    'whatsapp-route-lab': {
+      label: 'The route / WhatsApp route behavioral lab',
+      blurb: 'Online route behavioral lab — chats and arcs as Soft Story instrumentation.',
+      image: MEDIA + 'hl-whatsapp-route-lab.jpg',
+    },
+    'wiring-wet-lab': {
+      label: 'The wiring wet lab',
+      blurb: 'Online wiring wet lab — relationship edges as holographic wire.',
+      image: MEDIA + 'hl-wiring-wet-lab.jpg',
+    },
+    'el-cortez-lab': {
+      label: 'The computational lab — the El Cortez',
+      blurb: 'Computational lab nested in El Cortez theater.',
+      image: MEDIA + 'hl-el-cortez-lab.jpg',
+    },
+    'mens-restroom-theater': {
+      label: 'Men’s restroom holographic theater',
+      blurb: 'Holographic theater and behavioral lab — architectural Soft Story only.',
+      image: MEDIA + 'hl-mens-restroom-theater.jpg',
+    },
+    resting: {
+      label: 'Resting',
+      blurb: 'Rest as recovery theater — calm between hunts.',
+      image: MEDIA + 'hl-resting.jpg',
+    },
+    sleeping: {
+      label: 'Sleeping',
+      blurb: 'Sleep as deep Soft Story reset.',
+      image: MEDIA + 'hl-sleeping.jpg',
+    },
+    bathroom: {
+      label: 'Bathroom',
+      blurb: 'Private bathroom — daily hygiene Soft Story.',
+      image: MEDIA + 'hl-bathroom.jpg',
+    },
+    errands: {
+      label: 'Errands',
+      blurb: 'Errands as route-shaped enrichment.',
+      image: MEDIA + 'hl-errands.jpg',
+    },
+    enrichment: {
+      label: 'Enrichment',
+      blurb: 'Recursive entry — everything nests here.',
+      image: MEDIA + 'hl-enrichment.jpg',
+    },
+    'frontier-work': {
+      label: 'Frontier work',
+      blurb: 'Frontier research Soft Story — discovery at the edge.',
+      image: MEDIA + 'hl-frontier-work.jpg',
+    },
+    'eating-drinking': {
+      label: 'Eating and Drinking',
+      blurb: 'Table theater — items list filled later.',
+      image: MEDIA + 'hl-eating-drinking.jpg',
+    },
+  };
+
+  const sirens = [
+    { id: 'dorila', label: 'Dorila', image: MEDIA + 'hl-siren-dorila.jpg' },
+    { id: 'valeria', label: 'Valeria', image: MEDIA + 'hl-siren-valeria.jpg' },
+    { id: 'viviana', label: 'Viviana', image: MEDIA + 'hl-siren-viviana.jpg' },
+    { id: 'yeris', label: 'Yeris', image: MEDIA + 'hl-siren-yeris.jpg' },
+    { id: 'erika', label: 'Erika', image: MEDIA + 'hl-siren-erika.jpg' },
+    { id: 'winnie', label: 'Winnie', image: MEDIA + 'hl-siren-winnie.jpg' },
+    { id: 'fun-fun', label: 'Fun Fun', image: MEDIA + 'hl-siren-fun-fun.jpg' },
+    { id: 'monica', label: 'Monica', image: MEDIA + 'hl-siren-monica.jpg' },
+    { id: 'sarah', label: 'Sarah', image: MEDIA + 'hl-siren-sarah.jpg' },
+  ];
+
+  /** Top-level menu order */
+  const topLevel = [
+    { id: 'enrichment', kind: 'enrichment' },
+    { id: 'clark-kent', kind: 'fullscreen' },
+    { id: 'superhero', kind: 'fullscreen' },
+    { id: 'vibelandia', kind: 'fullscreen' },
+    { id: 'bat-cave', kind: 'fullscreen' },
+    { id: 'duck-hunting', kind: 'fullscreen' },
+    { id: 'big-game-fishing', kind: 'fullscreen' },
+    { id: 'bottom-fishing', kind: 'fullscreen' },
+    { id: 'whatsapp-route-lab', kind: 'fullscreen' },
+    { id: 'wiring-wet-lab', kind: 'fullscreen' },
+    { id: 'el-cortez-lab', kind: 'fullscreen' },
+    { id: 'mens-restroom-theater', kind: 'fullscreen' },
+    { id: 'sirens', kind: 'sirens' },
+    { id: 'eating-drinking', kind: 'eating' },
+    { id: 'resting', kind: 'fullscreen' },
+    { id: 'sleeping', kind: 'fullscreen' },
+    { id: 'bathroom', kind: 'fullscreen' },
+    { id: 'errands', kind: 'fullscreen' },
+  ];
+
+  const menuEl = document.getElementById('hl-menu');
+  const panel = document.getElementById('hl-panel');
+  const panelTitle = document.getElementById('hl-panel-title');
+  const panelNote = document.getElementById('hl-panel-note');
+  const panelBody = document.getElementById('hl-panel-body');
+  const panelClose = document.getElementById('hl-panel-close');
+  const stage = document.getElementById('hl-stage');
+  const stageImg = document.getElementById('hl-stage-img');
+  const stageTitle = document.getElementById('hl-stage-title');
+  const stageBlurb = document.getElementById('hl-stage-blurb');
+  const stageClose = document.getElementById('hl-stage-close');
+
+  function openStage(scene) {
+    if (!scene || !scene.image) return;
+    stageImg.src = scene.image;
+    stageImg.alt = scene.label || '';
+    stageTitle.textContent = scene.label || '';
+    stageBlurb.textContent = scene.blurb || '';
+    stage.hidden = false;
+    stage.classList.add('is-open');
+    document.body.classList.add('hl-lock');
+    stageClose.focus();
+  }
+
+  function closeStage() {
+    stage.classList.remove('is-open');
+    stage.hidden = true;
+    stageImg.removeAttribute('src');
+    if (!panel.classList.contains('is-open')) document.body.classList.remove('hl-lock');
+  }
+
+  function openPanel(title, note, renderBody) {
+    panelTitle.textContent = title;
+    panelNote.textContent = note || '';
+    panelBody.innerHTML = '';
+    renderBody(panelBody);
+    panel.hidden = false;
+    panel.classList.add('is-open');
+    document.body.classList.add('hl-lock');
+    panelClose.focus();
+  }
+
+  function closePanel() {
+    panel.classList.remove('is-open');
+    panel.hidden = true;
+    panelBody.innerHTML = '';
+    if (!stage.classList.contains('is-open')) document.body.classList.remove('hl-lock');
+  }
+
+  function btn(label, onClick, sub) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = label;
+    if (sub) {
+      const s = document.createElement('small');
+      s.textContent = sub;
+      b.appendChild(document.createElement('br'));
+      b.appendChild(s);
+    }
+    b.addEventListener('click', onClick);
+    return b;
+  }
+
+  function openSirens() {
+    openPanel(
+      'Sirens',
+      'Tap a siren for her fullscreen holographic portrait.',
+      (body) => {
+        const ul = document.createElement('ul');
+        ul.className = 'hl-panel__list';
+        sirens.forEach((s) => {
+          const li = document.createElement('li');
+          li.appendChild(
+            btn(s.label, () =>
+              openStage({
+                label: s.label,
+                blurb: 'Siren Soft Story portrait · holographic living theater.',
+                image: s.image,
+              }),
+            ),
+          );
+          ul.appendChild(li);
+        });
+        body.appendChild(ul);
+      },
+    );
+  }
+
+  function openEating() {
+    openPanel(
+      'Eating and Drinking',
+      'Items Prudencio is currently working with go here.',
+      (body) => {
+        const hero = btn('Open table theater image', () => openStage(scenes['eating-drinking']));
+        hero.style.marginBottom = '0.85rem';
+        body.appendChild(hero);
+        const empty = document.createElement('div');
+        empty.className = 'hl-panel__empty';
+        empty.textContent =
+          'Placeholder submenu — item list empty for now. Add foods, drinks, and working-with items here later.';
+        body.appendChild(empty);
+      },
+    );
+  }
+
+  /** Enrichment = recursive nest */
+  function openEnrichment() {
+    openPanel(
+      'Enrichment',
+      'Recursive entry. Errands, frontier work, work, and daily life nest here — and also exist as their own top-level aspects.',
+      (body) => {
+        body.appendChild(
+          btn('Open Enrichment image', () => openStage(scenes.enrichment), 'Fullscreen Soft Story'),
+        );
+
+        const ul = document.createElement('ul');
+        ul.className = 'hl-panel__list';
+        ul.style.marginTop = '0.85rem';
+
+        function nestBlock(title, childrenBuilder) {
+          const li = document.createElement('li');
+          const head = document.createElement('button');
+          head.type = 'button';
+          head.textContent = title;
+          const nest = document.createElement('div');
+          nest.className = 'hl-nest';
+          nest.hidden = true;
+          head.addEventListener('click', () => {
+            nest.hidden = !nest.hidden;
+          });
+          childrenBuilder(nest);
+          li.appendChild(head);
+          li.appendChild(nest);
+          ul.appendChild(li);
+        }
+
+        // Errands
+        nestBlock('Errands', (nest) => {
+          nest.appendChild(btn('Errands fullscreen', () => openStage(scenes.errands)));
+        });
+
+        // Frontier work
+        nestBlock('Frontier work', (nest) => {
+          nest.appendChild(btn('Frontier work fullscreen', () => openStage(scenes['frontier-work'])));
+        });
+
+        // Work nest
+        nestBlock('Work', (nest) => {
+          [
+            'whatsapp-route-lab',
+            'wiring-wet-lab',
+            'el-cortez-lab',
+            'bat-cave',
+            'duck-hunting',
+            'big-game-fishing',
+            'bottom-fishing',
+          ].forEach((id) => {
+            nest.appendChild(btn(scenes[id].label, () => openStage(scenes[id])));
+          });
+        });
+
+        // Daily life nest
+        nestBlock('Daily life', (nest) => {
+          [
+            'clark-kent',
+            'superhero',
+            'vibelandia',
+            'eating-drinking',
+            'resting',
+            'sleeping',
+            'bathroom',
+            'mens-restroom-theater',
+          ].forEach((id) => {
+            if (id === 'eating-drinking') {
+              nest.appendChild(btn('Eating and Drinking…', openEating));
+            } else {
+              nest.appendChild(btn(scenes[id].label, () => openStage(scenes[id])));
+            }
+          });
+          nest.appendChild(btn('Sirens…', openSirens));
+          nest.appendChild(btn('Errands', () => openStage(scenes.errands)));
+          nest.appendChild(btn('Frontier work', () => openStage(scenes['frontier-work'])));
+        });
+
+        body.appendChild(ul);
+      },
+    );
+  }
+
+  topLevel.forEach((item) => {
+    const scene = scenes[item.id];
+    const label =
+      item.id === 'sirens'
+        ? 'Sirens'
+        : item.id === 'eating-drinking'
+          ? 'Eating and Drinking'
+          : scene
+            ? scene.label
+            : item.id;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'hl-menu__btn';
+    b.setAttribute('role', 'listitem');
+    b.dataset.kind = item.kind;
+    b.dataset.id = item.id;
+    const title = document.createTextNode(label);
+    b.appendChild(title);
+    if (item.kind === 'enrichment') {
+      const s = document.createElement('small');
+      s.textContent = 'Recursive nest · errands · frontier · work · daily life';
+      b.appendChild(s);
+    } else if (item.kind === 'sirens') {
+      const s = document.createElement('small');
+      s.textContent = 'Dorila · Valeria · Viviana · Yeris · Erika · Winnie · Fun Fun · Monica · Sarah';
+      b.appendChild(s);
+    } else if (item.kind === 'eating') {
+      const s = document.createElement('small');
+      s.textContent = 'Submenu · items list TBD';
+      b.appendChild(s);
+    }
+    b.addEventListener('click', () => {
+      if (item.kind === 'enrichment') openEnrichment();
+      else if (item.kind === 'sirens') openSirens();
+      else if (item.kind === 'eating') openEating();
+      else openStage(scenes[item.id]);
+    });
+    menuEl.appendChild(b);
+  });
+
+  panelClose.addEventListener('click', closePanel);
+  stageClose.addEventListener('click', closeStage);
+  panel.addEventListener('click', (e) => {
+    if (e.target === panel) closePanel();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (stage.classList.contains('is-open')) closeStage();
+    else if (panel.classList.contains('is-open')) closePanel();
+  });
+})();
+  </script>
+  <script src="/product/holographic-skin-demonstration/assets/holographic-initiation.js" data-current="living" data-base="fractisi"></script>
+  
+</body>
+</html>

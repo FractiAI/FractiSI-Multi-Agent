@@ -1,77 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="vbi18n-ready">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FractiSI · Create a Holographic Skin</title>
-  <meta name="description" content="FractiSI Create Page — compose styles, vibes, and elements into a Soft Story holographic skin. Live generator on SING 13.">
-  <link rel="stylesheet" href="/css/site.css?v=50">
+  <script>(function(){var h=document.documentElement;if(!h)return;h.classList.remove("vbi18n-pending");h.classList.add("vbi18n-ready");})();</script>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Create a Holographic Skin · FractiSI</title>
+  <meta name="description" content="FractiSI Create Page — compose styles, vibes, and elements into a Soft Story holographic skin demonstration. Frontier-tale aesthetic." />
+  <link rel="canonical" href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-skin-create" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/brand-gold-surfaces.css" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/tiny-footprint-product.css" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-living.css" />
+  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-skin-create.css" />
 </head>
-<body>
-  <header class="nav">
-    <a class="wordmark" href="/">FractiSI</a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/product/">Product</a>
-      <a href="/product/holographic-skin-demonstration/">Holographic Skin</a>
-      <a href="/product/holographic-skin-demonstration/create/" aria-current="page">Create</a>
-      <a href="/product/pricing/">Pricing</a>
-      <a class="button" href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-skin-create">Open live Create</a>
-    </nav>
+<body class="tf-product hl-page">
+  <nav class="tf-nav" aria-label="FractiSI">
+    <a href="/">FractiSI</a>
+    <a href="/product/holographic-skin-demonstration/">Holographic Skin Demo</a>
+    <a href="/product/holographic-skin-demonstration/create/" aria-current="page">Create</a>
+    <a href="/product/holographic-skin-demonstration/living/">Holographic Living</a>
+    <a href="/product/holographic-skin-demonstration/">FractiSI create surface</a>
+  </nav>
+
+  <header class="tf-hero hl-create-hero" aria-label="Create a Holographic Skin">
+    <div class="tf-hero__bg" style="background-image:url('/product/holographic-skin-demonstration/media/hl-frontier-work.jpg')"></div>
+    <div class="tf-hero__veil"></div>
+    <div class="tf-hero__content">
+      <p class="tf-kicker">FractiSI · Holographic Skin · Create</p>
+      <h1 class="tf-brand">Create Page</h1>
+      <p class="tf-tagline">Compose styles, vibes, and elements into a Soft Story holographic skin — the same frontier-tale theater as the demonstration.</p>
+      <p class="tf-sub">Name the skin. Choose a style register. Write the vibe. List the elements that should appear as menu buttons. Generate opens a living Soft Story board with fullscreen holographic panels for each element.</p>
+    </div>
   </header>
 
-  <div class="wrap">
-    <section class="hero" aria-labelledby="create-title">
-      <p class="kicker">FractiSI · Holographic Skin · Create</p>
-      <h1 id="create-title">Create Page.</h1>
-      <p class="lede">Compose styles, vibes, and elements into a Soft Story holographic skin — the same frontier-tale theater as the FractiSI demonstration. The interactive generator runs on the SING 13 FractiSI hub.</p>
-      <div class="cta-row">
-        <a class="btn-primary" href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-skin-create">Open Create on SING 13</a>
-        <a class="btn-ghost" href="/product/holographic-skin-demonstration/">Demonstration</a>
-        <a class="btn-ghost" href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-living">Holographic Living menu</a>
+  <main class="tf-wrap hl-create">
+    <form id="hl-create-form" class="hl-create-form" aria-label="Holographic skin create form">
+      <fieldset>
+        <legend>Skin title</legend>
+        <input id="skin-title" name="title" type="text" maxlength="80" required placeholder="e.g. Desert Goldilocks Soft Story" autocomplete="off" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Styles</legend>
+        <p class="hl-hint">Pick one or more registers. They tint the Soft Story panels.</p>
+        <div class="hl-chips" role="group" aria-label="Style registers">
+          <label><input type="checkbox" name="styles" value="navy-gold" checked /> Navy &amp; gold (FractiSI default)</label>
+          <label><input type="checkbox" name="styles" value="frontier-dusk" /> Frontier dusk</label>
+          <label><input type="checkbox" name="styles" value="desert-neon" /> Desert neon</label>
+          <label><input type="checkbox" name="styles" value="cave-schematic" /> Cave schematic</label>
+          <label><input type="checkbox" name="styles" value="ocean-sponsor" /> Ocean sponsor</label>
+          <label><input type="checkbox" name="styles" value="lab-wire" /> Lab wire</label>
+        </div>
+        <label class="hl-extra">Custom style notes
+          <textarea id="style-notes" name="styleNotes" rows="2" maxlength="400" placeholder="Optional: materials, lighting, era, density…"></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Vibes</legend>
+        <textarea id="vibes" name="vibes" rows="3" maxlength="600" required placeholder="e.g. Quiet expeditionary wonder · gold filaments over navy night · Soft Story restraint, not carnival"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Elements</legend>
+        <p class="hl-hint">Comma-separated Soft Story aspects that become menu buttons (Enrichment can nest them).</p>
+        <textarea id="elements" name="elements" rows="4" maxlength="800" required placeholder="e.g. Enrichment, Route lab, Wiring wet lab, Resting, Errands, Frontier work"></textarea>
+      </fieldset>
+
+      <div class="tf-cta">
+        <button type="submit" class="tf-cta__gold" id="hl-generate">Generate holographic skin</button>
+        <a class="tf-cta__ghost" href="/product/holographic-skin-demonstration/">Back to demonstration</a>
+      </div>
+    </form>
+
+    <section id="hl-skin-result" class="hl-skin-result" hidden aria-live="polite">
+      <div id="hl-skin-status-mount" data-hl-skin-status></div>
+      <header class="hl-skin-result__head">
+        <p class="tf-kicker">Generated Soft Story skin</p>
+        <h2 id="result-title"></h2>
+        <p id="result-vibe" class="hl-skin-result__vibe"></p>
+        <p id="result-styles" class="hl-skin-result__styles"></p>
+      </header>
+      <p class="hl-hint">Press an element for its fullscreen holographic panel. Enrichment nests the full set.</p>
+      <div class="hl-menu" id="result-menu" role="list"></div>
+      <div class="tf-cta">
+        <button type="button" class="tf-cta__ghost" id="hl-download-json">Download skin JSON</button>
+        <button type="button" class="tf-cta__ghost" id="hl-reset">Compose another</button>
       </div>
     </section>
-  </div>
 
-  <main class="wrap">
-    <article class="page">
-      <h2>What visitors fill in</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Styles</h3>
-          <p>Navy &amp; gold, frontier dusk, desert neon, cave schematic, ocean sponsor, lab wire — plus optional style notes.</p>
-        </div>
-        <div class="card">
-          <h3>Vibes</h3>
-          <p>Free-text Soft Story atmosphere that tints captions and procedural panels.</p>
-        </div>
-        <div class="card">
-          <h3>Elements</h3>
-          <p>Named aspects that become menu buttons; Enrichment nests the full set on the generated board.</p>
-        </div>
-      </div>
-      <p class="honesty">Client Soft Story generator on SING 13 — procedural holographic panels, not a hosted image-model bake-off. Spelling lock: <strong>FractiSI</strong>.</p>
-    </article>
+    <p class="honesty"><strong>Honesty:</strong> Client-side Soft Story generator — styles, vibes, and elements assemble a FractiSI navy/gold holographic skin board with procedural panels. Not a hosted model bake-off, not CapEx proof, not consciousness. Spelling lock: <strong>FractiSI</strong>.</p>
   </main>
 
-  <footer class="site-footer">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="wordmark" href="/">FractiSI</a>
-        <p>The Fractal Holographic Goldilocks Rhyming World Model for digital and human agents.</p>
-      </div>
-      <nav aria-label="Product">
-        <h2>Product</h2>
-        <a href="/product/holographic-skin-demonstration/">Holographic Skin</a>
-        <a href="/product/holographic-skin-demonstration/create/">Create</a>
-        <a href="/product/">Multi-Agent</a>
-      </nav>
-      <nav aria-label="Live">
-        <h2>Live SING 13</h2>
-        <a href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-skin-create">Create</a>
-        <a href="https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-living">Living menu</a>
-      </nav>
+  <div class="hl-stage" id="hl-stage" hidden>
+    <canvas class="hl-stage__canvas" id="hl-stage-canvas" width="1600" height="900" aria-hidden="true"></canvas>
+    <div class="hl-stage__veil" aria-hidden="true"></div>
+    <button type="button" class="hl-stage__close" id="hl-stage-close">Close</button>
+    <div class="hl-stage__caption">
+      <h2 id="hl-stage-title"></h2>
+      <p id="hl-stage-blurb"></p>
     </div>
-    <p class="foot-base">FractiSI · Holographic Skin Create · Soft Story product surface</p>
-  </footer>
+  </div>
+
+  <script src="/product/holographic-skin-demonstration/assets/holographic-initiation.js" data-current="create" data-base="fractisi"></script>
+  <script src="/product/holographic-skin-demonstration/assets/holographic-skin-create.js"></script>
+  
+  
 </body>
 </html>
