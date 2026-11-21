@@ -1,10 +1,12 @@
 /**
  * Holographic Skin · Auto Session client
- * Polls local companion, syncs Living via BroadcastChannel + query deep links.
+ * Manual picture pick OR Autodetect from workstation activity.
+ * Other half = any app the user chooses (not IDE-only).
  */
 import {
   SCENES,
   SIRENS,
+  TOP_LEVEL,
   DEFAULT_ACTIVITY_MAP,
   CHANNEL,
   STORAGE_KEY,
@@ -32,6 +34,14 @@ const els = {
   preview: document.getElementById('hl-as-preview'),
   previewImg: document.getElementById('hl-as-preview-img'),
   previewLabel: document.getElementById('hl-as-preview-label'),
+  picker: document.getElementById('hl-as-picker'),
+  modeManual: document.getElementById('hl-as-mode-manual'),
+  modeAuto: document.getElementById('hl-as-mode-auto'),
+  modeHint: document.getElementById('hl-as-mode-hint'),
+  modeLabel: document.getElementById('hl-as-mode-label'),
+  manualBlock: document.getElementById('hl-as-manual-block'),
+  autoBlock: document.getElementById('hl-as-auto-block'),
+  rulesBlock: document.getElementById('hl-as-rules-block'),
 };
 
 const bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(CHANNEL) : null;
@@ -39,7 +49,8 @@ let config = loadConfig();
 let lastSceneId = config.defaultScene || 'superhero';
 let companionOnline = false;
 let pollTimer = null;
-let cycleTimer = null;
+let pictureMode = config.pictureMode || 'manual'; // 'manual' | 'autodetect'
+let skinWindow = null;
 
 function loadConfig() {
   try {
@@ -51,6 +62,7 @@ function loadConfig() {
         otherApp: parsed.otherApp || 'Cursor',
         defaultScene: parsed.defaultScene || 'superhero',
         cycleSeconds: Number(parsed.cycleSeconds) || 45,
+        pictureMode: parsed.pictureMode === 'autodetect' ? 'autodetect' : 'manual',
       };
     }
   } catch {
@@ -61,15 +73,17 @@ function loadConfig() {
     otherApp: 'Cursor',
     defaultScene: 'superhero',
     cycleSeconds: 45,
+    pictureMode: 'manual',
   };
 }
 
 function saveConfig() {
   config.otherApp = (els.otherApp?.value || 'Cursor').trim() || 'Cursor';
   config.cycleSeconds = Math.max(8, Number(els.cycleSec?.value) || 45);
+  config.pictureMode = pictureMode;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
   pushConfigToCompanion();
-  setText(els.status, 'Saved on this device' + (companionOnline ? ' and pushed to companion.' : '.'));
+  setText(els.status, 'Saved on this device' + (companionOnline ? ' and pushed to helper.' : '.'));
 }
 
 function setText(el, text) {
@@ -83,19 +97,36 @@ function sceneRecord(id) {
   return null;
 }
 
-function livingHref(sceneId) {
+function livingHref(sceneId, opts = {}) {
   const u = new URL('/product/holographic-skin-demonstration/living/', location.origin);
   u.searchParams.set('scene', sceneId || lastSceneId);
   u.searchParams.set('stage', '1');
-  u.searchParams.set('auto', '1');
-  u.searchParams.set('companion', String(companionPort));
+  if (opts.auto || pictureMode === 'autodetect') {
+    u.searchParams.set('auto', '1');
+    u.searchParams.set('companion', String(companionPort));
+  }
   return u.href;
+}
+
+function openOrFocusSkin(sceneId) {
+  const href = livingHref(sceneId, { auto: pictureMode === 'autodetect' });
+  try {
+    if (skinWindow && !skinWindow.closed) {
+      skinWindow.location.href = href;
+      skinWindow.focus();
+      return;
+    }
+  } catch {
+    /* cross-origin or closed */
+  }
+  skinWindow = window.open(href, 'hl-skin-half');
 }
 
 function broadcastScene(sceneId, meta = {}) {
   const rec = sceneRecord(sceneId);
   if (!rec) return;
   lastSceneId = sceneId;
+  config.defaultScene = sceneId;
   const payload = {
     type: 'select-scene',
     sceneId,
@@ -113,6 +144,7 @@ function broadcastScene(sceneId, meta = {}) {
   bc?.postMessage(payload);
   updatePreview(rec);
   setText(els.scene, rec.label);
+  highlightPicker(sceneId);
 }
 
 function updatePreview(rec) {
@@ -124,18 +156,102 @@ function updatePreview(rec) {
   if (els.preview) els.preview.hidden = false;
 }
 
+function setPictureMode(mode) {
+  pictureMode = mode === 'autodetect' ? 'autodetect' : 'manual';
+  config.pictureMode = pictureMode;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+  } catch {
+    /* ignore */
+  }
+
+  const isAuto = pictureMode === 'autodetect';
+  if (els.modeManual) els.modeManual.checked = !isAuto;
+  if (els.modeAuto) els.modeAuto.checked = isAuto;
+  if (els.manualBlock) els.manualBlock.hidden = isAuto;
+  if (els.autoBlock) els.autoBlock.hidden = !isAuto;
+  if (els.rulesBlock) els.rulesBlock.hidden = !isAuto;
+  setText(els.modeLabel, isAuto ? 'Autodetect' : 'Manual');
+  setText(
+    els.modeHint,
+    isAuto
+      ? 'Autodetect is on. Start the helper so pictures follow the app on your other half (any app you choose).'
+      : 'Manual is on. Tap a picture below to put it on the skin half.',
+  );
+
+  if (!isAuto) {
+    clearInterval(pollTimer);
+    pollTimer = null;
+    setText(els.source, 'Manual pick');
+    setText(els.activity, 'Not used in Manual — pick pictures yourself');
+  } else {
+    startPolling();
+  }
+}
+
+function renderPicker() {
+  if (!els.picker) return;
+  els.picker.innerHTML = '';
+  TOP_LEVEL.forEach((id) => {
+    if (id === 'sirens') {
+      SIRENS.forEach((s) => appendPick(s.id, s.label, s.image, 'Siren'));
+      return;
+    }
+    const scene = SCENES[id];
+    if (!scene) return;
+    appendPick(id, scene.label, scene.image, scene.blurb);
+  });
+  highlightPicker(lastSceneId);
+}
+
+function appendPick(id, label, image, blurb) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'hl-as__pick';
+  btn.setAttribute('role', 'listitem');
+  btn.dataset.sceneId = id;
+  btn.style.setProperty('--hl-pick', `url("${image}")`);
+  btn.innerHTML =
+    `<span class="hl-as__pick-label">${escapeHtml(label)}</span>` +
+    `<small>${escapeHtml(blurb || '')}</small>`;
+  btn.addEventListener('click', () => {
+    setPictureMode('manual');
+    broadcastScene(id, { source: 'manual' });
+    setText(els.source, 'Manual pick');
+    setText(els.status, `Showing ${label} on the skin half.`);
+    openOrFocusSkin(id);
+    if (companionOnline) {
+      fetch(`${companionBase}/menu`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sceneId: id, label }),
+      }).catch(() => {});
+    }
+  });
+  els.picker.appendChild(btn);
+}
+
+function highlightPicker(sceneId) {
+  if (!els.picker) return;
+  els.picker.querySelectorAll('.hl-as__pick').forEach((el) => {
+    el.classList.toggle('is-active', el.dataset.sceneId === sceneId);
+  });
+}
+
 async function pingCompanion() {
   try {
     const r = await fetch(`${companionBase}/health`, { cache: 'no-store' });
     if (!r.ok) throw new Error('bad');
     companionOnline = true;
-    setText(els.companion, `Companion online · port ${companionPort}`);
+    setText(els.companion, `Helper online · port ${companionPort}`);
     return true;
   } catch {
     companionOnline = false;
     setText(
       els.companion,
-      'Companion offline — run npm run skin:auto-session on this machine for full split + activity detect.',
+      pictureMode === 'autodetect'
+        ? 'Helper offline — run npm run skin:auto-session for Autodetect'
+        : 'Helper optional in Manual mode',
     );
     return false;
   }
@@ -155,6 +271,7 @@ async function pushConfigToCompanion() {
 }
 
 async function pollState() {
+  if (pictureMode !== 'autodetect') return;
   if (!(await pingCompanion())) return;
   try {
     const r = await fetch(`${companionBase}/state`, { cache: 'no-store' });
@@ -172,6 +289,7 @@ async function pollState() {
     }
     if (state.sceneId && state.sceneId !== lastSceneId) {
       broadcastScene(state.sceneId, { source: state.source || 'companion' });
+      openOrFocusSkin(state.sceneId);
     } else if (state.sceneId) {
       const rec = sceneRecord(state.sceneId);
       if (rec) updatePreview(rec);
@@ -184,9 +302,10 @@ async function pollState() {
 
 function sourceLabel(source) {
   if (source === 'menu') return 'Menu selection (pinned briefly)';
-  if (source === 'activity') return 'Workstation activity';
+  if (source === 'activity') return 'Detected activity';
+  if (source === 'manual') return 'Manual pick';
   if (source === 'ignore-skin-window') return 'Skin window (holding last work scene)';
-  if (source === 'boot') return 'Session start';
+  if (source === 'boot' || source === 'start') return 'Session start';
   return source || '—';
 }
 
@@ -243,22 +362,8 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
-function startLocalFallbackCycle() {
-  clearInterval(cycleTimer);
-  cycleTimer = setInterval(() => {
-    if (companionOnline) return;
-    // Without companion: gentle cycle through default Cursor mapping scenes.
-    const rule = config.activityMap.find((r) => r.id === 'cursor-work') || config.activityMap[0];
-    if (!rule?.scenes?.length) return;
-    const i = rule.scenes.indexOf(lastSceneId);
-    const next = rule.scenes[(i + 1) % rule.scenes.length];
-    broadcastScene(next, { source: 'local-cycle' });
-    setText(els.source, 'Local cycle (companion offline)');
-    setText(els.activity, 'Browser-only mode — start companion for real app detect');
-  }, Math.max(8, config.cycleSeconds) * 1000);
-}
-
 async function startSession() {
+  setPictureMode('autodetect');
   setText(els.status, 'Starting…');
   const online = await pingCompanion();
   if (online) {
@@ -275,13 +380,13 @@ async function startSession() {
     }
     setText(
       els.status,
-      `Session live. Skin half should open with ${config.defaultScene || 'superhero'}. Keep ${config.otherApp} on the other half.`,
+      `Autodetect live. Skin half should open. Keep any app you like on the other half (named “${config.otherApp}” for split hints).`,
     );
   } else {
-    window.open(livingHref(config.defaultScene || 'superhero'), 'hl-skin-half');
+    openOrFocusSkin(config.defaultScene || 'superhero');
     setText(
       els.status,
-      'Opened the skin half in a browser window. Drag Cursor (or your app) to one side and the skin to the other. For one-click split + activity detect, run npm run skin:auto-session in a terminal on this computer.',
+      'Opened the skin half. Snap any work app to one side and the skin to the other. For Autodetect, run npm run skin:auto-session in a terminal on this computer.',
     );
   }
   broadcastScene(config.defaultScene || 'superhero', { source: 'start' });
@@ -290,21 +395,25 @@ async function startSession() {
 
 function startPolling() {
   clearInterval(pollTimer);
+  if (pictureMode !== 'autodetect') return;
   pollTimer = setInterval(pollState, 1600);
   pollState();
-  startLocalFallbackCycle();
 }
 
 function wireUi() {
   if (els.otherApp) els.otherApp.value = config.otherApp;
   if (els.cycleSec) els.cycleSec.value = String(config.cycleSeconds);
-  els.btnStart?.addEventListener('click', startSession);
-  els.btnOpenSkin?.addEventListener('click', () => {
-    window.open(livingHref(lastSceneId), 'hl-skin-half');
+  els.modeManual?.addEventListener('change', () => {
+    if (els.modeManual.checked) setPictureMode('manual');
   });
+  els.modeAuto?.addEventListener('change', () => {
+    if (els.modeAuto.checked) setPictureMode('autodetect');
+  });
+  els.btnStart?.addEventListener('click', startSession);
+  els.btnOpenSkin?.addEventListener('click', () => openOrFocusSkin(lastSceneId));
   els.btnSplit?.addEventListener('click', async () => {
     if (!(await pingCompanion())) {
-      setText(els.split, 'Companion offline — cannot auto-tile from the browser alone.');
+      setText(els.split, 'Helper offline — snap the two windows yourself.');
       return;
     }
     try {
@@ -329,14 +438,13 @@ function wireUi() {
       }).catch(() => {});
     }
   });
+  renderPicker();
   renderMap();
   const boot = sceneRecord(config.defaultScene || 'superhero');
   if (boot) updatePreview(boot);
+  setPictureMode(params.get('mode') === 'autodetect' || params.get('started') === '1' ? 'autodetect' : config.pictureMode);
   if (params.get('started') === '1') startSession();
-  else {
-    pingCompanion();
-    startPolling();
-  }
+  else pingCompanion();
 }
 
 wireUi();
