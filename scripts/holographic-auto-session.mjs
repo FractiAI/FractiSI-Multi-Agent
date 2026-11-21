@@ -23,6 +23,7 @@ import {
   resolveContext,
   DEFAULT_MISSION_DECK,
 } from '../product/holographic-skin-demonstration/assets/holographic-context-engine.js';
+import { DEFAULT_ACTIVITY_MAP } from '../product/holographic-skin-demonstration/assets/holographic-scene-catalog.js';
 
 const execFileAsync = promisify(execFile);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -94,50 +95,7 @@ function parseArgs(argv) {
 }
 
 function defaultActivityMap() {
-  return [
-    {
-      id: 'cursor-work',
-      label: 'Cursor / code',
-      match: 'cursor|visual studio code|code -|vscode|windsurf|zed',
-      scenes: ['superhero', 'bat-cave', 'frontier-work'],
-      mode: 'pin',
-    },
-    {
-      id: 'chat',
-      label: 'Chat / Root Lab',
-      match: 'slack|discord|whatsapp|messages|telegram|signal',
-      scenes: ['whatsapp-root-lab', 'wiring-wet-lab'],
-      mode: 'cycle',
-    },
-    {
-      id: 'terminal',
-      label: 'Terminal',
-      match: 'terminal|kitty|alacritty|iterm|powershell|warp|gnome-terminal|konsole',
-      scenes: ['frontier-work', 'el-cortez-lab'],
-      mode: 'cycle',
-    },
-    {
-      id: 'mail',
-      label: 'Mail / errands',
-      match: 'mail|outlook|thunderbird|gmail',
-      scenes: ['errands'],
-      mode: 'pin',
-    },
-    {
-      id: 'browser-other',
-      label: 'Other browser tabs',
-      match: 'chrome|firefox|safari|edge|brave|chromium',
-      scenes: ['clark-kent'],
-      mode: 'pin',
-    },
-    {
-      id: 'default',
-      label: 'Default / idle',
-      match: '.*',
-      scenes: [SCENE],
-      mode: 'pin',
-    },
-  ];
+  return DEFAULT_ACTIVITY_MAP.map((rule) => ({ ...rule, scenes: [...(rule.scenes || [])] }));
 }
 
 function hasBin(bin) {

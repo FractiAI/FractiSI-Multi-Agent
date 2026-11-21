@@ -240,7 +240,7 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
   if (els.modeAuto) els.modeAuto.checked = isAuto;
   if (els.manualBlock) els.manualBlock.hidden = isAuto;
   if (els.autoBlock) els.autoBlock.hidden = !isAuto;
-  if (els.rulesBlock) els.rulesBlock.hidden = !isAuto;
+  // Soft Story app theaters stay visible in both modes so the map is always editable.
   setText(els.modeLabel, isAuto ? 'Autodetect' : 'Manual');
   setText(
     els.modeHint,
@@ -514,6 +514,7 @@ async function pushConfigToCompanion() {
 
 function sourceLabel(source) {
   if (source === 'person') return 'Person skin match';
+  if (source === 'app-theater') return 'Soft Story app theater';
   if (source === 'mission-deck') return 'Soft Story mission deck';
   if (source === 'menu') return 'Menu selection (pinned briefly)';
   if (source === 'activity') return 'App activity rule';
@@ -583,8 +584,9 @@ function renderMap() {
     const scenes = (rule.scenes || []).join(', ');
     li.innerHTML =
       `<strong>${escapeHtml(rule.label || rule.id)}</strong>` +
-      `<span class="hl-as__meta">match: <code>${escapeHtml(rule.match)}</code></span>` +
-      `<span class="hl-as__meta">scenes: ${escapeHtml(scenes)} · ${escapeHtml(rule.mode || 'pin')}</span>`;
+      (rule.story ? `<span class="hl-as__meta">${escapeHtml(rule.story)}</span>` : '') +
+      `<span class="hl-as__meta">window match: <code>${escapeHtml(rule.match)}</code></span>` +
+      `<span class="hl-as__meta">skin: ${escapeHtml(scenes)} · ${escapeHtml(rule.mode || 'pin')}</span>`;
     const row = document.createElement('div');
     row.className = 'hl-as__rule-actions';
     const up = document.createElement('button');

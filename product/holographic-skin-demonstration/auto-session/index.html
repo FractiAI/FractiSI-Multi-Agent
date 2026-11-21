@@ -42,7 +42,13 @@
           <li><strong>Split your screen.</strong> Work on one half. Skin (browser) on the other.</li>
           <li><strong>Other half = any app you choose</strong> — not only an IDE. Cursor, Slack, Mail, Chrome, a spreadsheet…</li>
           <li><strong>Manual</strong> — tap a picture below; it stays until you pick another.</li>
-          <li><strong>Autodetect</strong> — the helper answers <em>what am I doing now?</em> and maps that to your Soft Story skins. Emailing Daniel → Daniel’s image. Otherwise it cycles your mission deck.</li>
+          <li><strong>Autodetect</strong> — the helper answers <em>what am I doing now?</em> and maps it through your Soft Story:
+            <ul>
+              <li>Person in the window (emailing Daniel) → that person’s skin</li>
+              <li>WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Workstation → Bat cave</li>
+              <li>Nothing matched → Soft Story mission cycling deck</li>
+            </ul>
+          </li>
         </ol>
         <p class="hl-as__hint">First time on a computer: run <code>npm run skin:auto-session:install</code> once so Autodetect can auto-launch the helper.</p>
       </section>
@@ -149,9 +155,9 @@
         <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-deck-save">Save mission deck</button>
       </section>
 
-      <section class="hl-as__panel" aria-labelledby="hl-config-title" id="hl-as-rules-block" hidden>
-        <h2 id="hl-config-title">App activity rules</h2>
-        <p class="hl-as__lead">Fallback when no person name is in the window. Other half may be any app.</p>
+      <section class="hl-as__panel" aria-labelledby="hl-config-title" id="hl-as-rules-block">
+        <h2 id="hl-config-title">Soft Story app theaters</h2>
+        <p class="hl-as__lead">Real apps map to Enrichment scenes — WhatsApp is the Root behavior lab, Uber Eats is duck hunting, Suno / cigar lounge playlists are the restroom behavioral lab, your workstation is the Bat cave. Reorder or flip pin/cycle. Person skins still win when a name is in the window.</p>
         <label class="hl-as__field">
           <span>Other half app name (for window split hints)</span>
           <input id="hl-as-other" type="text" maxlength="80" value="Cursor" autocomplete="off" placeholder="Cursor, Slack, Mail, Chrome…" />

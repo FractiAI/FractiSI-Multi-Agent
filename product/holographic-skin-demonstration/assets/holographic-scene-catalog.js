@@ -66,53 +66,103 @@ export const TOP_LEVEL = [
   'errands',
 ];
 
-/** Default activity → scene rules for Auto Session. */
+/**
+ * Soft Story app theaters — real apps map to Enrichment scenes.
+ * Order matters (first match wins after people skins).
+ * Edit on Auto Session; these are the seeded Soft Story defaults.
+ */
 export const DEFAULT_ACTIVITY_MAP = [
   {
-    id: 'cursor-work',
-    label: 'Cursor / code',
-    match: 'cursor|visual studio code|code -|vscode|windsurf|zed',
-    scenes: ['superhero', 'bat-cave', 'frontier-work'],
+    id: 'whatsapp-root-lab',
+    label: 'WhatsApp → Root behavior lab',
+    match: 'whatsapp',
+    scenes: ['whatsapp-root-lab'],
     mode: 'pin',
+    story: 'Root Lab — root talk / root behavior on the channel',
   },
   {
-    id: 'chat',
-    label: 'Chat / Root Lab',
-    match: 'slack|discord|whatsapp|messages|telegram|signal',
-    scenes: ['whatsapp-root-lab', 'wiring-wet-lab'],
-    mode: 'cycle',
+    id: 'uber-eats-duck-hunt',
+    label: 'Uber Eats → Duck hunting',
+    match: 'uber eats|ubereats|uber\\s*eats|uber -|door.?dash|grubhub|postmates',
+    scenes: ['duck-hunting'],
+    mode: 'pin',
+    story: 'Duck hunting — hunt for deliveries',
   },
   {
-    id: 'terminal',
-    label: 'Terminal',
-    match: 'terminal|kitty|alacritty|iterm|powershell|warp|gnome-terminal|konsole',
-    scenes: ['frontier-work', 'el-cortez-lab'],
+    id: 'suno-restroom-theater',
+    label: 'Suno / cigar lounge → Restroom behavioral lab',
+    match: 'suno|cigar lounge|restroom theater',
+    scenes: ['mens-restroom-theater'],
+    mode: 'pin',
+    story: 'Restroom behavioral lab — Soft Story behavior theater',
+  },
+  {
+    id: 'bat-cave-workstation',
+    label: 'Workstation → Bat cave',
+    match: 'cursor|visual studio code|code -|vscode|windsurf|zed|jetbrains|sublime|workstation|bat.?cave',
+    scenes: ['bat-cave'],
+    mode: 'pin',
+    story: 'Bat cave — the work-cave at the desk',
+  },
+  {
+    id: 'sponsor-hunt',
+    label: 'Sponsor hunt apps → Big game fishing',
+    match: 'linkedin|crunchbase|pitch|investor|sponsor',
+    scenes: ['big-game-fishing'],
+    mode: 'pin',
+    story: 'Big game fishing — hunt for a sponsor',
+  },
+  {
+    id: 'wiring-chat',
+    label: 'Other chat → Wiring lab',
+    match: 'slack|discord|telegram|signal|messages|imessage',
+    scenes: ['wiring-wet-lab'],
+    mode: 'pin',
+    story: 'Wiring lab — wires between people',
+  },
+  {
+    id: 'compute-lab',
+    label: 'Terminal / compute → El Cortez Lab',
+    match: 'terminal|kitty|alacritty|iterm|powershell|warp|gnome-terminal|konsole|docker',
+    scenes: ['el-cortez-lab', 'frontier-work'],
     mode: 'cycle',
+    story: 'El Cortez Lab — compute in town',
   },
   {
     id: 'mail',
-    label: 'Mail / errands',
-    match: 'mail|outlook|thunderbird|gmail',
+    label: 'Mail → Errands (or person skin if named)',
+    match: 'mail|outlook|thunderbird|gmail|inbox',
     scenes: ['errands'],
     mode: 'pin',
+    story: 'Errands / mail — person skins still win if a name is in the title',
+  },
+  {
+    id: 'table',
+    label: 'Food / drink apps → Table',
+    match: 'opentable|resy|yelp|recipe|cookbook',
+    scenes: ['eating-drinking'],
+    mode: 'pin',
+    story: 'Table — food and drink',
   },
   {
     id: 'browser-other',
-    label: 'Other browser tabs',
+    label: 'Other browser → Clark Kent',
     match: 'chrome|firefox|safari|edge|brave|chromium',
     scenes: ['clark-kent'],
     mode: 'pin',
-    ignoreIfUrlIncludes: ['holographic-skin'],
+    story: 'Clark Kent — ordinary day face in the browser',
   },
   {
     id: 'default',
-    label: 'Default / idle',
+    label: 'Default → Soft Story mission deck',
     match: '.*',
     scenes: ['superhero'],
     mode: 'pin',
+    story: 'Falls through to the mission cycling deck',
   },
 ];
 
 export const CHANNEL = 'hl-auto-session';
-export const STORAGE_KEY = 'hl-auto-session-config-v1';
+/** v2 — Soft Story app theaters (WhatsApp Root Lab, Uber Eats duck hunt, …). */
+export const STORAGE_KEY = 'hl-auto-session-config-v2';
 export const DEFAULT_COMPANION_PORT = 18765;

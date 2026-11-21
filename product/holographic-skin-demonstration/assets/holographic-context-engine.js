@@ -36,10 +36,16 @@ export function haystack(win) {
 }
 
 /**
- * True if this looks like the holographic skin browser itself.
+ * True if this looks like the holographic skin browser itself
+ * (not Cursor/VS Code editing those filenames).
  */
 export function isSkinSelfWindow(hay) {
-  return /holographic.?skin|enrichment menu|fractisi|auto.session/i.test(hay);
+  if (/cursor|visual studio code|vscode|windsurf|zed|code -/i.test(hay)) return false;
+  return (
+    /enrichment menu|holographic skin ·|auto session ·/i.test(hay) ||
+    (/holographic.?skin|auto.?session/i.test(hay) &&
+      /chrome|firefox|safari|edge|brave|chromium|browser/i.test(hay))
+  );
 }
 
 /**
@@ -160,8 +166,9 @@ export function resolveContext({
     if (!re.test(hay)) continue;
 
     const scenes = Array.isArray(rule.scenes) && rule.scenes.length ? rule.scenes : null;
-    // Mail / generic without a person → lean on mission deck for Soft Story support
-    if (rule.id === 'mail' || rule.id === 'default' || rule.id === 'browser-other') {
+
+    // Catch-all default → Soft Story mission cycling deck
+    if (rule.id === 'default') {
       const deck = missionDeck.length ? missionDeck : scenes || [fallbackScene];
       const get =
         cycleBuckets instanceof Map
@@ -171,10 +178,7 @@ export function resolveContext({
       return {
         sceneId: deck[idx],
         source: 'mission-deck',
-        doing:
-          rule.id === 'mail'
-            ? 'In mail — Soft Story mission deck (add a person skin to pin someone)'
-            : `Activity “${rule.label}” — Soft Story mission deck`,
+        doing: 'Soft Story mission deck (no app theater / person match)',
         kind,
         personId: null,
         matchedRule: rule.id,
@@ -190,10 +194,11 @@ export function resolveContext({
         scenes.length;
     }
     const sceneId = scenes ? scenes[cycleIndex] || scenes[0] : fallbackScene;
+    const story = rule.story || rule.label;
     return {
       sceneId,
-      source: 'activity',
-      doing: `In ${rule.label}`,
+      source: 'app-theater',
+      doing: story,
       kind,
       personId: null,
       matchedRule: rule.id,
