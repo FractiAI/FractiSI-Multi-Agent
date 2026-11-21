@@ -1,99 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" class="vbi18n-ready">
+<html lang="en">
 <head>
-  <script>(function(){var h=document.documentElement;if(!h)return;h.classList.remove("vbi18n-pending");h.classList.add("vbi18n-ready");})();</script>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Create a Holographic Skin · FractiSI</title>
-  <meta name="description" content="FractiSI Create Page — compose styles, vibes, and elements into a Soft Story holographic skin demonstration. Frontier-tale aesthetic." />
+  <title>Create · Holographic Skin · FractiSI</title>
+  <meta name="description" content="Create your Enrichment Menu — name the skin, list the scenes, play." />
   <link rel="canonical" href="https://fractisi.vercel.app/product/holographic-skin-demonstration/create/" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/brand-gold-surfaces.css" />
-  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/tiny-footprint-product.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-living.css" />
   <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-skin-create.css" />
 </head>
-<body class="tf-product hl-page">
-  <nav class="tf-nav" aria-label="FractiSI">
-    <a href="/">FractiSI</a>
-    <a href="/product/holographic-skin-demonstration/">Holographic Skin Demo</a>
-    <a href="/product/holographic-skin-demonstration/create/" aria-current="page">Create</a>
-    <a href="/product/holographic-skin-demonstration/living/">Holographic Living</a>
+<body class="hl-page hl-game hl-cabin">
+  <div class="hl-game__bg" aria-hidden="true" style="background-image:url('/product/holographic-skin-demonstration/media/hl-frontier-work.jpg')"></div>
+  <div class="hl-game__veil" aria-hidden="true"></div>
+
+  <nav class="hl-game__nav" aria-label="FractiSI">
+    <a class="hl-game__mark" href="/">FractiSI</a>
+    <a href="/product/holographic-skin-demonstration/">Title</a>
+    <a href="/product/holographic-skin-demonstration/living/">Play</a>
   </nav>
 
-  <header class="tf-hero hl-create-hero" aria-label="Create a Holographic Skin">
-    <div class="tf-hero__bg" style="background-image:url('/product/holographic-skin-demonstration/media/hl-frontier-work.jpg')"></div>
-    <div class="tf-hero__veil"></div>
-    <div class="tf-hero__content">
-      <p class="tf-kicker">FractiSI · Holographic Skin · Create</p>
-      <h1 class="tf-brand">Create Page</h1>
-      <p class="tf-tagline">Compose styles, vibes, and elements into a Soft Story holographic skin — the same frontier-tale theater as the demonstration.</p>
-      <p class="tf-sub">Name the skin. Choose a style register. Write the vibe. List the elements that should appear as menu buttons. Generate opens a living Soft Story board with fullscreen holographic panels for each element.</p>
-    </div>
-  </header>
+  <main class="hl-game__shell hl-create-shell">
+    <header class="hl-game__title">
+      <p class="hl-game__kicker">Holographic Skin</p>
+      <h1>Create</h1>
+      <p class="hl-game__tag">Build your own Enrichment Menu. Name it. List the scenes. Play.</p>
+    </header>
 
-  <main class="tf-wrap hl-create">
-    <form id="hl-create-form" class="hl-create-form" aria-label="Holographic skin create form">
-      <fieldset>
-        <legend>Skin title</legend>
-        <input id="skin-title" name="title" type="text" maxlength="80" required placeholder="e.g. Desert Goldilocks Soft Story" autocomplete="off" />
-      </fieldset>
-
-      <fieldset>
-        <legend>Styles</legend>
-        <p class="hl-hint">Pick one or more registers. They tint the Soft Story panels.</p>
-        <div class="hl-chips" role="group" aria-label="Style registers">
-          <label><input type="checkbox" name="styles" value="navy-gold" checked /> Navy &amp; gold (FractiSI default)</label>
-          <label><input type="checkbox" name="styles" value="frontier-dusk" /> Frontier dusk</label>
-          <label><input type="checkbox" name="styles" value="desert-neon" /> Desert neon</label>
-          <label><input type="checkbox" name="styles" value="cave-schematic" /> Cave schematic</label>
-          <label><input type="checkbox" name="styles" value="ocean-sponsor" /> Ocean sponsor</label>
-          <label><input type="checkbox" name="styles" value="lab-wire" /> Lab wire</label>
-        </div>
-        <label class="hl-extra">Custom style notes
-          <textarea id="style-notes" name="styleNotes" rows="2" maxlength="400" placeholder="Optional: materials, lighting, era, density…"></textarea>
-        </label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Vibes</legend>
-        <textarea id="vibes" name="vibes" rows="3" maxlength="600" required placeholder="e.g. Quiet expeditionary wonder · gold filaments over navy night · Soft Story restraint, not carnival"></textarea>
-      </fieldset>
-
-      <fieldset>
-        <legend>Elements</legend>
-        <p class="hl-hint">Comma-separated Soft Story aspects that become menu buttons (Enrichment can nest them).</p>
-        <textarea id="elements" name="elements" rows="4" maxlength="800" required placeholder="e.g. Enrichment, Route lab, Wiring wet lab, Resting, Errands, Frontier work"></textarea>
-      </fieldset>
-
-      <div class="tf-cta">
-        <button type="submit" class="tf-cta__gold" id="hl-generate">Generate holographic skin</button>
-        <a class="tf-cta__ghost" href="/product/holographic-skin-demonstration/">Back to demonstration</a>
+    <form id="hl-create-form" class="hl-create-form hl-create-form--cabin" aria-label="Create Enrichment Menu">
+      <label>
+        Skin title
+        <input id="skin-title" name="title" type="text" maxlength="80" required placeholder="My Enrichment" autocomplete="off" />
+      </label>
+      <label>
+        Vibe
+        <textarea id="vibes" name="vibes" rows="2" maxlength="400" required placeholder="Quiet frontier · brass lantern · daily life inside the story"></textarea>
+      </label>
+      <label>
+        Menu scenes <span class="hl-hint-inline">(comma-separated)</span>
+        <textarea id="elements" name="elements" rows="3" maxlength="800" required placeholder="Clark Kent, Superhero, Bat cave, Route lab, Table, Resting"></textarea>
+      </label>
+      <input type="hidden" name="styles" value="frontier-dusk" />
+      <div class="hl-title__actions">
+        <button type="submit" class="hl-game__cta" id="hl-generate">Generate menu</button>
+        <a class="hl-game__cta hl-game__cta--ghost" href="/product/holographic-skin-demonstration/living/">His menu</a>
       </div>
     </form>
 
-    <section id="hl-skin-result" class="hl-skin-result" hidden aria-live="polite">
-      <div id="hl-skin-status-mount" data-hl-skin-status></div>
-      <header class="hl-skin-result__head">
-        <p class="tf-kicker">Generated Soft Story skin</p>
+    <section id="hl-skin-result" class="hl-skin-result hl-skin-result--cabin" hidden aria-live="polite">
+      <header class="hl-game__title">
+        <p class="hl-game__kicker">Your Enrichment Menu</p>
         <h2 id="result-title"></h2>
-        <p id="result-vibe" class="hl-skin-result__vibe"></p>
-        <p id="result-styles" class="hl-skin-result__styles"></p>
+        <p id="result-vibe" class="hl-game__tag"></p>
       </header>
-      <p class="hl-hint">Press an element for its fullscreen holographic panel. Enrichment nests the full set.</p>
-      <div class="hl-menu" id="result-menu" role="list"></div>
-      <div class="tf-cta">
-        <button type="button" class="tf-cta__ghost" id="hl-download-json">Download skin JSON</button>
-        <button type="button" class="tf-cta__ghost" id="hl-reset">Compose another</button>
+      <nav class="hl-menu" id="result-menu" role="list"></nav>
+      <div class="hl-title__actions">
+        <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-download-json">Download JSON</button>
+        <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-reset">Compose another</button>
       </div>
     </section>
 
-    <p class="honesty"><strong>Honesty:</strong> Client-side Soft Story generator — styles, vibes, and elements assemble a FractiSI navy/gold holographic skin board with procedural panels. Not a hosted model bake-off, not CapEx proof, not consciousness. Spelling lock: <strong>FractiSI</strong>.</p>
+    <p class="honesty">Client Soft Story generator · procedural panels · not a hosted image bake-off.</p>
   </main>
 
   <div class="hl-stage" id="hl-stage" hidden>
-    <canvas class="hl-stage__canvas" id="hl-stage-canvas" width="1600" height="900" aria-hidden="true"></canvas>
+    <canvas class="hl-stage__canvas" id="hl-stage-canvas" width="1280" height="720" aria-hidden="true"></canvas>
     <div class="hl-stage__veil" aria-hidden="true"></div>
     <button type="button" class="hl-stage__close" id="hl-stage-close">← Menu</button>
     <div class="hl-stage__caption">
@@ -103,9 +74,6 @@
     <button type="button" class="hl-stage__return" id="hl-stage-return">Return to menu</button>
   </div>
 
-  <script src="/product/holographic-skin-demonstration/assets/holographic-initiation.js" data-current="create" data-base="fractisi"></script>
   <script src="/product/holographic-skin-demonstration/assets/holographic-skin-create.js"></script>
-  
-  
 </body>
 </html>

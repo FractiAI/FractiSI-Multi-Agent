@@ -47,7 +47,10 @@
   }
 
   function selectedStyles(formEl) {
-    return [...formEl.querySelectorAll('input[name="styles"]:checked')].map((el) => el.value);
+    const checked = [...formEl.querySelectorAll('input[name="styles"]:checked')].map((el) => el.value);
+    if (checked.length) return checked;
+    const hidden = formEl.querySelector('input[name="styles"][type="hidden"]');
+    return hidden && hidden.value ? [hidden.value] : [];
   }
 
   function paintPanel(ctx, w, h, { title, vibe, styles, seedKey }) {
@@ -154,30 +157,28 @@
   function renderSkin(skin) {
     lastSkin = skin;
     result.hidden = false;
-    mountSkinStatusChrome();
     resultTitle.textContent = skin.title;
     resultVibe.textContent = skin.vibes;
-    resultStyles.textContent =
-      'Styles: ' +
-      skin.stylesLabels.join(' · ') +
-      (skin.styleNotes ? ' — ' + skin.styleNotes : '');
+    if (resultStyles) {
+      resultStyles.textContent =
+        'Styles: ' +
+        skin.stylesLabels.join(' · ') +
+        (skin.styleNotes ? ' — ' + skin.styleNotes : '');
+    }
     resultMenu.innerHTML = '';
 
-    const enrichmentBtn = document.createElement('button');
-    enrichmentBtn.type = 'button';
-    enrichmentBtn.className = 'hl-menu__btn';
-    enrichmentBtn.dataset.kind = 'enrichment';
-    enrichmentBtn.innerHTML =
-      'Enrichment<small>Recursive nest of this skin’s elements</small>';
-    enrichmentBtn.addEventListener('click', () => openStage('Enrichment', skin));
-    resultMenu.appendChild(enrichmentBtn);
-
-    skin.elements.forEach((el) => {
+    /* Whole board = Enrichment Menu — no separate Enrichment button */
+    skin.elements.forEach((el, index) => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'hl-menu__btn';
       b.setAttribute('role', 'listitem');
-      b.textContent = el;
+      b.innerHTML =
+        '<span class="hl-menu__idx">' +
+        String(index + 1).padStart(2, '0') +
+        '</span><span class="hl-menu__copy"><span class="hl-menu__label">' +
+        el +
+        '</span><small>Enrichment scene</small></span><span class="hl-menu__go" aria-hidden="true">›</span>';
       b.addEventListener('click', () => openStage(el, skin));
       resultMenu.appendChild(b);
     });
@@ -189,11 +190,12 @@
     e.preventDefault();
     const title = document.getElementById('skin-title').value.trim();
     const vibes = document.getElementById('vibes').value.trim();
-    const styleNotes = document.getElementById('style-notes').value.trim();
+    const styleNotesEl = document.getElementById('style-notes');
+    const styleNotes = styleNotesEl ? styleNotesEl.value.trim() : '';
     const styles = selectedStyles(form);
     const elements = parseElements(document.getElementById('elements').value);
     if (!title || !vibes || !elements.length) return;
-    if (!styles.length) styles.push('navy-gold');
+    if (!styles.length) styles.push('frontier-dusk');
 
     const skin = {
       product: 'FractiSI Holographic Skin',
@@ -226,8 +228,8 @@
     resultMenu.innerHTML = '';
     lastSkin = null;
     form.reset();
-    const navy = form.querySelector('input[value="navy-gold"]');
-    if (navy) navy.checked = true;
+    const styleInput = form.querySelector('input[name="styles"]');
+    if (styleInput && styleInput.type === 'hidden') styleInput.value = 'frontier-dusk';
     document.getElementById('skin-title').focus();
   });
 

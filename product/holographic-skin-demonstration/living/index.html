@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="vbi18n-ready">
+<html lang="en">
 <head>
-  <script>(function(){var h=document.documentElement;if(!h)return;h.classList.remove("vbi18n-pending");h.classList.add("vbi18n-ready");})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Holographic Living · FractiSI</title>
-  <meta name="description" content="Holographic Living — frontiersman Soft Story menu. Enrichment nests the rest of life. SS Vibelandia is the Holographic Goldilocks Cruiseship." />
+  <title>Enrichment Menu · Holographic Skin · FractiSI</title>
+  <meta name="description" content="Enrichment Menu — top Soft Story game menu. Every daily aspect stays inside the holographic skin you chose." />
   <link rel="canonical" href="https://fractisi.vercel.app/product/holographic-skin-demonstration/living/" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-living.css" />
@@ -16,32 +15,31 @@
 
   <nav class="hl-game__nav" aria-label="FractiSI">
     <a class="hl-game__mark" href="/">FractiSI</a>
-    <a href="/product/holographic-skin-demonstration/">Skin</a>
-    <a href="/product/holographic-skin-demonstration/create/">Create yours</a>
+    <a href="/product/holographic-skin-demonstration/">Title</a>
+    <a href="/product/holographic-skin-demonstration/create/">Create</a>
   </nav>
 
   <main class="hl-game__shell">
     <header class="hl-game__title">
-      <p class="hl-game__kicker">Frontiersman Soft Story · Demonstration</p>
-      <h1>Holographic Living</h1>
-      <p class="hl-game__tag">Inside the cabin. Enrichment holds the nest. SS Vibelandia waits offshore.</p>
+      <p class="hl-game__kicker">Holographic Skin</p>
+      <h1>Enrichment</h1>
+      <p class="hl-game__tag">The whole menu is Enrichment. Pick a scene. Stay in the game.</p>
     </header>
 
-    <nav class="hl-menu" id="hl-menu" role="list" aria-label="Soft Story menu"></nav>
+    <nav class="hl-menu" id="hl-menu" role="list" aria-label="Enrichment Menu"></nav>
 
     <footer class="hl-game__foot">
-      <a class="hl-game__cta" href="/product/holographic-skin-demonstration/create/">Create your own skin</a>
-      <p class="honesty">Demo of his Soft Story. Clark Kent = real host photo. Superhero = captain of SS Vibelandia (capitan welcome likeness, no hat). SS Vibelandia = Holographic Goldilocks Cruiseship.</p>
+      <a class="hl-game__cta hl-game__cta--ghost" href="/product/holographic-skin-demonstration/create/">Create yours</a>
+      <p class="honesty">1800s frontier watercolor Soft Story · likeness art, not raw photos · demo only.</p>
     </footer>
   </main>
 
   <div class="hl-panel" id="hl-panel" role="dialog" aria-modal="true" aria-labelledby="hl-panel-title" hidden>
     <div class="hl-panel__sheet">
       <div class="hl-panel__head">
-        <h2 id="hl-panel-title">Panel</h2>
+        <h2 id="hl-panel-title">Sirens</h2>
         <button type="button" class="hl-panel__close" id="hl-panel-close">← Menu</button>
       </div>
-      <p class="hl-panel__note" id="hl-panel-note"></p>
       <div id="hl-panel-body"></div>
     </div>
   </div>
@@ -62,99 +60,23 @@
   const MEDIA = '/product/holographic-skin-demonstration/media/';
 
   const scenes = {
-    'clark-kent': {
-      label: 'Clark Kent',
-      blurb: 'Himself as Clark Kent — real host photo (guayabera · Panama · Reno), the daytime face of the theater.',
-      image: MEDIA + 'hl-clark-kent.jpg',
-      realPhoto: true,
-    },
-    superhero: {
-      label: 'Superhero',
-      blurb: 'Himself as captain of SS Vibelandia — Holographic Goldilocks Cruiseship. No hat. Night signature.',
-      image: MEDIA + 'hl-superhero.jpg',
-      realPhoto: true,
-      source: 'questfest-2026-capitan-welcome.png',
-    },
-    vibelandia: {
-      label: 'SS Vibelandia',
-      blurb: 'SS Vibelandia — Holographic Goldilocks Cruiseship.',
-      image: MEDIA + 'hl-vibelandia.jpg',
-    },
-    'bat-cave': {
-      label: 'Bat cave',
-      blurb: 'His frontiersman work-cave — trapper timber and Batcave tech, schematics on the rock wall.',
-      image: MEDIA + 'hl-bat-cave.jpg',
-    },
-    'duck-hunting': {
-      label: 'Duck hunting',
-      blurb: 'Delivery opportunities theater — Uber Eats–class routes as hunt paths.',
-      image: MEDIA + 'hl-duck-hunting.jpg',
-    },
-    'big-game-fishing': {
-      label: 'Big game fishing',
-      blurb: 'TrackDSI shopping / fishing for a big sponsor.',
-      image: MEDIA + 'hl-big-game-fishing.jpg',
-    },
-    'bottom-fishing': {
-      label: 'Bottom fishing',
-      blurb: 'From the boat — lines down deep. Some tips hit big, some small, some pass by.',
-      image: MEDIA + 'hl-bottom-fishing.jpg',
-    },
-    'whatsapp-route-lab': {
-      label: 'The route / WhatsApp route behavioral lab',
-      blurb: 'Online route behavioral lab — chats and arcs as Soft Story instrumentation.',
-      image: MEDIA + 'hl-whatsapp-route-lab.jpg',
-    },
-    'wiring-wet-lab': {
-      label: 'The wiring wet lab',
-      blurb: 'Online wiring wet lab — relationship edges as holographic wire.',
-      image: MEDIA + 'hl-wiring-wet-lab.jpg',
-    },
-    'el-cortez-lab': {
-      label: 'The computational lab — the El Cortez',
-      blurb: 'Computational lab nested in El Cortez theater.',
-      image: MEDIA + 'hl-el-cortez-lab.jpg',
-    },
-    'mens-restroom-theater': {
-      label: 'Men’s restroom holographic theater',
-      blurb: 'Holographic theater and behavioral lab — architectural Soft Story only.',
-      image: MEDIA + 'hl-mens-restroom-theater.jpg',
-    },
-    resting: {
-      label: 'Resting',
-      blurb: 'Rest as recovery theater — calm between hunts.',
-      image: MEDIA + 'hl-resting.jpg',
-    },
-    sleeping: {
-      label: 'Sleeping',
-      blurb: 'Sleep as deep Soft Story reset.',
-      image: MEDIA + 'hl-sleeping.jpg',
-    },
-    bathroom: {
-      label: 'Bathroom',
-      blurb: 'Private bathroom — daily hygiene Soft Story.',
-      image: MEDIA + 'hl-bathroom.jpg',
-    },
-    errands: {
-      label: 'Errands',
-      blurb: 'Errands as route-shaped enrichment.',
-      image: MEDIA + 'hl-errands.jpg',
-    },
-    enrichment: {
-      label: 'Enrichment',
-      blurb: 'Recursive entry — everything nests here.',
-      image: MEDIA + 'hl-enrichment.jpg',
-    },
-    'frontier-work': {
-      label: 'Frontier work',
-      blurb: 'Frontier research Soft Story — discovery at the edge.',
-      image: MEDIA + 'hl-frontier-work.jpg',
-    },
-    'eating-drinking': {
-      label: 'Eating and Drinking',
-      blurb: 'Table theater — items list filled later.',
-      image: MEDIA + 'hl-eating-drinking.jpg',
-    },
+    'clark-kent': { label: 'Clark Kent', blurb: 'Day face', image: MEDIA + 'hl-clark-kent.jpg' },
+    superhero: { label: 'Superhero', blurb: 'Captain · SS Vibelandia', image: MEDIA + 'hl-superhero.jpg' },
+    vibelandia: { label: 'SS Vibelandia', blurb: 'Goldilocks cruiseship', image: MEDIA + 'hl-vibelandia.jpg' },
+    'bat-cave': { label: 'Bat cave', blurb: 'Work-cave', image: MEDIA + 'hl-bat-cave.jpg' },
+    'frontier-work': { label: 'Frontier work', blurb: 'Edge research', image: MEDIA + 'hl-frontier-work.jpg' },
+    'duck-hunting': { label: 'Duck hunting', blurb: 'Delivery routes', image: MEDIA + 'hl-duck-hunting.jpg' },
+    'big-game-fishing': { label: 'Big game fishing', blurb: 'Sponsor hunt', image: MEDIA + 'hl-big-game-fishing.jpg' },
+    'bottom-fishing': { label: 'Bottom fishing', blurb: 'Lines down', image: MEDIA + 'hl-bottom-fishing.jpg' },
+    'whatsapp-route-lab': { label: 'Route lab', blurb: 'Chats & arcs', image: MEDIA + 'hl-whatsapp-route-lab.jpg' },
+    'wiring-wet-lab': { label: 'Wiring lab', blurb: 'Relationship edges', image: MEDIA + 'hl-wiring-wet-lab.jpg' },
+    'el-cortez-lab': { label: 'El Cortez', blurb: 'Compute lab', image: MEDIA + 'hl-el-cortez-lab.jpg' },
+    'mens-restroom-theater': { label: 'Restroom theater', blurb: 'Backstage', image: MEDIA + 'hl-mens-restroom-theater.jpg' },
+    'eating-drinking': { label: 'Table', blurb: 'Eating & drinking', image: MEDIA + 'hl-eating-drinking.jpg' },
+    resting: { label: 'Resting', blurb: 'Recovery', image: MEDIA + 'hl-resting.jpg' },
+    sleeping: { label: 'Sleeping', blurb: 'Reset', image: MEDIA + 'hl-sleeping.jpg' },
+    bathroom: { label: 'Bathroom', blurb: 'Daily care', image: MEDIA + 'hl-bathroom.jpg' },
+    errands: { label: 'Errands', blurb: 'Town runs', image: MEDIA + 'hl-errands.jpg' },
   };
 
   const sirens = [
@@ -169,32 +91,30 @@
     { id: 'sarah', label: 'Sarah', image: MEDIA + 'hl-siren-sarah.jpg' },
   ];
 
-  /** Top-level menu order */
   const topLevel = [
-    { id: 'enrichment', kind: 'enrichment' },
-    { id: 'clark-kent', kind: 'fullscreen' },
-    { id: 'superhero', kind: 'fullscreen' },
-    { id: 'vibelandia', kind: 'fullscreen' },
-    { id: 'bat-cave', kind: 'fullscreen' },
-    { id: 'duck-hunting', kind: 'fullscreen' },
-    { id: 'big-game-fishing', kind: 'fullscreen' },
-    { id: 'bottom-fishing', kind: 'fullscreen' },
-    { id: 'whatsapp-route-lab', kind: 'fullscreen' },
-    { id: 'wiring-wet-lab', kind: 'fullscreen' },
-    { id: 'el-cortez-lab', kind: 'fullscreen' },
-    { id: 'mens-restroom-theater', kind: 'fullscreen' },
-    { id: 'sirens', kind: 'sirens' },
-    { id: 'eating-drinking', kind: 'eating' },
-    { id: 'resting', kind: 'fullscreen' },
-    { id: 'sleeping', kind: 'fullscreen' },
-    { id: 'bathroom', kind: 'fullscreen' },
-    { id: 'errands', kind: 'fullscreen' },
+    'clark-kent',
+    'superhero',
+    'vibelandia',
+    'bat-cave',
+    'frontier-work',
+    'duck-hunting',
+    'big-game-fishing',
+    'bottom-fishing',
+    'whatsapp-route-lab',
+    'wiring-wet-lab',
+    'el-cortez-lab',
+    'mens-restroom-theater',
+    'sirens',
+    'eating-drinking',
+    'resting',
+    'sleeping',
+    'bathroom',
+    'errands',
   ];
 
   const menuEl = document.getElementById('hl-menu');
   const panel = document.getElementById('hl-panel');
   const panelTitle = document.getElementById('hl-panel-title');
-  const panelNote = document.getElementById('hl-panel-note');
   const panelBody = document.getElementById('hl-panel-body');
   const panelClose = document.getElementById('hl-panel-close');
   const stage = document.getElementById('hl-stage');
@@ -203,6 +123,12 @@
   const stageBlurb = document.getElementById('hl-stage-blurb');
   const stageClose = document.getElementById('hl-stage-close');
   const stageReturn = document.getElementById('hl-stage-return');
+  const gameBg = document.getElementById('hl-game-bg');
+  const defaultBg = MEDIA + 'hl-cabin-interior.jpg';
+
+  function setGameBg(url) {
+    if (gameBg && url) gameBg.style.backgroundImage = 'url("' + url + '")';
+  }
 
   function openStage(scene) {
     if (!scene || !scene.image) return;
@@ -223,11 +149,21 @@
     if (!panel.classList.contains('is-open')) document.body.classList.remove('hl-lock');
   }
 
-  function openPanel(title, note, renderBody) {
-    panelTitle.textContent = title;
-    panelNote.textContent = note || '';
+  function openSirens() {
+    panelTitle.textContent = 'Sirens';
     panelBody.innerHTML = '';
-    renderBody(panelBody);
+    const ul = document.createElement('ul');
+    ul.className = 'hl-panel__list';
+    sirens.forEach((s) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = s.label;
+      b.addEventListener('click', () => openStage({ label: s.label, blurb: 'Siren', image: s.image }));
+      li.appendChild(b);
+      ul.appendChild(li);
+    });
+    panelBody.appendChild(ul);
     panel.hidden = false;
     panel.classList.add('is-open');
     document.body.classList.add('hl-lock');
@@ -241,218 +177,27 @@
     if (!stage.classList.contains('is-open')) document.body.classList.remove('hl-lock');
   }
 
-  function btn(label, onClick, sub) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = label;
-    if (sub) {
-      const s = document.createElement('small');
-      s.textContent = sub;
-      b.appendChild(document.createElement('br'));
-      b.appendChild(s);
-    }
-    b.addEventListener('click', onClick);
-    return b;
-  }
-
-  function openSirens() {
-    openPanel(
-      'Sirens',
-      'Tap a siren for her fullscreen holographic portrait.',
-      (body) => {
-        const ul = document.createElement('ul');
-        ul.className = 'hl-panel__list';
-        sirens.forEach((s) => {
-          const li = document.createElement('li');
-          li.appendChild(
-            btn(s.label, () =>
-              openStage({
-                label: s.label,
-                blurb: 'Siren Soft Story portrait · holographic living theater.',
-                image: s.image,
-              }),
-            ),
-          );
-          ul.appendChild(li);
-        });
-        body.appendChild(ul);
-      },
-    );
-  }
-
-  function openEating() {
-    openPanel(
-      'Eating and Drinking',
-      'Items Prudencio is currently working with go here.',
-      (body) => {
-        const hero = btn('Open table theater image', () => openStage(scenes['eating-drinking']));
-        hero.style.marginBottom = '0.85rem';
-        body.appendChild(hero);
-        const empty = document.createElement('div');
-        empty.className = 'hl-panel__empty';
-        empty.textContent =
-          'Placeholder submenu — item list empty for now. Add foods, drinks, and working-with items here later.';
-        body.appendChild(empty);
-      },
-    );
-  }
-
-  /** Enrichment = recursive nest */
-  function openEnrichment() {
-    openPanel(
-      'Enrichment',
-      'His top Soft Story. Errands, frontier work, work, and daily life nest here because Enrichment is the container — and they still open as their own doors.',
-      (body) => {
-        const createHint = document.createElement('p');
-        createHint.className = 'hl-panel__create';
-        createHint.innerHTML =
-          'This nest is his demonstration. <a href="/product/holographic-skin-demonstration/create/">Create yours →</a>';
-        body.appendChild(createHint);
-        body.appendChild(
-          btn('Enter Enrichment', () => openStage(scenes.enrichment), 'Fullscreen Soft Story'),
-        );
-
-        const ul = document.createElement('ul');
-        ul.className = 'hl-panel__list';
-        ul.style.marginTop = '0.85rem';
-
-        function nestBlock(title, childrenBuilder) {
-          const li = document.createElement('li');
-          const head = document.createElement('button');
-          head.type = 'button';
-          head.textContent = title;
-          const nest = document.createElement('div');
-          nest.className = 'hl-nest';
-          nest.hidden = true;
-          head.addEventListener('click', () => {
-            nest.hidden = !nest.hidden;
-          });
-          childrenBuilder(nest);
-          li.appendChild(head);
-          li.appendChild(nest);
-          ul.appendChild(li);
-        }
-
-        // Errands
-        nestBlock('Errands', (nest) => {
-          nest.appendChild(btn('Errands fullscreen', () => openStage(scenes.errands)));
-        });
-
-        // Frontier work
-        nestBlock('Frontier work', (nest) => {
-          nest.appendChild(btn('Frontier work fullscreen', () => openStage(scenes['frontier-work'])));
-        });
-
-        // Work nest
-        nestBlock('Work', (nest) => {
-          [
-            'whatsapp-route-lab',
-            'wiring-wet-lab',
-            'el-cortez-lab',
-            'bat-cave',
-            'duck-hunting',
-            'big-game-fishing',
-            'bottom-fishing',
-          ].forEach((id) => {
-            nest.appendChild(btn(scenes[id].label, () => openStage(scenes[id])));
-          });
-        });
-
-        // Daily life nest
-        nestBlock('Daily life', (nest) => {
-          [
-            'clark-kent',
-            'superhero',
-            'vibelandia',
-            'eating-drinking',
-            'resting',
-            'sleeping',
-            'bathroom',
-            'mens-restroom-theater',
-          ].forEach((id) => {
-            if (id === 'eating-drinking') {
-              nest.appendChild(btn('Eating and Drinking…', openEating));
-            } else {
-              nest.appendChild(btn(scenes[id].label, () => openStage(scenes[id])));
-            }
-          });
-          nest.appendChild(btn('Sirens…', openSirens));
-          nest.appendChild(btn('Errands', () => openStage(scenes.errands)));
-          nest.appendChild(btn('Frontier work', () => openStage(scenes['frontier-work'])));
-        });
-
-        body.appendChild(ul);
-      },
-    );
-  }
-
-  const gameBg = document.getElementById('hl-game-bg');
-  const defaultBg = MEDIA + 'hl-cabin-interior.jpg';
-
-  function setGameBg(url) {
-    if (!gameBg || !url) return;
-    gameBg.style.backgroundImage = 'url("' + url + '")';
-  }
-
-  topLevel.forEach((item, index) => {
-    const scene = scenes[item.id];
-    const label =
-      item.id === 'sirens'
-        ? 'Sirens'
-        : item.id === 'eating-drinking'
-          ? 'Eating and Drinking'
-          : scene
-            ? scene.label
-            : item.id;
-    const thumb =
-      item.kind === 'sirens'
-        ? MEDIA + 'hl-siren-dorila.jpg'
-        : item.kind === 'eating'
-          ? MEDIA + 'hl-eating-drinking.jpg'
-          : scene && scene.image
-            ? scene.image
-            : defaultBg;
+  topLevel.forEach((id, index) => {
+    const isSirens = id === 'sirens';
+    const scene = scenes[id];
+    const label = isSirens ? 'Sirens' : scene.label;
+    const thumb = isSirens ? MEDIA + 'hl-siren-dorila.jpg' : scene.image;
+    const blurb = isSirens ? 'Nine portraits' : scene.blurb;
 
     const b = document.createElement('button');
     b.type = 'button';
-    b.className =
-      'hl-menu__btn' + (item.kind === 'enrichment' ? ' hl-menu__btn--primary' : '');
+    b.className = 'hl-menu__btn';
     b.setAttribute('role', 'listitem');
-    b.dataset.kind = item.kind;
-    b.dataset.id = item.id;
     b.style.setProperty('--hl-thumb', 'url("' + thumb + '")');
 
-    const idx = document.createElement('span');
-    idx.className = 'hl-menu__idx';
-    idx.textContent = String(index + 1).padStart(2, '0');
-
-    const copy = document.createElement('span');
-    copy.className = 'hl-menu__copy';
-    const title = document.createElement('span');
-    title.className = 'hl-menu__label';
-    title.textContent = label;
-    copy.appendChild(title);
-
-    const sub = document.createElement('small');
-    if (item.kind === 'enrichment') {
-      sub.textContent = 'Continue · his Soft Story nest';
-    } else if (item.kind === 'sirens') {
-      sub.textContent = 'Nine Soft Story portraits';
-    } else if (item.kind === 'eating') {
-      sub.textContent = 'Table theater';
-    } else if (scene && scene.blurb) {
-      sub.textContent = scene.blurb.split('—')[0].trim();
-    }
-    if (sub.textContent) copy.appendChild(sub);
-
-    const arrow = document.createElement('span');
-    arrow.className = 'hl-menu__go';
-    arrow.setAttribute('aria-hidden', 'true');
-    arrow.textContent = '›';
-
-    b.appendChild(idx);
-    b.appendChild(copy);
-    b.appendChild(arrow);
+    b.innerHTML =
+      '<span class="hl-menu__idx">' +
+      String(index + 1).padStart(2, '0') +
+      '</span><span class="hl-menu__copy"><span class="hl-menu__label">' +
+      label +
+      '</span><small>' +
+      blurb +
+      '</small></span><span class="hl-menu__go" aria-hidden="true">›</span>';
 
     b.addEventListener('mouseenter', () => setGameBg(thumb));
     b.addEventListener('focus', () => setGameBg(thumb));
@@ -461,17 +206,15 @@
     });
     b.addEventListener('blur', () => setGameBg(defaultBg));
     b.addEventListener('click', () => {
-      if (item.kind === 'enrichment') openEnrichment();
-      else if (item.kind === 'sirens') openSirens();
-      else if (item.kind === 'eating') openEating();
-      else openStage(scenes[item.id]);
+      if (isSirens) openSirens();
+      else openStage(scene);
     });
     menuEl.appendChild(b);
   });
 
   panelClose.addEventListener('click', closePanel);
   stageClose.addEventListener('click', closeStage);
-  if (stageReturn) stageReturn.addEventListener('click', closeStage);
+  stageReturn.addEventListener('click', closeStage);
   panel.addEventListener('click', (e) => {
     if (e.target === panel) closePanel();
   });
@@ -482,7 +225,5 @@
   });
 })();
   </script>
-  <script src="/product/holographic-skin-demonstration/assets/holographic-initiation.js" data-current="living" data-base="fractisi"></script>
-  
 </body>
 </html>
