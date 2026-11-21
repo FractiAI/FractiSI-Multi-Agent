@@ -222,6 +222,31 @@
 .hl-welcome__copy p:last-child {
   margin-bottom: 0;
 }
+.hl-howto {
+  position: relative;
+  z-index: 4;
+  margin: 1.35rem 0 0.35rem;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid rgba(176, 141, 87, 0.38);
+  border-radius: 0.55rem;
+  background: rgba(18, 12, 8, 0.72);
+}
+.hl-howto h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--hl-sans, "Oswald", sans-serif);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hl-gold-hi, #f0d9a0);
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  font-weight: 650;
+}
+.hl-howto p {
+  margin: 0.45rem 0 0;
+  color: rgba(240, 230, 212, 0.9);
+  line-height: 1.55;
+  font-size: 1.02rem;
+}
+
 .hl-welcome strong {
   color: var(--hl-gold-hi);
   font-weight: 600;

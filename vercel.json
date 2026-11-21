@@ -28,6 +28,16 @@
       "permanent": true
     },
     {
+      "source": "/holographic-skin/auto-session/",
+      "destination": "/product/holographic-skin-demonstration/auto-session/",
+      "permanent": true
+    },
+    {
+      "source": "/holographic-skin/auto-session",
+      "destination": "/product/holographic-skin-demonstration/auto-session/",
+      "permanent": true
+    },
+    {
       "source": "/product/holographic-skin",
       "destination": "/product/holographic-skin-demonstration/",
       "permanent": true

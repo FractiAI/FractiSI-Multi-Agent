@@ -16,6 +16,7 @@
   <nav class="hl-game__nav" aria-label="FractiSI">
     <a class="hl-game__mark" href="/">FractiSI</a>
     <a href="/product/holographic-skin-demonstration/">Welcome</a>
+    <a href="/product/holographic-skin-demonstration/auto-session/">Auto Session</a>
     <a href="/product/holographic-skin-demonstration/create/">Create</a>
   </nav>
 
@@ -58,33 +59,43 @@
   <script>
 (function () {
   const MEDIA = '/product/holographic-skin-demonstration/media/';
+  const CHANNEL = 'hl-auto-session';
+  const params = new URLSearchParams(location.search);
+  const autoMode = params.get('auto') === '1';
+  const companionPort = Number(params.get('companion') || 18765);
+  const companionBase = 'http://127.0.0.1:' + companionPort;
+  const bootSceneId = params.get('scene') || '';
+  const bootStage = params.get('stage') === '1';
+  const bootSiren = params.get('siren') || '';
 
   const scenes = {
-    'clark-kent': { label: 'Clark Kent', blurb: 'Ordinary day', image: MEDIA + 'hl-clark-kent.jpg' },
-    superhero: { label: 'Superhero', blurb: 'Captain of SS Vibelandia', image: MEDIA + 'hl-superhero.jpg' },
-    vibelandia: { label: 'SS Vibelandia', blurb: 'Goldilocks cruiseship', image: MEDIA + 'hl-vibelandia.jpg' },
-    'bat-cave': { label: 'Bat cave', blurb: 'Work-cave', image: MEDIA + 'hl-bat-cave.jpg' },
-    'frontier-work': { label: 'Frontier work', blurb: 'Labor at the edge', image: MEDIA + 'hl-frontier-work.jpg' },
-    'duck-hunting': { label: 'Duck hunting', blurb: 'Hunt for deliveries', image: MEDIA + 'hl-duck-hunting.jpg' },
-    'big-game-fishing': { label: 'Big game fishing', blurb: 'Hunt for a sponsor', image: MEDIA + 'hl-big-game-fishing.jpg' },
-    'bottom-fishing': { label: 'Bottom fishing', blurb: 'Lines in deep water', image: MEDIA + 'hl-bottom-fishing.jpg' },
+    'clark-kent': { id: 'clark-kent', label: 'Clark Kent', blurb: 'Ordinary day', image: MEDIA + 'hl-clark-kent.jpg' },
+    superhero: { id: 'superhero', label: 'Superhero', blurb: 'Captain of SS Vibelandia', image: MEDIA + 'hl-superhero.jpg' },
+    vibelandia: { id: 'vibelandia', label: 'SS Vibelandia', blurb: 'Goldilocks cruiseship', image: MEDIA + 'hl-vibelandia.jpg' },
+    'bat-cave': { id: 'bat-cave', label: 'Bat cave', blurb: 'Work-cave', image: MEDIA + 'hl-bat-cave.jpg' },
+    'frontier-work': { id: 'frontier-work', label: 'Frontier work', blurb: 'Labor at the edge', image: MEDIA + 'hl-frontier-work.jpg' },
+    'duck-hunting': { id: 'duck-hunting', label: 'Duck hunting', blurb: 'Hunt for deliveries', image: MEDIA + 'hl-duck-hunting.jpg' },
+    'big-game-fishing': { id: 'big-game-fishing', label: 'Big game fishing', blurb: 'Hunt for a sponsor', image: MEDIA + 'hl-big-game-fishing.jpg' },
+    'bottom-fishing': { id: 'bottom-fishing', label: 'Bottom fishing', blurb: 'Lines in deep water', image: MEDIA + 'hl-bottom-fishing.jpg' },
     'whatsapp-root-lab': {
+      id: 'whatsapp-root-lab',
       label: 'Root Lab',
       blurb: 'Root talk on the channel',
       image: MEDIA + 'hl-whatsapp-root-lab.jpg',
     },
-    'wiring-wet-lab': { label: 'Wiring lab', blurb: 'Wires between people', image: MEDIA + 'hl-wiring-wet-lab.jpg' },
-    'el-cortez-lab': { label: 'El Cortez Lab', blurb: 'Compute in town', image: MEDIA + 'hl-el-cortez-lab.jpg' },
+    'wiring-wet-lab': { id: 'wiring-wet-lab', label: 'Wiring lab', blurb: 'Wires between people', image: MEDIA + 'hl-wiring-wet-lab.jpg' },
+    'el-cortez-lab': { id: 'el-cortez-lab', label: 'El Cortez Lab', blurb: 'Compute in town', image: MEDIA + 'hl-el-cortez-lab.jpg' },
     'mens-restroom-theater': {
+      id: 'mens-restroom-theater',
       label: 'Restroom theater',
       blurb: 'Behavior theater',
       image: MEDIA + 'hl-mens-restroom-theater.jpg',
     },
-    'eating-drinking': { label: 'Table', blurb: 'Food and drink', image: MEDIA + 'hl-eating-drinking.jpg' },
-    resting: { label: 'Resting', blurb: 'Quiet between hunts', image: MEDIA + 'hl-resting.jpg' },
-    sleeping: { label: 'Sleeping', blurb: 'Night rest', image: MEDIA + 'hl-sleeping.jpg' },
-    bathroom: { label: 'Bathroom', blurb: 'Wash and water', image: MEDIA + 'hl-bathroom.jpg' },
-    errands: { label: 'Errands', blurb: 'Town errands', image: MEDIA + 'hl-errands.jpg' },
+    'eating-drinking': { id: 'eating-drinking', label: 'Table', blurb: 'Food and drink', image: MEDIA + 'hl-eating-drinking.jpg' },
+    resting: { id: 'resting', label: 'Resting', blurb: 'Quiet between hunts', image: MEDIA + 'hl-resting.jpg' },
+    sleeping: { id: 'sleeping', label: 'Sleeping', blurb: 'Night rest', image: MEDIA + 'hl-sleeping.jpg' },
+    bathroom: { id: 'bathroom', label: 'Bathroom', blurb: 'Wash and water', image: MEDIA + 'hl-bathroom.jpg' },
+    errands: { id: 'errands', label: 'Errands', blurb: 'Town errands', image: MEDIA + 'hl-errands.jpg' },
   };
 
   const sirens = [
@@ -134,13 +145,45 @@
   const stageReturn = document.getElementById('hl-stage-return');
   const gameBg = document.getElementById('hl-game-bg');
   const defaultBg = MEDIA + 'hl-cabin-interior.jpg';
+  const bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(CHANNEL) : null;
+  let lastAutoSceneId = '';
+  let suppressMenuBroadcast = false;
 
   function setGameBg(url) {
     if (gameBg && url) gameBg.style.backgroundImage = 'url("' + url + '")';
   }
 
-  function openStage(scene) {
+  function resolveScene(id) {
+    if (scenes[id]) return scenes[id];
+    const s = sirens.find(function (x) { return x.id === id; });
+    if (s) return { id: s.id, label: s.label, blurb: 'Mermaid Soft Story', image: s.image };
+    return null;
+  }
+
+  function notifyMenuSelection(scene) {
+    if (suppressMenuBroadcast || !scene) return;
+    var payload = {
+      type: 'menu-selection',
+      sceneId: scene.id || '',
+      label: scene.label || '',
+      image: scene.image || '',
+      ts: Date.now(),
+    };
+    try {
+      bc && bc.postMessage(payload);
+    } catch (e) { /* ignore */ }
+    if (autoMode) {
+      fetch(companionBase + '/menu', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sceneId: payload.sceneId, label: payload.label }),
+      }).catch(function () {});
+    }
+  }
+
+  function openStage(scene, opts) {
     if (!scene || !scene.image) return;
+    opts = opts || {};
     stageImg.src = scene.image;
     stageImg.alt = scene.label || '';
     stageTitle.textContent = scene.label || '';
@@ -148,7 +191,8 @@
     stage.hidden = false;
     stage.classList.add('is-open');
     document.body.classList.add('hl-lock');
-    stageClose.focus();
+    if (!opts.quietFocus) stageClose.focus();
+    if (!opts.fromAuto) notifyMenuSelection(scene);
   }
 
   function closeStage() {
@@ -169,7 +213,7 @@
       b.type = 'button';
       b.textContent = s.label;
       b.addEventListener('click', () =>
-        openStage({ label: s.label, blurb: 'Mermaid Soft Story', image: s.image }),
+        openStage({ id: s.id, label: s.label, blurb: 'Mermaid Soft Story', image: s.image }),
       );
       li.appendChild(b);
       ul.appendChild(li);
@@ -188,12 +232,23 @@
     if (!stage.classList.contains('is-open')) document.body.classList.remove('hl-lock');
   }
 
+  function applyAutoScene(sceneId) {
+    if (!sceneId || sceneId === lastAutoSceneId) return;
+    var scene = resolveScene(sceneId);
+    if (!scene) return;
+    lastAutoSceneId = sceneId;
+    suppressMenuBroadcast = true;
+    closePanel();
+    openStage(scene, { fromAuto: true, quietFocus: true });
+    suppressMenuBroadcast = false;
+  }
+
   topLevel.forEach((id, index) => {
     const isSirens = id === 'sirens';
     const scene = scenes[id];
     const label = isSirens ? 'Sirens' : scene.label;
     const thumb = isSirens ? MEDIA + 'hl-siren-dorila.jpg' : scene.image;
-    const blurb = isSirens ? 'Nine mermaids' : scene.blurb;
+    const blurb = isSirens ? 'Ten mermaids' : scene.blurb;
 
     const b = document.createElement('button');
     b.type = 'button';
@@ -234,6 +289,34 @@
     if (stage.classList.contains('is-open')) closeStage();
     else if (panel.classList.contains('is-open')) closePanel();
   });
+
+  if (bc) {
+    bc.addEventListener('message', function (ev) {
+      var msg = ev.data;
+      if (!msg) return;
+      if (msg.type === 'select-scene' && msg.sceneId) applyAutoScene(msg.sceneId);
+    });
+  }
+
+  if (autoMode) {
+    setInterval(function () {
+      fetch(companionBase + '/state', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (state) {
+          if (state && state.sceneId) applyAutoScene(state.sceneId);
+        })
+        .catch(function () {});
+    }, 1600);
+  }
+
+  if (bootSiren) {
+    var siren = resolveScene(bootSiren);
+    if (siren) openStage(siren, { fromAuto: true });
+  } else if (bootSceneId) {
+    var boot = resolveScene(bootSceneId);
+    if (boot && bootStage) openStage(boot, { fromAuto: autoMode, quietFocus: autoMode });
+    else if (boot) setGameBg(boot.image);
+  }
 })();
   </script>
 </body>
