@@ -14,7 +14,7 @@
 It answers **what am I doing now?** from the active window, then maps that to Soft Story skins:
 
 1. **People skins** — name in the window (emailing Daniel) → that person’s image.
-2. **Soft Story app theaters** — WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Workstation → Bat cave (editable on Auto Session).
+2. **Soft Story app theaters** — WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Cursor AI → Frontier work · Other workstation → Bat cave · Sponsor hunt → Tropical marlin (editable on Auto Session).
 3. **Mission cycling deck** — when nothing matched, cycle the Soft Story mission set.
 
 ## Simple desk use

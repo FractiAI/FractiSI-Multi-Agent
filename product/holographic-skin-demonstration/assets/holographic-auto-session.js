@@ -283,28 +283,56 @@ function markProtocolOk() {
 }
 
 /**
- * Try custom-protocol launch only when previously known good.
- * Avoids browser error dialogs when fractisi-skin:// is not installed.
+ * Always attempt automatic helper start via fractisi-skin:// (user wants this).
+ * After one-time `npm run skin:auto-session:install`, the OS opens the helper with no terminal.
  */
 function launchHelperViaProtocol() {
-  if (!protocolLikelyInstalled()) return false;
   const url = `${PROTOCOL}?port=${companionPort}&ts=${Date.now()}`;
   try {
-    // Prefer hidden window over iframe (iframes often flash "failed to launch" pages).
-    const w = window.open(url, '_blank', 'noopener,noreferrer,width=1,height=1');
-    if (w) {
-      setTimeout(() => {
-        try {
-          w.close();
-        } catch {
-          /* ignore */
-        }
-      }, 800);
-    }
-    return true;
+    // User-gesture navigation is the most reliable auto-start signal for custom protocols.
+    const a = document.createElement('a');
+    a.href = url;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   } catch {
-    return false;
+    /* ignore */
   }
+  try {
+    // Secondary kick — some browsers honor location on hidden iframe less noisily after install.
+    const iframe = document.createElement('iframe');
+    iframe.name = 'hl-helper-launch';
+    iframe.style.cssText = 'position:fixed;width:0;height:0;border:0;opacity:0;pointer-events:none';
+    iframe.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(iframe);
+    iframe.src = url;
+    setTimeout(() => {
+      try {
+        iframe.remove();
+      } catch {
+        /* ignore */
+      }
+    }, 1500);
+  } catch {
+    /* ignore */
+  }
+  return true;
+}
+
+function downloadHelperStarter() {
+  const ua = navigator.userAgent || '';
+  const win = /Windows/i.test(ua);
+  const href = win
+    ? '/product/holographic-skin-demonstration/assets/start-fractisi-skin-helper.cmd'
+    : '/product/holographic-skin-demonstration/assets/start-fractisi-skin-helper.sh';
+  const a = document.createElement('a');
+  a.href = href;
+  a.download = win ? 'Start-FractiSI-Skin-Helper.cmd' : 'Start-FractiSI-Skin-Helper.command';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
 
 function sleep(ms) {
@@ -315,41 +343,46 @@ async function ensureHelperAndSession() {
   if (handheld) return false;
   try {
     const startScene = config.defaultScene || missionDeck[0] || 'superhero';
-    // Always open the skin half first — never depends on helper / protocol.
     openOrFocusSkin(startScene);
     broadcastScene(startScene, { source: 'start' });
 
     setText(els.status, 'Looking for helper…');
     if (await pingCompanion()) {
       markProtocolOk();
-      setText(els.status, 'Helper connected. Mapping activity → skins (mission deck swaps every 15 min).');
+      setText(els.status, 'Helper connected. Mapping activity → skins (mission deck every 15 min).');
       await finishAutodetectStart({ alreadyOpened: true });
       return true;
     }
 
+    // Always auto-start the helper (protocol). One-time install wires this permanently.
     launchingHelper = true;
-    if (protocolLikelyInstalled()) {
-      setText(els.companion, 'Starting helper…');
-      setText(els.status, 'Asking this computer to start the Soft Story helper…');
-      launchHelperViaProtocol();
-      for (let i = 0; i < 12; i++) {
-        await sleep(500);
-        if (await pingCompanion()) {
-          launchingHelper = false;
-          markProtocolOk();
-          setText(els.status, 'Helper started. Mapping activity → skins (mission deck every 15 min).');
-          await finishAutodetectStart({ alreadyOpened: true });
-          return true;
-        }
+    setText(els.companion, 'Starting helper automatically…');
+    setText(els.status, 'Starting Soft Story helper automatically…');
+    launchHelperViaProtocol();
+
+    for (let i = 0; i < 20; i++) {
+      await sleep(500);
+      if (await pingCompanion()) {
+        launchingHelper = false;
+        markProtocolOk();
+        setText(els.status, 'Helper started automatically. Mapping activity → skins (mission deck every 15 min).');
+        await finishAutodetectStart({ alreadyOpened: true });
+        return true;
       }
     }
 
     launchingHelper = false;
-    setText(els.companion, 'Helper not running yet — skin half is open');
+    setText(els.companion, 'Helper not reachable yet — enabling auto-start');
     setText(
       els.status,
-      'Skin half is open. To map WhatsApp / Uber Eats / workstation activity, open a terminal in the FractiSI repo and run: npm run skin:auto-session   (optional one-time: npm run skin:auto-session:install). No browser error needed — that command starts the helper quietly.',
+      'Almost there: one-time enable auto-start, then Autodetect will launch the helper by itself every time. In your FractiSI-Multi-Agent folder run:  npm run skin:auto-session:install   — or use the Enable auto-start download below, then click Start again.',
     );
+    // Offer portable starter download (installs/starts if repo or prior config exists)
+    try {
+      downloadHelperStarter();
+    } catch {
+      /* ignore */
+    }
     startPolling();
     return false;
   } catch (err) {
