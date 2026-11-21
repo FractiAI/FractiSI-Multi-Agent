@@ -78,6 +78,7 @@ let skinWindow = null;
 let launchingHelper = false;
 let localMissionIndex = 0;
 let lastLocalMissionAdvance = 0;
+let lastBroadcastImage = '';
 
 function isHandheldDevice() {
   const ua = navigator.userAgent || '';
@@ -105,7 +106,8 @@ function loadConfig() {
         activityMap: parsed.activityMap?.length ? parsed.activityMap : DEFAULT_ACTIVITY_MAP,
         otherApp: parsed.otherApp || 'Cursor',
         defaultScene: parsed.defaultScene || 'superhero',
-        cycleSeconds: Number(parsed.cycleSeconds) || 15 * 60,
+        // Floor at 15 minutes even if an older save stored a short slideshow interval
+        cycleSeconds: Math.max(15 * 60, Number(parsed.cycleSeconds) || 15 * 60),
         pictureMode: parsed.pictureMode === 'autodetect' ? 'autodetect' : 'manual',
       };
     }
@@ -169,12 +171,20 @@ function livingHref(sceneId, opts = {}) {
   return u.href;
 }
 
-function openOrFocusSkin(sceneId) {
+function openOrFocusSkin(sceneId, { forceNav = false } = {}) {
   const href = livingHref(sceneId, { auto: pictureMode === 'autodetect' });
   try {
     if (skinWindow && !skinWindow.closed) {
-      skinWindow.location.href = href;
-      skinWindow.focus();
+      // Soft Story updates go through BroadcastChannel + living's calm poll.
+      // Reloading location.href every swap made the skin feel like a fast slideshow.
+      if (forceNav) {
+        skinWindow.location.href = href;
+      }
+      try {
+        skinWindow.focus();
+      } catch {
+        /* ignore */
+      }
       return;
     }
   } catch {
@@ -584,6 +594,7 @@ async function pushConfigToCompanion() {
         activityMap: config.activityMap,
         people,
         missionDeck,
+        cycleSeconds: Math.max(15 * 60, Number(config.cycleSeconds) || 15 * 60),
       }),
     });
   } catch {
@@ -606,7 +617,7 @@ function sourceLabel(source) {
 async function pollState() {
   if (handheld || pictureMode !== 'autodetect') return;
   if (!(await pingCompanion())) {
-    // Offline: calm 15-minute mission deck only (never every poll)
+    // Offline: one Soft Story image every 15 minutes — never every poll
     const cycleMs = Math.max(MISSION_CYCLE_MS, (config.cycleSeconds || 900) * 1000);
     const now = Date.now();
     if (!lastLocalMissionAdvance) lastLocalMissionAdvance = now;
@@ -620,14 +631,21 @@ async function pollState() {
         missionDeck,
         missionIndex: localMissionIndex,
       });
-      setText(els.doing, 'Helper offline — calm Soft Story mission deck (15 min)');
+      setText(els.doing, 'Helper offline — one Soft Story image every 15 min');
       setText(els.source, sourceLabel('mission-deck'));
       if (resolved.sceneId !== lastSceneId) {
         broadcastScene(resolved.sceneId, { source: 'mission-deck' });
         openOrFocusSkin(resolved.sceneId);
       }
     } else {
-      setText(els.doing, 'Helper offline — skin holds steady until the next calm 15‑min deck swap');
+      const minsLeft = Math.max(
+        1,
+        Math.ceil((cycleMs - (now - lastLocalMissionAdvance)) / 60000),
+      );
+      setText(
+        els.doing,
+        `Helper offline — holding Soft Story picture (${minsLeft} min until next image)`,
+      );
       setText(els.source, sourceLabel('mission-deck'));
     }
     return;
@@ -647,7 +665,12 @@ async function pollState() {
     if (state.split?.attempted) {
       setText(els.split, state.split.ok ? `Split ok — ${state.split.detail}` : `Split note — ${state.split.detail}`);
     }
-    if (state.sceneId && (state.sceneId !== lastSceneId || state.image)) {
+    const imageKey = state.image || '';
+    const changed =
+      state.sceneId &&
+      (state.sceneId !== lastSceneId || imageKey !== (lastBroadcastImage || ''));
+    if (changed) {
+      lastBroadcastImage = imageKey;
       broadcastScene(state.sceneId, {
         source: state.source || 'companion',
         image: state.image || undefined,

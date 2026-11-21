@@ -331,6 +331,7 @@
   }
 
   if (autoMode) {
+    // Poll helper for held Soft Story picture — helper enforces one image / 15 min
     setInterval(function () {
       fetch(companionBase + '/state', { cache: 'no-store' })
         .then(function (r) { return r.ok ? r.json() : null; })
@@ -338,7 +339,7 @@
           if (state && state.sceneId) applyAutoScene(state.sceneId, state.image || null);
         })
         .catch(function () {});
-    }, 1600);
+    }, 5000);
   }
 
   if (bootSiren) {
