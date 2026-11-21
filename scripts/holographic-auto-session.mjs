@@ -10,13 +10,18 @@
  *
  * Usage:
  *   npm run skin:auto-session
+ *   npm run skin:auto-session:install   # one-time: register fractisi-skin:// for auto-launch
  *   node scripts/holographic-auto-session.mjs [--port 18765] [--scene superhero]
  *     [--other Cursor] [--url https://fractisi.vercel.app/...] [--no-open] [--companion-only]
  */
 import http from 'node:http';
-import { execFile, execFileSync, spawn } from 'node:child_process';
+import { execFile, execFileSync, spawn, spawnSync } from 'node:child_process';
 import { promisify } from 'node:util';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 const execFileAsync = promisify(execFile);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DEFAULT_PORT = 18765;
 const DEFAULT_SCENE = 'superhero';
@@ -24,12 +29,22 @@ const DEFAULT_OTHER = 'Cursor';
 const LIVE_BASE = 'https://fractisi.vercel.app/product/holographic-skin-demonstration';
 
 const args = parseArgs(process.argv.slice(2));
+
+if (args['install-protocol'] === true || args.installProtocol === true) {
+  const installer = path.join(__dirname, 'install-holographic-auto-session-protocol.mjs');
+  const result = spawnSync(process.execPath, [installer], { stdio: 'inherit' });
+  process.exit(result.status ?? 1);
+}
+
 const PORT = Number(args.port || process.env.HL_AUTO_PORT || DEFAULT_PORT);
 const SCENE = String(args.scene || process.env.HL_AUTO_SCENE || DEFAULT_SCENE);
 const OTHER = String(args.other || process.env.HL_AUTO_OTHER || DEFAULT_OTHER);
 const BASE = String(args.url || process.env.HL_AUTO_URL || LIVE_BASE).replace(/\/$/, '');
-const OPEN = args['no-open'] !== true && args.companionOnly !== true;
-const COMPANION_ONLY = args['companion-only'] === true || args.companionOnly === true;
+// Protocol launches pass fractisi-skin://… — treat as companion-only / no browser reopen storm
+const FROM_PROTOCOL = Boolean(args._protocol);
+const OPEN = args['no-open'] !== true && args.companionOnly !== true && !FROM_PROTOCOL;
+const COMPANION_ONLY =
+  args['companion-only'] === true || args.companionOnly === true || FROM_PROTOCOL;
 
 /** @type {{ id: string, label: string, match: string, scenes: string[], mode: string }[]} */
 let activityMap = defaultActivityMap();
@@ -51,10 +66,14 @@ function parseArgs(argv) {
   const out = {};
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
+    if (typeof a === 'string' && a.startsWith('fractisi-skin:')) {
+      out._protocol = a;
+      continue;
+    }
     if (!a.startsWith('--')) continue;
     const key = a.slice(2);
     const next = argv[i + 1];
-    if (!next || next.startsWith('--')) out[key] = true;
+    if (!next || next.startsWith('--') || String(next).startsWith('fractisi-skin:')) out[key] = true;
     else {
       out[key] = next;
       i++;
@@ -441,11 +460,21 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+server.on('error', (err) => {
+  if (err && err.code === 'EADDRINUSE') {
+    console.log(`[hl-auto-session] helper already running on port ${PORT}`);
+    process.exit(0);
+  }
+  console.error('[hl-auto-session]', err);
+  process.exit(1);
+});
+
 server.listen(PORT, '127.0.0.1', async () => {
   console.log(`[hl-auto-session] companion on http://127.0.0.1:${PORT}`);
   console.log(`[hl-auto-session] other half app: ${OTHER}`);
   console.log(`[hl-auto-session] skin base: ${BASE}`);
-  console.log(`[hl-auto-session] tip: npm run skin:auto-session`);
+  if (FROM_PROTOCOL) console.log('[hl-auto-session] started via fractisi-skin://');
+  else console.log('[hl-auto-session] tip: npm run skin:auto-session:install  (one-time auto-launch)');
 
   if (!COMPANION_ONLY && OPEN) {
     openUrl(autoSessionUrl());

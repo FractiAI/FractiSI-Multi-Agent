@@ -5,6 +5,40 @@
   padding-bottom: 3rem;
 }
 
+.hl-as__handheld {
+  position: relative;
+  z-index: 5;
+  margin: 1rem 0 1.5rem;
+  padding: 1.2rem 1.15rem;
+  border: 1px solid rgba(212, 120, 58, 0.55);
+  border-radius: 0.55rem;
+  background: rgba(42, 20, 12, 0.88);
+}
+
+.hl-as__handheld h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--hl-sans, "Oswald", sans-serif);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hl-gold-hi, #f0d9a0);
+  font-size: 1.15rem;
+}
+
+.hl-as__handheld p {
+  margin: 0.45rem 0;
+  color: rgba(240, 230, 212, 0.92);
+  line-height: 1.5;
+}
+
+.hl-as__handheld .hl-game__cta {
+  display: inline-flex;
+  margin-top: 0.55rem;
+}
+
+body.hl-as--handheld .hl-game__tag::after {
+  content: " · Desktop only for now";
+}
+
 .hl-as__howto,
 .hl-as__panel,
 .hl-as__card,

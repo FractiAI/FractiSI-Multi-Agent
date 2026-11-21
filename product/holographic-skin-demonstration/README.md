@@ -1,7 +1,5 @@
 # Holographic Skin
 
-FractiSI Soft Story product surface on this site:
-
 | Surface | Path |
 |---|---|
 | Welcome + desk how-to | `/product/holographic-skin-demonstration/` |
@@ -9,21 +7,20 @@ FractiSI Soft Story product surface on this site:
 | Auto Session | `/product/holographic-skin-demonstration/auto-session/` |
 | Create | `/product/holographic-skin-demonstration/create/` |
 
+**Desktop only for Auto Session** — phones and tablets see a clear “not available yet” notice. Enrichment Menu Play still works on handheld.
+
 ## Simple desk instructions
 
-1. **Split your screen.** Work on one half. Skin (browser) on the other.
-2. **Other half = any app you choose.** Not required to be an IDE. Cursor, Slack, Mail, Chrome, a spreadsheet — whatever you use. (Prudencio often uses Cursor.)
-3. **Pictures — two modes on Auto Session:**
-   - **Manual** — tap a scene; that picture stays until you pick another.
-   - **Autodetect** — run the helper; pictures follow detected activity from your rules.
+1. Split the screen: any work app on one half (not required to be an IDE), skin browser on the other.
+2. **Manual** — tap pictures on Auto Session.
+3. **Autodetect** — select Autodetect; the page tries to start the local helper automatically and pictures follow activity.
 
-## Autodetect helper (optional)
+### One-time helper auto-launch (desktop)
 
 ```bash
-npm run skin:auto-session
-# optional: --other "Slack" --scene superhero --port 18765
+npm run skin:auto-session:install
 ```
 
-Companion API (localhost): `/health` · `/state` · `/config` · `/menu` · `/split` · `/open-skin`
+Registers `fractisi-skin://` so choosing Autodetect can start the helper without typing a command each time.
 
-Living deep links: `?scene=superhero&stage=1&auto=1&companion=18765`
+Manual start still works: `npm run skin:auto-session`
