@@ -15,26 +15,18 @@
           demo: '/product/holographic-skin-demonstration/',
           living: '/product/holographic-skin-demonstration/living/',
           create: '/product/holographic-skin-demonstration/create/',
-          createLive: 'https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-skin-create',
         }
       : {
-          demo: '/fractisi/holographic-skin-demonstration',
-          living: '/fractisi/holographic-living',
-          create: '/fractisi/holographic-skin-create',
+          demo: '/product/holographic-skin-demonstration/',
+          living: '/product/holographic-skin-demonstration/living/',
+          create: '/product/holographic-skin-demonstration/create/',
         };
 
-  const stops =
-    base === 'fractisi'
-      ? [
-          { id: 'demo', href: paths.demo, label: 'Demonstration' },
-          { id: 'living', href: paths.living, label: 'Living menu' },
-          { id: 'create', href: paths.create, label: 'Create' },
-        ]
-      : [
-          { id: 'demo', href: paths.demo, label: 'Demonstration' },
-          { id: 'living', href: paths.living, label: 'Living menu' },
-          { id: 'create', href: paths.create, label: 'Create' },
-        ];
+  const stops = [
+    { id: 'demo', href: paths.demo, label: 'Demonstration' },
+    { id: 'living', href: paths.living, label: 'Living menu' },
+    { id: 'create', href: paths.create, label: 'Create' },
+  ];
 
   const nextMap = {
     demo: { id: 'living', label: 'Enter the Living menu' },

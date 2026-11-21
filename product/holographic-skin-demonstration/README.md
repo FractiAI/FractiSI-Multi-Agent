@@ -1,11 +1,7 @@
-# FractiSI · Holographic Skin Demonstration
+# Holographic Skin
 
-Product demonstration surface for the FractiSI Soft Story holographic skin.
+FractiSI Soft Story product surface on this site:
 
-- Live menu (SING 13): https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-living
-- SING 13 demo page: https://www.ssvibelandiaquestfest24x365.com/fractisi/holographic-skin-demonstration
-- This page: `/product/holographic-skin-demonstration/`
-
-Spelling lock: **FractiSI** (never TractiSI).
-
-→ ∞^∞
+- Product: `/product/holographic-skin-demonstration/`
+- Living: `/product/holographic-skin-demonstration/living/`
+- Create: `/product/holographic-skin-demonstration/create/`
