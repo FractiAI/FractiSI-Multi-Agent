@@ -94,7 +94,7 @@
     { id: 'yeris', label: 'Yeris', image: MEDIA + 'hl-siren-yeris.jpg' },
     { id: 'erika', label: 'Erika', image: MEDIA + 'hl-siren-erika.jpg' },
     { id: 'winnie', label: 'Winnie', image: MEDIA + 'hl-siren-winnie.jpg' },
-    { id: 'fun-fun', label: 'Fun Fun', image: MEDIA + 'hl-siren-fun-fun.jpg' },
+    { id: 'fanfan', label: 'Fanfan', image: MEDIA + 'hl-siren-fanfan.jpg' },
     { id: 'monica', label: 'Monica', image: MEDIA + 'hl-siren-monica.jpg' },
     { id: 'sarah', label: 'Sarah', image: MEDIA + 'hl-siren-sarah.jpg' },
   ];
@@ -167,7 +167,9 @@
       const b = document.createElement('button');
       b.type = 'button';
       b.textContent = s.label;
-      b.addEventListener('click', () => openStage({ label: s.label, blurb: 'Siren', image: s.image }));
+      b.addEventListener('click', () =>
+        openStage({ label: s.label, blurb: 'Mermaid Soft Story', image: s.image }),
+      );
       li.appendChild(b);
       ul.appendChild(li);
     });
@@ -190,7 +192,7 @@
     const scene = scenes[id];
     const label = isSirens ? 'Sirens' : scene.label;
     const thumb = isSirens ? MEDIA + 'hl-siren-dorila.jpg' : scene.image;
-    const blurb = isSirens ? 'Nine portraits' : scene.blurb;
+    const blurb = isSirens ? 'Nine mermaids' : scene.blurb;
 
     const b = document.createElement('button');
     b.type = 'button';
