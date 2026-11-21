@@ -8,6 +8,16 @@
   },
   "redirects": [
     {
+      "source": "/holographic-skin/create/",
+      "destination": "/product/holographic-skin-demonstration/create/",
+      "permanent": true
+    },
+    {
+      "source": "/holographic-skin/create",
+      "destination": "/product/holographic-skin-demonstration/create/",
+      "permanent": true
+    },
+    {
       "source": "/product/holographic-skin",
       "destination": "/product/holographic-skin-demonstration/",
       "permanent": true
