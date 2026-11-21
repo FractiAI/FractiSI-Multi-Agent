@@ -14,6 +14,7 @@
   const stageTitle = document.getElementById('hl-stage-title');
   const stageBlurb = document.getElementById('hl-stage-blurb');
   const stageClose = document.getElementById('hl-stage-close');
+  const stageReturn = document.getElementById('hl-stage-return');
   const downloadBtn = document.getElementById('hl-download-json');
   const resetBtn = document.getElementById('hl-reset');
 
@@ -231,6 +232,7 @@
   });
 
   stageClose.addEventListener('click', closeStage);
+  if (stageReturn) stageReturn.addEventListener('click', closeStage);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && stage.classList.contains('is-open')) closeStage();
   });

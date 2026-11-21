@@ -5,40 +5,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Holographic Living · FractiSI</title>
-  <meta name="description" content="Holographic Living — reskinned aspects of daily life as a FractiSI navy-and-gold menu. Enrichment nests errands, frontier work, work, and daily life." />
+  <meta name="description" content="Holographic Living — frontiersman Soft Story menu. Enrichment nests the rest of life. SS Vibelandia is the Holographic Goldilocks Cruiseship." />
   <link rel="canonical" href="https://fractisi.vercel.app/product/holographic-skin-demonstration/living/" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/brand-gold-surfaces.css" />
-  <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/tiny-footprint-product.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/product/holographic-skin-demonstration/assets/holographic-living.css" />
 </head>
-<body class="tf-product hl-page">
-  <nav class="tf-nav" aria-label="FractiSI">
-    <a href="/">FractiSI</a>
-    <a href="/product/holographic-skin-demonstration/">Holographic Skin Demo</a>
-    <a href="/product/holographic-skin-demonstration/living/" aria-current="page">Holographic Living</a>
-    <a href="/product/holographic-skin-demonstration/create/">Create</a>
-    <a href="/product/pricing/">Pricing</a>
+<body class="hl-page hl-game hl-cabin">
+  <div class="hl-game__bg" id="hl-game-bg" aria-hidden="true" style="background-image:url('/product/holographic-skin-demonstration/media/hl-cabin-interior.jpg')"></div>
+  <div class="hl-game__veil" aria-hidden="true"></div>
+
+  <nav class="hl-game__nav" aria-label="FractiSI">
+    <a class="hl-game__mark" href="/">FractiSI</a>
+    <a href="/product/holographic-skin-demonstration/">Skin</a>
+    <a href="/product/holographic-skin-demonstration/create/">Create yours</a>
   </nav>
 
-  <main class="tf-wrap">
-    <header class="hl-hero-band">
-      <p class="tf-kicker">FractiSI · Holographic Skin Demonstration · interactive menu</p>
+  <main class="hl-game__shell">
+    <header class="hl-game__title">
+      <p class="hl-game__kicker">Frontiersman Soft Story · Demonstration</p>
       <h1>Holographic Living</h1>
-      <p>Daily life, reskinned as holographic menu buttons. Press an aspect for a fullscreen image. <strong>Enrichment</strong> is recursive — errands, frontier work, work, and daily life nest inside it as well as appearing on their own. Product framing: <a href="/product/holographic-skin-demonstration/">Holographic Skin Demonstration</a>.</p>
+      <p class="hl-game__tag">Inside the cabin. Enrichment holds the nest. SS Vibelandia waits offshore.</p>
     </header>
 
-    <section aria-label="Holographic Living menu">
-      <div class="hl-menu" id="hl-menu" role="list"></div>
-      <p class="honesty">Clark Kent uses a real Valet Pru host photo (<code>valet-pru-guayabera-panama.jpg</code>). Superhero and the other Soft Story scenes remain cinematic placeholders — no real cape/costume photo of Prudencio was found in this repo. Personal Soft Story theater · not a production product claim · navy/gold FractiSI visual language.</p>
-    </section>
+    <nav class="hl-menu" id="hl-menu" role="list" aria-label="Soft Story menu"></nav>
+
+    <footer class="hl-game__foot">
+      <a class="hl-game__cta" href="/product/holographic-skin-demonstration/create/">Create your own skin</a>
+      <p class="honesty">Demo of his Soft Story. Clark Kent uses a real host photo; other scenes are Soft Story art. SS Vibelandia = Holographic Goldilocks Cruiseship.</p>
+    </footer>
   </main>
 
   <div class="hl-panel" id="hl-panel" role="dialog" aria-modal="true" aria-labelledby="hl-panel-title" hidden>
     <div class="hl-panel__sheet">
       <div class="hl-panel__head">
         <h2 id="hl-panel-title">Panel</h2>
-        <button type="button" class="hl-panel__close" id="hl-panel-close">Close</button>
+        <button type="button" class="hl-panel__close" id="hl-panel-close">← Menu</button>
       </div>
       <p class="hl-panel__note" id="hl-panel-note"></p>
       <div id="hl-panel-body"></div>
@@ -48,11 +49,12 @@
   <div class="hl-stage" id="hl-stage" hidden>
     <img class="hl-stage__img" id="hl-stage-img" alt="" />
     <div class="hl-stage__veil" aria-hidden="true"></div>
-    <button type="button" class="hl-stage__close" id="hl-stage-close">Close</button>
+    <button type="button" class="hl-stage__close" id="hl-stage-close">← Menu</button>
     <div class="hl-stage__caption">
       <h2 id="hl-stage-title"></h2>
       <p id="hl-stage-blurb"></p>
     </div>
+    <button type="button" class="hl-stage__return" id="hl-stage-return">Return to menu</button>
   </div>
 
   <script>
@@ -73,13 +75,13 @@
       realPhoto: false,
     },
     vibelandia: {
-      label: 'Vibelandia',
-      blurb: 'SS Vibelandia — the festival and music world.',
+      label: 'SS Vibelandia',
+      blurb: 'SS Vibelandia — Holographic Goldilocks Cruiseship.',
       image: MEDIA + 'hl-vibelandia.jpg',
     },
     'bat-cave': {
       label: 'Bat cave',
-      blurb: 'The inventor cave — schematics, benches, and gold holography.',
+      blurb: 'His frontiersman work-cave — trapper timber and Batcave tech, schematics on the rock wall.',
       image: MEDIA + 'hl-bat-cave.jpg',
     },
     'duck-hunting': {
@@ -199,6 +201,7 @@
   const stageTitle = document.getElementById('hl-stage-title');
   const stageBlurb = document.getElementById('hl-stage-blurb');
   const stageClose = document.getElementById('hl-stage-close');
+  const stageReturn = document.getElementById('hl-stage-return');
 
   function openStage(scene) {
     if (!scene || !scene.image) return;
@@ -297,10 +300,15 @@
   function openEnrichment() {
     openPanel(
       'Enrichment',
-      'Recursive entry. Errands, frontier work, work, and daily life nest here — and also exist as their own top-level aspects.',
+      'His top Soft Story. Errands, frontier work, work, and daily life nest here because Enrichment is the container — and they still open as their own doors.',
       (body) => {
+        const createHint = document.createElement('p');
+        createHint.className = 'hl-panel__create';
+        createHint.innerHTML =
+          'This nest is his demonstration. <a href="/product/holographic-skin-demonstration/create/">Create yours →</a>';
+        body.appendChild(createHint);
         body.appendChild(
-          btn('Open Enrichment image', () => openStage(scenes.enrichment), 'Fullscreen Soft Story'),
+          btn('Enter Enrichment', () => openStage(scenes.enrichment), 'Fullscreen Soft Story'),
         );
 
         const ul = document.createElement('ul');
@@ -377,7 +385,15 @@
     );
   }
 
-  topLevel.forEach((item) => {
+  const gameBg = document.getElementById('hl-game-bg');
+  const defaultBg = MEDIA + 'hl-cabin-interior.jpg';
+
+  function setGameBg(url) {
+    if (!gameBg || !url) return;
+    gameBg.style.backgroundImage = 'url("' + url + '")';
+  }
+
+  topLevel.forEach((item, index) => {
     const scene = scenes[item.id];
     const label =
       item.id === 'sirens'
@@ -387,27 +403,62 @@
           : scene
             ? scene.label
             : item.id;
+    const thumb =
+      item.kind === 'sirens'
+        ? MEDIA + 'hl-siren-dorila.jpg'
+        : item.kind === 'eating'
+          ? MEDIA + 'hl-eating-drinking.jpg'
+          : scene && scene.image
+            ? scene.image
+            : defaultBg;
+
     const b = document.createElement('button');
     b.type = 'button';
-    b.className = 'hl-menu__btn';
+    b.className =
+      'hl-menu__btn' + (item.kind === 'enrichment' ? ' hl-menu__btn--primary' : '');
     b.setAttribute('role', 'listitem');
     b.dataset.kind = item.kind;
     b.dataset.id = item.id;
-    const title = document.createTextNode(label);
-    b.appendChild(title);
+    b.style.setProperty('--hl-thumb', 'url("' + thumb + '")');
+
+    const idx = document.createElement('span');
+    idx.className = 'hl-menu__idx';
+    idx.textContent = String(index + 1).padStart(2, '0');
+
+    const copy = document.createElement('span');
+    copy.className = 'hl-menu__copy';
+    const title = document.createElement('span');
+    title.className = 'hl-menu__label';
+    title.textContent = label;
+    copy.appendChild(title);
+
+    const sub = document.createElement('small');
     if (item.kind === 'enrichment') {
-      const s = document.createElement('small');
-      s.textContent = 'Recursive nest · errands · frontier · work · daily life';
-      b.appendChild(s);
+      sub.textContent = 'Continue · his Soft Story nest';
     } else if (item.kind === 'sirens') {
-      const s = document.createElement('small');
-      s.textContent = 'Dorila · Valeria · Viviana · Yeris · Erika · Winnie · Fun Fun · Monica · Sarah';
-      b.appendChild(s);
+      sub.textContent = 'Nine Soft Story portraits';
     } else if (item.kind === 'eating') {
-      const s = document.createElement('small');
-      s.textContent = 'Submenu · items list TBD';
-      b.appendChild(s);
+      sub.textContent = 'Table theater';
+    } else if (scene && scene.blurb) {
+      sub.textContent = scene.blurb.split('—')[0].trim();
     }
+    if (sub.textContent) copy.appendChild(sub);
+
+    const arrow = document.createElement('span');
+    arrow.className = 'hl-menu__go';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '›';
+
+    b.appendChild(idx);
+    b.appendChild(copy);
+    b.appendChild(arrow);
+
+    b.addEventListener('mouseenter', () => setGameBg(thumb));
+    b.addEventListener('focus', () => setGameBg(thumb));
+    b.addEventListener('mouseleave', () => {
+      if (document.activeElement !== b) setGameBg(defaultBg);
+    });
+    b.addEventListener('blur', () => setGameBg(defaultBg));
     b.addEventListener('click', () => {
       if (item.kind === 'enrichment') openEnrichment();
       else if (item.kind === 'sirens') openSirens();
@@ -419,6 +470,7 @@
 
   panelClose.addEventListener('click', closePanel);
   stageClose.addEventListener('click', closeStage);
+  if (stageReturn) stageReturn.addEventListener('click', closeStage);
   panel.addEventListener('click', (e) => {
     if (e.target === panel) closePanel();
   });
