@@ -162,11 +162,11 @@ export const DEFAULT_ACTIVITY_MAP = [
   },
   {
     id: 'default',
-    label: 'Default → Soft Story mission deck',
+    label: 'Default → Soft Story fallback picture',
     match: '.*',
     scenes: ['superhero'],
     mode: 'pin',
-    story: 'Falls through to the mission cycling deck',
+    story: 'Falls through to the pinned Soft Story fallback (no slideshow)',
   },
 ];
 
