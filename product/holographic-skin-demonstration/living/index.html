@@ -62,9 +62,32 @@
   const CHANNEL = 'hl-auto-session';
   const params = new URLSearchParams(location.search);
   var liveAuto = params.get('auto') === '1';
+  /** Once the user taps a Soft Story picture by hand, Autodetect slideshow is off until Auto Session turns it back on. */
+  var manualPinned = false;
   const companionPort = Number(params.get('companion') || 18765);
   const companionBase = 'http://127.0.0.1:' + companionPort;
   var companionPollTimer = null;
+
+  function pinManualLocal() {
+    manualPinned = true;
+    liveAuto = false;
+    stopCompanionPoll();
+    try {
+      localStorage.setItem('hl-soft-story-manual-pin', String(Date.now()));
+    } catch (e) { /* ignore */ }
+    try {
+      bc && bc.postMessage({ type: 'picture-mode', mode: 'manual', source: 'living-user', ts: Date.now() });
+    } catch (e) { /* ignore */ }
+  }
+
+  function allowAutodetect() {
+    manualPinned = false;
+    liveAuto = true;
+    try {
+      localStorage.removeItem('hl-soft-story-manual-pin');
+    } catch (e) { /* ignore */ }
+    startCompanionPoll();
+  }
   const bootSceneId = params.get('scene') || '';
   const bootStage = params.get('stage') === '1';
   const bootSiren = params.get('siren') || '';
@@ -210,6 +233,8 @@
   function openStage(scene, opts) {
     if (!scene || !scene.image) return;
     opts = opts || {};
+    // Any hand tap freezes Soft Story — no Autodetect slideshow afterward.
+    if (!opts.fromAuto) pinManualLocal();
     stageImg.src = scene.image;
     stageImg.alt = scene.label || '';
     stageTitle.textContent = scene.label || '';
@@ -259,12 +284,26 @@
   }
 
   function applyAutoScene(sceneId, imageOverride) {
+    // Hard stop: manual Soft Story picks never get overwritten by slideshow / helper.
+    if (manualPinned || !liveAuto) return;
     if (!sceneId) return;
     var scene = resolveScene(sceneId, imageOverride || null);
     if (!scene) return;
     var key = sceneId + '|' + (scene.image || '');
     if (key === lastAutoSceneId) return;
     lastAutoSceneId = key;
+    suppressMenuBroadcast = true;
+    closePanel();
+    openStage(scene, { fromAuto: true, quietFocus: true });
+    suppressMenuBroadcast = false;
+  }
+
+  function applyManualScene(sceneId, imageOverride) {
+    if (!sceneId) return;
+    var scene = resolveScene(sceneId, imageOverride || null);
+    if (!scene) return;
+    pinManualLocal();
+    lastAutoSceneId = sceneId + '|' + (scene.image || '');
     suppressMenuBroadcast = true;
     closePanel();
     openStage(scene, { fromAuto: true, quietFocus: true });
@@ -300,6 +339,7 @@
     });
     b.addEventListener('blur', () => setGameBg(defaultBg));
     b.addEventListener('click', () => {
+      pinManualLocal();
       if (isSirens) openSirens();
       else openStage(scene);
     });
@@ -319,16 +359,16 @@
   });
 
   function startCompanionPoll() {
+    if (manualPinned || !liveAuto) return;
     if (companionPollTimer) return;
     companionPollTimer = setInterval(function () {
-      if (!liveAuto) return;
+      if (manualPinned || !liveAuto) return;
       fetch(companionBase + '/state', { cache: 'no-store' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (state) {
-          if (!liveAuto) return;
+          if (manualPinned || !liveAuto) return;
           if (state && state.pictureMode === 'manual') {
-            liveAuto = false;
-            stopCompanionPoll();
+            pinManualLocal();
             return;
           }
           if (state && state.sceneId) applyAutoScene(state.sceneId, state.image || null);
@@ -349,21 +389,32 @@
       var msg = ev.data;
       if (!msg) return;
       if (msg.type === 'picture-mode') {
-        liveAuto = msg.mode === 'autodetect';
-        if (liveAuto) startCompanionPoll();
-        else stopCompanionPoll();
+        if (msg.mode === 'autodetect' && msg.source !== 'living-user') {
+          allowAutodetect();
+        } else {
+          pinManualLocal();
+        }
         return;
       }
       if (msg.type === 'select-scene' && msg.sceneId) {
-        // Manual picks always apply. Autodetect slideshow only while liveAuto.
-        if (msg.source === 'manual' || liveAuto) {
+        if (msg.source === 'manual') {
+          applyManualScene(msg.sceneId, msg.image || null);
+          return;
+        }
+        // Autodetect / companion slideshow — never while user has manually pinned.
+        if (!manualPinned && liveAuto) {
           applyAutoScene(msg.sceneId, msg.image || null);
         }
       }
     });
   }
 
-  if (liveAuto) startCompanionPoll();
+  // Honor a prior manual pin from this browser (survives reload with ?auto=1).
+  try {
+    if (localStorage.getItem('hl-soft-story-manual-pin')) pinManualLocal();
+  } catch (e) { /* ignore */ }
+
+  if (liveAuto && !manualPinned) startCompanionPoll();
 
   if (bootSiren) {
     var siren = resolveScene(bootSiren);

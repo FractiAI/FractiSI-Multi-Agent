@@ -61,8 +61,8 @@ let missionIndex = 0;
 let lastMenuSelection = null;
 /** Soft Story hold — one image for a full calm interval (default 15 minutes). */
 let cycleMs = MISSION_CYCLE_MS;
-/** Slideshow / activity mapping only when Autodetect is on. Manual freezes the picture. */
-let pictureMode = 'autodetect';
+/** Slideshow / activity mapping only when Autodetect is on. Default Manual = no slideshow. */
+let pictureMode = 'manual';
 let heldScene = {
   sceneId: SCENE,
   image: null,
