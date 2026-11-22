@@ -7,12 +7,12 @@ export const MEDIA = '/product/holographic-skin-demonstration/media/';
 export const SCENES = {
   'clark-kent': { label: 'Clark Kent', blurb: 'Ordinary day', image: MEDIA + 'hl-clark-kent.jpg' },
   superhero: { label: 'Superhero', blurb: 'Captain of SS Vibelandia', image: MEDIA + 'hl-superhero.jpg' },
-  vibelandia: { label: 'SS Vibelandia', blurb: 'Goldilocks cruiseship', image: MEDIA + 'hl-vibelandia.jpg' },
-  'bat-cave': { label: 'Bat cave', blurb: 'Work-cave', image: MEDIA + 'hl-bat-cave.jpg' },
+  vibelandia: { label: 'SS Vibelandia', blurb: 'Goldilocks cruiseship', image: MEDIA + 'hl-vibelandia.jpg?v=no-hat' },
+  'bat-cave': { label: 'Bat cave', blurb: 'Work-cave', image: MEDIA + 'hl-bat-cave.jpg?v=no-bats' },
   'frontier-work': { label: 'Frontier work', blurb: 'Labor at the edge', image: MEDIA + 'hl-frontier-work.jpg' },
   'duck-hunting': { label: 'Duck hunting', blurb: 'Hunt for deliveries', image: MEDIA + 'hl-duck-hunting.jpg' },
-  'big-game-fishing': { label: 'Big game fishing', blurb: 'Tropical marlin · hunt for a sponsor', image: MEDIA + 'hl-big-game-fishing-marlin.jpg?v=soft-hat' },
-  'bottom-fishing': { label: 'Bottom fishing', blurb: 'Lines in deep water', image: MEDIA + 'hl-bottom-fishing.jpg' },
+  'big-game-fishing': { label: 'Big game fishing', blurb: 'Tropical marlin · hunt for a sponsor', image: MEDIA + 'hl-big-game-fishing-marlin.jpg?v=fish-cap' },
+  'bottom-fishing': { label: 'Bottom fishing', blurb: 'Lines in deep water', image: MEDIA + 'hl-bottom-fishing.jpg?v=fish-cap' },
   'whatsapp-root-lab': {
     label: 'Root Lab',
     blurb: 'Root talk on the channel',
