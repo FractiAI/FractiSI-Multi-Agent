@@ -61,9 +61,10 @@
   const MEDIA = '/product/holographic-skin-demonstration/media/';
   const CHANNEL = 'hl-auto-session';
   const params = new URLSearchParams(location.search);
-  const autoMode = params.get('auto') === '1';
+  var liveAuto = params.get('auto') === '1';
   const companionPort = Number(params.get('companion') || 18765);
   const companionBase = 'http://127.0.0.1:' + companionPort;
+  var companionPollTimer = null;
   const bootSceneId = params.get('scene') || '';
   const bootStage = params.get('stage') === '1';
   const bootSiren = params.get('siren') || '';
@@ -202,13 +203,8 @@
     try {
       bc && bc.postMessage(payload);
     } catch (e) { /* ignore */ }
-    if (autoMode) {
-      fetch(companionBase + '/menu', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sceneId: payload.sceneId, label: payload.label }),
-      }).catch(function () {});
-    }
+    // Do not push Enrichment clicks into the helper slideshow while Autodetect is on —
+    // that used to break the 15‑minute Soft Story hold.
   }
 
   function openStage(scene, opts) {
@@ -322,32 +318,59 @@
     else if (panel.classList.contains('is-open')) closePanel();
   });
 
-  if (bc) {
-    bc.addEventListener('message', function (ev) {
-      var msg = ev.data;
-      if (!msg) return;
-      if (msg.type === 'select-scene' && msg.sceneId) applyAutoScene(msg.sceneId, msg.image || null);
-    });
-  }
-
-  if (autoMode) {
-    // Poll helper for held Soft Story picture — helper enforces one image / 15 min
-    setInterval(function () {
+  function startCompanionPoll() {
+    if (companionPollTimer) return;
+    companionPollTimer = setInterval(function () {
+      if (!liveAuto) return;
       fetch(companionBase + '/state', { cache: 'no-store' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (state) {
+          if (!liveAuto) return;
+          if (state && state.pictureMode === 'manual') {
+            liveAuto = false;
+            stopCompanionPoll();
+            return;
+          }
           if (state && state.sceneId) applyAutoScene(state.sceneId, state.image || null);
         })
         .catch(function () {});
     }, 5000);
   }
 
+  function stopCompanionPoll() {
+    if (companionPollTimer) {
+      clearInterval(companionPollTimer);
+      companionPollTimer = null;
+    }
+  }
+
+  if (bc) {
+    bc.addEventListener('message', function (ev) {
+      var msg = ev.data;
+      if (!msg) return;
+      if (msg.type === 'picture-mode') {
+        liveAuto = msg.mode === 'autodetect';
+        if (liveAuto) startCompanionPoll();
+        else stopCompanionPoll();
+        return;
+      }
+      if (msg.type === 'select-scene' && msg.sceneId) {
+        // Manual picks always apply. Autodetect slideshow only while liveAuto.
+        if (msg.source === 'manual' || liveAuto) {
+          applyAutoScene(msg.sceneId, msg.image || null);
+        }
+      }
+    });
+  }
+
+  if (liveAuto) startCompanionPoll();
+
   if (bootSiren) {
     var siren = resolveScene(bootSiren);
     if (siren) openStage(siren, { fromAuto: true });
   } else if (bootSceneId) {
     var boot = resolveScene(bootSceneId);
-    if (boot && bootStage) openStage(boot, { fromAuto: autoMode, quietFocus: autoMode });
+    if (boot && bootStage) openStage(boot, { fromAuto: liveAuto, quietFocus: liveAuto });
     else if (boot) setGameBg(boot.image);
   }
 })();
