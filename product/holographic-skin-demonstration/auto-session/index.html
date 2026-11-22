@@ -45,12 +45,12 @@
           <li><strong>Autodetect</strong> — the helper answers <em>what am I doing now?</em> and maps it through your Soft Story:
             <ul>
               <li>Person in the window (emailing Daniel) → that person’s skin</li>
-              <li>WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Workstation → Bat cave</li>
+              <li>WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Cursor AI → Frontier work · Other workstation → Bat cave · Sponsor hunt → Tropical marlin</li>
               <li>Nothing matched → Soft Story mission cycling deck</li>
             </ul>
           </li>
         </ol>
-        <p class="hl-as__hint">First time on a computer: run <code>npm run skin:auto-session:install</code> once so Autodetect can auto-launch the helper.</p>
+        <p class="hl-as__hint">One-time enable: run <code>npm run skin:auto-session:install</code> once. After that, Autodetect Start launches the helper automatically (and at login).</p>
       </section>
 
       <section class="hl-as__panel" aria-labelledby="hl-mode-title">
@@ -76,9 +76,9 @@
 
       <section class="hl-as__panel" aria-labelledby="hl-auto-title" id="hl-as-auto-block" hidden>
         <h2 id="hl-auto-title">Autodetect</h2>
-        <p class="hl-as__lead">Start opens the skin half right away. For live activity mapping, keep the helper running in a terminal (no scary browser popups required).</p>
-        <pre class="hl-as__code" tabindex="0">npm run skin:auto-session</pre>
-        <p class="hl-as__hint">Optional one-time auto-launch: <code>npm run skin:auto-session:install</code>. Mission deck images swap every 15 minutes so the Soft Story stays calming.</p>
+        <p class="hl-as__lead">Start opens the skin half and automatically starts the Soft Story helper. One-time install wires that permanently (protocol + login autostart).</p>
+        <pre class="hl-as__code" tabindex="0">npm run skin:auto-session:install</pre>
+        <p class="hl-as__hint">After install, Autodetect Start auto-launches the helper — no terminal each time. Soft Story holds <strong>one image for 15 minutes</strong> before the next (calm, not a fast slideshow).</p>
         <div class="hl-as__actions" role="group" aria-label="Autodetect controls">
           <button type="button" class="hl-game__cta" id="hl-as-start">Start Autodetect now</button>
           <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-open-skin">Open skin half</button>
@@ -146,7 +146,7 @@
 
       <section class="hl-as__panel" aria-labelledby="hl-deck-title" id="hl-as-deck-block">
         <h2 id="hl-deck-title">Mission cycling deck</h2>
-        <p class="hl-as__lead">When you are not matched to a person or app theater, Autodetect calmly swaps this Soft Story mission set every <strong>15 minutes</strong> — subtle, not attention-getting.</p>
+        <p class="hl-as__lead">Autodetect holds each Soft Story picture for <strong>15 minutes</strong> before the next one (person skins can interrupt). This mission set is what cycles when nothing else is matched — calm, one image at a time.</p>
         <p class="hl-as__hint" id="hl-as-deck-list">—</p>
         <label class="hl-as__field">
           <span>Deck scene ids (comma separated)</span>
@@ -157,7 +157,7 @@
 
       <section class="hl-as__panel" aria-labelledby="hl-config-title" id="hl-as-rules-block">
         <h2 id="hl-config-title">Soft Story app theaters</h2>
-        <p class="hl-as__lead">Real apps map to Enrichment scenes — WhatsApp is the Root behavior lab, Uber Eats is duck hunting, Suno / cigar lounge playlists are the restroom behavioral lab, your workstation is the Bat cave. Reorder or flip pin/cycle. Person skins still win when a name is in the window.</p>
+        <p class="hl-as__lead">Real apps map to Enrichment scenes — WhatsApp is the Root behavior lab, Uber Eats is duck hunting, Suno / cigar lounge playlists are the restroom behavioral lab, Cursor AI is Frontier work, other workstations are the Bat cave, sponsor hunt apps are tropical marlin fishing. Reorder or flip pin/cycle. Person skins still win when a name is in the window.</p>
         <label class="hl-as__field">
           <span>Other half app name (for window split hints)</span>
           <input id="hl-as-other" type="text" maxlength="80" value="Cursor" autocomplete="off" placeholder="Cursor, Slack, Mail, Chrome…" />

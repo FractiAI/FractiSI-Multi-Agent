@@ -93,7 +93,8 @@ export function personMatches(person, hay) {
 export function guessActivityKind(hay) {
   if (/mail|outlook|thunderbird|gmail|inbox|compose/i.test(hay)) return 'email';
   if (/slack|discord|whatsapp|messages|telegram|signal|chat/i.test(hay)) return 'chat';
-  if (/cursor|visual studio code|vscode|windsurf|zed|code -/i.test(hay)) return 'code';
+  if (/cursor/i.test(hay)) return 'frontier';
+  if (/visual studio code|vscode|windsurf|zed|code -/i.test(hay)) return 'code';
   if (/terminal|kitty|alacritty|iterm|powershell|warp|konsole/i.test(hay)) return 'terminal';
   if (/chrome|firefox|safari|edge|brave|chromium/i.test(hay)) return 'browser';
   if (/zoom|meet|teams|webex/i.test(hay)) return 'call';
