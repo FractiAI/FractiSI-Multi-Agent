@@ -4,16 +4,16 @@
  * Priority:
  *  1. Person / relationship skins (email Daniel → Daniel's image)
  *  2. Activity rules (mail, code, chat, …)
- *  3. Mission cycling deck (default Soft Story set)
+ *  3. Fallback Soft Story picture (first of mission deck — no timed slideshow)
  */
 
 export const PEOPLE_STORAGE_KEY = 'hl-soft-story-people-v1';
 export const MISSION_DECK_KEY = 'hl-soft-story-mission-deck-v1';
 
-/** Calm Soft Story mission deck — one subtle swap every 15 minutes (not attention-getting). */
+/** Legacy constant — Soft Story no longer timed-rotates (slideshow removed). */
 export const MISSION_CYCLE_MS = 15 * 60 * 1000;
 
-/** Default Soft Story mission / Enrichment deck — cycles when no person hit. */
+/** Default Soft Story fallback deck — first entry is the pinned fallback (no slideshow). */
 export const DEFAULT_MISSION_DECK = [
   'superhero',
   'vibelandia',
@@ -127,11 +127,12 @@ export function resolveContext({
 
   if (!hay.trim() || isSkinSelfWindow(hay)) {
     const deck = missionDeck.length ? missionDeck : [fallbackScene];
-    const idx = missionIndex % deck.length;
+    // Pin fallback — no slideshow rotation
+    const idx = 0;
     return {
-      sceneId: deck[idx],
+      sceneId: deck[idx] || fallbackScene,
       source: 'mission-deck',
-      doing: 'Holding Soft Story mission set (skin window or idle)',
+      doing: 'Holding Soft Story fallback picture (skin window or idle)',
       kind: 'idle',
       personId: null,
       matchedRule: null,
@@ -171,18 +172,14 @@ export function resolveContext({
 
     const scenes = Array.isArray(rule.scenes) && rule.scenes.length ? rule.scenes : null;
 
-    // Catch-all default → Soft Story mission cycling deck
+    // Catch-all default → pinned Soft Story fallback (no slideshow)
     if (rule.id === 'default') {
       const deck = missionDeck.length ? missionDeck : scenes || [fallbackScene];
-      const get =
-        cycleBuckets instanceof Map
-          ? cycleBuckets.get(rule.id) || missionIndex
-          : cycleBuckets[rule.id] || missionIndex;
-      const idx = get % deck.length;
+      const idx = 0;
       return {
-        sceneId: deck[idx],
+        sceneId: deck[idx] || fallbackScene,
         source: 'mission-deck',
-        doing: 'Soft Story mission deck (no app theater / person match)',
+        doing: 'Soft Story fallback picture (no app theater / person match)',
         kind,
         personId: null,
         matchedRule: rule.id,
@@ -191,12 +188,10 @@ export function resolveContext({
       };
     }
 
+    // Pin first scene — cycle mode no longer advances on a timer (slideshow removed)
     let cycleIndex = 0;
-    if (rule.mode === 'cycle' && scenes) {
-      cycleIndex =
-        (cycleBuckets instanceof Map ? cycleBuckets.get(rule.id) || 0 : cycleBuckets[rule.id] || 0) %
-        scenes.length;
-    }
+    void cycleBuckets;
+    void missionIndex;
     const sceneId = scenes ? scenes[cycleIndex] || scenes[0] : fallbackScene;
     const story = rule.story || rule.label;
     return {
@@ -211,13 +206,13 @@ export function resolveContext({
     };
   }
 
-  // 3) Mission deck fallback
+  // 3) Pinned Soft Story fallback (no slideshow)
   const deck = missionDeck.length ? missionDeck : [fallbackScene];
-  const idx = missionIndex % deck.length;
+  const idx = 0;
   return {
-    sceneId: deck[idx],
+    sceneId: deck[idx] || fallbackScene,
     source: 'mission-deck',
-    doing: 'Soft Story mission set',
+    doing: 'Soft Story fallback picture',
     kind,
     personId: null,
     matchedRule: null,

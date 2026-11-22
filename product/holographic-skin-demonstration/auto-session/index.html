@@ -46,7 +46,7 @@
             <ul>
               <li>Person in the window (emailing Daniel) → that person’s skin</li>
               <li>WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Cursor AI → Frontier work · Other workstation → Bat cave · Sponsor hunt → Tropical marlin</li>
-              <li>Nothing matched → Soft Story mission cycling deck</li>
+              <li>Nothing matched → pinned Soft Story fallback picture (no slideshow)</li>
             </ul>
           </li>
         </ol>
@@ -58,14 +58,14 @@
         <div class="hl-as__mode" role="radiogroup" aria-label="Picture mode">
           <label class="hl-as__mode-opt">
             <input type="radio" name="hl-as-mode" id="hl-as-mode-manual" value="manual" checked />
-            <span><strong>Manual</strong> — I select the images (no slideshow)</span>
+            <span><strong>Manual</strong> — I select the images</span>
           </label>
           <label class="hl-as__mode-opt" id="hl-as-mode-auto-label">
             <input type="radio" name="hl-as-mode" id="hl-as-mode-auto" value="autodetect" />
-            <span><strong>Autodetect</strong> — start helper + select from detected activity</span>
+            <span><strong>Autodetect</strong> — start helper + select from detected activity (no slideshow)</span>
           </label>
         </div>
-        <p class="hl-as__hint" id="hl-as-mode-hint">Manual is on — slideshow off. Tap a picture below; it stays until you pick another.</p>
+        <p class="hl-as__hint" id="hl-as-mode-hint">Manual is on. Tap a picture below; it stays until you pick another. No slideshow.</p>
       </section>
 
       <section class="hl-as__panel" aria-labelledby="hl-pick-title" id="hl-as-manual-block">
@@ -78,7 +78,7 @@
         <h2 id="hl-auto-title">Autodetect</h2>
         <p class="hl-as__lead">Start opens the skin half and automatically starts the Soft Story helper. One-time install wires that permanently (protocol + login autostart).</p>
         <pre class="hl-as__code" tabindex="0">npm run skin:auto-session:install</pre>
-        <p class="hl-as__hint">After install, Autodetect Start auto-launches the helper. Soft Story holds <strong>one image for 15 minutes</strong> in Autodetect only. Manual mode freezes your pick — no slideshow.</p>
+        <p class="hl-as__hint">After install, Autodetect Start auto-launches the helper. Soft Story maps activity → one skin when context changes. There is <strong>no timed slideshow</strong>. Manual mode freezes your pick.</p>
         <div class="hl-as__actions" role="group" aria-label="Autodetect controls">
           <button type="button" class="hl-game__cta" id="hl-as-start">Start Autodetect now</button>
           <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-open-skin">Open skin half</button>
@@ -145,8 +145,8 @@
       </section>
 
       <section class="hl-as__panel" aria-labelledby="hl-deck-title" id="hl-as-deck-block">
-        <h2 id="hl-deck-title">Mission cycling deck</h2>
-        <p class="hl-as__lead">In Autodetect only: one Soft Story picture every <strong>15 minutes</strong> (person skins can interrupt). Manual mode never runs this slideshow — your tap stays until you pick another.</p>
+        <h2 id="hl-deck-title">Fallback Soft Story picture</h2>
+        <p class="hl-as__lead">When Autodetect finds no person or app theater, Soft Story holds the <strong>first</strong> scene in this list. It does not rotate on a timer. Manual mode always freezes your tap.</p>
         <p class="hl-as__hint" id="hl-as-deck-list">—</p>
         <label class="hl-as__field">
           <span>Deck scene ids (comma separated)</span>
@@ -157,14 +157,14 @@
 
       <section class="hl-as__panel" aria-labelledby="hl-config-title" id="hl-as-rules-block">
         <h2 id="hl-config-title">Soft Story app theaters</h2>
-        <p class="hl-as__lead">Real apps map to Enrichment scenes — WhatsApp is the Root behavior lab, Uber Eats is duck hunting, Suno / cigar lounge playlists are the restroom behavioral lab, Cursor AI is Frontier work, other workstations are the Bat cave, sponsor hunt apps are tropical marlin fishing. Reorder or flip pin/cycle. Person skins still win when a name is in the window.</p>
+        <p class="hl-as__lead">Real apps map to Enrichment scenes — WhatsApp is the Root behavior lab, Uber Eats is duck hunting, Suno / cigar lounge playlists are the restroom behavioral lab, Cursor AI is Frontier work, other workstations are the Bat cave, sponsor hunt apps are tropical marlin fishing. Reorder rules; Soft Story no longer timed-cycles. Person skins still win when a name is in the window.</p>
         <label class="hl-as__field">
           <span>Other half app name (for window split hints)</span>
           <input id="hl-as-other" type="text" maxlength="80" value="Cursor" autocomplete="off" placeholder="Cursor, Slack, Mail, Chrome…" />
         </label>
-        <label class="hl-as__field">
-          <span>Mission deck swap (seconds) — calm default 900 = 15 minutes</span>
-          <input id="hl-as-cycle-sec" type="number" min="900" max="7200" step="60" value="900" />
+        <label class="hl-as__field" hidden>
+          <span>Legacy mission swap (disabled — no slideshow)</span>
+          <input id="hl-as-cycle-sec" type="number" min="0" max="7200" step="60" value="0" disabled />
         </label>
         <ul class="hl-as__map" id="hl-as-map"></ul>
         <button type="button" class="hl-game__cta hl-game__cta--ghost" id="hl-as-save">Save app rules</button>

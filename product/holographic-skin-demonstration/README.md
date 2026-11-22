@@ -15,13 +15,13 @@ It answers **what am I doing now?** from the active window, then maps that to So
 
 1. **People skins** — name in the window (emailing Daniel) → that person’s image.
 2. **Soft Story app theaters** — WhatsApp → Root behavior lab · Uber Eats → Duck hunting · Suno / cigar lounge → Restroom behavioral lab · Cursor AI → Frontier work · Other workstation → Bat cave · Sponsor hunt → Tropical marlin (editable on Auto Session).
-3. **Mission cycling deck** — when nothing matched, cycle the Soft Story mission set.
+3. **Fallback Soft Story picture** — when nothing matched, hold the first mission-deck scene (no timed slideshow).
 
 ## Simple desk use
 
 1. Split screen: any work app + skin browser.
 2. **Manual** — tap pictures.
-3. **Autodetect** — helper maps activity → skins (people first, then mission deck).
+3. **Autodetect** — helper maps activity → skins (people / app theaters). No slideshow.
 
 ```bash
 npm run skin:auto-session:install   # one-time auto-launch

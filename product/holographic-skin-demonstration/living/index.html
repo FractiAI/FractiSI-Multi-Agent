@@ -62,7 +62,7 @@
   const CHANNEL = 'hl-auto-session';
   const params = new URLSearchParams(location.search);
   var liveAuto = params.get('auto') === '1';
-  /** Once the user taps a Soft Story picture by hand, Autodetect slideshow is off until Auto Session turns it back on. */
+  /** Once the user taps a Soft Story picture by hand, Autodetect mapping is off until Auto Session turns it back on. */
   var manualPinned = false;
   const companionPort = Number(params.get('companion') || 18765);
   const companionBase = 'http://127.0.0.1:' + companionPort;
@@ -226,14 +226,14 @@
     try {
       bc && bc.postMessage(payload);
     } catch (e) { /* ignore */ }
-    // Do not push Enrichment clicks into the helper slideshow while Autodetect is on —
-    // that used to break the 15‑minute Soft Story hold.
+    // Do not push Enrichment clicks into the helper while Autodetect is on —
+    // hand picks pin Manual instead.
   }
 
   function openStage(scene, opts) {
     if (!scene || !scene.image) return;
     opts = opts || {};
-    // Any hand tap freezes Soft Story — no Autodetect slideshow afterward.
+    // Any hand tap freezes Soft Story — Autodetect mapping stays off afterward.
     if (!opts.fromAuto) pinManualLocal();
     stageImg.src = scene.image;
     stageImg.alt = scene.label || '';
@@ -284,7 +284,7 @@
   }
 
   function applyAutoScene(sceneId, imageOverride) {
-    // Hard stop: manual Soft Story picks never get overwritten by slideshow / helper.
+    // Hard stop: manual Soft Story picks never get overwritten by helper mapping.
     if (manualPinned || !liveAuto) return;
     if (!sceneId) return;
     var scene = resolveScene(sceneId, imageOverride || null);
@@ -401,7 +401,7 @@
           applyManualScene(msg.sceneId, msg.image || null);
           return;
         }
-        // Autodetect / companion slideshow — never while user has manually pinned.
+        // Autodetect / companion mapping — never while user has manually pinned.
         if (!manualPinned && liveAuto) {
           applyAutoScene(msg.sceneId, msg.image || null);
         }

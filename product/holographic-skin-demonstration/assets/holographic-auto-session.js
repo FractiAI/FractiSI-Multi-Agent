@@ -13,12 +13,10 @@ import {
 } from './holographic-scene-catalog.js';
 import {
   DEFAULT_MISSION_DECK,
-  MISSION_CYCLE_MS,
   loadPeopleFromLocalStorage,
   savePeopleToLocalStorage,
   loadMissionDeckFromLocalStorage,
   saveMissionDeckToLocalStorage,
-  resolveContext,
 } from './holographic-context-engine.js';
 
 const PROTOCOL = 'fractisi-skin://start';
@@ -76,8 +74,6 @@ let pollTimer = null;
 let pictureMode = config.pictureMode || 'manual';
 let skinWindow = null;
 let launchingHelper = false;
-let localMissionIndex = 0;
-let lastLocalMissionAdvance = 0;
 let lastBroadcastImage = '';
 
 function isHandheldDevice() {
@@ -106,8 +102,8 @@ function loadConfig() {
         activityMap: parsed.activityMap?.length ? parsed.activityMap : DEFAULT_ACTIVITY_MAP,
         otherApp: parsed.otherApp || 'Cursor',
         defaultScene: parsed.defaultScene || 'superhero',
-        // Floor at 15 minutes even if an older save stored a short slideshow interval
-        cycleSeconds: Math.max(15 * 60, Number(parsed.cycleSeconds) || 15 * 60),
+        // Slideshow removed — keep field for older saves but do not rotate
+        cycleSeconds: 0,
         pictureMode: parsed.pictureMode === 'autodetect' ? 'autodetect' : 'manual',
       };
     }
@@ -118,15 +114,15 @@ function loadConfig() {
     activityMap: DEFAULT_ACTIVITY_MAP,
     otherApp: 'Cursor',
     defaultScene: 'superhero',
-    cycleSeconds: 15 * 60, // calm Soft Story deck — 15 minutes
+    cycleSeconds: 0, // no timed Soft Story slideshow
     pictureMode: 'manual',
   };
 }
 
 function saveConfig() {
   config.otherApp = (els.otherApp?.value || 'Cursor').trim() || 'Cursor';
-  // Floor at 15 minutes so the deck stays subtle / calming
-  config.cycleSeconds = Math.max(15 * 60, Number(els.cycleSec?.value) || 15 * 60);
+  // Slideshow removed — never rotate Soft Story on a timer
+  config.cycleSeconds = 0;
   config.pictureMode = pictureMode;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
   pushConfigToCompanion();
@@ -161,7 +157,7 @@ function sceneRecord(id, imageOverride) {
 }
 
 function livingHref(sceneId, opts = {}) {
-  const u = new URL('/product/holographic-skin-demonstration/living/', location.origin);
+  const u = new URL('/fractisi/holographic-living', location.origin);
   u.searchParams.set('scene', sceneId || lastSceneId);
   u.searchParams.set('stage', '1');
   const wantAuto = opts.auto === true || (opts.auto !== false && pictureMode === 'autodetect');
@@ -261,11 +257,11 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
   setText(
     els.modeHint,
     isAuto
-      ? 'Autodetect is on. Helper maps what you are doing now → Soft Story skins (people first, then mission deck).'
-      : 'Manual is on. Tap a picture below to put it on the skin half.',
+      ? 'Autodetect is on. Helper maps what you are doing now → Soft Story skins (people / app theaters). No slideshow.'
+      : 'Manual is on. Tap a picture below to put it on the skin half. No slideshow.',
   );
 
-  // Tell skin half + helper: Manual = no slideshow; Autodetect = 15‑min slides only
+  // Tell skin half + helper which picture mode is active (never a timed slideshow)
   try {
     bc?.postMessage({ type: 'picture-mode', mode: pictureMode, ts: Date.now() });
   } catch {
@@ -283,9 +279,9 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
       /* ignore */
     }
     setText(els.source, 'Manual pick');
-    setText(els.doing, 'You are choosing pictures by hand — Soft Story stays put (no slideshow)');
+    setText(els.doing, 'You are choosing pictures by hand — Soft Story stays put');
     setText(els.activity, '—');
-    setText(els.status, 'Manual mode: slideshow OFF. Your tap stays until you pick another.');
+    setText(els.status, 'Manual mode: your tap stays until you pick another. No slideshow.');
     // Always reload skin half without ?auto=1 so companion poll cannot resume.
     openOrFocusSkin(lastSceneId, { forceNav: true });
     return;
@@ -361,8 +357,8 @@ function downloadHelperStarter() {
   const ua = navigator.userAgent || '';
   const win = /Windows/i.test(ua);
   const href = win
-    ? '/product/holographic-skin-demonstration/assets/start-fractisi-skin-helper.cmd'
-    : '/product/holographic-skin-demonstration/assets/start-fractisi-skin-helper.sh';
+    ? '/interfaces/start-fractisi-skin-helper.cmd'
+    : '/interfaces/start-fractisi-skin-helper.sh';
   const a = document.createElement('a');
   a.href = href;
   a.download = win ? 'Start-FractiSI-Skin-Helper.cmd' : 'Start-FractiSI-Skin-Helper.command';
@@ -386,7 +382,7 @@ async function ensureHelperAndSession() {
     setText(els.status, 'Looking for helper…');
     if (await pingCompanion()) {
       markProtocolOk();
-      setText(els.status, 'Helper connected. Mapping activity → skins (mission deck every 15 min).');
+      setText(els.status, 'Helper connected. Mapping activity → skins (no slideshow).');
       await finishAutodetectStart({ alreadyOpened: true });
       return true;
     }
@@ -402,7 +398,7 @@ async function ensureHelperAndSession() {
       if (await pingCompanion()) {
         launchingHelper = false;
         markProtocolOk();
-        setText(els.status, 'Helper started automatically. Mapping activity → skins (mission deck every 15 min).');
+        setText(els.status, 'Helper started automatically. Mapping activity → skins (no slideshow).');
         await finishAutodetectStart({ alreadyOpened: true });
         return true;
       }
@@ -621,7 +617,9 @@ async function pushConfigToCompanion() {
         activityMap: config.activityMap,
         people,
         missionDeck,
-        cycleSeconds: Math.max(15 * 60, Number(config.cycleSeconds) || 15 * 60),
+        cycleSeconds: 0,
+        disableSlideshow: true,
+        missionCycle: false,
         pictureMode,
       }),
     });
@@ -633,7 +631,7 @@ async function pushConfigToCompanion() {
 function sourceLabel(source) {
   if (source === 'person') return 'Person skin match';
   if (source === 'app-theater') return 'Soft Story app theater';
-  if (source === 'mission-deck') return 'Soft Story mission deck';
+  if (source === 'mission-deck') return 'Soft Story fallback picture';
   if (source === 'menu') return 'Menu selection (pinned briefly)';
   if (source === 'activity') return 'App activity rule';
   if (source === 'manual') return 'Manual pick';
@@ -645,37 +643,9 @@ function sourceLabel(source) {
 async function pollState() {
   if (handheld || pictureMode !== 'autodetect') return;
   if (!(await pingCompanion())) {
-    // Offline: one Soft Story image every 15 minutes — never every poll
-    const cycleMs = Math.max(MISSION_CYCLE_MS, (config.cycleSeconds || 900) * 1000);
-    const now = Date.now();
-    if (!lastLocalMissionAdvance) lastLocalMissionAdvance = now;
-    if (now - lastLocalMissionAdvance >= cycleMs) {
-      lastLocalMissionAdvance = now;
-      localMissionIndex = (localMissionIndex + 1) % Math.max(missionDeck.length, 1);
-      const resolved = resolveContext({
-        win: { app: 'local', title: 'Soft Story offline cycle' },
-        people,
-        activityMap: config.activityMap,
-        missionDeck,
-        missionIndex: localMissionIndex,
-      });
-      setText(els.doing, 'Helper offline — one Soft Story image every 15 min');
-      setText(els.source, sourceLabel('mission-deck'));
-      if (resolved.sceneId !== lastSceneId) {
-        broadcastScene(resolved.sceneId, { source: 'mission-deck' });
-        openOrFocusSkin(resolved.sceneId);
-      }
-    } else {
-      const minsLeft = Math.max(
-        1,
-        Math.ceil((cycleMs - (now - lastLocalMissionAdvance)) / 60000),
-      );
-      setText(
-        els.doing,
-        `Helper offline — holding Soft Story picture (${minsLeft} min until next image)`,
-      );
-      setText(els.source, sourceLabel('mission-deck'));
-    }
+    // Offline: hold the current Soft Story picture — no timed slideshow
+    setText(els.doing, 'Helper offline — holding current Soft Story picture (no slideshow)');
+    setText(els.source, sourceLabel(lastSceneId ? 'mission-deck' : 'boot'));
     return;
   }
   try {
@@ -779,7 +749,7 @@ async function startSession() {
 function startPolling() {
   clearInterval(pollTimer);
   if (handheld || pictureMode !== 'autodetect') return;
-  // Poll activity often; deck itself only advances every 15 minutes
+  // Poll activity often; Soft Story no longer timed-rotates
   pollTimer = setInterval(pollState, 2000);
   pollState();
 }
@@ -791,7 +761,12 @@ function wireUi() {
   }
 
   if (els.otherApp) els.otherApp.value = config.otherApp;
-  if (els.cycleSec) els.cycleSec.value = String(config.cycleSeconds);
+  if (els.cycleSec) {
+    els.cycleSec.value = '0';
+    els.cycleSec.disabled = true;
+    const wrap = els.cycleSec.closest('label');
+    if (wrap) wrap.hidden = true;
+  }
   els.modeManual?.addEventListener('change', () => {
     if (els.modeManual.checked) setPictureMode('manual', { autoStart: false });
   });
@@ -858,7 +833,7 @@ function wireUi() {
   const boot = sceneRecord(config.defaultScene || missionDeck[0] || 'superhero');
   if (boot) updatePreview(boot);
 
-  // Default Manual (no slideshow). Autodetect only when user explicitly chose it
+  // Default Manual. Autodetect only when user explicitly chose it
   // or URL says mode=autodetect — do NOT auto-enable from helper ?started=1 alone.
   const wantAuto =
     params.get('mode') === 'autodetect' || config.pictureMode === 'autodetect';

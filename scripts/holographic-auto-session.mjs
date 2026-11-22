@@ -59,9 +59,9 @@ let people = [];
 let missionDeck = [...DEFAULT_MISSION_DECK];
 let missionIndex = 0;
 let lastMenuSelection = null;
-/** Soft Story hold — one image for a full calm interval (default 15 minutes). */
+/** Legacy field kept for /state clients — slideshow timer removed; value unused for rotation. */
 let cycleMs = MISSION_CYCLE_MS;
-/** Slideshow / activity mapping only when Autodetect is on. Default Manual = no slideshow. */
+/** Autodetect maps activity → one skin; Manual freezes the pick. No timed slideshow. */
 let pictureMode = 'manual';
 let heldScene = {
   sceneId: SCENE,
@@ -167,15 +167,9 @@ function pickScene(win) {
   });
 }
 
+/** Legacy no-op — Soft Story no longer rotates on a timer (slideshow removed). */
 function advanceCycles() {
-  for (const rule of activityMap) {
-    if (rule.mode !== 'cycle' || !rule.scenes?.length) continue;
-    const cur = cycleBuckets.get(rule.id) || 0;
-    cycleBuckets.set(rule.id, (cur + 1) % rule.scenes.length);
-  }
-  if (missionDeck.length) {
-    missionIndex = (missionIndex + 1) % missionDeck.length;
-  }
+  /* intentionally empty */
 }
 
 function adoptHeld(picked, now = Date.now()) {
@@ -257,6 +251,9 @@ async function refreshState() {
     return lastState;
   }
 
+  // Autodetect: map activity → skin when the resolved picture changes.
+  // Mission deck stays pinned at index 0 — no timed slideshow rotation.
+  missionIndex = 0;
   const picked = pickScene(win);
   let next = {
     sceneId: picked.sceneId,
@@ -271,28 +268,18 @@ async function refreshState() {
     priority: picked.priority || picked.source,
   };
 
-  const holdExpired = !heldScene.since || now - heldScene.since >= cycleMs;
   const samePicture =
     next.sceneId === heldScene.sceneId && (next.image || null) === (heldScene.image || null);
-  // Autodetect: only person skins may interrupt the 15‑minute Soft Story hold.
-  // App theaters / mission deck wait for the full interval — no fast slideshow.
-  const personInterrupt = next.priority === 'person' && !samePicture;
 
-  if (personInterrupt || holdExpired || !heldScene.sceneId) {
-    if (!samePicture || holdExpired) adoptHeld(next, now);
-    else {
-      heldScene.doing = next.doing;
-      heldScene.kind = next.kind;
-      heldScene.source = next.source;
-      heldScene.priority = next.priority;
-    }
+  if (!heldScene.sceneId || !samePicture) {
+    adoptHeld(next, now);
   } else {
-    const minsLeft = Math.max(1, Math.ceil((cycleMs - (now - heldScene.since)) / 60000));
-    heldScene.doing = `${next.doing} · holding Soft Story picture (${minsLeft} min left)`;
+    heldScene.doing = next.doing;
     heldScene.kind = next.kind;
+    heldScene.source = next.source;
+    heldScene.priority = next.priority;
   }
 
-  const remaining = Math.max(0, cycleMs - (now - heldScene.since));
   lastState = {
     activeApp: win?.app || '',
     title: win?.title || '',
@@ -313,8 +300,9 @@ async function refreshState() {
     menu: lastMenuSelection,
     peopleCount: people.length,
     missionDeck,
-    holdMs: cycleMs,
-    holdRemainingMs: remaining,
+    holdMs: 0,
+    holdRemainingMs: 0,
+    slideshow: false,
     split: lastState.split,
   };
   return lastState;
@@ -532,15 +520,19 @@ const server = http.createServer(async (req, res) => {
         missionIndex = 0;
       }
       if (body.cycleSeconds != null) {
-        // Floor at 15 minutes — Soft Story slideshow stays calm
-        cycleMs = Math.max(MISSION_CYCLE_MS, Number(body.cycleSeconds) * 1000 || MISSION_CYCLE_MS);
+        // Ignored for rotation — slideshow removed; keep value only for older clients.
+        cycleMs = Math.max(0, Number(body.cycleSeconds) * 1000 || 0);
+      }
+      if (body.disableSlideshow === true || body.missionCycle === false) {
+        missionIndex = 0;
+        cycleMs = 0;
       }
       if (body.pictureMode === 'manual' || body.pictureMode === 'autodetect') {
         pictureMode = body.pictureMode;
         if (pictureMode === 'autodetect') {
-          // Fresh 15‑minute hold when entering Autodetect
           heldScene.since = Date.now();
           lastMenuSelection = null;
+          missionIndex = 0;
         }
       }
       await refreshState();
@@ -612,27 +604,14 @@ server.listen(PORT, '127.0.0.1', async () => {
     });
   }
 
-  // Calm mission advances — Autodetect only, one Soft Story image every 15 minutes
-  function scheduleMissionAdvance() {
-    setTimeout(() => {
-      if (pictureMode === 'autodetect') {
-        advanceCycles();
-        // Release hold so the next mission image can show (only after full interval)
-        heldScene.since = 0;
-        refreshState().catch(() => {});
-      }
-      scheduleMissionAdvance();
-    }, cycleMs);
-  }
-  scheduleMissionAdvance();
-
-  // Fast poll for "what am I doing now?" — picture swaps only when Autodetect hold expires
+  // No timed mission advances — Soft Story slideshow removed.
+  // Poll activity; picture changes only when Manual picks or Autodetect context mapping changes.
   setInterval(() => {
     refreshState().catch(() => {});
   }, 2000);
 
   console.log(
-    `[hl-auto-session] Soft Story: Autodetect = one image / ${Math.round(cycleMs / 60000)} min; Manual = freeze (no slideshow)`,
+    '[hl-auto-session] Soft Story: Autodetect = activity→skin map (no slideshow); Manual = freeze',
   );
 });
 
