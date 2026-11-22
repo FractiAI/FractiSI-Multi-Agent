@@ -164,10 +164,12 @@ function livingHref(sceneId, opts = {}) {
   const u = new URL('/product/holographic-skin-demonstration/living/', location.origin);
   u.searchParams.set('scene', sceneId || lastSceneId);
   u.searchParams.set('stage', '1');
-  if (opts.auto || pictureMode === 'autodetect') {
+  const wantAuto = opts.auto === true || (opts.auto !== false && pictureMode === 'autodetect');
+  if (wantAuto) {
     u.searchParams.set('auto', '1');
     u.searchParams.set('companion', String(companionPort));
   }
+  // Manual: deliberately omit auto=1 so the skin half never runs the slideshow poll
   return u.href;
 }
 
@@ -263,12 +265,23 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
       : 'Manual is on. Tap a picture below to put it on the skin half.',
   );
 
+  // Tell skin half + helper: Manual = no slideshow; Autodetect = 15‑min slides only
+  try {
+    bc?.postMessage({ type: 'picture-mode', mode: pictureMode, ts: Date.now() });
+  } catch {
+    /* ignore */
+  }
+  pushConfigToCompanion();
+
   if (!isAuto) {
     clearInterval(pollTimer);
     pollTimer = null;
     setText(els.source, 'Manual pick');
-    setText(els.doing, 'You are choosing pictures by hand');
+    setText(els.doing, 'You are choosing pictures by hand — Soft Story stays put (no slideshow)');
     setText(els.activity, '—');
+    setText(els.status, 'Manual mode: no slideshow. Tap a picture to pin it on the skin half.');
+    // Strip ?auto=1 from skin half so it stops polling the helper
+    openOrFocusSkin(lastSceneId, { forceNav: true });
     return;
   }
 
@@ -460,13 +473,13 @@ function appendPick(id, label, image, blurb) {
     broadcastScene(id, { source: 'manual', image });
     setText(els.source, 'Manual pick');
     setText(els.doing, `You chose ${label}`);
-    setText(els.status, `Showing ${label} on the skin half.`);
-    openOrFocusSkin(id);
+    setText(els.status, `Showing ${label} on the skin half — Manual mode, no slideshow.`);
+    openOrFocusSkin(id, { forceNav: true });
     if (companionOnline) {
       fetch(`${companionBase}/menu`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sceneId: id, label, image }),
+        body: JSON.stringify({ sceneId: id, label, image, source: 'manual', forceManual: true }),
       }).catch(() => {});
     }
   });
@@ -595,6 +608,7 @@ async function pushConfigToCompanion() {
         people,
         missionDeck,
         cycleSeconds: Math.max(15 * 60, Number(config.cycleSeconds) || 15 * 60),
+        pictureMode,
       }),
     });
   } catch {
