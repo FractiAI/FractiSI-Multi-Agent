@@ -11,7 +11,7 @@ export const SCENES = {
   'bat-cave': { label: 'Bat cave', blurb: 'Work-cave', image: MEDIA + 'hl-bat-cave.jpg' },
   'frontier-work': { label: 'Frontier work', blurb: 'Labor at the edge', image: MEDIA + 'hl-frontier-work.jpg' },
   'duck-hunting': { label: 'Duck hunting', blurb: 'Hunt for deliveries', image: MEDIA + 'hl-duck-hunting.jpg' },
-  'big-game-fishing': { label: 'Big game fishing', blurb: 'Tropical marlin · hunt for a sponsor', image: MEDIA + 'hl-big-game-fishing.jpg' },
+  'big-game-fishing': { label: 'Big game fishing', blurb: 'Tropical marlin · hunt for a sponsor', image: MEDIA + 'hl-big-game-fishing-marlin.jpg' },
   'bottom-fishing': { label: 'Bottom fishing', blurb: 'Lines in deep water', image: MEDIA + 'hl-bottom-fishing.jpg' },
   'whatsapp-root-lab': {
     label: 'Root Lab',
