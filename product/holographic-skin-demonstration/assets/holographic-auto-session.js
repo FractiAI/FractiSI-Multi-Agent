@@ -271,22 +271,36 @@ async function setPictureMode(mode, { autoStart = true } = {}) {
   } catch {
     /* ignore */
   }
-  pushConfigToCompanion();
+  // Await helper freeze so a late /state poll cannot flip the Soft Story picture.
+  await pushConfigToCompanion();
 
   if (!isAuto) {
     clearInterval(pollTimer);
     pollTimer = null;
+    try {
+      localStorage.setItem('hl-soft-story-manual-pin', String(Date.now()));
+    } catch {
+      /* ignore */
+    }
     setText(els.source, 'Manual pick');
     setText(els.doing, 'You are choosing pictures by hand — Soft Story stays put (no slideshow)');
     setText(els.activity, '—');
-    setText(els.status, 'Manual mode: no slideshow. Tap a picture to pin it on the skin half.');
-    // Strip ?auto=1 from skin half so it stops polling the helper
+    setText(els.status, 'Manual mode: slideshow OFF. Your tap stays until you pick another.');
+    // Always reload skin half without ?auto=1 so companion poll cannot resume.
     openOrFocusSkin(lastSceneId, { forceNav: true });
     return;
   }
 
+  try {
+    localStorage.removeItem('hl-soft-story-manual-pin');
+  } catch {
+    /* ignore */
+  }
   if (autoStart) await ensureHelperAndSession();
-  else startPolling();
+  else {
+    openOrFocusSkin(lastSceneId, { forceNav: true });
+    startPolling();
+  }
 }
 
 function protocolLikelyInstalled() {
@@ -467,13 +481,13 @@ function appendPick(id, label, image, blurb) {
   btn.innerHTML =
     `<span class="hl-as__pick-label">${escapeHtml(label)}</span>` +
     `<small>${escapeHtml(blurb || '')}</small>`;
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', async () => {
     if (handheld) return;
-    setPictureMode('manual', { autoStart: false });
+    await setPictureMode('manual', { autoStart: false });
     broadcastScene(id, { source: 'manual', image });
     setText(els.source, 'Manual pick');
     setText(els.doing, `You chose ${label}`);
-    setText(els.status, `Showing ${label} on the skin half — Manual mode, no slideshow.`);
+    setText(els.status, `Showing ${label} — Manual mode, slideshow OFF.`);
     openOrFocusSkin(id, { forceNav: true });
     if (companionOnline) {
       fetch(`${companionBase}/menu`, {
@@ -822,16 +836,19 @@ function wireUi() {
   });
   bc?.addEventListener('message', (ev) => {
     const msg = ev.data;
+    // Living page announces user hand-picked a scene — force Manual, never feed slideshow.
+    if (msg?.type === 'picture-mode' && msg.mode === 'manual' && msg.source === 'living-user') {
+      if (pictureMode !== 'manual') setPictureMode('manual', { autoStart: false });
+      return;
+    }
     if (!msg || msg.type !== 'menu-selection') return;
     setText(els.source, 'Menu selection');
     setText(els.doing, `Menu: ${msg.label || msg.sceneId}`);
-    if (msg.sceneId) broadcastScene(msg.sceneId, { source: 'menu', image: msg.image });
-    if (companionOnline) {
-      fetch(`${companionBase}/menu`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sceneId: msg.sceneId, label: msg.label, image: msg.image }),
-      }).catch(() => {});
+    // Do NOT rebroadcast as select-scene — that caused Soft Story to keep flipping while browsing.
+    if (pictureMode === 'manual' && msg.sceneId) {
+      lastSceneId = msg.sceneId;
+      const rec = sceneRecord(msg.sceneId, msg.image || null);
+      if (rec) updatePreview(rec);
     }
   });
   renderPeople();
@@ -841,10 +858,10 @@ function wireUi() {
   const boot = sceneRecord(config.defaultScene || missionDeck[0] || 'superhero');
   if (boot) updatePreview(boot);
 
+  // Default Manual (no slideshow). Autodetect only when user explicitly chose it
+  // or URL says mode=autodetect — do NOT auto-enable from helper ?started=1 alone.
   const wantAuto =
-    params.get('mode') === 'autodetect' ||
-    params.get('started') === '1' ||
-    config.pictureMode === 'autodetect';
+    params.get('mode') === 'autodetect' || config.pictureMode === 'autodetect';
   setPictureMode(wantAuto ? 'autodetect' : 'manual', { autoStart: wantAuto });
   if (!wantAuto) pingCompanion();
 }
