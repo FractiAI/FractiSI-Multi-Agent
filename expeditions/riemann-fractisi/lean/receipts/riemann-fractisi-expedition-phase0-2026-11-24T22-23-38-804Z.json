@@ -1,0 +1,125 @@
+{
+  "schema": "fractisi.riemann-expedition.timing.v1",
+  "label": "riemann-fractisi-expedition",
+  "phase": "0",
+  "startedAt": "2026-11-24T22:23:38.804Z",
+  "endedAt": "2026-11-24T22:23:44.007Z",
+  "durationSeconds": 5.202824,
+  "leanGate": {
+    "ran": true,
+    "ok": true,
+    "meaning": "lake build (+ riemann-check) green; Phase-0 sorry-free; RH remains unproved"
+  },
+  "fractisiKit": {
+    "invoked": true,
+    "path": "/workspace/scripts/tiny.mjs",
+    "ok": true
+  },
+  "comparison": {
+    "baselineName": "Anthropic Fable 5.2 FLT Lean formalization (~30h)",
+    "baselineHours": 30,
+    "baselineSeconds": 108000,
+    "wallClockSeconds": 5.202824,
+    "naiveSpeedupFactor": 20757.959,
+    "caveat": "Speedup is wall-clock of this harness/phase vs published ~30h FLT formalization baseline. Different theorem, different model stack, different agent count — methodology comparison only, not a like-for-like bake-off."
+  },
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "anthropicRiemannPrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicRiemannCharacterization": "Improved critical-line zero lower bound 41.6% → 67.2%; did not prove RH",
+    "anthropic30hBaselinePrimary": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "anthropic30hBaselineCharacterization": "Fable 5.2 ~1000-agent FLT Lean formalization ≈28.7–30h (methodology baseline; not RH)",
+    "nonClaims": [
+      "Does not claim CapEx / HBM / LLM bake-off wins",
+      "Does not claim RH solved",
+      "Phase-0 Nat model is not Mathlib complex analysis of ζ"
+    ]
+  },
+  "steps": [
+    {
+      "name": "tiny-init",
+      "cmd": "/exec-daemon/node /workspace/scripts/tiny.mjs init",
+      "status": 0,
+      "signal": null,
+      "stdout": "[tiny] init · FractiSI · FractiSI Multi-Agent 0.2.0 · core tech Tiny Footprint\n[tiny] project · /workspace\n[tiny] state · /workspace/.fractisi/state.json\n[tiny] config · /workspace/.fractisi/fractisi.config.json\n[tiny] git · main@85642a8\n[tiny] Next: node scripts/tiny.mjs status\n[tiny] Tiers: community | developer_pro | team | enterprise | cloud",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "tiny-status",
+      "cmd": "/exec-daemon/node /workspace/scripts/tiny.mjs status",
+      "status": 0,
+      "signal": null,
+      "stdout": "[tiny] status · FractiSI · FractiSI Multi-Agent 0.2.0 · core tech Tiny Footprint\n[tiny] tier · community\n[tiny] agents · 0 total / 0 active\n[tiny] tasks · 0 total / 0 open\n[tiny] conflicts · 0\n[tiny] contributions · 0\n[tiny] compositions · 0\n[tiny] git · main dirty=true",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "tiny-agents-register-lead",
+      "cmd": "/exec-daemon/node /workspace/scripts/tiny.mjs agents register lead expedition",
+      "status": 0,
+      "signal": null,
+      "stdout": "[tiny] registered · agent_4a7ba4cd (expedition)",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "tiny-agents-register-lemma-worker",
+      "cmd": "/exec-daemon/node /workspace/scripts/tiny.mjs agents register lemma-worker expedition",
+      "status": 0,
+      "signal": null,
+      "stdout": "[tiny] registered · agent_ed59ddcf (expedition)",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "tiny-agents-register-referee",
+      "cmd": "/exec-daemon/node /workspace/scripts/tiny.mjs agents register referee expedition",
+      "status": 0,
+      "signal": null,
+      "stdout": "[tiny] registered · agent_da798038 (expedition)",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "tiny-agents-register-lean-builder",
+      "cmd": "/exec-daemon/node /workspace/scripts/tiny.mjs agents register lean-builder expedition",
+      "status": 0,
+      "signal": null,
+      "stdout": "[tiny] registered · agent_21f7812e (expedition)",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "lake-build",
+      "cmd": "/home/ubuntu/.elan/bin/lake build",
+      "status": 0,
+      "signal": null,
+      "stdout": "Build completed successfully.",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "riemann-check-stage",
+      "cmd": "cp /cursor/stores/bc-5f890757-f860-40c7-8eb6-ef97e80afa11/docs/riemann-lean/.lake/build/bin/riemann-check /tmp/riemann-check-3837",
+      "status": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "name": "riemann-check",
+      "cmd": "/tmp/riemann-check-3837",
+      "status": 0,
+      "signal": null,
+      "stdout": "riemann-expedition · scaffold OK\nphase0 lemmas proved: 8\nRH claim status: OPEN — Riemann hypothesis is not proved in this repository",
+      "stderr": "",
+      "error": null
+    }
+  ],
+  "paths": {
+    "leanRoot": "/cursor/stores/bc-5f890757-f860-40c7-8eb6-ef97e80afa11/docs/riemann-lean",
+    "receipt": "/cursor/stores/bc-5f890757-f860-40c7-8eb6-ef97e80afa11/docs/riemann-lean/receipts/riemann-fractisi-expedition-phase0-2026-11-24T22-23-38-804Z.json"
+  }
+}
