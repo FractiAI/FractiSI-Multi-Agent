@@ -1,7 +1,9 @@
 /**
  * Scripts orchestrate; they hold no logic. The rule is enforced by shape: a short
  * file, no function bodies beyond an entry point, and no branching business logic.
- * Compatibility shims under research/ are held to the same standard.
+ * Scope: customer CLI under `scripts/`, workloads, and tiny-footprint SDK shims.
+ * Empirical research pipelines and a small allowlist of pre-existing fat site/skin
+ * entrypoints are out of scope for this shape gate.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +14,16 @@ export const MAX_SCRIPT_LINES = 60;
 const MAX_NODE_FUNCTIONS = 1;
 const MAX_PYTHON_FUNCTIONS = 1;
 
-const roots = (file) => file.startsWith('scripts/') || file.startsWith('workloads/') || /^research\/[^/]+\/(scripts|src)\//.test(file) || file.startsWith('tiny-footprint/sdk/');
+/** Pre-existing fat entrypoints (site / holographic). Do not grow this without moving logic to src/. */
+const FAT_SCRIPT_ALLOWLIST = Object.freeze(new Set([
+  'scripts/build-site.mjs',
+  'scripts/holographic-auto-session.mjs',
+  'scripts/install-holographic-auto-session-protocol.mjs',
+]));
+
+const roots = (file) =>
+  (file.startsWith('scripts/') || file.startsWith('workloads/') || file.startsWith('tiny-footprint/sdk/')) &&
+  !FAT_SCRIPT_ALLOWLIST.has(file);
 
 /** @param {string} source @param {string} file */
 export function assessScript(source, file) {

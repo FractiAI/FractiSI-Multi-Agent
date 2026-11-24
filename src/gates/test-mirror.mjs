@@ -9,7 +9,13 @@ import { REPO_ROOT } from '../core/paths.mjs';
 import { listFiles } from './files.mjs';
 
 /** Test folders with no source counterpart, each with a stated purpose in its guide. */
-export const NON_MIRRORED_TEST_ROOTS = Object.freeze(['tests/fixtures/', 'tests/integration/']);
+export const NON_MIRRORED_TEST_ROOTS = Object.freeze([
+  'tests/fixtures/',
+  'tests/integration/',
+  // Research / site suites exercise trees outside src/ (see their AGENTS.md).
+  'tests/research/',
+  'tests/site/',
+]);
 
 /** A module whose only statements are re-exports. */
 export function isBarrel(source) {

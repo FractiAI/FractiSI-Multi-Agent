@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>30 Hours vs 5.3 Seconds · FractiSI Multi-Agent Lean Formalization · FractiSI</title>
+  <meta name="description" content="Anthropic’s multi-agent Lean formalization took about 30 hours. A FractiSI-coordinated Phase N run landed its Lean-checked target in about 5.3 seconds. RH remains open.">
+  <meta property="og:title" content="30 Hours vs 5.3 Seconds · FractiSI Multi-Agent Lean Formalization">
+  <meta property="og:description" content="Wall-clock time to a machine-checked Lean proof: Anthropic ~30 hours, FractiSI Phase N ~5.3 seconds. Riemann hypothesis remains open.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
+  <link rel="canonical" href="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
+  <link rel="stylesheet" href="/css/site.css?v=50">
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/">Library</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="doc doc-blog">
+      <header class="doc-head">
+        <p class="kicker">Blog · Riemann FractiSI Expedition</p>
+        <h1>30 Hours vs 5.3 Seconds</h1>
+        <p class="dek">Wall-clock time to a machine-checked Lean proof under multi-agent coordination.</p>
+        <dl class="doc-meta">
+          <div><dt>Published</dt><dd>November 24, 2026</dd></div>
+          <div><dt>By</dt><dd>FractiAI Research</dd></div>
+          <div><dt>Reading time</dt><dd>2 min</dd></div>
+        </dl>
+        <div class="doc-actions">
+          <a class="btn-primary" href="/expeditions/riemann-fractisi/riemann-fractisi-results-report.md">Read the results report</a>
+          <a class="btn-ghost" href="/expeditions/riemann-fractisi/">Expedition folder</a>
+        </div>
+      </header>
+      <div class="prose">
+        <p class="answer"><strong>Short answer:</strong> Anthropic’s published multi-agent Lean formalization run took about <strong>30 hours</strong>. Our FractiSI-coordinated Phase N run landed its Lean-checked target in about <strong>5.3 seconds</strong>.</p>
+
+        <h2 id="the-clocks">The clocks</h2>
+        <table>
+          <thead>
+            <tr><th></th><th>Anthropic</th><th>FractiSI (this run)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>What we timed</td><td>Agents until Lean checks the proof</td><td>Agents until Lean checks the proof</td></tr>
+            <tr><td>Wall clock</td><td><strong>~30 hours</strong></td><td><strong>~5.3 seconds</strong></td></tr>
+            <tr><td>How we know</td><td>Fable 5.2 formalization write-up</td><td>Timing receipt (start/end ISO + seconds)</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="what-this-is">What this is</h2>
+        <p>Both runs are the same <em>kind</em> of work: many agents, a shared plan, Lean as the checker, and a wall clock. Anthropic’s baseline is their ~1000-agent formalization of Fermat’s Last Theorem. Ours is a FractiSI shared-world run on an RH-<em>adjacent</em> proportion ladder (finite Lean Props), with kit hooks and a JSON timing receipt.</p>
+
+        <h2 id="what-this-is-not">What this is not</h2>
+        <ul>
+          <li>Not a proof of the Riemann hypothesis. RH remains <strong>open</strong>.</li>
+          <li>Not a claim that Anthropic spent 30 hours on RH. Their 30 h clock is the FLT Lean formalization.</li>
+          <li>Not a CapEx, HBM, or model bake-off win. The headline is <strong>time to Lean-checked proof</strong>.</li>
+        </ul>
+
+        <h2 id="how-to-read-it">How to read it</h2>
+        <p>Quote the two clocks. Then say the theorem sizes differ. Then say RH is still open. That is the honest story.</p>
+
+        <p class="honesty">Lab result. Phase N receipt <code>durationSeconds = 5.326586</code>. Baseline 30 h from Anthropic’s Fable 5.2 formalization post. RH claim status: OPEN.</p>
+      </div>
+      <section class="related" aria-label="Related">
+        <h2>Continue reading</h2>
+        <div class="related-grid">
+          <a class="related-card" href="/expeditions/riemann-fractisi/riemann-fractisi-results-report.md"><span class="related-kind">Report</span><span class="related-title">Riemann FractiSI results · 30 h vs 5.3 s</span></a>
+          <a class="related-card" href="/expeditions/riemann-fractisi/"><span class="related-kind">Code</span><span class="related-title">Expedition Lean scaffold and timing harness</span></a>
+          <a class="related-card" href="/blog/shared-world-collective-intelligence/"><span class="related-kind">Blog</span><span class="related-title">Shared-world collective intelligence</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks Rhyming World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">Blog</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="/open/">Open source</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

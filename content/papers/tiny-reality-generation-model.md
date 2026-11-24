@@ -242,7 +242,7 @@ What to prioritize in the next version:
 5. **Functional reality catalog** — store each generated structure’s recipe, parameters, multiscale tree, spatial representation, validation metrics, and version so it can be retrieved, regenerated, compared, and recombined.  
 6. **Separate biology track** — a computational DNA-inspired representation is a legitimate research architecture; claims about molecular mechanisms inside living chromosomes require independent biological evidence.
 
-Shipped as ENGINE_SHELF **#51**: [`docs/SYNTHOBS_TRGM_PREDICTIVE_REALITY_CATALOG_EGS_2026-10.md`](SYNTHOBS_TRGM_PREDICTIVE_REALITY_CATALOG_EGS_2026-10.md) · `/ship-blog/trgm-predictive-reality-catalog` · suite `research/synthobs-trgm-predictive-reality-catalog/`.
+Shipped as ENGINE_SHELF **#51**: [`trgm-predictive-reality-catalog.md`](trgm-predictive-reality-catalog.md) · `/ship-blog/trgm-predictive-reality-catalog` · suite `research/synthobs-trgm-predictive-reality-catalog/`.
 
 ---
 

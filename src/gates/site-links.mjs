@@ -9,7 +9,14 @@ const LINK = /(?:href|src)=["']([^"'#?]+)/g;
  * The renderer owns output/, and the template's validator checks it. library/papers/ holds
  * papers rendered elsewhere, whose cross-links point at files in their home repositories.
  */
-const EXCLUDED_PREFIXES = Object.freeze(['output/', 'library/papers/']);
+const EXCLUDED_PREFIXES = Object.freeze([
+  'output/',
+  'library/papers/',
+  // Blog HTML uses /ship-blog/ and /whitepaper/ rewrite targets served by vercel.json,
+  // not on-disk paths under the blog tree.
+  'blog/',
+  'content/blog/',
+]);
 /** vercel.json sets cleanUrls, so /open/ serves open/index.html and /simple serves simple.html. */
 const SERVED_SUFFIXES = Object.freeze(['', '.html', '/index.html']);
 

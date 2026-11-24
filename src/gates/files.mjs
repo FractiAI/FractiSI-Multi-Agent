@@ -3,7 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export const EXCLUDED_DIRS = Object.freeze(new Set([
-  '.git', 'node_modules', '.venv', '.venv-cuda', '__pycache__', '.pytest_cache', '.ruff_cache', '.mypy_cache', '.claude', 'graft', 'htmlcov', '.coverage',
+  '.git', 'node_modules', '.venv', '.venv-cuda', '__pycache__', '.pytest_cache', '.ruff_cache', '.mypy_cache', '.claude',
+  // Tool-owned editor / agent config — not product trees
+  '.cursor', '.vscode',
+  // Local platform / try sandbox state (gitignored); must not poison folder guides mid-suite
+  '.fractisi',
+  'graft', 'htmlcov', '.coverage',
 ]));
 
 /**

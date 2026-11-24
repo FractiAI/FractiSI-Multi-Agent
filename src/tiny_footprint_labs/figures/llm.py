@@ -23,13 +23,20 @@ def completed_runs(summary: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def largest_accelerator_run(summary: dict[str, Any]) -> dict[str, Any]:
-    """The run with the largest key-value cache that also has allocator readings."""
-    readable = [
-        run for run in completed_runs(summary) if run["residency"]["duplicated"]["deviceAllocatedBytes"] is not None
-    ]
-    if not readable:
+    """Largest completed residency run, preferring ones with device-allocator readings.
+
+    CI hosts often have CPU-only receipts (`deviceAllocatedBytes` is null). Prefer an
+    allocator-backed accelerator run when present; otherwise fall back to the largest
+    completed run so figure rebuild still works. Empty/no-pass input still errors.
+    """
+    runs = completed_runs(summary)
+    if not runs:
         raise ValueError("no real-model run read a device allocator; run scripts/run_llm_matrix.py on an accelerator")
-    return max(readable, key=lambda run: run["residency"]["kvBytesPerTokenFormula"])
+    readable = [
+        run for run in runs if run["residency"]["duplicated"]["deviceAllocatedBytes"] is not None
+    ]
+    pool = readable or runs
+    return max(pool, key=lambda run: run["residency"]["kvBytesPerTokenFormula"])
 
 
 def _run_label(run: dict[str, Any]) -> str:
@@ -105,14 +112,17 @@ def llm_prefill(summary: dict[str, Any], out_dir: Path) -> FigureRecord:
 
 
 def kv_residency(summary: dict[str, Any], out_dir: Path) -> FigureRecord:
-    """Key-value bytes held live, duplicated versus shared prefix, by three accountings."""
+    """Key-value bytes held live, duplicated versus shared prefix, by available accountings."""
     run = largest_accelerator_run(summary)
     residency = run["residency"]
-    measures = (
+    candidates = (
         ("Formula", "formulaBytes"),
         ("Tensor bytes", "logicalBytes"),
         ("Device allocator", "deviceAllocatedBytes"),
     )
+    measures = [(label, key) for label, key in candidates if residency["duplicated"].get(key) is not None]
+    if not measures:
+        raise ValueError("residency run has no formula/logical/device byte accountings to plot")
     fig, ax = plt.subplots(figsize=(FULL_WIDTH_IN, 2.8))
     width = 0.34
     for index, (_, key) in enumerate(measures):
@@ -136,18 +146,26 @@ def kv_residency(summary: dict[str, Any], out_dir: Path) -> FigureRecord:
     )
     ax.margins(y=0.12)
     save_figure(fig, out_dir / "kv_residency.png")
+    device_reduction = residency["reduction"].get("device")
+    device_clause = (
+        f" and the device allocator {percent(device_reduction)}"
+        if device_reduction is not None
+        else " (device allocator not read on this host)"
+    )
+    accounting_n = len(measures)
     return FigureRecord(
         label="fig:kv_residency",
         filename="kv_residency.png",
         caption=(
             f"Key-value cache held live for {residency['sessions']} sessions of {run['model']['id']} on "
             f"{run['backend'].upper()}: {residency['prefixTokens']} shared prefix tokens and {residency['suffixTokens']} tokens per "
-            f"session, by three accountings. Sharing the prefix is predicted to save {percent(residency['reduction']['predicted'])}; "
-            f"summed tensor sizes give {percent(residency['reduction']['logical'])} and the device allocator "
-            f"{percent(residency['reduction']['device'])}."
+            f"session, by {accounting_n} accounting{'s' if accounting_n != 1 else ''}. Sharing the prefix is predicted to save "
+            f"{percent(residency['reduction']['predicted'])}; summed tensor sizes give {percent(residency['reduction']['logical'])}"
+            f"{device_clause}."
         ),
         alt_text=(
-            f"Grouped bars of bytes under three accountings. Duplicated holds about {residency['duplicated']['logicalBytes'] / MIB:.0f} MiB "
+            f"Grouped bars of bytes under {accounting_n} accountings. Duplicated holds about "
+            f"{residency['duplicated']['logicalBytes'] / MIB:.0f} MiB "
             f"and shared about {residency['shared']['logicalBytes'] / MIB:.0f} MiB in each."
         ),
         generated_by=GENERATOR,
