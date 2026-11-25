@@ -16,6 +16,7 @@ Classical gaps (comments only — not claimed closed):
   GAP: Γ′/Γ Stirling for the archimedean density μ.
 Do **not** treat InventClassicalMainInputs as discharged.
 Sibling InventTraces owns TraceResidual / classical-input assembly reduction;
+sibling InventWeilEF owns FE / digamma / pole / Ncount→∞ contour scaffolding;
 this file invents the Weil FT surface and the residue-rate → little-o bridge.
 -/
 import InventMainEstimate

@@ -8,6 +8,7 @@ Paper-guided FractiSI invent of Alpöge–Furman ladder lemmas (arXiv:2608.13637
 - `InventRvM.lean` — Ncount comparisons, strip/packing majorants, local→dyadic reduction
 - `InventRvMGrowth.lean` — FE reflection, Re≥2 centre, Jensen packaging → `local_count` (gap: strip growth)
 - `InventWeil.lean` — TestC2 / paperFT / Hfn / WeilResidueRates → InventErrorLittleO
+- `InventWeilEF.lean` — Weil EF contour scaffold (FE · digamma · poles · Ncount→∞ reductions)
 - `InventTraces.lean` — residual / moment / spectral scaffolding toward InventTracesLike
 - `InventPrimeTraces.lean` — Chebyshev prime-side envelopes → InventTracesAt / residualFamily
 - `InventEndgame.lean` — ChallengeDeps seam + glue → invent_<edge>

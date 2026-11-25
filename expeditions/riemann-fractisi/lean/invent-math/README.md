@@ -10,6 +10,7 @@ Challenge-only Lean invent toward Theorems A–E. **No** Anthropic `Zeta23` impo
 | `InventRvM.lean` | Ncount comparisons + strip/packing + local→dyadic reduction |
 | `InventRvMGrowth.lean` | reflection + Re≥2 + Jensen scaffolding toward `local_count` |
 | `InventWeil.lean` | TestC2 / paperFT / WeilResidueRates → InventErrorLittleO |
+| `InventWeilEF.lean` | Weil EF contour scaffold (FE · digamma · poles · Ncount→∞) |
 | `InventTraces.lean` | Residual / moment / spectral scaffolding → InventTracesLike |
 | `InventPrimeTraces.lean` | Chebyshev prime-side envelopes → InventTracesAt / residualFamily |
 | `InventEndgame.lean` | Seam + glue → invent_<edge> seeds |

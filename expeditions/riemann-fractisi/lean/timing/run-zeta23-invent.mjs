@@ -344,6 +344,7 @@ function writeInventLakefile(
     withInventRvM = false,
     withInventRvMGrowth = false,
     withInventWeil = false,
+    withInventWeilEF = false,
     withInventTraces = false,
     withInventPrimeTraces = false,
   } = {},
@@ -404,6 +405,14 @@ name = "InventWeil"
 roots = ["InventWeil"]
 `
       : '';
+  const inventWeilEFLib =
+    withInventMath && withInventWeil && withInventWeilEF
+      ? `
+[[lean_lib]]
+name = "InventWeilEF"
+roots = ["InventWeilEF"]
+`
+      : '';
   const inventTracesLib =
     withInventMath && withInventTraces
       ? `
@@ -436,6 +445,7 @@ roots = ["RhymeApply"]
   if (withInventRvM) libs.push('InventRvM');
   if (withInventRvMGrowth) libs.push('InventRvMGrowth');
   if (withInventWeil) libs.push('InventWeil');
+  if (withInventWeilEF) libs.push('InventWeilEF');
   if (withInventTraces) libs.push('InventTraces');
   if (withInventPrimeTraces) libs.push('InventPrimeTraces');
   if (withRhymeApply) libs.push('RhymeApply');
@@ -579,6 +589,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   const inventRvMSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvM.lean');
   const inventRvMGrowthSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvMGrowth.lean');
   const inventWeilSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventWeil.lean');
+  const inventWeilEFSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventWeilEF.lean');
   const inventTracesSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventTraces.lean');
   const inventPrimeTracesSrc = join(
     resolve(__dirname, '..'),
@@ -591,6 +602,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   let withInventRvM = false;
   let withInventRvMGrowth = false;
   let withInventWeil = false;
+  let withInventWeilEF = false;
   let withInventTraces = false;
   let withInventPrimeTraces = false;
   if (withInventMath) {
@@ -622,6 +634,10 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
       cpSync(inventWeilSrc, join(INVENT_ROOT, 'InventWeil.lean'));
       withInventWeil = true;
     }
+    if (existsSync(inventWeilEFSrc) && withInventWeil) {
+      cpSync(inventWeilEFSrc, join(INVENT_ROOT, 'InventWeilEF.lean'));
+      withInventWeilEF = true;
+    }
     if (existsSync(inventTracesSrc)) {
       cpSync(inventTracesSrc, join(INVENT_ROOT, 'InventTraces.lean'));
       withInventTraces = true;
@@ -640,6 +656,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventRvM,
     withInventRvMGrowth,
     withInventWeil,
+    withInventWeilEF,
     withInventTraces,
     withInventPrimeTraces,
   });
@@ -700,6 +717,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventRvM,
     withInventRvMGrowth,
     withInventWeil,
+    withInventWeilEF,
     withInventTraces,
     withInventPrimeTraces,
     leaks: assertNoSealedLeak(INVENT_ROOT),
@@ -752,6 +770,7 @@ function main() {
   const withInventRvM = Boolean(prep.withInventRvM);
   const withInventRvMGrowth = Boolean(prep.withInventRvMGrowth);
   const withInventWeil = Boolean(prep.withInventWeil);
+  const withInventWeilEF = Boolean(prep.withInventWeilEF);
   const withInventTraces = Boolean(prep.withInventTraces);
   const withInventPrimeTraces = Boolean(prep.withInventPrimeTraces);
   if (prep.leaks.length) {
@@ -811,6 +830,7 @@ function main() {
       withInventRvM,
       withInventRvMGrowth,
       withInventWeil,
+      withInventWeilEF,
       withInventTraces,
       withInventPrimeTraces,
     });
