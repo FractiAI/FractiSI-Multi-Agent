@@ -343,6 +343,7 @@ function writeInventLakefile(
     withInventMainEstimate = false,
     withInventRvM = false,
     withInventRvMGrowth = false,
+    withInventRvMMain = false,
     withInventWeil = false,
     withInventWeilEF = false,
     withInventTraces = false,
@@ -397,6 +398,14 @@ name = "InventRvMGrowth"
 roots = ["InventRvMGrowth"]
 `
       : '';
+  const inventRvMMainLib =
+    withInventMath && withInventEndgame && withInventRvM && withInventRvMMain
+      ? `
+[[lean_lib]]
+name = "InventRvMMain"
+roots = ["InventRvMMain"]
+`
+      : '';
   const inventWeilLib =
     withInventMath && withInventWeil
       ? `
@@ -444,6 +453,7 @@ roots = ["RhymeApply"]
   if (withInventEndgame) libs.push('InventEndgame');
   if (withInventRvM) libs.push('InventRvM');
   if (withInventRvMGrowth) libs.push('InventRvMGrowth');
+  if (withInventRvMMain) libs.push('InventRvMMain');
   if (withInventWeil) libs.push('InventWeil');
   if (withInventWeilEF) libs.push('InventWeilEF');
   if (withInventTraces) libs.push('InventTraces');
@@ -471,7 +481,7 @@ roots = ["ChallengeDeps"]
 [[lean_lib]]
 name = "Challenge"
 roots = ["Challenge"]
-${inventMathLib}${inventAnalyticLib}${inventMainEstimateLib}${inventEndgameLib}${inventRvMLib}${inventRvMGrowthLib}${inventWeilLib}${inventTracesLib}${inventPrimeTracesLib}${rhymeApplyLib}
+${inventMathLib}${inventAnalyticLib}${inventMainEstimateLib}${inventEndgameLib}${inventRvMLib}${inventRvMGrowthLib}${inventRvMMainLib}${inventWeilLib}${inventTracesLib}${inventPrimeTracesLib}${rhymeApplyLib}
 [[lean_lib]]
 name = "Solution"
 roots = ["Solution"]
@@ -588,6 +598,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   const inventEndgameSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventEndgame.lean');
   const inventRvMSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvM.lean');
   const inventRvMGrowthSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvMGrowth.lean');
+  const inventRvMMainSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvMMain.lean');
   const inventWeilSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventWeil.lean');
   const inventWeilEFSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventWeilEF.lean');
   const inventTracesSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventTraces.lean');
@@ -601,6 +612,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   let withInventMainEstimate = false;
   let withInventRvM = false;
   let withInventRvMGrowth = false;
+  let withInventRvMMain = false;
   let withInventWeil = false;
   let withInventWeilEF = false;
   let withInventTraces = false;
@@ -630,6 +642,10 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
       cpSync(inventRvMGrowthSrc, join(INVENT_ROOT, 'InventRvMGrowth.lean'));
       withInventRvMGrowth = true;
     }
+    if (existsSync(inventRvMMainSrc) && withInventRvM) {
+      cpSync(inventRvMMainSrc, join(INVENT_ROOT, 'InventRvMMain.lean'));
+      withInventRvMMain = true;
+    }
     if (existsSync(inventWeilSrc)) {
       cpSync(inventWeilSrc, join(INVENT_ROOT, 'InventWeil.lean'));
       withInventWeil = true;
@@ -655,6 +671,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventMainEstimate,
     withInventRvM,
     withInventRvMGrowth,
+    withInventRvMMain,
     withInventWeil,
     withInventWeilEF,
     withInventTraces,
@@ -716,6 +733,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventMainEstimate,
     withInventRvM,
     withInventRvMGrowth,
+    withInventRvMMain,
     withInventWeil,
     withInventWeilEF,
     withInventTraces,
@@ -769,6 +787,7 @@ function main() {
   const withInventMainEstimate = Boolean(prep.withInventMainEstimate);
   const withInventRvM = Boolean(prep.withInventRvM);
   const withInventRvMGrowth = Boolean(prep.withInventRvMGrowth);
+  const withInventRvMMain = Boolean(prep.withInventRvMMain);
   const withInventWeil = Boolean(prep.withInventWeil);
   const withInventWeilEF = Boolean(prep.withInventWeilEF);
   const withInventTraces = Boolean(prep.withInventTraces);
