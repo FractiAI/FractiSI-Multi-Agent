@@ -8,6 +8,7 @@ Challenge-only Lean invent toward Theorems A–E. **No** Anthropic `Zeta23` impo
 | `InventAnalytic.lean` | Chebyshev–Mertens [eq:cheb1] from Mathlib |
 | `InventMainEstimate.lean` | `InventClassicalMainInputs` → `MainEstimateHfunN0star` |
 | `InventRvM.lean` | Ncount comparisons + strip/packing + local→dyadic reduction |
+| `InventRvMGrowth.lean` | reflection + Re≥2 + Jensen scaffolding toward `local_count` |
 | `InventWeil.lean` | TestC2 / paperFT / WeilResidueRates → InventErrorLittleO |
 | `InventTraces.lean` | Residual / moment / spectral scaffolding → InventTracesLike |
 | `InventPrimeTraces.lean` | Chebyshev prime-side envelopes → InventTracesAt / residualFamily |

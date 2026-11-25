@@ -6,6 +6,7 @@ Paper-guided FractiSI invent of Alpöge–Furman ladder lemmas (arXiv:2608.13637
 - `InventAnalytic.lean` — Chebyshev–Mertens [eq:cheb1] bricks (ψ≪x, cheb1b/c/d)
 - `InventMainEstimate.lean` — classical Prop packaging → `MainEstimateHfunN0star`
 - `InventRvM.lean` — Ncount comparisons, strip/packing majorants, local→dyadic reduction
+- `InventRvMGrowth.lean` — FE reflection, Re≥2 centre, Jensen packaging → `local_count` (gap: strip growth)
 - `InventWeil.lean` — TestC2 / paperFT / Hfn / WeilResidueRates → InventErrorLittleO
 - `InventTraces.lean` — residual / moment / spectral scaffolding toward InventTracesLike
 - `InventPrimeTraces.lean` — Chebyshev prime-side envelopes → InventTracesAt / residualFamily

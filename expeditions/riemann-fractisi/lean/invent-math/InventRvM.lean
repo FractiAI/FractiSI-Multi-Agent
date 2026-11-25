@@ -18,7 +18,9 @@ Classical target (comments only — not claimed):
   ∃ A₀ ≥ 1, ∀ t, Ncount t (t+1) ≤ A₀ * log(|t|+3)
 GAP: needs ζ growth / argument-principle density (Tit86 Thm 9.2). Mathlib supplies
 discrete zeros ∩ compact ⇒ finite, not a uniform log-density constant.
-Do **not** treat `InventRvMLike` as discharged: Tit86 uniform constant remains open.
+See `InventRvMGrowth.lean` for reflection + Re≥2 + Jensen packaging reducing
+`local_count` to `ZetaRightStripGrowth` (still open). Do **not** treat
+`InventRvMLike` as discharged: Tit86 uniform constant remains open.
 -/
 import ChallengeDeps
 import InventEndgame
