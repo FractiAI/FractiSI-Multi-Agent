@@ -2,19 +2,20 @@
 
 ## Core finding
 
-FractiSI coordinated four agents to Lean-verified finite RH-adjacent propositions in **~5.3 seconds**.
+**Matched ablation (real trial):** same frozen Lean payload bytes, two arms, work inside the clock, hard Lean gate.
 
-Anthropic’s published FLT Lean formalization took **~30 hours**. That is a reference scale, not a same-theorem race. RH remains **OPEN**.
+| Arm | Mean wall clock (5 runs) | Tasks | Contributions | Compositions | Hard gate |
+|---|---|---|---|---|---|
+| no-kit sequential write | **~1.29 s** | 0 | 0 | 0 | pass ×5 |
+| FractiSI compose + git | **~10.8 s** | 4 | 4 | 1 | pass ×5 |
 
-| Anthropic reference | FractiSI Phase N |
-|---|---|
-| **~30 hours** (FLT formalization) | **~5.3 seconds** (finite Props) |
+FractiSI’s coordination path is slower than a sequential write on this frozen-payload rebuild. The trial measures kit overhead and coordination evidence — not LLM proof search, and not a 30 h FLT comparison. RH remains **OPEN**.
 
 - **Paper:** [`/library/papers/riemann-fractisi-expedition/`](/library/papers/riemann-fractisi-expedition/)
 - **Blog:** [`/blog/riemann-fractisi-expedition/`](/blog/riemann-fractisi-expedition/)
 - **Results:** [`riemann-fractisi-results-report.md`](./riemann-fractisi-results-report.md)
 - **Plan:** [`riemann-fractisi-expedition-plan.md`](./riemann-fractisi-expedition-plan.md)
-- **Lean + harness + receipts:** [`lean/`](./lean/)
+- **Lean + ablation harness + receipts:** [`lean/`](./lean/)
 
 ## Quick check
 
@@ -22,7 +23,9 @@ Anthropic’s published FLT Lean formalization took **~30 hours**. That is a ref
 export PATH="$HOME/.elan/bin:$PATH"
 cd lean
 lake build
-node timing/run-expedition.mjs --phase N --tiny ../../../scripts/tiny.mjs
+node timing/run-ablation.mjs
 ```
 
-Anthropic grounding: [Riemann zeta bound](https://www.anthropic.com/research/riemann-zeta) · [~30h FLT formalization](https://www.anthropic.com/claude-fable-and-mythos-5-2).
+Legacy rebuild-only harness (not the matched trial): `node timing/run-expedition.mjs --phase N --tiny ../../../scripts/tiny.mjs`
+
+Anthropic grounding (context only): [Riemann zeta bound](https://www.anthropic.com/research/riemann-zeta) · [~30h FLT formalization](https://www.anthropic.com/claude-fable-and-mythos-5-2).

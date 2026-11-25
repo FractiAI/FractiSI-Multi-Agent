@@ -2,10 +2,10 @@
 # Critical-line model (abstract, Nat-only)
 
 We model the real part of a nontrivial zero as a pair of naturals `(num, den)`
-representing `num/den`, avoiding Mathlib so Phase 0 stays minutes-scale.
+representing `num/den`, avoiding Mathlib so the scaffold stays minutes-scale.
 
-This is a **scaffolding** model for formalization workflow, not a substitute
-for complex analysis of `ζ`.
+This is a **scaffolding** model for harness tests, not a substitute for complex
+analysis of `ζ`, and not the Riemann hypothesis.
 -/
 
 namespace RiemannExpedition.CriticalLine
@@ -39,21 +39,22 @@ theorem offLine_not_on_critical_line : ¬ OnCriticalLine offLine := by
   rintro ⟨_, h⟩
   exact (by decide : ¬ 2 * (3 : Nat) = 4) h
 
-/-- Computable RH check for a finite sample of modeled zeros.
+/-- Computable critical-line check for a finite sample of modeled points.
     Proving the analogous statement for true ζ zeros is exactly RH — we do not. -/
-def checkRH (zeros : List RealPart) : Bool :=
+def checkAllOnCriticalLine (zeros : List RealPart) : Bool :=
   zeros.all onCriticalLineB
 
-/-- Prop wrapper: the finite sample passes the critical-line check. -/
-def RiemannHypothesis (zeros : List RealPart) : Prop :=
-  checkRH zeros = true
+/-- Prop wrapper: every entry in a finite sample passes the critical-line check.
+    Renamed away from `RiemannHypothesis` — this is not RH. -/
+def FiniteSampleOnCriticalLine (zeros : List RealPart) : Prop :=
+  checkAllOnCriticalLine zeros = true
 
 /-- Example zeros used only for scaffold tests (not claimed zeta zeros). -/
 def scaffoldZeros : List RealPart := [half, half, half]
 
-theorem scaffoldZeros_checkRH : checkRH scaffoldZeros = true := rfl
+theorem scaffoldZeros_checkAllOnCriticalLine : checkAllOnCriticalLine scaffoldZeros = true := rfl
 
-theorem scaffoldZeros_satisfy_RH : RiemannHypothesis scaffoldZeros :=
-  scaffoldZeros_checkRH
+theorem scaffoldZeros_all_on_critical_line : FiniteSampleOnCriticalLine scaffoldZeros :=
+  scaffoldZeros_checkAllOnCriticalLine
 
 end RiemannExpedition.CriticalLine

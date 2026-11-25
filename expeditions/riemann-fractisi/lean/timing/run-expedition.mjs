@@ -212,19 +212,23 @@ function main() {
       ran: !args.skipLake,
       ok: leanOk,
       meaning:
-        'lake build (+ riemann-check) green; Phase-0 sorry-free; RH remains unproved',
+        'lake build (+ riemann-check) green; Phase-0 modules have no incomplete proofs; RH remains unproved. Prefer run-ablation.mjs hard gate for science claims.',
     },
     fractisiKit: kit,
     comparison: {
-      baselineName: 'Anthropic Fable 5.2 FLT Lean formalization (~30h)',
+      note:
+        'LEGACY harness — registry hooks + rebuild only. For the matched FractiSI vs no-kit trial use timing/run-ablation.mjs. The 30h FLT figure is context, not a speed lead.',
+      baselineName: 'Anthropic Fable 5.2 FLT Lean formalization (~30h) — context only',
       baselineHours: args.compareBaselineHours,
       baselineSeconds,
       wallClockSeconds: Number(durationSeconds.toFixed(6)),
-      naiveSpeedupFactor: speedupVsBaseline
+      naiveSpeedupFactor: null,
+      naiveSpeedupFactorWithdrawn: true,
+      withdrawnReason:
+        'Unlike-activity ratio removed from receipts; see ablation schema fractisi.riemann-expedition.ablation.v1',
+      legacyComputedRatioIfForced: speedupVsBaseline
         ? Number(speedupVsBaseline.toFixed(3))
         : null,
-      caveat:
-        'Speedup is wall-clock of this harness/phase vs published ~30h FLT formalization baseline. Different theorem, different model stack, different agent count — methodology comparison only, not a like-for-like bake-off.',
     },
     honesty,
     steps,

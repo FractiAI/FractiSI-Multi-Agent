@@ -8,6 +8,11 @@ export const EXCLUDED_DIRS = Object.freeze(new Set([
   '.cursor', '.vscode',
   // Local platform / try sandbox state (gitignored); must not poison folder guides mid-suite
   '.fractisi',
+  // Lean / Lake build trees and ablation sandboxes (gitignored)
+  '.lake',
+  '.ablation-sandbox',
+  '.ablation-sandbox-test',
+  '.ablation-axioms',
   'graft', 'htmlcov', '.coverage',
 ]));
 

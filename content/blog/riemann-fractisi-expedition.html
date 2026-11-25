@@ -1,22 +1,24 @@
-<h2>What happened</h2>
-<p>Four FractiSI agents — lead, lemma worker, referee, and Lean builder — shared one world through Tiny Gateway, built finite RH-adjacent Lean propositions, and obtained machine checks with no <code>sorry</code>. Phase N wall clock: <strong>5.326586 seconds</strong>.</p>
+<h2>Matched trial</h2>
+<p>Same frozen Lean payload bytes. Two arms. Work inside the clock. Hard gate on both.</p>
 
-<h2>What was proved</h2>
+<h2>What each arm does</h2>
 <ul>
-  <li>Finite proportion-ladder propositions</li>
-  <li>Monotonicity relationships</li>
-  <li>A finite Hardy-style witness on a scaffold of zeros</li>
-</ul>
-<p>Not proved: the full analytic literature results, and not the Riemann hypothesis. RH remains <strong>OPEN</strong>.</p>
-
-<h2>How to read the clocks</h2>
-<ul>
-  <li>Anthropic reference: ~30 hours — FLT Lean formalization (~1000 agents)</li>
-  <li>FractiSI Phase N: ~5.3 seconds — four agents, smaller finite Props</li>
-  <li>Nominal ratio ~20,300× from 30 h ÷ 5.326586 s — <strong>not</strong> a controlled speedup</li>
+  <li><strong>No-kit</strong> — sequential write of four modules, then <code>lake build</code> + forbidden-token scan</li>
+  <li><strong>FractiSI</strong> — four agents claim tasks, submit contributions, compose, git-integrate, then the same hard gate</li>
 </ul>
 
-<h2>Core finding</h2>
-<p>FractiSI can coordinate a small mathematical team, produce useful formal results, and get them Lean-verified in seconds. The deeper open question is whether shared-world coordination reduces the work required for verified progress when both systems face the same theorem.</p>
+<h2>Measured (5 runs)</h2>
+<ul>
+  <li>No-kit mean <strong>1.29 s</strong> · FractiSI mean <strong>10.8 s</strong> (coordination path overhead on this workload)</li>
+  <li>FractiSI every run: <strong>tasks 4, contributions 4, compositions 1</strong></li>
+  <li>No-kit every run: <strong>0 / 0 / 0</strong></li>
+  <li>Both arms hard-gate green ×5</li>
+</ul>
 
-<p class="honesty">Lab result · Phase N receipt durationSeconds = 5.326586 · Anthropic 30 h baseline is FLT formalization, not RH · RH claim status OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
+<h2>What this is not</h2>
+<p>Not LLM proof search. Not a 30 h vs 5.3 s efficiency claim (that lead stays withdrawn). Not a proof of RH — status remains <strong>OPEN</strong>.</p>
+
+<h2>Reproduce</h2>
+<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-ablation.mjs</code></p>
+
+<p class="honesty">Matched ablation · hard Lean gate · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>

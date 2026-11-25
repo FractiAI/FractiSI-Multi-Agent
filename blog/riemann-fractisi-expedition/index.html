@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds? · FractiSI</title>
-  <meta name="description" content="Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.">
-  <meta property="og:title" content="Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?">
-  <meta property="og:description" content="Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.">
+  <title>A Matched FractiSI Vs No-Kit Lean Ablation · FractiSI</title>
+  <meta name="description" content="Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.">
+  <meta property="og:title" content="A Matched FractiSI Vs No-Kit Lean Ablation">
+  <meta property="og:description" content="Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
   <link rel="canonical" href="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
@@ -30,8 +30,8 @@
     <article class="doc doc-blog">
       <header class="doc-head">
         <p class="kicker">Blog · Riemann FractiSI Expedition</p>
-        <h1>Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?</h1>
-        <p class="dek">Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.</p>
+        <h1>A Matched FractiSI Vs No-Kit Lean Ablation</h1>
+        <p class="dek">Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.</p>
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>November 24, 2026</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
@@ -44,35 +44,37 @@
         </div>
       </header>
       <div class="prose">
-<p class="answer"><strong>Short answer: Yes as a workflow demonstration.</strong> Four FractiSI agents produced Lean-checked finite RH-adjacent propositions in 5.3 seconds with no sorry. The Anthropic ~30 h FLT clock is a reference scale, not a same-theorem race. RH remains OPEN.</p>
-<h2 id="what-happened">What happened</h2>
-<p>Four FractiSI agents — lead, lemma worker, referee, and Lean builder — shared one world through Tiny Gateway, built finite RH-adjacent Lean propositions, and obtained machine checks with no <code>sorry</code>. Phase N wall clock: <strong>5.326586 seconds</strong>.</p>
+<p class="answer"><strong>Short answer: This is a matched FractiSI vs no-kit ablation.</strong> Same frozen payloads in-clock; FractiSI records tasks 4 / contributions 4 / compositions 1; no-kit 0/0/0. Mean ~1.29 s vs ~10.8 s over five runs. RH remains OPEN.</p>
+<h2 id="matched-trial">Matched trial</h2>
+<p>Same frozen Lean payload bytes. Two arms. Work inside the clock. Hard gate on both.</p>
 
-<h2 id="what-was-proved">What was proved</h2>
+<h2 id="what-each-arm-does">What each arm does</h2>
 <ul>
-  <li>Finite proportion-ladder propositions</li>
-  <li>Monotonicity relationships</li>
-  <li>A finite Hardy-style witness on a scaffold of zeros</li>
-</ul>
-<p>Not proved: the full analytic literature results, and not the Riemann hypothesis. RH remains <strong>OPEN</strong>.</p>
-
-<h2 id="how-to-read-the-clocks">How to read the clocks</h2>
-<ul>
-  <li>Anthropic reference: ~30 hours — FLT Lean formalization (~1000 agents)</li>
-  <li>FractiSI Phase N: ~5.3 seconds — four agents, smaller finite Props</li>
-  <li>Nominal ratio ~20,300× from 30 h ÷ 5.326586 s — <strong>not</strong> a controlled speedup</li>
+  <li><strong>No-kit</strong> — sequential write of four modules, then <code>lake build</code> + forbidden-token scan</li>
+  <li><strong>FractiSI</strong> — four agents claim tasks, submit contributions, compose, git-integrate, then the same hard gate</li>
 </ul>
 
-<h2 id="core-finding">Core finding</h2>
-<p>FractiSI can coordinate a small mathematical team, produce useful formal results, and get them Lean-verified in seconds. The deeper open question is whether shared-world coordination reduces the work required for verified progress when both systems face the same theorem.</p>
+<h2 id="measured-5-runs">Measured (5 runs)</h2>
+<ul>
+  <li>No-kit mean <strong>1.29 s</strong> · FractiSI mean <strong>10.8 s</strong> (coordination path overhead on this workload)</li>
+  <li>FractiSI every run: <strong>tasks 4, contributions 4, compositions 1</strong></li>
+  <li>No-kit every run: <strong>0 / 0 / 0</strong></li>
+  <li>Both arms hard-gate green ×5</li>
+</ul>
 
-<p class="honesty">Lab result · Phase N receipt durationSeconds = 5.326586 · Anthropic 30 h baseline is FLT formalization, not RH · RH claim status OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
+<h2 id="what-this-is-not">What this is not</h2>
+<p>Not LLM proof search. Not a 30 h vs 5.3 s efficiency claim (that lead stays withdrawn). Not a proof of RH — status remains <strong>OPEN</strong>.</p>
+
+<h2 id="reproduce">Reproduce</h2>
+<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-ablation.mjs</code></p>
+
+<p class="honesty">Matched ablation · hard Lean gate · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
 
       </div>
       <section class="related" aria-label="Related">
       <h2>Continue reading</h2>
       <div class="related-grid">
-        <a class="related-card" href="/library/papers/riemann-fractisi-expedition/"><span class="related-kind">Paper</span><span class="related-title">Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?</span></a>
+        <a class="related-card" href="/library/papers/riemann-fractisi-expedition/"><span class="related-kind">Paper</span><span class="related-title">A Matched FractiSI Vs No-Kit Lean Ablation</span></a>
         <a class="related-card" href="/blog/adversarial-world/"><span class="related-kind">Blog</span><span class="related-title">Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?</span></a>
         <a class="related-card" href="/blog/cancer-rhyme-expedition/"><span class="related-kind">Blog</span><span class="related-title">Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?</span></a>
       </div>

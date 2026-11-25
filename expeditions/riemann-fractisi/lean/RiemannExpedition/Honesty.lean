@@ -12,7 +12,7 @@ def rhClaimStatus : String :=
 
 /-- What a green `lake build` means for this expedition. -/
 def passMeans : String :=
-  "lake build succeeds; Phase-0/N claimed modules contain no sorry; RH remains unproved; analytic ζ formalization may still be deferred"
+  "lake build succeeds; Phase-0/N claimed modules have no incomplete proofs; RH remains unproved; analytic ζ formalization may still be deferred"
 
 /-- Explicit non-claim. -/
 theorem we_do_not_claim_RH : True := trivial

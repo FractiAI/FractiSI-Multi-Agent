@@ -1,20 +1,21 @@
 import RiemannExpedition.CriticalLine
 import RiemannExpedition.ProportionLadder
+import RiemannExpedition.AgentCritical
+import RiemannExpedition.AgentProportion
 
 /-!
 # Phase N — proportion-ladder formalization (executed)
 
 ## Formal target
-`CriticalLineProportionFormalization` — staged RH-*adjacent* proportion
-milestones as Lean Props with proofs. **Not** the Riemann hypothesis.
+Staged RH-*adjacent* proportion milestones as Lean Props with proofs.
+**Not** the Riemann hypothesis.
 
 ## Completed vs deferred
 *Completed (this run, no Mathlib):*
-- Finite-sample lower-bound statements for Levinson / Conrey / Anthropic-2026
-  millesimals, with constructive witnesses and proofs.
+- Finite-sample lower-bound statements for Levinson / five-twelfths / Anthropic-2026
+  millesimals, with constructive witnesses and proofs (`total > 0`).
 - Monotonicity of `MeetsLowerBound` along the millesimal ladder.
-- Finite Hardy-style statement: a nonempty finite critical-line sample
-  (scaffold zeros), **not** Hardy’s infinitude theorem.
+- Finite critical-line sample (scaffold zeros), **not** Hardy’s infinitude theorem.
 
 *Deferred (Mathlib / analytic stretch):*
 - Hardy 1914 infinitude of critical-line zeros for true `ζ`.
@@ -29,36 +30,25 @@ namespace RiemannExpedition.PhaseN
 
 open RiemannExpedition.CriticalLine
 open RiemannExpedition.ProportionLadder
+open RiemannExpedition.AgentCritical
+open RiemannExpedition.AgentProportion
 
 /-! ### Finite Hardy-style slot (infinitude deferred) -/
 
 /-- Finite stand-in: there exists a nonempty finite sample of modeled zeros
     that all lie on the critical line. **Not** Hardy’s infinitude theorem. -/
-def HardyInfinitelyManyCriticalZeros : Prop :=
-  ∃ zeros : List RealPart, zeros ≠ [] ∧ RiemannHypothesis zeros
+def FiniteNonemptyCriticalSample : Prop :=
+  ∃ zeros : List RealPart, zeros ≠ [] ∧ FiniteSampleOnCriticalLine zeros
 
-theorem hardy_infinitely_many_critical_zeros_statement :
-    HardyInfinitelyManyCriticalZeros := by
-  refine ⟨scaffoldZeros, ?_, scaffoldZeros_satisfy_RH⟩
-  native_decide
+theorem finite_nonempty_critical_sample_statement :
+    FiniteNonemptyCriticalSample :=
+  ⟨scaffoldZeros, by decide, scaffoldZeros_all_on_critical_line⟩
 
 /-- Explicit deferral marker for the analytic infinitude theorem. -/
 def hardyAnalyticInfinitudeDeferred : Bool := true
 
 /-! ### Levinson-scale positive proportion (~33.3%) -/
 
-/-- Toy sample meeting the Levinson millesimal (333/1000) with equality. -/
-def toyLevinsonSample : FiniteZeroSample where
-  total := 1000
-  onLine := 333
-  onLine_le_total := by decide
-
-theorem toy_meets_levinson_bound :
-    MeetsLowerBound toyLevinsonSample levinsonBound := by
-  unfold MeetsLowerBound toyLevinsonSample levinsonBound
-  decide
-
-/-- Levinson-type positive-proportion statement (finite-sample model). -/
 def LevinsonPositiveProportion : Prop :=
   ∃ s : FiniteZeroSample, MeetsLowerBound s levinsonBound
 
@@ -66,24 +56,19 @@ theorem levinson_positive_proportion_statement :
     LevinsonPositiveProportion :=
   ⟨toyLevinsonSample, toy_meets_levinson_bound⟩
 
-/-! ### Conrey-era improved proportion (~41.6%) -/
+/-! ### Five-twelfths improved proportion (~41.6%) -/
 
-def toyConreySample : FiniteZeroSample where
-  total := 1000
-  onLine := 416
-  onLine_le_total := by decide
+def FiveTwelfthsImprovedProportion : Prop :=
+  ∃ s : FiniteZeroSample, MeetsLowerBound s fiveTwelfthsBound
 
-theorem toy_meets_conrey_bound :
-    MeetsLowerBound toyConreySample conreyBound := by
-  unfold MeetsLowerBound toyConreySample conreyBound
-  decide
+theorem fiveTwelfths_improved_proportion_statement :
+    FiveTwelfthsImprovedProportion :=
+  ⟨toyFiveTwelfthsSample, toy_meets_fiveTwelfths_bound⟩
 
-def ConreyImprovedProportion : Prop :=
-  ∃ s : FiniteZeroSample, MeetsLowerBound s conreyBound
-
+/-- Compatibility alias (historical name; not Conrey’s analytic theorem). -/
+abbrev ConreyImprovedProportion := FiveTwelfthsImprovedProportion
 theorem conrey_improved_proportion_statement :
-    ConreyImprovedProportion :=
-  ⟨toyConreySample, toy_meets_conrey_bound⟩
+    ConreyImprovedProportion := fiveTwelfths_improved_proportion_statement
 
 /-! ### Anthropic 2026 reported 67.2% bound (finite-sample formalization) -/
 
@@ -91,45 +76,28 @@ theorem conrey_improved_proportion_statement :
     Does **not** formalize the analytic number-theory argument from the paper. -/
 def Anthropic2026ProportionFormalization : Prop :=
   MeetsLowerBound toyAnthropicSample anthropic2026Bound ∧
-    ¬ MeetsLowerBound toyAnthropicSample fullRH ∧
+    ¬ MeetsLowerBound toyAnthropicSample fullThousand ∧
     anthropicImprovement = 256
 
 theorem anthropic_2026_proportion_formalization_target :
     Anthropic2026ProportionFormalization :=
-  ⟨toy_meets_anthropic_bound, toy_misses_full_RH, anthropicImprovement_eq_256⟩
+  ⟨toy_meets_anthropic_bound, toy_misses_fullThousand, anthropicImprovement_eq_256⟩
 
-/-! ### Ladder monotonicity -/
-
-/-- Weaker (smaller) millesimal bounds are easier to meet. -/
-theorem meets_of_le_bound (s : FiniteZeroSample) {b₁ b₂ : Millesimal}
-    (hle : b₁ ≤ b₂) (h : MeetsLowerBound s b₂) : MeetsLowerBound s b₁ := by
-  unfold MeetsLowerBound at *
-  exact Nat.le_trans (Nat.mul_le_mul_right s.total hle) h
-
-theorem anthropic_sample_meets_conrey :
-    MeetsLowerBound toyAnthropicSample conreyBound :=
-  meets_of_le_bound toyAnthropicSample
-    (Nat.le_of_lt conrey_lt_anthropic2026) toy_meets_anthropic_bound
-
-theorem anthropic_sample_meets_levinson :
-    MeetsLowerBound toyAnthropicSample levinsonBound :=
-  meets_of_le_bound toyAnthropicSample
-    (Nat.le_trans (Nat.le_of_lt levinson_lt_conrey) (Nat.le_of_lt conrey_lt_anthropic2026))
-    toy_meets_anthropic_bound
+/-! ### Ladder bundle -/
 
 /-- Full Phase-N proportion-ladder bundle (finite model). -/
 theorem proportion_ladder_bundle :
     LevinsonPositiveProportion ∧
-    ConreyImprovedProportion ∧
+    FiveTwelfthsImprovedProportion ∧
     Anthropic2026ProportionFormalization ∧
-    HardyInfinitelyManyCriticalZeros ∧
-    MeetsLowerBound toyAnthropicSample conreyBound ∧
+    FiniteNonemptyCriticalSample ∧
+    MeetsLowerBound toyAnthropicSample fiveTwelfthsBound ∧
     MeetsLowerBound toyAnthropicSample levinsonBound :=
   ⟨levinson_positive_proportion_statement,
-    conrey_improved_proportion_statement,
+    fiveTwelfths_improved_proportion_statement,
     anthropic_2026_proportion_formalization_target,
-    hardy_infinitely_many_critical_zeros_statement,
-    anthropic_sample_meets_conrey,
+    finite_nonempty_critical_sample_statement,
+    anthropic_sample_meets_fiveTwelfths,
     anthropic_sample_meets_levinson⟩
 
 /-- Explicit: we do not assert RH. -/

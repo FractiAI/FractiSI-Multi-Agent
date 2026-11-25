@@ -1,3 +1,3 @@
-# riemann-fractisi-expedition (paper)
+# library/papers/riemann-fractisi-expedition
 
-Public HTML built from content/. Keep RH OPEN. Do not claim a controlled 20,000× speedup.
+Public HTML built from content/. Keep RH OPEN. Lead with matched ablation evidence (tasks/contributions/compositions), not a controlled 20,000× claim.

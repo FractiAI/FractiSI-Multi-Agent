@@ -4,8 +4,8 @@
 **Product:** FractiSI Multi-Agent · Tiny Footprint (Tiny Gateway™)  
 **Store paths:** this file · `docs/riemann-lean/` · `docs/riemann-fractisi-results-report-outline.md`  
 **Kit SoT:** [FractiAI/FractiSI-Multi-Agent](https://github.com/FractiAI/FractiSI-Multi-Agent)  
-**Status:** Plan + scaffold ready; timed multi-agent run not yet executed  
-**Date:** 2026-11-24
+**Status:** Matched ablation executed (`run-ablation.mjs`); RH remains OPEN; 30h speed lead withdrawn  
+**Date:** 2026-11-24 (ablation 2026-11-25)
 
 ---
 
@@ -213,7 +213,7 @@ Record in the results report (and receipt `comparison` object):
 | `baselineHours` | 30 (or 28.7 if citing the technical write-up figure) |
 | `baselineURL` | https://www.anthropic.com/claude-fable-and-mythos-5-2 |
 | `wallClockSeconds` | Harness `durationSeconds` |
-| `naiveSpeedupFactor` | `baselineSeconds / wallClockSeconds` |
+| `naiveSpeedupFactor` | **Withdrawn** from science receipts — use `run-ablation.mjs` delta instead |
 | `caveat` | Different theorem (FLT formalization vs RH-adjacent ladder); different agent count; different model stack; Phase-0 is scaffold arithmetic — **methodology / process comparison only** |
 
 Optional second row: Anthropic Riemann **~1.5 day / ~60 subagents** bound-improvement run as *adjacency* baseline (not the 30 h number).
