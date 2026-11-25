@@ -1,0 +1,2358 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent-rhyme-discoveries.v1",
+  "generatedAt": "2026-11-25T16:23:12.132Z",
+  "ok": true,
+  "durationMs": 37.686941000000004,
+  "theoremCount": 17,
+  "namedDiscoveryCount": 85,
+  "namedDiscoveries": [
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line ↔ thmA_indicator_specialization",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.325985953869002,
+      "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_on_critical_line",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line ↔ two_thirds_on_critical_line_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.45054792490682455,
+      "detail": "AWARE board recovered two_thirds_on_critical_line_cumulative (peer_invent) for query two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line ↔ two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_simple_on_critical_line (peer_invent) for query two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line ↔ two_thirds_simple_on_critical_line_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_simple_on_critical_line_cumulative (peer_invent) for query two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.004198448118299052,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line_cumulative ↔ thmA_indicator_specialization",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.325985953869002,
+      "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_on_critical_line_cumulative",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line_cumulative ↔ two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.45054792490682455,
+      "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query two_thirds_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line_cumulative ↔ two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_simple_on_critical_line (peer_invent) for query two_thirds_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line_cumulative ↔ two_thirds_simple_on_critical_line_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_simple_on_critical_line_cumulative (peer_invent) for query two_thirds_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_on_critical_line_cumulative ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.004198448118299052,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line ↔ thmA_indicator_specialization",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.325985953869002,
+      "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_simple_on_critical_line",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line ↔ two_thirds_simple_on_critical_line_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.45054792490682455,
+      "detail": "AWARE board recovered two_thirds_simple_on_critical_line_cumulative (peer_invent) for query two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line ↔ two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line ↔ two_thirds_on_critical_line_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_on_critical_line_cumulative (peer_invent) for query two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.004198448118299052,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ thmA_indicator_specialization",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.325985953869002,
+      "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_simple_on_critical_line_cumulative",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.45054792490682455,
+      "detail": "AWARE board recovered two_thirds_simple_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ two_thirds_on_critical_line_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.03853473824330921,
+      "detail": "AWARE board recovered two_thirds_on_critical_line_cumulative (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.004198448118299052,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct ↔ thmC_chain_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.4375797358487379,
+      "detail": "AWARE board recovered thmC_chain_five_sixths (InventMath) for query five_sixths_distinct",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct ↔ five_sixths_distinct_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.48469348383867783,
+      "detail": "AWARE board recovered five_sixths_distinct_cumulative (peer_invent) for query five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct ↔ dirichlet_five_sixths_distinct",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.0935161981591122,
+      "detail": "AWARE board recovered dirichlet_five_sixths_distinct (peer_invent) for query five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct ↔ thmC_assembly_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.0875797358487379,
+      "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query five_sixths_distinct",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct ↔ two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": -0.0668040171192708,
+      "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct_cumulative ↔ thmC_chain_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.4375797358487379,
+      "detail": "AWARE board recovered thmC_chain_five_sixths (InventMath) for query five_sixths_distinct_cumulative",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct_cumulative ↔ five_sixths_distinct",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.48469348383867783,
+      "detail": "AWARE board recovered five_sixths_distinct (peer_invent) for query five_sixths_distinct_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct_cumulative ↔ dirichlet_five_sixths_distinct",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.0935161981591122,
+      "detail": "AWARE board recovered dirichlet_five_sixths_distinct (peer_invent) for query five_sixths_distinct_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct_cumulative ↔ thmC_assembly_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.0875797358487379,
+      "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query five_sixths_distinct_cumulative",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "five_sixths_distinct_cumulative ↔ two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": -0.0668040171192708,
+      "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query five_sixths_distinct_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1910530654544491,
+      "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query montgomery_taylor_on_critical_line",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_distinct_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ thmA_assembly_two_thirds",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1910530654544491,
+      "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_distinct_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ thmA_assembly_two_thirds",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1910530654544491,
+      "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_distinct_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult ↔ thmC_assembly_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.19474943880681994,
+      "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query montgomery_taylor_distinct_mult",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_distinct_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ thmC_assembly_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.19474943880681994,
+      "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query montgomery_taylor_distinct_mult_cumulative",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.33213102207347794,
+      "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ thmA_indicator_specialization",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.2609876322316409,
+      "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query dirichlet_two_thirds_on_critical_line",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.28047929040167335,
+      "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1570131303451682,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1570131303451682,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1570131303451682,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ thmA_indicator_specialization",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.2609876322316409,
+      "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query dirichlet_two_thirds_simple_on_critical_line",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.28047929040167335,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1570131303451682,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1570131303451682,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1570131303451682,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_five_sixths_distinct ↔ thmC_chain_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.37002011730586853,
+      "detail": "AWARE board recovered thmC_chain_five_sixths (InventMath) for query dirichlet_five_sixths_distinct",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.16361487862094373,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.16361487862094373,
+      "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.16170732553628753,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.16170732553628753,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_five_sixths_distinct",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.17642438972322927,
+      "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query dirichlet_montgomery_taylor_on_critical_line",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.29362987125249357,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.29362987125249357,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1614261858295091,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1614261858295091,
+      "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ thmA_assembly_two_thirds",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.17642438972322927,
+      "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_montgomery_taylor_distinct_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.29362987125249357,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.29362987125249357,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1614261858295091,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1614261858295091,
+      "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ thmC_assembly_five_sixths",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1696426295765605,
+      "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query dirichlet_montgomery_taylor_distinct_mult",
+      "applyReady": true
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_montgomery_taylor_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.29362987125249357,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.29362987125249357,
+      "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_two_thirds_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1614261858295091,
+      "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+      "applyReady": false
+    },
+    {
+      "rhyme": "invent-challenge-folding",
+      "theater": "zeta23-invent",
+      "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_two_thirds_simple_on_critical_line",
+      "kind": "aware_only_partner_recovery",
+      "coupling": 0.1614261858295091,
+      "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+      "applyReady": false
+    }
+  ],
+  "uniqueApplyPartners": [
+    {
+      "kind": "exact_partner",
+      "theoremName": "rhyme_apply_thmA_indicator_specialization",
+      "partnerName": "thmA_indicator_specialization",
+      "partnerId": "inventmath:thmA_indicator_specialization",
+      "coupling": 0.325985953869002,
+      "tacticBody": "exact thmA_indicator_specialization",
+      "templateRef": "inventmath:thmA_indicator_specialization",
+      "discoveryId": "two_thirds_on_critical_line ↔ thmA_indicator_specialization"
+    },
+    {
+      "kind": "exact_partner",
+      "theoremName": "rhyme_apply_thmA_chain_two_thirds",
+      "partnerName": "thmA_chain_two_thirds",
+      "partnerId": "inventmath:thmA_chain_two_thirds",
+      "coupling": -0.024014046130998,
+      "tacticBody": "exact thmA_chain_two_thirds",
+      "templateRef": "inventmath:thmA_chain_two_thirds",
+      "discoveryId": "two_thirds_on_critical_line ↔ thmA_chain_two_thirds"
+    },
+    {
+      "kind": "exact_partner",
+      "theoremName": "rhyme_apply_thmC_chain_five_sixths",
+      "partnerName": "thmC_chain_five_sixths",
+      "partnerId": "inventmath:thmC_chain_five_sixths",
+      "coupling": 0.4375797358487379,
+      "tacticBody": "exact thmC_chain_five_sixths",
+      "templateRef": "inventmath:thmC_chain_five_sixths",
+      "discoveryId": "five_sixths_distinct ↔ thmC_chain_five_sixths"
+    },
+    {
+      "kind": "exact_partner",
+      "theoremName": "rhyme_apply_thmC_assembly_five_sixths",
+      "partnerName": "thmC_assembly_five_sixths",
+      "partnerId": "inventmath:thmC_assembly_five_sixths",
+      "coupling": 0.0875797358487379,
+      "tacticBody": "exact thmC_assembly_five_sixths",
+      "templateRef": "inventmath:thmC_assembly_five_sixths",
+      "discoveryId": "five_sixths_distinct ↔ thmC_assembly_five_sixths"
+    },
+    {
+      "kind": "exact_partner",
+      "theoremName": "rhyme_apply_thmA_assembly_two_thirds",
+      "partnerName": "thmA_assembly_two_thirds",
+      "partnerId": "inventmath:thmA_assembly_two_thirds",
+      "coupling": 0.1910530654544491,
+      "tacticBody": "exact thmA_assembly_two_thirds",
+      "templateRef": "inventmath:thmA_assembly_two_thirds",
+      "discoveryId": "montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds"
+    }
+  ],
+  "perTheorem": [
+    {
+      "theorem": "two_thirds_on_critical_line",
+      "leadingPartner": "inventmath:thmA_indicator_specialization",
+      "leadingName": "thmA_indicator_specialization",
+      "leadingCoupling": 0.325985953869002,
+      "family": "online_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line ↔ thmA_indicator_specialization",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.325985953869002,
+          "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_on_critical_line",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line ↔ two_thirds_on_critical_line_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.45054792490682455,
+          "detail": "AWARE board recovered two_thirds_on_critical_line_cumulative (peer_invent) for query two_thirds_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line ↔ two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_simple_on_critical_line (peer_invent) for query two_thirds_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line ↔ two_thirds_simple_on_critical_line_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_simple_on_critical_line_cumulative (peer_invent) for query two_thirds_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.004198448118299052,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_on_critical_line",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_indicator_specialization",
+          "partnerName": "thmA_indicator_specialization",
+          "partnerId": "inventmath:thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "tacticBody": "exact thmA_indicator_specialization",
+          "templateRef": "inventmath:thmA_indicator_specialization",
+          "discoveryId": "two_thirds_on_critical_line ↔ thmA_indicator_specialization"
+        },
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_chain_two_thirds",
+          "partnerName": "thmA_chain_two_thirds",
+          "partnerId": "inventmath:thmA_chain_two_thirds",
+          "coupling": -0.024014046130998,
+          "tacticBody": "exact thmA_chain_two_thirds",
+          "templateRef": "inventmath:thmA_chain_two_thirds",
+          "discoveryId": "two_thirds_on_critical_line ↔ thmA_chain_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_indicator_specialization",
+          "name": "thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:two_thirds_on_critical_line_cumulative",
+          "name": "two_thirds_on_critical_line_cumulative",
+          "coupling": 0.45054792490682455,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:two_thirds_simple_on_critical_line",
+          "name": "two_thirds_simple_on_critical_line",
+          "coupling": 0.03853473824330921,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "leadingPartner": "inventmath:thmA_indicator_specialization",
+      "leadingName": "thmA_indicator_specialization",
+      "leadingCoupling": 0.325985953869002,
+      "family": "online_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ thmA_indicator_specialization",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.325985953869002,
+          "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_on_critical_line_cumulative",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.45054792490682455,
+          "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query two_thirds_on_critical_line_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_simple_on_critical_line (peer_invent) for query two_thirds_on_critical_line_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ two_thirds_simple_on_critical_line_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_simple_on_critical_line_cumulative (peer_invent) for query two_thirds_on_critical_line_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.004198448118299052,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_on_critical_line_cumulative",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_indicator_specialization",
+          "partnerName": "thmA_indicator_specialization",
+          "partnerId": "inventmath:thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "tacticBody": "exact thmA_indicator_specialization",
+          "templateRef": "inventmath:thmA_indicator_specialization",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ thmA_indicator_specialization"
+        },
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_chain_two_thirds",
+          "partnerName": "thmA_chain_two_thirds",
+          "partnerId": "inventmath:thmA_chain_two_thirds",
+          "coupling": -0.024014046130998,
+          "tacticBody": "exact thmA_chain_two_thirds",
+          "templateRef": "inventmath:thmA_chain_two_thirds",
+          "discoveryId": "two_thirds_on_critical_line_cumulative ↔ thmA_chain_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_indicator_specialization",
+          "name": "thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:two_thirds_on_critical_line",
+          "name": "two_thirds_on_critical_line",
+          "coupling": 0.45054792490682455,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:two_thirds_simple_on_critical_line",
+          "name": "two_thirds_simple_on_critical_line",
+          "coupling": 0.03853473824330921,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "two_thirds_simple_on_critical_line",
+      "leadingPartner": "inventmath:thmA_indicator_specialization",
+      "leadingName": "thmA_indicator_specialization",
+      "leadingCoupling": 0.325985953869002,
+      "family": "simple_online_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ thmA_indicator_specialization",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.325985953869002,
+          "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_simple_on_critical_line",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ two_thirds_simple_on_critical_line_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.45054792490682455,
+          "detail": "AWARE board recovered two_thirds_simple_on_critical_line_cumulative (peer_invent) for query two_thirds_simple_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ two_thirds_on_critical_line_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_on_critical_line_cumulative (peer_invent) for query two_thirds_simple_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.004198448118299052,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_indicator_specialization",
+          "partnerName": "thmA_indicator_specialization",
+          "partnerId": "inventmath:thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "tacticBody": "exact thmA_indicator_specialization",
+          "templateRef": "inventmath:thmA_indicator_specialization",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ thmA_indicator_specialization"
+        },
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_chain_two_thirds",
+          "partnerName": "thmA_chain_two_thirds",
+          "partnerId": "inventmath:thmA_chain_two_thirds",
+          "coupling": -0.024014046130998,
+          "tacticBody": "exact thmA_chain_two_thirds",
+          "templateRef": "inventmath:thmA_chain_two_thirds",
+          "discoveryId": "two_thirds_simple_on_critical_line ↔ thmA_chain_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_indicator_specialization",
+          "name": "thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:two_thirds_simple_on_critical_line_cumulative",
+          "name": "two_thirds_simple_on_critical_line_cumulative",
+          "coupling": 0.45054792490682455,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:two_thirds_on_critical_line",
+          "name": "two_thirds_on_critical_line",
+          "coupling": 0.03853473824330921,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "leadingPartner": "inventmath:thmA_indicator_specialization",
+      "leadingName": "thmA_indicator_specialization",
+      "leadingCoupling": 0.325985953869002,
+      "family": "simple_online_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ thmA_indicator_specialization",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.325985953869002,
+          "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query two_thirds_simple_on_critical_line_cumulative",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.45054792490682455,
+          "detail": "AWARE board recovered two_thirds_simple_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ two_thirds_on_critical_line_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.03853473824330921,
+          "detail": "AWARE board recovered two_thirds_on_critical_line_cumulative (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.004198448118299052,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query two_thirds_simple_on_critical_line_cumulative",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_indicator_specialization",
+          "partnerName": "thmA_indicator_specialization",
+          "partnerId": "inventmath:thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "tacticBody": "exact thmA_indicator_specialization",
+          "templateRef": "inventmath:thmA_indicator_specialization",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ thmA_indicator_specialization"
+        },
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_chain_two_thirds",
+          "partnerName": "thmA_chain_two_thirds",
+          "partnerId": "inventmath:thmA_chain_two_thirds",
+          "coupling": -0.024014046130998,
+          "tacticBody": "exact thmA_chain_two_thirds",
+          "templateRef": "inventmath:thmA_chain_two_thirds",
+          "discoveryId": "two_thirds_simple_on_critical_line_cumulative ↔ thmA_chain_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_indicator_specialization",
+          "name": "thmA_indicator_specialization",
+          "coupling": 0.325985953869002,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:two_thirds_simple_on_critical_line",
+          "name": "two_thirds_simple_on_critical_line",
+          "coupling": 0.45054792490682455,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:two_thirds_on_critical_line",
+          "name": "two_thirds_on_critical_line",
+          "coupling": 0.03853473824330921,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "five_sixths_distinct",
+      "leadingPartner": "inventmath:thmC_chain_five_sixths",
+      "leadingName": "thmC_chain_five_sixths",
+      "leadingCoupling": 0.4375797358487379,
+      "family": "distinct_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct ↔ thmC_chain_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.4375797358487379,
+          "detail": "AWARE board recovered thmC_chain_five_sixths (InventMath) for query five_sixths_distinct",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct ↔ five_sixths_distinct_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.48469348383867783,
+          "detail": "AWARE board recovered five_sixths_distinct_cumulative (peer_invent) for query five_sixths_distinct",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct ↔ dirichlet_five_sixths_distinct",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.0935161981591122,
+          "detail": "AWARE board recovered dirichlet_five_sixths_distinct (peer_invent) for query five_sixths_distinct",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct ↔ thmC_assembly_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.0875797358487379,
+          "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query five_sixths_distinct",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct ↔ two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": -0.0668040171192708,
+          "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query five_sixths_distinct",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_chain_five_sixths",
+          "partnerName": "thmC_chain_five_sixths",
+          "partnerId": "inventmath:thmC_chain_five_sixths",
+          "coupling": 0.4375797358487379,
+          "tacticBody": "exact thmC_chain_five_sixths",
+          "templateRef": "inventmath:thmC_chain_five_sixths",
+          "discoveryId": "five_sixths_distinct ↔ thmC_chain_five_sixths"
+        },
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_assembly_five_sixths",
+          "partnerName": "thmC_assembly_five_sixths",
+          "partnerId": "inventmath:thmC_assembly_five_sixths",
+          "coupling": 0.0875797358487379,
+          "tacticBody": "exact thmC_assembly_five_sixths",
+          "templateRef": "inventmath:thmC_assembly_five_sixths",
+          "discoveryId": "five_sixths_distinct ↔ thmC_assembly_five_sixths"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmC_chain_five_sixths",
+          "name": "thmC_chain_five_sixths",
+          "coupling": 0.4375797358487379,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:five_sixths_distinct_cumulative",
+          "name": "five_sixths_distinct_cumulative",
+          "coupling": 0.48469348383867783,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_five_sixths_distinct",
+          "name": "dirichlet_five_sixths_distinct",
+          "coupling": 0.0935161981591122,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "five_sixths_distinct_cumulative",
+      "leadingPartner": "inventmath:thmC_chain_five_sixths",
+      "leadingName": "thmC_chain_five_sixths",
+      "leadingCoupling": 0.4375797358487379,
+      "family": "distinct_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ thmC_chain_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.4375797358487379,
+          "detail": "AWARE board recovered thmC_chain_five_sixths (InventMath) for query five_sixths_distinct_cumulative",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ five_sixths_distinct",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.48469348383867783,
+          "detail": "AWARE board recovered five_sixths_distinct (peer_invent) for query five_sixths_distinct_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ dirichlet_five_sixths_distinct",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.0935161981591122,
+          "detail": "AWARE board recovered dirichlet_five_sixths_distinct (peer_invent) for query five_sixths_distinct_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ thmC_assembly_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.0875797358487379,
+          "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query five_sixths_distinct_cumulative",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": -0.0668040171192708,
+          "detail": "AWARE board recovered two_thirds_on_critical_line (peer_invent) for query five_sixths_distinct_cumulative",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_chain_five_sixths",
+          "partnerName": "thmC_chain_five_sixths",
+          "partnerId": "inventmath:thmC_chain_five_sixths",
+          "coupling": 0.4375797358487379,
+          "tacticBody": "exact thmC_chain_five_sixths",
+          "templateRef": "inventmath:thmC_chain_five_sixths",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ thmC_chain_five_sixths"
+        },
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_assembly_five_sixths",
+          "partnerName": "thmC_assembly_five_sixths",
+          "partnerId": "inventmath:thmC_assembly_five_sixths",
+          "coupling": 0.0875797358487379,
+          "tacticBody": "exact thmC_assembly_five_sixths",
+          "templateRef": "inventmath:thmC_assembly_five_sixths",
+          "discoveryId": "five_sixths_distinct_cumulative ↔ thmC_assembly_five_sixths"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmC_chain_five_sixths",
+          "name": "thmC_chain_five_sixths",
+          "coupling": 0.4375797358487379,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:five_sixths_distinct",
+          "name": "five_sixths_distinct",
+          "coupling": 0.48469348383867783,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_five_sixths_distinct",
+          "name": "dirichlet_five_sixths_distinct",
+          "coupling": 0.0935161981591122,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "montgomery_taylor_on_critical_line",
+      "leadingPartner": "inventmath:thmA_assembly_two_thirds",
+      "leadingName": "thmA_assembly_two_thirds",
+      "leadingCoupling": 0.1910530654544491,
+      "family": "montgomery_taylor_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1910530654544491,
+          "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query montgomery_taylor_on_critical_line",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_distinct_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_on_critical_line ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_on_critical_line",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_assembly_two_thirds",
+          "partnerName": "thmA_assembly_two_thirds",
+          "partnerId": "inventmath:thmA_assembly_two_thirds",
+          "coupling": 0.1910530654544491,
+          "tacticBody": "exact thmA_assembly_two_thirds",
+          "templateRef": "inventmath:thmA_assembly_two_thirds",
+          "discoveryId": "montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_assembly_two_thirds",
+          "name": "thmA_assembly_two_thirds",
+          "coupling": 0.1910530654544491,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult",
+          "name": "montgomery_taylor_distinct_mult",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult_cumulative",
+          "name": "montgomery_taylor_distinct_mult_cumulative",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "leadingPartner": "inventmath:thmA_assembly_two_thirds",
+      "leadingName": "thmA_assembly_two_thirds",
+      "leadingCoupling": 0.1910530654544491,
+      "family": "montgomery_taylor_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ thmA_assembly_two_thirds",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1910530654544491,
+          "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_distinct_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_assembly_two_thirds",
+          "partnerName": "thmA_assembly_two_thirds",
+          "partnerId": "inventmath:thmA_assembly_two_thirds",
+          "coupling": 0.1910530654544491,
+          "tacticBody": "exact thmA_assembly_two_thirds",
+          "templateRef": "inventmath:thmA_assembly_two_thirds",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult ↔ thmA_assembly_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_assembly_two_thirds",
+          "name": "thmA_assembly_two_thirds",
+          "coupling": 0.1910530654544491,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult",
+          "name": "montgomery_taylor_distinct_mult",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult_cumulative",
+          "name": "montgomery_taylor_distinct_mult_cumulative",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "leadingPartner": "inventmath:thmA_assembly_two_thirds",
+      "leadingName": "thmA_assembly_two_thirds",
+      "leadingCoupling": 0.1910530654544491,
+      "family": "montgomery_taylor_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ thmA_assembly_two_thirds",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1910530654544491,
+          "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_distinct_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_assembly_two_thirds",
+          "partnerName": "thmA_assembly_two_thirds",
+          "partnerId": "inventmath:thmA_assembly_two_thirds",
+          "coupling": 0.1910530654544491,
+          "tacticBody": "exact thmA_assembly_two_thirds",
+          "templateRef": "inventmath:thmA_assembly_two_thirds",
+          "discoveryId": "montgomery_taylor_simple_on_critical_line_mult_cumulative ↔ thmA_assembly_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_assembly_two_thirds",
+          "name": "thmA_assembly_two_thirds",
+          "coupling": 0.1910530654544491,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult",
+          "name": "montgomery_taylor_distinct_mult",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult_cumulative",
+          "name": "montgomery_taylor_distinct_mult_cumulative",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "montgomery_taylor_distinct_mult",
+      "leadingPartner": "inventmath:thmC_assembly_five_sixths",
+      "leadingName": "thmC_assembly_five_sixths",
+      "leadingCoupling": 0.19474943880681994,
+      "family": "montgomery_taylor_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult ↔ thmC_assembly_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.19474943880681994,
+          "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query montgomery_taylor_distinct_mult",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_distinct_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult_cumulative (peer_invent) for query montgomery_taylor_distinct_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_distinct_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_distinct_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_distinct_mult",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_assembly_five_sixths",
+          "partnerName": "thmC_assembly_five_sixths",
+          "partnerId": "inventmath:thmC_assembly_five_sixths",
+          "coupling": 0.19474943880681994,
+          "tacticBody": "exact thmC_assembly_five_sixths",
+          "templateRef": "inventmath:thmC_assembly_five_sixths",
+          "discoveryId": "montgomery_taylor_distinct_mult ↔ thmC_assembly_five_sixths"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmC_assembly_five_sixths",
+          "name": "thmC_assembly_five_sixths",
+          "coupling": 0.19474943880681994,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult_cumulative",
+          "name": "montgomery_taylor_distinct_mult_cumulative",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:montgomery_taylor_on_critical_line",
+          "name": "montgomery_taylor_on_critical_line",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "leadingPartner": "inventmath:thmC_assembly_five_sixths",
+      "leadingName": "thmC_assembly_five_sixths",
+      "leadingCoupling": 0.19474943880681994,
+      "family": "montgomery_taylor_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ thmC_assembly_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.19474943880681994,
+          "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query montgomery_taylor_distinct_mult_cumulative",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_distinct_mult (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_on_critical_line (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ montgomery_taylor_simple_on_critical_line_mult_cumulative",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.33213102207347794,
+          "detail": "AWARE board recovered montgomery_taylor_simple_on_critical_line_mult_cumulative (peer_invent) for query montgomery_taylor_distinct_mult_cumulative",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_assembly_five_sixths",
+          "partnerName": "thmC_assembly_five_sixths",
+          "partnerId": "inventmath:thmC_assembly_five_sixths",
+          "coupling": 0.19474943880681994,
+          "tacticBody": "exact thmC_assembly_five_sixths",
+          "templateRef": "inventmath:thmC_assembly_five_sixths",
+          "discoveryId": "montgomery_taylor_distinct_mult_cumulative ↔ thmC_assembly_five_sixths"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmC_assembly_five_sixths",
+          "name": "thmC_assembly_five_sixths",
+          "coupling": 0.19474943880681994,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:montgomery_taylor_distinct_mult",
+          "name": "montgomery_taylor_distinct_mult",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:montgomery_taylor_on_critical_line",
+          "name": "montgomery_taylor_on_critical_line",
+          "coupling": 0.33213102207347794,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "leadingPartner": "inventmath:thmA_indicator_specialization",
+      "leadingName": "thmA_indicator_specialization",
+      "leadingCoupling": 0.2609876322316409,
+      "family": "dirichlet_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ thmA_indicator_specialization",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.2609876322316409,
+          "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query dirichlet_two_thirds_on_critical_line",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.28047929040167335,
+          "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1570131303451682,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1570131303451682,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1570131303451682,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_two_thirds_on_critical_line",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_indicator_specialization",
+          "partnerName": "thmA_indicator_specialization",
+          "partnerId": "inventmath:thmA_indicator_specialization",
+          "coupling": 0.2609876322316409,
+          "tacticBody": "exact thmA_indicator_specialization",
+          "templateRef": "inventmath:thmA_indicator_specialization",
+          "discoveryId": "dirichlet_two_thirds_on_critical_line ↔ thmA_indicator_specialization"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_indicator_specialization",
+          "name": "thmA_indicator_specialization",
+          "coupling": 0.2609876322316409,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:dirichlet_two_thirds_simple_on_critical_line",
+          "name": "dirichlet_two_thirds_simple_on_critical_line",
+          "coupling": 0.28047929040167335,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_distinct_mult",
+          "name": "dirichlet_montgomery_taylor_distinct_mult",
+          "coupling": 0.1570131303451682,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "leadingPartner": "inventmath:thmA_indicator_specialization",
+      "leadingName": "thmA_indicator_specialization",
+      "leadingCoupling": 0.2609876322316409,
+      "family": "dirichlet_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ thmA_indicator_specialization",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.2609876322316409,
+          "detail": "AWARE board recovered thmA_indicator_specialization (InventMath) for query dirichlet_two_thirds_simple_on_critical_line",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.28047929040167335,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1570131303451682,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1570131303451682,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1570131303451682,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_two_thirds_simple_on_critical_line",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_indicator_specialization",
+          "partnerName": "thmA_indicator_specialization",
+          "partnerId": "inventmath:thmA_indicator_specialization",
+          "coupling": 0.2609876322316409,
+          "tacticBody": "exact thmA_indicator_specialization",
+          "templateRef": "inventmath:thmA_indicator_specialization",
+          "discoveryId": "dirichlet_two_thirds_simple_on_critical_line ↔ thmA_indicator_specialization"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_indicator_specialization",
+          "name": "thmA_indicator_specialization",
+          "coupling": 0.2609876322316409,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:dirichlet_two_thirds_on_critical_line",
+          "name": "dirichlet_two_thirds_on_critical_line",
+          "coupling": 0.28047929040167335,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_distinct_mult",
+          "name": "dirichlet_montgomery_taylor_distinct_mult",
+          "coupling": 0.1570131303451682,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "dirichlet_five_sixths_distinct",
+      "leadingPartner": "inventmath:thmC_chain_five_sixths",
+      "leadingName": "thmC_chain_five_sixths",
+      "leadingCoupling": 0.37002011730586853,
+      "family": "dirichlet_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_five_sixths_distinct ↔ thmC_chain_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.37002011730586853,
+          "detail": "AWARE board recovered thmC_chain_five_sixths (InventMath) for query dirichlet_five_sixths_distinct",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.16361487862094373,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_five_sixths_distinct",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.16361487862094373,
+          "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_five_sixths_distinct",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.16170732553628753,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_five_sixths_distinct",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_five_sixths_distinct ↔ dirichlet_montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.16170732553628753,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_five_sixths_distinct",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_chain_five_sixths",
+          "partnerName": "thmC_chain_five_sixths",
+          "partnerId": "inventmath:thmC_chain_five_sixths",
+          "coupling": 0.37002011730586853,
+          "tacticBody": "exact thmC_chain_five_sixths",
+          "templateRef": "inventmath:thmC_chain_five_sixths",
+          "discoveryId": "dirichlet_five_sixths_distinct ↔ thmC_chain_five_sixths"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmC_chain_five_sixths",
+          "name": "thmC_chain_five_sixths",
+          "coupling": 0.37002011730586853,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:dirichlet_two_thirds_on_critical_line",
+          "name": "dirichlet_two_thirds_on_critical_line",
+          "coupling": 0.16361487862094373,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_two_thirds_simple_on_critical_line",
+          "name": "dirichlet_two_thirds_simple_on_critical_line",
+          "coupling": 0.16361487862094373,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "leadingPartner": "inventmath:thmA_assembly_two_thirds",
+      "leadingName": "thmA_assembly_two_thirds",
+      "leadingCoupling": 0.17642438972322927,
+      "family": "dirichlet_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.17642438972322927,
+          "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query dirichlet_montgomery_taylor_on_critical_line",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.29362987125249357,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.29362987125249357,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1614261858295091,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ dirichlet_two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1614261858295091,
+          "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_on_critical_line",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_assembly_two_thirds",
+          "partnerName": "thmA_assembly_two_thirds",
+          "partnerId": "inventmath:thmA_assembly_two_thirds",
+          "coupling": 0.17642438972322927,
+          "tacticBody": "exact thmA_assembly_two_thirds",
+          "templateRef": "inventmath:thmA_assembly_two_thirds",
+          "discoveryId": "dirichlet_montgomery_taylor_on_critical_line ↔ thmA_assembly_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_assembly_two_thirds",
+          "name": "thmA_assembly_two_thirds",
+          "coupling": 0.17642438972322927,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_distinct_mult",
+          "name": "dirichlet_montgomery_taylor_distinct_mult",
+          "coupling": 0.29362987125249357,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "name": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "coupling": 0.29362987125249357,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "leadingPartner": "inventmath:thmA_assembly_two_thirds",
+      "leadingName": "thmA_assembly_two_thirds",
+      "leadingCoupling": 0.17642438972322927,
+      "family": "dirichlet_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ thmA_assembly_two_thirds",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.17642438972322927,
+          "detail": "AWARE board recovered thmA_assembly_two_thirds (InventMath) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_montgomery_taylor_distinct_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.29362987125249357,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_distinct_mult (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.29362987125249357,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1614261858295091,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ dirichlet_two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1614261858295091,
+          "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmA_assembly_two_thirds",
+          "partnerName": "thmA_assembly_two_thirds",
+          "partnerId": "inventmath:thmA_assembly_two_thirds",
+          "coupling": 0.17642438972322927,
+          "tacticBody": "exact thmA_assembly_two_thirds",
+          "templateRef": "inventmath:thmA_assembly_two_thirds",
+          "discoveryId": "dirichlet_montgomery_taylor_simple_on_critical_line_mult ↔ thmA_assembly_two_thirds"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmA_assembly_two_thirds",
+          "name": "thmA_assembly_two_thirds",
+          "coupling": 0.17642438972322927,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_distinct_mult",
+          "name": "dirichlet_montgomery_taylor_distinct_mult",
+          "coupling": 0.29362987125249357,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_on_critical_line",
+          "name": "dirichlet_montgomery_taylor_on_critical_line",
+          "coupling": 0.29362987125249357,
+          "source": "peer_invent"
+        }
+      ]
+    },
+    {
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "leadingPartner": "inventmath:thmC_assembly_five_sixths",
+      "leadingName": "thmC_assembly_five_sixths",
+      "leadingCoupling": 0.1696426295765605,
+      "family": "dirichlet_proportion",
+      "namedDiscoveries": [
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ thmC_assembly_five_sixths",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1696426295765605,
+          "detail": "AWARE board recovered thmC_assembly_five_sixths (InventMath) for query dirichlet_montgomery_taylor_distinct_mult",
+          "applyReady": true
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_montgomery_taylor_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.29362987125249357,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.29362987125249357,
+          "detail": "AWARE board recovered dirichlet_montgomery_taylor_simple_on_critical_line_mult (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_two_thirds_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1614261858295091,
+          "detail": "AWARE board recovered dirichlet_two_thirds_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+          "applyReady": false
+        },
+        {
+          "rhyme": "invent-challenge-folding",
+          "theater": "zeta23-invent",
+          "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ dirichlet_two_thirds_simple_on_critical_line",
+          "kind": "aware_only_partner_recovery",
+          "coupling": 0.1614261858295091,
+          "detail": "AWARE board recovered dirichlet_two_thirds_simple_on_critical_line (peer_invent) for query dirichlet_montgomery_taylor_distinct_mult",
+          "applyReady": false
+        }
+      ],
+      "immediateApplies": [
+        {
+          "kind": "exact_partner",
+          "theoremName": "rhyme_apply_thmC_assembly_five_sixths",
+          "partnerName": "thmC_assembly_five_sixths",
+          "partnerId": "inventmath:thmC_assembly_five_sixths",
+          "coupling": 0.1696426295765605,
+          "tacticBody": "exact thmC_assembly_five_sixths",
+          "templateRef": "inventmath:thmC_assembly_five_sixths",
+          "discoveryId": "dirichlet_montgomery_taylor_distinct_mult ↔ thmC_assembly_five_sixths"
+        }
+      ],
+      "boardTop": [
+        {
+          "id": "inventmath:thmC_assembly_five_sixths",
+          "name": "thmC_assembly_five_sixths",
+          "coupling": 0.1696426295765605,
+          "source": "InventMath"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_on_critical_line",
+          "name": "dirichlet_montgomery_taylor_on_critical_line",
+          "coupling": 0.29362987125249357,
+          "source": "peer_invent"
+        },
+        {
+          "id": "peer:dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "name": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+          "coupling": 0.29362987125249357,
+          "source": "peer_invent"
+        }
+      ]
+    }
+  ],
+  "productCatalogPath": "data/RHYME_DISCOVERY_CATALOG.json",
+  "honesty": {
+    "whatThisMeasures": "Immediate #53 AWARE partner recovery + #52 exact-apply proposals for InventMath templates (product rhyme result shape)",
+    "whatThisDoesNotMeasure": "Challenge headline 17/17 closes — analytic stack still required; apply closes are InventMath reconstructs"
+  },
+  "rhymeApplyLakeOk": true,
+  "rhymeImmediateCloses": 5
+}

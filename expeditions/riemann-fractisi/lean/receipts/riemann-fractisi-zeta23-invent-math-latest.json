@@ -2,9 +2,9 @@
   "schema": "fractisi.riemann-expedition.zeta23-invent-math.v1",
   "label": "riemann-fractisi-zeta23-invent-math",
   "mode": "invent_math",
-  "startedAt": "2026-11-25T05:15:33.429Z",
-  "endedAt": "2026-11-25T05:15:44.626Z",
-  "durationSeconds": 11.196540227,
+  "startedAt": "2026-11-25T16:34:03.061Z",
+  "endedAt": "2026-11-25T16:34:14.628Z",
+  "durationSeconds": 11.565535414,
   "ok": true,
   "leanOk": true,
   "honesty": {
@@ -28,7 +28,7 @@
       "OPENAI_API_KEY": false
     },
     "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
-    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 13/13; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
+    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 19/19; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
   },
   "challengeOnlyAtStart": {
     "Zeta23DirAbsent": true,
@@ -38,8 +38,8 @@
   "leaksAtStart": [],
   "invent": {
     "kind": "paper_math_ladder",
-    "theoremCount": 13,
-    "closedCount": 13,
+    "theoremCount": 19,
+    "closedCount": 19,
     "openCount": 0,
     "closed": [
       "rank_trace_scalar_cases",
@@ -55,6 +55,12 @@
       "thmC_chain_five_sixths",
       "multiplicity_quadratic_bound",
       "multiplicity_flat_charge_identity",
+      "Hfun_one",
+      "Ffun_one",
+      "eps_form_of_isLittleO",
+      "eps_form_twoThirds",
+      "eps_form_threeQuarters",
+      "eps_form_half",
       "indicator_pos_ge_two_sub_sq"
     ],
     "open": [],
@@ -129,27 +135,60 @@
         "id": "m-flat",
         "leanName": "multiplicity_flat_charge_identity",
         "closed": true
+      },
+      {
+        "id": "H-def",
+        "leanName": "Hfun_one",
+        "closed": true
+      },
+      {
+        "id": "F-def",
+        "leanName": "Ffun_one",
+        "closed": true
+      },
+      {
+        "id": "E2",
+        "leanName": "eps_form_of_isLittleO",
+        "closed": true
+      },
+      {
+        "id": "E3-A",
+        "leanName": "eps_form_twoThirds",
+        "closed": true
+      },
+      {
+        "id": "E3-C",
+        "leanName": "eps_form_threeQuarters",
+        "closed": true
+      },
+      {
+        "id": "E3-B",
+        "leanName": "eps_form_half",
+        "closed": true
       }
     ]
   },
   "fractisi": {
-    "agents": 3,
+    "agents": 4,
     "agentIds": [
-      "agent_6cf65f1b",
-      "agent_11ea7fdc",
-      "agent_c9170d65"
+      "agent_7a9e99b6",
+      "agent_9339cc60",
+      "agent_920853a3",
+      "agent_988569fc"
     ],
-    "tasks": 3,
+    "tasks": 4,
     "taskIds": [
-      "task_b867033b",
-      "task_77d20263",
-      "task_7b3dc391"
+      "task_7bb5eec1",
+      "task_e42da3d5",
+      "task_6aeee7db",
+      "task_9ae526fc"
     ],
-    "contributions": 3,
+    "contributions": 4,
     "contributionIds": [
-      "contrib_eaed11fa",
-      "contrib_f4f46f07",
-      "contrib_9e10e0e2"
+      "contrib_a8dbef43",
+      "contrib_7a7fd7aa",
+      "contrib_fe24fb27",
+      "contrib_0280e623"
     ]
   },
   "steps": [
@@ -185,15 +224,27 @@
       ]
     },
     {
+      "name": "claim-invent-asymp",
+      "ok": true,
+      "lemmas": [
+        "Hfun_one",
+        "Ffun_one",
+        "eps_form_of_isLittleO",
+        "eps_form_twoThirds",
+        "eps_form_threeQuarters",
+        "eps_form_half"
+      ]
+    },
+    {
       "name": "lake-build-InventMath",
       "ok": true,
       "status": 0,
-      "stderrTail": "✔ [8697/8698] Built InventMath (6.8s)\nBuild completed successfully (8698 jobs)."
+      "stderrTail": "✔ [8697/8698] Built InventMath (7.0s)\nBuild completed successfully (8698 jobs)."
     },
     {
       "name": "compose",
       "ok": true,
-      "compositionId": "comp_9ddc5499"
+      "compositionId": "comp_cf556ea9"
     }
   ],
   "paths": {

@@ -51,6 +51,10 @@ import {
   paperMathSystemAddendum,
   ANTHROPIC_INVENT_BASELINE,
 } from '../../../../src/expeditions/riemann-zeta23-paper-math.mjs';
+import {
+  discoverAllInventRhymesImmediate,
+  formatRhymeApplyLean,
+} from '../../../../src/expeditions/riemann-zeta23-rhyme-discover.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const EXPEDITION = resolve(__dirname, '../..');
@@ -295,7 +299,7 @@ function assertNoSealedLeak(root) {
   return leaks;
 }
 
-function writeInventLakefile(root, { withInventMath = false } = {}) {
+function writeInventLakefile(root, { withInventMath = false, withRhymeApply = false } = {}) {
   // Drop Zeta23 target — invent must not depend on Anthropic proof library.
   const inventMathLib = withInventMath
     ? `
@@ -304,9 +308,21 @@ name = "InventMath"
 roots = ["InventMath"]
 `
     : '';
+  const rhymeApplyLib =
+    withInventMath && withRhymeApply
+      ? `
+[[lean_lib]]
+name = "RhymeApply"
+roots = ["RhymeApply"]
+`
+      : '';
+  const defaults =
+    withInventMath && withRhymeApply
+      ? '["ChallengeDeps", "Challenge", "InventMath", "RhymeApply", "Solution"]'
+      : '["ChallengeDeps", "Challenge", "Solution"]';
   const body = `name = "Zeta23Invent"
 version = "0.1.0"
-defaultTargets = ["ChallengeDeps", "Challenge", "Solution"]
+defaultTargets = ${defaults}
 
 [leanOptions]
 pp.unicode.fun = true
@@ -324,7 +340,7 @@ roots = ["ChallengeDeps"]
 [[lean_lib]]
 name = "Challenge"
 roots = ["Challenge"]
-${inventMathLib}
+${inventMathLib}${rhymeApplyLib}
 [[lean_lib]]
 name = "Solution"
 roots = ["Solution"]
@@ -386,7 +402,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     }
     cpSync(inventMathSrc, join(INVENT_ROOT, 'InventMath.lean'));
   }
-  writeInventLakefile(INVENT_ROOT, { withInventMath });
+  writeInventLakefile(INVENT_ROOT, { withInventMath, withRhymeApply: withInventMath });
   // Warm Mathlib cache only (no proof modules).
   const lakeSrc = join(VENDOR, '.lake');
   if (existsSync(lakeSrc)) {
@@ -484,6 +500,50 @@ function main() {
     proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry', closed: false });
   }
 
+  // --- Immediate product rhyme phase (#53 discover → #52 apply → lake) ---
+  // Prompt-only citation is a bug; named partner recovery + exact reconstruct must land first.
+  let rhymeImmediate = null;
+  let rhymeApplyLakeOk = false;
+  let rhymeImmediateCloses = 0;
+  if (withInventMath && !args.skipLake) {
+    rhymeImmediate = discoverAllInventRhymesImmediate(INVENT_THEOREMS, { proofs });
+    const applyLean = formatRhymeApplyLean(rhymeImmediate.uniqueApplyPartners);
+    writeFileSync(join(INVENT_ROOT, 'RhymeApply.lean'), applyLean);
+    writeInventLakefile(INVENT_ROOT, { withInventMath: true, withRhymeApply: true });
+    const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
+    const rhymeBuild = run(lake, ['build', 'RhymeApply'], {
+      cwd: INVENT_ROOT,
+      timeoutMs: 180_000,
+    });
+    rhymeApplyLakeOk = rhymeBuild.status === 0;
+    rhymeImmediateCloses = rhymeApplyLakeOk ? rhymeImmediate.uniqueApplyPartners.length : 0;
+    steps.push({
+      name: 'rhyme-immediate-apply',
+      ok: rhymeApplyLakeOk,
+      durationMs: rhymeImmediate.durationMs,
+      namedDiscoveryCount: rhymeImmediate.namedDiscoveryCount,
+      uniqueApplyPartners: rhymeImmediate.uniqueApplyPartners.length,
+      rhymeImmediateCloses,
+      stderrTail: (rhymeBuild.stderr || rhymeBuild.stdout || '').slice(-800),
+    });
+    // Persist invent-domain discovery catalog (product shape) next to receipts.
+    mkdirSync(RECEIPTS, { recursive: true });
+    writeFileSync(
+      join(RECEIPTS, 'riemann-fractisi-zeta23-invent-rhyme-discoveries-latest.json'),
+      JSON.stringify(
+        {
+          schema: 'fractisi.riemann-expedition.zeta23-invent-rhyme-discoveries.v1',
+          generatedAt: new Date().toISOString(),
+          ...rhymeImmediate,
+          rhymeApplyLakeOk,
+          rhymeImmediateCloses,
+        },
+        null,
+        2,
+      ),
+    );
+  }
+
   const byAgent = groupByAgent();
   const strategies = TACTIC_STRATEGIES.filter((s) => s.id !== 'exact_false_probe');
   const agentByName = new Map();
@@ -507,9 +567,14 @@ function main() {
   let llmOkCalls = 0;
   let awarenessInjections = 0;
   let awarenessCharsTotal = 0;
-  let rhymeDiscoveries = 0;
+  let rhymeDiscoveries = rhymeImmediate?.namedDiscoveryCount || 0;
   let rhymeDiscoveryCharsTotal = 0;
-  const rhymeLeadingPartners = [];
+  const rhymeLeadingPartners = (rhymeImmediate?.perTheorem || []).map((p) => ({
+    theorem: p.theorem,
+    leadingPartner: p.leadingPartner,
+    leadingCoupling: p.leadingCoupling,
+    boardTop: p.boardTop,
+  }));
   const llmModelsUsed = new Set();
   while (performance.now() - t0 < cutoffMs) {
     round += 1;
@@ -883,10 +948,12 @@ function main() {
       awarenessKind: llmMode ? 'tiny-footprint-infinite-octave-engine-prompt' : null,
       enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
       awarenessInjections: llmMode ? awarenessInjections : 0,
-      productRhymeDiscovery: llmMode,
-      productRhymePins: llmMode ? ['#52', '#53', '#54'] : null,
-      productRhymeCatalog: llmMode ? 'data/RHYME_DISCOVERY_CATALOG.json' : null,
-      rhymeDiscoveries: llmMode ? rhymeDiscoveries : 0,
+      productRhymeDiscovery: withInventMath,
+      productRhymePins: withInventMath ? ['#52', '#53', '#54'] : null,
+      productRhymeCatalog: withInventMath ? 'data/RHYME_DISCOVERY_CATALOG.json' : null,
+      rhymeDiscoveries: withInventMath ? rhymeDiscoveries : 0,
+      rhymeImmediateCloses: withInventMath ? rhymeImmediateCloses : 0,
+      rhymeApplyLakeOk: withInventMath ? rhymeApplyLakeOk : null,
       apiKeys: keys,
       anthropicBaselinePrimary: ANTHROPIC_INVENT_BASELINE.url,
       anthropicBaselineCharacterization: ANTHROPIC_INVENT_BASELINE.characterization,
@@ -914,12 +981,17 @@ function main() {
       rhymeDiscoveries,
       rhymeDiscoveryCharsTotal,
       rhymeLeadingPartners: rhymeLeadingPartners.slice(0, 40),
+      rhymeImmediateMs: rhymeImmediate?.durationMs ?? null,
+      rhymeNamedDiscoveryCount: rhymeImmediate?.namedDiscoveryCount ?? 0,
+      rhymeApplyLakeOk,
+      rhymeImmediateCloses,
+      rhymeUniqueApplyPartners: rhymeImmediate?.uniqueApplyPartners?.length ?? 0,
       fractisiAwarenessInLlmPrompts: llmMode,
       awarenessKind: llmMode ? 'tiny-footprint-infinite-octave-engine-prompt' : null,
       enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
-      productRhymeDiscovery: llmMode,
-      productRhymePins: llmMode ? ['#52', '#53', '#54'] : null,
-      productRhymeCatalog: llmMode ? 'data/RHYME_DISCOVERY_CATALOG.json' : null,
+      productRhymeDiscovery: withInventMath,
+      productRhymePins: withInventMath ? ['#52', '#53', '#54'] : null,
+      productRhymeCatalog: withInventMath ? 'data/RHYME_DISCOVERY_CATALOG.json' : null,
       maxRounds: args.maxRounds,
       solutionImportsZeta23: solutionImportsZeta23(INVENT_ROOT),
       sorryAtEnd: sorryEnd.sorryCount,

@@ -14,6 +14,7 @@ export const PAPER_META = Object.freeze({
   coreIdea:
     'Make Montgomery 1973 unconditional: replace RH termwise positivity by a rank–trace inequality on a finite compression of Weil’s Hermitian form; Sylvester inertia handles off-line pairs. Analytic inputs: Weil explicit formula, Riemann–von Mangoldt, Stirling Γ′/Γ, Chebyshev–Mertens, Montgomery–Vaughan.',
   remainingStack: Object.freeze([
+    'E4 dyadic summation (N₀*(T,2T) ⇒ N₀*(T))',
     'Full Hermitian Lemma 3.2 (not only diagonal)',
     'Lemma 3.1 inertia under pull-back',
     'Weil explicit formula (ζ and Dirichlet L)',
@@ -133,6 +134,54 @@ export const PAPER_LEMMA_LADDER = Object.freeze([
     agent: 'invent-la',
     difficulty: 'easy',
     paperNote: 'm² − (3m − 2) = (m−1)(m−2).',
+  },
+  {
+    id: 'H-def',
+    leanName: 'Hfun_one',
+    section: '§6 / [eq:Fdef]',
+    agent: 'invent-asymp',
+    difficulty: 'easy',
+    paperNote: 'H(1) = 2/3.',
+  },
+  {
+    id: 'F-def',
+    leanName: 'Ffun_one',
+    section: '§6 / [eq:Fdef]',
+    agent: 'invent-asymp',
+    difficulty: 'easy',
+    paperNote: 'F(1) = 3/4.',
+  },
+  {
+    id: 'E2',
+    leanName: 'eps_form_of_isLittleO',
+    section: '§6 E2',
+    agent: 'invent-asymp',
+    difficulty: 'tractable',
+    paperNote: 'o(N) error ⇒ ε-form of the proportion bound.',
+  },
+  {
+    id: 'E3-A',
+    leanName: 'eps_form_twoThirds',
+    section: '§6 E3',
+    agent: 'invent-asymp',
+    difficulty: 'tractable',
+    paperNote: 'λ→1⁻ packages H(λ) ε-forms into the 2/3 Challenge shape.',
+  },
+  {
+    id: 'E3-C',
+    leanName: 'eps_form_threeQuarters',
+    section: '§6 E3',
+    agent: 'invent-asymp',
+    difficulty: 'tractable',
+    paperNote: 'λ→1⁻ packages F(λ) into the 3/4 distinct shape.',
+  },
+  {
+    id: 'E3-B',
+    leanName: 'eps_form_half',
+    section: '§6 E3',
+    agent: 'invent-asymp',
+    difficulty: 'tractable',
+    paperNote: 'λ→1⁻ packages 2F−1 into the 1/2 simple-on-line shape.',
   },
 ]);
 
