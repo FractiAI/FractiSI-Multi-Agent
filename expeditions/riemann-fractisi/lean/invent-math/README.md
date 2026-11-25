@@ -9,6 +9,7 @@ Challenge-only Lean invent of the public-paper linear-algebra / assembly lemmas 
 | `InventMainEstimate.lean` | Zero-side little-o → `MainEstimateHfunN0star` packaging |
 | `InventEndgame.lean` | Seam + glue + `MainEstimate*` types → invent_<edge> seeds |
 | `InventRvM.lean` | RvM counting scaffolding (Mathlib-only; classical uniform A₀ log gap named) |
+| `InventWeil.lean` | Weil EF surface scaffolding |
 
 Does **not** import Anthropic’s sealed `Zeta23` corpus. Does **not** claim RH.
 

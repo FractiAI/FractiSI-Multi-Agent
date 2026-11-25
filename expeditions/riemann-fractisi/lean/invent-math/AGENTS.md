@@ -7,5 +7,6 @@ Paper-guided FractiSI invent of Alpöge–Furman ladder lemmas (arXiv:2608.13637
 - `InventMainEstimate.lean` — zero-side little-o → main-estimate packaging
 - `InventEndgame.lean` — ChallengeDeps seam + glue + main-estimate types → invent_<edge>
 - `InventRvM.lean` — RvM counting scaffolding (compact/discrete/ncard; classical uniform A₀ log gap named)
+- `InventWeil.lean` — Weil EF surface scaffolding (ContDiff / paperFT shape)
 - Measured by `../timing/run-zeta23-invent-math.mjs` (InventMath) and invent arm lake-build (Analytic/Endgame/RvM)
 - Challenge headlines: invent unconditional `main_estimate_*` then Solution `exact invent_<edge>`; RH stays OPEN
