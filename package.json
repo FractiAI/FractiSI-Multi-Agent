@@ -47,6 +47,8 @@
     "research:world-model-expedition:v2": "node experiments/world-model-expedition/scripts/run_expedition_v2.mjs",
     "research:pilot-rhyme-expedition": "node research/pilot-rhyme-expedition/scripts/run_empirical_pipeline.mjs",
     "research:principal-rhyme-theorem": "node research/principal-rhyme-theorem/scripts/run_empirical_pipeline.mjs",
+    "research:universal-rhyme-wet-lab": "node research/universal-rhyme-wet-lab/scripts/run_empirical_pipeline.mjs",
+    "research:compositional-wet-lab-scale": "node research/compositional-wet-lab-scale/scripts/run_empirical_pipeline.mjs",
     "skin:auto-session": "node scripts/holographic-auto-session.mjs",
     "skin:auto-session:install": "node scripts/install-holographic-auto-session-protocol.mjs"
   },

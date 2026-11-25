@@ -16,7 +16,10 @@ describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
     assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 52));
     assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 53));
     assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 54));
-    assert.ok(INFINITE_OCTAVE_PAPER_CORPUS.length >= 12);
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 55));
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 56));
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 57));
+    assert.ok(INFINITE_OCTAVE_PAPER_CORPUS.length >= 15);
   });
 
   it('builds large-engine processing instructions citing shelf + papers', () => {
@@ -25,6 +28,10 @@ describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
     assert.match(text, /ENGINE_SHELF #52/);
     assert.match(text, /ENGINE_SHELF #53/);
     assert.match(text, /ENGINE_SHELF #54/);
+    assert.match(text, /ENGINE_SHELF #55/);
+    assert.match(text, /ENGINE_SHELF #56/);
+    assert.match(text, /ENGINE_SHELF #57/);
+    assert.match(text, /Principal Rhyme Theorem/);
     assert.match(text, /LINEAR \/ FLAT \/ AWARE/);
     assert.match(text, /operate AWARE/);
     assert.match(text, /Digits × Octaves 01–99/);
@@ -32,6 +39,9 @@ describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
     assert.match(text, /Tiny Gateway/);
     assert.match(text, /Infinite Octaves/);
     assert.match(text, /Net Zero/);
+    assert.match(text, /library\/papers\/principal-rhyme-theorem/);
+    assert.match(text, /library\/papers\/universal-rhyme-wet-lab/);
+    assert.match(text, /library\/papers\/compositional-wet-lab-scale/);
     assert.match(text, /library\/papers\/infinite-octaves-omniversal/);
     assert.match(text, /library\/papers\/tiny-gateway-rhyming-templates/);
     assert.match(text, /library\/papers\/holographic-rhyme/);

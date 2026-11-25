@@ -16,6 +16,27 @@ export const ENGINE_PROMPT_ID = 'fractisi.infinite-octave.engine-shelf.invent.v2
 /** Infinite Octaves ENGINE_SHELF pins (docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md). */
 export const ENGINE_SHELF_PINS = Object.freeze([
   {
+    id: 57,
+    name: 'Compositional Wet-Lab Scale',
+    grammar:
+      'Level I/II/III · Primitive→Interface→Cascade→Program→Scale · nests under #56/#55',
+    registry: 'synthobs-compositional-wet-lab-scale-2026-11',
+  },
+  {
+    id: 56,
+    name: 'Universal Rhyme Wet-Lab Proof',
+    grammar:
+      'composite EM evidence chain · Interference→Cavity→Matrix→Metasurface→ML · nests under #55',
+    registry: 'synthobs-universal-rhyme-wet-lab-2026-11',
+  },
+  {
+    id: 55,
+    name: 'Principal Rhyme Theorem',
+    grammar:
+      'organizational rhyme · nested catalog PR-01…PR-20+∞ · Recognize→Connect→Reconstruct→Coordinate→Verify',
+    registry: 'synthobs-principal-rhyme-theorem-2026-11',
+  },
+  {
     id: 54,
     name: 'LLM / language-pack rhyme',
     grammar: 'LINEAR / FLAT / AWARE packs',
@@ -47,6 +68,18 @@ export const ENGINE_SHELF_PINS = Object.freeze([
  * engine is a shelf of methods, not a slogan.
  */
 export const INFINITE_OCTAVE_PAPER_CORPUS = Object.freeze([
+  {
+    slug: 'compositional-wet-lab-scale',
+    role: 'ENGINE_SHELF #57 · Level I/II compositional proof · Level III scale open',
+  },
+  {
+    slug: 'universal-rhyme-wet-lab',
+    role: 'ENGINE_SHELF #56 · EM wet-lab chain · nests under #55',
+  },
+  {
+    slug: 'principal-rhyme-theorem',
+    role: 'ENGINE_SHELF #55 · nested organizational catalog · Soft Story Exp 1–7',
+  },
   {
     slug: 'infinite-octaves-omniversal',
     role: '99-octave Omni-Lattice engine pin · product↔engine dual lock',
@@ -161,8 +194,10 @@ export function buildTinyFootprintOctaveEnginePrompt() {
     'A. ENGINE_SHELF pins (active method locks)',
     '────────────────────────────────',
     shelf,
-    'Nest rule: #54 language packs nest #53 protein-fold grammar on every layer.',
-    'Lock line: Infinite Octaves ENGINE_SHELF #53 + #54 · FractiSI / Tiny Footprint Computational Lab.',
+    'Nest rule: #55 Principal Rhyme Theorem is the foundational organizational catalog.',
+    'Nest rule: #56 Universal Rhyme Wet-Lab nests under #55; #57 Compositional Wet-Lab Scale nests under #56/#55 (Level III hyperscale NOT claimed).',
+    'Nest rule: #54 language packs nest #53 protein-fold grammar on every layer; both nest under #55 before treating novelty as an isolated object.',
+    'Lock line: Infinite Octaves ENGINE_SHELF #57 + #56 + #55 + #53 + #54 · FractiSI / Tiny Footprint Computational Lab.',
     'Source: docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md',
     '',
     '────────────────────────────────',

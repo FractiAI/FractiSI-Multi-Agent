@@ -761,8 +761,8 @@
   },
   "sourceFingerprint": {
     "algorithm": "sha256-of-sorted-file-hashes",
-    "fileCount": 82,
-    "sha256": "d68ac5c3f73499b686bd3ca1f75411450bbec809a230a3439cdeafc1762f59c5"
+    "fileCount": 84,
+    "sha256": "c6d74df1f35d76c0b22f0404bb313d5707c4472df6724ac4640b561b4fe00fb6"
   },
   "suite": {
     "gateway": {
