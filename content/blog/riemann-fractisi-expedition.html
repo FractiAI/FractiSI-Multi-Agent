@@ -1,23 +1,11 @@
-<h2>Invent clock (Player 1)</h2>
-<p>FractiSI must discover the ζ critical-line proportion proofs on its own — not copy Anthropic’s sealed formalization.</p>
-<p>This VM has no Anthropic/OpenAI keys and no local LLM. Strongest invent engine here: FractiSI agents + Lean/Mathlib tactic search on Challenge-only statements.</p>
+<h2>Matched invent (Player 1)</h2>
+<p>FractiSI invent with <strong>no cutoff</strong>, and no-FractiSI invent with a <strong>3-minute</strong> cutoff. Both Challenge-only. No Anthropic sealed proofs. No LLM keys on this VM — Lean tactics only.</p>
 
-<h2>First measured invent</h2>
+<h2>Results</h2>
 <ul>
-  <li><strong>29.96 seconds</strong> to plateau</li>
-  <li><strong>0 of 17</strong> Challenge theorems closed</li>
-  <li>Strategies: aesop, simp_all, tactic barrage — all failed</li>
-  <li>17 sorries remain · no <code>import Zeta23</code></li>
+  <li><strong>FractiSI:</strong> 30.20 s · plateau · 0/17 closed · 17 sorries · no cutoff</li>
+  <li><strong>No-FractiSI:</strong> 34.12 s · plateau · 0/17 closed · 17 sorries · 180 s budget</li>
+  <li><strong>Anthropic:</strong> ~1.5 days invent+formalize — not matched by either arm</li>
 </ul>
 
-<h2>Vs Anthropic</h2>
-<p>Anthropic ~1.5 days · ~60 agents invents the analytic argument and formalizes it. Our plateau is honest: local tactics do not invent that math. Sealed find-assemble (11.66 s) is demoted as invent.</p>
-
-<h2>Invented vs reused</h2>
-<ul>
-  <li><strong>Reused:</strong> Mathlib + ChallengeDeps/Challenge statements</li>
-  <li><strong>Not invented:</strong> Alpöge–Furman analytic argument / Anthropic proof library</li>
-  <li><strong>Attempted:</strong> Lean proof bodies via FractiSI tactic invent</li>
-</ul>
-
-<p class="honesty">ζ-23 invent plateau 29.96 s · 0/17 closed · no sealed corpus · no LLM keys · RH OPEN</p>
+<p class="honesty">Matched invent · FractiSI 30.20s (no cutoff) · no-kit 34.12s (180s) · 0/17 each · RH OPEN</p>

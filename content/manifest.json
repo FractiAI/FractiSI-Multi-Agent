@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Invent Clock On Anthropic\u2019s Real \u03b6 Challenge",
-      "dek": "Invent not copy: FractiSI Lean tactic invent plateaus in 29.96 s with 0/17 theorems closed. No LLM keys on VM. Anthropic ~1.5 d invents the argument. RH open.",
+      "title": "FractiSI Matched Invent Clock (\u03b6 Challenge)",
+      "dek": "Matched invent: FractiSI 30.20s (no cutoff) vs no-kit 34.12s (180s). Both 0/17. No LLM keys. Anthropic ~1.5d. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> \u00b7 Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: invent clock plateaued at 29.96 s with zero theorems closed.",
-      "answerBody": " FractiSI tried Lean/Mathlib tactic invent on Challenge-only \u03b6 statements without Anthropic\u2019s sealed proofs. No model API keys here. Anthropic\u2019s ~1.5 days invents the analytic idea. RH remains OPEN."
+      "answerHead": "Short answer: matched invent \u2014 both arms closed 0/17 theorems.",
+      "answerBody": " FractiSI invent had no cutoff (30.20s plateau). No-FractiSI had a 180s cutoff (34.12s plateau). No sealed Anthropic corpus. No LLM keys. Not a win vs Anthropic ~1.5 days. RH OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Invent Clock On Anthropic\u2019s Real \u03b6 Challenge",
+      "title": "FractiSI Matched Invent Clock (\u03b6 Challenge)",
       "group": "Multi-agent research",
-      "summary": "Invent plateau 29.96s \u00b7 0/17 closed \u00b7 no sealed corpus \u00b7 no LLM keys \u00b7 Anthropic ~1.5d \u00b7 RH OPEN.",
+      "summary": "Matched invent: FractiSI 30.20s no-cutoff \u00b7 no-kit 34.12s/180s \u00b7 0/17 each \u00b7 RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"
