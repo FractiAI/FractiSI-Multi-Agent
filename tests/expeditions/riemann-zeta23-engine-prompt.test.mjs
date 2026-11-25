@@ -5,29 +5,37 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   ENGINE_PROMPT_ID,
+  ENGINE_SHELF_PINS,
+  INFINITE_OCTAVE_PAPER_CORPUS,
   buildTinyFootprintOctaveEnginePrompt,
 } from '../../src/expeditions/riemann-zeta23-engine-prompt.mjs';
 
-describe('riemann zeta23 Tiny Footprint / Infinite Octave engine prompt', () => {
-  it('exports a stable engine prompt id', () => {
-    assert.match(ENGINE_PROMPT_ID, /tiny-footprint\.infinite-octave/);
+describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
+  it('exports ENGINE_SHELF.v2 prompt id and shelf pins', () => {
+    assert.match(ENGINE_PROMPT_ID, /infinite-octave\.engine-shelf\.invent\.v2/);
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 52));
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 53));
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 54));
+    assert.ok(INFINITE_OCTAVE_PAPER_CORPUS.length >= 12);
   });
 
-  it('builds processing instructions (how to process), not a mere status dump', () => {
+  it('builds large-engine processing instructions citing shelf + papers', () => {
     const text = buildTinyFootprintOctaveEnginePrompt();
-    assert.match(text, /Tiny Gateway/);
+    assert.ok(text.length > 4000, 'engine prompt must be substantial, not a thin paraphrase');
+    assert.match(text, /ENGINE_SHELF #52/);
+    assert.match(text, /ENGINE_SHELF #53/);
+    assert.match(text, /ENGINE_SHELF #54/);
+    assert.match(text, /LINEAR \/ FLAT \/ AWARE/);
+    assert.match(text, /operate AWARE/);
+    assert.match(text, /Digits × Octaves 01–99/);
     assert.match(text, /Tiny Footprint/);
-    assert.match(text, /Infinite Octave/);
+    assert.match(text, /Tiny Gateway/);
+    assert.match(text, /Infinite Octaves/);
     assert.match(text, /Net Zero/);
+    assert.match(text, /library\/papers\/infinite-octaves-omniversal/);
+    assert.match(text, /library\/papers\/tiny-gateway-rhyming-templates/);
+    assert.match(text, /library\/papers\/holographic-rhyme/);
     assert.match(text, /processing instructions/i);
-    assert.match(text, /Four pillars/);
-    assert.match(text, /Repeating/);
-    assert.match(text, /Self-Similar/);
-    assert.match(text, /Self-Correcting/);
-    assert.match(text, /Recursive/);
-    assert.match(text, /delta/i);
-    assert.match(text, /N private full copies/i);
-    // Must instruct HOW to process — not only list theorems
     assert.doesNotMatch(text, /two_thirds_on_critical_line/);
     assert.equal(text.includes('gsk_'), false);
   });

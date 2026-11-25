@@ -60,8 +60,9 @@ describe('riemann zeta23 llm helpers', () => {
   it('separates engine processing prompt from shared-world data', () => {
     const engine = buildTinyFootprintOctaveEnginePrompt();
     assert.match(engine, /processing instructions/i);
-    assert.match(engine, /Infinite Octave/);
-    assert.equal(engine.includes(ENGINE_PROMPT_ID.split('.').slice(-1)[0]) || engine.includes('promptId='), true);
+    assert.match(engine, /Infinite Octaves ENGINE/);
+    assert.match(engine, /ENGINE_SHELF #54/);
+    assert.ok(engine.includes(ENGINE_PROMPT_ID));
 
     const proofs = new Map([
       ['two_thirds_on_critical_line', { closed: false, body: 'aesop', tacticId: 'llm:test' }],
