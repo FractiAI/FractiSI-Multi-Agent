@@ -1,0 +1,131 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent-math.v1",
+  "label": "riemann-fractisi-zeta23-invent-math",
+  "mode": "invent_math",
+  "startedAt": "2026-11-25T04:53:09.312Z",
+  "endedAt": "2026-11-25T04:53:20.594Z",
+  "durationSeconds": 11.281526614,
+  "ok": true,
+  "leanOk": true,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "Paper-guided invent of rank–trace / assembly lemmas (InventMath) from public arXiv outline; Challenge-only; no sealed Zeta23",
+    "whatThisDoesNotMeasure": [
+      "Full Challenge Solution.lean (17 headline theorems)",
+      "Find-assemble of sealed Anthropic Zeta23",
+      "RH"
+    ],
+    "inventedHere": "Lean proofs of paper ladder lemmas (scalar rank–trace, diagonal form, Theorem A constant arithmetic)",
+    "reusedNotInvented": [
+      "Mathlib",
+      "Public paper outline arXiv:2608.13637 (ideas, not Anthropic Lean)"
+    ],
+    "sealedCorpusUsed": false,
+    "paperArxiv": "2608.13637",
+    "apiKeys": {
+      "GROQ_API_KEY": true,
+      "ANTHROPIC_API_KEY": false,
+      "OPENAI_API_KEY": false
+    },
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 4/4; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23DirAbsent": true,
+    "Zeta23LeanAbsent": true,
+    "sealedCorpusReadableByAgents": false
+  },
+  "leaksAtStart": [],
+  "invent": {
+    "kind": "paper_math_ladder",
+    "theoremCount": 4,
+    "closedCount": 4,
+    "openCount": 0,
+    "closed": [
+      "rank_trace_scalar_cases",
+      "rank_trace_cell",
+      "rank_trace_inequality_real_diag",
+      "thmA_assembly_two_thirds",
+      "indicator_pos_ge_two_sub_sq"
+    ],
+    "open": [],
+    "supportingClosed": [
+      "indicator_pos_ge_two_sub_sq"
+    ],
+    "inventMathImportsZeta23": false,
+    "sorryAtEnd": 0,
+    "lakeBuildOk": true,
+    "ladder": [
+      {
+        "id": "L3.2b",
+        "leanName": "rank_trace_scalar_cases",
+        "closed": true
+      },
+      {
+        "id": "L3.2-cell",
+        "leanName": "rank_trace_cell",
+        "closed": true
+      },
+      {
+        "id": "L3.2",
+        "leanName": "rank_trace_inequality_real_diag",
+        "closed": true
+      },
+      {
+        "id": "A-arith",
+        "leanName": "thmA_assembly_two_thirds",
+        "closed": true
+      }
+    ]
+  },
+  "fractisi": {
+    "agents": 2,
+    "agentIds": [
+      "agent_ca4742b8",
+      "agent_ce402d62"
+    ],
+    "tasks": 2,
+    "taskIds": [
+      "task_982204b4",
+      "task_858d9c85"
+    ],
+    "contributions": 2,
+    "contributionIds": [
+      "contrib_ccd7a188",
+      "contrib_f959fb3e"
+    ]
+  },
+  "steps": [
+    {
+      "name": "claim-invent-la",
+      "ok": true,
+      "lemmas": [
+        "rank_trace_scalar_cases",
+        "rank_trace_cell",
+        "rank_trace_inequality_real_diag"
+      ]
+    },
+    {
+      "name": "claim-invent-assembly",
+      "ok": true,
+      "lemmas": [
+        "thmA_assembly_two_thirds"
+      ]
+    },
+    {
+      "name": "lake-build-InventMath",
+      "ok": true,
+      "status": 0,
+      "stderrTail": "✔ [8697/8698] Built InventMath (6.5s)\nBuild completed successfully (8698 jobs)."
+    },
+    {
+      "name": "compose",
+      "ok": true,
+      "compositionId": "comp_21a21479"
+    }
+  ],
+  "paths": {
+    "inventSandbox": "/workspace/expeditions/riemann-fractisi/.invent-sandbox/zeta23-invent-math",
+    "inventMathSrc": "/workspace/expeditions/riemann-fractisi/lean/invent-math/InventMath.lean"
+  }
+}

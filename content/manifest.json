@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Invent via Infinite Octave ENGINE_SHELF (v2)",
-      "dek": "Groq invent awareness is ENGINE_SHELF v2 (~8k chars, 17 papers). 35.96s \u00b7 0/17. RH open.",
+      "title": "FractiSI Paper-Math Invent (rank–trace ladder)",
+      "dek": "InventMath ladder 4/4 green in 11.28s from public arXiv outline. Challenge headlines still open. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> \u00b7 Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: invent awareness is the expanded Infinite Octave ENGINE_SHELF processing prompt, not a thin paraphrase.",
-      "answerBody": " Measured 35.96s \u00b7 17 injections \u00b7 0/17 closed. Still not a win vs Anthropic. RH OPEN."
+      "answerHead": "Short answer: paper-guided invent closed the InventMath lemma ladder 4/4.",
+      "answerBody": " Measured 11.28s \u00b7 lake green \u00b7 no sealed Zeta23. Challenge headlines remain 0/17. RH OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Invent via Infinite Octave ENGINE_SHELF (v2)",
+      "title": "FractiSI Paper-Math Invent (rank–trace ladder)",
       "group": "Multi-agent research",
-      "summary": "ENGINE_SHELF v2 invent 35.96s \u00b7 0/17 \u00b7 cites Infinite Octave paper shelf \u00b7 RH OPEN.",
+      "summary": "InventMath ladder 4/4 in 11.28s \u00b7 Challenge-only \u00b7 no sealed Zeta23 \u00b7 RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FractiSI On Anthropic’s Real ζ Formalization · FractiSI</title>
-  <meta name="description" content="This expedition vendors Anthropic’s public Lean 4 / Mathlib formalization of the critical-line zero-proportion theorems and times a FractiSI-coordinated verification of that real project.">
-  <meta property="og:title" content="FractiSI On Anthropic’s Real ζ Formalization">
-  <meta property="og:description" content="This expedition vendors Anthropic’s public Lean 4 / Mathlib formalization of the critical-line zero-proportion theorems and times a FractiSI-coordinated verification of that real project.">
+  <title>FractiSI Paper-Math Invent (rank–trace ladder) · FractiSI</title>
+  <meta name="description" content="InventMath ladder 4/4 in 11.28s · Challenge-only · no sealed Zeta23 · RH OPEN.">
+  <meta property="og:title" content="FractiSI Paper-Math Invent (rank–trace ladder)">
+  <meta property="og:description" content="InventMath ladder 4/4 in 11.28s · Challenge-only · no sealed Zeta23 · RH OPEN.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://fractisi.vercel.app/library/papers/riemann-fractisi-expedition/">
   <link rel="canonical" href="https://fractisi.vercel.app/library/papers/riemann-fractisi-expedition/">
@@ -31,13 +31,13 @@
       <article class="doc doc-paper">
         <header class="doc-head">
           <p class="kicker">Paper · Multi-agent research</p>
-          <h1>FractiSI On Anthropic’s Real ζ Formalization</h1>
-          <p class="dek">This expedition vendors Anthropic’s public Lean 4 / Mathlib formalization of the critical-line zero-proportion theorems and times a FractiSI-coordinated verification of that real project.</p>
+          <h1>FractiSI Paper-Math Invent (rank–trace ladder)</h1>
+          <p class="dek">InventMath ladder 4/4 in 11.28s · Challenge-only · no sealed Zeta23 · RH OPEN.</p>
           <dl class="doc-meta">
             <div><dt>Published</dt><dd>November 24, 2026</dd></div>
-            <div><dt>Type</dt><dd>Application companion</dd></div>
+            <div><dt>Type</dt><dd>Research paper</dd></div>
             <div><dt>Document ID</dt><dd><code>WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</code></dd></div>
-            <div><dt>Reading time</dt><dd>3 min</dd></div>
+            <div><dt>Reading time</dt><dd>1 min</dd></div>
           </dl>
           <div class="doc-actions">
           <a class="btn-primary" href="/blog/riemann-fractisi-expedition/">Read the blog post</a>
@@ -45,62 +45,24 @@
           </div>
         </header>
         <div class="prose">
-<h2 id="plain-language-what-we-tested-how-long-vs-anthropic">Plain language: what we tested, how long, vs Anthropic</h2>
-<h3 id="what-we-actually-tested">What we actually tested</h3>
-<p>We did <strong>not</strong> invent a new theorem about the Riemann zeta function in this run.</p>
-<p>We took Anthropic’s public Lean 4 + Mathlib project that formalizes their published result: <strong>more than two thirds of the nontrivial zeros of ζ lie on the critical line</strong> (headline Montgomery–Taylor window ≈ <strong>67.2%</strong>). The statements use Mathlib’s real <code>riemannZeta</code>, not toy percentages.</p>
-<p>FractiSI’s job in this trial:</p>
-<ol>
-<li>Four agents claim the real library pieces (definitions, challenge statements, proof library, solution bridge).</li>
-<li>Compose those claims in the shared world.</li>
-<li>Run <code>lake build Solution</code> so Lean checks the real proofs.</li>
-<li>Run <code>#print axioms</code> on the 17 headline theorems — they depend only on Lean’s three standard axioms.</li>
-</ol>
-<h3 id="how-long-it-took-this-machine">How long it took (this machine)</h3>
-<div class="table-wrap"><table><thead><tr><th>Step</th><th>Wall clock</th></tr></thead><tbody><tr><td>First cold Mathlib download + full <code>lake build Solution</code></td><td><strong>≈ 612 seconds</strong> (~10.2 minutes)</td></tr><tr><td>FractiSI coordinated verify with a warm build cache</td><td><strong>14.66 seconds</strong></td></tr><tr><td>FractiSI bookkeeping in that warm run</td><td><strong>4 tasks · 4 contributions · 1 composition</strong></td></tr></tbody></table></div>
-<h3 id="comparison-our-run-vs-anthropic">Comparison: our run vs Anthropic</h3>
-<div class="table-wrap"><table><thead><tr><th></th><th>Anthropic (published)</th><th>FractiSI (this run)</th></tr></thead><tbody><tr><td><strong>Job</strong></td><td>Discover + write the math argument, then formalize it in Lean/Mathlib</td><td>Coordinate and <strong>re-check</strong> that published formalization</td></tr><tr><td><strong>Math target</strong></td><td>Real ζ critical-line proportion bound (~67.2%)</td><td><strong>Same</strong> published formalization</td></tr><tr><td><strong>Agents</strong></td><td>~60 subagents</td><td>4 FractiSI agents (claim / compose / build)</td></tr><tr><td><strong>Published clock</strong></td><td>~<strong>1.5 days</strong></td><td>Warm verify <strong>14.66 s</strong>; cold first build ~<strong>10 min</strong></td></tr><tr><td><strong>Who wrote the proofs</strong></td><td>Anthropic / Alpöge–Furman (upstream)</td><td>Upstream — we did not re-author the analytic proof</td></tr><tr><td><strong>RH solved?</strong></td><td>No</td><td>No</td></tr></tbody></table></div>
-<p><strong>How to read the clocks:</strong> Anthropic’s ~1.5 days paid for <strong>finding</strong> the result. Our 14.66 seconds paid for <strong>checking</strong> their finished Lean project under FractiSI. Those are related but different jobs. We do <strong>not</strong> claim FractiSI rediscovered the analytic argument 10,000× faster. We claim: on the <strong>same real ζ formalization</strong>, FractiSI can coordinate a clean machine check in seconds once the Mathlib cache is warm, and about ten minutes from a cold start on this host.</p>
-<section class="callout" aria-label="Honesty boundary"><h2 id="honesty-boundary">Honesty boundary</h2>
-<div class="table-wrap"><table><thead><tr><th>Tier</th><th>What this paper is</th><th>What it is not</th></tr></thead><tbody><tr><td>Science target</td><td>Vendored Anthropic zeta-23: Mathlib <code>riemannZeta</code> Theorems A–E; ≈ 0.6725</td><td>Toy Nat millesimal ladder (demoted)</td></tr><tr><td>FractiSI role</td><td>Agents claim real partitions → compose → <code>lake build Solution</code> + axiom audit</td><td>LLM rediscovery of the analytic proof in this run</td></tr><tr><td>Baseline</td><td>Anthropic’s published ζ expedition (discovery + formalization)</td><td>A sequential no-kit retest of the same rebuild</td></tr><tr><td>RH</td><td>Stays OPEN</td><td>A proof of RH</td></tr><tr><td>Authorship</td><td>Upstream Anthropic formal-math / Alpöge–Furman</td><td>A FractiAI-authored analytic paper</td></tr></tbody></table></div>
-</section>
-<h2 id="abstract">Abstract</h2>
-<p>This expedition vendors Anthropic’s public Lean 4 / Mathlib formalization of the critical-line zero-proportion theorems and times a FractiSI-coordinated verification of that real project. Warm verify took 14.66 seconds with tasks 4 / contributions 4 / compositions 1; a cold Mathlib cache plus build took about 612 seconds. Anthropic’s published ~1.5 day · ~60-agent expedition remains the discovery baseline. RH stays OPEN. Toy Nat ablation is demoted and is not the ζ science claim.</p>
-<h2 id="1-research-question">1. Research question</h2>
-<p>What does FractiSI record when coordinating verification of Anthropic’s real Mathlib ζ formalization, against Anthropic’s published expedition as baseline?</p>
-<h2 id="2-protocol">2. Protocol</h2>
-<pre><code class="language-text">vendor     = anthropics/formal-math/zeta23 (Lean v4.33.0-rc2 + Mathlib pin)
-FractiSI   = 4 agents claim ChallengeDeps / Challenge / Zeta23 / Solution
-clock      = claim + compose + lake build Solution + axiom audit
-baseline   = Anthropic research post (~1.5 days, ~60 subagents, 41.6% → 67.2%)
-</code></pre>
-<p>Harness: <code>node timing/run-zeta23.mjs</code><br>Schema: <code>fractisi.riemann-expedition.zeta23.v1</code><br>Receipt: <code>lean/receipts/riemann-fractisi-zeta23-latest.json</code></p>
-<h2 id="3-measured-results">3. Measured results</h2>
-<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>FractiSI coordinated verify (warm <code>.lake</code>)</td><td><strong>14.66 s</strong></td></tr><tr><td>Tasks / contributions / compositions</td><td><strong>4 / 4 / 1</strong></td></tr><tr><td><code>lake build Solution</code></td><td>green</td></tr><tr><td><code>#print axioms</code> (17 headline theorems)</td><td>only <code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code></td></tr><tr><td>First cold <code>lake exe cache get</code> + <code>lake build Solution</code></td><td><strong>≈ 612 s</strong> (~10.2 min)</td></tr></tbody></table></div>
-<h2 id="4-demoted-toy-nat-ablation">4. Demoted: toy Nat ablation</h2>
-<p>The earlier FractiSI vs no-kit Nat ablation (~1.29 s vs ~10.8 s) measured kit overhead on frozen trivia. It is retained under <code>timing/run-ablation.mjs</code> for kit engineering only. <strong>Do not lead with it as a ζ comparison.</strong></p>
-<h2 id="5-withdrawn-framing">5. Withdrawn framing</h2>
-<p>We still withdraw 30 h FLT vs 5.3 s rebuild as a kit speedup. Anthropic’s <strong>ζ</strong> post (~1.5 days) is the relevant published baseline for this target.</p>
-<h2 id="reproduce">Reproduce</h2>
-<pre><code class="language-bash">export PATH=&quot;$HOME/.elan/bin:$PATH&quot;
-cd expeditions/riemann-fractisi/zeta23
-lake exe cache get
-lake build Solution
-cd ../lean
-node timing/run-zeta23.mjs
-</code></pre>
+<h2 id="what-closed">What closed</h2>
+<div class="table-wrap"><table><thead><tr><th>Id</th><th>Lean name</th><th>Role</th></tr></thead><tbody><tr><td>L3.2b</td><td><code>rank_trace_scalar_cases</code></td><td>Remark 3.3 scalars</td></tr><tr><td>L3.2-cell</td><td><code>rank_trace_cell</code></td><td>Pointwise diagonal cell</td></tr><tr><td>L3.2</td><td><code>rank_trace_inequality_real_diag</code></td><td>Finite real rank–trace form</td></tr><tr><td>A-arith</td><td><code>thmA_assembly_two_thirds</code></td><td>Feeds Theorem A constant</td></tr></tbody></table></div>
+<h2 id="prior-challenge-headline-invent-still-open">Prior Challenge-headline invent (still open)</h2>
+<p>engine shelf v2 Groq invent of the 17 Challenge headlines: <strong>35.96 s</strong> · <strong>0 / 17</strong> closed. That arm invents <code>Solution.lean</code>; this arm invents <code>InventMath.lean</code>. Do not conflate.</p>
+<h2 id="honesty">Honesty</h2>
+<p>Paper-math invent ≠ Challenge Solution green ≠ RH. Full Analytic formalization (Weil, RvM, prime sides, …) remains ahead of the 17 headlines. No sealed corpus. No API keys in git. RH OPEN.</p>
 
         </div>
         <section class="related" aria-label="Related">
       <h2>Continue reading</h2>
       <div class="related-grid">
-        <a class="related-card" href="/blog/riemann-fractisi-expedition/"><span class="related-kind">Blog</span><span class="related-title">FractiSI On Anthropic’s Real ζ Formalization</span></a>
+        <a class="related-card" href="/blog/riemann-fractisi-expedition/"><span class="related-kind">Blog</span><span class="related-title">FractiSI Paper-Math Invent (rank–trace ladder)</span></a>
         <a class="related-card" href="/library/papers/adversarial-world/"><span class="related-kind">Paper</span><span class="related-title">Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?</span></a>
         <a class="related-card" href="/library/papers/cancer-rhyme-expedition/"><span class="related-kind">Paper</span><span class="related-title">Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?</span></a>
       </div>
     </section>
       </article>
-      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#plain-language-what-we-tested-how-long-vs-anthropic">Plain language: what we tested, how long, vs Anthropic</a><a href="#honesty-boundary">Honesty boundary</a><a href="#abstract">Abstract</a><a href="#1-research-question">1. Research question</a><a href="#2-protocol">2. Protocol</a><a href="#3-measured-results">3. Measured results</a><a href="#4-demoted-toy-nat-ablation">4. Demoted: toy Nat ablation</a><a href="#5-withdrawn-framing">5. Withdrawn framing</a><a href="#reproduce">Reproduce</a></nav>
+      <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><a href="#what-closed">What closed</a><a href="#prior-challenge-headline-invent-still-open">Prior Challenge-headline invent (still open)</a><a href="#honesty">Honesty</a></nav>
     </div>
   </main>
 

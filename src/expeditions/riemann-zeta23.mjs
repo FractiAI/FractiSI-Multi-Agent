@@ -11,6 +11,7 @@ export const ZETA23_FIND_SCHEMA = 'fractisi.riemann-expedition.zeta23-find.v1';
 export const ZETA23_FIND_NO_KIT_SCHEMA = 'fractisi.riemann-expedition.zeta23-find-no-kit.v1';
 export const ZETA23_INVENT_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent.v1';
 export const ZETA23_INVENT_NO_KIT_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent-no-kit.v1';
+export const ZETA23_INVENT_MATH_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent-math.v1';
 export const PERMITTED_AXIOMS = Object.freeze(['propext', 'Classical.choice', 'Quot.sound']);
 
 export const ZETA23_PARTITIONS = Object.freeze([
@@ -118,6 +119,25 @@ export function loadLatestZeta23InventNoKitReceipt(receiptsDir) {
     return { ok: measured, receipt };
   }
   return { ok: false, error: 'missing_latest_invent_no_kit_receipt' };
+}
+
+/** Paper-math invent: green InventMath ladder, no sealed corpus. */
+export function loadLatestZeta23InventMathReceipt(receiptsDir) {
+  if (!existsSync(receiptsDir)) return { ok: false, error: 'missing_receipts_dir' };
+  const preferred = join(receiptsDir, 'riemann-fractisi-zeta23-invent-math-latest.json');
+  if (existsSync(preferred)) {
+    const receipt = JSON.parse(readFileSync(preferred, 'utf8'));
+    const measured =
+      receipt.schema === ZETA23_INVENT_MATH_SCHEMA &&
+      receipt.mode === 'invent_math' &&
+      receipt.ok === true &&
+      receipt.honesty?.sealedCorpusUsed === false &&
+      receipt.invent?.inventMathImportsZeta23 === false &&
+      receipt.invent?.sorryAtEnd === 0 &&
+      receipt.invent?.closedCount === receipt.invent?.theoremCount;
+    return { ok: measured, receipt };
+  }
+  return { ok: false, error: 'missing_latest_invent_math_receipt' };
 }
 
 /** No-kit find is a successful *measurement* when cutoffHit and still no Solution. */
