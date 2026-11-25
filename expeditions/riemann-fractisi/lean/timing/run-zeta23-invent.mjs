@@ -342,6 +342,7 @@ function writeInventLakefile(
     withInventAnalytic = false,
     withInventMainEstimate = false,
     withInventRvM = false,
+    withInventRvMGrowth = false,
     withInventWeil = false,
     withInventTraces = false,
     withInventPrimeTraces = false,
@@ -387,6 +388,14 @@ name = "InventRvM"
 roots = ["InventRvM"]
 `
       : '';
+  const inventRvMGrowthLib =
+    withInventMath && withInventEndgame && withInventRvM && withInventRvMGrowth
+      ? `
+[[lean_lib]]
+name = "InventRvMGrowth"
+roots = ["InventRvMGrowth"]
+`
+      : '';
   const inventWeilLib =
     withInventMath && withInventWeil
       ? `
@@ -425,6 +434,7 @@ roots = ["RhymeApply"]
   if (withInventMainEstimate) libs.push('InventMainEstimate');
   if (withInventEndgame) libs.push('InventEndgame');
   if (withInventRvM) libs.push('InventRvM');
+  if (withInventRvMGrowth) libs.push('InventRvMGrowth');
   if (withInventWeil) libs.push('InventWeil');
   if (withInventTraces) libs.push('InventTraces');
   if (withInventPrimeTraces) libs.push('InventPrimeTraces');
@@ -451,7 +461,7 @@ roots = ["ChallengeDeps"]
 [[lean_lib]]
 name = "Challenge"
 roots = ["Challenge"]
-${inventMathLib}${inventAnalyticLib}${inventMainEstimateLib}${inventEndgameLib}${inventRvMLib}${inventWeilLib}${inventTracesLib}${inventPrimeTracesLib}${rhymeApplyLib}
+${inventMathLib}${inventAnalyticLib}${inventMainEstimateLib}${inventEndgameLib}${inventRvMLib}${inventRvMGrowthLib}${inventWeilLib}${inventTracesLib}${inventPrimeTracesLib}${rhymeApplyLib}
 [[lean_lib]]
 name = "Solution"
 roots = ["Solution"]
@@ -567,6 +577,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   const inventMainEstSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventMainEstimate.lean');
   const inventEndgameSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventEndgame.lean');
   const inventRvMSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvM.lean');
+  const inventRvMGrowthSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvMGrowth.lean');
   const inventWeilSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventWeil.lean');
   const inventTracesSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventTraces.lean');
   const inventPrimeTracesSrc = join(
@@ -578,6 +589,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   let withInventAnalytic = false;
   let withInventMainEstimate = false;
   let withInventRvM = false;
+  let withInventRvMGrowth = false;
   let withInventWeil = false;
   let withInventTraces = false;
   let withInventPrimeTraces = false;
@@ -602,6 +614,10 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
       cpSync(inventRvMSrc, join(INVENT_ROOT, 'InventRvM.lean'));
       withInventRvM = true;
     }
+    if (existsSync(inventRvMGrowthSrc) && withInventRvM) {
+      cpSync(inventRvMGrowthSrc, join(INVENT_ROOT, 'InventRvMGrowth.lean'));
+      withInventRvMGrowth = true;
+    }
     if (existsSync(inventWeilSrc)) {
       cpSync(inventWeilSrc, join(INVENT_ROOT, 'InventWeil.lean'));
       withInventWeil = true;
@@ -622,6 +638,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventAnalytic,
     withInventMainEstimate,
     withInventRvM,
+    withInventRvMGrowth,
     withInventWeil,
     withInventTraces,
     withInventPrimeTraces,
@@ -681,6 +698,7 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventAnalytic,
     withInventMainEstimate,
     withInventRvM,
+    withInventRvMGrowth,
     withInventWeil,
     withInventTraces,
     withInventPrimeTraces,
@@ -732,6 +750,7 @@ function main() {
   const withInventAnalytic = Boolean(prep.withInventAnalytic);
   const withInventMainEstimate = Boolean(prep.withInventMainEstimate);
   const withInventRvM = Boolean(prep.withInventRvM);
+  const withInventRvMGrowth = Boolean(prep.withInventRvMGrowth);
   const withInventWeil = Boolean(prep.withInventWeil);
   const withInventTraces = Boolean(prep.withInventTraces);
   const withInventPrimeTraces = Boolean(prep.withInventPrimeTraces);
@@ -790,6 +809,7 @@ function main() {
       withInventAnalytic,
       withInventMainEstimate,
       withInventRvM,
+      withInventRvMGrowth,
       withInventWeil,
       withInventTraces,
       withInventPrimeTraces,

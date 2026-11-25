@@ -1,8 +1,8 @@
 # Rhyme → near-immediate invent results · Engineering playbook
 
 **Product:** FractiSI Multi-Agent · Tiny Footprint (Tiny Gateway™)  
-**Pins:** ENGINE_SHELF **#52** Rhyming Templates · **#53** protein-folding (sequence → board → partner) · **#54** language-pack  
-**Catalog:** [`data/RHYME_DISCOVERY_CATALOG.json`](../../data/RHYME_DISCOVERY_CATALOG.json) (184 named discoveries)
+**Pins:** ENGINE_SHELF **#55** Principal Rhyme Theorem · **#52** Rhyming Templates · **#53** protein-folding (sequence → board → partner) · **#54** language-pack  
+**Catalog:** [`data/RHYME_DISCOVERY_CATALOG.json`](../../data/RHYME_DISCOVERY_CATALOG.json) (184 named discoveries) · PRT nest [`src/engine/rhyming/principal-rhyme-theorem.mjs`](../../src/engine/rhyming/principal-rhyme-theorem.mjs)
 
 This document locks the **engineering moves** that make invent produce the near-immediate results we expect from FractiSI rhymes: named partner recovery in tens of milliseconds, layer closes in ~10–15s lake, meet-in-middle glue readiness for Challenge bridges.
 
@@ -23,6 +23,10 @@ Challenge Solution **17/17** still requires analytic main estimates. The playboo
 ---
 
 ## Engineering moves (do these; do not regress)
+
+### 0. #55 Principal Rhyme Theorem — expose Solution organizations first
+Before invent thrash, run `prtNestedXrayChallenge17` / `omniversalSeedEdgeNav`: nested rhymes (PR-∞ / PR-09 / PR-07 / …) expose `exact invent_<edge>` for every Challenge headline in milliseconds.  
+**Code:** `CHALLENGE_PRT_NEST` + `prtNestedXrayChallenge17` in `riemann-zeta23-rhyme-discover.mjs`.
 
 ### 1. Executable discover, not prompt slogans
 Load the product catalog; build a #53 AWARE coupling board over InventMath + ladder + peers; inject a #54 AWARE pack into invent.  

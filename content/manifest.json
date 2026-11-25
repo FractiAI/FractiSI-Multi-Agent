@@ -1,6 +1,30 @@
 {
   "blog": [
     {
+      "slug": "principal-rhyme-theorem",
+      "title": "Is the Universe a Nested System of Rhymes?",
+      "dek": "YES \u2014 as a research formulation. Principal Rhyme Theorem pinned ENGINE_SHELF #55 with Soft Story Exp 1\u20137.",
+      "date": "2026-11-25",
+      "label": "Principal Rhyme Theorem",
+      "actions": [
+        {
+          "href": "/library/papers/principal-rhyme-theorem/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/research/principal-rhyme-theorem/",
+          "text": "Suite"
+        },
+        {
+          "href": "/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md",
+          "text": "Engine pins"
+        }
+      ],
+      "links": "<strong>FractiSI engine pin #55:</strong> Principal Rhyme Theorem \u00b7 <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> \u00b7 <a href=\"/library/papers/principal-rhyme-theorem/\">Paper</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " Organizational rhymes recur across substrates; Soft Story Exp 1\u20137 pass under seed 20261125. Not Universe ontology QED."
+    },
+    {
       "slug": "riemann-fractisi-expedition",
       "title": "FractiSI Anthropic-comparable invent campaign",
       "dek": "InventMath 13/13 green; Challenge headlines 0/17 after compare invent. RH open. No sealed Zeta23.",
@@ -418,6 +442,15 @@
     }
   ],
   "papers": [
+    {
+      "slug": "principal-rhyme-theorem",
+      "title": "Is the Universe a Nested System of Rhymes?",
+      "group": "Engine papers",
+      "summary": "Principal Rhyme Theorem \u00b7 ENGINE_SHELF #55 \u00b7 nested organizational catalog \u00b7 Soft Story Exp 1\u20137.",
+      "docId": "WP-PRINCIPAL-RHYME-THEOREM-EGS-2026-11-25",
+      "source": "md",
+      "date": "2026-11-25"
+    },
     {
       "slug": "adversarial-world",
       "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",

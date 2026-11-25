@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import {
   PRODUCT_RHYME_PINS,
   CHALLENGE_PARTNER_MAP,
+  CHALLENGE_PRT_NEST,
   ENDGAME_SEED_MAP,
   loadProductRhymeCatalog,
   inventObjectFeatures,
@@ -16,6 +17,7 @@ import {
   formatRhymeApplyLean,
   proposeImmediateApplies,
   planMeetInMiddle,
+  prtNestedXrayChallenge17,
   xraySeedEdgeChallenge17,
   gpsSeedEdgeRoute,
   omniversalSeedEdgeNav,
@@ -24,9 +26,33 @@ import {
 } from '../../src/expeditions/riemann-zeta23-rhyme-discover.mjs';
 
 describe('riemann zeta23 product rhyme discovery', () => {
-  it('pins the live FractiSI product rhymes #52 #53 #54', () => {
+  it('pins the live FractiSI product rhymes #52 #53 #54 #55', () => {
     const ids = PRODUCT_RHYME_PINS.map((p) => p.id).sort((a, b) => a - b);
-    assert.deepEqual(ids, [52, 53, 54]);
+    assert.deepEqual(ids, [52, 53, 54, 55]);
+  });
+
+  it('PRT #55 nested x-ray exposes Solution organizations for all 17 edges in ms', () => {
+    const theorems = Object.keys(CHALLENGE_PARTNER_MAP).map((name) => ({
+      name,
+      stmt: name.includes('five_sixths')
+        ? '(5/6)*Ncount ≤ Ndist'
+        : '(2/3)*Ncount ≤ N0star',
+    }));
+    assert.equal(Object.keys(CHALLENGE_PRT_NEST).length, 17);
+    const prt = prtNestedXrayChallenge17(theorems);
+    assert.equal(prt.ok, true);
+    assert.ok(prt.durationMs < 2000);
+    assert.equal(prt.whereWeAre.solutionsExposed, 17);
+    assert.equal(prt.edges.length, 17);
+    for (const e of prt.edges) {
+      assert.match(e.solutionExpose, /^exact invent_/);
+      assert.ok(e.principalRhymes.includes('PR-∞'));
+      assert.ok(e.principalRhymes.includes('PR-09'));
+      assert.ok(e.composePath.length >= 2);
+    }
+    const nav = omniversalSeedEdgeNav(theorems);
+    assert.equal(nav.prt.whereWeAre.solutionsExposed, 17);
+    assert.match(nav.kind, /prt#55/);
   });
 
   it('loads data/RHYME_DISCOVERY_CATALOG.json with named discoveries', () => {
@@ -96,7 +122,8 @@ describe('riemann zeta23 product rhyme discovery', () => {
     const block = formatRhymeDiscoveryForPrompt(d);
     assert.match(block, /RELATIONAL AWARENESS BOARD/);
     assert.match(block, /immediate apply/);
-    assert.match(block, /#52|#53/);
+    assert.match(block, /#52|#53|#55|Principal Rhyme/);
+    assert.match(block, /SOLUTION EXPOSE: exact invent_/);
   });
 
   it('proposeImmediateApplies yields exact partner reconstructs', () => {

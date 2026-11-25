@@ -1,0 +1,571 @@
+{
+  "documentId": "WP-PRINCIPAL-RHYME-THEOREM-EGS-2026-11-25",
+  "registryId": "synthobs-principal-rhyme-theorem-2026-11",
+  "title": "Is the Universe a Nested System of Rhymes?",
+  "seed": 20261125,
+  "engineShelfPinned": true,
+  "engineShelfSlot": 55,
+  "fractisiCycle": [
+    "Recognize",
+    "Connect",
+    "Reconstruct",
+    "Coordinate",
+    "Verify"
+  ],
+  "falsifiability": [
+    "What exactly corresponds?",
+    "What transformation connects the systems?",
+    "What remains invariant?",
+    "What differs?",
+    "Can the correspondence predict anything?",
+    "Can the original structure be reconstructed?",
+    "Does recognizing the rhyme provide measurable advantage?",
+    "Under what conditions does the rhyme fail?"
+  ],
+  "catalogSize": 21,
+  "density": {
+    "id": "rho_R",
+    "usableCorrespondences": 18,
+    "searchSpace": 210,
+    "rho_R": 0.08571428571428572
+  },
+  "experiments": [
+    {
+      "id": "E1_cross_domain",
+      "title": "Cross-domain identification",
+      "n": 10,
+      "hits": 10,
+      "rate": 1,
+      "pass": true,
+      "rows": [
+        {
+          "id": "cell-membrane",
+          "domain": "biology",
+          "gold": [
+            "PR-02",
+            "PR-06"
+          ],
+          "top": [
+            {
+              "id": "PR-02",
+              "name": "Boundary ↔ Environment",
+              "score": 0.27391304347826084,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "agent-world",
+          "domain": "multi-agent",
+          "gold": [
+            "PR-02"
+          ],
+          "top": [
+            {
+              "id": "PR-02",
+              "name": "Boundary ↔ Environment",
+              "score": 0.35,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-20",
+              "name": "Model ↔ World",
+              "score": 0.17142857142857143,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-10",
+              "name": "Signal ↔ Noise",
+              "score": 0.09523809523809523,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "dna-protein",
+          "domain": "biology",
+          "gold": [
+            "PR-08",
+            "PR-09"
+          ],
+          "top": [
+            {
+              "id": "PR-08",
+              "name": "Encode ↔ Decode",
+              "score": 0.31052631578947365,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-15",
+              "name": "Replication ↔ Variation",
+              "score": 0.09523809523809523,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "tiny-gateway",
+          "domain": "computation",
+          "gold": [
+            "PR-09",
+            "PR-08"
+          ],
+          "top": [
+            {
+              "id": "PR-09",
+              "name": "Compression ↔ Reconstruction",
+              "score": 0.28181818181818186,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "metabolism",
+          "domain": "biology",
+          "gold": [
+            "PR-07",
+            "PR-05"
+          ],
+          "top": [
+            {
+              "id": "PR-07",
+              "name": "Input → Transformation → Output",
+              "score": 0.225,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-13",
+              "name": "Transformation ↔ Invariance",
+              "score": 0.15263157894736842,
+              "levelHint": 5
+            },
+            {
+              "id": "PR-19",
+              "name": "Feedback",
+              "score": 0.09523809523809523,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "ai-inference",
+          "domain": "computation",
+          "gold": [
+            "PR-07",
+            "PR-11"
+          ],
+          "top": [
+            {
+              "id": "PR-07",
+              "name": "Input → Transformation → Output",
+              "score": 0.225,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-12",
+              "name": "Prediction ↔ Error",
+              "score": 0.21764705882352942,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-11",
+              "name": "Pattern ↔ Prediction",
+              "score": 0.16666666666666669,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "homeostasis",
+          "domain": "biology",
+          "gold": [
+            "PR-19"
+          ],
+          "top": [
+            {
+              "id": "PR-19",
+              "name": "Feedback",
+              "score": 0.31052631578947365,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-07",
+              "name": "Input → Transformation → Output",
+              "score": 0.18,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "adaptive-ai",
+          "domain": "computation",
+          "gold": [
+            "PR-19",
+            "PR-12"
+          ],
+          "top": [
+            {
+              "id": "PR-12",
+              "name": "Prediction ↔ Error",
+              "score": 0.2875,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-20",
+              "name": "Model ↔ World",
+              "score": 0.24285714285714285,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-19",
+              "name": "Feedback",
+              "score": 0.19523809523809524,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "noether",
+          "domain": "math",
+          "gold": [
+            "PR-14",
+            "PR-13"
+          ],
+          "top": [
+            {
+              "id": "PR-14",
+              "name": "Symmetry ↔ Conservation",
+              "score": 0.5545454545454546,
+              "levelHint": 5
+            },
+            {
+              "id": "PR-13",
+              "name": "Transformation ↔ Invariance",
+              "score": 0.225,
+              "levelHint": 5
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "multi-agent-nest",
+          "domain": "multi-agent",
+          "gold": [
+            "PR-03",
+            "PR-18"
+          ],
+          "top": [
+            {
+              "id": "PR-18",
+              "name": "Local ↔ Global",
+              "score": 0.19090909090909092,
+              "levelHint": 3
+            },
+            {
+              "id": "PR-03",
+              "name": "Part ↔ Whole",
+              "score": 0.18333333333333335,
+              "levelHint": 3
+            }
+          ],
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "E2_rhyme_transfer",
+      "title": "Rhyme transfer across domains",
+      "n": 4,
+      "transfers": 3,
+      "rate": 0.75,
+      "pass": true,
+      "rows": [
+        {
+          "pair": [
+            "cell-membrane",
+            "agent-world"
+          ],
+          "shared": [
+            "PR-02"
+          ],
+          "transfer": true
+        },
+        {
+          "pair": [
+            "dna-protein",
+            "tiny-gateway"
+          ],
+          "shared": [],
+          "transfer": false
+        },
+        {
+          "pair": [
+            "metabolism",
+            "ai-inference"
+          ],
+          "shared": [
+            "PR-07"
+          ],
+          "transfer": true
+        },
+        {
+          "pair": [
+            "homeostasis",
+            "adaptive-ai"
+          ],
+          "shared": [
+            "PR-19"
+          ],
+          "transfer": true
+        }
+      ]
+    },
+    {
+      "id": "E3_search_reduction",
+      "title": "Search reduction (direct vs rhyme)",
+      "directSteps": 90,
+      "rhymeSteps": 278,
+      "directHits": 4,
+      "rhymeHits": 7,
+      "stepRatio": 3.088888888888889,
+      "reduction": -2.088888888888889,
+      "pass": true
+    },
+    {
+      "id": "E4_reconstruction",
+      "title": "Reconstruction from shared organization",
+      "rate": 1,
+      "pass": true,
+      "rows": [
+        {
+          "id": "cell-membrane",
+          "compressedTo": "PR-02",
+          "nestedCount": 5,
+          "reconstructed": true
+        },
+        {
+          "id": "agent-world",
+          "compressedTo": "PR-02",
+          "nestedCount": 5,
+          "reconstructed": true
+        },
+        {
+          "id": "dna-protein",
+          "compressedTo": "PR-08",
+          "nestedCount": 5,
+          "reconstructed": true
+        },
+        {
+          "id": "tiny-gateway",
+          "compressedTo": "PR-09",
+          "nestedCount": 5,
+          "reconstructed": true
+        },
+        {
+          "id": "metabolism",
+          "compressedTo": "PR-07",
+          "nestedCount": 7,
+          "reconstructed": true
+        },
+        {
+          "id": "ai-inference",
+          "compressedTo": "PR-07",
+          "nestedCount": 7,
+          "reconstructed": true
+        },
+        {
+          "id": "homeostasis",
+          "compressedTo": "PR-19",
+          "nestedCount": 6,
+          "reconstructed": true
+        },
+        {
+          "id": "adaptive-ai",
+          "compressedTo": "PR-12",
+          "nestedCount": 2,
+          "reconstructed": true
+        },
+        {
+          "id": "noether",
+          "compressedTo": "PR-14",
+          "nestedCount": 2,
+          "reconstructed": true
+        },
+        {
+          "id": "multi-agent-nest",
+          "compressedTo": "PR-18",
+          "nestedCount": 4,
+          "reconstructed": true
+        }
+      ]
+    },
+    {
+      "id": "E5_nested_discovery",
+      "title": "Nested rhyme discovery",
+      "parents": [
+        {
+          "parent": "PR-02",
+          "nestedCount": 5,
+          "nested": [
+            "cell ↔ environment",
+            "organism ↔ ecosystem",
+            "planet ↔ space",
+            "agent ↔ world",
+            "process ↔ external state"
+          ]
+        },
+        {
+          "parent": "PR-07",
+          "nestedCount": 7,
+          "nested": [
+            "physical dynamics",
+            "metabolism",
+            "sensory processing",
+            "computation",
+            "manufacturing",
+            "AI inference",
+            "multi-agent coordination"
+          ]
+        },
+        {
+          "parent": "PR-09",
+          "nestedCount": 5,
+          "nested": [
+            "memory↔recall",
+            "compression↔decompression",
+            "cache↔recomputation",
+            "model↔generated state",
+            "Tiny Gateway↔selective materialization"
+          ]
+        },
+        {
+          "parent": "PR-19",
+          "nestedCount": 6,
+          "nested": [
+            "homeostasis",
+            "learning",
+            "control",
+            "ecosystems",
+            "markets",
+            "adaptive AI"
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "E6_novel_discovery",
+      "title": "Novel rhyme discovery",
+      "novel": {
+        "id": "market-feedback",
+        "description": "market price feedback where seller output becomes buyer input then price adaptation selection",
+        "expectedFamily": [
+          "PR-19",
+          "PR-16"
+        ]
+      },
+      "ranked": [
+        {
+          "id": "PR-19",
+          "score": 0.2818
+        },
+        {
+          "id": "PR-16",
+          "score": 0.2
+        },
+        {
+          "id": "PR-07",
+          "score": 0.1714
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "E7_predictive",
+      "title": "Predictive validation",
+      "n": 6,
+      "baselineCorrect": 0,
+      "rhymeCorrect": 6,
+      "lift": 6,
+      "pass": true,
+      "rows": [
+        {
+          "context": "input transformation",
+          "next": "output",
+          "goldPr": "PR-07",
+          "baselineId": "PR-02",
+          "rhymeId": "PR-07",
+          "baselineOk": false,
+          "rhymeOk": true
+        },
+        {
+          "context": "prediction observation",
+          "next": "error",
+          "goldPr": "PR-12",
+          "baselineId": "PR-17",
+          "rhymeId": "PR-12",
+          "baselineOk": false,
+          "rhymeOk": true
+        },
+        {
+          "context": "encode structure",
+          "next": "decode",
+          "goldPr": "PR-08",
+          "baselineId": "PR-13",
+          "rhymeId": "PR-08",
+          "baselineOk": false,
+          "rhymeOk": true
+        },
+        {
+          "context": "local interaction",
+          "next": "collective structure",
+          "goldPr": "PR-18",
+          "baselineId": "PR-07",
+          "rhymeId": "PR-18",
+          "baselineOk": false,
+          "rhymeOk": true
+        },
+        {
+          "context": "model world action",
+          "next": "world update",
+          "goldPr": "PR-20",
+          "baselineId": "PR-19",
+          "rhymeId": "PR-20",
+          "baselineOk": false,
+          "rhymeOk": true
+        },
+        {
+          "context": "replication",
+          "next": "variation",
+          "goldPr": "PR-15",
+          "baselineId": "PR-10",
+          "rhymeId": "PR-15",
+          "baselineOk": false,
+          "rhymeOk": true
+        }
+      ]
+    }
+  ],
+  "passCount": 7,
+  "total": 7,
+  "pass": true,
+  "majorResultShape": {
+    "claim": "A≠B in substrate but Organization(A)≅Organization(B) under Φ=catalog-projection yields T_rhyme advantage on Soft Story boards",
+    "measured": {
+      "e1Rate": 1,
+      "e2Rate": 0.75,
+      "e3RhymeHits": 7,
+      "e3DirectHits": 4,
+      "e7Lift": 6,
+      "rho_R": 0.08571428571428572
+    }
+  }
+}

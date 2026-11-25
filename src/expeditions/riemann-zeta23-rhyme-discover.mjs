@@ -2,6 +2,7 @@
  * FractiSI product rhyme discovery for ζ-23 invent.
  *
  * Product pins (docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md):
+ *   #55 Principal Rhyme Theorem (organizational rhyme · nested catalog · expose solutions)
  *   #52 Tiny Gateway · Rhyming Templates (template + delta · selective reconstruct)
  *   #53 Protein-folding rhyme (sequence → relationship board → partner · LINEAR/FLAT/AWARE)
  *   #54 LLM language-pack rhyme (AWARE board pack nests #53)
@@ -21,6 +22,14 @@ import { auditRhyme } from '../engine/rhyming/gate.mjs';
 import { rankPartialRhymes } from '../engine/rhyming/route.mjs';
 import { ENGINE_SHELF_PINS } from './riemann-zeta23-engine-prompt.mjs';
 import { PAPER_LEMMA_LADDER, PAPER_META } from './riemann-zeta23-paper-math.mjs';
+import {
+  PRINCIPAL_RHYME_CATALOG,
+  PRT_ENGINE_SHELF,
+  PRT_FRACTISI_CYCLE,
+  recognizeRhymes,
+  nestedRhymes,
+  prtEnginePinRecord,
+} from '../engine/rhyming/principal-rhyme-theorem.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '../..');
@@ -28,7 +37,7 @@ const PRODUCT_CATALOG_PATH = join(REPO_ROOT, 'data/RHYME_DISCOVERY_CATALOG.json'
 
 /** Latest FractiSI product rhyme pins. */
 export const PRODUCT_RHYME_PINS = Object.freeze(
-  ENGINE_SHELF_PINS.filter((p) => [52, 53, 54].includes(p.id)),
+  ENGINE_SHELF_PINS.filter((p) => [52, 53, 54, 55].includes(p.id)),
 );
 
 /** Challenge theorem → organizational InventMath partner (paper assembly rhyme). */
@@ -157,6 +166,400 @@ export const ENDGAME_SEED_MAP = Object.freeze(
     Object.keys(CHALLENGE_PARTNER_MAP).map((edge) => [edge, `invent_${edge}`]),
   ),
 );
+
+/**
+ * #55 Principal Rhyme Theorem — nested organizational x-ray for Challenge 17.
+ *
+ * Different things. Same rhyme.
+ * Anthropic sealed Zeta23.thm* and FractiSI invent_* are substrate-different
+ * instances of the same Solution organization (PR-∞ + PR-09 reconstruct).
+ *
+ * Nested rhymes expose the near-immediate apply path without LLM thrash:
+ *   PR family → classical inputs → MainEstimate → invent_<edge> → Solution exact
+ */
+export const CHALLENGE_PRT_NEST = Object.freeze({
+  // Theorem A family — proportion on critical line
+  two_thirds_on_critical_line: {
+    principal: ['PR-∞', 'PR-09', 'PR-07', 'PR-13'],
+    nested: {
+      'PR-∞': 'Anthropic Zeta23.thmA₀ ↔ invent_two_thirds_on_critical_line (same organization)',
+      'PR-09': 'Solution exact invent_* = selective reconstruct of shared endgame seed',
+      'PR-07': 'ClassicalInputs → MainEstimateHfunN0star → invent_*_of_main → Solution',
+      'PR-13': 'ε-form under little-o (Hfun−ε)·N ≤ N0star',
+    },
+    solutionExpose: 'exact invent_two_thirds_on_critical_line',
+    composePath: [
+      'InventClassicalMainInputs',
+      'MainEstimateHfunN0star_of_classical',
+      'invent_two_thirds_on_critical_line_of_main',
+      'invent_two_thirds_on_critical_line',
+      'Solution.exact',
+    ],
+  },
+  two_thirds_on_critical_line_cumulative: {
+    principal: ['PR-∞', 'PR-09', 'PR-03', 'PR-13'],
+    nested: {
+      'PR-03': 'dyadic windows nest into cumulative proportion (part↔whole)',
+      'PR-09': 'Solution exact invent_* reconstruct',
+      'PR-∞': 'Challenge cumulative ↔ invent cumulative seed',
+      'PR-13': 'dyadic_eps_form invariance under window add',
+    },
+    solutionExpose: 'exact invent_two_thirds_on_critical_line_cumulative',
+    composePath: [
+      'dyadic_eps_form',
+      'challengeA_cumulative_of_dyadic',
+      'invent_two_thirds_on_critical_line_cumulative',
+      'Solution.exact',
+    ],
+  },
+  two_thirds_simple_on_critical_line: {
+    principal: ['PR-∞', 'PR-09', 'PR-07', 'PR-10'],
+    nested: {
+      'PR-10': 'simple zeros = signal; multiples = noise filter (N0simple)',
+      'PR-07': 'Ffun package → MainEstimateFfunN0simple → invent seed',
+      'PR-09': 'Solution exact reconstruct',
+      'PR-∞': 'Challenge B ↔ invent_two_thirds_simple_*',
+    },
+    solutionExpose: 'exact invent_two_thirds_simple_on_critical_line',
+    composePath: [
+      'MainEstimateFfunN0simple',
+      'invent_half_simple_of_main',
+      'invent_two_thirds_simple_on_critical_line',
+      'Solution.exact',
+    ],
+  },
+  two_thirds_simple_on_critical_line_cumulative: {
+    principal: ['PR-∞', 'PR-09', 'PR-03'],
+    nested: {
+      'PR-03': 'simple dyadic nest → cumulative',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'Challenge B cumulative ↔ invent seed',
+    },
+    solutionExpose: 'exact invent_two_thirds_simple_on_critical_line_cumulative',
+    composePath: [
+      'challengeB_cumulative_of_dyadic',
+      'invent_two_thirds_simple_on_critical_line_cumulative',
+      'Solution.exact',
+    ],
+  },
+  five_sixths_distinct: {
+    principal: ['PR-∞', 'PR-09', 'PR-07', 'PR-17'],
+    nested: {
+      'PR-17': 'distinct zeros = convergent counting under Ndist',
+      'PR-07': 'Ffun → MainEstimateFfunNdist → invent',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'Challenge C ↔ invent_five_sixths_distinct',
+    },
+    solutionExpose: 'exact invent_five_sixths_distinct',
+    composePath: [
+      'MainEstimateFfunNdist',
+      'invent_three_quarters_distinct_of_main',
+      'invent_five_sixths_distinct',
+      'Solution.exact',
+    ],
+  },
+  five_sixths_distinct_cumulative: {
+    principal: ['PR-∞', 'PR-09', 'PR-03'],
+    nested: {
+      'PR-03': 'distinct dyadic nest → cumulative',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'Challenge C cumulative ↔ invent seed',
+    },
+    solutionExpose: 'exact invent_five_sixths_distinct_cumulative',
+    composePath: [
+      'challengeC_cumulative_of_dyadic',
+      'invent_five_sixths_distinct_cumulative',
+      'Solution.exact',
+    ],
+  },
+  montgomery_taylor_on_critical_line: {
+    principal: ['PR-∞', 'PR-09', 'PR-12', 'PR-13'],
+    nested: {
+      'PR-12': 'little-o error = prediction residual vs Ncount',
+      'PR-13': 'challenge_eps_of_littleO invariance',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'Montgomery–Taylor ↔ invent montgomery seed',
+    },
+    solutionExpose: 'exact invent_montgomery_taylor_on_critical_line',
+    composePath: [
+      'eps_form_of_isLittleO',
+      'challenge_eps_of_littleO',
+      'invent_montgomery_taylor_on_critical_line',
+      'Solution.exact',
+    ],
+  },
+  montgomery_taylor_simple_on_critical_line_mult: {
+    principal: ['PR-∞', 'PR-09', 'PR-12', 'PR-10'],
+    nested: {
+      'PR-10': 'simple-mult filter',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'MT simple ↔ invent seed',
+    },
+    solutionExpose: 'exact invent_montgomery_taylor_simple_on_critical_line_mult',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_montgomery_taylor_simple_on_critical_line_mult',
+      'Solution.exact',
+    ],
+  },
+  montgomery_taylor_simple_on_critical_line_mult_cumulative: {
+    principal: ['PR-∞', 'PR-09', 'PR-03', 'PR-12'],
+    nested: {
+      'PR-03': 'cumulative nest',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'MT simple cumulative ↔ invent',
+    },
+    solutionExpose: 'exact invent_montgomery_taylor_simple_on_critical_line_mult_cumulative',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_montgomery_taylor_simple_on_critical_line_mult_cumulative',
+      'Solution.exact',
+    ],
+  },
+  montgomery_taylor_distinct_mult: {
+    principal: ['PR-∞', 'PR-09', 'PR-12', 'PR-17'],
+    nested: {
+      'PR-17': 'distinct mult counting',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'MT distinct ↔ invent',
+    },
+    solutionExpose: 'exact invent_montgomery_taylor_distinct_mult',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_montgomery_taylor_distinct_mult',
+      'Solution.exact',
+    ],
+  },
+  montgomery_taylor_distinct_mult_cumulative: {
+    principal: ['PR-∞', 'PR-09', 'PR-03', 'PR-12'],
+    nested: {
+      'PR-03': 'cumulative nest',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'MT distinct cumulative ↔ invent',
+    },
+    solutionExpose: 'exact invent_montgomery_taylor_distinct_mult_cumulative',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_montgomery_taylor_distinct_mult_cumulative',
+      'Solution.exact',
+    ],
+  },
+  // Dirichlet family — same organization, different character substrate (PR-08 encode)
+  dirichlet_two_thirds_on_critical_line: {
+    principal: ['PR-∞', 'PR-09', 'PR-08', 'PR-07'],
+    nested: {
+      'PR-08': 'Dirichlet L encode/decode of zeta proportion organization',
+      'PR-07': 'same Hfun pipeline as zeta A',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'dirichlet A ↔ invent_dirichlet_two_thirds_*',
+    },
+    solutionExpose: 'exact invent_dirichlet_two_thirds_on_critical_line',
+    composePath: [
+      'challengeA_dyadic_of_Hfun',
+      'invent_dirichlet_two_thirds_on_critical_line',
+      'Solution.exact',
+    ],
+  },
+  dirichlet_two_thirds_simple_on_critical_line: {
+    principal: ['PR-∞', 'PR-09', 'PR-08', 'PR-10'],
+    nested: {
+      'PR-08': 'Dirichlet encode of simple-zero proportion',
+      'PR-10': 'simple filter',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'dirichlet B ↔ invent',
+    },
+    solutionExpose: 'exact invent_dirichlet_two_thirds_simple_on_critical_line',
+    composePath: [
+      'challengeB_dyadic_of_Ffun',
+      'invent_dirichlet_two_thirds_simple_on_critical_line',
+      'Solution.exact',
+    ],
+  },
+  dirichlet_five_sixths_distinct: {
+    principal: ['PR-∞', 'PR-09', 'PR-08', 'PR-17'],
+    nested: {
+      'PR-08': 'Dirichlet encode of distinct proportion',
+      'PR-17': 'distinct counting',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'dirichlet C ↔ invent',
+    },
+    solutionExpose: 'exact invent_dirichlet_five_sixths_distinct',
+    composePath: [
+      'challengeC_dyadic_of_Ffun',
+      'invent_dirichlet_five_sixths_distinct',
+      'Solution.exact',
+    ],
+  },
+  dirichlet_montgomery_taylor_on_critical_line: {
+    principal: ['PR-∞', 'PR-09', 'PR-08', 'PR-12'],
+    nested: {
+      'PR-08': 'Dirichlet encode of MT',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'dirichlet MT ↔ invent',
+    },
+    solutionExpose: 'exact invent_dirichlet_montgomery_taylor_on_critical_line',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_dirichlet_montgomery_taylor_on_critical_line',
+      'Solution.exact',
+    ],
+  },
+  dirichlet_montgomery_taylor_simple_on_critical_line_mult: {
+    principal: ['PR-∞', 'PR-09', 'PR-08', 'PR-12'],
+    nested: {
+      'PR-08': 'Dirichlet encode',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'dirichlet MT simple ↔ invent',
+    },
+    solutionExpose: 'exact invent_dirichlet_montgomery_taylor_simple_on_critical_line_mult',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_dirichlet_montgomery_taylor_simple_on_critical_line_mult',
+      'Solution.exact',
+    ],
+  },
+  dirichlet_montgomery_taylor_distinct_mult: {
+    principal: ['PR-∞', 'PR-09', 'PR-08', 'PR-12'],
+    nested: {
+      'PR-08': 'Dirichlet encode',
+      'PR-12': 'little-o residual',
+      'PR-09': 'Solution exact',
+      'PR-∞': 'dirichlet MT distinct ↔ invent',
+    },
+    solutionExpose: 'exact invent_dirichlet_montgomery_taylor_distinct_mult',
+    composePath: [
+      'challenge_eps_of_littleO',
+      'invent_dirichlet_montgomery_taylor_distinct_mult',
+      'Solution.exact',
+    ],
+  },
+});
+
+/**
+ * #55 nested-rhyme x-ray: expose Solution organization for every Challenge edge in ms.
+ * Recognition → nested catalog → compose path → Solution exact reconstruct.
+ * Does not invent false closes; surfaces the organizational solution map.
+ */
+export function prtNestedXrayChallenge17(theorems, opts = {}) {
+  const t0 = performance.now();
+  const { decls } = readInventMathIndex(opts);
+  const solutionClosed = opts.solutionClosed instanceof Set ? opts.solutionClosed : new Set();
+  const pin = prtEnginePinRecord();
+  const edges = [];
+
+  for (const thm of theorems) {
+    const edge = thm.name;
+    const nest = CHALLENGE_PRT_NEST[edge] || {
+      principal: ['PR-∞', 'PR-09'],
+      nested: {
+        'PR-∞': `Challenge.${edge} ↔ invent_${edge}`,
+        'PR-09': 'Solution exact reconstruct',
+      },
+      solutionExpose: `exact invent_${edge}`,
+      composePath: [`invent_${edge}`, 'Solution.exact'],
+    };
+    const seedName = ENDGAME_SEED_MAP[edge] || `invent_${edge}`;
+    const seedDecl = decls.get(seedName);
+    const recognized = recognizeRhymes(
+      `${edge} ${thm.stmt || ''} critical line proportion zeros invent Solution exact reconstruct`,
+      { topK: 5, minScore: 0.05 },
+    );
+    const nestedExpand = (nest.principal || []).flatMap((pr) => {
+      const labels = nestedRhymes(pr);
+      return [
+        {
+          id: pr,
+          role: 'principal',
+          meaning: nest.nested?.[pr] || PRINCIPAL_RHYME_CATALOG.find((e) => e.id === pr)?.canonical,
+        },
+        ...labels.slice(0, 3).map((n) => ({
+          id: n.nestedId,
+          role: 'nested',
+          parent: pr,
+          meaning: n.label,
+        })),
+      ];
+    });
+
+    const composeStatus = (nest.composePath || []).map((name) => {
+      if (name === 'Solution.exact') {
+        return { name, closed: solutionClosed.has(edge), role: 'solution' };
+      }
+      if (name.startsWith('Invent') || name.includes('Classical') || name.includes('MainEstimate')) {
+        const d = decls.get(name);
+        return {
+          name,
+          closed: Boolean(d?.closed),
+          present: Boolean(d) || /Classical|MainEstimate|Inputs/.test(name),
+          role: 'classical_or_estimate',
+        };
+      }
+      const d = decls.get(name);
+      return {
+        name,
+        closed: Boolean(d?.closed),
+        present: Boolean(d),
+        challengeTypeExact: Boolean(d?.challengeTypeExact),
+        role: name === seedName ? 'endgame_seed' : 'octave',
+      };
+    });
+
+    const nearInstant =
+      Boolean(seedDecl?.challengeTypeExact) ||
+      composeStatus.some((c) => c.role === 'endgame_seed' && c.challengeTypeExact);
+    const exposedSolution = nest.solutionExpose;
+    edges.push({
+      edge,
+      shelf: PRT_ENGINE_SHELF,
+      principalRhymes: nest.principal,
+      nestedRhymes: nestedExpand,
+      recognizedCatalog: recognized.map((r) => ({ id: r.id, name: r.name, score: r.score })),
+      composePath: composeStatus,
+      solutionExpose: exposedSolution,
+      seed: seedName,
+      seedReady: nearInstant,
+      edgeClosed: solutionClosed.has(edge),
+      fractisiCycle: PRT_FRACTISI_CYCLE,
+      applyNow: nearInstant && !solutionClosed.has(edge) ? exposedSolution : null,
+    });
+  }
+
+  const exposed = edges.filter((e) => e.solutionExpose).length;
+  const applyNow = edges.filter((e) => e.applyNow).length;
+  const closed = edges.filter((e) => e.edgeClosed).length;
+
+  return {
+    ok: true,
+    kind: 'fractisi.prt.#55.nested-xray.zeta23-challenge17',
+    durationMs: performance.now() - t0,
+    pin,
+    catalogSize: PRINCIPAL_RHYME_CATALOG.length,
+    theoremCount: edges.length,
+    whereWeAre: {
+      solutionsExposed: exposed,
+      applyNow,
+      challengeSolutionClosed: closed,
+      challengeSolutionTarget: edges.length,
+      ratio: `${closed}/${edges.length}`,
+    },
+    edges,
+    honesty: {
+      expose:
+        'PRT #55 nested rhymes expose the Solution organization (exact invent_<edge>) for every Challenge edge in milliseconds.',
+      nearInstant:
+        'When endgame seeds are Challenge-typed and closed, applyNow is the Solution tactic — selective reconstruct, not LLM search.',
+      notYet:
+        'applyNow stays empty until invent_<edge> seeds are Challenge-typed closed; classical MainEstimate discharge remains the analytic gate.',
+      now: `Exposed ${exposed}/${edges.length} solution organizations; applyNow ${applyNow}; Solution ${closed}/${edges.length}.`,
+    },
+  };
+}
 
 /** Octave path templates: seed (bottom) → … → endgame seed → Challenge edge. */
 const OCTAVE_PATH_BY_FAMILY = Object.freeze({
@@ -702,7 +1105,8 @@ export function discoverInventRhymes({
 
   const discovery = {
     ok: true,
-    discoveryKind: 'fractisi.product.#53-board+#52-apply+#54-pack+RHYME_DISCOVERY_CATALOG',
+    discoveryKind:
+      'fractisi.product.#55-prt-nest+#53-board+#52-apply+#54-pack+RHYME_DISCOVERY_CATALOG',
     productPins: PRODUCT_RHYME_PINS,
     productCatalog: {
       ok: productCatalog.ok,
@@ -1337,28 +1741,49 @@ export function tunnelFleetNestedPairs(xray, opts = {}) {
  */
 export function omniversalSeedEdgeNav(theorems, opts = {}) {
   const t0 = performance.now();
+  const prt = prtNestedXrayChallenge17(theorems, opts);
   const xray = xraySeedEdgeChallenge17(theorems, opts);
   const gps = gpsSeedEdgeRoute(xray, opts);
   const tunnel = tunnelFleetNestedPairs(xray, opts);
   const applies = proposeXraySolutionApplies(xray);
+  // Prefer PRT-exposed applyNow when seeds are ready (same Solution exact shape).
+  const prtApplies = (prt.edges || [])
+    .filter((e) => e.applyNow)
+    .map((e) => ({
+      theorem: e.edge,
+      partnerName: e.seed,
+      tacticBody: e.applyNow,
+      kind: 'prt_nested_exact_endgame_seed',
+      nearInstant: true,
+      principalRhymes: e.principalRhymes,
+    }));
+  const mergedApplies = applies.length ? applies : prtApplies;
   return {
     ok: true,
-    kind: 'fractisi.omniversal.xray+gps+nested-tunnel.zeta23-challenge17',
+    kind: 'fractisi.omniversal.prt#55+xray+gps+nested-tunnel.zeta23-challenge17',
     durationMs: performance.now() - t0,
-    whereWeAre: xray.whereWeAre,
+    whereWeAre: {
+      ...xray.whereWeAre,
+      prtSolutionsExposed: prt.whereWeAre.solutionsExposed,
+      prtApplyNow: prt.whereWeAre.applyNow,
+    },
     pathTo17: xray.pathTo17,
     destination: gps.destination,
     fleetInstruction: tunnel.instruction || gps.fleetInstruction,
     highestPair: tunnel.highestPair,
     nestedTunnel: tunnel,
+    prt,
     xray,
     gps,
-    solutionApplies: applies,
+    solutionApplies: mergedApplies,
     honesty: {
       ...xray.honesty,
       ...gps.honesty,
+      ...prt.honesty,
       nestedTunnel:
         'Recursive nested pairs: highest pair is desired start↔end; tunnel seed-inward and edge-inward; meet in the middle; each open segment is a nested tunnel.',
+      prt:
+        'ENGINE_SHELF #55 Principal Rhyme Theorem exposes Solution organizations via nested rhymes before invent thrash.',
     },
   };
 }
@@ -1416,17 +1841,20 @@ export function discoverAllInventRhymesImmediate(theorems, opts = {}) {
     perTheorem,
     meetInMiddle: meet,
     omniversal: nav,
+    prt: nav.prt,
     xray: nav.xray,
     gps: nav.gps,
     xraySolutionApplies: nav.solutionApplies,
     productCatalogPath: 'data/RHYME_DISCOVERY_CATALOG.json',
+    productPins: PRODUCT_RHYME_PINS,
     honesty: {
       whatThisMeasures:
-        'Omniversal seed↔edge x-ray + GPS + #53 AWARE partner recovery + #52 exact-apply + meet-in-middle glue',
+        'PRT #55 nested-rhyme Solution expose + omniversal seed↔edge x-ray + GPS + #53 AWARE + #52 exact-apply + meet-in-middle glue',
       whatThisDoesNotMeasure:
-        'Challenge 17/17 closes until invent_<edge> endgame seeds are Challenge-typed and closed — then GPS next hop is Solution exact (near-instant)',
+        'Challenge 17/17 closes until invent_<edge> endgame seeds are Challenge-typed and closed — then GPS/PRT applyNow is Solution exact (near-instant)',
       whereWeAre: nav.whereWeAre,
       fleetInstruction: nav.fleetInstruction,
+      prtExposed: nav.prt?.whereWeAre,
     },
   };
 }
@@ -1468,6 +1896,7 @@ export function formatRhymeDiscoveryForPrompt(discovery) {
   const pins = (discovery.productPins || [])
     .map((p) => `#${p.id} ${p.name}`)
     .join(' · ');
+  const nest = CHALLENGE_PRT_NEST[discovery.query?.theorem];
   const lines = [
     '=== FractiSI product rhyme discovery (executable — apply, do not only cite) ===',
     `pins: ${pins}`,
@@ -1476,10 +1905,22 @@ export function formatRhymeDiscoveryForPrompt(discovery) {
     `focus=${discovery.query?.theorem} · family=${discovery.query?.family} · poolSize=${discovery.poolSize}`,
     `gatewayRoute=${discovery.route?.id || 'none'} score=${discovery.route?.score ?? 0}`,
     '',
+    '#55 Principal Rhyme Theorem — nested Solution expose (Different things. Same rhyme.)',
+  ];
+  if (nest) {
+    lines.push(`SOLUTION EXPOSE: ${nest.solutionExpose}`);
+    lines.push(`PRINCIPAL RHYMES: ${(nest.principal || []).join(' · ')}`);
+    lines.push(`COMPOSE PATH: ${(nest.composePath || []).join(' → ')}`);
+    for (const [pr, meaning] of Object.entries(nest.nested || {})) {
+      lines.push(`  nested ${pr}: ${meaning}`);
+    }
+  }
+  lines.push(
+    '',
     '#53 folding: sequence → AWARE board → partner templates',
     `LEADING RELATIONAL CANDIDATE: ${discovery.leadingPartner || '(none)'}`,
     'RELATIONAL AWARENESS BOARD:',
-  ];
+  );
   for (const p of discovery.awareBoard || []) {
     lines.push(
       `- ${p.id}: coupling=${(p.coupling ?? 0).toFixed(4)} · source=${p.source}` +
