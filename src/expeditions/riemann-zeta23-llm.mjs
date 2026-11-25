@@ -1,8 +1,15 @@
 /**
  * Groq LLM client for ζ-23 FractiSI invent (OpenAI-compatible chat).
  * Reads GROQ_API_KEY from the environment. Never logs the key.
+ *
+ * Awareness = Tiny Footprint / Infinite Octave *engine processing prompt*
+ * (how to process shared info), not a bare invent-board dump.
  */
 import { spawnSync } from 'node:child_process';
+import {
+  ENGINE_PROMPT_ID,
+  buildTinyFootprintOctaveEnginePrompt,
+} from './riemann-zeta23-engine-prompt.mjs';
 
 export const GROQ_DEFAULT_MODEL = 'qwen/qwen3.8-27b';
 export const GROQ_FALLBACK_MODELS = ['openai/gpt-oss-20b', 'openai/gpt-oss-120b'];
@@ -136,9 +143,8 @@ export function groqChat({
 }
 
 /**
- * Build FractiSI Multi-Agent shared-world awareness text for LLM invent prompts.
- * Agents see one Solution board, peer attempts, contributions, and lake feedback —
- * not N private full copies.
+ * Shared-world *data* payload (board / peers / lake). Processed BY the engine prompt.
+ * Not the awareness itself — awareness is buildTinyFootprintOctaveEnginePrompt().
  */
 export function buildFractisiInventAwareness({
   platform,
@@ -184,19 +190,19 @@ export function buildFractisiInventAwareness({
   );
 
   const parts = [
-    '=== FractiSI Multi-Agent shared World Awareness ===',
+    '=== Shared-world DATA (process through Tiny Footprint / Infinite Octave engine) ===',
     banner,
     `productVersion=${version} · inventRound=${round ?? '?'} · claimingAgent=${agentName || '?'} · focusTheorem=${theorem || '?'}`,
-    `capabilities: shared_state · multi_agent_coordination · dependency_awareness · work_composition · Tiny Footprint (one Solution.lean, not N private copies)`,
+    `enginePromptId=${ENGINE_PROMPT_ID}`,
     `platformStatus: agents=${status.agents ?? agentLines.length} active=${status.activeAgents ?? '?'} tasks=${status.tasks ?? '?'} contributions=${status.contributions ?? contribLines.length} compositions=${status.compositions ?? '?'}`,
     '',
-    'Shared invent board (all agents see this same world):',
+    'Shared invent board (one Solution.lean — Tiny Footprint, not N copies):',
     ...(board.length ? board : ['- (empty)']),
     '',
     'Registered agents:',
     ...(agentLines.length ? agentLines : ['- (none yet)']),
     '',
-    'Recent peer invent attempts (rhyme / reuse patterns; do not copy sealed Anthropic Zeta23):',
+    'Recent peer invent attempts (organizational rhyme candidates — template+delta reuse):',
     ...(peerAttempts.length ? peerAttempts : ['- (none yet)']),
     '',
     'Recent FractiSI contributions:',
@@ -209,10 +215,12 @@ export function buildFractisiInventAwareness({
 
   parts.push(
     '',
-    'Invent inside this shared world: improve the focus theorem so the whole Solution may compose.',
+    'Apply the engine processing instructions, then invent a delta for the focus theorem only.',
   );
   return parts.join('\n');
 }
+
+export { buildTinyFootprintOctaveEnginePrompt, ENGINE_PROMPT_ID };
 
 export function inventProofWithGroq({
   theorem,
@@ -231,7 +239,8 @@ export function inventProofWithGroq({
     (m, i, a) => a.indexOf(m) === i,
   );
   const binderLine = binders ? ` ${binders}` : '';
-  const awarenessText =
+  const enginePrompt = buildTinyFootprintOctaveEnginePrompt();
+  const worldData =
     awareness ||
     buildFractisiInventAwareness({
       platform,
@@ -243,18 +252,10 @@ export function inventProofWithGroq({
       priorError,
     });
 
-  const system = `You are a Lean 4 + Mathlib invent agent inside FractiSI Multi-Agent shared World Awareness.
-You share one Solution.lean with peer agents (Tiny Footprint — not N private full copies).
-Use the shared board, peer attempts, and lake feedback when inventing.
-Output ONLY executable Lean tactic lines for the body after := by.
-ABSOLUTE RULES:
-- First token must be a Lean tactic (intro, aesop, simp, exact, refine, have, …).
-- No English prose, no explanations, no markdown.
-- Do NOT import Zeta23 or any Anthropic sealed library. Do NOT use sorry.
-- Prefer short scripts that could compose with peers; if stuck output: aesop`;
-
+  // system = engine HOW-TO-PROCESS (Tiny Footprint / Infinite Octave awareness)
+  // user = shared-world DATA + focus theorem
   const userParts = [
-    awarenessText,
+    worldData,
     '',
     '=== Focus invent target ===',
     `Invent a proof for this Challenge theorem (Mathlib riemannZeta critical-line proportion):`,
@@ -271,7 +272,7 @@ ABSOLUTE RULES:
       model: m,
       maxTokens: 2500,
       messages: [
-        { role: 'system', content: system },
+        { role: 'system', content: enginePrompt },
         { role: 'user', content: userParts.join('\n') },
       ],
     });
@@ -285,7 +286,9 @@ ABSOLUTE RULES:
         model: res.model,
         usage: res.usage,
         awarenessInjected: true,
-        awarenessChars: awarenessText.length,
+        enginePromptId: ENGINE_PROMPT_ID,
+        enginePromptChars: enginePrompt.length,
+        awarenessChars: worldData.length,
         rawPreview: res.content.slice(0, 400),
       };
     }
@@ -295,7 +298,9 @@ ABSOLUTE RULES:
     error: last?.error || 'no_tactic_extracted',
     model: last?.model || models[0],
     awarenessInjected: true,
-    awarenessChars: awarenessText.length,
+    enginePromptId: ENGINE_PROMPT_ID,
+    enginePromptChars: enginePrompt.length,
+    awarenessChars: worldData.length,
     rawPreview: (last?.content || last?.raw || '').slice(0, 400),
   };
 }
