@@ -3,6 +3,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runPrincipalRhymeSuite } from '../src/experiments.mjs';
+import { PRINCIPAL_RHYME_CATALOG } from '../../../src/engine/rhyming/principal-rhyme-theorem.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = join(root, 'data');
@@ -38,7 +39,15 @@ const catalogMd = [
   ``,
   `Machine source: \`src/engine/rhyming/principal-rhyme-theorem.mjs\``,
   ``,
+  `| Id | Name | Canonical | Nested |`,
+  `|---|---|---|---|`,
 ];
+for (const e of PRINCIPAL_RHYME_CATALOG) {
+  catalogMd.push(
+    `| **${e.id}** | ${e.name} | ${e.canonical} | ${(e.nested || []).join(' · ')} |`,
+  );
+}
+catalogMd.push('');
 writeFileSync(join(dataDir, 'PRINCIPAL_RHYME_CATALOG.md'), `${catalogMd.join('\n')}\n`);
 
 console.log(

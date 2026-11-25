@@ -1,0 +1,227 @@
+{
+  "documentId": "WP-COMPOSITIONAL-WET-LAB-SCALE-2026-11-25",
+  "registryId": "synthobs-compositional-wet-lab-scale-2026-11",
+  "title": "Can Compositional Wet-Lab Evidence Establish That a Distributed Electromagnetic Computational Medium Can Scale Toward Data-Center Workloads?",
+  "seed": 20261125,
+  "engineShelfPinned": true,
+  "engineShelfSlot": 57,
+  "workingForm": {
+    "question": "Can compositional wet-lab evidence establish that a distributed electromagnetic computational medium can scale toward data-center workloads?",
+    "answer": "YES — at the level of compositional physical proof, with full hyperscale replacement remaining an engineering validation rather than an established fact.",
+    "compact": "Compose the rhymes. Scale is the remaining experiment.",
+    "operationalRhyme": "If a computational organization survives transformation between physical representations while preserving required input-output relationships, the representations are computational rhymes of the same underlying process.",
+    "nextExperiment": "Compositional workload: encode → matmul → conv → nonlinear → norm → matmul → layers → reconstruct, maximized in-medium; compare joules/op and scaling with volumes."
+  },
+  "chainSize": 7,
+  "density": {
+    "id": "rho_CC",
+    "usableCorrespondences": 10,
+    "searchSpace": 56,
+    "rho_R": 0.17857142857142858
+  },
+  "experiments": [
+    {
+      "id": "E1_cross_domain",
+      "title": "Compositional chain identification",
+      "n": 8,
+      "hits": 7,
+      "rate": 0.875,
+      "pass": true,
+      "rows": [
+        {
+          "id": "prop-interfere",
+          "top": "CC-01",
+          "gold": [
+            "CC-01"
+          ],
+          "hit": true
+        },
+        {
+          "id": "unitary-matrix",
+          "top": "CC-02",
+          "gold": [
+            "CC-02"
+          ],
+          "hit": true
+        },
+        {
+          "id": "fourier-conv",
+          "top": "CC-03",
+          "gold": [
+            "CC-03"
+          ],
+          "hit": true
+        },
+        {
+          "id": "em-calculus",
+          "top": "CC-04",
+          "gold": [
+            "CC-04"
+          ],
+          "hit": true
+        },
+        {
+          "id": "wise-rf-ml",
+          "top": "CC-05",
+          "gold": [
+            "CC-05"
+          ],
+          "hit": true
+        },
+        {
+          "id": "rfcnn-deep",
+          "top": "CC-06",
+          "gold": [
+            "CC-06"
+          ],
+          "hit": true
+        },
+        {
+          "id": "holo-space",
+          "top": "CC-07",
+          "gold": [
+            "CC-07"
+          ],
+          "hit": true
+        },
+        {
+          "id": "compose-workload",
+          "top": "CC-02",
+          "gold": [
+            "CC-03",
+            "CC-05",
+            "CC-06"
+          ],
+          "hit": false
+        }
+      ]
+    },
+    {
+      "id": "E2_feed_forward",
+      "title": "Compositional feed-forward adjacency",
+      "n": 5,
+      "transfers": 5,
+      "rate": 1,
+      "ordered": true,
+      "pass": true,
+      "rows": [
+        {
+          "pair": [
+            "prop-interfere",
+            "unitary-matrix"
+          ],
+          "topA": "CC-01",
+          "topB": "CC-02",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "unitary-matrix",
+            "fourier-conv"
+          ],
+          "topA": "CC-02",
+          "topB": "CC-03",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "fourier-conv",
+            "em-calculus"
+          ],
+          "topA": "CC-03",
+          "topB": "CC-04",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "wise-rf-ml",
+            "rfcnn-deep"
+          ],
+          "topA": "CC-05",
+          "topB": "CC-06",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "rfcnn-deep",
+            "holo-space"
+          ],
+          "topA": "CC-06",
+          "topB": "CC-07",
+          "feedForward": true
+        }
+      ]
+    },
+    {
+      "id": "E3_composition_layers",
+      "title": "Five compositional proof layers",
+      "layerCount": 5,
+      "complete": true,
+      "named": true,
+      "pass": true
+    },
+    {
+      "id": "E4_nested_dof",
+      "title": "Nested degrees of freedom under programmable space",
+      "nestedCount": 4,
+      "labels": [
+        "6144-element metasurface",
+        "62 simultaneous holograms",
+        "1024-channel patterns",
+        "DOF"
+      ],
+      "pass": true
+    },
+    {
+      "id": "E5_three_levels",
+      "title": "Three-level proof honesty",
+      "status": {
+        "level1": true,
+        "level2": true,
+        "level3": false,
+        "layers": 5,
+        "chainDemonstrated": 7,
+        "chainSize": 7
+      },
+      "levelsOk": true,
+      "pass": true
+    },
+    {
+      "id": "E6_novel_workload",
+      "title": "Novel compositional workload discovery",
+      "novel": "compositional AI workload encoding matrix convolution nonlinear layers reconstruction maximized in electromagnetic computational volume",
+      "ranked": [
+        {
+          "id": "CC-03",
+          "score": 0.0741
+        },
+        {
+          "id": "CC-06",
+          "score": 0.0645
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "E7_honesty_boundary",
+      "title": "Honesty boundary (Level III open · preprint flagged)",
+      "openClaims": 14,
+      "preprintFlagged": true,
+      "answerBounded": true,
+      "nextNamed": true,
+      "pass": true
+    }
+  ],
+  "passCount": 7,
+  "total": 7,
+  "pass": true,
+  "majorResultShape": {
+    "claim": "YES — at the level of compositional physical proof, with full hyperscale replacement remaining an engineering validation rather than an established fact.",
+    "measured": {
+      "e1Rate": 0.875,
+      "e2Rate": 1,
+      "level3Proven": false,
+      "rho_R": 0.17857142857142858
+    }
+  }
+}

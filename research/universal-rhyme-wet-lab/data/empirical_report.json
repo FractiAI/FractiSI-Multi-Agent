@@ -1,0 +1,417 @@
+{
+  "documentId": "WP-UNIVERSAL-RHYME-WET-LAB-2026-11-25",
+  "registryId": "synthobs-universal-rhyme-wet-lab-2026-11",
+  "title": "The Universal Rhyme Wet-Lab Proof",
+  "seed": 20261125,
+  "engineShelfPinned": true,
+  "engineShelfSlot": 56,
+  "workingForm": {
+    "theorem": "A computational operation does not require the physical architecture in which it was historically implemented. When the relational transformation can be preserved, computation can migrate between physical representations.",
+    "empiricalChain": "Interference → Cavity Fourier → Programmable matrix → Metasurface RF compute → ML at RF",
+    "foundationalSentence": "Computation is not intrinsically bound to a conventional digital processor or to a centralized data center.",
+    "compact": "Different embodiment. Same computational organization.",
+    "question": "Can existing wet-lab experimental evidence establish that computation can be physically instantiated in distributed electromagnetic fields?",
+    "answerBounded": "Yes — for important classes of computation. Scale remains open."
+  },
+  "falsifiability": [
+    "Which computational class is claimed (function / Fourier / matrix / convolution / ML)?",
+    "What physical substrate carries the transformation?",
+    "What remains invariant when representation migrates digital ↔ EM?",
+    "What differs (memory, programmability, scale, attack surface)?",
+    "Does the wet-lab result predict a measurable FractiSI architectural consequence?",
+    "Under what conditions does the EM rhyme fail (noise, bandwidth, free-space vs cavity)?"
+  ],
+  "chainSize": 5,
+  "density": {
+    "id": "rho_WL",
+    "usableCorrespondences": 10,
+    "searchSpace": 40,
+    "rho_R": 0.25
+  },
+  "experiments": [
+    {
+      "id": "E1_cross_domain",
+      "title": "Cross-domain wet-lab identification",
+      "n": 8,
+      "hits": 6,
+      "rate": 0.75,
+      "pass": true,
+      "rows": [
+        {
+          "id": "ieee-interference",
+          "domain": "wireless",
+          "gold": [
+            "WL-01"
+          ],
+          "top": [
+            {
+              "id": "WL-01",
+              "name": "Interference → function",
+              "score": 0.6263157894736842,
+              "demonstrated": true
+            },
+            {
+              "id": "WL-03",
+              "name": "Programmable interference → matrix",
+              "score": 0.13225806451612904,
+              "demonstrated": true
+            },
+            {
+              "id": "WL-02",
+              "name": "Environment → Fourier",
+              "score": 0.09375,
+              "demonstrated": true
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "prx-cavity",
+          "domain": "microwave",
+          "gold": [
+            "WL-02"
+          ],
+          "top": [
+            {
+              "id": "WL-02",
+              "name": "Environment → Fourier",
+              "score": 0.35,
+              "demonstrated": true
+            },
+            {
+              "id": "WL-04",
+              "name": "Metasurface → Fourier/convolution/radar",
+              "score": 0.1625,
+              "demonstrated": true
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "nature-matrix",
+          "domain": "rf-processor",
+          "gold": [
+            "WL-03"
+          ],
+          "top": [
+            {
+              "id": "WL-03",
+              "name": "Programmable interference → matrix",
+              "score": 0.5545454545454546,
+              "demonstrated": true
+            },
+            {
+              "id": "WL-01",
+              "name": "Interference → function",
+              "score": 0.13571428571428573,
+              "demonstrated": true
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "metasurface-radar",
+          "domain": "metasurface",
+          "gold": [
+            "WL-04"
+          ],
+          "top": [
+            {
+              "id": "WL-04",
+              "name": "Metasurface → Fourier/convolution/radar",
+              "score": 0.3592592592592593,
+              "demonstrated": true
+            },
+            {
+              "id": "WL-02",
+              "name": "Environment → Fourier",
+              "score": 0.12941176470588237,
+              "demonstrated": true
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "wise-ml",
+          "domain": "ml-rf",
+          "gold": [
+            "WL-05"
+          ],
+          "top": [
+            {
+              "id": "WL-05",
+              "name": "RF physics → ML inference",
+              "score": 0.39629629629629626,
+              "demonstrated": true
+            }
+          ],
+          "hit": true
+        },
+        {
+          "id": "fractisi-delta",
+          "domain": "multi-agent",
+          "gold": [
+            "WL-01",
+            "WL-05"
+          ],
+          "top": [],
+          "hit": false
+        },
+        {
+          "id": "data-center-vs-volume",
+          "domain": "architecture",
+          "gold": [
+            "WL-05",
+            "WL-04"
+          ],
+          "top": [],
+          "hit": false
+        },
+        {
+          "id": "edge-clients",
+          "domain": "edge",
+          "gold": [
+            "WL-05"
+          ],
+          "top": [
+            {
+              "id": "WL-05",
+              "name": "RF physics → ML inference",
+              "score": 0.2935483870967742,
+              "demonstrated": true
+            },
+            {
+              "id": "WL-03",
+              "name": "Programmable interference → matrix",
+              "score": 0.1625,
+              "demonstrated": true
+            }
+          ],
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "E2_chain_transfer",
+      "title": "Wet-lab compositional adjacency",
+      "n": 4,
+      "transfers": 4,
+      "rate": 1,
+      "ordered": true,
+      "pass": true,
+      "rows": [
+        {
+          "pair": [
+            "ieee-interference",
+            "prx-cavity"
+          ],
+          "topA": "WL-01",
+          "topB": "WL-02",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "prx-cavity",
+            "nature-matrix"
+          ],
+          "topA": "WL-02",
+          "topB": "WL-03",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "nature-matrix",
+            "metasurface-radar"
+          ],
+          "topA": "WL-03",
+          "topB": "WL-04",
+          "feedForward": true
+        },
+        {
+          "pair": [
+            "metasurface-radar",
+            "wise-ml"
+          ],
+          "topA": "WL-04",
+          "topB": "WL-05",
+          "feedForward": true
+        }
+      ]
+    },
+    {
+      "id": "E3_search_reduction",
+      "title": "Search reduction (direct vs wet-lab chain)",
+      "directSteps": 56,
+      "rhymeSteps": 81,
+      "directHits": 2,
+      "rhymeHits": 6,
+      "stepRatio": 1.4464285714285714,
+      "pass": true
+    },
+    {
+      "id": "E4_reconstruction",
+      "title": "Reconstruction from wet-lab organization",
+      "rate": 0.75,
+      "pass": true,
+      "rows": [
+        {
+          "id": "ieee-interference",
+          "compressedTo": "WL-01",
+          "nestedCount": 4,
+          "reconstructed": true
+        },
+        {
+          "id": "prx-cavity",
+          "compressedTo": "WL-02",
+          "nestedCount": 4,
+          "reconstructed": true
+        },
+        {
+          "id": "nature-matrix",
+          "compressedTo": "WL-03",
+          "nestedCount": 5,
+          "reconstructed": true
+        },
+        {
+          "id": "metasurface-radar",
+          "compressedTo": "WL-04",
+          "nestedCount": 4,
+          "reconstructed": true
+        },
+        {
+          "id": "wise-ml",
+          "compressedTo": "WL-05",
+          "nestedCount": 5,
+          "reconstructed": true
+        },
+        {
+          "id": "fractisi-delta",
+          "compressedTo": null,
+          "nestedCount": 0,
+          "reconstructed": null
+        },
+        {
+          "id": "data-center-vs-volume",
+          "compressedTo": "WL-01",
+          "nestedCount": 4,
+          "reconstructed": false
+        },
+        {
+          "id": "edge-clients",
+          "compressedTo": "WL-05",
+          "nestedCount": 5,
+          "reconstructed": true
+        }
+      ]
+    },
+    {
+      "id": "E5_nested_discovery",
+      "title": "Nested wet-lab discovery",
+      "parents": [
+        {
+          "parent": "WL-01",
+          "nestedCount": 4,
+          "nested": [
+            "distributed nodes",
+            "simultaneous transmission",
+            "physical interference",
+            "function computation"
+          ]
+        },
+        {
+          "parent": "WL-02",
+          "nestedCount": 4,
+          "nested": [
+            "ordinary wireless waves",
+            "physical room",
+            "multiple reflections",
+            "Fourier computation"
+          ]
+        },
+        {
+          "parent": "WL-03",
+          "nestedCount": 5,
+          "nested": [
+            "interference",
+            "programmable phase",
+            "Hadamard",
+            "identity",
+            "matrix operation"
+          ]
+        },
+        {
+          "parent": "WL-04",
+          "nestedCount": 4,
+          "nested": [
+            "electromagnetic propagation",
+            "physical interaction",
+            "mathematical transformation",
+            "computational result"
+          ]
+        },
+        {
+          "parent": "WL-05",
+          "nestedCount": 5,
+          "nested": [
+            "RF physics",
+            "matrix multiplication",
+            "machine learning",
+            "inference",
+            "edge clients"
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "E6_novel_discovery",
+      "title": "Novel volumetric architecture discovery",
+      "novel": {
+        "id": "volumetric-architecture",
+        "description": "distributed electromagnetic representation wave interaction interference mixing physical computation local reconstruction user",
+        "expectedFamily": [
+          "WL-01",
+          "WL-04",
+          "WL-05"
+        ]
+      },
+      "ranked": [
+        {
+          "id": "WL-01",
+          "score": 0.2481
+        },
+        {
+          "id": "WL-03",
+          "score": 0.1303
+        },
+        {
+          "id": "WL-04",
+          "score": 0.0909
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "E7_honesty_boundary",
+      "title": "Honesty boundary (premise closed · scale open)",
+      "chainComplete": true,
+      "openClaims": 7,
+      "provesCount": 2,
+      "fractisiRhyme": true,
+      "pass": true
+    }
+  ],
+  "passCount": 7,
+  "total": 7,
+  "pass": true,
+  "majorResultShape": {
+    "claim": "Yes — for important classes of computation. Scale remains open.",
+    "measured": {
+      "e1Rate": 0.75,
+      "e2Rate": 1,
+      "e3RhymeHits": 6,
+      "e7ChainComplete": true,
+      "rho_R": 0.25
+    }
+  }
+}

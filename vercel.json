@@ -234,6 +234,54 @@
       "destination": "/research/principal-rhyme-theorem/"
     },
     {
+      "source": "/blog/universal-rhyme-wet-lab/",
+      "destination": "/blog/universal-rhyme-wet-lab/index.html"
+    },
+    {
+      "source": "/blog/universal-rhyme-wet-lab",
+      "destination": "/blog/universal-rhyme-wet-lab/"
+    },
+    {
+      "source": "/library/papers/universal-rhyme-wet-lab/",
+      "destination": "/library/papers/universal-rhyme-wet-lab/index.html"
+    },
+    {
+      "source": "/library/papers/universal-rhyme-wet-lab",
+      "destination": "/library/papers/universal-rhyme-wet-lab/"
+    },
+    {
+      "source": "/research/universal-rhyme-wet-lab/",
+      "destination": "/research/universal-rhyme-wet-lab/index.html"
+    },
+    {
+      "source": "/research/universal-rhyme-wet-lab",
+      "destination": "/research/universal-rhyme-wet-lab/"
+    },
+    {
+      "source": "/blog/compositional-wet-lab-scale/",
+      "destination": "/blog/compositional-wet-lab-scale/index.html"
+    },
+    {
+      "source": "/blog/compositional-wet-lab-scale",
+      "destination": "/blog/compositional-wet-lab-scale/"
+    },
+    {
+      "source": "/library/papers/compositional-wet-lab-scale/",
+      "destination": "/library/papers/compositional-wet-lab-scale/index.html"
+    },
+    {
+      "source": "/library/papers/compositional-wet-lab-scale",
+      "destination": "/library/papers/compositional-wet-lab-scale/"
+    },
+    {
+      "source": "/research/compositional-wet-lab-scale/",
+      "destination": "/research/compositional-wet-lab-scale/index.html"
+    },
+    {
+      "source": "/research/compositional-wet-lab-scale",
+      "destination": "/research/compositional-wet-lab-scale/"
+    },
+    {
       "source": "/library/papers/riemann-fractisi-expedition/",
       "destination": "/library/papers/riemann-fractisi-expedition/index.html"
     },
