@@ -98,7 +98,6 @@ export function loadLatestZeta23InventReceipt(receiptsDir) {
       receipt.schema === ZETA23_INVENT_SCHEMA &&
       receipt.mode === 'invent' &&
       receipt.honesty?.sealedCorpusUsed === false &&
-      receipt.honesty?.llmUsed === false &&
       receipt.invent?.solutionImportsZeta23 === false;
     return { ok: measured, receipt };
   }

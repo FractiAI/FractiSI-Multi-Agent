@@ -1,11 +1,14 @@
-<h2>Matched invent (Player 1)</h2>
-<p>FractiSI invent with <strong>no cutoff</strong>, and no-FractiSI invent with a <strong>3-minute</strong> cutoff. Both Challenge-only. No Anthropic sealed proofs. No LLM keys on this VM — Lean tactics only.</p>
+<h2>FractiSI + LLM invent (apples to apples)</h2>
+<p>Anthropic invented with LLMs. FractiSI invent now calls Groq for proof bodies — Challenge-only, no sealed Anthropic corpus.</p>
 
-<h2>Results</h2>
+<h2>First measured LLM invent</h2>
 <ul>
-  <li><strong>FractiSI:</strong> 30.20 s · plateau · 0/17 closed · 17 sorries · no cutoff</li>
-  <li><strong>No-FractiSI:</strong> 34.12 s · plateau · 0/17 closed · 17 sorries · 180 s budget</li>
-  <li><strong>Anthropic:</strong> ~1.5 days invent+formalize — not matched by either arm</li>
+  <li><strong>46.53 s</strong> · 2 rounds · FractiSI 4 agents</li>
+  <li><strong>17</strong> Groq calls · <strong>15</strong> returned Lean tactic proposals</li>
+  <li><strong>0 of 17</strong> theorems closed · lake still red</li>
+  <li>Models: qwen/qwen3.8-27b (+ gpt-oss fallbacks)</li>
 </ul>
 
-<p class="honesty">Matched invent · FractiSI 30.20s (no cutoff) · no-kit 34.12s (180s) · 0/17 each · RH OPEN</p>
+<p>Prior Lean-tactics-only arms also closed 0/17. Neither beats Anthropic ~1.5 days. RH OPEN.</p>
+
+<p class="honesty">FractiSI+Groq invent 46.53s · 0/17 · no sealed corpus · not a win vs Anthropic ~1.5d · RH OPEN</p>

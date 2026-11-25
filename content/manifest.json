@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Matched Invent Clock (\u03b6 Challenge)",
-      "dek": "Matched invent: FractiSI 30.20s (no cutoff) vs no-kit 34.12s (180s). Both 0/17. No LLM keys. Anthropic ~1.5d. RH open.",
+      "title": "FractiSI LLM Invent Clock (\u03b6 Challenge)",
+      "dek": "FractiSI+Groq invent 46.53s: 15/17 LLM proposals, 0/17 closed. No sealed corpus. Not a win vs Anthropic ~1.5d. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> \u00b7 Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: matched invent \u2014 both arms closed 0/17 theorems.",
-      "answerBody": " FractiSI invent had no cutoff (30.20s plateau). No-FractiSI had a 180s cutoff (34.12s plateau). No sealed Anthropic corpus. No LLM keys. Not a win vs Anthropic ~1.5 days. RH OPEN."
+      "answerHead": "Short answer: FractiSI invent now uses Groq LLM \u2014 still 0/17 closed in 46.53s.",
+      "answerBody": " Apples-to-apples invent engine is LLM under FractiSI coordination. 17 Groq calls, 15 tactic proposals, lake still red. No Anthropic sealed proofs. RH OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Matched Invent Clock (\u03b6 Challenge)",
+      "title": "FractiSI LLM Invent Clock (\u03b6 Challenge)",
       "group": "Multi-agent research",
-      "summary": "Matched invent: FractiSI 30.20s no-cutoff \u00b7 no-kit 34.12s/180s \u00b7 0/17 each \u00b7 RH OPEN.",
+      "summary": "FractiSI+Groq invent 46.53s \u00b7 0/17 \u00b7 15/17 LLM proposals \u00b7 no sealed corpus \u00b7 RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"

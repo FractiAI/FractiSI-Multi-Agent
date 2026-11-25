@@ -1,0 +1,338 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent.v1",
+  "label": "riemann-fractisi-zeta23-invent",
+  "mode": "invent",
+  "startedAt": "2026-11-25T03:39:21.329Z",
+  "endedAt": "2026-11-25T03:40:07.858Z",
+  "durationSeconds": 46.528292012,
+  "cutoffSeconds": null,
+  "noCutoff": true,
+  "cutoffHit": false,
+  "plateau": false,
+  "ok": false,
+  "leanOk": false,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "FractiSI invent clock from Challenge-only with Lean/Mathlib tactic search; no sealed Anthropic formalization; no wall-clock cutoff by default",
+    "whatThisDoesNotMeasure": [
+      "Find-assemble of sealed Anthropic Zeta23/Solution (see run-zeta23-find.mjs)",
+      "LLM rediscovery of Alpöge–Furman (no model API on this VM)",
+      "RH"
+    ],
+    "inventedHere": "Tactic-search proof attempts under FractiSI coordination",
+    "reusedNotInvented": [
+      "Mathlib (riemannZeta definitions and supporting lemmas)",
+      "ChallengeDeps / Challenge trusted statements (Anthropic challenge surface, Apache-2.0)"
+    ],
+    "sealedCorpusUsed": false,
+    "llmUsed": true,
+    "llmProvider": "groq",
+    "llmModels": [
+      "qwen/qwen3.8-27b",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b"
+    ],
+    "apiKeys": {
+      "GROQ_API_KEY": true,
+      "ANTHROPIC_API_KEY": false,
+      "OPENAI_API_KEY": false,
+      "GOOGLE_API_KEY": false,
+      "HF_TOKEN": false
+    },
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents · ~1.5 days · invent+formalize critical-line bound 41.6% → 67.2%",
+    "explanation": "FractiSI invent clock: Challenge-only ζ proportion statements; agents invent Solution without Anthropic Zeta23 sealed corpus. No wall-clock cutoff on this FractiSI arm — stopped on green Solution, max-rounds, or honest plateau. LLM invent ON via Groq (models: qwen/qwen3.8-27b, openai/gpt-oss-120b, openai/gpt-oss-20b); FractiSI coordinates agents. Apples-to-apples intent vs Anthropic LLM invent+formalize. Rounds=3; closed=0/17; Solution sorries=2; plateau=false; cutoffHit=false; llmCalls=17; llmOkCalls=15. Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. RH remains OPEN."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23DirAbsent": true,
+    "Zeta23LeanAbsent": true,
+    "SolutionLeanAbsentBeforeInventShell": true,
+    "SolutionDirAbsent": true,
+    "sealedCorpusReadableByAgents": false
+  },
+  "leaksAtStart": [],
+  "invent": {
+    "theoremCount": 17,
+    "closedCount": 0,
+    "openCount": 17,
+    "rounds": 3,
+    "attempts": 17,
+    "strategiesTried": [
+      "groq-llm"
+    ],
+    "llmMode": true,
+    "llmCalls": 17,
+    "llmOkCalls": 15,
+    "llmModels": [
+      "qwen/qwen3.8-27b",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b"
+    ],
+    "maxRounds": 2,
+    "solutionImportsZeta23": false,
+    "sorryAtEnd": 2
+  },
+  "fractisi": {
+    "agents": 4,
+    "agentIds": [
+      "agent_ddd176cc",
+      "agent_b0e85cc2",
+      "agent_23408ddb",
+      "agent_1229a3ca"
+    ],
+    "tasks": 8,
+    "taskIds": [
+      "task_8a541fac",
+      "task_dc05f138",
+      "task_819d94da",
+      "task_38b28abd",
+      "task_adf25d97",
+      "task_8ac41ad7",
+      "task_b08c5045",
+      "task_573452f5"
+    ],
+    "contributions": 4,
+    "contributionIds": [
+      "contrib_88bb57ec",
+      "contrib_a0728d80",
+      "contrib_c1ee1019",
+      "contrib_b908568e"
+    ],
+    "compositions": 1,
+    "compositionId": "comp_ea8fdbcc"
+  },
+  "steps": [
+    {
+      "name": "claim-invent-thmA-r1",
+      "ok": true,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r1",
+      "ok": true,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r1",
+      "ok": true,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r1",
+      "ok": true,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r1",
+      "ok": false,
+      "status": 1,
+      "strategy": "llm",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "compose-r1",
+      "ok": true,
+      "compositionId": "comp_ea8fdbcc"
+    },
+    {
+      "name": "claim-invent-thmA-r2",
+      "ok": false,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r2",
+      "ok": false,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r2",
+      "ok": false,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r2",
+      "ok": false,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r2",
+      "ok": false,
+      "status": 1,
+      "strategy": "llm",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "max-rounds",
+      "ok": true,
+      "maxRounds": 2,
+      "roundsCompleted": 2
+    }
+  ],
+  "attempts": [
+    {
+      "atSeconds": 0.24702175,
+      "agent": "invent-thmA",
+      "theorem": "two_thirds_on_critical_line",
+      "strategy": "llm:qwen/qwen3.8-27b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 1.386708204,
+      "agent": "invent-thmA",
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "strategy": "llm:qwen/qwen3.8-27b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 9.810944407,
+      "agent": "invent-thmBC",
+      "theorem": "two_thirds_simple_on_critical_line",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "ok": false,
+      "error": "no_tactic_extracted"
+    },
+    {
+      "atSeconds": 10.237044061999999,
+      "agent": "invent-thmBC",
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "strategy": "llm:openai/gpt-oss-20b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 16.018983636999998,
+      "agent": "invent-thmBC",
+      "theorem": "five_sixths_distinct",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 19.614482459,
+      "agent": "invent-thmBC",
+      "theorem": "five_sixths_distinct_cumulative",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 20.282687664,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_on_critical_line",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 21.112613112000002,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 21.881341359,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 22.570255177000003,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_distinct_mult",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 23.301394166,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 23.966680921,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 24.476934407,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 24.943218596,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_five_sixths_distinct",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 25.493858515,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 25.665714232000003,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 5326, Requested 2849. Please try again in 1.3125s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 26.186177316000002,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "ok": true
+    }
+  ],
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (~1.5 days invent+formalize)",
+    "baselineSecondsApprox": 129600,
+    "thisArmSeconds": 46.528292012,
+    "thisArmOutcome": "incomplete",
+    "note": "Compare invent clocks only. Do not cite sealed find-assemble 11.66s as invent speedup."
+  },
+  "paths": {
+    "inventSandbox": "/workspace/expeditions/riemann-fractisi/.invent-sandbox/zeta23-invent"
+  }
+}
