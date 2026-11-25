@@ -1,9 +1,9 @@
 # receipts
 
-- **Find (primary):** `riemann-fractisi-zeta23-find-*.json` + `riemann-fractisi-zeta23-find-latest.json` from `timing/run-zeta23-find.mjs`
-- **No-kit find (capped):** `riemann-fractisi-zeta23-find-no-kit-*.json` + `…-find-no-kit-latest.json` from `timing/run-zeta23-find-no-kit.mjs`
-- Verify (prebuilt tree): `riemann-fractisi-zeta23-*.json` + `riemann-fractisi-zeta23-latest.json` from `timing/run-zeta23.mjs` (exclude `*-find-*`)
-- Ablation: `riemann-fractisi-ablation-*.json` + `riemann-fractisi-ablation-summary-5runs.json` from `timing/run-ablation.mjs`
-- Legacy rebuild: `riemann-fractisi-expedition-phase*.json` from `timing/run-expedition.mjs`
+- **Invent (primary):** `riemann-fractisi-zeta23-invent-*.json` + `…-invent-latest.json` from `timing/run-zeta23-invent.mjs`
+- Find (demoted as invent): `riemann-fractisi-zeta23-find-*.json` from `timing/run-zeta23-find.mjs`
+- No-kit find (capped): `…-find-no-kit-*.json` from `timing/run-zeta23-find-no-kit.mjs`
+- Verify: `riemann-fractisi-zeta23-latest.json` from `timing/run-zeta23.mjs`
+- Ablation / legacy: ablation and expedition-phase receipts
 
 Do not hand-edit measured fields; regenerate with the harness.

@@ -1,0 +1,317 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent.v1",
+  "label": "riemann-fractisi-zeta23-invent",
+  "mode": "invent",
+  "startedAt": "2026-11-25T03:21:20.789Z",
+  "endedAt": "2026-11-25T03:21:50.748Z",
+  "durationSeconds": 29.958201497999998,
+  "cutoffSeconds": 300,
+  "cutoffHit": false,
+  "plateau": true,
+  "ok": false,
+  "leanOk": false,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "FractiSI invent clock from Challenge-only with Lean/Mathlib tactic search; no sealed Anthropic formalization",
+    "whatThisDoesNotMeasure": [
+      "Find-assemble of sealed Anthropic Zeta23/Solution (see run-zeta23-find.mjs)",
+      "LLM rediscovery of Alpöge–Furman (no model API on this VM)",
+      "RH"
+    ],
+    "inventedHere": "Tactic-search proof attempts under FractiSI coordination",
+    "reusedNotInvented": [
+      "Mathlib (riemannZeta definitions and supporting lemmas)",
+      "ChallengeDeps / Challenge trusted statements (Anthropic challenge surface, Apache-2.0)"
+    ],
+    "sealedCorpusUsed": false,
+    "llmUsed": false,
+    "apiKeys": {
+      "ANTHROPIC_API_KEY": false,
+      "OPENAI_API_KEY": false,
+      "GOOGLE_API_KEY": false,
+      "HF_TOKEN": false
+    },
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents · ~1.5 days · invent+formalize critical-line bound 41.6% → 67.2%",
+    "explanation": "FractiSI invent clock: Challenge-only ζ proportion statements; agents invent Solution without Anthropic Zeta23 sealed corpus. No Anthropic/OpenAI/Google/HF API keys on this VM — strongest invent engine available here is FractiSI-coordinated Lean/Mathlib tactic search. Rounds=3; closed=0/17; Solution sorries=17; plateau=true; cutoffHit=false. Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. This run invents only via local tactics; closing montgomery_taylor_* needs that analytic invention (or an LLM formalizer), not aesop. RH remains OPEN."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23DirAbsent": true,
+    "Zeta23LeanAbsent": true,
+    "SolutionLeanAbsentBeforeInventShell": true,
+    "SolutionDirAbsent": true,
+    "sealedCorpusReadableByAgents": false
+  },
+  "leaksAtStart": [],
+  "invent": {
+    "theoremCount": 17,
+    "closedCount": 0,
+    "openCount": 17,
+    "rounds": 3,
+    "attempts": 17,
+    "strategiesTried": [
+      "aesop",
+      "simp_all",
+      "first_barrage"
+    ],
+    "solutionImportsZeta23": false,
+    "sorryAtEnd": 17
+  },
+  "fractisi": {
+    "agents": 4,
+    "agentIds": [
+      "agent_da10f8fe",
+      "agent_a6c768cc",
+      "agent_80dc04f7",
+      "agent_2eb61a13"
+    ],
+    "tasks": 12,
+    "taskIds": [
+      "task_5ccec7f3",
+      "task_fee644d0",
+      "task_355256ca",
+      "task_cb1184d3",
+      "task_db0cdc45",
+      "task_1c8a96cb",
+      "task_412a208d",
+      "task_c255cdf8",
+      "task_acbb31bc",
+      "task_301413a7",
+      "task_60375812",
+      "task_8c860d78"
+    ],
+    "contributions": 4,
+    "contributionIds": [
+      "contrib_473aca88",
+      "contrib_95abba82",
+      "contrib_c0486aac",
+      "contrib_4e355aa8"
+    ],
+    "compositions": 1,
+    "compositionId": "comp_344bd00d"
+  },
+  "steps": [
+    {
+      "name": "claim-invent-thmA-r1",
+      "ok": true,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r1",
+      "ok": true,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r1",
+      "ok": true,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r1",
+      "ok": true,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r1",
+      "ok": false,
+      "status": 1,
+      "strategy": "aesop",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "compose-r1",
+      "ok": true,
+      "compositionId": "comp_344bd00d"
+    },
+    {
+      "name": "claim-invent-thmA-r2",
+      "ok": false,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r2",
+      "ok": false,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r2",
+      "ok": false,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r2",
+      "ok": false,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r2",
+      "ok": false,
+      "status": 1,
+      "strategy": "simp_all",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "claim-invent-thmA-r3",
+      "ok": false,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r3",
+      "ok": false,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r3",
+      "ok": false,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r3",
+      "ok": false,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r3",
+      "ok": false,
+      "status": 1,
+      "strategy": "first_barrage",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "plateau",
+      "ok": true,
+      "note": "All local tactic invent strategies exhausted without closing any Challenge theorem"
+    }
+  ],
+  "attempts": [
+    {
+      "atSeconds": 0.00243083,
+      "agent": "invent-thmA",
+      "theorem": "two_thirds_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.002440350000000002,
+      "agent": "invent-thmA",
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.0031733639999999993,
+      "agent": "invent-thmBC",
+      "theorem": "two_thirds_simple_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.0031766459999999982,
+      "agent": "invent-thmBC",
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.003179741,
+      "agent": "invent-thmBC",
+      "theorem": "five_sixths_distinct",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.003182817,
+      "agent": "invent-thmBC",
+      "theorem": "five_sixths_distinct_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.003899892999999999,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.0039027710000000015,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.0039048659999999986,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.003906785999999997,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_distinct_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.003908662999999997,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.004525595000000003,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.004528419999999997,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.004530513999999997,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_five_sixths_distinct",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.004532500999999996,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.004534371000000001,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 0.004536234999999998,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "strategy": "aesop",
+      "round": 1
+    }
+  ],
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (~1.5 days invent+formalize)",
+    "baselineSecondsApprox": 129600,
+    "thisArmSeconds": 29.958201497999998,
+    "thisArmOutcome": "plateau_no_theorem_closed",
+    "note": "Compare invent clocks only. Do not cite sealed find-assemble 11.66s as invent speedup."
+  },
+  "paths": {
+    "inventSandbox": "/workspace/expeditions/riemann-fractisi/.invent-sandbox/zeta23-invent"
+  }
+}

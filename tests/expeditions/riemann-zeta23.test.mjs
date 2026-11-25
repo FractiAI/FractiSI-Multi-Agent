@@ -8,11 +8,13 @@ import { join } from 'node:path';
 import {
   ZETA23_FIND_NO_KIT_SCHEMA,
   ZETA23_FIND_SCHEMA,
+  ZETA23_INVENT_SCHEMA,
   ZETA23_PARTITIONS,
   ZETA23_SCHEMA,
   auditPrintAxiomsStdout,
   loadLatestZeta23FindNoKitReceipt,
   loadLatestZeta23FindReceipt,
+  loadLatestZeta23InventReceipt,
   zeta23RootFromHere,
 } from '../../src/expeditions/riemann-zeta23.mjs';
 
@@ -100,5 +102,23 @@ describe('zeta23 find no-kit receipt', () => {
     assert.ok(receipt.sorryAtEnd.sorryCount >= 1);
     assert.equal(receipt.challengeOnlyAtEnd.SolutionLean, true);
     assert.equal(receipt.ok, false);
+  });
+});
+
+describe('zeta23 invent receipt', () => {
+  it('records Challenge-only invent without sealed Anthropic corpus', () => {
+    const receipts = join(zeta23RootFromHere(), '../lean/receipts');
+    const loaded = loadLatestZeta23InventReceipt(receipts);
+    assert.equal(loaded.ok, true, 'run timing/run-zeta23-invent.mjs before commit');
+    const receipt = loaded.receipt;
+    assert.equal(receipt.schema, ZETA23_INVENT_SCHEMA);
+    assert.equal(receipt.mode, 'invent');
+    assert.equal(receipt.honesty.sealedCorpusUsed, false);
+    assert.equal(receipt.honesty.llmUsed, false);
+    assert.equal(receipt.invent.solutionImportsZeta23, false);
+    assert.equal(receipt.invent.theoremCount, 17);
+    assert.ok(receipt.invent.closedCount === 0 || receipt.ok === true);
+    assert.ok(receipt.durationSeconds > 0);
+    assert.ok(receipt.plateau === true || receipt.ok === true || receipt.cutoffHit === true);
   });
 });
