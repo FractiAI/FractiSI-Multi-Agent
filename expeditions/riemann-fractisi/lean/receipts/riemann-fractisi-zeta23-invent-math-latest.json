@@ -2,9 +2,9 @@
   "schema": "fractisi.riemann-expedition.zeta23-invent-math.v1",
   "label": "riemann-fractisi-zeta23-invent-math",
   "mode": "invent_math",
-  "startedAt": "2026-11-25T16:34:03.061Z",
-  "endedAt": "2026-11-25T16:34:14.628Z",
-  "durationSeconds": 11.565535414,
+  "startedAt": "2026-11-25T16:42:23.766Z",
+  "endedAt": "2026-11-25T16:42:37.722Z",
+  "durationSeconds": 13.955396005,
   "ok": true,
   "leanOk": true,
   "honesty": {
@@ -28,7 +28,7 @@
       "OPENAI_API_KEY": false
     },
     "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
-    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 19/19; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
+    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 27/27; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
   },
   "challengeOnlyAtStart": {
     "Zeta23DirAbsent": true,
@@ -38,8 +38,8 @@
   "leaksAtStart": [],
   "invent": {
     "kind": "paper_math_ladder",
-    "theoremCount": 19,
-    "closedCount": 19,
+    "theoremCount": 27,
+    "closedCount": 27,
     "openCount": 0,
     "closed": [
       "rank_trace_scalar_cases",
@@ -61,6 +61,14 @@
       "eps_form_twoThirds",
       "eps_form_threeQuarters",
       "eps_form_half",
+      "dyadic_eps_form",
+      "challengeA_cumulative_of_dyadic",
+      "challengeB_cumulative_of_dyadic",
+      "challengeC_cumulative_of_dyadic",
+      "challengeA_dyadic_of_Hfun",
+      "challengeB_dyadic_of_Ffun",
+      "challengeC_dyadic_of_Ffun",
+      "challenge_eps_of_littleO",
       "indicator_pos_ge_two_sub_sq"
     ],
     "open": [],
@@ -165,30 +173,76 @@
         "id": "E3-B",
         "leanName": "eps_form_half",
         "closed": true
+      },
+      {
+        "id": "E4",
+        "leanName": "dyadic_eps_form",
+        "closed": true
+      },
+      {
+        "id": "TD-A",
+        "leanName": "challengeA_cumulative_of_dyadic",
+        "closed": true
+      },
+      {
+        "id": "TD-B",
+        "leanName": "challengeB_cumulative_of_dyadic",
+        "closed": true
+      },
+      {
+        "id": "TD-C",
+        "leanName": "challengeC_cumulative_of_dyadic",
+        "closed": true
+      },
+      {
+        "id": "MID-A",
+        "leanName": "challengeA_dyadic_of_Hfun",
+        "closed": true
+      },
+      {
+        "id": "MID-B",
+        "leanName": "challengeB_dyadic_of_Ffun",
+        "closed": true
+      },
+      {
+        "id": "MID-C",
+        "leanName": "challengeC_dyadic_of_Ffun",
+        "closed": true
+      },
+      {
+        "id": "MID-eps",
+        "leanName": "challenge_eps_of_littleO",
+        "closed": true
       }
     ]
   },
   "fractisi": {
-    "agents": 4,
+    "agents": 6,
     "agentIds": [
-      "agent_7a9e99b6",
-      "agent_9339cc60",
-      "agent_920853a3",
-      "agent_988569fc"
+      "agent_07f07e5b",
+      "agent_418316d4",
+      "agent_9e4840fc",
+      "agent_6bcd51aa",
+      "agent_f914b199",
+      "agent_5ad78d02"
     ],
-    "tasks": 4,
+    "tasks": 6,
     "taskIds": [
-      "task_7bb5eec1",
-      "task_e42da3d5",
-      "task_6aeee7db",
-      "task_9ae526fc"
+      "task_ffd10a32",
+      "task_0e3dca19",
+      "task_6b359d5f",
+      "task_7be14766",
+      "task_9459f696",
+      "task_9c10e453"
     ],
-    "contributions": 4,
+    "contributions": 6,
     "contributionIds": [
-      "contrib_a8dbef43",
-      "contrib_7a7fd7aa",
-      "contrib_fe24fb27",
-      "contrib_0280e623"
+      "contrib_785652be",
+      "contrib_ab04d37e",
+      "contrib_d7edcb0d",
+      "contrib_3cbda57b",
+      "contrib_c1da104a",
+      "contrib_7948f32f"
     ]
   },
   "steps": [
@@ -232,19 +286,39 @@
         "eps_form_of_isLittleO",
         "eps_form_twoThirds",
         "eps_form_threeQuarters",
-        "eps_form_half"
+        "eps_form_half",
+        "dyadic_eps_form"
+      ]
+    },
+    {
+      "name": "claim-invent-topdown",
+      "ok": true,
+      "lemmas": [
+        "challengeA_cumulative_of_dyadic",
+        "challengeB_cumulative_of_dyadic",
+        "challengeC_cumulative_of_dyadic"
+      ]
+    },
+    {
+      "name": "claim-invent-middle",
+      "ok": true,
+      "lemmas": [
+        "challengeA_dyadic_of_Hfun",
+        "challengeB_dyadic_of_Ffun",
+        "challengeC_dyadic_of_Ffun",
+        "challenge_eps_of_littleO"
       ]
     },
     {
       "name": "lake-build-InventMath",
       "ok": true,
       "status": 0,
-      "stderrTail": "✔ [8697/8698] Built InventMath (7.0s)\nBuild completed successfully (8698 jobs)."
+      "stderrTail": "✔ [8697/8698] Built InventMath (9.4s)\nBuild completed successfully (8698 jobs)."
     },
     {
       "name": "compose",
       "ok": true,
-      "compositionId": "comp_cf556ea9"
+      "compositionId": "comp_d57bcb8f"
     }
   ],
   "paths": {

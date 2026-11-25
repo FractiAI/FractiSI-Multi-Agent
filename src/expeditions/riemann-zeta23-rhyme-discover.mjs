@@ -32,26 +32,211 @@ export const PRODUCT_RHYME_PINS = Object.freeze(
 );
 
 /** Challenge theorem → organizational InventMath partner (paper assembly rhyme). */
-/** Challenge headline → next-layer InventMath partner (ε-form / assembly). */
+/**
+ * Bidirectional partners for meet-in-middle invent.
+ * - bottomUp: closed InventMath layer feeding the headline
+ * - topDown: Challenge-facing bridge that reduces the headline
+ * - middle: glue lemma that connects top↓ to bottom↑
+ */
 export const CHALLENGE_PARTNER_MAP = Object.freeze({
-  two_thirds_on_critical_line: 'eps_form_twoThirds',
-  two_thirds_on_critical_line_cumulative: 'eps_form_twoThirds',
-  two_thirds_simple_on_critical_line: 'eps_form_half',
-  two_thirds_simple_on_critical_line_cumulative: 'eps_form_half',
-  five_sixths_distinct: 'eps_form_threeQuarters',
-  five_sixths_distinct_cumulative: 'eps_form_threeQuarters',
-  montgomery_taylor_on_critical_line: 'eps_form_of_isLittleO',
-  montgomery_taylor_simple_on_critical_line_mult: 'eps_form_of_isLittleO',
-  montgomery_taylor_simple_on_critical_line_mult_cumulative: 'eps_form_of_isLittleO',
-  montgomery_taylor_distinct_mult: 'eps_form_of_isLittleO',
-  montgomery_taylor_distinct_mult_cumulative: 'eps_form_of_isLittleO',
-  dirichlet_two_thirds_on_critical_line: 'eps_form_twoThirds',
-  dirichlet_two_thirds_simple_on_critical_line: 'eps_form_half',
-  dirichlet_five_sixths_distinct: 'eps_form_threeQuarters',
-  dirichlet_montgomery_taylor_on_critical_line: 'eps_form_of_isLittleO',
-  dirichlet_montgomery_taylor_simple_on_critical_line_mult: 'eps_form_of_isLittleO',
-  dirichlet_montgomery_taylor_distinct_mult: 'eps_form_of_isLittleO',
+  two_thirds_on_critical_line: 'challengeA_dyadic_of_Hfun',
+  two_thirds_on_critical_line_cumulative: 'challengeA_cumulative_of_dyadic',
+  two_thirds_simple_on_critical_line: 'challengeB_dyadic_of_Ffun',
+  two_thirds_simple_on_critical_line_cumulative: 'challengeB_cumulative_of_dyadic',
+  five_sixths_distinct: 'challengeC_dyadic_of_Ffun',
+  five_sixths_distinct_cumulative: 'challengeC_cumulative_of_dyadic',
+  montgomery_taylor_on_critical_line: 'challenge_eps_of_littleO',
+  montgomery_taylor_simple_on_critical_line_mult: 'challenge_eps_of_littleO',
+  montgomery_taylor_simple_on_critical_line_mult_cumulative: 'challenge_eps_of_littleO',
+  montgomery_taylor_distinct_mult: 'challenge_eps_of_littleO',
+  montgomery_taylor_distinct_mult_cumulative: 'challenge_eps_of_littleO',
+  dirichlet_two_thirds_on_critical_line: 'challengeA_dyadic_of_Hfun',
+  dirichlet_two_thirds_simple_on_critical_line: 'challengeB_dyadic_of_Ffun',
+  dirichlet_five_sixths_distinct: 'challengeC_dyadic_of_Ffun',
+  dirichlet_montgomery_taylor_on_critical_line: 'challenge_eps_of_littleO',
+  dirichlet_montgomery_taylor_simple_on_critical_line_mult: 'challenge_eps_of_littleO',
+  dirichlet_montgomery_taylor_distinct_mult: 'challenge_eps_of_littleO',
 });
+
+/** Top-down / bottom-up / middle partner triples per Challenge theorem (all 17). */
+export const MEET_IN_MIDDLE = Object.freeze({
+  two_thirds_on_critical_line: {
+    topDown: 'challengeA_dyadic_of_Hfun',
+    bottomUp: 'eps_form_twoThirds',
+    middle: 'challengeA_dyadic_of_Hfun',
+  },
+  two_thirds_on_critical_line_cumulative: {
+    topDown: 'challengeA_cumulative_of_dyadic',
+    bottomUp: 'dyadic_eps_form',
+    middle: 'challengeA_cumulative_of_dyadic',
+  },
+  two_thirds_simple_on_critical_line: {
+    topDown: 'challengeB_dyadic_of_Ffun',
+    bottomUp: 'eps_form_half',
+    middle: 'challengeB_dyadic_of_Ffun',
+  },
+  two_thirds_simple_on_critical_line_cumulative: {
+    topDown: 'challengeB_cumulative_of_dyadic',
+    bottomUp: 'dyadic_eps_form',
+    middle: 'challengeB_cumulative_of_dyadic',
+  },
+  five_sixths_distinct: {
+    topDown: 'challengeC_dyadic_of_Ffun',
+    bottomUp: 'eps_form_threeQuarters',
+    middle: 'challengeC_dyadic_of_Ffun',
+  },
+  five_sixths_distinct_cumulative: {
+    topDown: 'challengeC_cumulative_of_dyadic',
+    bottomUp: 'dyadic_eps_form',
+    middle: 'challengeC_cumulative_of_dyadic',
+  },
+  montgomery_taylor_on_critical_line: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'eps_form_of_isLittleO',
+    middle: 'challenge_eps_of_littleO',
+  },
+  montgomery_taylor_simple_on_critical_line_mult: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'eps_form_of_isLittleO',
+    middle: 'challenge_eps_of_littleO',
+  },
+  montgomery_taylor_simple_on_critical_line_mult_cumulative: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'dyadic_eps_form',
+    middle: 'challenge_eps_of_littleO',
+  },
+  montgomery_taylor_distinct_mult: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'eps_form_of_isLittleO',
+    middle: 'challenge_eps_of_littleO',
+  },
+  montgomery_taylor_distinct_mult_cumulative: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'dyadic_eps_form',
+    middle: 'challenge_eps_of_littleO',
+  },
+  dirichlet_two_thirds_on_critical_line: {
+    topDown: 'challengeA_dyadic_of_Hfun',
+    bottomUp: 'eps_form_twoThirds',
+    middle: 'challengeA_dyadic_of_Hfun',
+  },
+  dirichlet_two_thirds_simple_on_critical_line: {
+    topDown: 'challengeB_dyadic_of_Ffun',
+    bottomUp: 'eps_form_half',
+    middle: 'challengeB_dyadic_of_Ffun',
+  },
+  dirichlet_five_sixths_distinct: {
+    topDown: 'challengeC_dyadic_of_Ffun',
+    bottomUp: 'eps_form_threeQuarters',
+    middle: 'challengeC_dyadic_of_Ffun',
+  },
+  dirichlet_montgomery_taylor_on_critical_line: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'eps_form_of_isLittleO',
+    middle: 'challenge_eps_of_littleO',
+  },
+  dirichlet_montgomery_taylor_simple_on_critical_line_mult: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'eps_form_of_isLittleO',
+    middle: 'challenge_eps_of_littleO',
+  },
+  dirichlet_montgomery_taylor_distinct_mult: {
+    topDown: 'challenge_eps_of_littleO',
+    bottomUp: 'eps_form_of_isLittleO',
+    middle: 'challenge_eps_of_littleO',
+  },
+});
+
+/**
+ * Endgame seed partners — Challenge-typed InventMath/InventEndgame names.
+ * Anthropic Solution is `exact Zeta23.thmA₀`; FractiSI invent is `exact invent_<edge>`.
+ * Near-instant 17/17 = these seeds closed + Solution exact reconstruct.
+ */
+export const ENDGAME_SEED_MAP = Object.freeze(
+  Object.fromEntries(
+    Object.keys(CHALLENGE_PARTNER_MAP).map((edge) => [edge, `invent_${edge}`]),
+  ),
+);
+
+/** Octave path templates: seed (bottom) → … → endgame seed → Challenge edge. */
+const OCTAVE_PATH_BY_FAMILY = Object.freeze({
+  online_proportion: [
+    'rank_trace_cell',
+    'thmA_assembly_two_thirds',
+    'thmA_indicator_specialization',
+    'Hfun_one',
+    'eps_form_twoThirds',
+    'challengeA_dyadic_of_Hfun',
+  ],
+  online_proportion_cumulative: [
+    'eps_form_twoThirds',
+    'dyadic_eps_form',
+    'challengeA_cumulative_of_dyadic',
+  ],
+  simple_online_proportion: [
+    'Ffun_one',
+    'eps_form_half',
+    'challengeB_dyadic_of_Ffun',
+  ],
+  simple_online_proportion_cumulative: [
+    'eps_form_half',
+    'dyadic_eps_form',
+    'challengeB_cumulative_of_dyadic',
+  ],
+  distinct_proportion: [
+    'thmC_assembly_five_sixths',
+    'Ffun_one',
+    'eps_form_threeQuarters',
+    'challengeC_dyadic_of_Ffun',
+  ],
+  distinct_proportion_cumulative: [
+    'eps_form_threeQuarters',
+    'dyadic_eps_form',
+    'challengeC_cumulative_of_dyadic',
+  ],
+  montgomery_taylor_proportion: [
+    'eps_form_of_isLittleO',
+    'challenge_eps_of_littleO',
+  ],
+  dirichlet_proportion: [
+    'eps_form_twoThirds',
+    'challengeA_dyadic_of_Hfun',
+  ],
+});
+
+function octavePathForEdge(edge) {
+  if (/cumulative/.test(edge) && /two_thirds_on_critical_line/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.online_proportion_cumulative;
+  }
+  if (/cumulative/.test(edge) && /simple/.test(edge) && !/montgomery/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.simple_online_proportion_cumulative;
+  }
+  if (/cumulative/.test(edge) && /five_sixths|distinct/.test(edge) && !/montgomery/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.distinct_proportion_cumulative;
+  }
+  if (/dirichlet/.test(edge) && /montgomery/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.montgomery_taylor_proportion;
+  }
+  if (/dirichlet/.test(edge) && /five_sixths/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.distinct_proportion;
+  }
+  if (/dirichlet/.test(edge) && /simple/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.simple_online_proportion;
+  }
+  if (/dirichlet/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.dirichlet_proportion;
+  }
+  if (/montgomery/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.montgomery_taylor_proportion;
+  }
+  if (/five_sixths/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.distinct_proportion;
+  }
+  if (/simple/.test(edge)) {
+    return OCTAVE_PATH_BY_FAMILY.simple_online_proportion;
+  }
+  return OCTAVE_PATH_BY_FAMILY.online_proportion;
+}
 
 export function loadProductRhymeCatalog(path = PRODUCT_CATALOG_PATH) {
   if (!existsSync(path)) {
@@ -556,6 +741,616 @@ export function discoverInventRhymes({
   return discovery;
 }
 
+/** Parse InventMath (+ optional InventEndgame) for closed decls and sorry status. */
+export function readInventMathIndex(opts = {}) {
+  const mathPath =
+    opts.inventMathPath ||
+    join(REPO_ROOT, 'expeditions/riemann-fractisi/lean/invent-math/InventMath.lean');
+  const endgamePath =
+    opts.inventEndgamePath ||
+    join(REPO_ROOT, 'expeditions/riemann-fractisi/lean/invent-math/InventEndgame.lean');
+  const files = [];
+  if (existsSync(mathPath)) files.push({ path: mathPath, source: 'InventMath' });
+  if (existsSync(endgamePath)) files.push({ path: endgamePath, source: 'InventEndgame' });
+  const decls = new Map();
+  for (const f of files) {
+    const text = readFileSync(f.path, 'utf8');
+    for (const m of text.matchAll(/(?:theorem|lemma)\s+(\w+)\b([\s\S]*?)(?=\n(?:theorem|lemma|end)\b)/g)) {
+      const name = m[1];
+      const body = m[2] || '';
+      const hasSorry = /\bsorry\b|\badmit\b/.test(body);
+      decls.set(name, {
+        name,
+        source: f.source,
+        closed: !hasSorry,
+        challengeTypeExact: name.startsWith('invent_') && !hasSorry,
+        bodyPreview: body.slice(0, 240),
+      });
+    }
+    // Fallback: names only when regex split fails on short files
+    for (const m of text.matchAll(/(?:theorem|lemma)\s+(\w+)\b/g)) {
+      if (!decls.has(m[1])) {
+        decls.set(m[1], {
+          name: m[1],
+          source: f.source,
+          closed: true,
+          challengeTypeExact: m[1].startsWith('invent_'),
+          bodyPreview: '',
+        });
+      }
+    }
+  }
+  return { decls, mathPath, endgamePath: existsSync(endgamePath) ? endgamePath : null };
+}
+
+/**
+ * Meet-in-the-middle plan: top-down Challenge cast ∩ bottom-up InventMath partners.
+ * Returns the glue lemmas already closed in InventMath that connect both directions.
+ */
+export function planMeetInMiddle(opts = {}) {
+  const { decls } = readInventMathIndex(opts);
+  const closed = new Set([...decls.values()].filter((d) => d.closed).map((d) => d.name));
+  const plans = [];
+  for (const [theorem, trip] of Object.entries(MEET_IN_MIDDLE)) {
+    const topOk = closed.has(trip.topDown);
+    const bottomOk = closed.has(trip.bottomUp);
+    const middleOk = closed.has(trip.middle);
+    plans.push({
+      theorem,
+      ...trip,
+      topDownClosed: topOk,
+      bottomUpClosed: bottomOk,
+      middleClosed: middleOk,
+      meetReady: topOk && bottomOk && middleOk,
+      nextGap: !bottomOk
+        ? `bottom-up:${trip.bottomUp}`
+        : !topOk
+          ? `top-down:${trip.topDown}`
+          : !middleOk
+            ? `middle:${trip.middle}`
+            : null,
+    });
+  }
+  return {
+    ok: true,
+    closedInventMathCount: closed.size,
+    meetReadyCount: plans.filter((p) => p.meetReady).length,
+    plans,
+    honesty:
+      'Meet-ready means glue lemmas exist; Challenge Solution still needs analytic main estimates instantiated into those hypotheses.',
+  };
+}
+
+/**
+ * Seed↔edge x-ray (relational continuity H3 shape on ζ invent).
+ *
+ * Edge = Challenge headline. Seed = endgame invent_<edge> (Challenge-typed exact partner).
+ * Octaves = InventMath ladder between bottom-up glue and the edge.
+ * Brings into view — in milliseconds — every partner solution on the path, ranks the
+ * best selective-reconstruct candidate, and reports where we are vs 17/17 close.
+ *
+ * Near-instant 17/17: when bestSolution.challengeTypeExact, invent writes `exact seed`
+ * into Solution (same thin shape as Anthropic Solution → Zeta23.thmA₀).
+ */
+export function xraySeedEdgeChallenge17(theorems, opts = {}) {
+  const t0 = performance.now();
+  const { decls } = readInventMathIndex(opts);
+  const closed = new Set([...decls.values()].filter((d) => d.closed).map((d) => d.name));
+  const meet = planMeetInMiddle(opts);
+  const meetByThm = new Map(meet.plans.map((p) => [p.theorem, p]));
+  const solutionClosed = opts.solutionClosed instanceof Set ? opts.solutionClosed : new Set();
+
+  const rays = [];
+  for (const thm of theorems) {
+    const edge = thm.name;
+    const seedName = ENDGAME_SEED_MAP[edge] || `invent_${edge}`;
+    const glue = CHALLENGE_PARTNER_MAP[edge] || null;
+    const meetPlan = meetByThm.get(edge) || null;
+    const octaveNames = [...octavePathForEdge(edge)];
+    // Ensure glue + seed appear on the path.
+    if (glue && !octaveNames.includes(glue)) octaveNames.push(glue);
+    if (!octaveNames.includes(seedName)) octaveNames.push(seedName);
+
+    const solutions = octaveNames.map((name, depth) => {
+      const decl = decls.get(name);
+      const isSeed = name === seedName;
+      const isGlue = name === glue;
+      const role = isSeed ? 'endgame_seed' : isGlue ? 'glue_middle' : 'octave';
+      const coupling =
+        (decl?.closed ? 0.55 : 0.15) +
+        (isGlue && meetPlan?.meetReady ? 0.25 : 0) +
+        (isSeed && decl?.challengeTypeExact ? 0.4 : isSeed ? 0.05 : 0) +
+        (role === 'octave' && decl?.closed ? 0.05 : 0);
+      return {
+        depth,
+        name,
+        role,
+        closed: Boolean(decl?.closed),
+        present: Boolean(decl),
+        challengeTypeExact: Boolean(decl?.challengeTypeExact),
+        source: decl?.source || (isSeed ? 'InventEndgame(missing)' : 'InventMath(missing)'),
+        coupling: Number(coupling.toFixed(4)),
+        applyTactic: decl?.challengeTypeExact ? `exact ${name}` : null,
+      };
+    });
+
+    // Rank solutions: prefer challengeTypeExact seed, then meet-ready glue, then closed octaves.
+    const ranked = [...solutions].sort(
+      (a, b) => b.coupling - a.coupling || a.depth - b.depth || a.name.localeCompare(b.name),
+    );
+    const best = ranked[0] || null;
+    const seedDecl = decls.get(seedName);
+    const edgeClosed = solutionClosed.has(edge);
+    const nearInstantReady = Boolean(seedDecl?.challengeTypeExact);
+
+    let nextGap = null;
+    if (!edgeClosed) {
+      if (!nearInstantReady) {
+        const openOctave = solutions.find((s) => s.role === 'octave' && !s.closed);
+        if (openOctave) nextGap = `octave:${openOctave.name}`;
+        else if (meetPlan && !meetPlan.meetReady) nextGap = meetPlan.nextGap;
+        else nextGap = `endgame_seed:${seedName}`;
+      } else {
+        nextGap = `solution_exact:${seedName}`;
+      }
+    }
+
+    rays.push({
+      edge,
+      seed: seedName,
+      glue,
+      meetReady: Boolean(meetPlan?.meetReady),
+      edgeClosed,
+      nearInstantReady,
+      nextGap,
+      solutions,
+      rankedSolutions: ranked,
+      bestSolution: best
+        ? {
+            name: best.name,
+            role: best.role,
+            coupling: best.coupling,
+            challengeTypeExact: best.challengeTypeExact,
+            applyTactic: best.applyTactic,
+            closed: best.closed,
+          }
+        : null,
+      family: classifyLeanGoalFamily(edge, thm.stmt || ''),
+    });
+  }
+
+  const closedEdges = rays.filter((r) => r.edgeClosed).length;
+  const nearInstantReadyCount = rays.filter((r) => r.nearInstantReady).length;
+  const meetReadyCount = rays.filter((r) => r.meetReady).length;
+
+  return {
+    ok: true,
+    kind: 'fractisi.seed-edge.xray.zeta23-challenge17',
+    durationMs: performance.now() - t0,
+    theoremCount: rays.length,
+    whereWeAre: {
+      inventMathClosed: closed.size,
+      meetReadyCount,
+      endgameSeedsReady: nearInstantReadyCount,
+      challengeSolutionClosed: closedEdges,
+      challengeSolutionTarget: rays.length,
+      ratio: `${closedEdges}/${rays.length}`,
+    },
+    pathTo17: {
+      nearInstantCloseAvailable: nearInstantReadyCount,
+      remainingEndgameSeeds: rays.length - nearInstantReadyCount,
+      remainingSolutionExact: rays.length - closedEdges,
+      nextGaps: rays.filter((r) => r.nextGap).map((r) => ({ edge: r.edge, gap: r.nextGap })),
+    },
+    rays,
+    meetInMiddle: meet,
+    honesty: {
+      xray:
+        'X-ray brings every seed↔edge partner solution into view in ms and ranks the best selective reconstruct.',
+      nearInstant17:
+        '17/17 closes near-instantly only when invent_<edge> endgame seeds are Challenge-typed and closed; Solution then exacts them (Anthropic Solution shape).',
+      now: `Glue meet-ready ${meetReadyCount}/${rays.length}; endgame seeds ready ${nearInstantReadyCount}/${rays.length}; Solution ${closedEdges}/${rays.length}.`,
+    },
+  };
+}
+
+/**
+ * From an x-ray, propose Solution tactics that are near-instant exact applies.
+ * Only emits when best/endgame seed is Challenge-type-exact (honest close path).
+ */
+export function proposeXraySolutionApplies(xray) {
+  const out = [];
+  for (const ray of xray?.rays || []) {
+    if (ray.edgeClosed) continue;
+    const seed = (ray.solutions || []).find((s) => s.role === 'endgame_seed' && s.challengeTypeExact);
+    const bestExact =
+      seed ||
+      (ray.bestSolution?.challengeTypeExact
+        ? (ray.solutions || []).find((s) => s.name === ray.bestSolution.name)
+        : null);
+    if (!bestExact?.applyTactic) continue;
+    out.push({
+      theorem: ray.edge,
+      partnerName: bestExact.name,
+      tacticBody: bestExact.applyTactic,
+      coupling: bestExact.coupling,
+      kind: 'xray_exact_endgame_seed',
+      nearInstant: true,
+    });
+  }
+  return out;
+}
+
+/**
+ * Omniversal GPS between seed and edge points.
+ * X-ray reveals every partner on the path; GPS routes the next hop and distance to 17/17.
+ *
+ * Legs: here → nextGap → endgame_seed → Solution exact → edge closed.
+ * Destination for the expedition is Challenge Solution 17/17.
+ */
+export function gpsSeedEdgeRoute(xray, opts = {}) {
+  const t0 = performance.now();
+  const rays = xray?.rays || [];
+  const where = xray?.whereWeAre || {};
+  const closed = where.challengeSolutionClosed || 0;
+  const target = where.challengeSolutionTarget || rays.length || 17;
+  const remaining = Math.max(0, target - closed);
+
+  const routes = rays.map((ray) => {
+    const path = (ray.solutions || []).map((s) => ({
+      name: s.name,
+      role: s.role,
+      closed: s.closed,
+      challengeTypeExact: s.challengeTypeExact,
+      waypoint: s.closed ? 'passed' : s.role === 'endgame_seed' ? 'destination_seed' : 'ahead',
+    }));
+    const nextOpen = (ray.solutions || []).find((s) => !s.closed);
+    const arrived = Boolean(ray.edgeClosed);
+    const atSeed = Boolean(ray.nearInstantReady) && !arrived;
+    let instruction;
+    if (arrived) {
+      instruction = `arrived · Solution closed ${ray.edge}`;
+    } else if (atSeed) {
+      instruction = `near-instant · exact ${ray.seed} → Solution.${ray.edge}`;
+    } else if (ray.nextGap) {
+      instruction = `navigate · invent next hop ${ray.nextGap}`;
+    } else {
+      instruction = `navigate · invent endgame seed ${ray.seed}`;
+    }
+    const hopsRemaining = arrived
+      ? 0
+      : atSeed
+        ? 1
+        : 1 + (ray.solutions || []).filter((s) => !s.closed).length;
+    return {
+      edge: ray.edge,
+      seed: ray.seed,
+      from: 'here',
+      to: ray.edge,
+      arrived,
+      nearInstantReady: Boolean(ray.nearInstantReady),
+      nextHop: arrived
+        ? null
+        : atSeed
+          ? { kind: 'solution_exact', name: ray.seed, tactic: `exact ${ray.seed}` }
+          : {
+              kind: 'invent',
+              name: nextOpen?.name || ray.seed,
+              gap: ray.nextGap,
+            },
+      hopsRemaining,
+      instruction,
+      bestSolution: ray.bestSolution,
+      path,
+    };
+  });
+
+  const nextHops = routes
+    .filter((r) => !r.arrived && r.nextHop)
+    .sort((a, b) => a.hopsRemaining - b.hopsRemaining || a.edge.localeCompare(b.edge));
+
+  const fleetInstruction =
+    remaining === 0
+      ? 'destination reached · Challenge Solution 17/17'
+      : nextHops[0]?.nearInstantReady
+        ? `near-instant fleet apply · ${nextHops.filter((r) => r.nearInstantReady).length} exact seeds ready`
+        : `navigate fleet · next hop ${nextHops[0]?.nextHop?.name || '(none)'} · remaining ${remaining}/17`;
+
+  return {
+    ok: true,
+    kind: 'fractisi.omniversal.gps.zeta23-seed-edge',
+    durationMs: performance.now() - t0,
+    destination: {
+      label: 'Challenge Solution 17/17',
+      closed,
+      target,
+      remaining,
+      etaHops: routes.reduce((a, r) => a + r.hopsRemaining, 0),
+    },
+    fleetInstruction,
+    nextHops: nextHops.slice(0, opts.limit || 17),
+    routes,
+    xrayMs: xray?.durationMs ?? null,
+    honesty: {
+      gps: 'GPS routes seed→edge octaves; it does not invent analytic estimates by itself.',
+      xray: 'X-ray supplies the partner map GPS routes over.',
+      nearInstant:
+        'When endgame seeds are Challenge-typed and closed, GPS next hop is Solution exact — near-instant close.',
+    },
+  };
+}
+
+/**
+ * Recursive nested-pair tunnel for one seed↔edge ray.
+ *
+ * Highest pair = (seed, edge) — the desired start and end.
+ * Tunnel inward from both ends:
+ *   - bottom-up: seed → … → middle (closed InventMath octaves advancing up)
+ *   - top-down:  edge → … → middle (Challenge cast / glue descending)
+ * Meet in the middle when the two fronts touch on a closed glue/middle partner.
+ * Each open consecutive pair is itself a nested tunnel (self-similar recursion).
+ */
+export function tunnelNestedPairs(ray, opts = {}) {
+  const nodes = (ray?.solutions || []).map((s, i) => ({
+    index: i,
+    name: s.name,
+    role: s.role,
+    closed: Boolean(s.closed),
+    challengeTypeExact: Boolean(s.challengeTypeExact),
+    coupling: s.coupling,
+  }));
+  if (!nodes.length) {
+    return {
+      ok: false,
+      edge: ray?.edge,
+      seed: ray?.seed,
+      error: 'empty path',
+    };
+  }
+
+  const highestPair = {
+    left: ray.seed,
+    right: ray.edge,
+    kind: 'highest_seed_edge',
+    desiredStart: ray.seed,
+    desiredEnd: ray.edge,
+    octaveSpan: [nodes[0].name, nodes[nodes.length - 1].name],
+  };
+
+  // Bottom-up front: advance from low index while closed.
+  let bottomFront = -1;
+  for (let i = 0; i < nodes.length; i++) {
+    if (nodes[i].closed) bottomFront = i;
+    else break;
+  }
+
+  // Top-down front: from edge inward. Endgame seed at the end may be open;
+  // closed glue/octaves near the end count as the descending front.
+  let topFront = nodes.length;
+  for (let i = nodes.length - 1; i >= 0; i--) {
+    if (nodes[i].closed) topFront = i;
+    else break;
+  }
+  // Edge-inward: treat Challenge edge as the outer right anchor (desired end).
+  // The last closed node approaching from the right is the top-down tunnel tip.
+  // If only the final endgame is open but glue before it is closed, topFront is that glue.
+  if (topFront === nodes.length) {
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      if (nodes[i].closed) {
+        topFront = i;
+        break;
+      }
+    }
+  }
+
+  const meetIndex =
+    bottomFront >= 0 && topFront < nodes.length && bottomFront >= topFront
+      ? Math.min(bottomFront, topFront)
+      : bottomFront >= 0 && topFront < nodes.length && bottomFront + 1 >= topFront
+        ? bottomFront
+        : null;
+  const metInMiddle =
+    meetIndex != null ||
+    (bottomFront >= 0 &&
+      topFront < nodes.length &&
+      bottomFront >= topFront - 1 &&
+      nodes.slice(Math.max(0, topFront), bottomFront + 1).some((n) => n.closed));
+
+  // Nested pairs: every consecutive (node_i, node_{i+1}) is a tunnel segment.
+  const nestedPairs = [];
+  for (let i = 0; i < nodes.length - 1; i++) {
+    const left = nodes[i];
+    const right = nodes[i + 1];
+    const bothClosed = left.closed && right.closed;
+    const openGap = !bothClosed;
+    nestedPairs.push({
+      depth: i,
+      left: left.name,
+      right: right.name,
+      leftClosed: left.closed,
+      rightClosed: right.closed,
+      closed: bothClosed,
+      role: `${left.role}→${right.role}`,
+      // Recurse instruction: invent the open side of this nested pair.
+      tunnelFrom: !left.closed ? 'bottom_up' : !right.closed ? 'top_down' : 'done',
+      nextInvent: !left.closed ? left.name : !right.closed ? right.name : null,
+      openGap,
+    });
+  }
+
+  // Recursively expose open nested pairs as sub-tunnels (self-similar).
+  function nestOpenPairs(pairs, depth) {
+    const open = pairs.filter((p) => p.openGap);
+    if (!open.length || depth > (opts.maxNest || 8)) return [];
+    return open.map((p) => ({
+      pair: p,
+      depth,
+      subTunnel: {
+        highestPair: { left: p.left, right: p.right, kind: 'nested' },
+        instruction: p.nextInvent
+          ? `tunnel nested · invent ${p.nextInvent} (${p.tunnelFrom})`
+          : 'nested pair closed',
+        // One level deeper: the open node is itself a seed↔edge against its partner.
+        children: nestOpenPairs(
+          [
+            {
+              ...p,
+              openGap: Boolean(p.nextInvent),
+              left: p.nextInvent || p.left,
+              right: p.nextInvent || p.right,
+              leftClosed: !p.nextInvent,
+              rightClosed: !p.nextInvent,
+            },
+          ].filter((x) => x.openGap && depth + 1 <= (opts.maxNest || 8)),
+          depth + 1,
+        ),
+      },
+    }));
+  }
+
+  const recursiveTunnels = nestOpenPairs(nestedPairs, 1);
+
+  const bottomNext = nodes.find((n) => !n.closed) || null;
+  const topNext =
+    [...nodes].reverse().find((n, idx, arr) => {
+      // From edge inward: first open node walking left from the end.
+      return !n.closed;
+    }) || null;
+
+  let phase;
+  if (ray.edgeClosed) phase = 'arrived';
+  else if (ray.nearInstantReady) phase = 'meet_exact_ready';
+  else if (metInMiddle && bottomNext) phase = 'met_middle_invent_remaining';
+  else if (bottomFront >= 0 && topFront < nodes.length) phase = 'tunneling_both_ends';
+  else if (bottomFront >= 0) phase = 'tunneling_bottom_up';
+  else phase = 'tunneling_top_down';
+
+  const nextBottomUp = bottomNext && !bottomNext.challengeTypeExact ? bottomNext.name : bottomNext?.name;
+  const nextTopDown = topNext?.name;
+
+  return {
+    ok: true,
+    edge: ray.edge,
+    seed: ray.seed,
+    highestPair,
+    bottomUp: {
+      front: bottomFront >= 0 ? nodes[bottomFront].name : null,
+      frontIndex: bottomFront,
+      next: nextBottomUp || null,
+      direction: 'seed_inward',
+    },
+    topDown: {
+      front: topFront < nodes.length ? nodes[topFront].name : null,
+      frontIndex: topFront < nodes.length ? topFront : null,
+      next: nextTopDown || null,
+      direction: 'edge_inward',
+    },
+    meetInMiddle: {
+      met: Boolean(metInMiddle || ray.meetReady),
+      meetNode:
+        meetIndex != null
+          ? nodes[meetIndex].name
+          : ray.glue || nodes.find((n) => n.role === 'glue_middle')?.name || null,
+      glueReady: Boolean(ray.meetReady),
+    },
+    nestedPairs,
+    recursiveTunnels,
+    phase,
+    instruction:
+      phase === 'arrived'
+        ? `arrived · ${ray.edge}`
+        : phase === 'meet_exact_ready'
+          ? `meet ready · exact ${ray.seed} → Solution.${ray.edge}`
+          : `tunnel both ends · bottom-up invent ${nextBottomUp || '—'} · top-down invent ${nextTopDown || '—'} · meet ${ray.glue || 'middle'}`,
+  };
+}
+
+/**
+ * Fleet-level recursive tunnel: highest pair = (here, Challenge 17/17),
+ * then per-edge nested seed↔edge tunnels from both ends meeting in the middle.
+ */
+export function tunnelFleetNestedPairs(xray, opts = {}) {
+  const t0 = performance.now();
+  const rays = xray?.rays || [];
+  const tunnels = rays.map((ray) => tunnelNestedPairs(ray, opts));
+  const open = tunnels.filter((t) => t.phase !== 'arrived');
+  const meeting = tunnels.filter((t) => t.meetInMiddle?.met || t.meetInMiddle?.glueReady);
+  const exactReady = tunnels.filter((t) => t.phase === 'meet_exact_ready');
+
+  // Highest expedition pair: current Solution progress ↔ 17/17 destination.
+  const closed = xray?.whereWeAre?.challengeSolutionClosed || 0;
+  const target = xray?.whereWeAre?.challengeSolutionTarget || 17;
+  const highestExpeditionPair = {
+    left: `Solution ${closed}/${target}`,
+    right: 'Challenge Solution 17/17',
+    kind: 'highest_expedition',
+    desiredStart: 'here',
+    desiredEnd: '17/17',
+  };
+
+  // Next invent targets from both fronts (deduped).
+  const bottomTargets = [
+    ...new Set(open.map((t) => t.bottomUp?.next).filter(Boolean)),
+  ];
+  const topTargets = [...new Set(open.map((t) => t.topDown?.next).filter(Boolean))];
+
+  return {
+    ok: true,
+    kind: 'fractisi.nested-pair.tunnel.bidirectional',
+    durationMs: performance.now() - t0,
+    highestPair: highestExpeditionPair,
+    recursive: true,
+    bidirectional: true,
+    meetInMiddle: true,
+    summary: {
+      edges: tunnels.length,
+      arrived: tunnels.length - open.length,
+      meetingGlue: meeting.length,
+      exactReady: exactReady.length,
+      bottomUpNext: bottomTargets.slice(0, 8),
+      topDownNext: topTargets.slice(0, 8),
+    },
+    instruction:
+      exactReady.length > 0
+        ? `meet exact · apply ${exactReady.length} endgame seeds → Solution`
+        : bottomTargets.length || topTargets.length
+          ? `tunnel inward both ends · bottom-up [${bottomTargets.slice(0, 3).join(', ')}] · edge-inward [${topTargets.slice(0, 3).join(', ')}] · meet in middle`
+          : 'nested tunnels idle',
+    tunnels,
+  };
+}
+
+/**
+ * Omniversal x-ray + GPS + bidirectional nested-pair tunnel pack.
+ */
+export function omniversalSeedEdgeNav(theorems, opts = {}) {
+  const t0 = performance.now();
+  const xray = xraySeedEdgeChallenge17(theorems, opts);
+  const gps = gpsSeedEdgeRoute(xray, opts);
+  const tunnel = tunnelFleetNestedPairs(xray, opts);
+  const applies = proposeXraySolutionApplies(xray);
+  return {
+    ok: true,
+    kind: 'fractisi.omniversal.xray+gps+nested-tunnel.zeta23-challenge17',
+    durationMs: performance.now() - t0,
+    whereWeAre: xray.whereWeAre,
+    pathTo17: xray.pathTo17,
+    destination: gps.destination,
+    fleetInstruction: tunnel.instruction || gps.fleetInstruction,
+    highestPair: tunnel.highestPair,
+    nestedTunnel: tunnel,
+    xray,
+    gps,
+    solutionApplies: applies,
+    honesty: {
+      ...xray.honesty,
+      ...gps.honesty,
+      nestedTunnel:
+        'Recursive nested pairs: highest pair is desired start↔end; tunnel seed-inward and edge-inward; meet in the middle; each open segment is a nested tunnel.',
+    },
+  };
+}
+
 /**
  * Run immediate rhyme discovery+apply proposals for a list of Challenge theorems.
  * Completes in milliseconds (no LLM). Lake-check is the caller's job.
@@ -597,6 +1392,8 @@ export function discoverAllInventRhymesImmediate(theorems, opts = {}) {
     }
   }
 
+  const meet = planMeetInMiddle(opts);
+  const nav = omniversalSeedEdgeNav(theorems, opts);
   return {
     ok: true,
     durationMs: performance.now() - t0,
@@ -605,12 +1402,19 @@ export function discoverAllInventRhymesImmediate(theorems, opts = {}) {
     namedDiscoveries: named,
     uniqueApplyPartners: [...applyByPartner.values()],
     perTheorem,
+    meetInMiddle: meet,
+    omniversal: nav,
+    xray: nav.xray,
+    gps: nav.gps,
+    xraySolutionApplies: nav.solutionApplies,
     productCatalogPath: 'data/RHYME_DISCOVERY_CATALOG.json',
     honesty: {
       whatThisMeasures:
-        'Immediate #53 AWARE partner recovery + #52 exact-apply proposals for InventMath templates (product rhyme result shape)',
+        'Omniversal seed↔edge x-ray + GPS + #53 AWARE partner recovery + #52 exact-apply + meet-in-middle glue',
       whatThisDoesNotMeasure:
-        'Challenge headline 17/17 closes — analytic stack still required; apply closes are InventMath reconstructs',
+        'Challenge 17/17 closes until invent_<edge> endgame seeds are Challenge-typed and closed — then GPS next hop is Solution exact (near-instant)',
+      whereWeAre: nav.whereWeAre,
+      fleetInstruction: nav.fleetInstruction,
     },
   };
 }

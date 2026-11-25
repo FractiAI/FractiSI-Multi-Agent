@@ -14,7 +14,6 @@ export const PAPER_META = Object.freeze({
   coreIdea:
     'Make Montgomery 1973 unconditional: replace RH termwise positivity by a rank–trace inequality on a finite compression of Weil’s Hermitian form; Sylvester inertia handles off-line pairs. Analytic inputs: Weil explicit formula, Riemann–von Mangoldt, Stirling Γ′/Γ, Chebyshev–Mertens, Montgomery–Vaughan.',
   remainingStack: Object.freeze([
-    'E4 dyadic summation (N₀*(T,2T) ⇒ N₀*(T))',
     'Full Hermitian Lemma 3.2 (not only diagonal)',
     'Lemma 3.1 inertia under pull-back',
     'Weil explicit formula (ζ and Dirichlet L)',
@@ -22,7 +21,8 @@ export const PAPER_META = Object.freeze({
     'Stirling Γ′/Γ on vertical lines',
     'Chebyshev–Mertens prime sums',
     'Montgomery–Vaughan Hilbert inequality',
-    'Zero-side / prime-side / assembly → Challenge Solution 17/17',
+    'Zero-side / prime-side main estimates → instantiate Challenge bridges',
+    'Challenge Solution 17/17 via meet-in-middle exact partners',
   ]),
 });
 
@@ -182,6 +182,70 @@ export const PAPER_LEMMA_LADDER = Object.freeze([
     agent: 'invent-asymp',
     difficulty: 'tractable',
     paperNote: 'λ→1⁻ packages 2F−1 into the 1/2 simple-on-line shape.',
+  },
+  {
+    id: 'E4',
+    leanName: 'dyadic_eps_form',
+    section: '§6 E4',
+    agent: 'invent-asymp',
+    difficulty: 'tractable',
+    paperNote: 'Dyadic windows ⇒ cumulative ε-form.',
+  },
+  {
+    id: 'TD-A',
+    leanName: 'challengeA_cumulative_of_dyadic',
+    section: 'top-down Challenge A',
+    agent: 'invent-topdown',
+    difficulty: 'easy',
+    paperNote: 'Top-down: Challenge A cumulative from dyadic via E4.',
+  },
+  {
+    id: 'TD-B',
+    leanName: 'challengeB_cumulative_of_dyadic',
+    section: 'top-down Challenge B',
+    agent: 'invent-topdown',
+    difficulty: 'easy',
+    paperNote: 'Top-down: Challenge B cumulative from dyadic via E4.',
+  },
+  {
+    id: 'TD-C',
+    leanName: 'challengeC_cumulative_of_dyadic',
+    section: 'top-down Challenge C',
+    agent: 'invent-topdown',
+    difficulty: 'easy',
+    paperNote: 'Top-down: Challenge C cumulative from dyadic via E4.',
+  },
+  {
+    id: 'MID-A',
+    leanName: 'challengeA_dyadic_of_Hfun',
+    section: 'meet-in-middle A',
+    agent: 'invent-middle',
+    difficulty: 'easy',
+    paperNote: 'Middle: Hfun family ⇒ dyadic 2/3 (feeds Challenge A).',
+  },
+  {
+    id: 'MID-B',
+    leanName: 'challengeB_dyadic_of_Ffun',
+    section: 'meet-in-middle B',
+    agent: 'invent-middle',
+    difficulty: 'easy',
+    paperNote: 'Middle: 2F−1 family ⇒ dyadic 1/2.',
+  },
+  {
+    id: 'MID-C',
+    leanName: 'challengeC_dyadic_of_Ffun',
+    section: 'meet-in-middle C',
+    agent: 'invent-middle',
+    difficulty: 'easy',
+    paperNote: 'Middle: F family ⇒ dyadic 3/4.',
+  },
+  {
+    id: 'MID-eps',
+    leanName: 'challenge_eps_of_littleO',
+    section: 'meet-in-middle E2',
+    agent: 'invent-middle',
+    difficulty: 'easy',
+    paperNote: 'Middle: o(N) main estimate ⇒ Challenge-shaped ε-form.',
   },
 ]);
 

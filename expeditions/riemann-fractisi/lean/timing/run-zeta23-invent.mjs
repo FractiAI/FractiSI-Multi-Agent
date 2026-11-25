@@ -54,6 +54,8 @@ import {
 import {
   discoverAllInventRhymesImmediate,
   formatRhymeApplyLean,
+  omniversalSeedEdgeNav,
+  proposeXraySolutionApplies,
 } from '../../../../src/expeditions/riemann-zeta23-rhyme-discover.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -500,13 +502,23 @@ function main() {
     proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry', closed: false });
   }
 
-  // --- Immediate product rhyme phase (#53 discover → #52 apply → lake) ---
-  // Prompt-only citation is a bug; named partner recovery + exact reconstruct must land first.
+  // --- Omniversal x-ray + GPS + immediate rhyme (#53 discover → #52 apply → lake) ---
+  // X-ray brings every seed↔edge partner into view; GPS routes next hop to 17/17.
+  // When endgame seeds are Challenge-typed, Solution exact closes near-instantly.
   let rhymeImmediate = null;
   let rhymeApplyLakeOk = false;
   let rhymeImmediateCloses = 0;
+  let omniversalNav = null;
+  let xraySolutionCloses = 0;
   if (withInventMath && !args.skipLake) {
-    rhymeImmediate = discoverAllInventRhymesImmediate(INVENT_THEOREMS, { proofs });
+    const solutionClosed = new Set(
+      [...proofs.entries()].filter(([, p]) => p.closed).map(([n]) => n),
+    );
+    omniversalNav = omniversalSeedEdgeNav(INVENT_THEOREMS, { solutionClosed });
+    rhymeImmediate = discoverAllInventRhymesImmediate(INVENT_THEOREMS, {
+      proofs,
+      solutionClosed,
+    });
     const applyLean = formatRhymeApplyLean(rhymeImmediate.uniqueApplyPartners);
     writeFileSync(join(INVENT_ROOT, 'RhymeApply.lean'), applyLean);
     writeInventLakefile(INVENT_ROOT, { withInventMath: true, withRhymeApply: true });
@@ -518,6 +530,29 @@ function main() {
     rhymeApplyLakeOk = rhymeBuild.status === 0;
     rhymeImmediateCloses = rhymeApplyLakeOk ? rhymeImmediate.uniqueApplyPartners.length : 0;
     steps.push({
+      name: 'omniversal-xray-gps-nested-tunnel',
+      ok: true,
+      durationMs: omniversalNav.durationMs,
+      whereWeAre: omniversalNav.whereWeAre,
+      highestPair: omniversalNav.highestPair,
+      fleetInstruction: omniversalNav.fleetInstruction,
+      destination: omniversalNav.destination,
+      nestedTunnel: omniversalNav.nestedTunnel
+        ? {
+            recursive: omniversalNav.nestedTunnel.recursive,
+            bidirectional: omniversalNav.nestedTunnel.bidirectional,
+            meetInMiddle: omniversalNav.nestedTunnel.meetInMiddle,
+            summary: omniversalNav.nestedTunnel.summary,
+            instruction: omniversalNav.nestedTunnel.instruction,
+          }
+        : null,
+      nextHops: (omniversalNav.gps?.nextHops || []).slice(0, 5).map((r) => ({
+        edge: r.edge,
+        nextHop: r.nextHop,
+        instruction: r.instruction,
+      })),
+    });
+    steps.push({
       name: 'rhyme-immediate-apply',
       ok: rhymeApplyLakeOk,
       durationMs: rhymeImmediate.durationMs,
@@ -526,7 +561,64 @@ function main() {
       rhymeImmediateCloses,
       stderrTail: (rhymeBuild.stderr || rhymeBuild.stdout || '').slice(-800),
     });
-    // Persist invent-domain discovery catalog (product shape) next to receipts.
+
+    // Near-instant Solution closes: GPS next hops that are exact endgame seeds.
+    const xrayApplies =
+      proposeXraySolutionApplies(omniversalNav.xray).length > 0
+        ? proposeXraySolutionApplies(omniversalNav.xray)
+        : rhymeImmediate.xraySolutionApplies || [];
+    for (const a of xrayApplies) {
+      const previous = proofs.get(a.theorem) || {
+        tacticId: 'sorry_hold',
+        body: 'sorry',
+        closed: false,
+      };
+      if (previous.closed) continue;
+      proofs.set(a.theorem, {
+        tacticId: `xray_gps:${a.partnerName}`,
+        body: a.tacticBody,
+        closed: false,
+        nearInstant: true,
+        omniversal: true,
+      });
+      writeSolution(INVENT_ROOT, proofs, { withInventMath: true });
+      if (solutionImportsZeta23(INVENT_ROOT)) {
+        console.error('INVARIANT FAIL: invent Solution imported Zeta23');
+        process.exit(2);
+      }
+      const build = run(lake, ['build', 'Solution'], {
+        cwd: INVENT_ROOT,
+        timeoutMs: 180_000,
+      });
+      const body = String(proofs.get(a.theorem)?.body || '');
+      const honest =
+        body.trim().length > 0 && !/\bsorry\b/.test(body) && !/\badmit\b/.test(body);
+      if (build.status === 0 && honest) {
+        proofs.set(a.theorem, { ...proofs.get(a.theorem), closed: true });
+        xraySolutionCloses += 1;
+        steps.push({
+          name: `xray-gps-exact-${a.theorem}`,
+          ok: true,
+          partner: a.partnerName,
+          nearInstant: true,
+        });
+      } else {
+        proofs.set(a.theorem, {
+          tacticId: 'sorry_hold',
+          body: 'sorry',
+          closed: false,
+          reverted: true,
+        });
+        writeSolution(INVENT_ROOT, proofs, { withInventMath: true });
+        steps.push({
+          name: `xray-gps-exact-${a.theorem}`,
+          ok: false,
+          partner: a.partnerName,
+          stderrTail: (build.stderr || build.stdout || '').slice(-600),
+        });
+      }
+    }
+
     mkdirSync(RECEIPTS, { recursive: true });
     writeFileSync(
       join(RECEIPTS, 'riemann-fractisi-zeta23-invent-rhyme-discoveries-latest.json'),
@@ -537,6 +629,20 @@ function main() {
           ...rhymeImmediate,
           rhymeApplyLakeOk,
           rhymeImmediateCloses,
+          xraySolutionCloses,
+        },
+        null,
+        2,
+      ),
+    );
+    writeFileSync(
+      join(RECEIPTS, 'riemann-fractisi-zeta23-omniversal-xray-gps-latest.json'),
+      JSON.stringify(
+        {
+          schema: 'fractisi.riemann-expedition.zeta23-omniversal-xray-gps.v1',
+          generatedAt: new Date().toISOString(),
+          ...omniversalNav,
+          xraySolutionCloses,
         },
         null,
         2,

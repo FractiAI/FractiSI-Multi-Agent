@@ -1,0 +1,61 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-near-instant-17.v1",
+  "generatedAt": "2026-11-25T16:59:38.854Z",
+  "durationMs": 11.919005999999996,
+  "goal": "Challenge Solution 17/17",
+  "producedNearInstant": {
+    "xrayGpsTunnelMs": 11.919005999999996,
+    "highestPair": {
+      "left": "Solution 0/17",
+      "right": "Challenge Solution 17/17",
+      "kind": "highest_expedition",
+      "desiredStart": "here",
+      "desiredEnd": "17/17"
+    },
+    "fleetInstruction": "tunnel inward both ends · bottom-up [invent_two_thirds_on_critical_line, invent_two_thirds_on_critical_line_cumulative, invent_two_thirds_simple_on_critical_line] · edge-inward [invent_two_thirds_on_critical_line, invent_two_thirds_on_critical_line_cumulative, invent_two_thirds_simple_on_critical_line] · meet in middle",
+    "whereWeAre": {
+      "inventMathClosed": 46,
+      "meetReadyCount": 17,
+      "endgameSeedsReady": 0,
+      "challengeSolutionClosed": 0,
+      "challengeSolutionTarget": 17,
+      "ratio": "0/17"
+    },
+    "nestedTunnelSummary": {
+      "edges": 17,
+      "arrived": 0,
+      "meetingGlue": 17,
+      "exactReady": 0,
+      "bottomUpNext": [
+        "invent_two_thirds_on_critical_line",
+        "invent_two_thirds_on_critical_line_cumulative",
+        "invent_two_thirds_simple_on_critical_line",
+        "invent_two_thirds_simple_on_critical_line_cumulative",
+        "invent_five_sixths_distinct",
+        "invent_five_sixths_distinct_cumulative",
+        "invent_montgomery_taylor_on_critical_line",
+        "invent_montgomery_taylor_simple_on_critical_line_mult"
+      ],
+      "topDownNext": [
+        "invent_two_thirds_on_critical_line",
+        "invent_two_thirds_on_critical_line_cumulative",
+        "invent_two_thirds_simple_on_critical_line",
+        "invent_two_thirds_simple_on_critical_line_cumulative",
+        "invent_five_sixths_distinct",
+        "invent_five_sixths_distinct_cumulative",
+        "invent_montgomery_taylor_on_critical_line",
+        "invent_montgomery_taylor_simple_on_critical_line_mult"
+      ]
+    },
+    "pathVisibleForAll17": true,
+    "meetInMiddleGlue": 17,
+    "endgameSeedsReady": 0,
+    "solutionExactAppliesReady": 0,
+    "challengeSolutionClosed": 0
+  },
+  "verdict": {
+    "pathProducedNearInstant": true,
+    "lean17Closed": false,
+    "blocker": "invent_<edge> Challenge-typed endgame seeds not yet proved (analytic main estimates); both tunnel fronts meet at glue and agree next invent is those seeds"
+  }
+}
