@@ -206,17 +206,17 @@
       "source": "/docs/product/expedition-002/",
       "destination": "/library/papers/fractisi-expedition-002-beyond-memory/",
       "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/blog/riemann-fractisi-expedition",
+      "destination": "/blog/riemann-fractisi-expedition/"
     },
     {
       "source": "/blog/riemann-fractisi-expedition/",
       "destination": "/blog/riemann-fractisi-expedition/index.html"
     },
-    {
-      "source": "/blog/riemann-fractisi-expedition",
-      "destination": "/blog/riemann-fractisi-expedition/"
-    }
-  ],
-  "rewrites": [
     {
       "source": "/research/adversarial-world/",
       "destination": "/research/adversarial-world/index.html"
