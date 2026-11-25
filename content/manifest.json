@@ -1,6 +1,30 @@
 {
   "blog": [
     {
+      "slug": "riemann-fractisi-expedition",
+      "title": "Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?",
+      "dek": "Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.",
+      "date": "2026-11-24",
+      "label": "Riemann FractiSI Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/riemann-fractisi-expedition/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/expeditions/riemann-fractisi/",
+          "text": "Expedition"
+        },
+        {
+          "href": "/expeditions/riemann-fractisi/riemann-fractisi-results-report.md",
+          "text": "Results report"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> · Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
+      "answerHead": "Short answer: Yes as a workflow demonstration.",
+      "answerBody": " Four FractiSI agents produced Lean-checked finite RH-adjacent propositions in 5.3 seconds with no sorry. The Anthropic ~30 h FLT clock is a reference scale, not a same-theorem race. RH remains OPEN."
+    },
+    {
       "slug": "adversarial-world",
       "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",
       "dek": "Shared-world deltas plus relational rhyme versus simulated malicious agents. Full FractiSI containment 1.0 versus majority 0.4 and naive 0.1 — without crushing legitimate disagreement or novel first sightings.",
@@ -402,6 +426,15 @@
       "docId": "WP-ADVERSARIAL-WORLD-EGS-2026-11-20",
       "source": "md",
       "date": "2026-11-20"
+    },
+    {
+      "slug": "riemann-fractisi-expedition",
+      "title": "Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?",
+      "group": "Multi-agent research",
+      "summary": "Four agents, Lean with no sorry, Phase N 5.3 seconds. Reference scale ~30 h FLT — not a controlled speedup. RH OPEN.",
+      "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
+      "source": "md",
+      "date": "2026-11-24"
     },
     {
       "slug": "cancer-rhyme-expedition",

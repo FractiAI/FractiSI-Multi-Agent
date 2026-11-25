@@ -1,19 +1,20 @@
 # Riemann FractiSI expedition
 
-## Time to proof
+## Core finding
 
-| Anthropic | FractiSI (this run) |
+FractiSI coordinated four agents to Lean-verified finite RH-adjacent propositions in **~5.3 seconds**.
+
+Anthropic’s published FLT Lean formalization took **~30 hours**. That is a reference scale, not a same-theorem race. RH remains **OPEN**.
+
+| Anthropic reference | FractiSI Phase N |
 |---|---|
-| **~30 hours** | **~5.3 seconds** |
+| **~30 hours** (FLT formalization) | **~5.3 seconds** (finite Props) |
 
-Wall-clock time to a machine-checked Lean proof under multi-agent coordination.
-
-RH remains **OPEN** (not proved here). Anthropic’s 30 h baseline is their FLT Lean formalization; ours is a smaller RH-adjacent proportion ladder.
-
+- **Paper:** [`/library/papers/riemann-fractisi-expedition/`](/library/papers/riemann-fractisi-expedition/)
+- **Blog:** [`/blog/riemann-fractisi-expedition/`](/blog/riemann-fractisi-expedition/)
 - **Results:** [`riemann-fractisi-results-report.md`](./riemann-fractisi-results-report.md)
 - **Plan:** [`riemann-fractisi-expedition-plan.md`](./riemann-fractisi-expedition-plan.md)
 - **Lean + harness + receipts:** [`lean/`](./lean/)
-- **Blog:** [`/blog/riemann-fractisi-expedition/`](/blog/riemann-fractisi-expedition/)
 
 ## Quick check
 

@@ -210,12 +210,20 @@
   ],
   "rewrites": [
     {
-      "source": "/blog/riemann-fractisi-expedition",
-      "destination": "/blog/riemann-fractisi-expedition/"
+      "source": "/library/papers/riemann-fractisi-expedition/",
+      "destination": "/library/papers/riemann-fractisi-expedition/index.html"
+    },
+    {
+      "source": "/library/papers/riemann-fractisi-expedition",
+      "destination": "/library/papers/riemann-fractisi-expedition/"
     },
     {
       "source": "/blog/riemann-fractisi-expedition/",
       "destination": "/blog/riemann-fractisi-expedition/index.html"
+    },
+    {
+      "source": "/blog/riemann-fractisi-expedition",
+      "destination": "/blog/riemann-fractisi-expedition/"
     },
     {
       "source": "/research/adversarial-world/",

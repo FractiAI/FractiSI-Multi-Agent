@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>30 Hours vs 5.3 Seconds · FractiSI Multi-Agent Lean Formalization · FractiSI</title>
-  <meta name="description" content="Anthropic’s multi-agent Lean formalization took about 30 hours. A FractiSI-coordinated Phase N run landed its Lean-checked target in about 5.3 seconds. RH remains open.">
-  <meta property="og:title" content="30 Hours vs 5.3 Seconds · FractiSI Multi-Agent Lean Formalization">
-  <meta property="og:description" content="Wall-clock time to a machine-checked Lean proof: Anthropic ~30 hours, FractiSI Phase N ~5.3 seconds. Riemann hypothesis remains open.">
+  <title>Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds? · FractiSI</title>
+  <meta name="description" content="Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.">
+  <meta property="og:title" content="Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?">
+  <meta property="og:description" content="Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
   <link rel="canonical" href="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
@@ -30,56 +30,53 @@
     <article class="doc doc-blog">
       <header class="doc-head">
         <p class="kicker">Blog · Riemann FractiSI Expedition</p>
-        <h1>30 Hours vs 5.3 Seconds</h1>
-        <p class="dek">Wall-clock time to a machine-checked Lean proof under multi-agent coordination.</p>
+        <h1>Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?</h1>
+        <p class="dek">Four agents, one shared world, Lean with no sorry: Phase N wall clock 5.3 seconds. Not a controlled 20,000× speedup. RH remains open.</p>
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>November 24, 2026</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
-          <div><dt>Reading time</dt><dd>2 min</dd></div>
+          <div><dt>Reading time</dt><dd>1 min</dd></div>
         </dl>
         <div class="doc-actions">
-          <a class="btn-primary" href="/expeditions/riemann-fractisi/riemann-fractisi-results-report.md">Read the results report</a>
-          <a class="btn-ghost" href="/expeditions/riemann-fractisi/">Expedition folder</a>
+          <a class="btn-primary" href="/library/papers/riemann-fractisi-expedition/">Read the full paper</a>
+          <a class="btn-ghost" href="/expeditions/riemann-fractisi/">Expedition</a>
+          <a class="btn-ghost" href="/expeditions/riemann-fractisi/riemann-fractisi-results-report.md">Results report</a>
         </div>
       </header>
       <div class="prose">
-        <p class="answer"><strong>Short answer:</strong> Anthropic’s published multi-agent Lean formalization run took about <strong>30 hours</strong>. Our FractiSI-coordinated Phase N run landed its Lean-checked target in about <strong>5.3 seconds</strong>.</p>
+<p class="answer"><strong>Short answer: Yes as a workflow demonstration.</strong> Four FractiSI agents produced Lean-checked finite RH-adjacent propositions in 5.3 seconds with no sorry. The Anthropic ~30 h FLT clock is a reference scale, not a same-theorem race. RH remains OPEN.</p>
+<h2 id="what-happened">What happened</h2>
+<p>Four FractiSI agents — lead, lemma worker, referee, and Lean builder — shared one world through Tiny Gateway, built finite RH-adjacent Lean propositions, and obtained machine checks with no <code>sorry</code>. Phase N wall clock: <strong>5.326586 seconds</strong>.</p>
 
-        <h2 id="the-clocks">The clocks</h2>
-        <table>
-          <thead>
-            <tr><th></th><th>Anthropic</th><th>FractiSI (this run)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>What we timed</td><td>Agents until Lean checks the proof</td><td>Agents until Lean checks the proof</td></tr>
-            <tr><td>Wall clock</td><td><strong>~30 hours</strong></td><td><strong>~5.3 seconds</strong></td></tr>
-            <tr><td>How we know</td><td>Fable 5.2 formalization write-up</td><td>Timing receipt (start/end ISO + seconds)</td></tr>
-          </tbody>
-        </table>
+<h2 id="what-was-proved">What was proved</h2>
+<ul>
+  <li>Finite proportion-ladder propositions</li>
+  <li>Monotonicity relationships</li>
+  <li>A finite Hardy-style witness on a scaffold of zeros</li>
+</ul>
+<p>Not proved: the full analytic literature results, and not the Riemann hypothesis. RH remains <strong>OPEN</strong>.</p>
 
-        <h2 id="what-this-is">What this is</h2>
-        <p>Both runs are the same <em>kind</em> of work: many agents, a shared plan, Lean as the checker, and a wall clock. Anthropic’s baseline is their ~1000-agent formalization of Fermat’s Last Theorem. Ours is a FractiSI shared-world run on an RH-<em>adjacent</em> proportion ladder (finite Lean Props), with kit hooks and a JSON timing receipt.</p>
+<h2 id="how-to-read-the-clocks">How to read the clocks</h2>
+<ul>
+  <li>Anthropic reference: ~30 hours — FLT Lean formalization (~1000 agents)</li>
+  <li>FractiSI Phase N: ~5.3 seconds — four agents, smaller finite Props</li>
+  <li>Nominal ratio ~20,300× from 30 h ÷ 5.326586 s — <strong>not</strong> a controlled speedup</li>
+</ul>
 
-        <h2 id="what-this-is-not">What this is not</h2>
-        <ul>
-          <li>Not a proof of the Riemann hypothesis. RH remains <strong>open</strong>.</li>
-          <li>Not a claim that Anthropic spent 30 hours on RH. Their 30 h clock is the FLT Lean formalization.</li>
-          <li>Not a CapEx, HBM, or model bake-off win. The headline is <strong>time to Lean-checked proof</strong>.</li>
-        </ul>
+<h2 id="core-finding">Core finding</h2>
+<p>FractiSI can coordinate a small mathematical team, produce useful formal results, and get them Lean-verified in seconds. The deeper open question is whether shared-world coordination reduces the work required for verified progress when both systems face the same theorem.</p>
 
-        <h2 id="how-to-read-it">How to read it</h2>
-        <p>Quote the two clocks. Then say the theorem sizes differ. Then say RH is still open. That is the honest story.</p>
+<p class="honesty">Lab result · Phase N receipt durationSeconds = 5.326586 · Anthropic 30 h baseline is FLT formalization, not RH · RH claim status OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
 
-        <p class="honesty">Lab result. Phase N receipt <code>durationSeconds = 5.326586</code>. Baseline 30 h from Anthropic’s Fable 5.2 formalization post. RH claim status: OPEN.</p>
       </div>
       <section class="related" aria-label="Related">
-        <h2>Continue reading</h2>
-        <div class="related-grid">
-          <a class="related-card" href="/expeditions/riemann-fractisi/riemann-fractisi-results-report.md"><span class="related-kind">Report</span><span class="related-title">Riemann FractiSI results · 30 h vs 5.3 s</span></a>
-          <a class="related-card" href="/expeditions/riemann-fractisi/"><span class="related-kind">Code</span><span class="related-title">Expedition Lean scaffold and timing harness</span></a>
-          <a class="related-card" href="/blog/shared-world-collective-intelligence/"><span class="related-kind">Blog</span><span class="related-title">Shared-world collective intelligence</span></a>
-        </div>
-      </section>
+      <h2>Continue reading</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/library/papers/riemann-fractisi-expedition/"><span class="related-kind">Paper</span><span class="related-title">Can FractiSI Coordinate A Multi-Agent Mathematical Workflow And Produce Lean-Verified Results In Seconds?</span></a>
+        <a class="related-card" href="/blog/adversarial-world/"><span class="related-kind">Blog</span><span class="related-title">Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?</span></a>
+        <a class="related-card" href="/blog/cancer-rhyme-expedition/"><span class="related-kind">Blog</span><span class="related-title">Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?</span></a>
+      </div>
+    </section>
     </article>
   </main>
 
@@ -107,9 +104,11 @@
         <h2>Company</h2>
         <a href="/company/">About</a>
         <a href="/recruit/">Founding CEO role</a>
-        <a href="/open/">Open source</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
       </nav>
     </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
   </footer>
 </body>
 </html>
