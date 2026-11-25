@@ -31,7 +31,13 @@ export function createConflictDetector(store, opts = {}) {
     const conflicts = [];
     for (const other of store.state.tasks.values()) {
       if (other.id === task.id) continue;
-      if (other.status === 'cancelled' || other.status === 'integrated') continue;
+      if (
+        other.status === 'cancelled' ||
+        other.status === 'integrated' ||
+        other.status === 'done'
+      ) {
+        continue;
+      }
       const overlap = pathOverlap(task.paths, other.paths);
       if (overlap.length) {
         conflicts.push({

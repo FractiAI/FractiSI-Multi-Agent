@@ -10,6 +10,10 @@ import {
   ENGINE_PROMPT_ID,
   buildTinyFootprintOctaveEnginePrompt,
 } from './riemann-zeta23-engine-prompt.mjs';
+import {
+  discoverInventRhymes,
+  formatRhymeDiscoveryForPrompt,
+} from './riemann-zeta23-rhyme-discover.mjs';
 
 export const GROQ_DEFAULT_MODEL = 'qwen/qwen3.8-27b';
 export const GROQ_FALLBACK_MODELS = ['openai/gpt-oss-20b', 'openai/gpt-oss-120b'];
@@ -259,6 +263,8 @@ export function inventProofWithGroq({
   round,
   paperAddendum,
   maxTokens,
+  inventMathPath,
+  rhymeDiscover = true,
 }) {
   const models = [model || GROQ_DEFAULT_MODEL, ...GROQ_FALLBACK_MODELS].filter(
     (m, i, a) => a.indexOf(m) === i,
@@ -282,9 +288,31 @@ export function inventProofWithGroq({
       priorError,
     });
 
+  let rhymeDiscovery = null;
+  let discoveryBlock = '';
+  if (rhymeDiscover) {
+    try {
+      rhymeDiscovery = discoverInventRhymes({
+        theorem,
+        stmt,
+        binders,
+        proofs,
+        attempts,
+        inventMathPath,
+        limit: 8,
+      });
+      discoveryBlock = formatRhymeDiscoveryForPrompt(rhymeDiscovery);
+    } catch (err) {
+      rhymeDiscovery = { ok: false, error: err.message || String(err) };
+      discoveryBlock = `=== FractiSI product rhyme discovery failed: ${rhymeDiscovery.error} ===`;
+    }
+  }
+
   // system = engine HOW-TO-PROCESS (Tiny Footprint / Infinite Octave awareness)
-  // user = shared-world DATA + focus theorem
+  // user = product rhyme board + shared-world DATA + focus theorem
   const userParts = [
+    discoveryBlock,
+    '',
     worldData,
     '',
     '=== Focus invent target ===',
@@ -294,6 +322,7 @@ export function inventProofWithGroq({
     '',
     'Context: ChallengeDeps already defines Ncount, N0star, N0simple, Ndist, cMT, and Dirichlet variants.',
     'InventMath (paper ladder) may be imported — reuse rank–trace / assembly lemmas when they help.',
+    'Operate AWARE on the product rhyme board above — template+delta on the leading partner; do not invent from a FLAT lemma dump.',
     'Independent invent — do not assume Anthropic Zeta23 lemmas exist.',
   ];
 
@@ -317,9 +346,11 @@ export function inventProofWithGroq({
         model: res.model,
         usage: res.usage,
         awarenessInjected: true,
+        rhymeDiscovery,
         enginePromptId: ENGINE_PROMPT_ID,
         enginePromptChars: enginePrompt.length,
         awarenessChars: worldData.length,
+        discoveryChars: discoveryBlock.length,
         rawPreview: res.content.slice(0, 400),
       };
     }
@@ -329,9 +360,11 @@ export function inventProofWithGroq({
     error: last?.error || 'no_tactic_extracted',
     model: last?.model || models[0],
     awarenessInjected: true,
+    rhymeDiscovery,
     enginePromptId: ENGINE_PROMPT_ID,
     enginePromptChars: enginePrompt.length,
     awarenessChars: worldData.length,
+    discoveryChars: discoveryBlock.length,
     rawPreview: (last?.content || last?.raw || '').slice(0, 400),
   };
 }

@@ -507,6 +507,9 @@ function main() {
   let llmOkCalls = 0;
   let awarenessInjections = 0;
   let awarenessCharsTotal = 0;
+  let rhymeDiscoveries = 0;
+  let rhymeDiscoveryCharsTotal = 0;
+  const rhymeLeadingPartners = [];
   const llmModelsUsed = new Set();
   while (performance.now() - t0 < cutoffMs) {
     round += 1;
@@ -524,19 +527,35 @@ function main() {
       const openThms = thms.filter((t) => !proofs.get(t.name)?.closed);
       if (!openThms.length) continue;
 
-      const paths = openThms.map((t) => `Solution.lean#${t.name}`);
+      // Compare / LLM invent: try ONE open theorem at a time, lake-check, keep only
+      // honest closes. Prevents one bad tactic from blocking the whole Solution build.
+      // Rotate through open theorems by round so we don't retry the same head forever.
+      let thmsToTry = openThms;
+      if (llmMode || compareMode) {
+        const idx = (round - 1) % openThms.length;
+        thmsToTry = [openThms[idx]];
+      }
+      const paths = thmsToTry.map((t) => `Solution.lean#${t.name}`);
       const task = platform.coordination.ownership.claimTask({
         agentId: agent.id,
-        title: `invent ${agentName} round ${round} (${openThms.length} open)${llmMode ? ' [llm]' : ''}`,
+        title: `invent ${agentName} round ${round} (${thmsToTry.map((t) => t.name).join(',')})${llmMode ? ' [llm]' : ''}`,
         paths,
       });
       taskIds.push(task.id);
       const gate = platform.coordination.conflicts.canProceedIndependently(task.id);
-      steps.push({ name: `claim-${agentName}-r${round}`, ok: gate.ok, open: openThms.length });
-      if (!gate.ok) continue;
+      steps.push({ name: `claim-${agentName}-r${round}`, ok: gate.ok, open: openThms.length, trying: thmsToTry.map((t) => t.name) });
+      if (!gate.ok) {
+        platform.coordination.ownership.setStatus(task.id, 'done');
+        continue;
+      }
 
-      for (const thm of openThms) {
+      for (const thm of thmsToTry) {
         if (performance.now() - t0 >= cutoffMs) break;
+        const previous = proofs.get(thm.name) || {
+          tacticId: 'sorry_hold',
+          body: 'sorry',
+          closed: false,
+        };
         if (llmMode) {
           llmCalls += 1;
           const awareness = buildFractisiInventAwareness({
@@ -570,6 +589,26 @@ function main() {
             maxTokens: compareMode ? 1800 : 2500,
           });
           if (invented.model) llmModelsUsed.add(invented.model);
+          if (invented.rhymeDiscovery?.ok) {
+            rhymeDiscoveries += 1;
+            rhymeDiscoveryCharsTotal += invented.discoveryChars || 0;
+            if (invented.rhymeDiscovery.leadingPartner) {
+              rhymeLeadingPartners.push({
+                theorem: thm.name,
+                round,
+                leadingPartner: invented.rhymeDiscovery.leadingPartner,
+                catalogN: invented.rhymeDiscovery.productCatalog?.n ?? null,
+                boardTop: (invented.rhymeDiscovery.awareBoard || [])
+                  .slice(0, 3)
+                  .map((p) => ({ id: p.id, coupling: p.coupling })),
+              });
+            }
+          }
+          const rhymeMeta = {
+            rhymeDiscover: Boolean(invented.rhymeDiscovery?.ok),
+            leadingPartner: invented.rhymeDiscovery?.leadingPartner || null,
+            productCatalogN: invented.rhymeDiscovery?.productCatalog?.n ?? null,
+          };
           if (invented.ok) {
             llmOkCalls += 1;
             proofs.set(thm.name, {
@@ -579,6 +618,7 @@ function main() {
               round,
               llm: true,
               awareness: true,
+              ...rhymeMeta,
             });
             attempts.push({
               atSeconds: (performance.now() - t0) / 1000,
@@ -588,17 +628,19 @@ function main() {
               round,
               llm: true,
               awareness: true,
+              ...rhymeMeta,
               ok: true,
             });
           } else {
+            // Keep previous body if it was already a non-sorry attempt; else sorry.
             proofs.set(thm.name, {
-              tacticId: 'sorry_hold',
-              body: 'sorry',
-              closed: false,
+              ...previous,
+              closed: previous.closed === true,
               round,
               llm: true,
               awareness: true,
               llmError: invented.error,
+              ...rhymeMeta,
             });
             attempts.push({
               atSeconds: (performance.now() - t0) / 1000,
@@ -608,6 +650,7 @@ function main() {
               round,
               llm: true,
               awareness: true,
+              ...rhymeMeta,
               ok: false,
               error: invented.error,
             });
@@ -628,6 +671,50 @@ function main() {
             llm: false,
           });
         }
+
+        // Per-theorem lake gate (accumulate closes toward 17/17).
+        writeSolution(INVENT_ROOT, proofs, { withInventMath });
+        if (solutionImportsZeta23(INVENT_ROOT)) {
+          console.error('INVARIANT FAIL: invent Solution imported Zeta23');
+          process.exit(2);
+        }
+        if (!args.skipLake) {
+          const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
+          const remaining = noCutoff
+            ? 180_000
+            : cutoffMs - (performance.now() - t0);
+          const build = run(lake, ['build', 'Solution'], {
+            cwd: INVENT_ROOT,
+            timeoutMs: Math.max(20_000, Math.min(remaining, 180_000)),
+          });
+          const buildOk = build.status === 0;
+          lastBuildStderr = (build.stderr || build.stdout || build.error || '').slice(-4000);
+          steps.push({
+            name: `lake-build-r${round}-${thm.name}`,
+            ok: buildOk,
+            status: build.status,
+            theorem: thm.name,
+            strategy: llmMode ? 'llm' : strategy.id,
+            stderrTail: lastBuildStderr.slice(-1200),
+          });
+          const body = String(proofs.get(thm.name)?.body || '');
+          const honest =
+            body.trim().length > 0 && !/\bsorry\b/.test(body) && !/\badmit\b/.test(body);
+          if (buildOk && honest) {
+            proofs.set(thm.name, { ...proofs.get(thm.name), closed: true });
+            closedThisRound += 1;
+          } else if (!buildOk && !previous.closed) {
+            // Revert failed invent so Solution stays buildable for other theorems.
+            proofs.set(thm.name, {
+              tacticId: 'sorry_hold',
+              body: 'sorry',
+              closed: false,
+              round,
+              reverted: true,
+            });
+            writeSolution(INVENT_ROOT, proofs, { withInventMath });
+          }
+        }
       }
 
       const contrib = platform.composition.submitContribution({
@@ -647,7 +734,9 @@ function main() {
       });
       contribIds.push(contrib.id);
       roundContribIds.push(contrib.id);
-      platform.coordination.ownership.setStatus(task.id, 'in_progress');
+      // Release path locks so later rounds can reclaim Solution.lean#theorem paths.
+      // Without this, round≥2 claims all fail high-severity path conflicts.
+      platform.coordination.ownership.setStatus(task.id, 'done');
     }
 
     writeSolution(INVENT_ROOT, proofs, { withInventMath });
@@ -656,6 +745,7 @@ function main() {
       process.exit(2);
     }
 
+    // Round-level lake check after per-theorem attempts (closed already decided above).
     let buildOk = false;
     if (!args.skipLake) {
       const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
@@ -685,21 +775,6 @@ function main() {
     }
 
     if (buildOk) {
-      // Lake can succeed with `sorry` warnings — only mark a theorem closed if its
-      // invent body has no sorry/admit (honest close, not false 17/17).
-      for (const thm of INVENT_THEOREMS) {
-        const p = proofs.get(thm.name);
-        if (p.closed) continue;
-        const body = String(p.body || '');
-        const honest =
-          body.trim().length > 0 &&
-          !/\bsorry\b/.test(body) &&
-          !/\badmit\b/.test(body);
-        if (honest) {
-          proofs.set(thm.name, { ...p, closed: true });
-          closedThisRound += 1;
-        }
-      }
       for (const id of roundContribIds) {
         const c = platform.store.state.contributions.get(id);
         if (c) platform.coordination.ownership.setStatus(c.taskId, 'done');
@@ -808,6 +883,10 @@ function main() {
       awarenessKind: llmMode ? 'tiny-footprint-infinite-octave-engine-prompt' : null,
       enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
       awarenessInjections: llmMode ? awarenessInjections : 0,
+      productRhymeDiscovery: llmMode,
+      productRhymePins: llmMode ? ['#52', '#53', '#54'] : null,
+      productRhymeCatalog: llmMode ? 'data/RHYME_DISCOVERY_CATALOG.json' : null,
+      rhymeDiscoveries: llmMode ? rhymeDiscoveries : 0,
       apiKeys: keys,
       anthropicBaselinePrimary: ANTHROPIC_INVENT_BASELINE.url,
       anthropicBaselineCharacterization: ANTHROPIC_INVENT_BASELINE.characterization,
@@ -832,9 +911,15 @@ function main() {
       llmModels: [...llmModelsUsed],
       awarenessInjections,
       awarenessCharsTotal,
+      rhymeDiscoveries,
+      rhymeDiscoveryCharsTotal,
+      rhymeLeadingPartners: rhymeLeadingPartners.slice(0, 40),
       fractisiAwarenessInLlmPrompts: llmMode,
       awarenessKind: llmMode ? 'tiny-footprint-infinite-octave-engine-prompt' : null,
       enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
+      productRhymeDiscovery: llmMode,
+      productRhymePins: llmMode ? ['#52', '#53', '#54'] : null,
+      productRhymeCatalog: llmMode ? 'data/RHYME_DISCOVERY_CATALOG.json' : null,
       maxRounds: args.maxRounds,
       solutionImportsZeta23: solutionImportsZeta23(INVENT_ROOT),
       sorryAtEnd: sorryEnd.sorryCount,
