@@ -9,6 +9,7 @@ Nested tunnel to 17/17:
 import ChallengeDeps
 import InventMath
 import InventAnalytic
+import InventMainEstimate
 import Mathlib.NumberTheory.LSeries.ZetaZeros
 
 open Filter Topology Set
@@ -186,11 +187,11 @@ These are the analytic inputs the Challenge bridges need. Invent them from
 Weil EF · RvM · traces (remaining stack). Once a main estimate is closed,
 `invent_<edge>` is `exact glue… main_estimate…` and Solution is `exact invent_<edge>`. -/
 
-/-- λ-family H-estimate on dyadic windows — invent target feeding Theorem A. -/
-def MainEstimateHfunN0star : Prop :=
-  ∀ lam : ℝ, (1 : ℝ) / 2 ≤ lam → lam < 1 →
-    ∀ ε > 0, ∃ T₀, ∀ T ≥ T₀,
-      (Hfun lam - ε) * (Ncount T (2 * T) : ℝ) ≤ N0star T (2 * T)
+/-- Re-export: classical Prop inputs ⇒ Challenge A main estimate. -/
+theorem invent_MainEstimateHfunN0star_of_classical
+    (h : ∀ lam : ℝ, (1 : ℝ) / 2 ≤ lam → lam < 1 → InventClassicalMainInputs lam) :
+    MainEstimateHfunN0star :=
+  MainEstimateHfunN0star_of_classical h
 
 /-- λ-family 2F−1 estimate — invent target feeding Theorem B shape. -/
 def MainEstimateFfunN0simple : Prop :=

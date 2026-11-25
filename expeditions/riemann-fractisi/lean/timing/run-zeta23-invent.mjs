@@ -340,6 +340,9 @@ function writeInventLakefile(
     withRhymeApply = false,
     withInventEndgame = false,
     withInventAnalytic = false,
+    withInventMainEstimate = false,
+    withInventRvM = false,
+    withInventWeil = false,
   } = {},
 ) {
   // Drop Zeta23 target — invent must not depend on Anthropic proof library.
@@ -358,12 +361,36 @@ name = "InventAnalytic"
 roots = ["InventAnalytic"]
 `
       : '';
+  const inventMainEstimateLib =
+    withInventMath && withInventMainEstimate
+      ? `
+[[lean_lib]]
+name = "InventMainEstimate"
+roots = ["InventMainEstimate"]
+`
+      : '';
   const inventEndgameLib =
     withInventMath && withInventEndgame
       ? `
 [[lean_lib]]
 name = "InventEndgame"
 roots = ["InventEndgame"]
+`
+      : '';
+  const inventRvMLib =
+    withInventMath && withInventEndgame && withInventRvM
+      ? `
+[[lean_lib]]
+name = "InventRvM"
+roots = ["InventRvM"]
+`
+      : '';
+  const inventWeilLib =
+    withInventMath && withInventWeil
+      ? `
+[[lean_lib]]
+name = "InventWeil"
+roots = ["InventWeil"]
 `
       : '';
   const rhymeApplyLib =
@@ -377,7 +404,10 @@ roots = ["RhymeApply"]
   const libs = ['ChallengeDeps', 'Challenge'];
   if (withInventMath) libs.push('InventMath');
   if (withInventAnalytic) libs.push('InventAnalytic');
+  if (withInventMainEstimate) libs.push('InventMainEstimate');
   if (withInventEndgame) libs.push('InventEndgame');
+  if (withInventRvM) libs.push('InventRvM');
+  if (withInventWeil) libs.push('InventWeil');
   if (withRhymeApply) libs.push('RhymeApply');
   libs.push('Solution');
   const defaults = JSON.stringify(libs);
@@ -401,7 +431,7 @@ roots = ["ChallengeDeps"]
 [[lean_lib]]
 name = "Challenge"
 roots = ["Challenge"]
-${inventMathLib}${inventAnalyticLib}${inventEndgameLib}${rhymeApplyLib}
+${inventMathLib}${inventAnalyticLib}${inventMainEstimateLib}${inventEndgameLib}${inventRvMLib}${inventWeilLib}${rhymeApplyLib}
 [[lean_lib]]
 name = "Solution"
 roots = ["Solution"]
@@ -514,9 +544,15 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
   }
   const inventMathSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventMath.lean');
   const inventAnalyticSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventAnalytic.lean');
+  const inventMainEstSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventMainEstimate.lean');
   const inventEndgameSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventEndgame.lean');
+  const inventRvMSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventRvM.lean');
+  const inventWeilSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventWeil.lean');
   let withInventEndgame = false;
   let withInventAnalytic = false;
+  let withInventMainEstimate = false;
+  let withInventRvM = false;
+  let withInventWeil = false;
   if (withInventMath) {
     if (!existsSync(inventMathSrc)) {
       throw new Error(`missing InventMath at ${inventMathSrc}`);
@@ -526,9 +562,21 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
       cpSync(inventAnalyticSrc, join(INVENT_ROOT, 'InventAnalytic.lean'));
       withInventAnalytic = true;
     }
+    if (existsSync(inventMainEstSrc)) {
+      cpSync(inventMainEstSrc, join(INVENT_ROOT, 'InventMainEstimate.lean'));
+      withInventMainEstimate = true;
+    }
     if (existsSync(inventEndgameSrc)) {
       cpSync(inventEndgameSrc, join(INVENT_ROOT, 'InventEndgame.lean'));
       withInventEndgame = true;
+    }
+    if (existsSync(inventRvMSrc) && withInventEndgame) {
+      cpSync(inventRvMSrc, join(INVENT_ROOT, 'InventRvM.lean'));
+      withInventRvM = true;
+    }
+    if (existsSync(inventWeilSrc)) {
+      cpSync(inventWeilSrc, join(INVENT_ROOT, 'InventWeil.lean'));
+      withInventWeil = true;
     }
   }
   writeInventLakefile(INVENT_ROOT, {
@@ -536,6 +584,9 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withRhymeApply: withInventMath,
     withInventEndgame,
     withInventAnalytic,
+    withInventMainEstimate,
+    withInventRvM,
+    withInventWeil,
   });
   // Warm Mathlib cache only (no proof modules).
   const lakeSrc = join(VENDOR, '.lake');
@@ -590,6 +641,9 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     withInventMath,
     withInventEndgame,
     withInventAnalytic,
+    withInventMainEstimate,
+    withInventRvM,
+    withInventWeil,
     leaks: assertNoSealedLeak(INVENT_ROOT),
   };
 }
@@ -636,6 +690,9 @@ function main() {
   const prep = prepareInventSandbox({ withInventMath });
   const withInventEndgame = Boolean(prep.withInventEndgame);
   const withInventAnalytic = Boolean(prep.withInventAnalytic);
+  const withInventMainEstimate = Boolean(prep.withInventMainEstimate);
+  const withInventRvM = Boolean(prep.withInventRvM);
+  const withInventWeil = Boolean(prep.withInventWeil);
   if (prep.leaks.length) {
     console.error('sealed leak into invent sandbox', prep.leaks);
     process.exit(1);
@@ -689,6 +746,9 @@ function main() {
       withRhymeApply: true,
       withInventEndgame,
       withInventAnalytic,
+      withInventMainEstimate,
+      withInventRvM,
+      withInventWeil,
     });
     const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
     const rhymeBuild = run(lake, ['build', 'RhymeApply'], {
