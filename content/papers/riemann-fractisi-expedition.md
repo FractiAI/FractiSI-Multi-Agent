@@ -1,20 +1,24 @@
-# FractiSI Invent via Infinite Octave ENGINE_SHELF (v2)
+# FractiSI Paper-Math Invent (rank–trace ladder)
 
-**Short answer: Groq invent awareness is now the expanded Infinite Octaves engine processing prompt** (`fractisi.infinite-octave.engine-shelf.invent.v2`) — ENGINE_SHELF pins #52/#53/#54/#12, Digits×01–99 dual lock, LINEAR/FLAT/AWARE grammar, four-pillar rhyme, Tiny Footprint/Gateway protocol, and a **17-surface paper corpus** index — not a thin paraphrase and not a board dump.
+**Short answer: paper-guided invent closed the InventMath lemma ladder 4/4** — scalar rank–trace cases, diagonal cell, finite real Lemma 3.2 form, and Theorem A assembly arithmetic (`2−R ≥ 2/3` when `R ≤ 4/3`) — from the public arXiv:2608.13637 outline. Challenge-only Mathlib. **No sealed Anthropic Zeta23.** Lake build green. **0** sorries. RH **OPEN**.
 
-Measured Challenge-only invent: **35.96 s** · **17** engine injections · **17** Groq calls (**4** ok) · **0 / 17** closed. Prior thin invent.v1: 43.63 s · 0/17. Prior status-dump: 29.94 s · 0/17. Prior no-awareness: 46.53 s · 0/17. RH **OPEN**. No sealed corpus.
+Measured invent-math: **11.28 s** · **4 / 4** ladder lemmas closed · FractiSI agents `invent-la` + `invent-assembly`.
 
-**Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-latest.json`
+**Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-math-latest.json`
 
-## Comparison
+## What closed
 
-| Arm | System awareness | Result |
+| Id | Lean name | Role |
 |---|---|---|
-| **ENGINE_SHELF v2** (this) | Full shelf + paper corpus processing prompt (~8k chars) | **35.96 s** · 0/17 · 4/17 LLM ok |
-| Thin invent.v1 | Short Net Zero / pillars paraphrase | 43.63 s · 0/17 |
-| Status-dump (#60) | Board text as “awareness” | 29.94 s · 0/17 |
-| No-awareness (#59) | Lean invent only | 46.53 s · 0/17 |
+| L3.2b | `rank_trace_scalar_cases` | Remark 3.3 scalars |
+| L3.2-cell | `rank_trace_cell` | Pointwise diagonal cell |
+| L3.2 | `rank_trace_inequality_real_diag` | Finite real rank–trace form |
+| A-arith | `thmA_assembly_two_thirds` | Feeds Theorem A constant |
+
+## Prior Challenge-headline invent (still open)
+
+ENGINE_SHELF v2 Groq invent of the 17 Challenge headlines: **35.96 s** · **0 / 17** closed. That arm invents `Solution.lean`; this arm invents `InventMath.lean`. Do not conflate.
 
 ## Honesty
 
-Expanded engine prompt ≠ closed theorems. Still 0/17. Infinite Octave engine is the shelf+papers; this prompt cites that shelf. RH OPEN.
+Paper-math invent ≠ Challenge Solution green ≠ RH. Full Analytic formalization (Weil, RvM, prime sides, …) remains ahead of the 17 headlines. No sealed corpus. No API keys in git. RH OPEN.

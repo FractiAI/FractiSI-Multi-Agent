@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import {
   ZETA23_FIND_NO_KIT_SCHEMA,
   ZETA23_FIND_SCHEMA,
+  ZETA23_INVENT_MATH_SCHEMA,
   ZETA23_INVENT_NO_KIT_SCHEMA,
   ZETA23_INVENT_SCHEMA,
   ZETA23_PARTITIONS,
@@ -15,6 +16,7 @@ import {
   auditPrintAxiomsStdout,
   loadLatestZeta23FindNoKitReceipt,
   loadLatestZeta23FindReceipt,
+  loadLatestZeta23InventMathReceipt,
   loadLatestZeta23InventNoKitReceipt,
   loadLatestZeta23InventReceipt,
   zeta23RootFromHere,
@@ -149,5 +151,24 @@ describe('zeta23 invent no-kit receipt', () => {
     assert.equal(receipt.cutoffSeconds, 180);
     assert.equal(receipt.invent.theoremCount, 17);
     assert.ok(receipt.durationSeconds > 0);
+  });
+});
+
+describe('zeta23 invent-math receipt', () => {
+  it('records green paper-ladder InventMath without sealed Anthropic corpus', () => {
+    const receipts = join(zeta23RootFromHere(), '../lean/receipts');
+    const loaded = loadLatestZeta23InventMathReceipt(receipts);
+    assert.equal(loaded.ok, true, 'run timing/run-zeta23-invent-math.mjs before commit');
+    const receipt = loaded.receipt;
+    assert.equal(receipt.schema, ZETA23_INVENT_MATH_SCHEMA);
+    assert.equal(receipt.mode, 'invent_math');
+    assert.equal(receipt.ok, true);
+    assert.equal(receipt.honesty.sealedCorpusUsed, false);
+    assert.equal(receipt.invent.inventMathImportsZeta23, false);
+    assert.equal(receipt.invent.sorryAtEnd, 0);
+    assert.equal(receipt.invent.closedCount, receipt.invent.theoremCount);
+    assert.ok(receipt.invent.theoremCount >= 3);
+    assert.ok(receipt.durationSeconds > 0);
+    assert.equal(receipt.invent.lakeBuildOk, true);
   });
 });
