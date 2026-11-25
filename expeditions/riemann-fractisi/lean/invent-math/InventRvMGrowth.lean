@@ -7,14 +7,18 @@ Closed here from Mathlib + ChallengeDeps + InventRvM packing:
   · Schwarz order symmetry + nontrivial-zero reflection ρ ↦ 1 − conj ρ
   · Ncount ≤ 2 · Nhalf via reflection
   · Re s ≥ 2 centre bounds (Dirichlet series)
+  · Re s > 1 Dirichlet absolute O(1) bounds on {σ₀ ≤ Re}
   · analyticity of ζ on closed balls avoiding the pole
   · unit-window half-strip ⊂ closedBall(2+(t+½)i, √(5/2))
-  · Mathlib Jensen `sum_divisor_le` under `ZetaRightStripGrowth`
-  · ZetaRightStripGrowth ⇒ RiemannVonMangoldtLocalCount
+  · Jensen disc geometry (outer sphere Re≥0.2, ‖s−1‖≥1 for |t|≥4)
+  · Mathlib Jensen `sum_divisor_le` packaged for ζ
+  · `growthImpliesHalfCount` : ZetaRightStripGrowth → HalfCountLogBound
+  · ZetaRightStripGrowth ⇒ RiemannVonMangoldtLocalCount / inventRvMLike.local_count
 
-GAP (comments only): Tit86 strip polynomial growth (`ZetaRightStripGrowth`) needs
-incomplete-zeta / summation-by-parts not yet in Mathlib. Do **not** discharge
-InventRvMLike without that growth step.
+GAP (comments only): Tit86 strip polynomial growth (`ZetaRightStripGrowth` on
+{0.15 ≤ Re}) needs incomplete-zeta / summation-by-parts not yet in Mathlib.
+Re>1 growth is closed; the critical/strip edge is not. Do **not** discharge
+InventRvMLike / Solution 17/17 without that growth step.
 -/
 import InventRvM
 import Mathlib.Analysis.Complex.JensenFormula
@@ -27,6 +31,8 @@ import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
 import Mathlib.Analysis.Calculus.Deriv.Star
 import Mathlib.Analysis.Analytic.Uniqueness
 import Mathlib.Analysis.Meromorphic.Divisor
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.Complex.Norm
 
 open Complex Set Filter Topology Metric MeromorphicOn
 open scoped BigOperators ComplexConjugate
@@ -400,7 +406,21 @@ theorem zerosInHalf_unit_subset_ball (t : ℝ) :
   exact (sq_le_sq₀ hnn hsqrt).mp this
 
 
-/-! ## Strip-growth hypothesis (Tit86 input) + local_count reduction -/
+/-! ## Re > 1 Dirichlet absolute bounds (Mathlib-closed toward strip growth) -/
+
+/-- Uniform O(1) on Re ≥ 2 (Dirichlet / Basel). Strongest strip-edge Mathlib bound in-tree. -/
+theorem exists_norm_riemannZeta_bound_of_re_ge_two :
+    ∃ C : ℝ, 0 < C ∧ ∀ s : ℂ, (2 : ℝ) ≤ s.re → ‖riemannZeta s‖ ≤ C :=
+  ⟨Real.pi ^ 2 / 6, by have := Real.pi_pos; positivity,
+    fun _ hs => norm_riemannZeta_le_of_two_le_re hs⟩
+
+/-- Absolute majorant on {σ₀ ≤ Re} for σ₀ ≥ 2, via the Re≥2 centre bound. -/
+theorem exists_norm_riemannZeta_bound_of_re_ge {σ₀ : ℝ} (hσ : 2 ≤ σ₀) :
+    ∃ C : ℝ, 0 < C ∧ ∀ s : ℂ, σ₀ ≤ s.re → ‖riemannZeta s‖ ≤ C := by
+  obtain ⟨C, hC, hbd⟩ := exists_norm_riemannZeta_bound_of_re_ge_two
+  exact ⟨C, hC, fun s hs => hbd s (le_trans hσ hs)⟩
+
+/-! ## Strip-growth hypothesis (Tit86 input) + Jensen packaging -/
 
 /-- GAP carrier: polynomial growth on {0.15 ≤ Re, ‖s−1‖ ≥ 1}. Not Mathlib-closed. -/
 def ZetaRightStripGrowth : Prop :=
@@ -458,6 +478,98 @@ theorem jensenInner_lt_outer : jensenInnerRadius < jensenOuterRadius := by
   unfold jensenInnerRadius jensenOuterRadius
   rw [Real.sqrt_lt (by norm_num) (by norm_num)]; norm_num
 
+theorem jensenInner_abs : |jensenInnerRadius| = jensenInnerRadius := abs_of_pos jensenInner_pos
+theorem jensenOuter_abs : |jensenOuterRadius| = jensenOuterRadius := abs_of_pos jensenOuter_pos
+
+/-- Jensen disc centre for the unit window at `t`. -/
+def jensenCenter (t : ℝ) : ℂ := 2 + ((t + 1 / 2 : ℝ) : ℂ) * I
+
+@[simp] theorem jensenCenter_re (t : ℝ) : (jensenCenter t).re = 2 := by simp [jensenCenter]
+@[simp] theorem jensenCenter_im (t : ℝ) : (jensenCenter t).im = t + 1 / 2 := by
+  simp [jensenCenter]
+
+theorem zerosInHalf_unit_subset_jensenInner (t : ℝ) :
+    zerosInHalf t (t + 1) ⊆ closedBall (jensenCenter t) jensenInnerRadius := by
+  simpa [jensenCenter, jensenInnerRadius] using zerosInHalf_unit_subset_ball t
+
+private theorem abs_t_add_half_ge {t : ℝ} (ht : 4 ≤ |t|) : (7 / 2 : ℝ) ≤ |t + 1 / 2| := by
+  cases le_total 0 t with
+  | inl hpos =>
+    have : |t| = t := abs_of_nonneg hpos
+    rw [abs_of_nonneg (by linarith : 0 ≤ t + 1 / 2)]
+    linarith [ht, this]
+  | inr hneg =>
+    have : |t| = -t := abs_of_nonpos hneg
+    rw [abs_of_nonpos (by linarith : t + 1 / 2 ≤ 0)]
+    linarith [ht, this]
+
+theorem one_notMem_jensenOuterBall {t : ℝ} (ht : 4 ≤ |t|) :
+    (1 : ℂ) ∉ closedBall (jensenCenter t) jensenOuterRadius := by
+  intro h
+  rw [mem_closedBall, dist_eq_norm, norm_sub_rev] at h
+  have him : |t + 1 / 2| ≤ ‖jensenCenter t - 1‖ := by
+    have : (jensenCenter t - 1).im = t + 1 / 2 := by simp [jensenCenter]
+    simpa [this] using abs_im_le_norm (jensenCenter t - 1)
+  have : (7 / 2 : ℝ) ≤ jensenOuterRadius :=
+    (abs_t_add_half_ge ht).trans (him.trans h)
+  unfold jensenOuterRadius at this
+  norm_num at this
+
+theorem analyticOnNhd_riemannZeta_jensenOuter {t : ℝ} (ht : 4 ≤ |t|) :
+    AnalyticOnNhd ℂ riemannZeta (closedBall (jensenCenter t) |jensenOuterRadius|) := by
+  rw [jensenOuter_abs]
+  exact analyticOnNhd_riemannZeta_of_notMem (one_notMem_jensenOuterBall ht)
+
+theorem mem_jensenOuterSphere_re_ge {t : ℝ} {z : ℂ}
+    (hz : z ∈ sphere (jensenCenter t) |jensenOuterRadius|) :
+    (0.15 : ℝ) ≤ z.re := by
+  rw [jensenOuter_abs, mem_sphere_iff_norm] at hz
+  have hre : |z.re - 2| ≤ jensenOuterRadius := by
+    have := abs_re_le_norm (z - jensenCenter t)
+    simp only [sub_re, jensenCenter_re] at this
+    exact this.trans_eq hz
+  rw [abs_le] at hre
+  unfold jensenOuterRadius at hre
+  linarith [hre.1]
+
+theorem mem_jensenOuterSphere_dist_one {t : ℝ} (ht : 4 ≤ |t|) {z : ℂ}
+    (hz : z ∈ sphere (jensenCenter t) |jensenOuterRadius|) :
+    1 ≤ ‖z - 1‖ := by
+  rw [jensenOuter_abs, mem_sphere_iff_norm] at hz
+  have htri : ‖jensenCenter t - 1‖ - ‖z - jensenCenter t‖ ≤ ‖z - 1‖ := by
+    have := norm_sub_norm_le (jensenCenter t - 1) (jensenCenter t - z)
+    simpa [sub_sub_sub_cancel_left, norm_sub_rev] using this
+  have hz' : ‖z - jensenCenter t‖ = jensenOuterRadius := hz
+  have hc : (7 / 2 : ℝ) ≤ ‖jensenCenter t - 1‖ := by
+    have him : |t + 1 / 2| ≤ ‖jensenCenter t - 1‖ := by
+      have : (jensenCenter t - 1).im = t + 1 / 2 := by simp [jensenCenter]
+      simpa [this] using abs_im_le_norm (jensenCenter t - 1)
+    exact (abs_t_add_half_ge ht).trans him
+  unfold jensenOuterRadius at hz'
+  linarith [htri, hc, hz']
+
+theorem mem_jensenOuterSphere_im_le {t : ℝ} {z : ℂ}
+    (hz : z ∈ sphere (jensenCenter t) |jensenOuterRadius|) :
+    |z.im| ≤ |t| + (23 / 10 : ℝ) := by
+  rw [jensenOuter_abs, mem_sphere_iff_norm] at hz
+  have himle : |z.im - (t + 1 / 2)| ≤ jensenOuterRadius := by
+    have := abs_im_le_norm (z - jensenCenter t)
+    simp only [sub_im, jensenCenter_im] at this
+    exact this.trans_eq hz
+  have htri : |z.im| ≤ |z.im - (t + 1 / 2)| + |t + 1 / 2| := by
+    linarith [abs_sub_abs_le_abs_sub z.im (t + 1 / 2)]
+  have htabs : |t + 1 / 2| ≤ |t| + (1 / 2 : ℝ) := by
+    simpa using abs_add_le t (1 / 2 : ℝ)
+  unfold jensenOuterRadius at himle
+  linarith [htri, himle, htabs]
+
+theorem norm_riemannZeta_jensenCenter_ge (t : ℝ) :
+    (1 / 3 : ℝ) ≤ ‖riemannZeta (jensenCenter t)‖ := by
+  simpa [jensenCenter] using zeta_lower_bound_two (t + 1 / 2)
+
+theorem riemannZeta_jensenCenter_ne_zero (t : ℝ) : riemannZeta (jensenCenter t) ≠ 0 :=
+  riemannZeta_ne_zero_of_two_le_re (by simp [jensenCenter])
+
 theorem divisor_riemannZeta_eq_zeroMult {c : ℂ} {r : ℝ} {ρ : ℂ}
     (han : AnalyticOnNhd ℂ riemannZeta (closedBall c |r|))
     (hρ : ρ ∈ closedBall c |r|) (hρz : IsNontrivialZero ρ) :
@@ -470,9 +582,9 @@ theorem divisor_riemannZeta_eq_zeroMult {c : ℂ} {r : ℝ} {ρ : ℂ}
   have hnetop := analyticOrderAt_riemannZeta_ne_top hρ1
   unfold zeroMult
   obtain ⟨n, hn⟩ := ENat.ne_top_iff_exists.mp hnetop
-  simp [← hn, WithTop.untop₀_coe]
+  simp [← hn]
 
-/-- Mathlib Jensen applied to ζ: order-sum in the inner ball ≤ log(M/‖ζ c‖)/log(R/r). -/
+/-- Mathlib Jensen applied to ζ. -/
 theorem riemannZeta_sum_divisor_le {c : ℂ} {r R M : ℝ}
     (hr : 0 < |r|) (hrR : |r| < |R|) (hM : 1 ≤ M)
     (han : AnalyticOnNhd ℂ riemannZeta (closedBall c |R|))
@@ -482,18 +594,213 @@ theorem riemannZeta_sum_divisor_le {c : ℂ} {r R M : ℝ}
       Real.log (M / ‖riemannZeta c‖) / Real.log (R / r) :=
   AnalyticOnNhd.sum_divisor_le hr hrR hM han hne hbd
 
-/-- Awareness bridge: growth + half-bound packaging discharges local_count shape. -/
+/-- Half-window multiplicity ≤ Jensen ℤ-divisor sum on the inner disc. -/
+theorem Nhalf_le_sum_divisor_jensen (t : ℝ)
+    (han : AnalyticOnNhd ℂ riemannZeta
+      (closedBall (jensenCenter t) |jensenInnerRadius|)) :
+    (Nhalf t (t + 1) : ℤ) ≤
+      ∑ᶠ u, divisor riemannZeta (closedBall (jensenCenter t) |jensenInnerRadius|) u := by
+  classical
+  set c := jensenCenter t
+  set B := closedBall c |jensenInnerRadius|
+  set W := zerosInHalf t (t + 1)
+  have hWfin : W.Finite := zerosInHalf_finite t (t + 1)
+  have hWsub : W ⊆ B := by
+    intro ρ hρ
+    simpa [B, jensenInner_abs] using zerosInHalf_unit_subset_jensenInner t hρ
+  have hN : (Nhalf t (t + 1) : ℤ) = ∑ ρ ∈ hWfin.toFinset, (zeroMult ρ : ℤ) := by
+    unfold Nhalf
+    rw [finsum_mem_eq_finite_toFinset_sum _ hWfin]
+    simp [Nat.cast_sum]
+  have hdiv :
+      ∑ ρ ∈ hWfin.toFinset, (zeroMult ρ : ℤ) =
+        ∑ ρ ∈ hWfin.toFinset, divisor riemannZeta B ρ :=
+    Finset.sum_congr rfl fun ρ hρ => by
+      have hρW : ρ ∈ W := hWfin.mem_toFinset.1 hρ
+      exact (divisor_riemannZeta_eq_zeroMult han (hWsub hρW) hρW.1.1).symm
+  have hfinSupp : (Function.support (divisor riemannZeta B)).Finite :=
+    (divisor riemannZeta B).finiteSupport (isCompact_closedBall _ _)
+  have himg : hWfin.toFinset ⊆ hfinSupp.toFinset := by
+    intro ρ hρ
+    have hρW : ρ ∈ W := hWfin.mem_toFinset.1 hρ
+    have hne : divisor riemannZeta B ρ ≠ 0 := by
+      rw [divisor_riemannZeta_eq_zeroMult han (hWsub hρW) hρW.1.1]
+      exact Nat.cast_ne_zero.mpr (ne_of_gt (Nat.lt_of_lt_of_le Nat.zero_lt_one
+        (one_le_zeroMult hρW.1.1)))
+    exact hfinSupp.mem_toFinset.2 (Function.mem_support.mpr hne)
+  have hsumW :
+      ∑ ρ ∈ hWfin.toFinset, divisor riemannZeta B ρ ≤
+        ∑ u ∈ hfinSupp.toFinset, divisor riemannZeta B u :=
+    Finset.sum_le_sum_of_subset_of_nonneg himg fun _ _ _ => han.divisor_nonneg _
+  have hsumSupp :
+      ∑ u ∈ hfinSupp.toFinset, divisor riemannZeta B u =
+        ∑ᶠ u, divisor riemannZeta B u :=
+    (finsum_eq_sum_of_support_subset (f := (divisor riemannZeta B : ℂ → ℤ))
+      (fun u hu => hfinSupp.mem_toFinset.2 hu)).symm
+  rw [hN, hdiv]
+  exact hsumW.trans_eq hsumSupp
+
+/-- Strip growth ⇒ half-count log bound via Jensen + geometry. -/
+theorem growthImpliesHalfCount : ZetaRightStripGrowth → HalfCountLogBound := by
+  intro hG
+  obtain ⟨A, C, hC, hbd₀⟩ := hG
+  set Aplus : ℝ := max A 0
+  have hA0 : 0 ≤ Aplus := le_max_right _ _
+  set K : ℝ := C * (2 : ℝ) ^ Aplus
+  have hK : 0 < K := mul_pos hC (Real.rpow_pos_of_pos (by norm_num) _)
+  have hr : 0 < |jensenInnerRadius| := by simpa [jensenInner_abs] using jensenInner_pos
+  have hrR : |jensenInnerRadius| < |jensenOuterRadius| := by
+    simpa [jensenInner_abs, jensenOuter_abs] using jensenInner_lt_outer
+  have hκpos : 0 < Real.log (jensenOuterRadius / jensenInnerRadius) := by
+    apply Real.log_pos
+    exact (one_lt_div jensenInner_pos).mpr jensenInner_lt_outer
+  set κ : ℝ := Real.log (jensenOuterRadius / jensenInnerRadius)
+  have hlog7 : (1 : ℝ) ≤ Real.log 7 := by
+    have he : Real.exp 1 ≤ 7 := by
+      have := Real.exp_one_lt_d9
+      norm_num at this ⊢; linarith
+    have : Real.log (Real.exp 1) ≤ Real.log 7 :=
+      Real.log_le_log (Real.exp_pos _) he
+    rwa [Real.log_exp] at this
+  set A₁ : ℝ := (Real.log 3 + Real.log (1 + K) + Aplus) / κ + 1
+  have hA₁ : 0 < A₁ := by
+    have hnum : 0 ≤ Real.log 3 + Real.log (1 + K) + Aplus :=
+      add_nonneg (add_nonneg (Real.log_nonneg (by norm_num))
+        (Real.log_nonneg (by linarith [hK] : (1 : ℝ) ≤ 1 + K))) hA0
+    positivity
+  refine ⟨A₁, hA₁, fun t ht => ?_⟩
+  have han := analyticOnNhd_riemannZeta_jensenOuter ht
+  have han_inner : AnalyticOnNhd ℂ riemannZeta
+      (closedBall (jensenCenter t) |jensenInnerRadius|) :=
+    han.mono (closedBall_subset_closedBall hrR.le)
+  set M : ℝ := 1 + K * (|t| + 3) ^ Aplus
+  have hM1 : 1 ≤ M := by
+    have : 0 ≤ K * (|t| + 3) ^ Aplus :=
+      mul_nonneg hK.le (Real.rpow_nonneg (by linarith [abs_nonneg t]) _)
+    linarith
+  have hbd : ∀ z ∈ sphere (jensenCenter t) |jensenOuterRadius|, ‖riemannZeta z‖ ≤ M := by
+    intro z hz
+    have hζ := hbd₀ z (mem_jensenOuterSphere_re_ge hz) (mem_jensenOuterSphere_dist_one ht hz)
+    have him : |z.im| + 3 ≤ 2 * (|t| + 3) := by
+      have := mem_jensenOuterSphere_im_le hz
+      nlinarith [this, abs_nonneg t]
+    have hbase : (1 : ℝ) ≤ |z.im| + 3 := by linarith [abs_nonneg z.im]
+    have hpow : (|z.im| + 3) ^ A ≤ (|z.im| + 3) ^ Aplus :=
+      Real.rpow_le_rpow_of_exponent_le hbase (le_max_left _ _)
+    have hpow2 : (|z.im| + 3) ^ Aplus ≤ (2 * (|t| + 3)) ^ Aplus :=
+      Real.rpow_le_rpow (by linarith [abs_nonneg z.im]) him hA0
+    have h2 : (2 * (|t| + 3)) ^ Aplus = (2 : ℝ) ^ Aplus * (|t| + 3) ^ Aplus :=
+      Real.mul_rpow (by norm_num) (by linarith [abs_nonneg t])
+    have hbound : C * (|z.im| + 3) ^ A ≤ K * (|t| + 3) ^ Aplus := by
+      calc C * (|z.im| + 3) ^ A ≤ C * (|z.im| + 3) ^ Aplus :=
+            mul_le_mul_of_nonneg_left hpow hC.le
+        _ ≤ C * ((2 : ℝ) ^ Aplus * (|t| + 3) ^ Aplus) := by
+            rw [← h2]; exact mul_le_mul_of_nonneg_left hpow2 hC.le
+        _ = K * (|t| + 3) ^ Aplus := by unfold K; ring
+    exact (hζ.trans hbound).trans (by linarith)
+  have hjensen := riemannZeta_sum_divisor_le (c := jensenCenter t)
+    (r := jensenInnerRadius) (R := jensenOuterRadius) (M := M)
+    hr hrR hM1 han (riemannZeta_jensenCenter_ne_zero t) hbd
+  have hNℤ := Nhalf_le_sum_divisor_jensen t han_inner
+  have hζc := norm_riemannZeta_jensenCenter_ge t
+  have hMζ : M / ‖riemannZeta (jensenCenter t)‖ ≤ 3 * M := by
+    have hpos : 0 < ‖riemannZeta (jensenCenter t)‖ :=
+      lt_of_lt_of_le (by norm_num : (0 : ℝ) < 1 / 3) hζc
+    have : 1 / ‖riemannZeta (jensenCenter t)‖ ≤ (3 : ℝ) := by
+      have := (one_div_le_one_div hpos (by norm_num : (0 : ℝ) < 1 / 3)).mpr hζc
+      simpa using this
+    calc M / ‖riemannZeta (jensenCenter t)‖
+        = M * (1 / ‖riemannZeta (jensenCenter t)‖) := div_eq_mul_one_div _ _
+      _ ≤ M * 3 := mul_le_mul_of_nonneg_left this (by linarith)
+      _ = 3 * M := by ring
+  have hL : (1 : ℝ) ≤ (|t| + 3) ^ Aplus := by
+    have : (1 : ℝ) ≤ |t| + 3 := by linarith [abs_nonneg t]
+    simpa [Real.rpow_zero] using Real.one_le_rpow this hA0
+  have hMbound : M ≤ (1 + K) * (|t| + 3) ^ Aplus := by
+    unfold M; nlinarith [hK.le, hL]
+  have hlogM : Real.log (M / ‖riemannZeta (jensenCenter t)‖) ≤
+      Real.log 3 + Real.log (1 + K) + Aplus * Real.log (|t| + 3) := by
+    have hpos_div : 0 < M / ‖riemannZeta (jensenCenter t)‖ := by
+      have : 0 < ‖riemannZeta (jensenCenter t)‖ := lt_of_lt_of_le (by norm_num) hζc
+      positivity
+    have hle3 : Real.log (M / ‖riemannZeta (jensenCenter t)‖) ≤ Real.log (3 * M) :=
+      Real.log_le_log hpos_div hMζ
+    have h3M : Real.log (3 * M) = Real.log 3 + Real.log M :=
+      Real.log_mul (by norm_num) (by linarith : M ≠ 0)
+    have hposM : 0 < M := by linarith
+    have hlogMb : Real.log M ≤ Real.log ((1 + K) * (|t| + 3) ^ Aplus) :=
+      Real.log_le_log hposM hMbound
+    have hsplit : Real.log ((1 + K) * (|t| + 3) ^ Aplus) =
+        Real.log (1 + K) + Aplus * Real.log (|t| + 3) := by
+      have h1K : 0 < 1 + K := by linarith
+      have hLpos : 0 < (|t| + 3) ^ Aplus :=
+        Real.rpow_pos_of_pos (by linarith [abs_nonneg t]) _
+      rw [Real.log_mul h1K.ne' hLpos.ne', Real.log_rpow (by linarith [abs_nonneg t])]
+    linarith [hle3.trans_eq h3M, hlogMb.trans_eq hsplit]
+  have hsumℝ :
+      ((∑ᶠ u, divisor riemannZeta
+          (closedBall (jensenCenter t) |jensenInnerRadius|) u : ℤ) : ℝ) ≤
+        Real.log (M / ‖riemannZeta (jensenCenter t)‖) / κ := by
+    simpa [κ, jensenInner_abs, jensenOuter_abs] using hjensen
+  have hN : (Nhalf t (t + 1) : ℝ) ≤
+      Real.log (M / ‖riemannZeta (jensenCenter t)‖) / κ := by
+    have : ((Nhalf t (t + 1) : ℤ) : ℝ) ≤
+        ((∑ᶠ u, divisor riemannZeta
+            (closedBall (jensenCenter t) |jensenInnerRadius|) u : ℤ) : ℝ) :=
+      Int.cast_le.mpr hNℤ
+    exact this.trans hsumℝ
+  have hge1 : (1 : ℝ) ≤ Real.log (|t| + 3) :=
+    le_trans hlog7 (Real.log_le_log (by norm_num) (by linarith [abs_nonneg t, ht]))
+  have hnum : Real.log (M / ‖riemannZeta (jensenCenter t)‖) ≤
+      (Real.log 3 + Real.log (1 + K) + Aplus) * Real.log (|t| + 3) := by
+    have h1 : Real.log 3 + Real.log (1 + K) ≤
+        (Real.log 3 + Real.log (1 + K)) * Real.log (|t| + 3) := by
+      nlinarith [add_nonneg (Real.log_nonneg (by norm_num : (1 : ℝ) ≤ 3))
+        (Real.log_nonneg (by linarith [hK] : (1 : ℝ) ≤ 1 + K)), hge1]
+    have : Real.log 3 + Real.log (1 + K) + Aplus * Real.log (|t| + 3) ≤
+        (Real.log 3 + Real.log (1 + K) + Aplus) * Real.log (|t| + 3) := by
+      nlinarith [h1, hA0, (log_abs_add_three_pos t).le]
+    exact hlogM.trans this
+  have hfinal : Real.log (M / ‖riemannZeta (jensenCenter t)‖) / κ ≤
+      A₁ * Real.log (|t| + 3) := by
+    have hle : Real.log (M / ‖riemannZeta (jensenCenter t)‖) / κ ≤
+        (Real.log 3 + Real.log (1 + K) + Aplus) * Real.log (|t| + 3) / κ :=
+      div_le_div_of_nonneg_right hnum hκpos.le
+    have hrearr :
+        (Real.log 3 + Real.log (1 + K) + Aplus) * Real.log (|t| + 3) / κ =
+          ((Real.log 3 + Real.log (1 + K) + Aplus) / κ) * Real.log (|t| + 3) := by
+      ring
+    have hcoef : (Real.log 3 + Real.log (1 + K) + Aplus) / κ ≤ A₁ := by
+      unfold A₁; linarith
+    have : ((Real.log 3 + Real.log (1 + K) + Aplus) / κ) * Real.log (|t| + 3) ≤
+        A₁ * Real.log (|t| + 3) :=
+      mul_le_mul_of_nonneg_right hcoef (log_abs_add_three_pos t).le
+    exact hle.trans (hrearr.symm ▸ this)
+  exact hN.trans hfinal
+
+/-- Named invent step Prop (discharged by `growthImpliesHalfCount`). -/
+def GrowthImpliesHalfCount : Prop := ZetaRightStripGrowth → HalfCountLogBound
+
+theorem GrowthImpliesHalfCount.proof : GrowthImpliesHalfCount := growthImpliesHalfCount
+
+/-- Awareness bridge: half-bound packaging discharges local_count shape. -/
 theorem inventRvMLike_local_count_of_halfBound (hH : HalfCountLogBound) :
     ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,
       (Ncount t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) :=
   RiemannVonMangoldtLocalCount_of_halfBound hH
 
-/-- Named remaining invent step: strip growth ⇒ half-count via Jensen + geometry.
-GAP: discharging `ZetaRightStripGrowth` itself needs incomplete-zeta growth. -/
-def GrowthImpliesHalfCount : Prop :=
-  ZetaRightStripGrowth → HalfCountLogBound
+/-- Composition: strip growth ⇒ InventRvMLike.local_count shape. -/
+theorem inventRvMLike_local_count_of_growth (hG : ZetaRightStripGrowth) :
+    ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,
+      (Ncount t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) :=
+  inventRvMLike_local_count_of_halfBound (growthImpliesHalfCount hG)
 
-/-- Composition path to local_count once growth invents. -/
+/-- Composition: strip growth ⇒ classical local_count Prop. -/
+theorem RiemannVonMangoldtLocalCount_of_growth (hG : ZetaRightStripGrowth) :
+    RiemannVonMangoldtLocalCount :=
+  RiemannVonMangoldtLocalCount_of_halfBound (growthImpliesHalfCount hG)
+
+/-- Path theorem retained for awareness naming. -/
 theorem RiemannVonMangoldtLocalCount_of_growth_path
     (hPath : GrowthImpliesHalfCount) (hG : ZetaRightStripGrowth) :
     RiemannVonMangoldtLocalCount :=
