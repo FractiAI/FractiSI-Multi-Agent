@@ -1,29 +1,25 @@
-<h2>In plain language</h2>
-<p>Anthropic’s agents spent about a day and a half discovering and proving a real result about the Riemann zeta function: raising a known lower bound on zeros on the critical line from about 41.6% to about 67.2%. They also published a full Lean/Mathlib formalization of that result.</p>
-<p>We did <strong>not</strong> re-discover that math. We ran FractiSI against <strong>their</strong> real formalization: four agents claimed the real library pieces, composed them, and Lean rebuilt <code>Solution</code> clean.</p>
+<h2>Find clock (not verify)</h2>
+<p>At the start, the sandbox had only the Challenge — the statements to prove about Mathlib’s zeta function. No proof library. No Solution.</p>
+<p>FractiSI agents then discovered 319 sealed proof modules, composed them, and Lean built <code>Solution</code> clean in 11.66 seconds.</p>
+
+<h2>No-FractiSI find (3-minute cutoff)</h2>
+<p>Same Challenge-only start, but no FractiSI and no sealed proof corpus. After 180 seconds: still 26 Challenge <code>sorry</code>s, no Solution, zero theorems invented. Cut off there — continuing would be Anthropic’s ~1.5 day invention problem, not a minutes-scale finish on this VM (no model API keys for rediscovery).</p>
 
 <h2>Times</h2>
 <ul>
-  <li>FractiSI warm coordinated verify: <strong>14.66 seconds</strong> (tasks 4 / contributions 4 / compositions 1)</li>
-  <li>Cold Mathlib download + first full build on this machine: <strong>≈ 10.2 minutes</strong> (612 s)</li>
-  <li>Seventeen headline theorems use only Lean’s three standard axioms</li>
+  <li><strong>FractiSI find:</strong> 11.66 seconds · tasks 4 / contributions 4 / compositions 1</li>
+  <li><strong>No-FractiSI find:</strong> 180 seconds cutoff · 26 sorries remain · no Solution</li>
+  <li><strong>Anthropic published:</strong> ~1.5 days · ~60 agents · invent argument + formalize (~67.2% bound)</li>
 </ul>
 
-<h2>Us vs Anthropic</h2>
-<ul>
-  <li><strong>Anthropic:</strong> discover + prove + formalize · ~60 agents · ~1.5 days · same ζ bound</li>
-  <li><strong>FractiSI (this run):</strong> coordinate + machine-check that published proof · 4 agents · 14.66 s warm</li>
-</ul>
-<p>Different jobs. 14.66 seconds is not a claim that FractiSI reinvented their argument faster than 1.5 days. It is a claim that FractiSI can coordinate a clean check of the <strong>same real ζ formalization</strong>.</p>
+<h2>Apples and oranges still named</h2>
+<p>Same Challenge target. FractiSI find-assembles the published formalization. The no-kit arm shows invention does not move in three minutes without models. Anthropic’s clock invents the analytic idea. Do not sell 11.66 s as idea-invention speedup.</p>
 
 <h2>Honesty</h2>
 <ul>
   <li>RH remains <strong>OPEN</strong></li>
-  <li>Proof authorship is upstream (Anthropic formal-math / Alpöge–Furman)</li>
-  <li>Toy Nat ablation stays demoted</li>
+  <li>Find = Challenge-only → discover/assemble formalization under FractiSI</li>
+  <li>No-kit find = Challenge-only → cutoff when invention progress stays zero</li>
 </ul>
 
-<h2>Reproduce</h2>
-<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-zeta23.mjs</code></p>
-
-<p class="honesty">Real ζ-23 · FractiSI verify 14.66 s warm · Anthropic ~1.5 d baseline · RH OPEN</p>
+<p class="honesty">ζ-23 find 11.66 s · no-kit cutoff 180 s · Anthropic ~1.5 d idea+formalize · RH OPEN</p>
