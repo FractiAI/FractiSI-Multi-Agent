@@ -746,41 +746,55 @@ export function readInventMathIndex(opts = {}) {
   const mathPath =
     opts.inventMathPath ||
     join(REPO_ROOT, 'expeditions/riemann-fractisi/lean/invent-math/InventMath.lean');
+  const analyticPath =
+    opts.inventAnalyticPath ||
+    join(REPO_ROOT, 'expeditions/riemann-fractisi/lean/invent-math/InventAnalytic.lean');
   const endgamePath =
     opts.inventEndgamePath ||
     join(REPO_ROOT, 'expeditions/riemann-fractisi/lean/invent-math/InventEndgame.lean');
   const files = [];
   if (existsSync(mathPath)) files.push({ path: mathPath, source: 'InventMath' });
+  if (existsSync(analyticPath)) files.push({ path: analyticPath, source: 'InventAnalytic' });
   if (existsSync(endgamePath)) files.push({ path: endgamePath, source: 'InventEndgame' });
   const decls = new Map();
   for (const f of files) {
     const text = readFileSync(f.path, 'utf8');
-    for (const m of text.matchAll(/(?:theorem|lemma)\s+(\w+)\b([\s\S]*?)(?=\n(?:theorem|lemma|end)\b)/g)) {
+    for (const m of text.matchAll(
+      /(?:theorem|lemma|def)\s+(\w+)\b([\s\S]*?)(?=\n(?:theorem|lemma|def|end)\b)/g,
+    )) {
       const name = m[1];
       const body = m[2] || '';
       const hasSorry = /\bsorry\b|\badmit\b/.test(body);
+      const isPropAlias = /^MainEstimate/.test(name); // type alias, not a proved estimate
+      const isMainEstimateThm = name.startsWith('main_estimate_');
       decls.set(name, {
         name,
         source: f.source,
-        closed: !hasSorry,
-        challengeTypeExact: name.startsWith('invent_') && !hasSorry,
+        closed: !hasSorry && !isPropAlias,
+        challengeTypeExact: name.startsWith('invent_') && !hasSorry && !/_of_main$/.test(name),
+        isMainEstimateTarget: isPropAlias || isMainEstimateThm,
         bodyPreview: body.slice(0, 240),
       });
     }
     // Fallback: names only when regex split fails on short files
-    for (const m of text.matchAll(/(?:theorem|lemma)\s+(\w+)\b/g)) {
+    for (const m of text.matchAll(/(?:theorem|lemma|def)\s+(\w+)\b/g)) {
       if (!decls.has(m[1])) {
         decls.set(m[1], {
           name: m[1],
           source: f.source,
           closed: true,
-          challengeTypeExact: m[1].startsWith('invent_'),
+          challengeTypeExact: m[1].startsWith('invent_') && !/_of_main$/.test(m[1]),
           bodyPreview: '',
         });
       }
     }
   }
-  return { decls, mathPath, endgamePath: existsSync(endgamePath) ? endgamePath : null };
+  return {
+    decls,
+    mathPath,
+    analyticPath: existsSync(analyticPath) ? analyticPath : null,
+    endgamePath: existsSync(endgamePath) ? endgamePath : null,
+  };
 }
 
 /**
@@ -962,18 +976,16 @@ export function proposeXraySolutionApplies(xray) {
   const out = [];
   for (const ray of xray?.rays || []) {
     if (ray.edgeClosed) continue;
-    const seed = (ray.solutions || []).find((s) => s.role === 'endgame_seed' && s.challengeTypeExact);
-    const bestExact =
-      seed ||
-      (ray.bestSolution?.challengeTypeExact
-        ? (ray.solutions || []).find((s) => s.name === ray.bestSolution.name)
-        : null);
-    if (!bestExact?.applyTactic) continue;
+    // Solution may ONLY exact Challenge-typed invent_<edge> seeds — never glue/Hfun.
+    const seed = (ray.solutions || []).find(
+      (s) => s.role === 'endgame_seed' && s.challengeTypeExact && s.applyTactic,
+    );
+    if (!seed) continue;
     out.push({
       theorem: ray.edge,
-      partnerName: bestExact.name,
-      tacticBody: bestExact.applyTactic,
-      coupling: bestExact.coupling,
+      partnerName: seed.name,
+      tacticBody: seed.applyTactic,
+      coupling: seed.coupling,
       kind: 'xray_exact_endgame_seed',
       nearInstant: true,
     });

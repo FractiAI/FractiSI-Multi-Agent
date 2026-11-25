@@ -19,9 +19,9 @@ export const PAPER_META = Object.freeze({
     'Weil explicit formula (ζ and Dirichlet L)',
     'Riemann–von Mangoldt zero counting',
     'Stirling Γ′/Γ on vertical lines',
-    'Chebyshev–Mertens prime sums',
+    'Chebyshev–Mertens remaining lines (cheb1b–cheb2b; cheb1a landed in InventAnalytic)',
     'Montgomery–Vaughan Hilbert inequality',
-    'Zero-side / prime-side main estimates → instantiate Challenge bridges',
+    'Zero-side / prime-side main estimates (main_estimate_Hfun_N0star et al.) → glue → invent_<edge>',
     'Challenge Solution 17/17 via meet-in-middle exact partners',
   ]),
 });
@@ -246,6 +246,62 @@ export const PAPER_LEMMA_LADDER = Object.freeze([
     agent: 'invent-middle',
     difficulty: 'easy',
     paperNote: 'Middle: o(N) main estimate ⇒ Challenge-shaped ε-form.',
+  },
+]);
+
+/**
+ * Endgame / analytic invent targets (InventAnalytic + InventEndgame).
+ * Measured by invent arm lake-build, not invent-math 27/27 ladder alone.
+ */
+export const ENDGAME_ANALYTIC_LADDER = Object.freeze([
+  {
+    id: 'CHEB-1a',
+    leanName: 'cheb1a_psi_bound',
+    module: 'InventAnalytic',
+    paperNote: 'Chebyshev ψ ≪ x from Mathlib.',
+  },
+  {
+    id: 'ZS-explicit',
+    leanName: 'N0star_lower_explicit',
+    module: 'InventAnalytic',
+    paperNote: 'Zero-side rank–trace → explicit N₀* lower bound (paper §6 arithmetic).',
+  },
+  {
+    id: 'ZS-H',
+    leanName: 'N0star_lower_H',
+    module: 'InventAnalytic',
+    paperNote: 'H(λ)·N − error packaging feeding little-o → MainEstimateHfunN0star.',
+  },
+  {
+    id: 'SEAM-zeros',
+    leanName: 'zerosIn_finite',
+    module: 'InventEndgame',
+    paperNote: 'Local finiteness of ChallengeDeps zerosIn.',
+  },
+  {
+    id: 'SEAM-N',
+    leanName: 'Ncount_add',
+    module: 'InventEndgame',
+    paperNote: 'Ncount additivity on split windows.',
+  },
+  {
+    id: 'SEAM-N0',
+    leanName: 'N0star_add',
+    module: 'InventEndgame',
+    paperNote: 'N0star additivity on split windows.',
+  },
+  {
+    id: 'GLUE-A',
+    leanName: 'glueA_dyadic_of_Hfun',
+    module: 'InventEndgame',
+    paperNote: 'Thm A dyadic under H(λ) family estimate.',
+  },
+  {
+    id: 'MAIN-A',
+    leanName: 'main_estimate_Hfun_N0star',
+    module: 'InventEndgame',
+    paperNote:
+      'UNCONDITIONAL λ-family H-estimate — invent from Weil·RvM·traces. Unlocks invent_two_thirds_on_critical_line.',
   },
 ]);
 

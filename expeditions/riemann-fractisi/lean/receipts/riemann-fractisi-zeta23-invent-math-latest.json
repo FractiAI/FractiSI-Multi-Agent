@@ -2,9 +2,9 @@
   "schema": "fractisi.riemann-expedition.zeta23-invent-math.v1",
   "label": "riemann-fractisi-zeta23-invent-math",
   "mode": "invent_math",
-  "startedAt": "2026-11-25T16:42:23.766Z",
-  "endedAt": "2026-11-25T16:42:37.722Z",
-  "durationSeconds": 13.955396005,
+  "startedAt": "2026-11-25T17:26:19.870Z",
+  "endedAt": "2026-11-25T17:26:33.628Z",
+  "durationSeconds": 13.757420974999999,
   "ok": true,
   "leanOk": true,
   "honesty": {
@@ -219,30 +219,30 @@
   "fractisi": {
     "agents": 6,
     "agentIds": [
-      "agent_07f07e5b",
-      "agent_418316d4",
-      "agent_9e4840fc",
-      "agent_6bcd51aa",
-      "agent_f914b199",
-      "agent_5ad78d02"
+      "agent_37e012f5",
+      "agent_5eac632e",
+      "agent_af38f610",
+      "agent_484518ec",
+      "agent_fe40f22c",
+      "agent_72d700d0"
     ],
     "tasks": 6,
     "taskIds": [
-      "task_ffd10a32",
-      "task_0e3dca19",
-      "task_6b359d5f",
-      "task_7be14766",
-      "task_9459f696",
-      "task_9c10e453"
+      "task_45096ff7",
+      "task_e3171b24",
+      "task_a80c0fd2",
+      "task_15ee2a74",
+      "task_f40b17e4",
+      "task_c9867139"
     ],
     "contributions": 6,
     "contributionIds": [
-      "contrib_785652be",
-      "contrib_ab04d37e",
-      "contrib_d7edcb0d",
-      "contrib_3cbda57b",
-      "contrib_c1da104a",
-      "contrib_7948f32f"
+      "contrib_bcd7e6ea",
+      "contrib_2bb33065",
+      "contrib_9c5b6f3b",
+      "contrib_3fcfc89e",
+      "contrib_9dd44aab",
+      "contrib_f83d8322"
     ]
   },
   "steps": [
@@ -313,12 +313,12 @@
       "name": "lake-build-InventMath",
       "ok": true,
       "status": 0,
-      "stderrTail": "✔ [8697/8698] Built InventMath (9.4s)\nBuild completed successfully (8698 jobs)."
+      "stderrTail": "✔ [8697/8698] Built InventMath (9.3s)\nBuild completed successfully (8698 jobs)."
     },
     {
       "name": "compose",
       "ok": true,
-      "compositionId": "comp_d57bcb8f"
+      "compositionId": "comp_653fdda0"
     }
   ],
   "paths": {

@@ -321,8 +321,16 @@ export function inventProofWithGroq({
     `    ${stmt} := by`,
     '',
     'Context: ChallengeDeps already defines Ncount, N0star, N0simple, Ndist, cMT, and Dirichlet variants.',
-    'InventMath (paper ladder) may be imported — reuse rank–trace / assembly lemmas when they help.',
-    'Operate AWARE on the product rhyme board above — template+delta on the leading partner; do not invent from a FLAT lemma dump.',
+    'InventMath + InventAnalytic + InventEndgame may be imported.',
+    'CRITICAL — nested-pair tunnel endgame invent:',
+    `- You are inventing the Challenge-typed endgame seed invent_${theorem} (identical type to the Challenge statement).`,
+    '- Path: invent unconditional main_estimate_Hfun_N0star (or Ffun variants) from Mathlib + paper analytic stack,',
+    '  then exact invent_two_thirds_on_critical_line_of_main main_estimate_Hfun_N0star (Thm A),',
+    '  or exact glueA_dyadic_of_Hfun <inline MainEstimateHfunN0star proof>.',
+    '- InventAnalytic already has cheb1a_psi_bound (ψ ≪ x). Build on it toward Weil EF · RvM · traces.',
+    '- NEVER exact Hfun_one, Ffun_one, thmA_indicator_specialization, or other non-matching types into this seed.',
+    '- NEVER use sorry or admit.',
+    'Operate AWARE: invent the missing main estimate; glue is already closed.',
     'Independent invent — do not assume Anthropic Zeta23 lemmas exist.',
   ];
 

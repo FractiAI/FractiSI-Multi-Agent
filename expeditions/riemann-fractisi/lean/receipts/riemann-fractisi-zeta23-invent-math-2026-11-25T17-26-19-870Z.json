@@ -1,0 +1,328 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent-math.v1",
+  "label": "riemann-fractisi-zeta23-invent-math",
+  "mode": "invent_math",
+  "startedAt": "2026-11-25T17:26:19.870Z",
+  "endedAt": "2026-11-25T17:26:33.628Z",
+  "durationSeconds": 13.757420974999999,
+  "ok": true,
+  "leanOk": true,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "Paper-guided invent of rank–trace / assembly lemmas (InventMath) from public arXiv outline; Challenge-only; no sealed Zeta23",
+    "whatThisDoesNotMeasure": [
+      "Full Challenge Solution.lean (17 headline theorems)",
+      "Find-assemble of sealed Anthropic Zeta23",
+      "RH"
+    ],
+    "inventedHere": "Lean proofs of paper ladder lemmas (scalar rank–trace, diagonal form, Theorem A constant arithmetic)",
+    "reusedNotInvented": [
+      "Mathlib",
+      "Public paper outline arXiv:2608.13637 (ideas, not Anthropic Lean)"
+    ],
+    "sealedCorpusUsed": false,
+    "paperArxiv": "2608.13637",
+    "apiKeys": {
+      "GROQ_API_KEY": true,
+      "ANTHROPIC_API_KEY": false,
+      "OPENAI_API_KEY": false
+    },
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 27/27; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23DirAbsent": true,
+    "Zeta23LeanAbsent": true,
+    "sealedCorpusReadableByAgents": false
+  },
+  "leaksAtStart": [],
+  "invent": {
+    "kind": "paper_math_ladder",
+    "theoremCount": 27,
+    "closedCount": 27,
+    "openCount": 0,
+    "closed": [
+      "rank_trace_scalar_cases",
+      "rank_trace_cell",
+      "rank_trace_inequality_real_diag",
+      "rank_trace_diagonal_matrices",
+      "window_constant_indicator",
+      "two_minus_indicator_window",
+      "thmA_assembly_two_thirds",
+      "thmA_chain_two_thirds",
+      "thmA_indicator_specialization",
+      "thmC_assembly_five_sixths",
+      "thmC_chain_five_sixths",
+      "multiplicity_quadratic_bound",
+      "multiplicity_flat_charge_identity",
+      "Hfun_one",
+      "Ffun_one",
+      "eps_form_of_isLittleO",
+      "eps_form_twoThirds",
+      "eps_form_threeQuarters",
+      "eps_form_half",
+      "dyadic_eps_form",
+      "challengeA_cumulative_of_dyadic",
+      "challengeB_cumulative_of_dyadic",
+      "challengeC_cumulative_of_dyadic",
+      "challengeA_dyadic_of_Hfun",
+      "challengeB_dyadic_of_Ffun",
+      "challengeC_dyadic_of_Ffun",
+      "challenge_eps_of_littleO",
+      "indicator_pos_ge_two_sub_sq"
+    ],
+    "open": [],
+    "supportingClosed": [
+      "indicator_pos_ge_two_sub_sq"
+    ],
+    "inventMathImportsZeta23": false,
+    "sorryAtEnd": 0,
+    "lakeBuildOk": true,
+    "ladder": [
+      {
+        "id": "L3.2b",
+        "leanName": "rank_trace_scalar_cases",
+        "closed": true
+      },
+      {
+        "id": "L3.2-cell",
+        "leanName": "rank_trace_cell",
+        "closed": true
+      },
+      {
+        "id": "L3.2",
+        "leanName": "rank_trace_inequality_real_diag",
+        "closed": true
+      },
+      {
+        "id": "L3.2-diagM",
+        "leanName": "rank_trace_diagonal_matrices",
+        "closed": true
+      },
+      {
+        "id": "R-ind",
+        "leanName": "window_constant_indicator",
+        "closed": true
+      },
+      {
+        "id": "R-two-thirds",
+        "leanName": "two_minus_indicator_window",
+        "closed": true
+      },
+      {
+        "id": "A-arith",
+        "leanName": "thmA_assembly_two_thirds",
+        "closed": true
+      },
+      {
+        "id": "A-chain",
+        "leanName": "thmA_chain_two_thirds",
+        "closed": true
+      },
+      {
+        "id": "A-ind",
+        "leanName": "thmA_indicator_specialization",
+        "closed": true
+      },
+      {
+        "id": "C-arith",
+        "leanName": "thmC_assembly_five_sixths",
+        "closed": true
+      },
+      {
+        "id": "C-chain",
+        "leanName": "thmC_chain_five_sixths",
+        "closed": true
+      },
+      {
+        "id": "m-quad",
+        "leanName": "multiplicity_quadratic_bound",
+        "closed": true
+      },
+      {
+        "id": "m-flat",
+        "leanName": "multiplicity_flat_charge_identity",
+        "closed": true
+      },
+      {
+        "id": "H-def",
+        "leanName": "Hfun_one",
+        "closed": true
+      },
+      {
+        "id": "F-def",
+        "leanName": "Ffun_one",
+        "closed": true
+      },
+      {
+        "id": "E2",
+        "leanName": "eps_form_of_isLittleO",
+        "closed": true
+      },
+      {
+        "id": "E3-A",
+        "leanName": "eps_form_twoThirds",
+        "closed": true
+      },
+      {
+        "id": "E3-C",
+        "leanName": "eps_form_threeQuarters",
+        "closed": true
+      },
+      {
+        "id": "E3-B",
+        "leanName": "eps_form_half",
+        "closed": true
+      },
+      {
+        "id": "E4",
+        "leanName": "dyadic_eps_form",
+        "closed": true
+      },
+      {
+        "id": "TD-A",
+        "leanName": "challengeA_cumulative_of_dyadic",
+        "closed": true
+      },
+      {
+        "id": "TD-B",
+        "leanName": "challengeB_cumulative_of_dyadic",
+        "closed": true
+      },
+      {
+        "id": "TD-C",
+        "leanName": "challengeC_cumulative_of_dyadic",
+        "closed": true
+      },
+      {
+        "id": "MID-A",
+        "leanName": "challengeA_dyadic_of_Hfun",
+        "closed": true
+      },
+      {
+        "id": "MID-B",
+        "leanName": "challengeB_dyadic_of_Ffun",
+        "closed": true
+      },
+      {
+        "id": "MID-C",
+        "leanName": "challengeC_dyadic_of_Ffun",
+        "closed": true
+      },
+      {
+        "id": "MID-eps",
+        "leanName": "challenge_eps_of_littleO",
+        "closed": true
+      }
+    ]
+  },
+  "fractisi": {
+    "agents": 6,
+    "agentIds": [
+      "agent_37e012f5",
+      "agent_5eac632e",
+      "agent_af38f610",
+      "agent_484518ec",
+      "agent_fe40f22c",
+      "agent_72d700d0"
+    ],
+    "tasks": 6,
+    "taskIds": [
+      "task_45096ff7",
+      "task_e3171b24",
+      "task_a80c0fd2",
+      "task_15ee2a74",
+      "task_f40b17e4",
+      "task_c9867139"
+    ],
+    "contributions": 6,
+    "contributionIds": [
+      "contrib_bcd7e6ea",
+      "contrib_2bb33065",
+      "contrib_9c5b6f3b",
+      "contrib_3fcfc89e",
+      "contrib_9dd44aab",
+      "contrib_f83d8322"
+    ]
+  },
+  "steps": [
+    {
+      "name": "claim-invent-la",
+      "ok": true,
+      "lemmas": [
+        "rank_trace_scalar_cases",
+        "rank_trace_cell",
+        "rank_trace_inequality_real_diag",
+        "rank_trace_diagonal_matrices",
+        "multiplicity_quadratic_bound",
+        "multiplicity_flat_charge_identity"
+      ]
+    },
+    {
+      "name": "claim-invent-window",
+      "ok": true,
+      "lemmas": [
+        "window_constant_indicator",
+        "two_minus_indicator_window"
+      ]
+    },
+    {
+      "name": "claim-invent-assembly",
+      "ok": true,
+      "lemmas": [
+        "thmA_assembly_two_thirds",
+        "thmA_chain_two_thirds",
+        "thmA_indicator_specialization",
+        "thmC_assembly_five_sixths",
+        "thmC_chain_five_sixths"
+      ]
+    },
+    {
+      "name": "claim-invent-asymp",
+      "ok": true,
+      "lemmas": [
+        "Hfun_one",
+        "Ffun_one",
+        "eps_form_of_isLittleO",
+        "eps_form_twoThirds",
+        "eps_form_threeQuarters",
+        "eps_form_half",
+        "dyadic_eps_form"
+      ]
+    },
+    {
+      "name": "claim-invent-topdown",
+      "ok": true,
+      "lemmas": [
+        "challengeA_cumulative_of_dyadic",
+        "challengeB_cumulative_of_dyadic",
+        "challengeC_cumulative_of_dyadic"
+      ]
+    },
+    {
+      "name": "claim-invent-middle",
+      "ok": true,
+      "lemmas": [
+        "challengeA_dyadic_of_Hfun",
+        "challengeB_dyadic_of_Ffun",
+        "challengeC_dyadic_of_Ffun",
+        "challenge_eps_of_littleO"
+      ]
+    },
+    {
+      "name": "lake-build-InventMath",
+      "ok": true,
+      "status": 0,
+      "stderrTail": "✔ [8697/8698] Built InventMath (9.3s)\nBuild completed successfully (8698 jobs)."
+    },
+    {
+      "name": "compose",
+      "ok": true,
+      "compositionId": "comp_653fdda0"
+    }
+  ],
+  "paths": {
+    "inventSandbox": "/workspace/expeditions/riemann-fractisi/.invent-sandbox/zeta23-invent-math",
+    "inventMathSrc": "/workspace/expeditions/riemann-fractisi/lean/invent-math/InventMath.lean"
+  }
+}

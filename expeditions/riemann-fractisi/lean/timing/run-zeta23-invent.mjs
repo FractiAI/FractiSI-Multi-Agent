@@ -56,6 +56,8 @@ import {
   formatRhymeApplyLean,
   omniversalSeedEdgeNav,
   proposeXraySolutionApplies,
+  ENDGAME_SEED_MAP,
+  readInventMathIndex,
 } from '../../../../src/expeditions/riemann-zeta23-rhyme-discover.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -301,7 +303,45 @@ function assertNoSealedLeak(root) {
   return leaks;
 }
 
-function writeInventLakefile(root, { withInventMath = false, withRhymeApply = false } = {}) {
+/** Main-estimate Prop names → Challenge-typed invent_<edge> composition. */
+const MAIN_ESTIMATE_SEED_CLOSES = Object.freeze([
+  {
+    estimate: 'main_estimate_Hfun_N0star',
+    prop: 'MainEstimateHfunN0star',
+    seed: 'invent_two_thirds_on_critical_line',
+    edge: 'two_thirds_on_critical_line',
+    body: 'exact invent_two_thirds_on_critical_line_of_main main_estimate_Hfun_N0star',
+  },
+  {
+    estimate: 'main_estimate_Ffun_N0simple',
+    prop: 'MainEstimateFfunN0simple',
+    seed: 'invent_two_thirds_simple_on_critical_line',
+    edge: 'two_thirds_simple_on_critical_line',
+    // Challenge B needs 2/3; glueB gives 1/2. Keep composition for half-shape invent awareness;
+    // full 2/3 simple needs multiplicity lift (remaining invent).
+    body: 'exact invent_half_simple_of_main main_estimate_Ffun_N0simple',
+    challengeTypeMismatch: true,
+  },
+  {
+    estimate: 'main_estimate_Ffun_Ndist',
+    prop: 'MainEstimateFfunNdist',
+    seed: 'invent_five_sixths_distinct',
+    edge: 'five_sixths_distinct',
+    // glueC gives 3/4; Challenge C needs 5/6 via (3−R)/2. Composition is 3/4-shape.
+    body: 'exact invent_three_quarters_distinct_of_main main_estimate_Ffun_Ndist',
+    challengeTypeMismatch: true,
+  },
+]);
+
+function writeInventLakefile(
+  root,
+  {
+    withInventMath = false,
+    withRhymeApply = false,
+    withInventEndgame = false,
+    withInventAnalytic = false,
+  } = {},
+) {
   // Drop Zeta23 target — invent must not depend on Anthropic proof library.
   const inventMathLib = withInventMath
     ? `
@@ -310,6 +350,22 @@ name = "InventMath"
 roots = ["InventMath"]
 `
     : '';
+  const inventAnalyticLib =
+    withInventMath && withInventAnalytic
+      ? `
+[[lean_lib]]
+name = "InventAnalytic"
+roots = ["InventAnalytic"]
+`
+      : '';
+  const inventEndgameLib =
+    withInventMath && withInventEndgame
+      ? `
+[[lean_lib]]
+name = "InventEndgame"
+roots = ["InventEndgame"]
+`
+      : '';
   const rhymeApplyLib =
     withInventMath && withRhymeApply
       ? `
@@ -318,10 +374,13 @@ name = "RhymeApply"
 roots = ["RhymeApply"]
 `
       : '';
-  const defaults =
-    withInventMath && withRhymeApply
-      ? '["ChallengeDeps", "Challenge", "InventMath", "RhymeApply", "Solution"]'
-      : '["ChallengeDeps", "Challenge", "Solution"]';
+  const libs = ['ChallengeDeps', 'Challenge'];
+  if (withInventMath) libs.push('InventMath');
+  if (withInventAnalytic) libs.push('InventAnalytic');
+  if (withInventEndgame) libs.push('InventEndgame');
+  if (withRhymeApply) libs.push('RhymeApply');
+  libs.push('Solution');
+  const defaults = JSON.stringify(libs);
   const body = `name = "Zeta23Invent"
 version = "0.1.0"
 defaultTargets = ${defaults}
@@ -342,7 +401,7 @@ roots = ["ChallengeDeps"]
 [[lean_lib]]
 name = "Challenge"
 roots = ["Challenge"]
-${inventMathLib}${rhymeApplyLib}
+${inventMathLib}${inventAnalyticLib}${inventEndgameLib}${rhymeApplyLib}
 [[lean_lib]]
 name = "Solution"
 roots = ["Solution"]
@@ -355,13 +414,14 @@ function renderTheorem(thm, tacticBody) {
   return `theorem ${thm.name}${binders} :\n    ${thm.stmt} := by\n  ${tacticBody}\n`;
 }
 
-function writeSolution(root, proofs, { withInventMath = false } = {}) {
+function writeSolution(root, proofs, { withInventMath = false, withInventEndgame = false } = {}) {
   const header = `/-
 FractiSI invent Solution — NO import of Anthropic Zeta23 library.
-Proofs below are invented by FractiSI Lean/Mathlib tactic search on this VM.
+Near-instant close path: exact invent_<edge> endgame seeds (InventEndgame),
+same thin shape as Anthropic Solution → Zeta23.thmA₀.
 -/
 import ChallengeDeps
-${withInventMath ? 'import InventMath\n' : ''}
+${withInventMath ? 'import InventMath\n' : ''}${withInventEndgame ? 'import InventEndgame\n' : ''}
 noncomputable section
 
 `;
@@ -374,6 +434,61 @@ noncomputable section
   }
   body += 'end\n';
   writeFileSync(join(root, 'Solution.lean'), body);
+}
+
+/** Append or replace an invent_<edge> seed proof inside InventEndgame.lean. */
+function upsertInventEndgameSeed(root, seedName, thm, tacticBody) {
+  const path = join(root, 'InventEndgame.lean');
+  if (!existsSync(path)) return false;
+  let text = readFileSync(path, 'utf8');
+  const binders = thm.binders ? ` ${thm.binders}` : '';
+  const block = `
+/-- Challenge-typed endgame seed (Solution exact partner). -/
+theorem ${seedName}${binders} :
+    ${thm.stmt} := by
+  ${String(tacticBody).trim().split('\n').join('\n  ')}
+`;
+  const re = new RegExp(
+    `(?:/--[^\\n]*\\n)?theorem\\s+${seedName}\\b[\\s\\S]*?(?=\\n(?:theorem|lemma|end)\\b)`,
+  );
+  if (re.test(text)) {
+    text = text.replace(re, block.trim() + '\n\n');
+  } else {
+    text = text.replace(/\nend\s*\n\s*$/, `\n${block}\nend\n`);
+  }
+  writeFileSync(path, text);
+  return true;
+}
+
+/**
+ * When unconditional main_estimate_* theorems are closed in InventEndgame,
+ * write Challenge-typed invent_<edge> seeds via glue composition and Solution exact.
+ * Returns { closedSeeds, proofsUpdated }.
+ */
+function tryCloseSeedsFromMainEstimates(root, proofs, inventTheorems) {
+  const { decls } = readInventMathIndex({
+    inventMathPath: join(root, 'InventMath.lean'),
+    inventEndgamePath: join(root, 'InventEndgame.lean'),
+    inventAnalyticPath: join(root, 'InventAnalytic.lean'),
+  });
+  const closedSeeds = [];
+  for (const row of MAIN_ESTIMATE_SEED_CLOSES) {
+    if (row.challengeTypeMismatch) continue; // half/¾ shapes ≠ Challenge 2/3·5/6 yet
+    const est = decls.get(row.estimate);
+    if (!est?.closed) continue;
+    const thm = inventTheorems.find((t) => t.name === row.edge);
+    if (!thm) continue;
+    upsertInventEndgameSeed(root, row.seed, thm, row.body);
+    proofs.set(thm.name, {
+      tacticId: `exact_endgame:${row.seed}`,
+      body: `exact ${row.seed}`,
+      closed: false,
+      nearInstant: true,
+      fromMainEstimate: row.estimate,
+    });
+    closedSeeds.push(row);
+  }
+  return { closedSeeds, decls };
 }
 
 function solutionImportsZeta23(root) {
@@ -398,13 +513,30 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     cpSync(src, join(INVENT_ROOT, name), { recursive: true });
   }
   const inventMathSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventMath.lean');
+  const inventAnalyticSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventAnalytic.lean');
+  const inventEndgameSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventEndgame.lean');
+  let withInventEndgame = false;
+  let withInventAnalytic = false;
   if (withInventMath) {
     if (!existsSync(inventMathSrc)) {
       throw new Error(`missing InventMath at ${inventMathSrc}`);
     }
     cpSync(inventMathSrc, join(INVENT_ROOT, 'InventMath.lean'));
+    if (existsSync(inventAnalyticSrc)) {
+      cpSync(inventAnalyticSrc, join(INVENT_ROOT, 'InventAnalytic.lean'));
+      withInventAnalytic = true;
+    }
+    if (existsSync(inventEndgameSrc)) {
+      cpSync(inventEndgameSrc, join(INVENT_ROOT, 'InventEndgame.lean'));
+      withInventEndgame = true;
+    }
   }
-  writeInventLakefile(INVENT_ROOT, { withInventMath, withRhymeApply: withInventMath });
+  writeInventLakefile(INVENT_ROOT, {
+    withInventMath,
+    withRhymeApply: withInventMath,
+    withInventEndgame,
+    withInventAnalytic,
+  });
   // Warm Mathlib cache only (no proof modules).
   const lakeSrc = join(VENDOR, '.lake');
   if (existsSync(lakeSrc)) {
@@ -422,13 +554,42 @@ function prepareInventSandbox({ withInventMath = false } = {}) {
     sealedCorpusReadableByAgents: false,
   };
   // Start Solution as all-sorry invent shell (no Anthropic Solution copy).
+  // Prefer exact invent_<edge> when endgame seed already closed in InventEndgame.
   const proofs = new Map();
-  for (const thm of INVENT_THEOREMS) proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry' });
-  writeSolution(INVENT_ROOT, proofs, { withInventMath });
+  const { decls } = withInventEndgame
+    ? readInventMathIndex({
+        inventMathPath: join(INVENT_ROOT, 'InventMath.lean'),
+        inventAnalyticPath: join(INVENT_ROOT, 'InventAnalytic.lean'),
+        inventEndgamePath: join(INVENT_ROOT, 'InventEndgame.lean'),
+      })
+    : { decls: new Map() };
+  for (const thm of INVENT_THEOREMS) {
+    const seed = ENDGAME_SEED_MAP[thm.name] || `invent_${thm.name}`;
+    const seedDecl = decls.get(seed);
+    if (seedDecl?.challengeTypeExact && seedDecl.closed) {
+      proofs.set(thm.name, {
+        tacticId: `exact_endgame:${seed}`,
+        body: `exact ${seed}`,
+        closed: false,
+        nearInstant: true,
+      });
+    } else {
+      proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry', closed: false });
+    }
+  }
+  // Auto-close Challenge A seed when main_estimate_Hfun_N0star already invented.
+  if (withInventEndgame) {
+    tryCloseSeedsFromMainEstimates(INVENT_ROOT, proofs, INVENT_THEOREMS);
+    writeSolution(INVENT_ROOT, proofs, { withInventMath, withInventEndgame });
+  } else {
+    writeSolution(INVENT_ROOT, proofs, { withInventMath, withInventEndgame });
+  }
   return {
     challengeOnly: anthropicProofsAbsent,
     inventSolutionShellWritten: true,
     withInventMath,
+    withInventEndgame,
+    withInventAnalytic,
     leaks: assertNoSealedLeak(INVENT_ROOT),
   };
 }
@@ -473,6 +634,8 @@ function main() {
   const paperAddendum = paperMode ? paperMathSystemAddendum() : null;
   const anyLlmKey = Object.values(keys).some(Boolean);
   const prep = prepareInventSandbox({ withInventMath });
+  const withInventEndgame = Boolean(prep.withInventEndgame);
+  const withInventAnalytic = Boolean(prep.withInventAnalytic);
   if (prep.leaks.length) {
     console.error('sealed leak into invent sandbox', prep.leaks);
     process.exit(1);
@@ -521,7 +684,12 @@ function main() {
     });
     const applyLean = formatRhymeApplyLean(rhymeImmediate.uniqueApplyPartners);
     writeFileSync(join(INVENT_ROOT, 'RhymeApply.lean'), applyLean);
-    writeInventLakefile(INVENT_ROOT, { withInventMath: true, withRhymeApply: true });
+    writeInventLakefile(INVENT_ROOT, {
+      withInventMath: true,
+      withRhymeApply: true,
+      withInventEndgame,
+      withInventAnalytic,
+    });
     const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
     const rhymeBuild = run(lake, ['build', 'RhymeApply'], {
       cwd: INVENT_ROOT,
@@ -581,7 +749,7 @@ function main() {
         nearInstant: true,
         omniversal: true,
       });
-      writeSolution(INVENT_ROOT, proofs, { withInventMath: true });
+      writeSolution(INVENT_ROOT, proofs, { withInventMath: true, withInventEndgame });
       if (solutionImportsZeta23(INVENT_ROOT)) {
         console.error('INVARIANT FAIL: invent Solution imported Zeta23');
         process.exit(2);
@@ -592,7 +760,12 @@ function main() {
       });
       const body = String(proofs.get(a.theorem)?.body || '');
       const honest =
-        body.trim().length > 0 && !/\bsorry\b/.test(body) && !/\badmit\b/.test(body);
+        body.trim().length > 0 &&
+        !/\bsorry\b/.test(body) &&
+        !/\badmit\b/.test(body) &&
+        // Solution may only exact Challenge-typed endgame seeds — never Hfun_one etc.
+        (body.trim() === `exact ${ENDGAME_SEED_MAP[a.theorem] || `invent_${a.theorem}`}` ||
+          body.trim().startsWith('exact invent_'));
       if (build.status === 0 && honest) {
         proofs.set(a.theorem, { ...proofs.get(a.theorem), closed: true });
         xraySolutionCloses += 1;
@@ -609,7 +782,7 @@ function main() {
           closed: false,
           reverted: true,
         });
-        writeSolution(INVENT_ROOT, proofs, { withInventMath: true });
+        writeSolution(INVENT_ROOT, proofs, { withInventMath: true, withInventEndgame });
         steps.push({
           name: `xray-gps-exact-${a.theorem}`,
           ok: false,
@@ -782,23 +955,54 @@ function main() {
           };
           if (invented.ok) {
             llmOkCalls += 1;
+            const seed = ENDGAME_SEED_MAP[thm.name] || `invent_${thm.name}`;
+            // Nested-tunnel fix: invent Challenge-typed endgame seed FIRST, then
+            // Solution does near-instant `exact invent_<edge>` (never exact Hfun_one).
+            let endgameOk = false;
+            if (withInventEndgame && !args.skipLake) {
+              upsertInventEndgameSeed(INVENT_ROOT, seed, thm, invented.body);
+              const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
+              const egBuild = run(lake, ['build', 'InventEndgame'], {
+                cwd: INVENT_ROOT,
+                timeoutMs: 180_000,
+              });
+              endgameOk =
+                egBuild.status === 0 &&
+                !/\bsorry\b/.test(invented.body) &&
+                !/\badmit\b/.test(invented.body);
+              lastBuildStderr = (egBuild.stderr || egBuild.stdout || '').slice(-4000);
+              steps.push({
+                name: `invent-endgame-seed-r${round}-${seed}`,
+                ok: endgameOk,
+                status: egBuild.status,
+                stderrTail: lastBuildStderr.slice(-800),
+              });
+              // Sync durable InventEndgame source when seed lake-greens.
+              if (endgameOk) {
+                const durable = join(resolve(__dirname, '..'), 'invent-math', 'InventEndgame.lean');
+                cpSync(join(INVENT_ROOT, 'InventEndgame.lean'), durable);
+              }
+            }
             proofs.set(thm.name, {
-              tacticId: `llm:${invented.model}`,
-              body: invented.body,
+              tacticId: endgameOk ? `exact_endgame:${seed}` : `llm:${invented.model}`,
+              body: endgameOk ? `exact ${seed}` : invented.body,
               closed: false,
               round,
               llm: true,
               awareness: true,
+              endgameSeed: seed,
+              endgameOk,
               ...rhymeMeta,
             });
             attempts.push({
               atSeconds: (performance.now() - t0) / 1000,
               agent: agentName,
               theorem: thm.name,
-              strategy: `llm:${invented.model}`,
+              strategy: endgameOk ? `exact_endgame:${seed}` : `llm:${invented.model}`,
               round,
               llm: true,
               awareness: true,
+              endgameOk,
               ...rhymeMeta,
               ok: true,
             });
@@ -827,24 +1031,42 @@ function main() {
             });
           }
         } else {
-          proofs.set(thm.name, {
-            tacticId: strategy.id,
-            body: strategy.body,
-            closed: false,
-            round,
-          });
+          // Non-LLM: first try exact endgame seed if present; else tactic barrage.
+          const seed = ENDGAME_SEED_MAP[thm.name] || `invent_${thm.name}`;
+          const { decls } = withInventEndgame
+            ? readInventMathIndex({
+                inventMathPath: join(INVENT_ROOT, 'InventMath.lean'),
+                inventEndgamePath: join(INVENT_ROOT, 'InventEndgame.lean'),
+              })
+            : { decls: new Map() };
+          if (decls.get(seed)?.challengeTypeExact) {
+            proofs.set(thm.name, {
+              tacticId: `exact_endgame:${seed}`,
+              body: `exact ${seed}`,
+              closed: false,
+              round,
+              nearInstant: true,
+            });
+          } else {
+            proofs.set(thm.name, {
+              tacticId: strategy.id,
+              body: strategy.body,
+              closed: false,
+              round,
+            });
+          }
           attempts.push({
             atSeconds: (performance.now() - t0) / 1000,
             agent: agentName,
             theorem: thm.name,
-            strategy: strategy.id,
+            strategy: proofs.get(thm.name)?.tacticId || strategy.id,
             round,
             llm: false,
           });
         }
 
         // Per-theorem lake gate (accumulate closes toward 17/17).
-        writeSolution(INVENT_ROOT, proofs, { withInventMath });
+        writeSolution(INVENT_ROOT, proofs, { withInventMath, withInventEndgame });
         if (solutionImportsZeta23(INVENT_ROOT)) {
           console.error('INVARIANT FAIL: invent Solution imported Zeta23');
           process.exit(2);
@@ -883,7 +1105,7 @@ function main() {
               round,
               reverted: true,
             });
-            writeSolution(INVENT_ROOT, proofs, { withInventMath });
+            writeSolution(INVENT_ROOT, proofs, { withInventMath, withInventEndgame });
           }
         }
       }
@@ -910,7 +1132,21 @@ function main() {
       platform.coordination.ownership.setStatus(task.id, 'done');
     }
 
-    writeSolution(INVENT_ROOT, proofs, { withInventMath });
+    // After invent attempts: close Challenge-typed seeds from any newly proved main estimates.
+    if (withInventEndgame) {
+      const fromMain = tryCloseSeedsFromMainEstimates(INVENT_ROOT, proofs, INVENT_THEOREMS);
+      if (fromMain.closedSeeds.length) {
+        steps.push({
+          name: `close-seeds-from-main-r${round}`,
+          ok: true,
+          closedSeeds: fromMain.closedSeeds.map((r) => r.seed),
+          estimates: fromMain.closedSeeds.map((r) => r.estimate),
+        });
+        const durable = join(resolve(__dirname, '..'), 'invent-math', 'InventEndgame.lean');
+        cpSync(join(INVENT_ROOT, 'InventEndgame.lean'), durable);
+      }
+    }
+    writeSolution(INVENT_ROOT, proofs, { withInventMath, withInventEndgame });
     if (solutionImportsZeta23(INVENT_ROOT)) {
       console.error('INVARIANT FAIL: invent Solution imported Zeta23');
       process.exit(2);
@@ -984,7 +1220,7 @@ function main() {
           proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry', closed: false, round });
         }
       }
-      writeSolution(INVENT_ROOT, proofs, { withInventMath });
+      writeSolution(INVENT_ROOT, proofs, { withInventMath, withInventEndgame });
       steps.push({
         name: 'plateau',
         ok: true,
