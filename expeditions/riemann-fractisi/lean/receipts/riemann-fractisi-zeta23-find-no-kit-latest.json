@@ -1,0 +1,208 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-find-no-kit.v1",
+  "label": "riemann-fractisi-zeta23-find-no-kit",
+  "mode": "find_no_kit",
+  "startedAt": "2026-11-25T03:08:57.839Z",
+  "endedAt": "2026-11-25T03:11:57.844Z",
+  "durationSeconds": 180.002041508,
+  "cutoffSeconds": 180,
+  "cutoffHit": true,
+  "ok": false,
+  "inventedAnything": false,
+  "leanOk": false,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "No-FractiSI find attempt from Challenge-only with no sealed proof corpus and no FractiSI coordination, capped early",
+    "whatThisDoesNotMeasure": [
+      "FractiSI find-assemble of the published formalization (see run-zeta23-find.mjs)",
+      "A full Anthropic-scale ~1.5 day multi-agent invention run",
+      "RH"
+    ],
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents · ~1.5 days · discover+formalize critical-line bound 41.6% → 67.2%",
+    "cutoffRationale": "If invention progress is still zero near the 3-minute mark, finishing would take Anthropic-scale time — abort and explain rather than burn a day and a half.",
+    "explanation": "No-FractiSI find starts Challenge-only with proofs absent and no sealed corpus. No Anthropic/OpenAI/Google API keys on this VM, so independent analytic rediscovery cannot run. After 180.00s the sandbox still has 26 Challenge sorries and no Solution. Progress toward a green Solution is effectively zero without inventing (or being handed) the formalization. Anthropic’s published finding clock for this target is ~1.5 days (~129600s) with ~60 agents inventing+formalizing. Cutoff at 180s: continuing this arm would not finish in minutes — it is the Anthropic-scale discovery problem. FractiSI find (separate harness) is different: Challenge-only → discover sealed published modules → compose → green Solution in ~11.66s. That is find-assemble, not idea invention."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23Dir": true,
+    "Zeta23Lean": true,
+    "SolutionLean": true,
+    "SolutionDir": true
+  },
+  "challengeOnlyAtEnd": {
+    "Zeta23Dir": true,
+    "Zeta23Lean": true,
+    "SolutionLean": true,
+    "SolutionDir": true
+  },
+  "sorryAtStart": {
+    "sorryCount": 26,
+    "files": [
+      {
+        "path": "Challenge/XiPrime.lean",
+        "sorries": 6
+      },
+      {
+        "path": "Challenge.lean",
+        "sorries": 20
+      }
+    ]
+  },
+  "sorryAtEnd": {
+    "sorryCount": 26,
+    "files": [
+      {
+        "path": "Challenge/XiPrime.lean",
+        "sorries": 6
+      },
+      {
+        "path": "Challenge.lean",
+        "sorries": 20
+      }
+    ]
+  },
+  "apiKeys": {
+    "ANTHROPIC_API_KEY": false,
+    "OPENAI_API_KEY": false,
+    "GOOGLE_API_KEY": false
+  },
+  "fractisiUsed": false,
+  "sealedCorpusAvailableToAgents": false,
+  "probes": [
+    {
+      "atSeconds": 1.14697529,
+      "kind": "lake_build_Solution",
+      "ok": false,
+      "status": 1,
+      "note": "Solution absent or unfinished (expected)",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "atSeconds": 1.147339662,
+      "kind": "sorry_census",
+      "sorryCount": 26,
+      "files": [
+        {
+          "path": "Challenge/XiPrime.lean",
+          "sorries": 6
+        },
+        {
+          "path": "Challenge.lean",
+          "sorries": 20
+        }
+      ]
+    },
+    {
+      "atSeconds": 1.147347221,
+      "kind": "sandbox_inventory",
+      "challengeOnly": {
+        "Zeta23Dir": true,
+        "Zeta23Lean": true,
+        "SolutionLean": true,
+        "SolutionDir": true
+      },
+      "fractisiDirPresent": false,
+      "sealedCorpusInjected": false,
+      "apiKeys": {
+        "ANTHROPIC_API_KEY": false,
+        "OPENAI_API_KEY": false,
+        "GOOGLE_API_KEY": false
+      }
+    },
+    {
+      "atSeconds": 16.152025698000003,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 31.154153402,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 46.156322063,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 61.158530684,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 76.160665685,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 91.162718504,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 106.16471461,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 121.166961547,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 136.16890915199997,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 151.170904461,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 166.173418871,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    },
+    {
+      "atSeconds": 180.00203193099998,
+      "kind": "discovery_tick",
+      "stillChallengeOnly": true,
+      "theoremsInvented": 0,
+      "note": "No LLM API keys — cannot invent Alpöge–Furman analytic argument on this VM"
+    }
+  ],
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (~1.5 days finding)",
+    "baselineSecondsApprox": 129600,
+    "fractisiFindSecondsApprox": 11.66,
+    "thisArmSeconds": 180.002041508,
+    "thisArmOutcome": "cutoff_no_solution",
+    "note": "Do not equate FractiSI 11.66s find-assemble with Anthropic idea invention. This no-kit arm shows the invention-scale gap when FractiSI and the sealed corpus are both withheld."
+  },
+  "paths": {
+    "findSandbox": "/workspace/expeditions/riemann-fractisi/.find-sandbox/zeta23-find-no-kit"
+  }
+}

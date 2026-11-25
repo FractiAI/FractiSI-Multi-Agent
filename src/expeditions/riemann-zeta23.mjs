@@ -7,6 +7,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ZETA23_SCHEMA = 'fractisi.riemann-expedition.zeta23.v1';
+export const ZETA23_FIND_SCHEMA = 'fractisi.riemann-expedition.zeta23-find.v1';
+export const ZETA23_FIND_NO_KIT_SCHEMA = 'fractisi.riemann-expedition.zeta23-find-no-kit.v1';
 export const PERMITTED_AXIOMS = Object.freeze(['propext', 'Classical.choice', 'Quot.sound']);
 
 export const ZETA23_PARTITIONS = Object.freeze([
@@ -66,4 +68,37 @@ export function loadLatestZeta23Receipt(receiptsDir) {
     return { ok: receipt.schema === ZETA23_SCHEMA && receipt.ok === true, receipt };
   }
   return { ok: false, error: 'missing_latest_receipt' };
+}
+
+export function loadLatestZeta23FindReceipt(receiptsDir) {
+  if (!existsSync(receiptsDir)) return { ok: false, error: 'missing_receipts_dir' };
+  const preferred = join(receiptsDir, 'riemann-fractisi-zeta23-find-latest.json');
+  if (existsSync(preferred)) {
+    const receipt = JSON.parse(readFileSync(preferred, 'utf8'));
+    return {
+      ok:
+        receipt.schema === ZETA23_FIND_SCHEMA &&
+        receipt.ok === true &&
+        receipt.mode === 'find',
+      receipt,
+    };
+  }
+  return { ok: false, error: 'missing_latest_find_receipt' };
+}
+
+/** No-kit find is a successful *measurement* when cutoffHit and still no Solution. */
+export function loadLatestZeta23FindNoKitReceipt(receiptsDir) {
+  if (!existsSync(receiptsDir)) return { ok: false, error: 'missing_receipts_dir' };
+  const preferred = join(receiptsDir, 'riemann-fractisi-zeta23-find-no-kit-latest.json');
+  if (existsSync(preferred)) {
+    const receipt = JSON.parse(readFileSync(preferred, 'utf8'));
+    const measured =
+      receipt.schema === ZETA23_FIND_NO_KIT_SCHEMA &&
+      receipt.mode === 'find_no_kit' &&
+      receipt.fractisiUsed === false &&
+      receipt.cutoffHit === true &&
+      receipt.ok === false;
+    return { ok: measured, receipt };
+  }
+  return { ok: false, error: 'missing_latest_find_no_kit_receipt' };
 }

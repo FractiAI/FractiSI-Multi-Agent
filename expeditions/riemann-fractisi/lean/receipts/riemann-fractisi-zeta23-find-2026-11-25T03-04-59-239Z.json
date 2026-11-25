@@ -1,0 +1,721 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-find.v1",
+  "label": "riemann-fractisi-zeta23-find",
+  "mode": "find",
+  "startedAt": "2026-11-25T03:04:59.239Z",
+  "endedAt": "2026-11-25T03:05:10.896Z",
+  "durationSeconds": 11.656368,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "FractiSI find clock: Challenge-only sandbox at t=0; agents discover sealed proof modules, compose, materialize, lake build Solution",
+    "whatThisDoesNotMeasure": [
+      "Independent rediscovery / invention of the Alpöge–Furman analytic argument",
+      "Verify of a pre-built complete tree (see run-zeta23.mjs)",
+      "RH"
+    ],
+    "sealedCorpus": "Published anthropics/formal-math/zeta23 proof modules (Apache-2.0)",
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents · ~1.5 days · discover+formalize critical-line bound 41.6% → 67.2%",
+    "comparisonNote": "This find duration is formalization assembly from Challenge-only under FractiSI. Anthropic’s ~1.5 days also includes inventing the analytic argument. Do not claim idea-invention parity."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23Dir": true,
+    "Zeta23Lean": true,
+    "SolutionLean": true,
+    "SolutionDir": true
+  },
+  "presentAfterDiscovery": {
+    "Zeta23Lean": true,
+    "SolutionLean": true,
+    "Zeta23Dir": true
+  },
+  "sealedFileCount": 319,
+  "discoveredFileCount": 319,
+  "fractisi": {
+    "agents": 4,
+    "agentIds": [
+      "agent_c3741759",
+      "agent_965402bd",
+      "agent_65c40757",
+      "agent_69b96ca3"
+    ],
+    "tasks": 4,
+    "taskIds": [
+      "task_4cd59df1",
+      "task_77312585",
+      "task_8f5c8907",
+      "task_7e318274"
+    ],
+    "contributions": 4,
+    "contributionIds": [
+      "contrib_d6f7368e",
+      "contrib_1253d95d",
+      "contrib_25264db1",
+      "contrib_e1e705ca"
+    ],
+    "compositions": 1,
+    "compositionId": "comp_61775d31",
+    "platformStatus": {
+      "tasks": {
+        "total": 4,
+        "open": 0,
+        "list": [
+          {
+            "id": "task_4cd59df1",
+            "title": "find proofs: find-core (202 modules)",
+            "agentId": "agent_c3741759",
+            "paths": [
+              "Zeta23.lean",
+              "Zeta23/Assembly/Certificate.lean",
+              "Zeta23/Assembly/CertificateC3.lean",
+              "Zeta23/Assembly/Inputs.lean",
+              "Zeta23/Assembly/SeamMult.lean",
+              "Zeta23/Assembly.lean",
+              "Zeta23/Chebyshev.lean",
+              "Zeta23/Defs/Counting.lean",
+              "Zeta23/Defs/LeafIntegrals.lean",
+              "Zeta23/Defs/Profile.lean",
+              "Zeta23/Defs.lean",
+              "Zeta23/FromPNTPlus/Auxiliary.lean",
+              "Zeta23/FromPNTPlus/EulerMaclaurin.lean",
+              "Zeta23/FromPNTPlus/Fourier.lean",
+              "Zeta23/FromPNTPlus/Mathlib/Algebra/Notation/Support.lean",
+              "Zeta23/FromPNTPlus/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+              "Zeta23/FromPNTPlus/MediumPNT.lean",
+              "Zeta23/FromPNTPlus/MellinCalculus.lean",
+              "Zeta23/FromPNTPlus/Mertens.lean",
+              "Zeta23/FromPNTPlus/Rectangle.lean",
+              "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+              "Zeta23/FromPNTPlus/SmoothExistence.lean",
+              "Zeta23/FromPNTPlus/Sobolev.lean",
+              "Zeta23/FromPNTPlus/StrongPNTPrefix.lean",
+              "Zeta23/FromPNTPlus/Tactic/AdditiveCombination.lean",
+              "Zeta23/FromPNTPlus/ZetaBounds.lean",
+              "Zeta23/FromPNTPlus/ZetaConj.lean",
+              "Zeta23/Hypotheses/GzGp.lean",
+              "Zeta23/Hypotheses.lean",
+              "Zeta23/LinAlg/HermitianPosPart.lean",
+              "Zeta23/LinAlg/Inertia.lean",
+              "Zeta23/LinAlg/PosIndex.lean",
+              "Zeta23/LinAlg/RankTrace.lean",
+              "Zeta23/LinAlg/Sylvester.lean",
+              "Zeta23/LinAlg/VonNeumann.lean",
+              "Zeta23/LinAlg/Weyl.lean",
+              "Zeta23/LinAlg.lean",
+              "Zeta23/Main.lean",
+              "Zeta23/PairCeiling/Bridge.lean",
+              "Zeta23/PairCeiling/Ceiling.lean",
+              "Zeta23/PairCeiling/CeilingLaw256.lean",
+              "Zeta23/PairCeiling/Defs.lean",
+              "Zeta23/PairCeiling/Grid.lean",
+              "Zeta23/PairCeiling/LawN256.lean",
+              "Zeta23/PairCeiling/NearCUE.lean",
+              "Zeta23/PairCeiling/NumericCert.lean",
+              "Zeta23/PairCeiling/RowCert.lean",
+              "Zeta23/PairCeiling/Signed.lean",
+              "Zeta23/PairCeiling/Stability.lean",
+              "Zeta23/PiFacts.lean",
+              "Zeta23/Poisson/PaperFT.lean",
+              "Zeta23/Poisson.lean",
+              "Zeta23/Prelude/InstancePriorities.lean",
+              "Zeta23/Statement/Seam.lean",
+              "Zeta23/Statement/SeamClosed.lean",
+              "Zeta23/Statement.lean",
+              "Zeta23/Tail/Basic.lean",
+              "Zeta23/Tail/Count.lean",
+              "Zeta23/Tail/Grid.lean",
+              "Zeta23/Tail/Package.lean",
+              "Zeta23/Tail/RankOne.lean",
+              "Zeta23/Tail.lean",
+              "Zeta23/Taper/Basic.lean",
+              "Zeta23/Taper/Decay.lean",
+              "Zeta23/Taper/Fourier.lean",
+              "Zeta23/Taper/Gevrey.lean",
+              "Zeta23/Taper/GevreyPhi.lean",
+              "Zeta23/Taper/GevreyRamps.lean",
+              "Zeta23/Taper/Norms.lean",
+              "Zeta23/Taper/Params.lean",
+              "Zeta23/Taper/Strip.lean",
+              "Zeta23/Taper.lean",
+              "Zeta23/TracesBoundsE.lean",
+              "Zeta23/Unconditional.lean",
+              "Zeta23/WeilEF/Contour.lean",
+              "Zeta23/WeilEF/Effective.lean",
+              "Zeta23/WeilEF/FullLine.lean",
+              "Zeta23/WeilEF/FullLineAssembly.lean",
+              "Zeta23/WeilEF/GammaRBracket.lean",
+              "Zeta23/WeilEF/GoodHeights.lean",
+              "Zeta23/WeilEF/Horizontal.lean",
+              "Zeta23/WeilEF/Landau.lean",
+              "Zeta23/WeilEF/Main.lean",
+              "Zeta23/WeilEF/VerticalLine.lean",
+              "Zeta23/WeilEF/XiLogDeriv.lean",
+              "Zeta23/WeilEF/ZeroSumLimit.lean",
+              "Zeta23/WeilEF/ZeroSummability.lean",
+              "Zeta23/WeilEF/ZeroSummabilityGen.lean",
+              "Zeta23/XiPrime/Assembly.lean",
+              "Zeta23/XiPrime/Certificate/AtOne.lean",
+              "Zeta23/XiPrime/Certificate/D1.lean",
+              "Zeta23/XiPrime/Certificate/Poly.lean",
+              "Zeta23/XiPrime/Certificate.lean",
+              "Zeta23/XiPrime/CertificateFn.lean",
+              "Zeta23/XiPrime/Coeff/Abel.lean",
+              "Zeta23/XiPrime/Coeff/Basic.lean",
+              "Zeta23/XiPrime/Coeff/DiagLaw.lean",
+              "Zeta23/XiPrime/Coeff/H3.lean",
+              "Zeta23/XiPrime/Coeff/LSeries.lean",
+              "Zeta23/XiPrime/Coeff/LT.lean",
+              "Zeta23/XiPrime/Coeff/LayerOne.lean",
+              "Zeta23/XiPrime/Coeff/MainTerm/Asymp.lean",
+              "Zeta23/XiPrime/Coeff/MainTerm/Squarefree.lean",
+              "Zeta23/XiPrime/Coeff/NonSquarefree.lean",
+              "Zeta23/XiPrime/Coeff/Param.lean",
+              "Zeta23/XiPrime/Coeff/PowerSums.lean",
+              "Zeta23/XiPrime/Coeff/PrimeSums.lean",
+              "Zeta23/XiPrime/Coeff/Reexpansion.lean",
+              "Zeta23/XiPrime/Coeff/ReexpansionGen.lean",
+              "Zeta23/XiPrime/Coeff/ReexpansionW.lean",
+              "Zeta23/XiPrime/Coeff/Tail.lean",
+              "Zeta23/XiPrime/Coeff/Upper.lean",
+              "Zeta23/XiPrime/Coeff.lean",
+              "Zeta23/XiPrime/Defs.lean",
+              "Zeta23/XiPrime/ExplicitFormula/Contour.lean",
+              "Zeta23/XiPrime/ExplicitFormula/DirichletLine.lean",
+              "Zeta23/XiPrime/ExplicitFormula/EntryError.lean",
+              "Zeta23/XiPrime/ExplicitFormula/Expansion.lean",
+              "Zeta23/XiPrime/ExplicitFormula/FamilyFacts.lean",
+              "Zeta23/XiPrime/ExplicitFormula/FullLine.lean",
+              "Zeta23/XiPrime/ExplicitFormula/GramBridge.lean",
+              "Zeta23/XiPrime/ExplicitFormula/JTerm.lean",
+              "Zeta23/XiPrime/ExplicitFormula/LineBound.lean",
+              "Zeta23/XiPrime/ExplicitFormula/LitCorr.lean",
+              "Zeta23/XiPrime/ExplicitFormula/Main.lean",
+              "Zeta23/XiPrime/ExplicitFormula/PrimeTermJ.lean",
+              "Zeta23/XiPrime/ExplicitFormula/TestWeight.lean",
+              "Zeta23/XiPrime/ExplicitFormula/XiEFAssembly.lean",
+              "Zeta23/XiPrime/ExplicitFormula/ZeroFree.lean",
+              "Zeta23/XiPrime/ExplicitFormula.lean",
+              "Zeta23/XiPrime/FamilyFlat.lean",
+              "Zeta23/XiPrime/FamilyHyps.lean",
+              "Zeta23/XiPrime/FamilyHypsV.lean",
+              "Zeta23/XiPrime/Final.lean",
+              "Zeta23/XiPrime/Hardy/Basic.lean",
+              "Zeta23/XiPrime/Hardy/Contour.lean",
+              "Zeta23/XiPrime/Hardy/Count.lean",
+              "Zeta23/XiPrime/Hardy/EFBasic.lean",
+              "Zeta23/XiPrime/Hardy/EFContour/Analytic.lean",
+              "Zeta23/XiPrime/Hardy/EFContour/Limit.lean",
+              "Zeta23/XiPrime/Hardy/EFContour/Poles.lean",
+              "Zeta23/XiPrime/Hardy/EFContour/Rectangle.lean",
+              "Zeta23/XiPrime/Hardy/EFContour.lean",
+              "Zeta23/XiPrime/Hardy/EFExpansion.lean",
+              "Zeta23/XiPrime/Hardy/EFFinal.lean",
+              "Zeta23/XiPrime/Hardy/EFJTermW.lean",
+              "Zeta23/XiPrime/Hardy/EFLitCorrW.lean",
+              "Zeta23/XiPrime/Hardy/EFMain.lean",
+              "Zeta23/XiPrime/Hardy/EFWeights.lean",
+              "Zeta23/XiPrime/Hardy/GoodHeightsW.lean",
+              "Zeta23/XiPrime/Hardy/GramBridgeW.lean",
+              "Zeta23/XiPrime/Hardy/Omega.lean",
+              "Zeta23/XiPrime/Hardy/Seam.lean",
+              "Zeta23/XiPrime/Hardy/TwoLine.lean",
+              "Zeta23/XiPrime/Hardy/ZFunction.lean",
+              "Zeta23/XiPrime/Hardy/ZeroFree.lean",
+              "Zeta23/XiPrime/Inputs.lean",
+              "Zeta23/XiPrime/PrimeSide/Abel.lean",
+              "Zeta23/XiPrime/PrimeSide/Concrete.lean",
+              "Zeta23/XiPrime/PrimeSide/Cross.lean",
+              "Zeta23/XiPrime/PrimeSide/Density.lean",
+              "Zeta23/XiPrime/PrimeSide/Final.lean",
+              "Zeta23/XiPrime/PrimeSide/Moments.lean",
+              "Zeta23/XiPrime/PrimeSide/PP.lean",
+              "Zeta23/XiPrime/PrimeSide/PPUpper.lean",
+              "Zeta23/XiPrime/PrimeSide/Trace.lean",
+              "Zeta23/XiPrime/PrimeSide/Traces.lean",
+              "Zeta23/XiPrime/QuarticWindow/Family.lean",
+              "Zeta23/XiPrime/QuarticWindow/ModWindow.lean",
+              "Zeta23/XiPrime/QuarticWindow/Moments.lean",
+              "Zeta23/XiPrime/QuarticWindow/Params.lean",
+              "Zeta23/XiPrime/QuarticWindow/Quartic.lean",
+              "Zeta23/XiPrime/QuarticWindow/ZeroSide.lean",
+              "Zeta23/XiPrime/QuarticWindow.lean",
+              "Zeta23/XiPrime/Seam.lean",
+              "Zeta23/XiPrime/Statement.lean",
+              "Zeta23/XiPrime/StatementW.lean",
+              "Zeta23/XiPrime/Transfer/Abstract.lean",
+              "Zeta23/XiPrime/Transfer/Dependence.lean",
+              "Zeta23/XiPrime/Transfer/Inputs.lean",
+              "Zeta23/XiPrime/Transfer/InputsW.lean",
+              "Zeta23/XiPrime/Transfer/W.lean",
+              "Zeta23/XiPrime/Transfer.lean",
+              "Zeta23/XiPrime/Window/FlatAdm.lean",
+              "Zeta23/XiPrime/Window/Quartic.lean",
+              "Zeta23/XiPrime/Window.lean",
+              "Zeta23/XiPrime/ZeroCount/ArgBound.lean",
+              "Zeta23/XiPrime/ZeroCount/Basic.lean",
+              "Zeta23/XiPrime/ZeroCount/Contour.lean",
+              "Zeta23/XiPrime/ZeroCount/Generic.lean",
+              "Zeta23/XiPrime/ZeroCount/GenericRvM.lean",
+              "Zeta23/XiPrime/ZeroCount/GoodHeights.lean",
+              "Zeta23/XiPrime/ZeroCount/Landau.lean",
+              "Zeta23/XiPrime/ZeroCount/Sides.lean",
+              "Zeta23/XiPrime/ZeroCount/Y.lean",
+              "Zeta23/XiPrime/ZeroCount.lean",
+              "Zeta23/ZeroSide/Final.lean",
+              "Zeta23/ZeroSide/Mult.lean",
+              "Zeta23/ZeroSide/RankTraceMult.lean",
+              "Zeta23/ZeroSide/TightMult.lean",
+              "Zeta23/ZeroSide.lean",
+              "Zeta23/ZetaReflect.lean"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T03:04:59.241Z",
+            "updatedAt": "2026-11-25T03:04:59.361Z"
+          },
+          {
+            "id": "task_77312585",
+            "title": "find proofs: find-analytic (51 modules)",
+            "agentId": "agent_965402bd",
+            "paths": [
+              "Zeta23/Analytic/RectangleLogDeriv.lean",
+              "Zeta23/Analytic/Stirling.lean",
+              "Zeta23/ExplicitFormula/Bridge.lean",
+              "Zeta23/ExplicitFormula.lean",
+              "Zeta23/GammaFacts/Complete.lean",
+              "Zeta23/GammaFacts/IntMu.lean",
+              "Zeta23/GammaFacts/Mu.lean",
+              "Zeta23/GammaFacts/Series.lean",
+              "Zeta23/GammaFacts/StirlingVert.lean",
+              "Zeta23/GammaFacts.lean",
+              "Zeta23/MV/Duality.lean",
+              "Zeta23/MV/Eigen.lean",
+              "Zeta23/MV/EigenIdentity.lean",
+              "Zeta23/MV/Final.lean",
+              "Zeta23/MV/Quadratic.lean",
+              "Zeta23/MV/Spacing.lean",
+              "Zeta23/MV.lean",
+              "Zeta23/PrimeSideA/Basic.lean",
+              "Zeta23/PrimeSideA/Bridge.lean",
+              "Zeta23/PrimeSideA/CrossMuP.lean",
+              "Zeta23/PrimeSideA/CrossMuPCore.lean",
+              "Zeta23/PrimeSideA/Defs.lean",
+              "Zeta23/PrimeSideA/Ends.lean",
+              "Zeta23/PrimeSideA/EndsCore.lean",
+              "Zeta23/PrimeSideA/EndsE1.lean",
+              "Zeta23/PrimeSideA/EndsE2.lean",
+              "Zeta23/PrimeSideA/EndsNu.lean",
+              "Zeta23/PrimeSideA/EndsWeighted.lean",
+              "Zeta23/PrimeSideA/MuMu.lean",
+              "Zeta23/PrimeSideA.lean",
+              "Zeta23/PrimeSideB/Concrete.lean",
+              "Zeta23/PrimeSideB/Final.lean",
+              "Zeta23/PrimeSideB/PP.lean",
+              "Zeta23/PrimeSideB/PPKernel.lean",
+              "Zeta23/PrimeSideB/PPOffDiag.lean",
+              "Zeta23/PrimeSideB/Traces.lean",
+              "Zeta23/PrimeSideB.lean",
+              "Zeta23/PrimeSideTemp.lean",
+              "Zeta23/RvM/Backlund.lean",
+              "Zeta23/RvM/BacklundDefs.lean",
+              "Zeta23/RvM/CountByIntegral.lean",
+              "Zeta23/RvM/Defs.lean",
+              "Zeta23/RvM/Fold.lean",
+              "Zeta23/RvM/GammaSide.lean",
+              "Zeta23/RvM/Halving.lean",
+              "Zeta23/RvM/LocalCount.lean",
+              "Zeta23/RvM/MainTerm.lean",
+              "Zeta23/RvM/NcountWindow.lean",
+              "Zeta23/RvM/ReZeroCount.lean",
+              "Zeta23/RvM/Statement.lean",
+              "Zeta23/RvM/ZetaGrowth.lean"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T03:04:59.462Z",
+            "updatedAt": "2026-11-25T03:04:59.527Z"
+          },
+          {
+            "id": "task_8f5c8907",
+            "title": "find proofs: find-thmde (64 modules)",
+            "agentId": "agent_65c40757",
+            "paths": [
+              "Zeta23/Final.lean",
+              "Zeta23/FinalMult.lean",
+              "Zeta23/ThmD/AssemblyD.lean",
+              "Zeta23/ThmD/BridgeD.lean",
+              "Zeta23/ThmD/Concrete.lean",
+              "Zeta23/ThmD/Endgame.lean",
+              "Zeta23/ThmD/Final.lean",
+              "Zeta23/ThmD/Functional.lean",
+              "Zeta23/ThmD/Limit.lean",
+              "Zeta23/ThmD/Mult.lean",
+              "Zeta23/ThmD/PP.lean",
+              "Zeta23/ThmD/ParamsD.lean",
+              "Zeta23/ThmD/PsiC.lean",
+              "Zeta23/ThmD/Traces.lean",
+              "Zeta23/ThmD/Window.lean",
+              "Zeta23/ThmD/WindowCore.lean",
+              "Zeta23/ThmD/WindowLocalHyps.lean",
+              "Zeta23/ThmD/ZeroSideD.lean",
+              "Zeta23/ThmDE/Concrete.lean",
+              "Zeta23/ThmDE/Endgame.lean",
+              "Zeta23/ThmDE/Final.lean",
+              "Zeta23/ThmDE/Limit.lean",
+              "Zeta23/ThmDE/Mult.lean",
+              "Zeta23/ThmDE/PP.lean",
+              "Zeta23/ThmDE/Traces.lean",
+              "Zeta23/ThmDE/TracesHyp.lean",
+              "Zeta23/ThmDE/ZeroSide.lean",
+              "Zeta23/ThmE/AssemblyQ.lean",
+              "Zeta23/ThmE/BacklundChi.lean",
+              "Zeta23/ThmE/ChebCoprime.lean",
+              "Zeta23/ThmE/ContourChi.lean",
+              "Zeta23/ThmE/CountByIntegralChi.lean",
+              "Zeta23/ThmE/CrossMuPChi.lean",
+              "Zeta23/ThmE/EFLitChi.lean",
+              "Zeta23/ThmE/Final.lean",
+              "Zeta23/ThmE/FoldChi.lean",
+              "Zeta23/ThmE/FullLineChi.lean",
+              "Zeta23/ThmE/FullLineChiAssembly.lean",
+              "Zeta23/ThmE/FullLineChiFold.lean",
+              "Zeta23/ThmE/FullLineChiProof.lean",
+              "Zeta23/ThmE/GammaFactsChiProof.lean",
+              "Zeta23/ThmE/GammaSideChi.lean",
+              "Zeta23/ThmE/GzGpChi.lean",
+              "Zeta23/ThmE/HorizontalChi.lean",
+              "Zeta23/ThmE/Hypotheses.lean",
+              "Zeta23/ThmE/IntMuChi.lean",
+              "Zeta23/ThmE/LGrowth.lean",
+              "Zeta23/ThmE/LandauChi.lean",
+              "Zeta23/ThmE/LocalCountChi.lean",
+              "Zeta23/ThmE/Main.lean",
+              "Zeta23/ThmE/MainChi.lean",
+              "Zeta23/ThmE/MainTermChi.lean",
+              "Zeta23/ThmE/MuMuChi.lean",
+              "Zeta23/ThmE/Mult.lean",
+              "Zeta23/ThmE/PPChi.lean",
+              "Zeta23/ThmE/PrimeSideChi.lean",
+              "Zeta23/ThmE/ReZeroCountChi.lean",
+              "Zeta23/ThmE/RvMChi.lean",
+              "Zeta23/ThmE/RvMChiDefs.lean",
+              "Zeta23/ThmE/SeamL.lean",
+              "Zeta23/ThmE/Statement.lean",
+              "Zeta23/ThmE/TracesChi.lean",
+              "Zeta23/ThmE/TracesHypChi.lean",
+              "Zeta23/ThmE/VerticalLineChi.lean"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T03:04:59.593Z",
+            "updatedAt": "2026-11-25T03:04:59.718Z"
+          },
+          {
+            "id": "task_7e318274",
+            "title": "find proofs: find-solution (2 modules)",
+            "agentId": "agent_69b96ca3",
+            "paths": [
+              "Solution.lean",
+              "Solution/XiPrime.lean"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T03:04:59.850Z",
+            "updatedAt": "2026-11-25T03:04:59.909Z"
+          }
+        ]
+      },
+      "contributions": 4,
+      "compositions": 1,
+      "agents": {
+        "total": 4,
+        "active": 4,
+        "list": [
+          {
+            "id": "agent_c3741759",
+            "name": "find-core",
+            "framework": "expedition-zeta23-find",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T03:04:59.240Z",
+            "updatedAt": "2026-11-25T03:04:59.240Z"
+          },
+          {
+            "id": "agent_965402bd",
+            "name": "find-analytic",
+            "framework": "expedition-zeta23-find",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T03:04:59.422Z",
+            "updatedAt": "2026-11-25T03:04:59.445Z"
+          },
+          {
+            "id": "agent_65c40757",
+            "name": "find-thmde",
+            "framework": "expedition-zeta23-find",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T03:04:59.553Z",
+            "updatedAt": "2026-11-25T03:04:59.572Z"
+          },
+          {
+            "id": "agent_69b96ca3",
+            "name": "find-solution",
+            "framework": "expedition-zeta23-find",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T03:04:59.795Z",
+            "updatedAt": "2026-11-25T03:04:59.825Z"
+          }
+        ]
+      }
+    }
+  },
+  "leanGate": {
+    "target": "Solution",
+    "ran": true,
+    "ok": true,
+    "scanOk": true,
+    "axiomsOk": true,
+    "axiomRows": [
+      {
+        "theorem": "two_thirds_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "two_thirds_on_critical_line_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "two_thirds_simple_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "two_thirds_simple_on_critical_line_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "five_sixths_distinct",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "five_sixths_distinct_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_distinct_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_distinct_mult_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_two_thirds_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_five_sixths_distinct",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      }
+    ],
+    "permittedAxioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (~1.5 days finding)",
+    "fractisiFindSeconds": 11.656368,
+    "baselineSecondsApprox": 129600,
+    "ratioBaselineOverFind": 11118.4,
+    "ratioCaveat": "Ratio mixes Anthropic idea+formalization with FractiSI Challenge-only assemble of published proofs — report both clocks; do not market as same-activity speedup without the caveat."
+  },
+  "commit": "3ed9631a15fab7a763bdc6758670375d9eb88270",
+  "steps": [
+    {
+      "name": "claim-find-core",
+      "ok": true,
+      "fileCount": 202
+    },
+    {
+      "name": "claim-find-analytic",
+      "ok": true,
+      "fileCount": 51
+    },
+    {
+      "name": "claim-find-thmde",
+      "ok": true,
+      "fileCount": 64
+    },
+    {
+      "name": "claim-find-solution",
+      "ok": true,
+      "fileCount": 2
+    },
+    {
+      "name": "compose-and-materialize",
+      "ok": true,
+      "compositionId": "comp_61775d31",
+      "filesMaterialized": 319
+    },
+    {
+      "name": "lake-build-Solution",
+      "status": 0,
+      "ok": true,
+      "stderr": "",
+      "stdout": "ion variable(s) unused in theorem `_private.Zeta23.MV.Spacing.0.Zeta23.MV.Adm.mem_window`:\n  [Fintype ι]\n  [DecidableEq ι]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype ι] [DecidableEq ι] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n⚠ [8852/8887] Replayed Zeta23.ThmD.Window\nwarning: Zeta23/ThmD/Window.lean:132:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n⚠ [8853/8887] Replayed Zeta23.ThmD.PP\nwarning: Zeta23/ThmD/PP.lean:270:29: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\nwarning: Zeta23/ThmD/PP.lean:276:29: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n⚠ [8855/8887] Replayed Zeta23.ThmD.WindowCore\nwarning: Zeta23/ThmD/WindowCore.lean:388:22: Variable name `u` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _u\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n⚠ [8872/8887] Replayed Zeta23.ThmE.Main\nwarning: Zeta23/ThmE/Main.lean:190:0: automatically included section variable(s) unused in theorem `Zeta23.ThmE.eventually_GzGpChi`:\n  [NeZero q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NeZero q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n⚠ [8873/8887] Replayed Zeta23.ThmE.EFLitChi\nwarning: Zeta23/ThmE/EFLitChi.lean:130:24: Variable name `q` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _q\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nBuild completed successfully (8887 jobs)."
+    },
+    {
+      "name": "print-axioms",
+      "status": 0,
+      "ok": true,
+      "theoremsChecked": 17,
+      "stdout": "'two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'two_thirds_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'two_thirds_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]\n'five_sixths_distinct_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_simple_on_critical_line_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_distinct_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    }
+  ],
+  "paths": {
+    "sealed": "/workspace/expeditions/riemann-fractisi/zeta23",
+    "findSandbox": "/workspace/expeditions/riemann-fractisi/.find-sandbox/zeta23-find",
+    "receipt": "/workspace/expeditions/riemann-fractisi/lean/receipts/riemann-fractisi-zeta23-find-2026-11-25T03-04-59-239Z.json"
+  },
+  "ok": true
+}
