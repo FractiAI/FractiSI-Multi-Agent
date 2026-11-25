@@ -8,12 +8,14 @@ import { join } from 'node:path';
 import {
   ZETA23_FIND_NO_KIT_SCHEMA,
   ZETA23_FIND_SCHEMA,
+  ZETA23_INVENT_NO_KIT_SCHEMA,
   ZETA23_INVENT_SCHEMA,
   ZETA23_PARTITIONS,
   ZETA23_SCHEMA,
   auditPrintAxiomsStdout,
   loadLatestZeta23FindNoKitReceipt,
   loadLatestZeta23FindReceipt,
+  loadLatestZeta23InventNoKitReceipt,
   loadLatestZeta23InventReceipt,
   zeta23RootFromHere,
 } from '../../src/expeditions/riemann-zeta23.mjs';
@@ -119,6 +121,24 @@ describe('zeta23 invent receipt', () => {
     assert.equal(receipt.invent.theoremCount, 17);
     assert.ok(receipt.invent.closedCount === 0 || receipt.ok === true);
     assert.ok(receipt.durationSeconds > 0);
-    assert.ok(receipt.plateau === true || receipt.ok === true || receipt.cutoffHit === true);
+    assert.equal(receipt.noCutoff, true);
+    assert.equal(receipt.cutoffSeconds, null);
+    assert.ok(receipt.plateau === true || receipt.ok === true);
+  });
+});
+
+describe('zeta23 invent no-kit receipt', () => {
+  it('records Challenge-only no-FractiSI invent with 180s cutoff', () => {
+    const receipts = join(zeta23RootFromHere(), '../lean/receipts');
+    const loaded = loadLatestZeta23InventNoKitReceipt(receipts);
+    assert.equal(loaded.ok, true, 'run timing/run-zeta23-invent-no-kit.mjs before commit');
+    const receipt = loaded.receipt;
+    assert.equal(receipt.schema, ZETA23_INVENT_NO_KIT_SCHEMA);
+    assert.equal(receipt.mode, 'invent_no_kit');
+    assert.equal(receipt.fractisiUsed, false);
+    assert.equal(receipt.honesty.sealedCorpusUsed, false);
+    assert.equal(receipt.cutoffSeconds, 180);
+    assert.equal(receipt.invent.theoremCount, 17);
+    assert.ok(receipt.durationSeconds > 0);
   });
 });

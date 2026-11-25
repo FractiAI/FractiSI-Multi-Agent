@@ -1,0 +1,397 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent-no-kit.v1",
+  "label": "riemann-fractisi-zeta23-invent-no-kit",
+  "mode": "invent_no_kit",
+  "startedAt": "2026-11-25T03:28:51.752Z",
+  "endedAt": "2026-11-25T03:29:25.878Z",
+  "durationSeconds": 34.124737641,
+  "cutoffSeconds": 180,
+  "cutoffHit": false,
+  "plateau": true,
+  "ok": false,
+  "leanOk": false,
+  "fractisiUsed": false,
+  "honesty": {
+    "rhClaimStatus": "OPEN \u2014 Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "No-FractiSI invent clock from Challenge-only with Lean tactic search; no sealed Anthropic formalization",
+    "sealedCorpusUsed": false,
+    "llmUsed": false,
+    "apiKeys": {
+      "ANTHROPIC_API_KEY": false,
+      "OPENAI_API_KEY": false,
+      "GOOGLE_API_KEY": false,
+      "HF_TOKEN": false
+    },
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents \u00b7 ~1.5 days \u00b7 invent+formalize critical-line bound 41.6% \u2192 67.2%",
+    "explanation": "No-FractiSI invent: Challenge-only \u03b6 statements; sequential Lean/Mathlib tactic invent; no FractiSI kit; no sealed Anthropic corpus. No Anthropic/OpenAI/Google/HF API keys \u2014 Lean tactic invent only. Rounds=3; closed=0/17; sorries=17; plateau=true; cutoffHit=false. Matched against FractiSI invent (run-zeta23-invent.mjs, no wall-clock cutoff). This no-kit arm uses a 180s cutoff. Anthropic ~1.5d invents the analytic argument. RH OPEN."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23DirAbsent": true,
+    "Zeta23LeanAbsent": true,
+    "SolutionLeanAbsentBeforeInventShell": true,
+    "SolutionDirAbsent": true,
+    "sealedCorpusReadableByAgents": false
+  },
+  "leaksAtStart": [],
+  "invent": {
+    "theoremCount": 17,
+    "closedCount": 0,
+    "openCount": 17,
+    "rounds": 3,
+    "attempts": 51,
+    "strategiesTried": [
+      "aesop",
+      "simp_all",
+      "first_barrage"
+    ],
+    "solutionImportsZeta23": false,
+    "sorryAtEnd": 17
+  },
+  "steps": [
+    {
+      "name": "lake-build-r1",
+      "ok": false,
+      "status": 1,
+      "strategy": "aesop",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "lake-build-r2",
+      "ok": false,
+      "status": 1,
+      "strategy": "simp_all",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "lake-build-r3",
+      "ok": false,
+      "status": 1,
+      "strategy": "first_barrage",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "plateau",
+      "ok": true,
+      "note": "No-kit tactic invent strategies exhausted without closing theorems"
+    }
+  ],
+  "attempts": [
+    {
+      "atSeconds": 9.660000000000224e-06,
+      "theorem": "two_thirds_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 1.9406000000000034e-05,
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 2.200000000000202e-05,
+      "theorem": "two_thirds_simple_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 2.3882000000000403e-05,
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 2.583100000000016e-05,
+      "theorem": "five_sixths_distinct",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 2.765899999999988e-05,
+      "theorem": "five_sixths_distinct_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 3.083300000000122e-05,
+      "theorem": "montgomery_taylor_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 3.334700000000268e-05,
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 3.54030000000023e-05,
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 3.730200000000039e-05,
+      "theorem": "montgomery_taylor_distinct_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 3.9141000000000756e-05,
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 4.105500000000007e-05,
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 4.285199999999989e-05,
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 4.4558000000002097e-05,
+      "theorem": "dirichlet_five_sixths_distinct",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 4.7729000000000356e-05,
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 4.95800000000024e-05,
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 5.135600000000195e-05,
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "strategy": "aesop",
+      "round": 1
+    },
+    {
+      "atSeconds": 15.251397464,
+      "theorem": "two_thirds_on_critical_line",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251401798000002,
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251404745,
+      "theorem": "two_thirds_simple_on_critical_line",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251407352,
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251409847000001,
+      "theorem": "five_sixths_distinct",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251412592000001,
+      "theorem": "five_sixths_distinct_cumulative",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251415037000001,
+      "theorem": "montgomery_taylor_on_critical_line",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251417525,
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251419755,
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251422225,
+      "theorem": "montgomery_taylor_distinct_mult",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251426157,
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251429122,
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251431515,
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251433686,
+      "theorem": "dirichlet_five_sixths_distinct",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251436185000001,
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251438438,
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 15.251440782,
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "strategy": "simp_all",
+      "round": 2
+    },
+    {
+      "atSeconds": 24.941480498999997,
+      "theorem": "two_thirds_on_critical_line",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941484182999996,
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941486483,
+      "theorem": "two_thirds_simple_on_critical_line",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941488436,
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941491985999996,
+      "theorem": "five_sixths_distinct",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941494175999996,
+      "theorem": "five_sixths_distinct_cumulative",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941496043,
+      "theorem": "montgomery_taylor_on_critical_line",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941497863,
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941499709,
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.9415016,
+      "theorem": "montgomery_taylor_distinct_mult",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941503560999998,
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.94150556,
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941507343999998,
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.94150909,
+      "theorem": "dirichlet_five_sixths_distinct",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941510871,
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941512528,
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "first_barrage",
+      "round": 3
+    },
+    {
+      "atSeconds": 24.941515500999998,
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "strategy": "first_barrage",
+      "round": 3
+    }
+  ],
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (~1.5 days invent+formalize)",
+    "baselineSecondsApprox": 129600,
+    "matchedArm": "run-zeta23-invent.mjs (FractiSI invent, no cutoff)",
+    "thisArmSeconds": 34.124737641,
+    "thisArmOutcome": "plateau_no_theorem_closed"
+  },
+  "paths": {
+    "inventSandbox": "/workspace/expeditions/riemann-fractisi/.invent-sandbox/zeta23-invent-no-kit"
+  }
+}

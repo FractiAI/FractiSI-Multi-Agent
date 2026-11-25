@@ -12,9 +12,13 @@
  * Honesty: tactic invent ≠ inventing Alpöge–Furman analytic argument with LLMs.
  * Reused surface is Mathlib + ChallengeDeps definitions only. RH remains OPEN.
  *
+ * Matched invent (Player 1): FractiSI arm has **no cutoff** — run until green Solution
+ * or honest plateau (strategies exhausted). No-FractiSI arm uses 180s separately.
+ *
  * Usage:
  *   node timing/run-zeta23-invent.mjs
- *   node timing/run-zeta23-invent.mjs --cutoff-seconds 300
+ *   node timing/run-zeta23-invent.mjs --no-cutoff
+ *   node timing/run-zeta23-invent.mjs --cutoff-seconds N   # optional only
  */
 
 import { spawnSync } from 'node:child_process';
@@ -175,24 +179,32 @@ const TACTIC_STRATEGIES = [
 ];
 
 const FORBIDDEN_IMPORTS = ['Zeta23', 'Solution'];
-const DEFAULT_CUTOFF_SECONDS = 300;
+/** null = no cutoff (default for FractiSI invent arm). */
+const DEFAULT_CUTOFF_SECONDS = null;
 
 function parseArgs(argv) {
   const out = {
     cutoffSeconds: DEFAULT_CUTOFF_SECONDS,
+    noCutoff: true,
     receipt: null,
     skipLake: false,
     help: false,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
-    if (a === '--cutoff-seconds') out.cutoffSeconds = Number(argv[++i] ?? DEFAULT_CUTOFF_SECONDS);
-    else if (a === '--receipt') out.receipt = resolve(argv[++i] ?? '');
+    if (a === '--no-cutoff') {
+      out.noCutoff = true;
+      out.cutoffSeconds = null;
+    } else if (a === '--cutoff-seconds') {
+      out.cutoffSeconds = Number(argv[++i]);
+      out.noCutoff = false;
+    } else if (a === '--receipt') out.receipt = resolve(argv[++i] ?? '');
     else if (a === '--skip-lake') out.skipLake = true;
     else if (a === '--help' || a === '-h') out.help = true;
   }
-  if (!Number.isFinite(out.cutoffSeconds) || out.cutoffSeconds <= 0) {
-    out.cutoffSeconds = DEFAULT_CUTOFF_SECONDS;
+  if (out.cutoffSeconds != null && (!Number.isFinite(out.cutoffSeconds) || out.cutoffSeconds <= 0)) {
+    out.cutoffSeconds = null;
+    out.noCutoff = true;
   }
   return out;
 }
@@ -371,7 +383,7 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help) {
     console.log(
-      'Usage: node timing/run-zeta23-invent.mjs [--cutoff-seconds 300] [--skip-lake] [--receipt PATH]',
+      'Usage: node timing/run-zeta23-invent.mjs [--no-cutoff] [--cutoff-seconds N] [--skip-lake] [--receipt PATH]',
     );
     process.exit(0);
   }
@@ -386,7 +398,8 @@ function main() {
 
   const startedAt = new Date();
   const t0 = performance.now();
-  const cutoffMs = args.cutoffSeconds * 1000;
+  const noCutoff = args.cutoffSeconds == null || args.noCutoff;
+  const cutoffMs = noCutoff ? Number.POSITIVE_INFINITY : args.cutoffSeconds * 1000;
   const steps = [];
   const attempts = [];
 
@@ -487,7 +500,9 @@ function main() {
     let buildOk = false;
     if (!args.skipLake) {
       const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
-      const remaining = cutoffMs - (performance.now() - t0);
+      const remaining = noCutoff
+        ? 120_000
+        : cutoffMs - (performance.now() - t0);
       const build = run(lake, ['build', 'Solution'], {
         cwd: INVENT_ROOT,
         timeoutMs: Math.max(20_000, Math.min(remaining, 120_000)),
@@ -555,7 +570,9 @@ function main() {
   platform.persist();
 
   const durationSeconds = (performance.now() - t0) / 1000;
-  const cutoffHit = durationSeconds >= args.cutoffSeconds - 0.05;
+  const cutoffHit = noCutoff
+    ? false
+    : durationSeconds >= args.cutoffSeconds - 0.05;
   const sorryEnd = countSorriesInSolution(INVENT_ROOT);
   const closedCount = [...proofs.values()].filter((p) => p.closed).length;
   const leanOk = closedCount === INVENT_THEOREMS.length && sorryEnd.sorryCount === 0;
@@ -563,6 +580,9 @@ function main() {
 
   const explanation = [
     'FractiSI invent clock: Challenge-only ζ proportion statements; agents invent Solution without Anthropic Zeta23 sealed corpus.',
+    noCutoff
+      ? 'No wall-clock cutoff on this FractiSI arm — stopped on green Solution or honest plateau.'
+      : `Wall-clock cutoff was ${args.cutoffSeconds}s.`,
     anyLlmKey
       ? 'LLM API keys are present but this harness uses Lean/Mathlib tactic invent only (no model calls wired).'
       : 'No Anthropic/OpenAI/Google/HF API keys on this VM — strongest invent engine available here is FractiSI-coordinated Lean/Mathlib tactic search.',
@@ -578,7 +598,8 @@ function main() {
     startedAt: startedAt.toISOString(),
     endedAt: new Date().toISOString(),
     durationSeconds,
-    cutoffSeconds: args.cutoffSeconds,
+    cutoffSeconds: noCutoff ? null : args.cutoffSeconds,
+    noCutoff,
     cutoffHit,
     plateau,
     ok,
@@ -586,7 +607,7 @@ function main() {
     honesty: {
       rhClaimStatus: 'OPEN — Riemann hypothesis is not proved in this repository',
       whatThisMeasures:
-        'FractiSI invent clock from Challenge-only with Lean/Mathlib tactic search; no sealed Anthropic formalization',
+        'FractiSI invent clock from Challenge-only with Lean/Mathlib tactic search; no sealed Anthropic formalization; no wall-clock cutoff by default',
       whatThisDoesNotMeasure: [
         'Find-assemble of sealed Anthropic Zeta23/Solution (see run-zeta23-find.mjs)',
         'LLM rediscovery of Alpöge–Furman (no model API on this VM)',
@@ -663,7 +684,8 @@ function main() {
         ok,
         mode: 'invent',
         durationSeconds,
-        cutoffSeconds: args.cutoffSeconds,
+        cutoffSeconds: noCutoff ? null : args.cutoffSeconds,
+        noCutoff,
         plateau,
         closedCount,
         theoremCount: INVENT_THEOREMS.length,
