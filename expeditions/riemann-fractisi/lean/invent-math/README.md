@@ -9,7 +9,7 @@ Challenge-only Lean invent toward Theorems A–E. **No** Anthropic `Zeta23` impo
 | `InventMainEstimate.lean` | `InventClassicalMainInputs` → `MainEstimateHfunN0star` |
 | `InventRvM.lean` | Ncount comparisons + strip/packing + local→dyadic reduction |
 | `InventWeil.lean` | TestC2 EF invent surface |
-| `InventTraces.lean` | Residual packaging for InventTracesAt |
+| `InventTraces.lean` | Residual / moment / spectral scaffolding → InventTracesLike |
 | `InventEndgame.lean` | Seam + glue → invent_<edge> seeds |
 
 **Path to Solution 17/17:** discharge `InventClassicalMainInputs` (Weil · RvM · traces) → `MainEstimateHfunN0star` → `invent_<edge>` → Solution `exact invent_<edge>`.

@@ -7,7 +7,7 @@ Paper-guided FractiSI invent of Alpöge–Furman ladder lemmas (arXiv:2608.13637
 - `InventMainEstimate.lean` — classical Prop packaging → `MainEstimateHfunN0star`
 - `InventRvM.lean` — Ncount comparisons, strip/packing majorants, local→dyadic reduction
 - `InventWeil.lean` — TestC2 EF invent surface
-- `InventTraces.lean` — residual packaging for InventTracesAt
+- `InventTraces.lean` — residual / moment / spectral scaffolding toward InventTracesLike
 - `InventEndgame.lean` — ChallengeDeps seam + glue → invent_<edge>
 - Measured by `../timing/run-zeta23-invent-math.mjs` (InventMath) and invent arm lake-build
 - Challenge headlines: invent unconditional `main_estimate_*` then Solution `exact invent_<edge>`; RH stays OPEN
