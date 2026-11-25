@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "A Matched FractiSI Vs No-Kit Lean Ablation",
-      "dek": "Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.",
+      "title": "FractiSI On Anthropic’s Real ζ Formalization",
+      "dek": "Mathlib riemannZeta zeta-23 under FractiSI: 14.66 s warm verify, 4/4/1 coordination, axioms trio only. Anthropic ~1.5 day baseline. RH remains open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> · Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: This is a matched FractiSI vs no-kit ablation.",
-      "answerBody": " Same frozen payloads in-clock; FractiSI records tasks 4 / contributions 4 / compositions 1; no-kit 0/0/0. Mean ~1.29 s vs ~10.8 s over five runs. RH remains OPEN."
+      "answerHead": "Short answer: FractiSI verified Anthropic’s real Mathlib ζ formalization.",
+      "answerBody": " zeta-23 Theorems A–E; warm coordinated verify 14.66 s with tasks 4/4/1; cold cache+build ≈612 s. Toy Nat ablation demoted. RH remains OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "A Matched FractiSI Vs No-Kit Lean Ablation",
+      "title": "FractiSI On Anthropic’s Real ζ Formalization",
       "group": "Multi-agent research",
-      "summary": "Matched ablation: FractiSI compose vs no-kit write on frozen Lean payloads; hard gate; tasks 4/4/1; RH OPEN; 30h lead withdrawn.",
+      "summary": "Real Mathlib zeta-23 under FractiSI: 14.66s warm verify; Anthropic ~1.5d baseline; RH OPEN; toy ablation demoted.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"

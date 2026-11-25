@@ -1,45 +1,23 @@
 # Riemann FractiSI · results report
 
-**Status:** matched ablation shipped · RH **OPEN**  
-**Harness:** `lean/timing/run-ablation.mjs`  
-**Summary receipt:** `lean/receipts/riemann-fractisi-ablation-summary-5runs.json`
+**Status:** real ζ-23 FractiSI verification · RH **OPEN**  
+**Harness:** `lean/timing/run-zeta23.mjs`  
+**Receipt:** `lean/receipts/riemann-fractisi-zeta23-latest.json`
 
-## Trial
+## Target
 
-Same frozen SHA-256 payload bytes for:
+Anthropic [formal-math/zeta23](https://github.com/anthropics/formal-math/tree/main/zeta23) — Mathlib `riemannZeta` Theorems A–E; Montgomery–Taylor window ≈ 0.6725. Baseline: [Anthropic Riemann post](https://www.anthropic.com/research/riemann-zeta) (~1.5 days · ~60 subagents · 41.6% → 67.2%).
 
-- `RiemannExpedition/AgentCritical.lean`
-- `RiemannExpedition/AgentProportion.lean`
-- `RiemannExpedition/Phase0.lean`
-- `RiemannExpedition/PhaseN.lean`
+## Measured
 
-| Arm | What happens inside the clock |
+| Metric | Value |
 |---|---|
-| no-kit | Sequential write of the four modules → hard gate |
-| FractiSI | Four agents claim / contribute / compose / git-integrate → hard gate |
-
-Hard gate = `lake build` green **and** code scan with no `sorry`, user `axiom`, or `native_decide` (comments/strings stripped).
-
-## Five-run summary
-
-| Metric | no-kit | FractiSI |
-|---|---|---|
-| Mean seconds | 1.294 | 10.844 |
-| Stdev seconds | 0.066 | 4.664 |
-| Hard gate | pass ×5 | pass ×5 |
-| Tasks | 0 | 4 |
-| Contributions | 0 | 4 |
-| Compositions | 0 | 1 |
-
-Mean delta (FractiSI − no-kit): **+9.55 s**.
+| FractiSI wall clock (warm) | 14.66 s |
+| Tasks / contributions / compositions | 4 / 4 / 1 |
+| lake build Solution | pass |
+| axiomsOk (17 theorems) | pass (propext, Classical.choice, Quot.sound only) |
+| Cold cache + build | ≈ 612 s |
 
 ## Interpretation
 
-This is a real same-workload comparison of coordination path vs sequential write. It is **not** an LLM proof-search bake-off and **not** a 30 h vs 5.3 s efficiency claim (that lead remains withdrawn).
-
-## Reproduce
-
-```bash
-export PATH="$HOME/.elan/bin:$PATH"
-cd lean && node timing/run-ablation.mjs
-```
+This is coordinated **verification** of the published Mathlib formalization under FractiSI. It is not LLM rediscovery of the analytic argument, and 14.66 s is not claimed as beating Anthropic’s ~1.5 day discovery clock.

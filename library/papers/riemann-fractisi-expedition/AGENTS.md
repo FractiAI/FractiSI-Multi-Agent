@@ -1,3 +1,3 @@
 # library/papers/riemann-fractisi-expedition
 
-Public HTML built from content/. Keep RH OPEN. Lead with matched ablation evidence (tasks/contributions/compositions), not a controlled 20,000× claim.
+Public HTML from content/. Real Mathlib ζ-23 under FractiSI. RH OPEN. Toy ablation demoted.

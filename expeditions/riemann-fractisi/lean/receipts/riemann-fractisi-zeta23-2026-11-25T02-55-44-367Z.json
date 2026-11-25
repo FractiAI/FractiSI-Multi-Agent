@@ -1,0 +1,418 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23.v1",
+  "label": "riemann-fractisi-zeta23-real",
+  "startedAt": "2026-11-25T02:55:44.367Z",
+  "endedAt": "2026-11-25T02:55:59.030Z",
+  "durationSeconds": 14.662888,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "target": "Anthropic formal-math/zeta23 — Mathlib riemannZeta Theorems A–E; Montgomery–Taylor window ≈ 0.6725",
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents · ~1.5 days · improved critical-line zero lower bound 41.6% → 67.2%; RH not proved",
+    "upstreamArtifact": "https://github.com/anthropics/formal-math/tree/main/zeta23",
+    "arxiv": "https://arxiv.org/abs/2608.13637",
+    "whatThisMeasures": "FractiSI-coordinated claim/compose + lake build Solution of the real Mathlib ζ formalization",
+    "whatThisDoesNotMeasure": [
+      "LLM rediscovery of the analytic argument",
+      "Toy Nat millesimal ablation (demoted)",
+      "A no-kit retest (Anthropic expedition is the published baseline)",
+      "RH"
+    ],
+    "proofAuthorship": "Upstream Anthropic formal-math / Alpöge–Furman paper; FractiSI verifies under coordination"
+  },
+  "fractisi": {
+    "agents": 4,
+    "agentIds": [
+      "agent_76a7583a",
+      "agent_e331dc95",
+      "agent_b1551cf2",
+      "agent_5e375872"
+    ],
+    "tasks": 4,
+    "taskIds": [
+      "task_fde72f81",
+      "task_524e549d",
+      "task_ce6f2d1d",
+      "task_fa19c3e3"
+    ],
+    "contributions": 4,
+    "contributionIds": [
+      "contrib_43a62d72",
+      "contrib_08fccc30",
+      "contrib_eb74d0eb",
+      "contrib_c3019e35"
+    ],
+    "compositions": 1,
+    "compositionId": "comp_638472b4",
+    "platformStatus": {
+      "tasks": {
+        "total": 4,
+        "open": 0,
+        "list": [
+          {
+            "id": "task_fde72f81",
+            "title": "ChallengeDeps (Mathlib-only definitions)",
+            "agentId": "agent_76a7583a",
+            "paths": [
+              "ChallengeDeps.lean",
+              "ChallengeDeps"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T02:55:44.368Z",
+            "updatedAt": "2026-11-25T02:55:44.369Z"
+          },
+          {
+            "id": "task_524e549d",
+            "title": "Challenge.lean trusted statements (sorry surface)",
+            "agentId": "agent_e331dc95",
+            "paths": [
+              "Challenge.lean",
+              "Challenge"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T02:55:44.369Z",
+            "updatedAt": "2026-11-25T02:55:44.369Z"
+          },
+          {
+            "id": "task_ce6f2d1d",
+            "title": "Zeta23 proof development (real analytic formalization)",
+            "agentId": "agent_b1551cf2",
+            "paths": [
+              "Zeta23.lean",
+              "Zeta23"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T02:55:44.369Z",
+            "updatedAt": "2026-11-25T02:55:44.369Z"
+          },
+          {
+            "id": "task_fa19c3e3",
+            "title": "Solution.lean comparator bridge",
+            "agentId": "agent_5e375872",
+            "paths": [
+              "Solution.lean",
+              "Solution"
+            ],
+            "dependsOn": [],
+            "status": "done",
+            "createdAt": "2026-11-25T02:55:44.370Z",
+            "updatedAt": "2026-11-25T02:55:44.370Z"
+          }
+        ]
+      },
+      "contributions": 4,
+      "compositions": 1,
+      "agents": {
+        "total": 4,
+        "active": 4,
+        "list": [
+          {
+            "id": "agent_76a7583a",
+            "name": "challenge-deps",
+            "framework": "expedition-zeta23",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T02:55:44.368Z",
+            "updatedAt": "2026-11-25T02:55:44.368Z"
+          },
+          {
+            "id": "agent_e331dc95",
+            "name": "challenge-statements",
+            "framework": "expedition-zeta23",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T02:55:44.369Z",
+            "updatedAt": "2026-11-25T02:55:44.369Z"
+          },
+          {
+            "id": "agent_b1551cf2",
+            "name": "zeta23-library",
+            "framework": "expedition-zeta23",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T02:55:44.369Z",
+            "updatedAt": "2026-11-25T02:55:44.369Z"
+          },
+          {
+            "id": "agent_5e375872",
+            "name": "solution-bridge",
+            "framework": "expedition-zeta23",
+            "status": "active",
+            "permissions": [
+              "read",
+              "propose"
+            ],
+            "capacity": 1,
+            "workspace": null,
+            "metadata": {},
+            "registeredAt": "2026-11-25T02:55:44.370Z",
+            "updatedAt": "2026-11-25T02:55:44.370Z"
+          }
+        ]
+      }
+    }
+  },
+  "leanGate": {
+    "target": "Solution",
+    "ran": true,
+    "ok": true,
+    "scanOk": true,
+    "scanHits": [],
+    "axiomsOk": true,
+    "axiomsAttempted": true,
+    "axiomRows": [
+      {
+        "theorem": "two_thirds_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "two_thirds_on_critical_line_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "two_thirds_simple_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "two_thirds_simple_on_critical_line_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "five_sixths_distinct",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "five_sixths_distinct_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_distinct_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "montgomery_taylor_distinct_mult_cumulative",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_two_thirds_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_five_sixths_distinct",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      },
+      {
+        "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "extra": []
+      }
+    ],
+    "permittedAxioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (published ~1.5 days / ~60 subagents)",
+    "baselineNote": "Unlike-stack baseline: Anthropic discovered+formalized the bound. This receipt times FractiSI coordinated verification of that real Mathlib artifact — not a claim to beat 1.5 days of discovery.",
+    "fractisiWallClockSeconds": 14.662888,
+    "firstMachineColdCacheAndBuildSeconds": 612,
+    "firstMachineColdNote": "Separate machine log: lake exe cache get + lake build Solution from empty .lake ≈ 612 s (10.2 min) on this host before the FractiSI harness warm run"
+  },
+  "hashes": {
+    "Challenge": "6f2a4ba95ab8c5319e541a1cc1b3699c0ae8cef23ea8e68f958e11b07281761e",
+    "Solution": "ba75f3cd7092764060089160e1458aee59e1f2f9913ab98994a492a112c3c815",
+    "Zeta23Root": "802a8bef25ac123f27686671b14def37bf623a1af16786812571663ba107675c",
+    "leanToolchain": "leanprover/lean4:v4.33.0-rc2"
+  },
+  "commit": "e3bf08afcad5462ccf4e35b88b44856832116649",
+  "steps": [
+    {
+      "name": "claim-challenge-deps",
+      "ok": true,
+      "conflicts": []
+    },
+    {
+      "name": "claim-challenge-statements",
+      "ok": true,
+      "conflicts": []
+    },
+    {
+      "name": "claim-zeta23-library",
+      "ok": true,
+      "conflicts": []
+    },
+    {
+      "name": "claim-solution-bridge",
+      "ok": true,
+      "conflicts": []
+    },
+    {
+      "name": "compose",
+      "ok": true,
+      "compositionId": "comp_638472b4"
+    },
+    {
+      "name": "lake-cache-get",
+      "status": 0,
+      "stderr": ""
+    },
+    {
+      "name": "lake-build-Solution",
+      "status": 0,
+      "ok": true,
+      "stderr": "",
+      "stdout": "ion variable(s) unused in theorem `_private.Zeta23.MV.Spacing.0.Zeta23.MV.Adm.mem_window`:\n  [Fintype ι]\n  [DecidableEq ι]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype ι] [DecidableEq ι] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n⚠ [8852/8887] Replayed Zeta23.ThmD.Window\nwarning: Zeta23/ThmD/Window.lean:132:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n⚠ [8853/8887] Replayed Zeta23.ThmD.PP\nwarning: Zeta23/ThmD/PP.lean:270:29: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\nwarning: Zeta23/ThmD/PP.lean:276:29: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n⚠ [8855/8887] Replayed Zeta23.ThmD.WindowCore\nwarning: Zeta23/ThmD/WindowCore.lean:388:22: Variable name `u` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _u\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n⚠ [8872/8887] Replayed Zeta23.ThmE.Main\nwarning: Zeta23/ThmE/Main.lean:190:0: automatically included section variable(s) unused in theorem `Zeta23.ThmE.eventually_GzGpChi`:\n  [NeZero q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NeZero q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n⚠ [8873/8887] Replayed Zeta23.ThmE.EFLitChi\nwarning: Zeta23/ThmE/EFLitChi.lean:130:24: Variable name `q` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _q\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nBuild completed successfully (8887 jobs)."
+    },
+    {
+      "name": "hard-scan-Solution-Zeta23",
+      "ok": true,
+      "hits": [],
+      "filesScanned": 326,
+      "note": "Excluded Challenge sorry surface and FromPNTPlus/Tactic example axioms; science gate is lake + #print axioms"
+    },
+    {
+      "name": "print-axioms",
+      "status": 0,
+      "ok": true,
+      "theoremsChecked": 17,
+      "stdout": "'two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'two_thirds_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'two_thirds_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]\n'five_sixths_distinct_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_simple_on_critical_line_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'montgomery_taylor_distinct_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'dirichlet_montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "stderr": ""
+    }
+  ],
+  "paths": {
+    "zeta23": "/workspace/expeditions/riemann-fractisi/zeta23",
+    "receipt": "/workspace/expeditions/riemann-fractisi/lean/receipts/riemann-fractisi-zeta23-2026-11-25T02-55-44-367Z.json"
+  },
+  "ok": true
+}

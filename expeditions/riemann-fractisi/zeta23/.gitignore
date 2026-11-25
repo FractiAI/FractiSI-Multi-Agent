@@ -1,0 +1,9 @@
+/.cache/
+/.lake/
+/docbuild/.lake/
+*.olean
+*.ilean
+.lake/
+**/.lake/
+.fractisi/
+fractisi-partitions/

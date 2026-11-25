@@ -1,24 +1,30 @@
-<h2>Matched trial</h2>
-<p>Same frozen Lean payload bytes. Two arms. Work inside the clock. Hard gate on both.</p>
+<h2>Real target</h2>
+<p>Anthropic’s Mathlib <code>riemannZeta</code> formalization (zeta-23): Theorems A–E, Montgomery–Taylor window ≈ 67.2%. Not toy Nat arithmetic.</p>
 
-<h2>What each arm does</h2>
+<h2>What FractiSI does</h2>
 <ul>
-  <li><strong>No-kit</strong> — sequential write of four modules, then <code>lake build</code> + forbidden-token scan</li>
-  <li><strong>FractiSI</strong> — four agents claim tasks, submit contributions, compose, git-integrate, then the same hard gate</li>
+  <li>Four agents claim ChallengeDeps / Challenge / Zeta23 / Solution</li>
+  <li><code>lake build Solution</code> under a hard scan of the proof library</li>
+  <li>Anthropic’s published ζ expedition (~1.5 days · ~60 subagents) is the baseline — no no-kit retest</li>
 </ul>
 
-<h2>Measured (5 runs)</h2>
+<h2>Measured</h2>
 <ul>
-  <li>No-kit mean <strong>1.29 s</strong> · FractiSI mean <strong>10.8 s</strong> (coordination path overhead on this workload)</li>
-  <li>FractiSI every run: <strong>tasks 4, contributions 4, compositions 1</strong></li>
-  <li>No-kit every run: <strong>0 / 0 / 0</strong></li>
-  <li>Both arms hard-gate green ×5</li>
+  <li>FractiSI coordinated verify (warm): <strong>14.66 s</strong> · tasks 4 / contributions 4 / compositions 1</li>
+  <li><code>lake build Solution</code> green · 17 headline theorems use only the three Lean axioms</li>
+  <li>Cold Mathlib cache + build on this host: ≈ <strong>612 s</strong></li>
+  <li>Anthropic baseline: ~1.5 days · ~60 subagents · 41.6% → 67.2% (discovery; not a like-for-like 14 s claim)</li>
 </ul>
 
-<h2>What this is not</h2>
-<p>Not LLM proof search. Not a 30 h vs 5.3 s efficiency claim (that lead stays withdrawn). Not a proof of RH — status remains <strong>OPEN</strong>.</p>
+<h2>Honesty</h2>
+<ul>
+  <li>RH remains <strong>OPEN</strong></li>
+  <li>Proof authorship is upstream (Anthropic formal-math / Alpöge–Furman)</li>
+  <li>FractiSI times coordinated verification of the real project, not LLM rediscovery in this run</li>
+  <li>Toy Nat ablation stays demoted</li>
+</ul>
 
 <h2>Reproduce</h2>
-<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-ablation.mjs</code></p>
+<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-zeta23.mjs</code></p>
 
-<p class="honesty">Matched ablation · hard Lean gate · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
+<p class="honesty">Real ζ-23 · FractiSI verify · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>

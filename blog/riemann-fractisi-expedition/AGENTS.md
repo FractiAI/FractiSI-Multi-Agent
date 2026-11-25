@@ -1,3 +1,3 @@
 # blog/riemann-fractisi-expedition
 
-Matched FractiSI vs no-kit ablation. RH OPEN. Rebuild with `npm run build:site`. Do not restore the 30 h vs 5.3 s speed lead.
+Lead with real Anthropic zeta-23 FractiSI verification. RH OPEN. Do not restore toy Nat or 30h/5.3s speed leads. Rebuild with `npm run build:site`.

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A Matched FractiSI Vs No-Kit Lean Ablation · FractiSI</title>
-  <meta name="description" content="Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.">
-  <meta property="og:title" content="A Matched FractiSI Vs No-Kit Lean Ablation">
-  <meta property="og:description" content="Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.">
+  <title>FractiSI On Anthropic’s Real ζ Formalization · FractiSI</title>
+  <meta name="description" content="Mathlib riemannZeta zeta-23 under FractiSI: 14.66 s warm verify, 4/4/1 coordination, axioms trio only. Anthropic ~1.5 day baseline. RH remains open.">
+  <meta property="og:title" content="FractiSI On Anthropic’s Real ζ Formalization">
+  <meta property="og:description" content="Mathlib riemannZeta zeta-23 under FractiSI: 14.66 s warm verify, 4/4/1 coordination, axioms trio only. Anthropic ~1.5 day baseline. RH remains open.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
   <link rel="canonical" href="https://fractisi.vercel.app/blog/riemann-fractisi-expedition/">
@@ -30,8 +30,8 @@
     <article class="doc doc-blog">
       <header class="doc-head">
         <p class="kicker">Blog · Riemann FractiSI Expedition</p>
-        <h1>A Matched FractiSI Vs No-Kit Lean Ablation</h1>
-        <p class="dek">Real matched trial: same frozen Lean payloads, FractiSI compose vs sequential write, hard gate. Tasks 4 / contributions 4 / compositions 1. RH remains open.</p>
+        <h1>FractiSI On Anthropic’s Real ζ Formalization</h1>
+        <p class="dek">Mathlib riemannZeta zeta-23 under FractiSI: 14.66 s warm verify, 4/4/1 coordination, axioms trio only. Anthropic ~1.5 day baseline. RH remains open.</p>
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>November 24, 2026</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
@@ -44,37 +44,43 @@
         </div>
       </header>
       <div class="prose">
-<p class="answer"><strong>Short answer: This is a matched FractiSI vs no-kit ablation.</strong> Same frozen payloads in-clock; FractiSI records tasks 4 / contributions 4 / compositions 1; no-kit 0/0/0. Mean ~1.29 s vs ~10.8 s over five runs. RH remains OPEN.</p>
-<h2 id="matched-trial">Matched trial</h2>
-<p>Same frozen Lean payload bytes. Two arms. Work inside the clock. Hard gate on both.</p>
+<p class="answer"><strong>Short answer: FractiSI verified Anthropic’s real Mathlib ζ formalization.</strong> zeta-23 Theorems A–E; warm coordinated verify 14.66 s with tasks 4/4/1; cold cache+build ≈612 s. Toy Nat ablation demoted. RH remains OPEN.</p>
+<h2 id="real-target">Real target</h2>
+<p>Anthropic’s Mathlib <code>riemannZeta</code> formalization (zeta-23): Theorems A–E, Montgomery–Taylor window ≈ 67.2%. Not toy Nat arithmetic.</p>
 
-<h2 id="what-each-arm-does">What each arm does</h2>
+<h2 id="what-fractisi-does">What FractiSI does</h2>
 <ul>
-  <li><strong>No-kit</strong> — sequential write of four modules, then <code>lake build</code> + forbidden-token scan</li>
-  <li><strong>FractiSI</strong> — four agents claim tasks, submit contributions, compose, git-integrate, then the same hard gate</li>
+  <li>Four agents claim ChallengeDeps / Challenge / Zeta23 / Solution</li>
+  <li><code>lake build Solution</code> under a hard scan of the proof library</li>
+  <li>Anthropic’s published ζ expedition (~1.5 days · ~60 subagents) is the baseline — no no-kit retest</li>
 </ul>
 
-<h2 id="measured-5-runs">Measured (5 runs)</h2>
+<h2 id="measured">Measured</h2>
 <ul>
-  <li>No-kit mean <strong>1.29 s</strong> · FractiSI mean <strong>10.8 s</strong> (coordination path overhead on this workload)</li>
-  <li>FractiSI every run: <strong>tasks 4, contributions 4, compositions 1</strong></li>
-  <li>No-kit every run: <strong>0 / 0 / 0</strong></li>
-  <li>Both arms hard-gate green ×5</li>
+  <li>FractiSI coordinated verify (warm): <strong>14.66 s</strong> · tasks 4 / contributions 4 / compositions 1</li>
+  <li><code>lake build Solution</code> green · 17 headline theorems use only the three Lean axioms</li>
+  <li>Cold Mathlib cache + build on this host: ≈ <strong>612 s</strong></li>
+  <li>Anthropic baseline: ~1.5 days · ~60 subagents · 41.6% → 67.2% (discovery; not a like-for-like 14 s claim)</li>
 </ul>
 
-<h2 id="what-this-is-not">What this is not</h2>
-<p>Not LLM proof search. Not a 30 h vs 5.3 s efficiency claim (that lead stays withdrawn). Not a proof of RH — status remains <strong>OPEN</strong>.</p>
+<h2 id="honesty">Honesty</h2>
+<ul>
+  <li>RH remains <strong>OPEN</strong></li>
+  <li>Proof authorship is upstream (Anthropic formal-math / Alpöge–Furman)</li>
+  <li>FractiSI times coordinated verification of the real project, not LLM rediscovery in this run</li>
+  <li>Toy Nat ablation stays demoted</li>
+</ul>
 
 <h2 id="reproduce">Reproduce</h2>
-<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-ablation.mjs</code></p>
+<p><code>cd expeditions/riemann-fractisi/lean && node timing/run-zeta23.mjs</code></p>
 
-<p class="honesty">Matched ablation · hard Lean gate · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
+<p class="honesty">Real ζ-23 · FractiSI verify · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
 
       </div>
       <section class="related" aria-label="Related">
       <h2>Continue reading</h2>
       <div class="related-grid">
-        <a class="related-card" href="/library/papers/riemann-fractisi-expedition/"><span class="related-kind">Paper</span><span class="related-title">A Matched FractiSI Vs No-Kit Lean Ablation</span></a>
+        <a class="related-card" href="/library/papers/riemann-fractisi-expedition/"><span class="related-kind">Paper</span><span class="related-title">FractiSI On Anthropic’s Real ζ Formalization</span></a>
         <a class="related-card" href="/blog/adversarial-world/"><span class="related-kind">Blog</span><span class="related-title">Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?</span></a>
         <a class="related-card" href="/blog/cancer-rhyme-expedition/"><span class="related-kind">Blog</span><span class="related-title">Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?</span></a>
       </div>

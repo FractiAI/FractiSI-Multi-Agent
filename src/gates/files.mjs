@@ -13,6 +13,8 @@ export const EXCLUDED_DIRS = Object.freeze(new Set([
   '.ablation-sandbox',
   '.ablation-sandbox-test',
   '.ablation-axioms',
+  // Vendored Anthropic formal-math/zeta23 (hundreds of upstream dirs; not our guide tree)
+  'zeta23',
   'graft', 'htmlcov', '.coverage',
 ]));
 
