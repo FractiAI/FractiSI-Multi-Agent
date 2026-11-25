@@ -8,7 +8,7 @@ Challenge-only Lean invent toward Theorems A–E. **No** Anthropic `Zeta23` impo
 | `InventAnalytic.lean` | Chebyshev–Mertens [eq:cheb1] from Mathlib |
 | `InventMainEstimate.lean` | `InventClassicalMainInputs` → `MainEstimateHfunN0star` |
 | `InventRvM.lean` | Ncount comparisons + strip/packing + local→dyadic reduction |
-| `InventWeil.lean` | TestC2 EF invent surface |
+| `InventWeil.lean` | TestC2 / paperFT / WeilResidueRates → InventErrorLittleO |
 | `InventTraces.lean` | Residual / moment / spectral scaffolding → InventTracesLike |
 | `InventEndgame.lean` | Seam + glue → invent_<edge> seeds |
 
