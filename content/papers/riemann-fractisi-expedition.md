@@ -1,27 +1,28 @@
-# FractiSI LLM Invent Clock (ζ Challenge)
+# FractiSI Awareness-Injected LLM Invent (ζ Challenge)
 
-**Short answer: apples-to-apples invent now uses an LLM on the FractiSI arm.** FractiSI agents invent Lean proofs via **Groq** against Challenge-only statements (**no** sealed Anthropic corpus). First measured LLM invent: **46.53 s** · **2 invent rounds** · **17 Groq calls** (**15** returned tactic bodies) · **0 / 17** theorems closed · lake build still red · **2** sorries left where extraction failed. FractiSI **did** coordinate (4 agents). Invent engine = Groq models (`qwen/qwen3.8-27b`, fallbacks), not Lean-tactics-only. This is **not** a win vs Anthropic ~**1.5 days** / ~**60** agents. RH remains **OPEN**.
+**Short answer: Groq invent prompts now carry FractiSI shared World Awareness.** Challenge-only FractiSI+Groq invent with board / peers / contributions / lake feedback in every LLM call: **29.94 s** · **17** awareness injections · **17** Groq calls (**13** ok) · **0 / 17** closed. Prior no-awareness Groq invent: **46.53 s** · **0 / 17**. Awareness did not close theorems in this 2-round run. No sealed Anthropic corpus. RH remains **OPEN**.
 
 **Document ID:** `WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24`  
-**Invent harness:** `lean/timing/run-zeta23-invent.mjs --llm`  
+**Harness:** `lean/timing/run-zeta23-invent.mjs --llm`  
 **Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-latest.json`
 
-## Matched context
+## Matched invent comparison
 
-| Arm | Invent engine | Result |
+| Arm | Awareness in Groq prompts | Result |
 |---|---|---|
-| **FractiSI + Groq LLM** (this run) | FractiSI + Groq | **46.53 s** · 0/17 closed · 15/17 LLM tactic proposals |
-| FractiSI Lean-tactics only (prior) | FractiSI + aesop/simp | 30.20 s plateau · 0/17 |
-| No-FractiSI Lean-tactics (prior) | no kit + aesop/simp · 180 s | 34.12 s plateau · 0/17 |
-| Anthropic published | ~60 LLM agents | ~1.5 days · green formalization |
+| **FractiSI + Groq + awareness** (this run) | **Yes** (17 injections) | **29.94 s** · 0/17 closed · 13/17 LLM ok |
+| FractiSI + Groq (prior #59) | No | **46.53 s** · 0/17 closed · 15/17 LLM ok |
+| FractiSI Lean-tactics only | n/a | 30.20 s plateau · 0/17 |
+| Anthropic published | LLM invent+formalize | ~1.5 days · ~60 agents · green |
 
 ## Honesty
 
 | Claim | Status |
 |---|---|
-| Used LLM invent (Groq) under FractiSI | **Yes** |
+| FractiSI awareness injected into Groq prompts | **Yes** |
 | Sealed Anthropic Zeta23 corpus | **No** |
 | Theorems closed this run | **0 / 17** |
+| Beats prior no-awareness 0/17 | **No** (still 0 closed) |
 | Beats Anthropic ~1.5 d | **No** |
 | RH | **OPEN** |
 
