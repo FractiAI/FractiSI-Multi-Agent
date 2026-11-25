@@ -141,13 +141,14 @@ function countSorries(root) {
 }
 
 function theoremClosedInSource(text, name) {
-  // Declared and not followed by sorry before next theorem/lemma/end at file level — coarse check.
+  // Declared theorem/lemma; closed if proof has no sorry before next top-level decl.
   const re = new RegExp(
-    `(?:theorem|lemma)\\s+${name}\\b[\\s\\S]*?:= by([\\s\\S]*?)(?=\\n(?:theorem|lemma|end)\\b)`,
+    `(?:theorem|lemma)\\s+${name}\\b[\\s\\S]*?:=\\s*(?:by([\\s\\S]*?)|([^\\n]+))(?=\\n(?:theorem|lemma|def|end)\\b)`,
   );
   const m = text.match(re);
   if (!m) return false;
-  return !/\bsorry\b/.test(m[1]);
+  const body = `${m[1] || ''}${m[2] || ''}`;
+  return !/\bsorry\b/.test(body);
 }
 
 function prepareSandbox() {

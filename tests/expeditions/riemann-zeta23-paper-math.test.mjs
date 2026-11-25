@@ -13,9 +13,13 @@ import {
 describe('riemann zeta23 paper-math ladder', () => {
   it('pins public arXiv outline only (no sealed corpus language as a source)', () => {
     assert.equal(PAPER_META.arxiv, '2608.13637');
-    assert.ok(PAPER_LEMMA_LADDER.length >= 3);
+    assert.ok(PAPER_LEMMA_LADDER.length >= 10);
     assert.ok(PAPER_MATH_THEOREM_NAMES.includes('rank_trace_inequality_real_diag'));
     assert.ok(PAPER_MATH_THEOREM_NAMES.includes('thmA_assembly_two_thirds'));
+    assert.ok(PAPER_MATH_THEOREM_NAMES.includes('thmA_chain_two_thirds'));
+    assert.ok(PAPER_MATH_THEOREM_NAMES.includes('thmC_chain_five_sixths'));
+    assert.ok(Array.isArray(PAPER_META.remainingStack));
+    assert.ok(PAPER_META.remainingStack.length >= 5);
     const add = paperMathSystemAddendum();
     assert.match(add, /Do NOT import Zeta23/);
     assert.match(add, /arXiv:2608\.13637/);

@@ -47,6 +47,10 @@ import {
   groqKeyPresent,
   GROQ_DEFAULT_MODEL,
 } from '../../../../src/expeditions/riemann-zeta23-llm.mjs';
+import {
+  paperMathSystemAddendum,
+  ANTHROPIC_INVENT_BASELINE,
+} from '../../../../src/expeditions/riemann-zeta23-paper-math.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const EXPEDITION = resolve(__dirname, '../..');
@@ -202,6 +206,8 @@ function parseArgs(argv) {
     model: GROQ_DEFAULT_MODEL,
     receipt: null,
     skipLake: false,
+    compare: false,
+    paper: false,
     help: false,
   };
   for (let i = 0; i < argv.length; i++) {
@@ -217,6 +223,11 @@ function parseArgs(argv) {
     else if (a === '--model') out.model = argv[++i] || GROQ_DEFAULT_MODEL;
     else if (a === '--receipt') out.receipt = resolve(argv[++i] ?? '');
     else if (a === '--skip-lake') out.skipLake = true;
+    else if (a === '--compare') {
+      out.compare = true;
+      out.paper = true;
+      out.llm = true;
+    } else if (a === '--paper') out.paper = true;
     else if (a === '--help' || a === '-h') out.help = true;
   }
   if (out.cutoffSeconds != null && (!Number.isFinite(out.cutoffSeconds) || out.cutoffSeconds <= 0)) {
@@ -284,8 +295,15 @@ function assertNoSealedLeak(root) {
   return leaks;
 }
 
-function writeInventLakefile(root) {
+function writeInventLakefile(root, { withInventMath = false } = {}) {
   // Drop Zeta23 target — invent must not depend on Anthropic proof library.
+  const inventMathLib = withInventMath
+    ? `
+[[lean_lib]]
+name = "InventMath"
+roots = ["InventMath"]
+`
+    : '';
   const body = `name = "Zeta23Invent"
 version = "0.1.0"
 defaultTargets = ["ChallengeDeps", "Challenge", "Solution"]
@@ -306,7 +324,7 @@ roots = ["ChallengeDeps"]
 [[lean_lib]]
 name = "Challenge"
 roots = ["Challenge"]
-
+${inventMathLib}
 [[lean_lib]]
 name = "Solution"
 roots = ["Solution"]
@@ -319,13 +337,13 @@ function renderTheorem(thm, tacticBody) {
   return `theorem ${thm.name}${binders} :\n    ${thm.stmt} := by\n  ${tacticBody}\n`;
 }
 
-function writeSolution(root, proofs) {
+function writeSolution(root, proofs, { withInventMath = false } = {}) {
   const header = `/-
 FractiSI invent Solution — NO import of Anthropic Zeta23 library.
 Proofs below are invented by FractiSI Lean/Mathlib tactic search on this VM.
 -/
 import ChallengeDeps
-
+${withInventMath ? 'import InventMath\n' : ''}
 noncomputable section
 
 `;
@@ -353,7 +371,7 @@ function countSorriesInSolution(root) {
   return { sorryCount: m ? m.length : 0 };
 }
 
-function prepareInventSandbox() {
+function prepareInventSandbox({ withInventMath = false } = {}) {
   rmSync(INVENT_ROOT, { recursive: true, force: true });
   mkdirSync(INVENT_ROOT, { recursive: true });
   for (const name of CHALLENGE_ONLY) {
@@ -361,7 +379,14 @@ function prepareInventSandbox() {
     if (!existsSync(src)) continue;
     cpSync(src, join(INVENT_ROOT, name), { recursive: true });
   }
-  writeInventLakefile(INVENT_ROOT);
+  const inventMathSrc = join(resolve(__dirname, '..'), 'invent-math', 'InventMath.lean');
+  if (withInventMath) {
+    if (!existsSync(inventMathSrc)) {
+      throw new Error(`missing InventMath at ${inventMathSrc}`);
+    }
+    cpSync(inventMathSrc, join(INVENT_ROOT, 'InventMath.lean'));
+  }
+  writeInventLakefile(INVENT_ROOT, { withInventMath });
   // Warm Mathlib cache only (no proof modules).
   const lakeSrc = join(VENDOR, '.lake');
   if (existsSync(lakeSrc)) {
@@ -381,10 +406,11 @@ function prepareInventSandbox() {
   // Start Solution as all-sorry invent shell (no Anthropic Solution copy).
   const proofs = new Map();
   for (const thm of INVENT_THEOREMS) proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry' });
-  writeSolution(INVENT_ROOT, proofs);
+  writeSolution(INVENT_ROOT, proofs, { withInventMath });
   return {
     challengeOnly: anthropicProofsAbsent,
     inventSolutionShellWritten: true,
+    withInventMath,
     leaks: assertNoSealedLeak(INVENT_ROOT),
   };
 }
@@ -402,7 +428,7 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help) {
     console.log(
-      'Usage: node timing/run-zeta23-invent.mjs [--llm] [--no-cutoff] [--max-rounds N] [--model ID] [--cutoff-seconds N] [--skip-lake] [--receipt PATH]',
+      'Usage: node timing/run-zeta23-invent.mjs [--llm] [--compare] [--paper] [--no-cutoff] [--max-rounds N] [--model ID] [--cutoff-seconds N] [--skip-lake] [--receipt PATH]',
     );
     process.exit(0);
   }
@@ -423,8 +449,12 @@ function main() {
     process.exit(1);
   }
   const llmMode = Boolean(args.llm);
+  const compareMode = Boolean(args.compare);
+  const paperMode = Boolean(args.paper || args.compare);
+  const withInventMath = paperMode || compareMode;
+  const paperAddendum = paperMode ? paperMathSystemAddendum() : null;
   const anyLlmKey = Object.values(keys).some(Boolean);
-  const prep = prepareInventSandbox();
+  const prep = prepareInventSandbox({ withInventMath });
   if (prep.leaks.length) {
     console.error('sealed leak into invent sandbox', prep.leaks);
     process.exit(1);
@@ -520,6 +550,10 @@ function main() {
           });
           awarenessInjections += 1;
           awarenessCharsTotal += awareness.length;
+          // Pace Groq TPM between theorems (compare prompts are large).
+          if (llmCalls > 1) {
+            spawnSync('sleep', [compareMode ? '2.5' : '1'], { encoding: 'utf8' });
+          }
           const invented = inventProofWithGroq({
             theorem: thm.name,
             binders: thm.binders,
@@ -532,6 +566,8 @@ function main() {
             proofs,
             attempts,
             round,
+            paperAddendum,
+            maxTokens: compareMode ? 1800 : 2500,
           });
           if (invented.model) llmModelsUsed.add(invented.model);
           if (invented.ok) {
@@ -614,7 +650,7 @@ function main() {
       platform.coordination.ownership.setStatus(task.id, 'in_progress');
     }
 
-    writeSolution(INVENT_ROOT, proofs);
+    writeSolution(INVENT_ROOT, proofs, { withInventMath });
     if (solutionImportsZeta23(INVENT_ROOT)) {
       console.error('INVARIANT FAIL: invent Solution imported Zeta23');
       process.exit(2);
@@ -649,9 +685,17 @@ function main() {
     }
 
     if (buildOk) {
+      // Lake can succeed with `sorry` warnings — only mark a theorem closed if its
+      // invent body has no sorry/admit (honest close, not false 17/17).
       for (const thm of INVENT_THEOREMS) {
         const p = proofs.get(thm.name);
-        if (!p.closed) {
+        if (p.closed) continue;
+        const body = String(p.body || '');
+        const honest =
+          body.trim().length > 0 &&
+          !/\bsorry\b/.test(body) &&
+          !/\badmit\b/.test(body);
+        if (honest) {
           proofs.set(thm.name, { ...p, closed: true });
           closedThisRound += 1;
         }
@@ -681,7 +725,9 @@ function main() {
       }
     }
 
-    const allClosed = [...proofs.values()].every((p) => p.closed);
+    const sorryNow = countSorriesInSolution(INVENT_ROOT).sorryCount;
+    const allClosed =
+      [...proofs.values()].every((p) => p.closed) && sorryNow === 0;
     if (allClosed) break;
 
     // Tactic-only plateau after exhausting strategies. LLM invent does not plateau that way.
@@ -692,7 +738,7 @@ function main() {
           proofs.set(thm.name, { tacticId: 'sorry_hold', body: 'sorry', closed: false, round });
         }
       }
-      writeSolution(INVENT_ROOT, proofs);
+      writeSolution(INVENT_ROOT, proofs, { withInventMath });
       steps.push({
         name: 'plateau',
         ok: true,
@@ -763,9 +809,12 @@ function main() {
       enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
       awarenessInjections: llmMode ? awarenessInjections : 0,
       apiKeys: keys,
-      anthropicBaselinePrimary: 'https://www.anthropic.com/research/riemann-zeta',
-      anthropicBaselineCharacterization:
-        '~60 subagents · ~1.5 days · invent+formalize critical-line bound 41.6% → 67.2%',
+      anthropicBaselinePrimary: ANTHROPIC_INVENT_BASELINE.url,
+      anthropicBaselineCharacterization: ANTHROPIC_INVENT_BASELINE.characterization,
+      anthropicWinCondition: ANTHROPIC_INVENT_BASELINE.winCondition,
+      compareMode,
+      paperGuided: paperMode,
+      inventMathImported: withInventMath,
       explanation,
     },
     challengeOnlyAtStart: prep.challengeOnly,

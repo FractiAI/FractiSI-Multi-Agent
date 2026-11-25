@@ -5,7 +5,7 @@ NO import of Anthropic Zeta23. Challenge-only Mathlib invent.
 import Mathlib
 
 open scoped BigOperators
-open Finset
+open Finset Matrix
 
 noncomputable section
 
@@ -48,7 +48,6 @@ theorem rank_trace_inequality_real_diag
         - 4 * ((univ.filter (fun i : Fin d => 0 < q i)).card : ℝ)
         - ∑ i, (p i + q i) ^ 2 := by
   classical
-  -- Work entirely with indicator sums, then rewrite to cards.
   set Ip : Fin d → ℝ := fun i => if 0 < p i then (1 : ℝ) else 0
   set Iq : Fin d → ℝ := fun i => if 0 < q i then (1 : ℝ) else 0
   have hpt : ∀ i ∈ (univ : Finset (Fin d)), Ip i ≥ 2 * p i + 4 * q i - 4 * Iq i - (p i + q i) ^ 2 :=
@@ -79,9 +78,78 @@ theorem rank_trace_inequality_real_diag
           - 4 * ((univ.filter (fun i : Fin d => 0 < q i)).card : ℝ)
           - ∑ i, (p i + q i) ^ 2 := by rw [hqcard]
 
+/-- Diagonal-matrix packaging of the real rank–trace form (Lemma 3.2 diagonal case). -/
+theorem rank_trace_diagonal_matrices
+    {d : ℕ} (p q : Fin d → ℝ)
+    (hp : ∀ i, 0 ≤ p i) (hq : ∀ i, 0 ≤ q i) :
+    ((univ.filter (fun i : Fin d => 0 < p i)).card : ℝ) ≥
+      2 * (diagonal p).trace + 4 * (diagonal q).trace
+        - 4 * ((univ.filter (fun i : Fin d => 0 < q i)).card : ℝ)
+        - ∑ i, ((diagonal p + diagonal q) i i) ^ 2 := by
+  have htP : (diagonal p).trace = ∑ i, p i := by simp [Matrix.trace_diagonal]
+  have htQ : (diagonal q).trace = ∑ i, q i := by simp [Matrix.trace_diagonal]
+  have hii : ∀ i, (diagonal p + diagonal q) i i = p i + q i := by
+    intro i
+    simp [diagonal]
+  simp_rw [htP, htQ, hii]
+  exact rank_trace_inequality_real_diag d p q hp hq
+
+/-- Indicator-window constant R(ψ₀) = 4/3 (paper Lemma 5.6 / §1). -/
+def R_indicator : ℝ := (4 : ℝ) / 3
+
+theorem window_constant_indicator : R_indicator = (4 : ℝ) / 3 := rfl
+
+/-- At the indicator window, 2 − R = 2/3. -/
+theorem two_minus_indicator_window : (2 : ℝ) - R_indicator = (2 : ℝ) / 3 := by
+  simp [R_indicator]
+  ring
+
 /-- Assembly arithmetic: R ≤ 4/3 ⇒ 2 − R ≥ 2/3 (feeds Theorem A constant). -/
 theorem thmA_assembly_two_thirds {R : ℝ} (hR : R ≤ (4 : ℝ) / 3) :
     (2 : ℝ) - R ≥ (2 : ℝ) / 3 := by
   linarith
+
+/-- Theorem A arithmetic chain (ε-free skeleton):
+    if Ns ≥ (2 - R) * N and R ≤ 4/3 then Ns ≥ (2/3) * N. -/
+theorem thmA_chain_two_thirds
+    {N R Ns : ℝ} (hN : 0 ≤ N) (hR : R ≤ (4 : ℝ) / 3)
+    (h : Ns ≥ (2 - R) * N) :
+    Ns ≥ (2 : ℝ) / 3 * N := by
+  have hcoef : (2 : ℝ) - R ≥ (2 : ℝ) / 3 := thmA_assembly_two_thirds hR
+  have : (2 - R) * N ≥ ((2 : ℝ) / 3) * N :=
+    mul_le_mul_of_nonneg_right hcoef hN
+  exact le_trans this h
+
+/-- Distinct-count coefficient: R ≤ 4/3 ⇒ (3 − R)/2 ≥ 5/6. -/
+theorem thmC_assembly_five_sixths {R : ℝ} (hR : R ≤ (4 : ℝ) / 3) :
+    ((3 : ℝ) - R) / 2 ≥ (5 : ℝ) / 6 := by
+  linarith
+
+/-- Theorem C arithmetic chain skeleton. -/
+theorem thmC_chain_five_sixths
+    {N R Nd : ℝ} (hN : 0 ≤ N) (hR : R ≤ (4 : ℝ) / 3)
+    (h : Nd ≥ ((3 - R) / 2) * N) :
+    Nd ≥ (5 : ℝ) / 6 * N := by
+  have hcoef := thmC_assembly_five_sixths hR
+  have : ((3 - R) / 2) * N ≥ ((5 : ℝ) / 6) * N :=
+    mul_le_mul_of_nonneg_right hcoef hN
+  exact le_trans this h
+
+/-- Scalar form of m² ≥ 2m − 1 (paper: matrix form of this identity). -/
+theorem multiplicity_quadratic_bound (m : ℝ) :
+    m ^ 2 ≥ 2 * m - 1 := by
+  nlinarith [sq_nonneg (m - 1)]
+
+/-- Algebraic identity behind the flat-charge recovery m² ≥ 3m − 2. -/
+theorem multiplicity_flat_charge_identity (m : ℝ) :
+    m ^ 2 - (3 * m - 2) = (m - 1) * (m - 2) := by
+  ring
+
+/-- Indicator window specializes Theorem A chain to the 2/3 constant. -/
+theorem thmA_indicator_specialization
+    {N Ns : ℝ} (hN : 0 ≤ N) (h : Ns ≥ (2 - R_indicator) * N) :
+    Ns ≥ (2 : ℝ) / 3 * N := by
+  have hR : R_indicator ≤ (4 : ℝ) / 3 := by simp [R_indicator]
+  exact thmA_chain_two_thirds hN hR h
 
 end

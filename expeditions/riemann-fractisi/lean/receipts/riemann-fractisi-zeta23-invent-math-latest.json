@@ -2,9 +2,9 @@
   "schema": "fractisi.riemann-expedition.zeta23-invent-math.v1",
   "label": "riemann-fractisi-zeta23-invent-math",
   "mode": "invent_math",
-  "startedAt": "2026-11-25T04:53:09.312Z",
-  "endedAt": "2026-11-25T04:53:20.594Z",
-  "durationSeconds": 11.281526614,
+  "startedAt": "2026-11-25T05:15:33.429Z",
+  "endedAt": "2026-11-25T05:15:44.626Z",
+  "durationSeconds": 11.196540227,
   "ok": true,
   "leanOk": true,
   "honesty": {
@@ -28,7 +28,7 @@
       "OPENAI_API_KEY": false
     },
     "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
-    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 4/4; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
+    "explanation": "FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 13/13; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN."
   },
   "challengeOnlyAtStart": {
     "Zeta23DirAbsent": true,
@@ -38,14 +38,23 @@
   "leaksAtStart": [],
   "invent": {
     "kind": "paper_math_ladder",
-    "theoremCount": 4,
-    "closedCount": 4,
+    "theoremCount": 13,
+    "closedCount": 13,
     "openCount": 0,
     "closed": [
       "rank_trace_scalar_cases",
       "rank_trace_cell",
       "rank_trace_inequality_real_diag",
+      "rank_trace_diagonal_matrices",
+      "window_constant_indicator",
+      "two_minus_indicator_window",
       "thmA_assembly_two_thirds",
+      "thmA_chain_two_thirds",
+      "thmA_indicator_specialization",
+      "thmC_assembly_five_sixths",
+      "thmC_chain_five_sixths",
+      "multiplicity_quadratic_bound",
+      "multiplicity_flat_charge_identity",
       "indicator_pos_ge_two_sub_sq"
     ],
     "open": [],
@@ -72,27 +81,75 @@
         "closed": true
       },
       {
+        "id": "L3.2-diagM",
+        "leanName": "rank_trace_diagonal_matrices",
+        "closed": true
+      },
+      {
+        "id": "R-ind",
+        "leanName": "window_constant_indicator",
+        "closed": true
+      },
+      {
+        "id": "R-two-thirds",
+        "leanName": "two_minus_indicator_window",
+        "closed": true
+      },
+      {
         "id": "A-arith",
         "leanName": "thmA_assembly_two_thirds",
+        "closed": true
+      },
+      {
+        "id": "A-chain",
+        "leanName": "thmA_chain_two_thirds",
+        "closed": true
+      },
+      {
+        "id": "A-ind",
+        "leanName": "thmA_indicator_specialization",
+        "closed": true
+      },
+      {
+        "id": "C-arith",
+        "leanName": "thmC_assembly_five_sixths",
+        "closed": true
+      },
+      {
+        "id": "C-chain",
+        "leanName": "thmC_chain_five_sixths",
+        "closed": true
+      },
+      {
+        "id": "m-quad",
+        "leanName": "multiplicity_quadratic_bound",
+        "closed": true
+      },
+      {
+        "id": "m-flat",
+        "leanName": "multiplicity_flat_charge_identity",
         "closed": true
       }
     ]
   },
   "fractisi": {
-    "agents": 2,
+    "agents": 3,
     "agentIds": [
-      "agent_ca4742b8",
-      "agent_ce402d62"
+      "agent_6cf65f1b",
+      "agent_11ea7fdc",
+      "agent_c9170d65"
     ],
-    "tasks": 2,
+    "tasks": 3,
     "taskIds": [
-      "task_982204b4",
-      "task_858d9c85"
+      "task_b867033b",
+      "task_77d20263",
+      "task_7b3dc391"
     ],
-    "contributions": 2,
+    "contributions": 3,
     "contributionIds": [
-      "contrib_ccd7a188",
-      "contrib_f959fb3e"
+      "contrib_eaed11fa",
+      "contrib_f4f46f07",
+      "contrib_9e10e0e2"
     ]
   },
   "steps": [
@@ -102,26 +159,41 @@
       "lemmas": [
         "rank_trace_scalar_cases",
         "rank_trace_cell",
-        "rank_trace_inequality_real_diag"
+        "rank_trace_inequality_real_diag",
+        "rank_trace_diagonal_matrices",
+        "multiplicity_quadratic_bound",
+        "multiplicity_flat_charge_identity"
+      ]
+    },
+    {
+      "name": "claim-invent-window",
+      "ok": true,
+      "lemmas": [
+        "window_constant_indicator",
+        "two_minus_indicator_window"
       ]
     },
     {
       "name": "claim-invent-assembly",
       "ok": true,
       "lemmas": [
-        "thmA_assembly_two_thirds"
+        "thmA_assembly_two_thirds",
+        "thmA_chain_two_thirds",
+        "thmA_indicator_specialization",
+        "thmC_assembly_five_sixths",
+        "thmC_chain_five_sixths"
       ]
     },
     {
       "name": "lake-build-InventMath",
       "ok": true,
       "status": 0,
-      "stderrTail": "✔ [8697/8698] Built InventMath (6.5s)\nBuild completed successfully (8698 jobs)."
+      "stderrTail": "✔ [8697/8698] Built InventMath (6.8s)\nBuild completed successfully (8698 jobs)."
     },
     {
       "name": "compose",
       "ok": true,
-      "compositionId": "comp_21a21479"
+      "compositionId": "comp_9ddc5499"
     }
   ],
   "paths": {

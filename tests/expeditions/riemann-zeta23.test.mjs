@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import {
   ZETA23_FIND_NO_KIT_SCHEMA,
   ZETA23_FIND_SCHEMA,
+  ZETA23_INVENT_COMPARE_SCHEMA,
   ZETA23_INVENT_MATH_SCHEMA,
   ZETA23_INVENT_NO_KIT_SCHEMA,
   ZETA23_INVENT_SCHEMA,
@@ -16,6 +17,7 @@ import {
   auditPrintAxiomsStdout,
   loadLatestZeta23FindNoKitReceipt,
   loadLatestZeta23FindReceipt,
+  loadLatestZeta23InventCompareReceipt,
   loadLatestZeta23InventMathReceipt,
   loadLatestZeta23InventNoKitReceipt,
   loadLatestZeta23InventReceipt,
@@ -167,8 +169,27 @@ describe('zeta23 invent-math receipt', () => {
     assert.equal(receipt.invent.inventMathImportsZeta23, false);
     assert.equal(receipt.invent.sorryAtEnd, 0);
     assert.equal(receipt.invent.closedCount, receipt.invent.theoremCount);
-    assert.ok(receipt.invent.theoremCount >= 3);
+    assert.ok(receipt.invent.theoremCount >= 10);
     assert.ok(receipt.durationSeconds > 0);
     assert.equal(receipt.invent.lakeBuildOk, true);
+  });
+});
+
+describe('zeta23 invent-compare receipt', () => {
+  it('records Anthropic-comparable campaign without sealed corpus', () => {
+    const receipts = join(zeta23RootFromHere(), '../lean/receipts');
+    const loaded = loadLatestZeta23InventCompareReceipt(receipts);
+    assert.equal(loaded.ok, true, 'run timing/run-zeta23-invent-compare.mjs before commit');
+    const receipt = loaded.receipt;
+    assert.equal(receipt.schema, ZETA23_INVENT_COMPARE_SCHEMA);
+    assert.equal(receipt.mode, 'invent_compare');
+    assert.equal(receipt.honesty.sealedCorpusUsed, false);
+    assert.equal(receipt.paperMath.ok, true);
+    assert.ok(receipt.paperMath.closedCount >= 10);
+    assert.equal(typeof receipt.headlineInvent.closedCount, 'number');
+    // Anthropic win not claimed until 17/17 green.
+    if (receipt.ok) {
+      assert.equal(receipt.headlineInvent.closedCount, receipt.headlineInvent.theoremCount);
+    }
   });
 });

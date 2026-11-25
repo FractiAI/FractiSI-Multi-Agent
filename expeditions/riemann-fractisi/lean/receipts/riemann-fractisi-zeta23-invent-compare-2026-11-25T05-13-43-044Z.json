@@ -1,0 +1,47 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent-compare.v1",
+  "label": "riemann-fractisi-zeta23-invent-compare",
+  "mode": "invent_compare",
+  "startedAt": "2026-11-25T05:13:43.044Z",
+  "endedAt": "2026-11-25T05:14:26.112Z",
+  "durationSeconds": 43.067702712,
+  "ok": false,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "sealedCorpusUsed": false,
+    "anthropicBaseline": {
+      "url": "https://www.anthropic.com/research/riemann-zeta",
+      "characterization": "~60 subagents · ~1.5 days · invent+formalize critical-line bound 41.6% → 67.2%",
+      "winCondition": "Challenge-only start → Comparator-green Solution for all 17 theorems, axioms trio only, no sealed Zeta23 import"
+    },
+    "paperArxiv": "2608.13637",
+    "remainingStack": [
+      "Full Hermitian Lemma 3.2 (not only diagonal)",
+      "Lemma 3.1 inertia under pull-back",
+      "Weil explicit formula (ζ and Dirichlet L)",
+      "Riemann–von Mangoldt zero counting",
+      "Stirling Γ′/Γ on vertical lines",
+      "Chebyshev–Mertens prime sums",
+      "Montgomery–Vaughan Hilbert inequality",
+      "Zero-side / prime-side / assembly → Challenge Solution 17/17"
+    ],
+    "whatThisMeasures": "Anthropic-comparable invent campaign: paper-math ladder + long Challenge invent with paper guidance; Challenge-only; no sealed Zeta23",
+    "whatThisDoesNotMeasure": [
+      "Find-assemble of sealed Anthropic Zeta23",
+      "RH",
+      "Successful Anthropic-comparable close (17/17 Comparator-green) — not yet met"
+    ],
+    "explanation": "Paper-math ladder 0/13 (ok=false). Challenge headlines 0/17 (ok=false). Win condition NOT met — continue inventing remaining analytic stack. Anthropic baseline: ~60 subagents · ~1.5 days · invent+formalize critical-line bound 41.6% → 67.2%."
+  },
+  "paperMath": {
+    "ok": false,
+    "parseError": true,
+    "stdoutTail": "{\n  \"receiptPath\": \"/workspace/expeditions/riemann-fractisi/lean/receipts/riemann-fractisi-zeta23-invent-math-2026-11-25T05-13-43-086Z.json\",\n  \"ok\": true,\n  \"mode\": \"invent_math\",\n  \"durationSeconds\": 4.59040197,\n  \"closedCount\": 13,\n  \"theoremCount\": 13,\n  \"sorryAtEnd\": 0,\n  \"lakeBuildOk\": true,\n  \"sealedCorpusUsed\": false,\n  \"explanation\": \"FractiSI paper-math invent: Challenge-only InventMath.lean from public arXiv:2608.13637 outline. Ladder lemmas closed 13/13; lake build green; sorries=0. No sealed Anthropic Zeta23 corpus. Challenge headline Solution.lean not claimed here. RH remains OPEN.\"\n}"
+  },
+  "headlineInvent": {
+    "ok": false,
+    "parseError": true,
+    "stdoutTail": "FractiSI invent clock: Challenge-only ζ proportion statements; agents invent Solution without Anthropic Zeta23 sealed corpus. No wall-clock cutoff on this FractiSI arm — stopped on green Solution, max-rounds, or honest plateau. LLM invent ON via Groq (models: openai/gpt-oss-120b); Tiny Footprint / Infinite Octave ENGINE processing prompt (fractisi.infinite-octave.engine-shelf.invent.v2) is the system awareness — how Groq processes shared-world data (board/peers/lake), not a status dump alone. Rounds=1; closed=17/17; Solution sorries=17; plateau=false; cutoffHit=false; llmCalls=17; llmOkCalls=0; awarenessInjections=17; enginePromptId=fractisi.infinite-octave.engine-shelf.invent.v2. Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. RH remains OPEN.\"\n}"
+  },
+  "maxRounds": 12
+}

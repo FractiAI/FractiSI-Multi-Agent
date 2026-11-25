@@ -12,6 +12,7 @@ export const ZETA23_FIND_NO_KIT_SCHEMA = 'fractisi.riemann-expedition.zeta23-fin
 export const ZETA23_INVENT_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent.v1';
 export const ZETA23_INVENT_NO_KIT_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent-no-kit.v1';
 export const ZETA23_INVENT_MATH_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent-math.v1';
+export const ZETA23_INVENT_COMPARE_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent-compare.v1';
 export const PERMITTED_AXIOMS = Object.freeze(['propext', 'Classical.choice', 'Quot.sound']);
 
 export const ZETA23_PARTITIONS = Object.freeze([
@@ -138,6 +139,26 @@ export function loadLatestZeta23InventMathReceipt(receiptsDir) {
     return { ok: measured, receipt };
   }
   return { ok: false, error: 'missing_latest_invent_math_receipt' };
+}
+
+/**
+ * Compare campaign receipt: successful *measurement* even when Anthropic win not met.
+ * Requires sealedCorpusUsed false and paper-math + headline arms recorded.
+ */
+export function loadLatestZeta23InventCompareReceipt(receiptsDir) {
+  if (!existsSync(receiptsDir)) return { ok: false, error: 'missing_receipts_dir' };
+  const preferred = join(receiptsDir, 'riemann-fractisi-zeta23-invent-compare-latest.json');
+  if (existsSync(preferred)) {
+    const receipt = JSON.parse(readFileSync(preferred, 'utf8'));
+    const measured =
+      receipt.schema === ZETA23_INVENT_COMPARE_SCHEMA &&
+      receipt.mode === 'invent_compare' &&
+      receipt.honesty?.sealedCorpusUsed === false &&
+      receipt.paperMath?.ok === true &&
+      typeof receipt.headlineInvent?.closedCount === 'number';
+    return { ok: measured, receipt };
+  }
+  return { ok: false, error: 'missing_latest_invent_compare_receipt' };
 }
 
 /** No-kit find is a successful *measurement* when cutoffHit and still no Solution. */
