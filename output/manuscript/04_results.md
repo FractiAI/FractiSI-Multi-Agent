@@ -75,32 +75,32 @@ The same designs across session counts are in [@fig:heap_scaling]. Small stores 
 
 ## Resident memory falls less than the heap {#sec:res_rss}
 
-*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.1 MiB for the duplicated store and 111.6 MiB for Tiny, a reduction of 25.7% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.8%. Peak RSS over ingestion is 281.3 MiB and 242.7 MiB respectively.
+*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.7 MiB for the duplicated store and 112.2 MiB for Tiny, a reduction of 25.6% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.7%. Peak RSS over ingestion is 282.2 MiB and 243.6 MiB respectively.
 
 | Store | RSS growth | 95% interval | RSS reduction | Heap reduction |
 | ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |
-| Duplicated | 150.1 MiB | 150.0 MiB to 150.2 MiB | 0.0% | 0.0% |
-| Tiny (shipped) | 111.6 MiB | 111.4 MiB to 111.7 MiB | 25.7% | 32.1% |
-| Aliased | 111.4 MiB | 111.3 MiB to 111.5 MiB | 25.8% | 32.1% |
+| Duplicated | 150.7 MiB | 150.5 MiB to 150.9 MiB | 0.0% | 0.0% |
+| Tiny (shipped) | 112.2 MiB | 112.1 MiB to 112.4 MiB | 25.6% | 32.1% |
+| Aliased | 111.9 MiB | 111.8 MiB to 112.2 MiB | 25.7% | 32.1% |
 
 : Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes. {#tbl:rss}
 
 ## Materialization is slower, mostly because of one call {#sec:res_latency}
 
-*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.01× the duplicated store's time with a shared prompt and 1.62× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.01× and 1.68×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
+*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.02× the duplicated store's time with a shared prompt and 1.65× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.02× and 1.63×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
 
-![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.01 to 1.01.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
+![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.02 to 1.02.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
 
 | Workload | Store | Median | 95% interval | Ratio | 95% interval |
 | ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |
-| Shared prompt | Duplicated | 8.53 µs | 8.46 µs to 8.57 µs | 1.00× | 0.99× to 1.01× |
-| Shared prompt | Aliased | 8.57 µs | 8.49 µs to 8.61 µs | 1.00× | 0.99× to 1.01× |
-| Shared prompt | Tiny without clone | 8.62 µs | 8.58 µs to 8.64 µs | 1.01× | 1.00× to 1.02× |
-| Shared prompt | Tiny (shipped) | 8.63 µs | 8.61 µs to 8.65 µs | 1.01× | 1.01× to 1.02× |
-| Same shape | Duplicated | 0.57 µs | 0.57 µs to 0.58 µs | 1.00× | 0.98× to 1.02× |
-| Same shape | Aliased | 0.58 µs | 0.58 µs to 0.58 µs | 1.02× | 0.98× to 1.02× |
-| Same shape | Tiny (shipped) | 0.93 µs | 0.92 µs to 0.93 µs | 1.62× | 1.57× to 1.63× |
-| Same shape | Tiny without clone | 0.96 µs | 0.92 µs to 0.97 µs | 1.68× | 1.58× to 1.70× |
+| Shared prompt | Duplicated | 8.34 µs | 8.34 µs to 8.36 µs | 1.00× | 1.00× to 1.00× |
+| Shared prompt | Aliased | 8.39 µs | 8.36 µs to 8.40 µs | 1.01× | 1.00× to 1.01× |
+| Shared prompt | Tiny without clone | 8.49 µs | 8.46 µs to 8.52 µs | 1.02× | 1.01× to 1.02× |
+| Shared prompt | Tiny (shipped) | 8.54 µs | 8.51 µs to 8.54 µs | 1.02× | 1.02× to 1.02× |
+| Same shape | Duplicated | 0.56 µs | 0.56 µs to 0.56 µs | 1.00× | 0.99× to 1.00× |
+| Same shape | Aliased | 0.58 µs | 0.58 µs to 0.59 µs | 1.04× | 1.03× to 1.05× |
+| Same shape | Tiny without clone | 0.91 µs | 0.90 µs to 0.94 µs | 1.63× | 1.61× to 1.68× |
+| Same shape | Tiny (shipped) | 0.92 µs | 0.92 µs to 0.93 µs | 1.65× | 1.64× to 1.66× |
 
 : Time to materialize one session from each store, as medians over independent processes, with the ratio to the duplicated store. {#tbl:latency}
 
@@ -127,7 +127,7 @@ The historical 1.17× training speedup does not reappear. In this design both ar
 
 *Tier: measured.* The readings in [@fig:kv_residency] and [@tbl:residency] hold eight sessions of `distilgpt2` live on MPS. The summed tensor sizes equal [@eq:kv] exactly, and the device allocator agrees closely, at 84.4% against 84.1% predicted. This is the first device-memory reduction in this repository measured on a real model's tensors, and it supports the accounting behind the roofline below. Holding the prefix separately has a cost: rebuilding one session's full cache by concatenation takes 0.35 ms on this backend, and the rebuilt tensors match a full prefill to within 2.0e-5.
 
-![Key-value cache held live for 8 sessions of distilbert/distilgpt2 on MPS: 512 shared prefix tokens and 21 tokens per session, by three accountings. Sharing the prefix is predicted to save 84.1%; summed tensor sizes give 84.1% and the device allocator 84.4%.](../../output/figures/kv_residency.png){#fig:kv_residency width=92%}
+![Key-value cache held live for 8 sessions of distilbert/distilgpt2 on MPS: 512 shared prefix tokens and 21 tokens per session, by 3 accountings. Sharing the prefix is predicted to save 84.1%; summed tensor sizes give 84.1% and the device allocator 84.4%.](../../output/figures/kv_residency.png){#fig:kv_residency width=92%}
 
 | Model | Backend | Predicted | Tensors | Allocator | Duplicated | Shared | + weights |
 | ------------- | ---------- | -----------: | ----------: | -----------: | -------------: | -----------: | -----------: |

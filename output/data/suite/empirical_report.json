@@ -2,7 +2,7 @@
   "DOC_ID": "WP-SYNTHOBS-TINY-GATEWAY-RHYMING-TEMPLATES-EGS-2026-11-03",
   "REGISTRY_ID": "synthobs-tiny-gateway-rhyming-templates-2026-11",
   "STUDY_TITLE": "Tiny Gateway: Rhyming Templates and a New Architecture for Memory-Efficient Computing",
-  "generatedAt": "2026-11-05T03:02:44.933Z",
+  "generatedAt": "2026-11-25T00:04:55.923Z",
   "host": {
     "arch": "x64",
     "cpuModel": "Intel(R) Xeon(R) Processor",
@@ -10,8 +10,8 @@
     "node": "v22.23.4",
     "platform": "linux",
     "pointerBytes": 8,
-    "release": "6.12.94+",
-    "totalMemoryBytes": 16780574720,
+    "release": "6.12.113+",
+    "totalMemoryBytes": 16780623872,
     "v8": "12.4.254.21-node.57"
   },
   "results": {
@@ -674,7 +674,7 @@
       }
     },
     "S": {
-      "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory.",
+      "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share. The JSON template/delta fraction (0.388889 shared org / 0.611111 delta org) is a KV residency hypothesis. The measured-cells arm applies matchingCellFraction=0.145833 from real tensors; claimableShare=False until spliced-cache resume is equivalent. Not the in-process 84.5% aggregate pasted onto device memory.",
       "id": "S_h100_rhyme_vs_prefix_sim",
       "invariants": {
         "fractionLock": true,
@@ -721,6 +721,8 @@
         },
         "comparison": {
           "identicalPrefixTinyVersusPrefixCacheResidentBytes": 0,
+          "measuredClaimableShare": false,
+          "measuredKvReductionVersusPrefixCache": 0.13671875,
           "peakBandwidthIsAnUpperBound": true,
           "prefixKvReductionVersusNaive": 0,
           "prefixMaterializeSpeedupVersusNaive": 1,
@@ -737,7 +739,7 @@
           "peakBandwidthBytesPerSec": 3350000000000,
           "source": "NVIDIA H100 Tensor Core GPU datasheet: 80 GB HBM3, 3.35 TB/s"
         },
-        "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory.",
+        "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share. The JSON template/delta fraction (0.388889 shared org / 0.611111 delta org) is a KV residency hypothesis. The measured-cells arm applies matchingCellFraction=0.145833 from real tensors; claimableShare=False until spliced-cache resume is equivalent. Not the in-process 84.5% aggregate pasted onto device memory.",
         "kind": "simulation",
         "liveRun": true,
         "model": {
@@ -754,6 +756,8 @@
         "status": "pass",
         "workload": {
           "kvBytesPerToken": 524288,
+          "measuredClaimableShare": false,
+          "measuredMatchingCellFraction": 0.14583333333333334,
           "orgTokens": 2048,
           "rhymeDeltaOrgFraction": 0.6111111111111112,
           "rhymeShareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100.",
@@ -861,6 +865,47 @@
             },
             "rhymeDifferentiates": true,
             "title": "Same organizational slots, different wording (rhyme differentiates)"
+          },
+          "rhymingKvMeasuredCells": {
+            "arms": {
+              "naiveRefill": {
+                "fits": true,
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "materializeSecondsAtPeak": 0.005448839106865671,
+                "residentBytes": 31730442240
+              },
+              "productionPrefixCache": {
+                "exactPrefixHits": 0,
+                "fits": true,
+                "kvBytes": 18253611008,
+                "materializeBytes": 18253611008,
+                "materializeSecondsAtPeak": 0.005448839106865671,
+                "note": "Different wording — exact-prefix cache cannot share.",
+                "residentBytes": 31730442240
+              },
+              "tinyFootprintRhymeKv": {
+                "claimableShare": false,
+                "fits": true,
+                "kvBytes": 15758000128,
+                "matchingCellFraction": 0.14583333333333334,
+                "materializeBytes": 15758000128,
+                "materializeSecondsAtPeak": 0.004703880635223881,
+                "residentBytes": 29234831360,
+                "sameResidentSetAsPrefixCache": false,
+                "shareSource": "tiny-footprint-workstation llm lab · distilgpt2 rhymeSharing.matchingCellFraction (slot_every=8). claimableShare=false until resumeFromSplicedCache.equivalent."
+              }
+            },
+            "claimableShare": false,
+            "comparison": {
+              "matchingCellFraction": 0.14583333333333334,
+              "tinyKvReductionVersusNaive": 0.13671875,
+              "tinyKvReductionVersusPrefixCache": 0.13671875
+            },
+            "honesty": "Uses measured matchingCellFraction from real tensors. claimableShare is true only when spliced-cache resume stayed logit-equivalent.",
+            "id": "rhymingKvMeasuredCells",
+            "rhymeDifferentiates": true,
+            "title": "Organizational rhyme-KV using measured matching-cell fraction"
           }
         }
       },
@@ -1179,7 +1224,7 @@
       },
       {
         "S": {
-          "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory.",
+          "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share. The JSON template/delta fraction (0.388889 shared org / 0.611111 delta org) is a KV residency hypothesis. The measured-cells arm applies matchingCellFraction=0.145833 from real tensors; claimableShare=False until spliced-cache resume is equivalent. Not the in-process 84.5% aggregate pasted onto device memory.",
           "id": "S_h100_rhyme_vs_prefix_sim",
           "invariants": {
             "fractionLock": true,
@@ -1226,6 +1271,8 @@
             },
             "comparison": {
               "identicalPrefixTinyVersusPrefixCacheResidentBytes": 0,
+              "measuredClaimableShare": false,
+              "measuredKvReductionVersusPrefixCache": 0.13671875,
               "peakBandwidthIsAnUpperBound": true,
               "prefixKvReductionVersusNaive": 0,
               "prefixMaterializeSpeedupVersusNaive": 1,
@@ -1242,7 +1289,7 @@
               "peakBandwidthBytesPerSec": 3350000000000,
               "source": "NVIDIA H100 Tensor Core GPU datasheet: 80 GB HBM3, 3.35 TB/s"
             },
-            "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share and Tiny Footprint uses the measured in-process Rhyming Template shared/delta fraction (0.388889 shared org / 0.611111 delta org) as a KV residency hypothesis — not a measured H100 transformer KV compression factor, and not the in-process 84.5% aggregate pasted onto device memory.",
+            "honesty": "Simulation on a published H100 SXM profile. Peak-bandwidth copy time is an upper bound, not a predicted wall clock. On identical exact prefixes, Tiny Footprint matches production prefix-cache residency. On rhyming organization with different wording, prefix cache cannot share. The JSON template/delta fraction (0.388889 shared org / 0.611111 delta org) is a KV residency hypothesis. The measured-cells arm applies matchingCellFraction=0.145833 from real tensors; claimableShare=False until spliced-cache resume is equivalent. Not the in-process 84.5% aggregate pasted onto device memory.",
             "kind": "simulation",
             "liveRun": true,
             "model": {
@@ -1259,6 +1306,8 @@
             "status": "pass",
             "workload": {
               "kvBytesPerToken": 524288,
+              "measuredClaimableShare": false,
+              "measuredMatchingCellFraction": 0.14583333333333334,
               "orgTokens": 2048,
               "rhymeDeltaOrgFraction": 0.6111111111111112,
               "rhymeShareSource": "in-process Rhyming Template encode on 40 differing-word sessions (shared fields stay in template; differing fields become nested deltas). Applied here as an organizational KV residency hypothesis — not a measured transformer KV-cache compression factor on H100.",
@@ -1366,6 +1415,47 @@
                 },
                 "rhymeDifferentiates": true,
                 "title": "Same organizational slots, different wording (rhyme differentiates)"
+              },
+              "rhymingKvMeasuredCells": {
+                "arms": {
+                  "naiveRefill": {
+                    "fits": true,
+                    "kvBytes": 18253611008,
+                    "materializeBytes": 18253611008,
+                    "materializeSecondsAtPeak": 0.005448839106865671,
+                    "residentBytes": 31730442240
+                  },
+                  "productionPrefixCache": {
+                    "exactPrefixHits": 0,
+                    "fits": true,
+                    "kvBytes": 18253611008,
+                    "materializeBytes": 18253611008,
+                    "materializeSecondsAtPeak": 0.005448839106865671,
+                    "note": "Different wording — exact-prefix cache cannot share.",
+                    "residentBytes": 31730442240
+                  },
+                  "tinyFootprintRhymeKv": {
+                    "claimableShare": false,
+                    "fits": true,
+                    "kvBytes": 15758000128,
+                    "matchingCellFraction": 0.14583333333333334,
+                    "materializeBytes": 15758000128,
+                    "materializeSecondsAtPeak": 0.004703880635223881,
+                    "residentBytes": 29234831360,
+                    "sameResidentSetAsPrefixCache": false,
+                    "shareSource": "tiny-footprint-workstation llm lab · distilgpt2 rhymeSharing.matchingCellFraction (slot_every=8). claimableShare=false until resumeFromSplicedCache.equivalent."
+                  }
+                },
+                "claimableShare": false,
+                "comparison": {
+                  "matchingCellFraction": 0.14583333333333334,
+                  "tinyKvReductionVersusNaive": 0.13671875,
+                  "tinyKvReductionVersusPrefixCache": 0.13671875
+                },
+                "honesty": "Uses measured matchingCellFraction from real tensors. claimableShare is true only when spliced-cache resume stayed logit-equivalent.",
+                "id": "rhymingKvMeasuredCells",
+                "rhymeDifferentiates": true,
+                "title": "Organizational rhyme-KV using measured matching-cell fraction"
               }
             }
           },

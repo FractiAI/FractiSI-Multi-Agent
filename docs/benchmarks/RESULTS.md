@@ -10,7 +10,7 @@ Sharing a prompt prefix is the one thing here that performs, and it is not new.
 
 - **What works:** sharing a prompt prefix across sessions. Prefill runs 1.34× to 3.50× faster, and KV memory falls 84.4%, or 27.3% once model weights are counted. Production prefix caches already do this for **exact** text.
 - **Expanded cache role:** treat Tiny as widening what the cache bank can hold—exact prefix hits **plus** organizational near-duplicates exact caches miss—not as a claim that rhyme beats a plain object reference on live heap (32.8% vs 32.9% shared-prompt; 13.2% vs 28.9% same-shape).
-- **Rebuild latency:** with `structuredClone` on every materialize, rebuilding took 1.01× to 1.62× a duplicated store. Serialize-only paths now pass `{ clone: false }` (ablation was 1.01× to 1.68×). A tighter encoding saves 24.4% of heap on the same-shape workload, about level with a plain reference.
+- **Rebuild latency:** with `structuredClone` on every materialize, rebuilding took 1.02× to 1.65× a duplicated store. Serialize-only paths now pass `{ clone: false }` (ablation was 1.02× to 1.63×). A tighter encoding saves 24.4% of heap on the same-shape workload, about level with a plain reference.
 - **What is worth reusing:** the benchmark method. Each receipt is bound to the code that produced it, and the real-model equivalence check also runs against a deliberately wrong cache, which shows whether that check can fail at all.
 
 These values come from one host and small GPT-2-family models. They do not say how the kit behaves on a production server.
@@ -56,9 +56,9 @@ Measured, ingesting sessions one at a time.
 
 | Store | RSS growth | 95% interval | RSS reduction | Heap reduction |
 | ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |
-| Duplicated | 150.1 MiB | 150.0 MiB to 150.2 MiB | 0.0% | 0.0% |
-| Tiny (shipped) | 111.6 MiB | 111.4 MiB to 111.7 MiB | 25.7% | 32.1% |
-| Aliased | 111.4 MiB | 111.3 MiB to 111.5 MiB | 25.8% | 32.1% |
+| Duplicated | 150.7 MiB | 150.5 MiB to 150.9 MiB | 0.0% | 0.0% |
+| Tiny (shipped) | 112.2 MiB | 112.1 MiB to 112.4 MiB | 25.6% | 32.1% |
+| Aliased | 111.9 MiB | 111.8 MiB to 112.2 MiB | 25.7% | 32.1% |
 
 ## Materialization latency
 
@@ -66,14 +66,14 @@ Measured. Medians over independent processes.
 
 | Workload | Store | Median | 95% interval | Ratio | 95% interval |
 | ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |
-| Shared prompt | Duplicated | 8.53 µs | 8.46 µs to 8.57 µs | 1.00× | 0.99× to 1.01× |
-| Shared prompt | Aliased | 8.57 µs | 8.49 µs to 8.61 µs | 1.00× | 0.99× to 1.01× |
-| Shared prompt | Tiny without clone | 8.62 µs | 8.58 µs to 8.64 µs | 1.01× | 1.00× to 1.02× |
-| Shared prompt | Tiny (shipped) | 8.63 µs | 8.61 µs to 8.65 µs | 1.01× | 1.01× to 1.02× |
-| Same shape | Duplicated | 0.57 µs | 0.57 µs to 0.58 µs | 1.00× | 0.98× to 1.02× |
-| Same shape | Aliased | 0.58 µs | 0.58 µs to 0.58 µs | 1.02× | 0.98× to 1.02× |
-| Same shape | Tiny (shipped) | 0.93 µs | 0.92 µs to 0.93 µs | 1.62× | 1.57× to 1.63× |
-| Same shape | Tiny without clone | 0.96 µs | 0.92 µs to 0.97 µs | 1.68× | 1.58× to 1.70× |
+| Shared prompt | Duplicated | 8.34 µs | 8.34 µs to 8.36 µs | 1.00× | 1.00× to 1.00× |
+| Shared prompt | Aliased | 8.39 µs | 8.36 µs to 8.40 µs | 1.01× | 1.00× to 1.01× |
+| Shared prompt | Tiny without clone | 8.49 µs | 8.46 µs to 8.52 µs | 1.02× | 1.01× to 1.02× |
+| Shared prompt | Tiny (shipped) | 8.54 µs | 8.51 µs to 8.54 µs | 1.02× | 1.02× to 1.02× |
+| Same shape | Duplicated | 0.56 µs | 0.56 µs to 0.56 µs | 1.00× | 0.99× to 1.00× |
+| Same shape | Aliased | 0.58 µs | 0.58 µs to 0.59 µs | 1.04× | 1.03× to 1.05× |
+| Same shape | Tiny without clone | 0.91 µs | 0.90 µs to 0.94 µs | 1.63× | 1.61× to 1.68× |
+| Same shape | Tiny (shipped) | 0.92 µs | 0.92 µs to 0.93 µs | 1.65× | 1.64× to 1.66× |
 
 ## Real models
 
@@ -105,7 +105,7 @@ Statuses are computed from the data by `src/analysis/claims.mjs`.
 | Sharing a system prompt across sessions uses less memory | At 1,024 sessions the live heap falls 32.8% against the JSON prediction of 49.5%. A plain object reference reaches 32.9% with no engine. | reproduced with a qualification |
 | A rhyme stores about 45% less when sessions share a shape and differ in words | True of JSON bytes (45.0%). In the live heap at 1,024 sessions the shipped engine saves 13.2%, and a tighter encoding of the same idea 24.4%, against 28.9% for a plain reference. | reproduced with a qualification |
 | An exact-text cache wins when every session repeats the same words | Reproduced: cache 332 bytes, rhyme 5,867 bytes. The cache is first smaller at 60% duplicates on the tested grid. | reproduced |
-| Lower latency from reconstructing a working set | In process, materializing a session takes 1.01× and 1.62× the duplicated store's time for the two workloads, or 1.01× and 1.68× without cloning. | not reproduced |
+| Lower latency from reconstructing a working set | In process, materializing a session takes 1.02× and 1.65× the duplicated store's time for the two workloads, or 1.02× and 1.63× without cloning. | not reproduced |
 | Real-model prefill speedup of 1.80× (historical, GTX 860M) | Direction reproduced on this host: 1.34× to 3.50× per turn. Decode alone 0.98× to 1.03×; prefill plus decode 1.06× to 1.63×. The tested mechanism is prefix reuse, which a prefix cache already provides. Logits match a full prefill to within 1.4e-4 on distilgpt2, where the check catches a cache built from the wrong prefix. On tiny-gpt2 it does not, so those turns show nothing. | reproduced with a qualification |
 | Real-model train-step speedup of 1.17× (historical, GTX 860M) | Warmed up and with arms interleaved, this host gives 1.00× to 1.03×, with intervals spanning 0.94× to 1.09×. Both arms perform the same steps per round; the original lab ran one arm first with no warm-up. | not reproduced |
 | GPU allocation falls 81.4%, from 288.00 to 53.60 MiB | Reproduced to every digit by arithmetic, with no GPU, because the value follows from requested buffer sizes and an assumed 15% delta. It is not a device reading, and no experiment here measures that assumption. | reproduced with a qualification |

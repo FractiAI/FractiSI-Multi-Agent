@@ -737,7 +737,7 @@
       "minMs": 0.32291701063513756,
       "maxMs": 0.9623750229366124
     },
-    "concatWorstAbsDifference": 1.9788742065429688e-05
+    "concatWorstAbsDifference": 0.000019788742065429688
   },
   "training": null,
   "honesty": "Real causal-LM forward passes and greedy decode on this host. Tiny Footprint here means shared-prefix KV reuse, which a production prefix cache already provides, so this lab does not show an advantage over one. The baseline re-prefills the full prompt every turn. A consumer accelerator is not datacenter HBM and this is not a hosted frontier bake-off.",
@@ -746,7 +746,7 @@
   "sourceFingerprint": {
     "algorithm": "sha256-of-sorted-file-hashes",
     "fileCount": 16,
-    "sha256": "1c1100465f0a666a5b68ff0464742fccc3b2a5b317a8f2b88ab7f6ae74149f9f"
+    "sha256": "01c9cc5a90ab055c44d259650e570ee94ef5490efa4bea8459979af5afd80ec4"
   },
   "load": {
     "start": {

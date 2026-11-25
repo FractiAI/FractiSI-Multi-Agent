@@ -676,12 +676,12 @@
     "newTokens": 8,
     "logitTolerance": 0.05,
     "turns": 16,
-    "worstLogitAbsDifference": 0.0,
+    "worstLogitAbsDifference": 0,
     "tokenSequencesEqual": 16,
     "equivalent": true,
     "control": {
       "kind": "cache built from the prefix in reverse token order",
-      "worstLogitAbsDifference": 1.9431114196777344e-05,
+      "worstLogitAbsDifference": 0.000019431114196777344,
       "tokenSequencesEqual": 16,
       "detected": false
     }
@@ -699,7 +699,7 @@
     "matchingCellFraction": 0.8671875,
     "layersWithAnyMatch": 2,
     "resumeFromRhymingCache": {
-      "worstLogitAbsDifference": 2.3171305656433105e-06,
+      "worstLogitAbsDifference": 0.0000023171305656433105,
       "tokenSequencesEqual": 16,
       "turns": 16,
       "equivalent": true
@@ -733,7 +733,7 @@
       "minMs": 0.13929198030382395,
       "maxMs": 0.7773329853080213
     },
-    "concatWorstAbsDifference": 0.0
+    "concatWorstAbsDifference": 0
   },
   "training": {
     "order": "warmed up, then alternating in seeded random order",
@@ -895,7 +895,7 @@
   "sourceFingerprint": {
     "algorithm": "sha256-of-sorted-file-hashes",
     "fileCount": 16,
-    "sha256": "1c1100465f0a666a5b68ff0464742fccc3b2a5b317a8f2b88ab7f6ae74149f9f"
+    "sha256": "01c9cc5a90ab055c44d259650e570ee94ef5490efa4bea8459979af5afd80ec4"
   },
   "load": {
     "start": {
