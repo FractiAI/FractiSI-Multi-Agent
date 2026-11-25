@@ -5,8 +5,10 @@ Challenge-only Lean invent of the public-paper linear-algebra / assembly lemmas 
 | Module | Role |
 |---|---|
 | `InventMath.lean` | Paper ladder (rank–trace → H/F → Challenge bridges) |
-| `InventAnalytic.lean` | Analytic bricks (Chebyshev ψ ≪ x landed; Weil/RvM remaining) |
+| `InventAnalytic.lean` | Analytic bricks (Chebyshev ψ ≪ x landed; Weil remaining) |
+| `InventMainEstimate.lean` | Zero-side little-o → `MainEstimateHfunN0star` packaging |
 | `InventEndgame.lean` | Seam + glue + `MainEstimate*` types → invent_<edge> seeds |
+| `InventRvM.lean` | RvM counting scaffolding (Mathlib-only; classical uniform A₀ log gap named) |
 
 Does **not** import Anthropic’s sealed `Zeta23` corpus. Does **not** claim RH.
 
