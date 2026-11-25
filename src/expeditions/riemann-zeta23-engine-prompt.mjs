@@ -16,6 +16,13 @@ export const ENGINE_PROMPT_ID = 'fractisi.infinite-octave.engine-shelf.invent.v2
 /** Infinite Octaves ENGINE_SHELF pins (docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md). */
 export const ENGINE_SHELF_PINS = Object.freeze([
   {
+    id: 55,
+    name: 'Principal Rhyme Theorem',
+    grammar:
+      'organizational rhyme · nested catalog PR-01…PR-20+∞ · Recognize→Connect→Reconstruct→Coordinate→Verify',
+    registry: 'synthobs-principal-rhyme-theorem-2026-11',
+  },
+  {
     id: 54,
     name: 'LLM / language-pack rhyme',
     grammar: 'LINEAR / FLAT / AWARE packs',
@@ -47,6 +54,10 @@ export const ENGINE_SHELF_PINS = Object.freeze([
  * engine is a shelf of methods, not a slogan.
  */
 export const INFINITE_OCTAVE_PAPER_CORPUS = Object.freeze([
+  {
+    slug: 'principal-rhyme-theorem',
+    role: 'ENGINE_SHELF #55 · Principal Rhyme Theorem · nested organizational catalog',
+  },
   {
     slug: 'infinite-octaves-omniversal',
     role: '99-octave Omni-Lattice engine pin · product↔engine dual lock',
@@ -161,9 +172,18 @@ export function buildTinyFootprintOctaveEnginePrompt() {
     'A. ENGINE_SHELF pins (active method locks)',
     '────────────────────────────────',
     shelf,
-    'Nest rule: #54 language packs nest #53 protein-fold grammar on every layer.',
-    'Lock line: Infinite Octaves ENGINE_SHELF #53 + #54 · FractiSI / Tiny Footprint Computational Lab.',
+    'Nest rule: #55 Principal Rhyme Theorem is the foundational organizational catalog.',
+    'Nest rule: #54 language packs nest #53 protein-fold grammar on every layer; both nest under #55 before treating novelty as an isolated object.',
+    'Lock line: Infinite Octaves ENGINE_SHELF #55 + #53 + #54 · FractiSI / Tiny Footprint Computational Lab.',
     'Source: docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md',
+    '',
+    '────────────────────────────────',
+    'A2. Principal Rhyme Theorem (#55) — ask what it rhymes with',
+    '────────────────────────────────',
+    'Different things. Same rhyme. Organization under transformation Φ — not superficial resemblance.',
+    'Catalog: PR-01…PR-20 + PR-∞ (meta-rhyme). FractiSI cycle: Recognize → Connect → Reconstruct → Coordinate → Verify.',
+    'Before inventing a novel tactic object, project the focus theorem / lake error / peer draft onto the rhyme catalog and reuse organizational partners.',
+    'Paper: library/papers/principal-rhyme-theorem/ · contract: src/engine/rhyming/principal-rhyme-theorem.mjs',
     '',
     '────────────────────────────────',
     'B. Architecture processing chain (how information ascends)',

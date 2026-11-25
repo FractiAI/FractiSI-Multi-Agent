@@ -10,6 +10,10 @@ import {
   ENGINE_PROMPT_ID,
   buildTinyFootprintOctaveEnginePrompt,
 } from './riemann-zeta23-engine-prompt.mjs';
+import {
+  discoverInventRhymes,
+  formatRhymeDiscoveryForPrompt,
+} from './riemann-zeta23-rhyme-discover.mjs';
 
 export const GROQ_DEFAULT_MODEL = 'qwen/qwen3.8-27b';
 export const GROQ_FALLBACK_MODELS = ['openai/gpt-oss-20b', 'openai/gpt-oss-120b'];
@@ -76,8 +80,13 @@ export function extractLeanTacticBody(text) {
   return t;
 }
 
+function sleepSync(ms) {
+  spawnSync('sleep', [String(Math.max(0.1, ms / 1000))], { encoding: 'utf8' });
+}
+
 /**
  * Chat completion via Groq. Returns { ok, content, model, error, status }.
+ * Retries on TPM / rate-limit errors with backoff.
  */
 export function groqChat({
   messages,
@@ -85,6 +94,7 @@ export function groqChat({
   maxTokens = 2048,
   temperature = 0.2,
   timeoutMs = 120_000,
+  retries = 4,
 }) {
   const key = process.env.GROQ_API_KEY;
   if (!key) return { ok: false, error: 'missing_GROQ_API_KEY', status: 0 };
@@ -96,50 +106,67 @@ export function groqChat({
     temperature,
   });
 
-  const r = spawnSync(
-    'curl',
-    [
-      '-sS',
-      'https://api.groq.com/openai/v1/chat/completions',
-      '-H',
-      `Authorization: Bearer ${key}`,
-      '-H',
-      'Content-Type: application/json',
-      '-d',
-      payload,
-      '--max-time',
-      String(Math.ceil(timeoutMs / 1000)),
-    ],
-    { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 },
-  );
+  let last = null;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const r = spawnSync(
+      'curl',
+      [
+        '-sS',
+        'https://api.groq.com/openai/v1/chat/completions',
+        '-H',
+        `Authorization: Bearer ${key}`,
+        '-H',
+        'Content-Type: application/json',
+        '-d',
+        payload,
+        '--max-time',
+        String(Math.ceil(timeoutMs / 1000)),
+      ],
+      { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 },
+    );
 
-  if (r.error) return { ok: false, error: String(r.error.message || r.error), status: 0 };
-  let data;
-  try {
-    data = JSON.parse(r.stdout || '{}');
-  } catch {
-    return { ok: false, error: 'invalid_json', status: 0, raw: (r.stdout || '').slice(0, 400) };
-  }
-  if (data.error) {
+    if (r.error) {
+      last = { ok: false, error: String(r.error.message || r.error), status: 0 };
+      break;
+    }
+    let data;
+    try {
+      data = JSON.parse(r.stdout || '{}');
+    } catch {
+      last = { ok: false, error: 'invalid_json', status: 0, raw: (r.stdout || '').slice(0, 400) };
+      break;
+    }
+    if (data.error) {
+      const msg = data.error.message || JSON.stringify(data.error);
+      last = {
+        ok: false,
+        error: msg,
+        code: data.error.code,
+        status: 400,
+        model,
+      };
+      const rateLimited = /rate limit|tokens per minute|tpm|try again/i.test(msg);
+      if (rateLimited && attempt < retries) {
+        const waitMatch = msg.match(/try again in ([\d.]+)\s*s/i);
+        const waitMs = waitMatch ? Math.ceil(Number(waitMatch[1]) * 1000) + 500 : 6000 * (attempt + 1);
+        sleepSync(waitMs);
+        continue;
+      }
+      return last;
+    }
+    const choice = data.choices?.[0]?.message || {};
+    // gpt-oss may put text in reasoning; prefer content, else reasoning.
+    const content = String(choice.content || choice.reasoning || '').trim();
     return {
-      ok: false,
-      error: data.error.message || JSON.stringify(data.error),
-      code: data.error.code,
-      status: 400,
-      model,
+      ok: Boolean(content),
+      content,
+      model: data.model || model,
+      usage: data.usage || null,
+      status: 200,
+      error: content ? null : 'empty_content',
     };
   }
-  const choice = data.choices?.[0]?.message || {};
-  // gpt-oss may put text in reasoning; prefer content, else reasoning.
-  const content = String(choice.content || choice.reasoning || '').trim();
-  return {
-    ok: Boolean(content),
-    content,
-    model: data.model || model,
-    usage: data.usage || null,
-    status: 200,
-    error: content ? null : 'empty_content',
-  };
+  return last || { ok: false, error: 'groq_failed', status: 0 };
 }
 
 /**
@@ -234,12 +261,21 @@ export function inventProofWithGroq({
   proofs,
   attempts,
   round,
+  paperAddendum,
+  maxTokens,
+  inventMathPath,
+  rhymeDiscover = true,
 }) {
   const models = [model || GROQ_DEFAULT_MODEL, ...GROQ_FALLBACK_MODELS].filter(
     (m, i, a) => a.indexOf(m) === i,
   );
   const binderLine = binders ? ` ${binders}` : '';
-  const enginePrompt = buildTinyFootprintOctaveEnginePrompt();
+  const enginePrompt = [
+    buildTinyFootprintOctaveEnginePrompt(),
+    paperAddendum ? `\n${paperAddendum}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n');
   const worldData =
     awareness ||
     buildFractisiInventAwareness({
@@ -252,9 +288,31 @@ export function inventProofWithGroq({
       priorError,
     });
 
+  let rhymeDiscovery = null;
+  let discoveryBlock = '';
+  if (rhymeDiscover) {
+    try {
+      rhymeDiscovery = discoverInventRhymes({
+        theorem,
+        stmt,
+        binders,
+        proofs,
+        attempts,
+        inventMathPath,
+        limit: 8,
+      });
+      discoveryBlock = formatRhymeDiscoveryForPrompt(rhymeDiscovery);
+    } catch (err) {
+      rhymeDiscovery = { ok: false, error: err.message || String(err) };
+      discoveryBlock = `=== FractiSI product rhyme discovery failed: ${rhymeDiscovery.error} ===`;
+    }
+  }
+
   // system = engine HOW-TO-PROCESS (Tiny Footprint / Infinite Octave awareness)
-  // user = shared-world DATA + focus theorem
+  // user = product rhyme board + shared-world DATA + focus theorem
   const userParts = [
+    discoveryBlock,
+    '',
     worldData,
     '',
     '=== Focus invent target ===',
@@ -263,6 +321,16 @@ export function inventProofWithGroq({
     `    ${stmt} := by`,
     '',
     'Context: ChallengeDeps already defines Ncount, N0star, N0simple, Ndist, cMT, and Dirichlet variants.',
+    'InventMath + InventAnalytic + InventEndgame may be imported.',
+    'CRITICAL — nested-pair tunnel endgame invent:',
+    `- You are inventing the Challenge-typed endgame seed invent_${theorem} (identical type to the Challenge statement).`,
+    '- Path: invent unconditional main_estimate_Hfun_N0star (or Ffun variants) from Mathlib + paper analytic stack,',
+    '  then exact invent_two_thirds_on_critical_line_of_main main_estimate_Hfun_N0star (Thm A),',
+    '  or exact glueA_dyadic_of_Hfun <inline MainEstimateHfunN0star proof>.',
+    '- InventAnalytic already has cheb1a_psi_bound (ψ ≪ x). Build on it toward Weil EF · RvM · traces.',
+    '- NEVER exact Hfun_one, Ffun_one, thmA_indicator_specialization, or other non-matching types into this seed.',
+    '- NEVER use sorry or admit.',
+    'Operate AWARE: invent the missing main estimate; glue is already closed.',
     'Independent invent — do not assume Anthropic Zeta23 lemmas exist.',
   ];
 
@@ -270,7 +338,7 @@ export function inventProofWithGroq({
   for (const m of models) {
     const res = groqChat({
       model: m,
-      maxTokens: 2500,
+      maxTokens: maxTokens || 2500,
       messages: [
         { role: 'system', content: enginePrompt },
         { role: 'user', content: userParts.join('\n') },
@@ -286,9 +354,11 @@ export function inventProofWithGroq({
         model: res.model,
         usage: res.usage,
         awarenessInjected: true,
+        rhymeDiscovery,
         enginePromptId: ENGINE_PROMPT_ID,
         enginePromptChars: enginePrompt.length,
         awarenessChars: worldData.length,
+        discoveryChars: discoveryBlock.length,
         rawPreview: res.content.slice(0, 400),
       };
     }
@@ -298,9 +368,11 @@ export function inventProofWithGroq({
     error: last?.error || 'no_tactic_extracted',
     model: last?.model || models[0],
     awarenessInjected: true,
+    rhymeDiscovery,
     enginePromptId: ENGINE_PROMPT_ID,
     enginePromptChars: enginePrompt.length,
     awarenessChars: worldData.length,
+    discoveryChars: discoveryBlock.length,
     rawPreview: (last?.content || last?.raw || '').slice(0, 400),
   };
 }

@@ -1,24 +1,25 @@
-# FractiSI Paper-Math Invent (rank–trace ladder)
+# FractiSI Anthropic-comparable invent campaign
 
-**Short answer: paper-guided invent closed the InventMath lemma ladder 4/4** — scalar rank–trace cases, diagonal cell, finite real Lemma 3.2 form, and Theorem A assembly arithmetic (`2−R ≥ 2/3` when `R ≤ 4/3`) — from the public arXiv:2608.13637 outline. Challenge-only Mathlib. **No sealed Anthropic Zeta23.** Lake build green. **0** sorries. RH **OPEN**.
+**Short answer: paper-math ladder is green 13/13; Challenge headlines still 0/17.** FractiSI invents from the public arXiv:2608.13637 outline + Mathlib — **no sealed Anthropic Zeta23**. Anthropic-comparable win (Comparator-green Solution 17/17) is **not** met yet. RH **OPEN**.
 
-Measured invent-math: **11.28 s** · **4 / 4** ladder lemmas closed · FractiSI agents `invent-la` + `invent-assembly`.
+## Measured (this campaign)
 
-**Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-math-latest.json`
+| Arm | Result |
+|---|---|
+| **InventMath ladder** | **13 / 13** closed · **4.59 s** · lake green · 0 sorries |
+| **Compare headline invent** (`--compare`, 6 rounds, Groq) | **0 / 17** · **~588 s** · InventMath imported · paper guidance on · sealed corpus unused |
+| Anthropic baseline | ~60 agents · ~1.5 days · invent+formalize 41.6% → 67.2% |
 
-## What closed
+**Receipts:** `…-invent-math-latest.json` · `…-invent-compare-latest.json`
 
-| Id | Lean name | Role |
-|---|---|---|
-| L3.2b | `rank_trace_scalar_cases` | Remark 3.3 scalars |
-| L3.2-cell | `rank_trace_cell` | Pointwise diagonal cell |
-| L3.2 | `rank_trace_inequality_real_diag` | Finite real rank–trace form |
-| A-arith | `thmA_assembly_two_thirds` | Feeds Theorem A constant |
+## Ladder closed (public paper outline)
 
-## Prior Challenge-headline invent (still open)
+Rank–trace scalars/cell/diagonal/Matrix packaging · R(ψ₀)=4/3 · 2−R=2/3 · Theorem A/C assembly chains · multiplicity identities.
 
-ENGINE_SHELF v2 Groq invent of the 17 Challenge headlines: **35.96 s** · **0 / 17** closed. That arm invents `Solution.lean`; this arm invents `InventMath.lean`. Do not conflate.
+## Still ahead (blocks Anthropic comparison)
+
+Full Hermitian Lemma 3.2 · inertia pull-back · Weil explicit formula · RvM · Stirling Γ′/Γ · Chebyshev–Mertens · Montgomery–Vaughan · zero/prime sides → Challenge Solution 17/17.
 
 ## Honesty
 
-Paper-math invent ≠ Challenge Solution green ≠ RH. Full Analytic formalization (Weil, RvM, prime sides, …) remains ahead of the 17 headlines. No sealed corpus. No API keys in git. RH OPEN.
+InventMath 13/13 ≠ Challenge solved ≠ RH. Find-assemble of sealed Zeta23 is a different clock and is not cited as invent. No API keys in git.

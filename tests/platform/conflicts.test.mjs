@@ -18,3 +18,25 @@ test('path overlap blocks independent progress', () => {
   assert.equal(gate.ok, false);
   assert.ok(gate.conflicts.some((c) => c.type === 'path_overlap'));
 });
+
+test('done tasks release path locks for later invent rounds', () => {
+  const store = createStore();
+  const agents = createAgentRegistry(store);
+  const ownership = createOwnershipTracker(store);
+  const conflicts = createConflictDetector(store);
+  const a = agents.register({ name: 'a' });
+  const b = agents.register({ name: 'b' });
+  const t1 = ownership.claimTask({
+    agentId: a.id,
+    title: 'round1',
+    paths: ['Solution.lean#two_thirds_on_critical_line'],
+  });
+  ownership.setStatus(t1.id, 'done');
+  const t2 = ownership.claimTask({
+    agentId: b.id,
+    title: 'round2',
+    paths: ['Solution.lean#two_thirds_on_critical_line'],
+  });
+  const gate = conflicts.canProceedIndependently(t2.id);
+  assert.equal(gate.ok, true);
+});
