@@ -11,6 +11,11 @@ import {
   cwlsEnginePinRecord,
   CWLS_WORKING_FORM,
   CWLS_OPEN_ENGINEERING,
+  LEVEL3_OPEN_DIMENSIONS,
+  COMPOSITIONAL_WORKLOAD,
+  VOLUME_SCALING_SEQUENCE,
+  softStoryVolumeScaling,
+  HISTORICAL_EM_ENERGY,
 } from '../../../src/engine/rhyming/compositional-wet-lab-scale.mjs';
 
 test('compositional chain CC-01…CC-07 with preprint on CC-06', () => {
@@ -49,4 +54,18 @@ test('recognize metasurface Fourier/convolution as CC-03', () => {
 test('nested DOF under CC-07', () => {
   const nested = nestedComposition('CC-07');
   assert.ok(nested.length >= 3);
+});
+
+test('Level III open catalog + compositional workload + volume scaling', () => {
+  assert.equal(LEVEL3_OPEN_DIMENSIONS.length, CWLS_OPEN_ENGINEERING.length);
+  assert.ok(LEVEL3_OPEN_DIMENSIONS.every((d) => d.proven === false));
+  assert.equal(COMPOSITIONAL_WORKLOAD.length, 8);
+  assert.ok(COMPOSITIONAL_WORKLOAD.filter((s) => s.prefersMedium).length >= 6);
+  assert.deepEqual([...VOLUME_SCALING_SEQUENCE], [1, 2, 4, 8, 16, 32, 64, 128, 256]);
+  const scaling = softStoryVolumeScaling();
+  assert.equal(scaling.level3Proven, false);
+  assert.equal(scaling.tier, 'soft_story');
+  assert.equal(HISTORICAL_EM_ENERGY.tier, 'historical');
+  assert.equal(HISTORICAL_EM_ENERGY.imageFjPerMac, 6.0);
+  assert.equal(HISTORICAL_EM_ENERGY.audioFjPerMac, 2.8);
 });

@@ -32,7 +32,21 @@ for (const e of report.experiments) {
   lines.push(`- **${e.id}** ${e.title}: pass=\`${e.pass}\``);
 }
 lines.push('', '## Major-result shape', '', JSON.stringify(report.majorResultShape.measured, null, 2), '');
+if (report.baselines) {
+  lines.push(
+    '',
+    '## Level III baselines (tiers)',
+    '',
+    `- Digital latency: **${report.baselines.digitalLatency.tier}** · available=\`${report.baselines.digitalLatency.available}\``,
+    `- Digital heap: **${report.baselines.digitalHeap.tier}** · available=\`${report.baselines.digitalHeap.available}\``,
+    `- EM energy: **${report.baselines.historicalEmEnergy.tier}** · ${report.baselines.historicalEmEnergy.imageFjPerMac} / ${report.baselines.historicalEmEnergy.audioFjPerMac} fJ/MAC`,
+    '',
+    report.baselines.honesty,
+    '',
+  );
+}
 writeFileSync(join(dataDir, 'EMPIRICAL_REPORT.md'), `${lines.join('\n')}\n`);
+writeFileSync(join(dataDir, 'level3_baselines.json'), `${JSON.stringify(report.baselines, null, 2)}\n`);
 
 const catalogMd = [
   `# Compositional Chain (engine pin)`,

@@ -75,32 +75,32 @@ The same designs across session counts are in [@fig:heap_scaling]. Small stores 
 
 ## Resident memory falls less than the heap {#sec:res_rss}
 
-*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.6 MiB for the duplicated store and 112.3 MiB for Tiny, a reduction of 25.5% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.7%. Peak RSS over ingestion is 281.4 MiB and 243.1 MiB respectively.
+*Tier: measured.* What the operating system sees moves in the same direction as the heap, by less. At 16,384 sessions with a shared prompt, [@tbl:rss] shows RSS growing by 150.8 MiB for the duplicated store and 112.1 MiB for Tiny, a reduction of 25.6% against 32.1% in the heap. Resident pages also hold allocator slack and recently collected garbage, which a heap reading excludes. The aliased store again matches Tiny, at 25.8%. Peak RSS over ingestion is 281.5 MiB and 243.0 MiB respectively.
 
 | Store | RSS growth | 95% interval | RSS reduction | Heap reduction |
 | ------------------- | ------------: | --------------------------- | -------------------: | -------------------: |
-| Duplicated | 150.6 MiB | 150.5 MiB to 150.7 MiB | 0.0% | 0.0% |
-| Tiny (shipped) | 112.3 MiB | 112.2 MiB to 112.5 MiB | 25.5% | 32.1% |
-| Aliased | 111.9 MiB | 111.9 MiB to 112.2 MiB | 25.7% | 32.1% |
+| Duplicated | 150.8 MiB | 150.6 MiB to 151.0 MiB | 0.0% | 0.0% |
+| Tiny (shipped) | 112.1 MiB | 112.0 MiB to 112.2 MiB | 25.6% | 32.1% |
+| Aliased | 111.9 MiB | 111.9 MiB to 112.1 MiB | 25.8% | 32.1% |
 
 : Resident set growth while ingesting 16,384 sessions, with percentile-bootstrap intervals over processes. {#tbl:rss}
 
 ## Materialization is slower, mostly because of one call {#sec:res_latency}
 
-*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.02× the duplicated store's time with a shared prompt and 1.52× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.02× and 1.54×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
+*Tier: measured.* Reconstructing a session costs time that reading it does not. As [@fig:materialization_latency] and [@tbl:latency] show, the shipped engine takes 1.02× the duplicated store's time with a shared prompt and 1.52× with the same shape and different words. Most of that is `structuredClone`. Without it the ratios are 1.02× and 1.53×. Every condition reproduced the original text in 7,680 of 7,680 checks. The in-process path therefore provides no latency gain, and a removable implementation choice accounts for most of its cost.
 
 ![Time to turn one stored session back into its full request text, with each store's ratio to the duplicated store. Points are medians over independent processes, with percentile-bootstrap 95% intervals. Every condition reproduced the original text exactly. With a shared prompt, removing `structuredClone` from reconstruction moves the ratio from 1.02 to 1.02.](../../output/figures/materialization_latency.png){#fig:materialization_latency width=92%}
 
 | Workload | Store | Median | 95% interval | Ratio | 95% interval |
 | ---------------- | -------------------- | ---------: | -------------------- | --------: | ----------------- |
-| Shared prompt | Duplicated | 8.34 µs | 8.32 µs to 8.34 µs | 1.00× | 1.00× to 1.00× |
-| Shared prompt | Aliased | 8.37 µs | 8.37 µs to 8.39 µs | 1.00× | 1.00× to 1.01× |
-| Shared prompt | Tiny without clone | 8.50 µs | 8.48 µs to 8.52 µs | 1.02× | 1.02× to 1.02× |
-| Shared prompt | Tiny (shipped) | 8.54 µs | 8.52 µs to 8.56 µs | 1.02× | 1.02× to 1.03× |
-| Same shape | Duplicated | 0.60 µs | 0.59 µs to 0.62 µs | 1.00× | 0.97× to 1.03× |
-| Same shape | Aliased | 0.62 µs | 0.61 µs to 0.64 µs | 1.04× | 1.01× to 1.07× |
+| Shared prompt | Duplicated | 8.33 µs | 8.31 µs to 8.34 µs | 1.00× | 1.00× to 1.00× |
+| Shared prompt | Aliased | 8.36 µs | 8.34 µs to 8.38 µs | 1.00× | 1.00× to 1.01× |
+| Shared prompt | Tiny without clone | 8.49 µs | 8.48 µs to 8.49 µs | 1.02× | 1.02× to 1.02× |
+| Shared prompt | Tiny (shipped) | 8.52 µs | 8.49 µs to 8.54 µs | 1.02× | 1.02× to 1.03× |
+| Same shape | Duplicated | 0.60 µs | 0.59 µs to 0.61 µs | 1.00× | 0.98× to 1.02× |
+| Same shape | Aliased | 0.61 µs | 0.60 µs to 0.63 µs | 1.02× | 1.00× to 1.05× |
 | Same shape | Tiny (shipped) | 0.91 µs | 0.91 µs to 0.92 µs | 1.52× | 1.49× to 1.55× |
-| Same shape | Tiny without clone | 0.92 µs | 0.91 µs to 0.96 µs | 1.54× | 1.49× to 1.63× |
+| Same shape | Tiny without clone | 0.92 µs | 0.91 µs to 0.96 µs | 1.53× | 1.50× to 1.58× |
 
 : Time to materialize one session from each store, as medians over independent processes, with the ratio to the duplicated store. {#tbl:latency}
 

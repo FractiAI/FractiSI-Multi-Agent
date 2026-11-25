@@ -81,21 +81,37 @@ Digital matrix multiplication and RF matrix multiplication need not be considere
 
 Memory capacity, persistent state, numerical precision, noise/error correction, synchronization, arbitrary nonlinear computation, programming complexity, routing, training, general-purpose workloads, physical density, thermal behavior, manufacturing cost, reliability, total-system energy, throughput, and economic competitiveness remain open. These define Level III.
 
-## Next experiment
+Machine catalog: `LEVEL3_OPEN_DIMENSIONS` (L3-01…L3-14) — Soft Story Exp 8 asserts every dimension stays `open` / `proven: false`.
 
-Not another demonstration that RF can multiply two vectors. A **compositional workload**:
+## Next experiment (Soft Story Exp 9–12)
+
+Not another demonstration that RF can multiply two vectors. A **compositional workload** (Exp 9):
 
 input encoding → matrix multiplication → convolution → nonlinear → normalization → second matrix → repeated layers → output reconstruction
 
-with as many intermediate operations as possible remaining in the physical medium — then measure joules/useful operation, latency, precision, density, and scaling with computational volumes against a conventional accelerator.
+with as many intermediate operations as possible remaining in the physical medium (`prefersMedium` on 7 of 8 stages). Soft Story recognition maps each stage onto CC-01…CC-07.
 
-Ultimate scaling: 1 → 2 → 4 → … → 256 volumes holding organization constant. If useful capacity scales with physical degrees of freedom rather than proportional digital hardware, the scaling regime changes.
+### Real baselines used now
+
+| Anchor | Tier | Source | Soft Story use |
+|---|---|---|---|
+| Digital materialization latency (ai_context / rhyme_differing · duplicated vs Tiny) | **measured** | `output/data/analysis_summary.json` on this host | Conventional-accelerator latency baseline (Exp 10) |
+| Digital heap reduction at 1,024 sessions | **measured** | same receipt | Shared-world digital memory baseline (Exp 10) |
+| WISE 6.0 fJ/MAC (image) · 2.8 fJ/MAC (audio); 95.7% / 97.2% accuracy | **historical** | WISE RF wet-lab literature | EM energy/accuracy literature anchor (Exp 11) |
+
+Exp 11 places measured digital latency beside historical EM fJ/MAC **side-by-side with explicit tiers**. Different physical quantities are not equated. Level III remains unproven.
+
+### Ultimate scaling Soft Story (Exp 12)
+
+Volumes: **1 → 2 → 4 → 8 → 16 → 32 → 64 → 128 → 256** holding organization constant.
+
+Under the Soft Story model, useful capacity scales with volumes/DOF while a single digital controller is held constant — versus digital hardware units scaling proportionally with volumes. That is an organizational scaling hypothesis, **not** a wet-lab hyperscale QED.
 
 ## Working form
 
 **Compose the rhymes. Scale is the remaining experiment.**
 
-## Experimental program (Exp 1–7)
+## Experimental program (Exp 1–12)
 
 Pre-registered Soft Story suite `research/compositional-wet-lab-scale/` · seed `20261125`:
 
@@ -105,7 +121,12 @@ Pre-registered Soft Story suite `research/compositional-wet-lab-scale/` · seed 
 4. Nested DOF under programmable space  
 5. Three-level proof honesty  
 6. Novel compositional workload discovery  
-7. Honesty boundary (Level III open · preprint flagged)
+7. Honesty boundary (Level III open · preprint flagged)  
+8. Level III open engineering catalog (L3-01…L3-14 stay open)  
+9. Compositional workload stage recognition (encode → … → reconstruct)  
+10. Measured digital latency/heap baseline from receipts  
+11. Historical EM fJ/MAC beside measured digital (tiers explicit)  
+12. Soft Story volume scaling 1→256 (Level III not claimed)
 
 ```bash
 npm run research:compositional-wet-lab-scale

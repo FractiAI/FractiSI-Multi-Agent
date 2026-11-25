@@ -3,7 +3,7 @@
     {
       "slug": "compositional-wet-lab-scale",
       "title": "Can Compositional Wet-Lab Evidence Establish That a Distributed Electromagnetic Computational Medium Can Scale Toward Data-Center Workloads?",
-      "dek": "YES — compositional physical proof. Level I/II supported; Level III hyperscale replacement NOT proven. ENGINE_SHELF #57.",
+      "dek": "YES — compositional physical proof. Level III Soft Story Exp 8–12: open catalog, compositional workload, measured digital baselines + historical WISE fJ/MAC, volume scaling 1→256. Hyperscale still NOT proven.",
       "date": "2026-11-25",
       "label": "Compositional Wet-Lab Scale",
       "actions": [
@@ -22,7 +22,7 @@
       ],
       "links": "<strong>FractiSI engine pin #57:</strong> Compositional Wet-Lab Scale · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/compositional-wet-lab-scale/\">Paper</a>",
       "answerHead": "Short answer: YES — compositional physical proof.",
-      "answerBody": " Level III systemic hyperscale replacement remains engineering validation. Soft Story Exp 1–7 under seed 20261125."
+      "answerBody": " Level III Soft Story Exp 8–12 run with measured digital latency/heap and historical WISE fJ/MAC. Hyperscale replacement still not proven."
     },
     {
       "slug": "universal-rhyme-wet-lab",
@@ -494,7 +494,7 @@
       "slug": "compositional-wet-lab-scale",
       "title": "Can Compositional Wet-Lab Evidence Establish That a Distributed Electromagnetic Computational Medium Can Scale Toward Data-Center Workloads?",
       "group": "Engine papers",
-      "summary": "Compositional Wet-Lab Scale · ENGINE_SHELF #57 · Level I/II yes · Level III open · Soft Story Exp 1–7.",
+      "summary": "Compositional Wet-Lab Scale · ENGINE_SHELF #57 · Level I/II yes · Level III Soft Story Exp 8–12 (measured + historical baselines) · hyperscale still open.",
       "docId": "WP-COMPOSITIONAL-WET-LAB-SCALE-2026-11-25",
       "source": "md",
       "date": "2026-11-25"

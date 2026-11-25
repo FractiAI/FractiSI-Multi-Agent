@@ -8,10 +8,15 @@ import {
   PROOF_LEVELS,
   CWLS_WORKING_FORM,
   CWLS_OPEN_ENGINEERING,
+  LEVEL3_OPEN_DIMENSIONS,
+  COMPOSITIONAL_WORKLOAD,
+  VOLUME_SCALING_SEQUENCE,
+  softStoryVolumeScaling,
   recognizeCompositionLinks,
   nestedComposition,
   compositionalLevelsStatus,
 } from '../../../src/engine/rhyming/compositional-wet-lab-scale.mjs';
+import { level3BaselineComparison } from './level3-baselines.mjs';
 import { DOCUMENT_ID, ENGINE_SHELF_PINNED, ENGINE_SHELF_SLOT, REGISTRY_ID, SEED, TITLE } from './constants.mjs';
 
 function mulberry32(a) {
@@ -222,6 +227,128 @@ export function compositionDensityReport() {
   };
 }
 
+/** Exp 8 — Level III open engineering catalog stays open */
+export function experiment8_level3OpenCatalog() {
+  const allOpen = LEVEL3_OPEN_DIMENSIONS.every((d) => d.proven === false && d.status === 'open');
+  const coversPaper = LEVEL3_OPEN_DIMENSIONS.length === CWLS_OPEN_ENGINEERING.length;
+  return {
+    id: 'E8_level3_open_catalog',
+    title: 'Level III open engineering catalog',
+    n: LEVEL3_OPEN_DIMENSIONS.length,
+    dimensions: LEVEL3_OPEN_DIMENSIONS.map((d) => d.id),
+    allOpen,
+    coversPaper,
+    pass: allOpen && coversPaper && LEVEL3_OPEN_DIMENSIONS.length >= 14,
+  };
+}
+
+/** Exp 9 — Compositional workload stage chain (encode → … → reconstruct) */
+export function experiment9_compositionalWorkload() {
+  const stages = COMPOSITIONAL_WORKLOAD;
+  let hits = 0;
+  const rows = stages.map((s) => {
+    const ranked = recognizeCompositionLinks(s.probe || s.stage, { topK: 3, minScore: 0.04 });
+    const top = ranked[0]?.id ?? null;
+    const hit = s.gold.includes(top) || ranked.some((r) => s.gold.includes(r.id));
+    if (hit) hits += 1;
+    return {
+      id: s.id,
+      stage: s.stage,
+      prefersMedium: s.prefersMedium,
+      top,
+      gold: s.gold,
+      hit,
+    };
+  });
+  const inMedium = stages.filter((s) => s.prefersMedium).length;
+  const rate = hits / stages.length;
+  return {
+    id: 'E9_compositional_workload',
+    title: 'Compositional workload stage recognition',
+    n: stages.length,
+    hits,
+    rate,
+    inMediumPreferred: inMedium,
+    stages: stages.map((s) => s.stage),
+    pass: rate >= 0.625 && stages.length === 8 && inMedium >= 6,
+    rows,
+  };
+}
+
+/** Exp 10 — Digital accelerator baseline from measured receipts */
+export function experiment10_measuredDigitalBaseline() {
+  const cmp = level3BaselineComparison();
+  const lat = cmp.digitalLatency;
+  const heap = cmp.digitalHeap;
+  const hasLatency = lat.available && Number.isFinite(lat.anchors?.aiContextDuplicatedP50Us);
+  const hasHeap = heap.available;
+  const ratiosOk =
+    Number.isFinite(lat.ratios?.aiContextTinyVsDuplicated) &&
+    Number.isFinite(lat.ratios?.rhymeDifferingTinyVsDuplicated);
+  return {
+    id: 'E10_measured_digital_baseline',
+    title: 'Measured digital latency/heap baseline',
+    tier: lat.tier,
+    latencyAvailable: lat.available,
+    heapAvailable: heap.available,
+    anchors: lat.anchors,
+    ratios: lat.ratios,
+    heapAnchors: heap.anchors,
+    path: lat.path,
+    pass: hasLatency && hasHeap && ratiosOk && lat.tier === 'measured',
+  };
+}
+
+/** Exp 11 — Historical EM energy vs measured digital (tiers explicit) */
+export function experiment11_emVsDigitalTiers() {
+  const cmp = level3BaselineComparison();
+  const em = cmp.historicalEmEnergy;
+  const lat = cmp.digitalLatency;
+  const emOk =
+    em.tier === 'historical' &&
+    em.imageFjPerMac === 6.0 &&
+    em.audioFjPerMac === 2.8 &&
+    em.accuracy.image >= 0.95;
+  const digitalOk = lat.tier === 'measured' && lat.available;
+  const notEquated = /not a claim|Side-by-side|not equated/i.test(cmp.honesty);
+  return {
+    id: 'E11_em_vs_digital_tiers',
+    title: 'Historical EM fJ/MAC beside measured digital latency',
+    em,
+    digitalTier: lat.tier,
+    digitalAnchors: lat.anchors,
+    honesty: cmp.honesty,
+    level3Proven: false,
+    pass: emOk && digitalOk && notEquated && cmp.level3Proven === false,
+  };
+}
+
+/** Exp 12 — Ultimate volume scaling Soft Story 1…256 */
+export function experiment12_volumeScaling() {
+  const expected = [1, 2, 4, 8, 16, 32, 64, 128, 256];
+  const seqOk =
+    VOLUME_SCALING_SEQUENCE.length === expected.length &&
+    VOLUME_SCALING_SEQUENCE.every((v, i) => v === expected[i]);
+  const scaling = softStoryVolumeScaling();
+  const dofBeatsProportionalHardware =
+    scaling.scalesWithDof &&
+    scaling.rows.every((r) => r.digitalControllerUnits === 1 && r.softStoryCapacity === r.volumes);
+  return {
+    id: 'E12_volume_scaling',
+    title: 'Soft Story volume scaling 1→256',
+    sequence: [...VOLUME_SCALING_SEQUENCE],
+    seqOk,
+    tier: scaling.tier,
+    level3Proven: scaling.level3Proven,
+    scalesWithDof: scaling.scalesWithDof,
+    digitalWouldScaleProportionally: scaling.digitalWouldScaleProportionally,
+    dofBeatsProportionalHardware,
+    honesty: scaling.honesty,
+    rows: scaling.rows,
+    pass: seqOk && scaling.level3Proven === false && dofBeatsProportionalHardware,
+  };
+}
+
 export function runCompositionalWetLabScaleSuite() {
   const e1 = experiment1_crossDomain();
   const e2 = experiment2_feedForward();
@@ -230,8 +357,14 @@ export function runCompositionalWetLabScaleSuite() {
   const e5 = experiment5_threeLevels();
   const e6 = experiment6_novel();
   const e7 = experiment7_honesty();
+  const e8 = experiment8_level3OpenCatalog();
+  const e9 = experiment9_compositionalWorkload();
+  const e10 = experiment10_measuredDigitalBaseline();
+  const e11 = experiment11_emVsDigitalTiers();
+  const e12 = experiment12_volumeScaling();
   const density = compositionDensityReport();
-  const experiments = [e1, e2, e3, e4, e5, e6, e7];
+  const baselines = level3BaselineComparison();
+  const experiments = [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12];
   const passCount = experiments.filter((e) => e.pass).length;
   return {
     documentId: DOCUMENT_ID,
@@ -243,6 +376,7 @@ export function runCompositionalWetLabScaleSuite() {
     workingForm: CWLS_WORKING_FORM,
     chainSize: COMPOSITIONAL_CHAIN.length,
     density,
+    baselines,
     experiments,
     passCount,
     total: experiments.length,
@@ -252,7 +386,14 @@ export function runCompositionalWetLabScaleSuite() {
       measured: {
         e1Rate: e1.rate,
         e2Rate: e2.rate,
+        e9Rate: e9.rate,
         level3Proven: PROOF_LEVELS[2].proven,
+        digitalLatencyTier: baselines.digitalLatency.tier,
+        historicalEmFjPerMac: {
+          image: baselines.historicalEmEnergy.imageFjPerMac,
+          audio: baselines.historicalEmEnergy.audioFjPerMac,
+        },
+        volumeSequence: [...VOLUME_SCALING_SEQUENCE],
         rho_R: density.rho_R,
       },
     },

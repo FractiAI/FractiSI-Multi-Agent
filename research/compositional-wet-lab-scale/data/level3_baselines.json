@@ -1,0 +1,188 @@
+{
+  "digitalLatency": {
+    "tier": "measured",
+    "available": true,
+    "host": {
+      "arch": "x64",
+      "cpuModel": "Intel(R) Xeon(R) Processor",
+      "logicalCores": 4,
+      "node": "v22.23.4",
+      "platform": "linux",
+      "pointerBytes": 8,
+      "release": "6.12.113+",
+      "totalMemoryBytes": 16780623872,
+      "v8": "12.4.254.21-node.57"
+    },
+    "path": "output/data/analysis_summary.json",
+    "rows": [
+      {
+        "workload": "ai_context",
+        "condition": "tiny_noclone",
+        "p50Ns": 8499.5625,
+        "p50Us": 8.4995625
+      },
+      {
+        "workload": "ai_context",
+        "condition": "duplicated",
+        "p50Ns": 8337.3125,
+        "p50Us": 8.3373125
+      },
+      {
+        "workload": "ai_context",
+        "condition": "tiny",
+        "p50Ns": 8535.8125,
+        "p50Us": 8.5358125
+      },
+      {
+        "workload": "ai_context",
+        "condition": "aliased",
+        "p50Ns": 8368.28125,
+        "p50Us": 8.36828125
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "tiny_noclone",
+        "p50Ns": 923.4375,
+        "p50Us": 0.9234375
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "tiny",
+        "p50Ns": 914.34375,
+        "p50Us": 0.91434375
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "duplicated",
+        "p50Ns": 599.84375,
+        "p50Us": 0.59984375
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "aliased",
+        "p50Ns": 623.9375,
+        "p50Us": 0.6239375
+      }
+    ],
+    "ratios": {
+      "aiContextTinyVsDuplicated": 1.0238086313785169,
+      "rhymeDifferingTinyVsDuplicated": 1.5243032039593645
+    },
+    "anchors": {
+      "aiContextDuplicatedP50Us": 8.3373125,
+      "aiContextTinyP50Us": 8.5358125,
+      "rhymeDifferingDuplicatedP50Us": 0.59984375,
+      "rhymeDifferingTinyP50Us": 0.91434375
+    }
+  },
+  "digitalHeap": {
+    "tier": "measured",
+    "available": true,
+    "path": "output/data/analysis_summary.json",
+    "sessions": 1024,
+    "anchors": {
+      "identicalAliasedHeapReduction": 0.7708776595744681,
+      "differingTinyHeapReduction": 0.13232510064193237
+    },
+    "rows": [
+      {
+        "workload": "ai_context",
+        "condition": "duplicated",
+        "heapReduction": 0,
+        "heapPerSessionBytes": 7608.90625
+      },
+      {
+        "workload": "ai_context",
+        "condition": "aliased",
+        "heapReduction": 0.3287666591371131,
+        "heapPerSessionBytes": 5107.3515625
+      },
+      {
+        "workload": "ai_context",
+        "condition": "exact_cache",
+        "heapReduction": -0.014211347721625467,
+        "heapPerSessionBytes": 7717.0390625
+      },
+      {
+        "workload": "ai_context",
+        "condition": "tiny",
+        "heapReduction": 0.3283128324126743,
+        "heapPerSessionBytes": 5110.8046875
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "duplicated",
+        "heapReduction": 0,
+        "heapPerSessionBytes": 359.0234375
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "aliased",
+        "heapReduction": 0.28939179632248935,
+        "heapPerSessionBytes": 255.125
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "exact_cache",
+        "heapReduction": -0.30205635948210197,
+        "heapPerSessionBytes": 467.46875
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "tiny",
+        "heapReduction": 0.13232510064193237,
+        "heapPerSessionBytes": 311.515625
+      },
+      {
+        "workload": "rhyme_differing",
+        "condition": "tiny_compact",
+        "heapReduction": 0.24373843977804377,
+        "heapPerSessionBytes": 271.515625
+      },
+      {
+        "workload": "rhyme_identical",
+        "condition": "tiny_compact",
+        "heapReduction": 0.39519060283687946,
+        "heapPerSessionBytes": 213.1953125
+      },
+      {
+        "workload": "rhyme_identical",
+        "condition": "duplicated",
+        "heapReduction": 0,
+        "heapPerSessionBytes": 352.5
+      },
+      {
+        "workload": "rhyme_identical",
+        "condition": "aliased",
+        "heapReduction": 0.7708776595744681,
+        "heapPerSessionBytes": 80.765625
+      },
+      {
+        "workload": "rhyme_identical",
+        "condition": "tiny",
+        "heapReduction": 0.28171542553191486,
+        "heapPerSessionBytes": 253.1953125
+      },
+      {
+        "workload": "rhyme_identical",
+        "condition": "exact_cache",
+        "heapReduction": 0.7464095744680851,
+        "heapPerSessionBytes": 89.390625
+      }
+    ]
+  },
+  "historicalEmEnergy": {
+    "tier": "historical",
+    "source": "WISE RF matrix-vector multiplication (Science Advances class, 2026)",
+    "imageFjPerMac": 6,
+    "audioFjPerMac": 2.8,
+    "accuracy": {
+      "image": 0.957,
+      "audio": 0.972
+    },
+    "note": "Literature wet-lab figures under experimental conditions — not a FractiSI measured receipt.",
+    "available": true
+  },
+  "level3Proven": false,
+  "honesty": "Digital latency/heap are measured on this host. EM fJ/MAC is historical wet-lab literature. Side-by-side Soft Story anchors — not a claim that RF replaces GPUs."
+}

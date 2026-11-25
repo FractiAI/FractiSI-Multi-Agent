@@ -19,6 +19,194 @@
     "searchSpace": 56,
     "rho_R": 0.17857142857142858
   },
+  "baselines": {
+    "digitalLatency": {
+      "tier": "measured",
+      "available": true,
+      "host": {
+        "arch": "x64",
+        "cpuModel": "Intel(R) Xeon(R) Processor",
+        "logicalCores": 4,
+        "node": "v22.23.4",
+        "platform": "linux",
+        "pointerBytes": 8,
+        "release": "6.12.113+",
+        "totalMemoryBytes": 16780623872,
+        "v8": "12.4.254.21-node.57"
+      },
+      "path": "output/data/analysis_summary.json",
+      "rows": [
+        {
+          "workload": "ai_context",
+          "condition": "tiny_noclone",
+          "p50Ns": 8499.5625,
+          "p50Us": 8.4995625
+        },
+        {
+          "workload": "ai_context",
+          "condition": "duplicated",
+          "p50Ns": 8337.3125,
+          "p50Us": 8.3373125
+        },
+        {
+          "workload": "ai_context",
+          "condition": "tiny",
+          "p50Ns": 8535.8125,
+          "p50Us": 8.5358125
+        },
+        {
+          "workload": "ai_context",
+          "condition": "aliased",
+          "p50Ns": 8368.28125,
+          "p50Us": 8.36828125
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "tiny_noclone",
+          "p50Ns": 923.4375,
+          "p50Us": 0.9234375
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "tiny",
+          "p50Ns": 914.34375,
+          "p50Us": 0.91434375
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "duplicated",
+          "p50Ns": 599.84375,
+          "p50Us": 0.59984375
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "aliased",
+          "p50Ns": 623.9375,
+          "p50Us": 0.6239375
+        }
+      ],
+      "ratios": {
+        "aiContextTinyVsDuplicated": 1.0238086313785169,
+        "rhymeDifferingTinyVsDuplicated": 1.5243032039593645
+      },
+      "anchors": {
+        "aiContextDuplicatedP50Us": 8.3373125,
+        "aiContextTinyP50Us": 8.5358125,
+        "rhymeDifferingDuplicatedP50Us": 0.59984375,
+        "rhymeDifferingTinyP50Us": 0.91434375
+      }
+    },
+    "digitalHeap": {
+      "tier": "measured",
+      "available": true,
+      "path": "output/data/analysis_summary.json",
+      "sessions": 1024,
+      "anchors": {
+        "identicalAliasedHeapReduction": 0.7708776595744681,
+        "differingTinyHeapReduction": 0.13232510064193237
+      },
+      "rows": [
+        {
+          "workload": "ai_context",
+          "condition": "duplicated",
+          "heapReduction": 0,
+          "heapPerSessionBytes": 7608.90625
+        },
+        {
+          "workload": "ai_context",
+          "condition": "aliased",
+          "heapReduction": 0.3287666591371131,
+          "heapPerSessionBytes": 5107.3515625
+        },
+        {
+          "workload": "ai_context",
+          "condition": "exact_cache",
+          "heapReduction": -0.014211347721625467,
+          "heapPerSessionBytes": 7717.0390625
+        },
+        {
+          "workload": "ai_context",
+          "condition": "tiny",
+          "heapReduction": 0.3283128324126743,
+          "heapPerSessionBytes": 5110.8046875
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "duplicated",
+          "heapReduction": 0,
+          "heapPerSessionBytes": 359.0234375
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "aliased",
+          "heapReduction": 0.28939179632248935,
+          "heapPerSessionBytes": 255.125
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "exact_cache",
+          "heapReduction": -0.30205635948210197,
+          "heapPerSessionBytes": 467.46875
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "tiny",
+          "heapReduction": 0.13232510064193237,
+          "heapPerSessionBytes": 311.515625
+        },
+        {
+          "workload": "rhyme_differing",
+          "condition": "tiny_compact",
+          "heapReduction": 0.24373843977804377,
+          "heapPerSessionBytes": 271.515625
+        },
+        {
+          "workload": "rhyme_identical",
+          "condition": "tiny_compact",
+          "heapReduction": 0.39519060283687946,
+          "heapPerSessionBytes": 213.1953125
+        },
+        {
+          "workload": "rhyme_identical",
+          "condition": "duplicated",
+          "heapReduction": 0,
+          "heapPerSessionBytes": 352.5
+        },
+        {
+          "workload": "rhyme_identical",
+          "condition": "aliased",
+          "heapReduction": 0.7708776595744681,
+          "heapPerSessionBytes": 80.765625
+        },
+        {
+          "workload": "rhyme_identical",
+          "condition": "tiny",
+          "heapReduction": 0.28171542553191486,
+          "heapPerSessionBytes": 253.1953125
+        },
+        {
+          "workload": "rhyme_identical",
+          "condition": "exact_cache",
+          "heapReduction": 0.7464095744680851,
+          "heapPerSessionBytes": 89.390625
+        }
+      ]
+    },
+    "historicalEmEnergy": {
+      "tier": "historical",
+      "source": "WISE RF matrix-vector multiplication (Science Advances class, 2026)",
+      "imageFjPerMac": 6,
+      "audioFjPerMac": 2.8,
+      "accuracy": {
+        "image": 0.957,
+        "audio": 0.972
+      },
+      "note": "Literature wet-lab figures under experimental conditions — not a FractiSI measured receipt.",
+      "available": true
+    },
+    "level3Proven": false,
+    "honesty": "Digital latency/heap are measured on this host. EM fJ/MAC is historical wet-lab literature. Side-by-side Soft Story anchors — not a claim that RF replaces GPUs."
+  },
   "experiments": [
     {
       "id": "E1_cross_domain",
@@ -210,17 +398,312 @@
       "answerBounded": true,
       "nextNamed": true,
       "pass": true
+    },
+    {
+      "id": "E8_level3_open_catalog",
+      "title": "Level III open engineering catalog",
+      "n": 14,
+      "dimensions": [
+        "L3-01",
+        "L3-02",
+        "L3-03",
+        "L3-04",
+        "L3-05",
+        "L3-06",
+        "L3-07",
+        "L3-08",
+        "L3-09",
+        "L3-10",
+        "L3-11",
+        "L3-12",
+        "L3-13",
+        "L3-14"
+      ],
+      "allOpen": true,
+      "coversPaper": true,
+      "pass": true
+    },
+    {
+      "id": "E9_compositional_workload",
+      "title": "Compositional workload stage recognition",
+      "n": 8,
+      "hits": 8,
+      "rate": 1,
+      "inMediumPreferred": 7,
+      "stages": [
+        "input encoding",
+        "matrix multiplication",
+        "convolution",
+        "nonlinear transformation",
+        "normalization",
+        "second matrix transformation",
+        "repeated layers",
+        "output reconstruction"
+      ],
+      "pass": true,
+      "rows": [
+        {
+          "id": "CW-01",
+          "stage": "input encoding",
+          "prefersMedium": true,
+          "top": "CC-01",
+          "gold": [
+            "CC-01",
+            "CC-02"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-02",
+          "stage": "matrix multiplication",
+          "prefersMedium": true,
+          "top": "CC-05",
+          "gold": [
+            "CC-02",
+            "CC-05"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-03",
+          "stage": "convolution",
+          "prefersMedium": true,
+          "top": "CC-03",
+          "gold": [
+            "CC-03",
+            "CC-06"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-04",
+          "stage": "nonlinear transformation",
+          "prefersMedium": true,
+          "top": "CC-06",
+          "gold": [
+            "CC-06",
+            "CC-04"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-05",
+          "stage": "normalization",
+          "prefersMedium": false,
+          "top": "CC-06",
+          "gold": [
+            "CC-05",
+            "CC-06"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-06",
+          "stage": "second matrix transformation",
+          "prefersMedium": true,
+          "top": "CC-02",
+          "gold": [
+            "CC-02",
+            "CC-05"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-07",
+          "stage": "repeated layers",
+          "prefersMedium": true,
+          "top": "CC-06",
+          "gold": [
+            "CC-06"
+          ],
+          "hit": true
+        },
+        {
+          "id": "CW-08",
+          "stage": "output reconstruction",
+          "prefersMedium": true,
+          "top": "CC-07",
+          "gold": [
+            "CC-07",
+            "CC-01"
+          ],
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "E10_measured_digital_baseline",
+      "title": "Measured digital latency/heap baseline",
+      "tier": "measured",
+      "latencyAvailable": true,
+      "heapAvailable": true,
+      "anchors": {
+        "aiContextDuplicatedP50Us": 8.3373125,
+        "aiContextTinyP50Us": 8.5358125,
+        "rhymeDifferingDuplicatedP50Us": 0.59984375,
+        "rhymeDifferingTinyP50Us": 0.91434375
+      },
+      "ratios": {
+        "aiContextTinyVsDuplicated": 1.0238086313785169,
+        "rhymeDifferingTinyVsDuplicated": 1.5243032039593645
+      },
+      "heapAnchors": {
+        "identicalAliasedHeapReduction": 0.7708776595744681,
+        "differingTinyHeapReduction": 0.13232510064193237
+      },
+      "path": "output/data/analysis_summary.json",
+      "pass": true
+    },
+    {
+      "id": "E11_em_vs_digital_tiers",
+      "title": "Historical EM fJ/MAC beside measured digital latency",
+      "em": {
+        "tier": "historical",
+        "source": "WISE RF matrix-vector multiplication (Science Advances class, 2026)",
+        "imageFjPerMac": 6,
+        "audioFjPerMac": 2.8,
+        "accuracy": {
+          "image": 0.957,
+          "audio": 0.972
+        },
+        "note": "Literature wet-lab figures under experimental conditions — not a FractiSI measured receipt.",
+        "available": true
+      },
+      "digitalTier": "measured",
+      "digitalAnchors": {
+        "aiContextDuplicatedP50Us": 8.3373125,
+        "aiContextTinyP50Us": 8.5358125,
+        "rhymeDifferingDuplicatedP50Us": 0.59984375,
+        "rhymeDifferingTinyP50Us": 0.91434375
+      },
+      "honesty": "Digital latency/heap are measured on this host. EM fJ/MAC is historical wet-lab literature. Side-by-side Soft Story anchors — not a claim that RF replaces GPUs.",
+      "level3Proven": false,
+      "pass": true
+    },
+    {
+      "id": "E12_volume_scaling",
+      "title": "Soft Story volume scaling 1→256",
+      "sequence": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "seqOk": true,
+      "tier": "soft_story",
+      "level3Proven": false,
+      "scalesWithDof": true,
+      "digitalWouldScaleProportionally": true,
+      "dofBeatsProportionalHardware": true,
+      "honesty": "Soft Story organizational scaling model only. Does not prove Level III systemic hyperscale replacement.",
+      "rows": [
+        {
+          "volumes": 1,
+          "softStoryCapacity": 1,
+          "digitalHardwareUnits": 1,
+          "dofCapacity": 1,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 2,
+          "softStoryCapacity": 2,
+          "digitalHardwareUnits": 2,
+          "dofCapacity": 2,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 4,
+          "softStoryCapacity": 4,
+          "digitalHardwareUnits": 4,
+          "dofCapacity": 4,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 8,
+          "softStoryCapacity": 8,
+          "digitalHardwareUnits": 8,
+          "dofCapacity": 8,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 16,
+          "softStoryCapacity": 16,
+          "digitalHardwareUnits": 16,
+          "dofCapacity": 16,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 32,
+          "softStoryCapacity": 32,
+          "digitalHardwareUnits": 32,
+          "dofCapacity": 32,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 64,
+          "softStoryCapacity": 64,
+          "digitalHardwareUnits": 64,
+          "dofCapacity": 64,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 128,
+          "softStoryCapacity": 128,
+          "digitalHardwareUnits": 128,
+          "dofCapacity": 128,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        },
+        {
+          "volumes": 256,
+          "softStoryCapacity": 256,
+          "digitalHardwareUnits": 256,
+          "dofCapacity": 256,
+          "digitalControllerUnits": 1,
+          "regime": "soft_story"
+        }
+      ],
+      "pass": true
     }
   ],
-  "passCount": 7,
-  "total": 7,
+  "passCount": 12,
+  "total": 12,
   "pass": true,
   "majorResultShape": {
     "claim": "YES — at the level of compositional physical proof, with full hyperscale replacement remaining an engineering validation rather than an established fact.",
     "measured": {
       "e1Rate": 0.875,
       "e2Rate": 1,
+      "e9Rate": 1,
       "level3Proven": false,
+      "digitalLatencyTier": "measured",
+      "historicalEmFjPerMac": {
+        "image": 6,
+        "audio": 2.8
+      },
+      "volumeSequence": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
       "rho_R": 0.17857142857142858
     }
   }

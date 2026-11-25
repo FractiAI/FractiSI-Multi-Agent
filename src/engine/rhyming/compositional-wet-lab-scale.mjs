@@ -161,6 +161,137 @@ export const CWLS_OPEN_ENGINEERING = Object.freeze([
   'economic competitiveness',
 ]);
 
+/** Level III open dimensions — each remains NOT proven (paper §15). */
+export const LEVEL3_OPEN_DIMENSIONS = Object.freeze(
+  CWLS_OPEN_ENGINEERING.map((name, i) =>
+    Object.freeze({
+      id: `L3-${String(i + 1).padStart(2, '0')}`,
+      name,
+      status: 'open',
+      proven: false,
+    }),
+  ),
+);
+
+/**
+ * Compositional workload stages (paper §17).
+ * Prefer keeping intermediate ops in the physical medium.
+ */
+export const COMPOSITIONAL_WORKLOAD = Object.freeze([
+  {
+    id: 'CW-01',
+    stage: 'input encoding',
+    prefersMedium: true,
+    gold: ['CC-01', 'CC-02'],
+    probe:
+      'input encoding electromagnetic propagation superposition interference programmable unitary matrix',
+  },
+  {
+    id: 'CW-02',
+    stage: 'matrix multiplication',
+    prefersMedium: true,
+    gold: ['CC-02', 'CC-05'],
+    probe:
+      'matrix multiplication programmable microwave unitary RF matrix-vector WISE frequency mixer',
+  },
+  {
+    id: 'CW-03',
+    stage: 'convolution',
+    prefersMedium: true,
+    gold: ['CC-03', 'CC-06'],
+    probe: 'convolution Fourier transform space-time-coding metasurface radio-frequency CNN',
+  },
+  {
+    id: 'CW-04',
+    stage: 'nonlinear transformation',
+    prefersMedium: true,
+    gold: ['CC-06', 'CC-04'],
+    probe:
+      'nonlinear transformation multilayer RF convolutional neural network differentiation integration',
+  },
+  {
+    id: 'CW-05',
+    stage: 'normalization',
+    prefersMedium: false,
+    gold: ['CC-05', 'CC-06'],
+    probe: 'normalization machine learning inference RF multilayer network classification',
+  },
+  {
+    id: 'CW-06',
+    stage: 'second matrix transformation',
+    prefersMedium: true,
+    gold: ['CC-02', 'CC-05'],
+    probe: 'second matrix transformation programmable unitary microwave RF matrix-vector multiplication',
+  },
+  {
+    id: 'CW-07',
+    stage: 'repeated layers',
+    prefersMedium: true,
+    gold: ['CC-06'],
+    probe: 'repeated layers multilayer RF-CNN deep network nine layers millions of parameters',
+  },
+  {
+    id: 'CW-08',
+    stage: 'output reconstruction',
+    prefersMedium: true,
+    gold: ['CC-07', 'CC-01'],
+    probe:
+      'output reconstruction programmable metasurface computational space holographic channels propagation',
+  },
+]);
+
+/** Ultimate scaling volumes (paper §18): 1 → 2 → 4 → … → 256. */
+export const VOLUME_SCALING_SEQUENCE = Object.freeze(
+  Array.from({ length: 9 }, (_, i) => 2 ** i),
+);
+
+/**
+ * Historical EM energy anchors from WISE wet-lab literature (not this host).
+ * Tier: historical. Do not conflate with measured digital baselines.
+ */
+export const HISTORICAL_EM_ENERGY = Object.freeze({
+  tier: 'historical',
+  source: 'WISE RF matrix-vector multiplication (Science Advances class, 2026)',
+  imageFjPerMac: 6.0,
+  audioFjPerMac: 2.8,
+  accuracy: Object.freeze({ image: 0.957, audio: 0.972 }),
+  note: 'Literature wet-lab figures under experimental conditions — not a FractiSI measured receipt.',
+});
+
+/**
+ * Soft Story volume-scaling model (Level III NOT claimed).
+ * If organization is held constant, useful capacity scales with physical volumes/DOF;
+ * digital hardware cost scales proportionally with volumes.
+ * Returns Soft Story ratios — not a wet-lab hyperscale proof.
+ */
+export function softStoryVolumeScaling(volumes = VOLUME_SCALING_SEQUENCE) {
+  const rows = volumes.map((v) => {
+    const capacity = v; // Soft Story: capacity ∝ volumes when organization constant
+    const digitalHardware = v; // proportional digital processing hardware
+    const dofRegime = v; // same Soft Story capacity under DOF scaling
+    return {
+      volumes: v,
+      softStoryCapacity: capacity,
+      digitalHardwareUnits: digitalHardware,
+      dofCapacity: dofRegime,
+      // Under Soft Story assumptions, DOF regime matches capacity without extra digital units beyond 1 base controller
+      digitalControllerUnits: 1,
+      regime: 'soft_story',
+    };
+  });
+  const last = rows[rows.length - 1];
+  return {
+    tier: 'soft_story',
+    level3Proven: false,
+    volumes: [...volumes],
+    rows,
+    scalesWithDof: last.softStoryCapacity === last.volumes,
+    digitalWouldScaleProportionally: last.digitalHardwareUnits === last.volumes,
+    honesty:
+      'Soft Story organizational scaling model only. Does not prove Level III systemic hyperscale replacement.',
+  };
+}
+
 export function tokenizeComposition(text) {
   return String(text || '')
     .toLowerCase()
