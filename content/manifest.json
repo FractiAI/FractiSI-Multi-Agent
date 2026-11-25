@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> · Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: FractiSI verified Anthropic’s real Mathlib ζ formalization.",
-      "answerBody": " zeta-23 Theorems A–E; warm coordinated verify 14.66 s with tasks 4/4/1; cold cache+build ≈612 s. Toy Nat ablation demoted. RH remains OPEN."
+      "answerHead": "Short answer: FractiSI checked Anthropic’s real ζ formalization in 14.66 s warm.",
+      "answerBody": " Same Mathlib zeta-23 target (~67.2% bound). Anthropic ~1.5 days to discover+formalize; we coordinated a clean rebuild (cold ≈10 min). RH remains OPEN."
     },
     {
       "slug": "adversarial-world",

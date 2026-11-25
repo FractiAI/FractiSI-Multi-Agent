@@ -1,30 +1,29 @@
-<h2>Real target</h2>
-<p>Anthropic’s Mathlib <code>riemannZeta</code> formalization (zeta-23): Theorems A–E, Montgomery–Taylor window ≈ 67.2%. Not toy Nat arithmetic.</p>
+<h2>In plain language</h2>
+<p>Anthropic’s agents spent about a day and a half discovering and proving a real result about the Riemann zeta function: raising a known lower bound on zeros on the critical line from about 41.6% to about 67.2%. They also published a full Lean/Mathlib formalization of that result.</p>
+<p>We did <strong>not</strong> re-discover that math. We ran FractiSI against <strong>their</strong> real formalization: four agents claimed the real library pieces, composed them, and Lean rebuilt <code>Solution</code> clean.</p>
 
-<h2>What FractiSI does</h2>
+<h2>Times</h2>
 <ul>
-  <li>Four agents claim ChallengeDeps / Challenge / Zeta23 / Solution</li>
-  <li><code>lake build Solution</code> under a hard scan of the proof library</li>
-  <li>Anthropic’s published ζ expedition (~1.5 days · ~60 subagents) is the baseline — no no-kit retest</li>
+  <li>FractiSI warm coordinated verify: <strong>14.66 seconds</strong> (tasks 4 / contributions 4 / compositions 1)</li>
+  <li>Cold Mathlib download + first full build on this machine: <strong>≈ 10.2 minutes</strong> (612 s)</li>
+  <li>Seventeen headline theorems use only Lean’s three standard axioms</li>
 </ul>
 
-<h2>Measured</h2>
+<h2>Us vs Anthropic</h2>
 <ul>
-  <li>FractiSI coordinated verify (warm): <strong>14.66 s</strong> · tasks 4 / contributions 4 / compositions 1</li>
-  <li><code>lake build Solution</code> green · 17 headline theorems use only the three Lean axioms</li>
-  <li>Cold Mathlib cache + build on this host: ≈ <strong>612 s</strong></li>
-  <li>Anthropic baseline: ~1.5 days · ~60 subagents · 41.6% → 67.2% (discovery; not a like-for-like 14 s claim)</li>
+  <li><strong>Anthropic:</strong> discover + prove + formalize · ~60 agents · ~1.5 days · same ζ bound</li>
+  <li><strong>FractiSI (this run):</strong> coordinate + machine-check that published proof · 4 agents · 14.66 s warm</li>
 </ul>
+<p>Different jobs. 14.66 seconds is not a claim that FractiSI reinvented their argument faster than 1.5 days. It is a claim that FractiSI can coordinate a clean check of the <strong>same real ζ formalization</strong>.</p>
 
 <h2>Honesty</h2>
 <ul>
   <li>RH remains <strong>OPEN</strong></li>
   <li>Proof authorship is upstream (Anthropic formal-math / Alpöge–Furman)</li>
-  <li>FractiSI times coordinated verification of the real project, not LLM rediscovery in this run</li>
   <li>Toy Nat ablation stays demoted</li>
 </ul>
 
 <h2>Reproduce</h2>
 <p><code>cd expeditions/riemann-fractisi/lean && node timing/run-zeta23.mjs</code></p>
 
-<p class="honesty">Real ζ-23 · FractiSI verify · RH OPEN · WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24</p>
+<p class="honesty">Real ζ-23 · FractiSI verify 14.66 s warm · Anthropic ~1.5 d baseline · RH OPEN</p>
