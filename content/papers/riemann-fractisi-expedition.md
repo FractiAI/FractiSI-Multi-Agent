@@ -1,36 +1,20 @@
-# FractiSI Awareness-Injected LLM Invent (ζ Challenge)
+# FractiSI Invent via Infinite Octave ENGINE_SHELF (v2)
 
-**Short answer: Groq invent prompts now carry FractiSI shared World Awareness.** Challenge-only FractiSI+Groq invent with board / peers / contributions / lake feedback in every LLM call: **29.94 s** · **17** awareness injections · **17** Groq calls (**13** ok) · **0 / 17** closed. Prior no-awareness Groq invent: **46.53 s** · **0 / 17**. Awareness did not close theorems in this 2-round run. No sealed Anthropic corpus. RH remains **OPEN**.
+**Short answer: Groq invent awareness is now the expanded Infinite Octaves engine processing prompt** (`fractisi.infinite-octave.engine-shelf.invent.v2`) — ENGINE_SHELF pins #52/#53/#54/#12, Digits×01–99 dual lock, LINEAR/FLAT/AWARE grammar, four-pillar rhyme, Tiny Footprint/Gateway protocol, and a **17-surface paper corpus** index — not a thin paraphrase and not a board dump.
 
-**Document ID:** `WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24`  
-**Harness:** `lean/timing/run-zeta23-invent.mjs --llm`  
+Measured Challenge-only invent: **35.96 s** · **17** engine injections · **17** Groq calls (**4** ok) · **0 / 17** closed. Prior thin invent.v1: 43.63 s · 0/17. Prior status-dump: 29.94 s · 0/17. Prior no-awareness: 46.53 s · 0/17. RH **OPEN**. No sealed corpus.
+
 **Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-latest.json`
 
-## Matched invent comparison
+## Comparison
 
-| Arm | Awareness in Groq prompts | Result |
+| Arm | System awareness | Result |
 |---|---|---|
-| **FractiSI + Groq + awareness** (this run) | **Yes** (17 injections) | **29.94 s** · 0/17 closed · 13/17 LLM ok |
-| FractiSI + Groq (prior #59) | No | **46.53 s** · 0/17 closed · 15/17 LLM ok |
-| FractiSI Lean-tactics only | n/a | 30.20 s plateau · 0/17 |
-| Anthropic published | LLM invent+formalize | ~1.5 days · ~60 agents · green |
+| **ENGINE_SHELF v2** (this) | Full shelf + paper corpus processing prompt (~8k chars) | **35.96 s** · 0/17 · 4/17 LLM ok |
+| Thin invent.v1 | Short Net Zero / pillars paraphrase | 43.63 s · 0/17 |
+| Status-dump (#60) | Board text as “awareness” | 29.94 s · 0/17 |
+| No-awareness (#59) | Lean invent only | 46.53 s · 0/17 |
 
 ## Honesty
 
-| Claim | Status |
-|---|---|
-| FractiSI awareness injected into Groq prompts | **Yes** |
-| Sealed Anthropic Zeta23 corpus | **No** |
-| Theorems closed this run | **0 / 17** |
-| Beats prior no-awareness 0/17 | **No** (still 0 closed) |
-| Beats Anthropic ~1.5 d | **No** |
-| RH | **OPEN** |
-
-## Reproduce
-
-```bash
-export GROQ_API_KEY=…   # do not commit
-export PATH="$HOME/.elan/bin:$PATH"
-cd expeditions/riemann-fractisi/lean
-node timing/run-zeta23-invent.mjs --llm --no-cutoff --max-rounds 2
-```
+Expanded engine prompt ≠ closed theorems. Still 0/17. Infinite Octave engine is the shelf+papers; this prompt cites that shelf. RH OPEN.

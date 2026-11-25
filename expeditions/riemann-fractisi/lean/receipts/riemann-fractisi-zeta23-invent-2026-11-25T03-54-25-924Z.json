@@ -1,0 +1,373 @@
+{
+  "schema": "fractisi.riemann-expedition.zeta23-invent.v1",
+  "label": "riemann-fractisi-zeta23-invent",
+  "mode": "invent",
+  "startedAt": "2026-11-25T03:54:25.924Z",
+  "endedAt": "2026-11-25T03:55:09.559Z",
+  "durationSeconds": 43.633898241000004,
+  "cutoffSeconds": null,
+  "noCutoff": true,
+  "cutoffHit": false,
+  "plateau": false,
+  "ok": false,
+  "leanOk": false,
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "FractiSI invent clock from Challenge-only with Lean/Mathlib tactic search; no sealed Anthropic formalization; no wall-clock cutoff by default",
+    "whatThisDoesNotMeasure": [
+      "Find-assemble of sealed Anthropic Zeta23/Solution (see run-zeta23-find.mjs)",
+      "LLM rediscovery of Alpöge–Furman (no model API on this VM)",
+      "RH"
+    ],
+    "inventedHere": "Tactic-search proof attempts under FractiSI coordination",
+    "reusedNotInvented": [
+      "Mathlib (riemannZeta definitions and supporting lemmas)",
+      "ChallengeDeps / Challenge trusted statements (Anthropic challenge surface, Apache-2.0)"
+    ],
+    "sealedCorpusUsed": false,
+    "llmUsed": true,
+    "llmProvider": "groq",
+    "llmModels": [
+      "qwen/qwen3.8-27b",
+      "openai/gpt-oss-120b"
+    ],
+    "fractisiAwarenessInLlmPrompts": true,
+    "awarenessKind": "tiny-footprint-infinite-octave-engine-prompt",
+    "enginePromptId": "fractisi.tiny-footprint.infinite-octave.invent.v1",
+    "awarenessInjections": 17,
+    "apiKeys": {
+      "GROQ_API_KEY": true,
+      "ANTHROPIC_API_KEY": false,
+      "OPENAI_API_KEY": false,
+      "GOOGLE_API_KEY": false,
+      "HF_TOKEN": false
+    },
+    "anthropicBaselinePrimary": "https://www.anthropic.com/research/riemann-zeta",
+    "anthropicBaselineCharacterization": "~60 subagents · ~1.5 days · invent+formalize critical-line bound 41.6% → 67.2%",
+    "explanation": "FractiSI invent clock: Challenge-only ζ proportion statements; agents invent Solution without Anthropic Zeta23 sealed corpus. No wall-clock cutoff on this FractiSI arm — stopped on green Solution, max-rounds, or honest plateau. LLM invent ON via Groq (models: qwen/qwen3.8-27b, openai/gpt-oss-120b); Tiny Footprint / Infinite Octave ENGINE processing prompt (fractisi.tiny-footprint.infinite-octave.invent.v1) is the system awareness — how Groq processes shared-world data (board/peers/lake), not a status dump alone. Rounds=3; closed=0/17; Solution sorries=13; plateau=false; cutoffHit=false; llmCalls=17; llmOkCalls=4; awarenessInjections=17; enginePromptId=fractisi.tiny-footprint.infinite-octave.invent.v1. Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. RH remains OPEN."
+  },
+  "challengeOnlyAtStart": {
+    "Zeta23DirAbsent": true,
+    "Zeta23LeanAbsent": true,
+    "SolutionLeanAbsentBeforeInventShell": true,
+    "SolutionDirAbsent": true,
+    "sealedCorpusReadableByAgents": false
+  },
+  "leaksAtStart": [],
+  "invent": {
+    "theoremCount": 17,
+    "closedCount": 0,
+    "openCount": 17,
+    "rounds": 3,
+    "attempts": 17,
+    "strategiesTried": [
+      "groq-llm"
+    ],
+    "llmMode": true,
+    "llmCalls": 17,
+    "llmOkCalls": 4,
+    "llmModels": [
+      "qwen/qwen3.8-27b",
+      "openai/gpt-oss-120b"
+    ],
+    "awarenessInjections": 17,
+    "awarenessCharsTotal": 58697,
+    "fractisiAwarenessInLlmPrompts": true,
+    "awarenessKind": "tiny-footprint-infinite-octave-engine-prompt",
+    "enginePromptId": "fractisi.tiny-footprint.infinite-octave.invent.v1",
+    "maxRounds": 2,
+    "solutionImportsZeta23": false,
+    "sorryAtEnd": 13
+  },
+  "fractisi": {
+    "agents": 4,
+    "agentIds": [
+      "agent_bb0c530a",
+      "agent_e2bbf822",
+      "agent_515fbb03",
+      "agent_77b5b823"
+    ],
+    "tasks": 8,
+    "taskIds": [
+      "task_b5b5446c",
+      "task_17d9e62c",
+      "task_766b2e35",
+      "task_eddd0ffa",
+      "task_dba1d07b",
+      "task_7c3372bb",
+      "task_715d1eb7",
+      "task_da621d13"
+    ],
+    "contributions": 4,
+    "contributionIds": [
+      "contrib_bbd1dfae",
+      "contrib_d37013e3",
+      "contrib_39906f02",
+      "contrib_2ddef559"
+    ],
+    "compositions": 1,
+    "compositionId": "comp_9e605c53"
+  },
+  "steps": [
+    {
+      "name": "claim-invent-thmA-r1",
+      "ok": true,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r1",
+      "ok": true,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r1",
+      "ok": true,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r1",
+      "ok": true,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r1",
+      "ok": false,
+      "status": 1,
+      "strategy": "llm",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "compose-r1",
+      "ok": true,
+      "compositionId": "comp_9e605c53"
+    },
+    {
+      "name": "claim-invent-thmA-r2",
+      "ok": false,
+      "open": 2
+    },
+    {
+      "name": "claim-invent-thmBC-r2",
+      "ok": false,
+      "open": 4
+    },
+    {
+      "name": "claim-invent-thmD-r2",
+      "ok": false,
+      "open": 5
+    },
+    {
+      "name": "claim-invent-thmE-r2",
+      "ok": false,
+      "open": 6
+    },
+    {
+      "name": "lake-build-r2",
+      "ok": false,
+      "status": 1,
+      "strategy": "llm",
+      "stderrTail": "error: build failed"
+    },
+    {
+      "name": "max-rounds",
+      "ok": true,
+      "maxRounds": 2,
+      "roundsCompleted": 2
+    }
+  ],
+  "attempts": [
+    {
+      "atSeconds": 5.115040829,
+      "agent": "invent-thmA",
+      "theorem": "two_thirds_on_critical_line",
+      "strategy": "llm:qwen/qwen3.8-27b",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 11.688154774000001,
+      "agent": "invent-thmA",
+      "theorem": "two_thirds_on_critical_line_cumulative",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 16.922069619000002,
+      "agent": "invent-thmBC",
+      "theorem": "two_thirds_simple_on_critical_line",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 19.765644963000003,
+      "agent": "invent-thmBC",
+      "theorem": "two_thirds_simple_on_critical_line_cumulative",
+      "strategy": "llm:openai/gpt-oss-120b",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": true
+    },
+    {
+      "atSeconds": 22.727629772,
+      "agent": "invent-thmBC",
+      "theorem": "five_sixths_distinct",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7374, Requested 2338. Please try again in 12.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 22.899759613,
+      "agent": "invent-thmBC",
+      "theorem": "five_sixths_distinct_cumulative",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7352, Requested 3177. Please try again in 18.9675s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 23.075053145000002,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_on_critical_line",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7328, Requested 3229. Please try again in 19.1775s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 23.260817219,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7303, Requested 3258. Please try again in 19.2075s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 23.443598886,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7279, Requested 3666. Please try again in 22.0875s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 23.611531687000003,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_distinct_mult",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7257, Requested 3313. Please try again in 19.275s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 23.792119637,
+      "agent": "invent-thmD",
+      "theorem": "montgomery_taylor_distinct_mult_cumulative",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7233, Requested 3335. Please try again in 19.26s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 23.960254239,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_two_thirds_on_critical_line",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7210, Requested 3803. Please try again in 22.5975s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 24.138145520000002,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_two_thirds_simple_on_critical_line",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7187, Requested 3449. Please try again in 19.77s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 24.306278601000002,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_five_sixths_distinct",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7164, Requested 2627. Please try again in 13.4325s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 24.478839768,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_on_critical_line",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7141, Requested 3832. Please try again in 22.2975s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 24.6534796,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7118, Requested 3835. Please try again in 22.147499999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    },
+    {
+      "atSeconds": 24.824831923,
+      "agent": "invent-thmE",
+      "theorem": "dirichlet_montgomery_taylor_distinct_mult",
+      "strategy": "llm_failed",
+      "round": 1,
+      "llm": true,
+      "awareness": true,
+      "ok": false,
+      "error": "Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kc7kanj1ff69tqjc3haj48e1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7095, Requested 3833. Please try again in 21.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    }
+  ],
+  "comparison": {
+    "baselineName": "Anthropic Riemann-zeta expedition (~1.5 days invent+formalize)",
+    "baselineSecondsApprox": 129600,
+    "thisArmSeconds": 43.633898241000004,
+    "thisArmOutcome": "incomplete",
+    "note": "Compare invent clocks only. Do not cite sealed find-assemble 11.66s as invent speedup."
+  },
+  "paths": {
+    "inventSandbox": "/workspace/expeditions/riemann-fractisi/.invent-sandbox/zeta23-invent"
+  }
+}

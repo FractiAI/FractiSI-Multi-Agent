@@ -7,7 +7,9 @@ import assert from 'node:assert/strict';
 import {
   GROQ_DEFAULT_MODEL,
   GROQ_FALLBACK_MODELS,
+  ENGINE_PROMPT_ID,
   buildFractisiInventAwareness,
+  buildTinyFootprintOctaveEnginePrompt,
   extractLeanTacticBody,
   groqKeyPresent,
   listLlmKeysPresent,
@@ -55,12 +57,18 @@ describe('riemann zeta23 llm helpers', () => {
     );
   });
 
-  it('builds FractiSI shared World Awareness for Groq invent prompts', () => {
+  it('separates engine processing prompt from shared-world data', () => {
+    const engine = buildTinyFootprintOctaveEnginePrompt();
+    assert.match(engine, /processing instructions/i);
+    assert.match(engine, /Infinite Octaves ENGINE/);
+    assert.match(engine, /ENGINE_SHELF #54/);
+    assert.ok(engine.includes(ENGINE_PROMPT_ID));
+
     const proofs = new Map([
       ['two_thirds_on_critical_line', { closed: false, body: 'aesop', tacticId: 'llm:test' }],
       ['five_sixths_distinct', { closed: false, body: 'sorry', tacticId: 'sorry_hold' }],
     ]);
-    const text = buildFractisiInventAwareness({
+    const data = buildFractisiInventAwareness({
       platform: {
         banner: 'FractiSI · FractiSI Multi-Agent 0.2.0 · core tech Tiny Footprint',
         version: '0.2.0',
@@ -79,14 +87,10 @@ describe('riemann zeta23 llm helpers', () => {
       round: 2,
       priorError: 'error: build failed',
     });
-    assert.match(text, /FractiSI Multi-Agent shared World Awareness/);
-    assert.match(text, /Tiny Footprint/);
-    assert.match(text, /Shared invent board/);
-    assert.match(text, /two_thirds_on_critical_line/);
-    assert.match(text, /five_sixths_distinct/);
-    assert.match(text, /claimingAgent=invent-thmA/);
-    assert.match(text, /Shared lake build feedback/);
-    assert.match(text, /error: build failed/);
-    assert.equal(text.includes('gsk_'), false);
+    assert.match(data, /Shared-world DATA/);
+    assert.match(data, /process through Tiny Footprint \/ Infinite Octave engine/);
+    assert.match(data, /two_thirds_on_critical_line/);
+    assert.match(data, /Shared lake build feedback/);
+    assert.equal(data.includes('gsk_'), false);
   });
 });

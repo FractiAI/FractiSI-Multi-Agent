@@ -1,5 +1,6 @@
 # riemann-fractisi
 
-Primary invent: `run-zeta23-invent.mjs --llm` with `GROQ_API_KEY` (never commit the key).
-FractiSI shared World Awareness is injected into every Groq invent prompt.
-Challenge-only; no sealed Anthropic corpus. RH OPEN.
+Invent: `run-zeta23-invent.mjs --llm` with `GROQ_API_KEY` (never commit).
+System awareness = Infinite Octaves ENGINE_SHELF processing prompt v2
+(`fractisi.infinite-octave.engine-shelf.invent.v2`) — shelf pins + paper corpus.
+Shared board is data. Challenge-only; RH OPEN.

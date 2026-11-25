@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Awareness-Injected LLM Invent (\u03b6 Challenge)",
-      "dek": "FractiSI+Groq+awareness invent 29.94s: 17 injections, 0/17 closed. Vs prior 46.53s 0/17 no-awareness. RH open.",
+      "title": "FractiSI Invent via Infinite Octave ENGINE_SHELF (v2)",
+      "dek": "Groq invent awareness is ENGINE_SHELF v2 (~8k chars, 17 papers). 35.96s \u00b7 0/17. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> \u00b7 Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: Groq invent prompts now carry FractiSI shared World Awareness \u2014 still 0/17 closed in 29.94s.",
-      "answerBody": " 17 awareness injections into Groq. Prior no-awareness run was 46.53s 0/17. No sealed corpus. RH OPEN."
+      "answerHead": "Short answer: invent awareness is the expanded Infinite Octave ENGINE_SHELF processing prompt, not a thin paraphrase.",
+      "answerBody": " Measured 35.96s \u00b7 17 injections \u00b7 0/17 closed. Still not a win vs Anthropic. RH OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Awareness-Injected LLM Invent (\u03b6 Challenge)",
+      "title": "FractiSI Invent via Infinite Octave ENGINE_SHELF (v2)",
       "group": "Multi-agent research",
-      "summary": "FractiSI+Groq+awareness invent 29.94s \u00b7 0/17 \u00b7 17 injections \u00b7 vs 46.53s no-awareness \u00b7 RH OPEN.",
+      "summary": "ENGINE_SHELF v2 invent 35.96s \u00b7 0/17 \u00b7 cites Infinite Octave paper shelf \u00b7 RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"

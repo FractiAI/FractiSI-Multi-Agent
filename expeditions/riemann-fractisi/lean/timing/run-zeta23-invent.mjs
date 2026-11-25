@@ -42,6 +42,7 @@ import { createPlatform } from '../../../../src/platform/create-platform.mjs';
 import {
   inventProofWithGroq,
   buildFractisiInventAwareness,
+  ENGINE_PROMPT_ID,
   listLlmKeysPresent,
   groqKeyPresent,
   GROQ_DEFAULT_MODEL,
@@ -718,11 +719,11 @@ function main() {
       ? 'No wall-clock cutoff on this FractiSI arm — stopped on green Solution, max-rounds, or honest plateau.'
       : `Wall-clock cutoff was ${args.cutoffSeconds}s.`,
     llmMode
-      ? `LLM invent ON via Groq (models: ${[...llmModelsUsed].join(', ') || args.model}); FractiSI Multi-Agent shared World Awareness injected into every Groq prompt (board, peers, contributions, lake feedback).`
+      ? `LLM invent ON via Groq (models: ${[...llmModelsUsed].join(', ') || args.model}); Tiny Footprint / Infinite Octave ENGINE processing prompt (${ENGINE_PROMPT_ID}) is the system awareness — how Groq processes shared-world data (board/peers/lake), not a status dump alone.`
       : anyLlmKey
         ? 'LLM keys present but --llm not set; used Lean/Mathlib tactic invent only.'
         : 'No LLM keys — Lean/Mathlib tactic invent only.',
-    `Rounds=${round}; closed=${closedCount}/${INVENT_THEOREMS.length}; Solution sorries=${sorryEnd.sorryCount}; plateau=${plateau}; cutoffHit=${cutoffHit}; llmCalls=${llmCalls}; llmOkCalls=${llmOkCalls}; awarenessInjections=${awarenessInjections}.`,
+    `Rounds=${round}; closed=${closedCount}/${INVENT_THEOREMS.length}; Solution sorries=${sorryEnd.sorryCount}; plateau=${plateau}; cutoffHit=${cutoffHit}; llmCalls=${llmCalls}; llmOkCalls=${llmOkCalls}; awarenessInjections=${awarenessInjections}; enginePromptId=${ENGINE_PROMPT_ID}.`,
     'Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. RH remains OPEN.',
   ].join(' ');
 
@@ -758,6 +759,8 @@ function main() {
       llmProvider: llmMode ? 'groq' : null,
       llmModels: [...llmModelsUsed],
       fractisiAwarenessInLlmPrompts: llmMode,
+      awarenessKind: llmMode ? 'tiny-footprint-infinite-octave-engine-prompt' : null,
+      enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
       awarenessInjections: llmMode ? awarenessInjections : 0,
       apiKeys: keys,
       anthropicBaselinePrimary: 'https://www.anthropic.com/research/riemann-zeta',
@@ -781,6 +784,8 @@ function main() {
       awarenessInjections,
       awarenessCharsTotal,
       fractisiAwarenessInLlmPrompts: llmMode,
+      awarenessKind: llmMode ? 'tiny-footprint-infinite-octave-engine-prompt' : null,
+      enginePromptId: llmMode ? ENGINE_PROMPT_ID : null,
       maxRounds: args.maxRounds,
       solutionImportsZeta23: solutionImportsZeta23(INVENT_ROOT),
       sorryAtEnd: sorryEnd.sorryCount,
