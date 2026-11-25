@@ -1,17 +1,23 @@
 /**
- * Riemann FractiSI matched ablation — hard gate + structure smoke.
+ * Mirrors `src/expeditions/riemann-ablation.mjs`.
  */
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync, mkdtempSync, writeFileSync, mkdirSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { scanForbidden } from '../../expeditions/riemann-fractisi/lean/timing/hard-gate.mjs';
+import {
+  scanForbidden,
+  leanRootFromHere,
+  loadAblationSummary,
+  ABLATION_SUMMARY_SCHEMA,
+  AGENT_PAYLOAD_PATHS,
+} from '../../src/expeditions/riemann-ablation.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const LEAN = join(ROOT, 'expeditions/riemann-fractisi/lean');
+const LEAN = leanRootFromHere();
 
 describe('riemann ablation hard gate', () => {
   it('canonical Lean tree has no forbidden code tokens', () => {
@@ -40,6 +46,10 @@ describe('riemann ablation hard gate', () => {
     const good = scanForbidden(dir);
     assert.equal(good.ok, true);
   });
+
+  it('exposes frozen agent payload paths', () => {
+    assert.equal(AGENT_PAYLOAD_PATHS.length, 4);
+  });
 });
 
 describe('riemann ablation harness smoke', () => {
@@ -50,7 +60,6 @@ describe('riemann ablation harness smoke', () => {
       ['timing/run-ablation.mjs', '--skip-lake', '--sandbox', sandbox],
       { cwd: LEAN, encoding: 'utf8', env: process.env },
     );
-    // skip-lake cannot pass hard gate (build.ok !== true) → exit 1 by design
     assert.ok(r.status === 0 || r.status === 1, `unexpected status ${r.status}: ${r.stderr}`);
     const out = (r.stdout || '').trim();
     assert.ok(out.includes('receiptPath') || out.includes('fractisiTasks'), out.slice(0, 400));
@@ -59,18 +68,11 @@ describe('riemann ablation harness smoke', () => {
 
 describe('ablation summary receipt', () => {
   it('five-run summary exists with coordination evidence', () => {
-    const p = join(LEAN, 'receipts/riemann-fractisi-ablation-summary-5runs.json');
-    assert.ok(existsSync(p), 'run ablation summary before commit');
-    const s = JSON.parse(readFileSync(p, 'utf8'));
-    assert.equal(s.schema, 'fractisi.riemann-expedition.ablation-summary.v1');
-    assert.equal(s.runs, 5);
-    assert.equal(s.allOk, true);
-    assert.ok(s.noKitSeconds.mean > 0);
-    assert.ok(s.fractisiSeconds.mean > 0);
-    for (const row of s.coordinationEvidencePerRun) {
-      assert.equal(row.tasks, 4);
-      assert.equal(row.contributions, 4);
-      assert.equal(row.compositions, 1);
-    }
+    const loaded = loadAblationSummary(LEAN);
+    assert.equal(loaded.ok, true, JSON.stringify(loaded.problems));
+    assert.equal(loaded.summary.schema, ABLATION_SUMMARY_SCHEMA);
+    assert.ok(loaded.summary.noKitSeconds.mean > 0);
+    assert.ok(loaded.summary.fractisiSeconds.mean > 0);
+    assert.ok(ROOT.length > 0);
   });
 });

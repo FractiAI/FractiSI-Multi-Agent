@@ -13,7 +13,7 @@ export const LAYERS = Object.freeze([
   ['engine', 'labs'],
   ['platform'],
   ['sdk'],
-  ['experiments'],
+  ['experiments', 'expeditions'],
   ['benchmarks', 'workloads'],
   ['analysis'],
   ['manuscript'],

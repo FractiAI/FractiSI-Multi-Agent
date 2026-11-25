@@ -31,7 +31,7 @@ import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createPlatform } from '../../../../src/platform/create-platform.mjs';
-import { runHardGate } from './hard-gate.mjs';
+import { runHardGate, AGENT_PAYLOAD_PATHS } from '../../../../src/expeditions/riemann-ablation.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const LEAN_ROOT = resolve(__dirname, '..');
@@ -39,12 +39,7 @@ const EXPEDITION_ROOT = resolve(LEAN_ROOT, '..');
 const RECEIPTS = join(LEAN_ROOT, 'receipts');
 const REPO_ROOT = resolve(LEAN_ROOT, '../../..');
 
-const AGENT_PATHS = [
-  'RiemannExpedition/AgentCritical.lean',
-  'RiemannExpedition/AgentProportion.lean',
-  'RiemannExpedition/Phase0.lean',
-  'RiemannExpedition/PhaseN.lean',
-];
+const AGENT_PATHS = [...AGENT_PAYLOAD_PATHS];
 
 const ROLES = [
   { name: 'lemma-critical', path: AGENT_PATHS[0], summary: 'critical-line agent payload' },
