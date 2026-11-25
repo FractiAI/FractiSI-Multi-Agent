@@ -8,7 +8,7 @@ import {
   phenomenaRhyme,
   prtEnginePinRecord,
   PRT_WORKING_FORM,
-} from '../../src/engine/rhyming/principal-rhyme-theorem.mjs';
+} from '../../../src/engine/rhyming/principal-rhyme-theorem.mjs';
 
 test('catalog has PR-01…PR-20 plus meta-rhyme', () => {
   assert.equal(PRINCIPAL_RHYME_CATALOG.length, 21);
