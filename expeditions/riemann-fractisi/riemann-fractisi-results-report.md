@@ -1,35 +1,20 @@
 # Riemann FractiSI · results report
 
-**Status:** real ζ-23 FractiSI **find** + capped no-kit find · RH **OPEN**  
-**Harnesses:** `lean/timing/run-zeta23-find.mjs` · `lean/timing/run-zeta23-find-no-kit.mjs`  
-**Receipts:** `lean/receipts/riemann-fractisi-zeta23-find-latest.json` · `…-find-no-kit-latest.json`
+**Status:** ζ-23 FractiSI **invent** plateau · RH **OPEN**  
+**Harness:** `lean/timing/run-zeta23-invent.mjs`  
+**Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-latest.json`
 
-## Target
-
-Anthropic [formal-math/zeta23](https://github.com/anthropics/formal-math/tree/main/zeta23) — Mathlib `riemannZeta` Theorems A–E; Montgomery–Taylor window ≈ 0.6725. Baseline: [Anthropic Riemann post](https://www.anthropic.com/research/riemann-zeta) (~1.5 days · ~60 subagents · invent + formalize · 41.6% → 67.2%).
-
-## Measured FractiSI find
+## Invent measured
 
 | Metric | Value |
 |---|---|
-| Find wall clock (Challenge-only → Solution) | **11.66 s** |
-| Proof modules discovered | 319 |
-| Tasks / contributions / compositions | 4 / 4 / 1 |
-| Challenge-only at t=0 | yes |
-| lake build Solution | pass |
-| axiomsOk (17 theorems) | pass (propext, Classical.choice, Quot.sound only) |
-
-## Measured no-FractiSI find (capped)
-
-| Metric | Value |
-|---|---|
-| Wall clock | **180.00 s** (cutoff) |
-| FractiSI used | no |
-| Sealed corpus available | no |
-| Challenge sorries at end | **26** |
-| Solution | absent |
-| Outcome | `cutoff_no_solution` |
+| Wall clock | **29.96 s** (plateau) |
+| Closed / total Challenge theorems | **0 / 17** |
+| Sorries at end | 17 |
+| Agents / tasks / contributions | 4 / 12 / 4 |
+| Sealed Anthropic corpus | **not used** |
+| LLM | **not used** (keys unset) |
 
 ## Interpretation
 
-FractiSI find = proofs absent at t=0 → discover sealed published modules → green Solution. No-kit find = same Challenge-only start without kit or sealed corpus → **zero invention progress in 3 minutes** → abort. Anthropic’s ~1.5 days is the published invention+formalize baseline for that open problem. Do not sell 11.66 s as idea-invention speedup.
+Player 1: invent, do not copy. Local Lean tactic invent under FractiSI does not close the ζ proportion Challenge. Anthropic ~1.5 days is the invent+formalize baseline. Unlock LLM invent with API secrets — do not fall back to sealed find-assemble.

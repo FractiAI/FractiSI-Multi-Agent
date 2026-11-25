@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Find Clock On Anthropic\u2019s Real \u03b6 Challenge",
-      "dek": "Challenge-only FractiSI find 11.66 s (319 modules). No-kit find cut at 180 s with 26 sorries. Anthropic ~1.5 d invents the argument. RH open.",
+      "title": "FractiSI Invent Clock On Anthropic\u2019s Real \u03b6 Challenge",
+      "dek": "Invent not copy: FractiSI Lean tactic invent plateaus in 29.96 s with 0/17 theorems closed. No LLM keys on VM. Anthropic ~1.5 d invents the argument. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> \u00b7 Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: FractiSI find 11.66 s; no-kit find cut at 3 minutes.",
-      "answerBody": " FractiSI assembled 319 sealed modules into a green Solution. Without FractiSI or the sealed corpus, 26 Challenge sorries remained at 180 s \u2014 Anthropic-scale invention, not a minutes finish. RH remains OPEN."
+      "answerHead": "Short answer: invent clock plateaued at 29.96 s with zero theorems closed.",
+      "answerBody": " FractiSI tried Lean/Mathlib tactic invent on Challenge-only \u03b6 statements without Anthropic\u2019s sealed proofs. No model API keys here. Anthropic\u2019s ~1.5 days invents the analytic idea. RH remains OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Find Clock On Anthropic\u2019s Real \u03b6 Challenge",
+      "title": "FractiSI Invent Clock On Anthropic\u2019s Real \u03b6 Challenge",
       "group": "Multi-agent research",
-      "summary": "Find 11.66s \u00b7 no-kit cutoff 180s (26 sorries) \u00b7 Anthropic ~1.5d invents idea \u00b7 RH OPEN.",
+      "summary": "Invent plateau 29.96s \u00b7 0/17 closed \u00b7 no sealed corpus \u00b7 no LLM keys \u00b7 Anthropic ~1.5d \u00b7 RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"

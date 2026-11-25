@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 export const ZETA23_SCHEMA = 'fractisi.riemann-expedition.zeta23.v1';
 export const ZETA23_FIND_SCHEMA = 'fractisi.riemann-expedition.zeta23-find.v1';
 export const ZETA23_FIND_NO_KIT_SCHEMA = 'fractisi.riemann-expedition.zeta23-find-no-kit.v1';
+export const ZETA23_INVENT_SCHEMA = 'fractisi.riemann-expedition.zeta23-invent.v1';
 export const PERMITTED_AXIOMS = Object.freeze(['propext', 'Classical.choice', 'Quot.sound']);
 
 export const ZETA23_PARTITIONS = Object.freeze([
@@ -84,6 +85,23 @@ export function loadLatestZeta23FindReceipt(receiptsDir) {
     };
   }
   return { ok: false, error: 'missing_latest_find_receipt' };
+}
+
+/** Invent receipt: successful measurement may be plateau (ok:false) with sealedCorpusUsed:false. */
+export function loadLatestZeta23InventReceipt(receiptsDir) {
+  if (!existsSync(receiptsDir)) return { ok: false, error: 'missing_receipts_dir' };
+  const preferred = join(receiptsDir, 'riemann-fractisi-zeta23-invent-latest.json');
+  if (existsSync(preferred)) {
+    const receipt = JSON.parse(readFileSync(preferred, 'utf8'));
+    const measured =
+      receipt.schema === ZETA23_INVENT_SCHEMA &&
+      receipt.mode === 'invent' &&
+      receipt.honesty?.sealedCorpusUsed === false &&
+      receipt.honesty?.llmUsed === false &&
+      receipt.invent?.solutionImportsZeta23 === false;
+    return { ok: measured, receipt };
+  }
+  return { ok: false, error: 'missing_latest_invent_receipt' };
 }
 
 /** No-kit find is a successful *measurement* when cutoffHit and still no Solution. */
