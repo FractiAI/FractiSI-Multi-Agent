@@ -210,6 +210,30 @@
   ],
   "rewrites": [
     {
+      "source": "/blog/principal-rhyme-theorem/",
+      "destination": "/blog/principal-rhyme-theorem/index.html"
+    },
+    {
+      "source": "/blog/principal-rhyme-theorem",
+      "destination": "/blog/principal-rhyme-theorem/"
+    },
+    {
+      "source": "/library/papers/principal-rhyme-theorem/",
+      "destination": "/library/papers/principal-rhyme-theorem/index.html"
+    },
+    {
+      "source": "/library/papers/principal-rhyme-theorem",
+      "destination": "/library/papers/principal-rhyme-theorem/"
+    },
+    {
+      "source": "/research/principal-rhyme-theorem/",
+      "destination": "/research/principal-rhyme-theorem/index.html"
+    },
+    {
+      "source": "/research/principal-rhyme-theorem",
+      "destination": "/research/principal-rhyme-theorem/"
+    },
+    {
       "source": "/library/papers/riemann-fractisi-expedition/",
       "destination": "/library/papers/riemann-fractisi-expedition/index.html"
     },
