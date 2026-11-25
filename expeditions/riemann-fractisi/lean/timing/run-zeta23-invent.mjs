@@ -41,6 +41,7 @@ import { fileURLToPath } from 'node:url';
 import { createPlatform } from '../../../../src/platform/create-platform.mjs';
 import {
   inventProofWithGroq,
+  buildFractisiInventAwareness,
   listLlmKeysPresent,
   groqKeyPresent,
   GROQ_DEFAULT_MODEL,
@@ -473,6 +474,8 @@ function main() {
   let compositionId = null;
   let llmCalls = 0;
   let llmOkCalls = 0;
+  let awarenessInjections = 0;
+  let awarenessCharsTotal = 0;
   const llmModelsUsed = new Set();
   while (performance.now() - t0 < cutoffMs) {
     round += 1;
@@ -505,12 +508,29 @@ function main() {
         if (performance.now() - t0 >= cutoffMs) break;
         if (llmMode) {
           llmCalls += 1;
+          const awareness = buildFractisiInventAwareness({
+            platform,
+            agentName,
+            theorem: thm.name,
+            proofs,
+            attempts,
+            round,
+            priorError: lastBuildStderr,
+          });
+          awarenessInjections += 1;
+          awarenessCharsTotal += awareness.length;
           const invented = inventProofWithGroq({
             theorem: thm.name,
             binders: thm.binders,
             stmt: thm.stmt,
             priorError: lastBuildStderr,
             model: args.model,
+            awareness,
+            agentName,
+            platform,
+            proofs,
+            attempts,
+            round,
           });
           if (invented.model) llmModelsUsed.add(invented.model);
           if (invented.ok) {
@@ -521,6 +541,7 @@ function main() {
               closed: false,
               round,
               llm: true,
+              awareness: true,
             });
             attempts.push({
               atSeconds: (performance.now() - t0) / 1000,
@@ -529,6 +550,7 @@ function main() {
               strategy: `llm:${invented.model}`,
               round,
               llm: true,
+              awareness: true,
               ok: true,
             });
           } else {
@@ -538,6 +560,7 @@ function main() {
               closed: false,
               round,
               llm: true,
+              awareness: true,
               llmError: invented.error,
             });
             attempts.push({
@@ -547,6 +570,7 @@ function main() {
               strategy: 'llm_failed',
               round,
               llm: true,
+              awareness: true,
               ok: false,
               error: invented.error,
             });
@@ -694,11 +718,11 @@ function main() {
       ? 'No wall-clock cutoff on this FractiSI arm — stopped on green Solution, max-rounds, or honest plateau.'
       : `Wall-clock cutoff was ${args.cutoffSeconds}s.`,
     llmMode
-      ? `LLM invent ON via Groq (models: ${[...llmModelsUsed].join(', ') || args.model}); FractiSI coordinates agents. Apples-to-apples intent vs Anthropic LLM invent+formalize.`
+      ? `LLM invent ON via Groq (models: ${[...llmModelsUsed].join(', ') || args.model}); FractiSI Multi-Agent shared World Awareness injected into every Groq prompt (board, peers, contributions, lake feedback).`
       : anyLlmKey
         ? 'LLM keys present but --llm not set; used Lean/Mathlib tactic invent only.'
         : 'No LLM keys — Lean/Mathlib tactic invent only.',
-    `Rounds=${round}; closed=${closedCount}/${INVENT_THEOREMS.length}; Solution sorries=${sorryEnd.sorryCount}; plateau=${plateau}; cutoffHit=${cutoffHit}; llmCalls=${llmCalls}; llmOkCalls=${llmOkCalls}.`,
+    `Rounds=${round}; closed=${closedCount}/${INVENT_THEOREMS.length}; Solution sorries=${sorryEnd.sorryCount}; plateau=${plateau}; cutoffHit=${cutoffHit}; llmCalls=${llmCalls}; llmOkCalls=${llmOkCalls}; awarenessInjections=${awarenessInjections}.`,
     'Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. RH remains OPEN.',
   ].join(' ');
 
@@ -733,6 +757,8 @@ function main() {
       llmUsed: llmMode,
       llmProvider: llmMode ? 'groq' : null,
       llmModels: [...llmModelsUsed],
+      fractisiAwarenessInLlmPrompts: llmMode,
+      awarenessInjections: llmMode ? awarenessInjections : 0,
       apiKeys: keys,
       anthropicBaselinePrimary: 'https://www.anthropic.com/research/riemann-zeta',
       anthropicBaselineCharacterization:
@@ -752,6 +778,9 @@ function main() {
       llmCalls,
       llmOkCalls,
       llmModels: [...llmModelsUsed],
+      awarenessInjections,
+      awarenessCharsTotal,
+      fractisiAwarenessInLlmPrompts: llmMode,
       maxRounds: args.maxRounds,
       solutionImportsZeta23: solutionImportsZeta23(INVENT_ROOT),
       sorryAtEnd: sorryEnd.sorryCount,
@@ -812,6 +841,8 @@ function main() {
         llmCalls,
         llmOkCalls,
         llmModels: [...llmModelsUsed],
+        awarenessInjections,
+        fractisiAwarenessInLlmPrompts: llmMode,
         sealedCorpusUsed: false,
         explanation,
       },

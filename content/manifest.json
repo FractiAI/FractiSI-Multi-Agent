@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI LLM Invent Clock (\u03b6 Challenge)",
-      "dek": "FractiSI+Groq invent 46.53s: 15/17 LLM proposals, 0/17 closed. No sealed corpus. Not a win vs Anthropic ~1.5d. RH open.",
+      "title": "FractiSI Awareness-Injected LLM Invent (\u03b6 Challenge)",
+      "dek": "FractiSI+Groq+awareness invent 29.94s: 17 injections, 0/17 closed. Vs prior 46.53s 0/17 no-awareness. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -21,8 +21,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> \u00b7 Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: FractiSI invent now uses Groq LLM \u2014 still 0/17 closed in 46.53s.",
-      "answerBody": " Apples-to-apples invent engine is LLM under FractiSI coordination. 17 Groq calls, 15 tactic proposals, lake still red. No Anthropic sealed proofs. RH OPEN."
+      "answerHead": "Short answer: Groq invent prompts now carry FractiSI shared World Awareness \u2014 still 0/17 closed in 29.94s.",
+      "answerBody": " 17 awareness injections into Groq. Prior no-awareness run was 46.53s 0/17. No sealed corpus. RH OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -429,9 +429,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI LLM Invent Clock (\u03b6 Challenge)",
+      "title": "FractiSI Awareness-Injected LLM Invent (\u03b6 Challenge)",
       "group": "Multi-agent research",
-      "summary": "FractiSI+Groq invent 46.53s \u00b7 0/17 \u00b7 15/17 LLM proposals \u00b7 no sealed corpus \u00b7 RH OPEN.",
+      "summary": "FractiSI+Groq+awareness invent 29.94s \u00b7 0/17 \u00b7 17 injections \u00b7 vs 46.53s no-awareness \u00b7 RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"

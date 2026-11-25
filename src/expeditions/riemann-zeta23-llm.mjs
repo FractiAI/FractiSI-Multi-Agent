@@ -135,30 +135,135 @@ export function groqChat({
   };
 }
 
-export function inventProofWithGroq({ theorem, binders, stmt, priorError, model }) {
+/**
+ * Build FractiSI Multi-Agent shared-world awareness text for LLM invent prompts.
+ * Agents see one Solution board, peer attempts, contributions, and lake feedback —
+ * not N private full copies.
+ */
+export function buildFractisiInventAwareness({
+  platform,
+  agentName,
+  theorem,
+  proofs,
+  attempts,
+  round,
+  priorError,
+} = {}) {
+  const banner =
+    platform?.banner ||
+    'FractiSI · FractiSI Multi-Agent · Tiny Footprint shared world';
+  const version = platform?.version || 'unknown';
+  const status = typeof platform?.status === 'function' ? platform.status() : {};
+  const snap = typeof platform?.store?.snapshot === 'function' ? platform.store.snapshot() : null;
+
+  const board = [];
+  if (proofs && typeof proofs.entries === 'function') {
+    for (const [name, p] of proofs.entries()) {
+      const statusLabel = p.closed ? 'CLOSED' : p.body && p.body !== 'sorry' ? 'OPEN+draft' : 'OPEN+sorry';
+      const preview = String(p.body || 'sorry')
+        .replace(/\s+/g, ' ')
+        .slice(0, 120);
+      board.push(`- ${name}: ${statusLabel} · tactic=${p.tacticId || '?'} · ${preview}`);
+    }
+  }
+
+  const peerAttempts = (attempts || [])
+    .filter((a) => a.theorem !== theorem)
+    .slice(-12)
+    .map(
+      (a) =>
+        `- r${a.round} ${a.agent} → ${a.theorem}: ${a.strategy}${a.ok === false ? ' (llm_fail)' : ''}`,
+    );
+
+  const contribLines = (snap?.contributions || [])
+    .slice(-8)
+    .map((c) => `- ${c.summary || c.id} · state=${c.state || '?'}`);
+
+  const agentLines = (snap?.agents || []).map(
+    (a) => `- ${a.name} (${a.status}) framework=${a.framework || '?'}`,
+  );
+
+  const parts = [
+    '=== FractiSI Multi-Agent shared World Awareness ===',
+    banner,
+    `productVersion=${version} · inventRound=${round ?? '?'} · claimingAgent=${agentName || '?'} · focusTheorem=${theorem || '?'}`,
+    `capabilities: shared_state · multi_agent_coordination · dependency_awareness · work_composition · Tiny Footprint (one Solution.lean, not N private copies)`,
+    `platformStatus: agents=${status.agents ?? agentLines.length} active=${status.activeAgents ?? '?'} tasks=${status.tasks ?? '?'} contributions=${status.contributions ?? contribLines.length} compositions=${status.compositions ?? '?'}`,
+    '',
+    'Shared invent board (all agents see this same world):',
+    ...(board.length ? board : ['- (empty)']),
+    '',
+    'Registered agents:',
+    ...(agentLines.length ? agentLines : ['- (none yet)']),
+    '',
+    'Recent peer invent attempts (rhyme / reuse patterns; do not copy sealed Anthropic Zeta23):',
+    ...(peerAttempts.length ? peerAttempts : ['- (none yet)']),
+    '',
+    'Recent FractiSI contributions:',
+    ...(contribLines.length ? contribLines : ['- (none yet)']),
+  ];
+
+  if (priorError) {
+    parts.push('', 'Shared lake build feedback (world error, not private):', priorError.slice(0, 2500));
+  }
+
+  parts.push(
+    '',
+    'Invent inside this shared world: improve the focus theorem so the whole Solution may compose.',
+  );
+  return parts.join('\n');
+}
+
+export function inventProofWithGroq({
+  theorem,
+  binders,
+  stmt,
+  priorError,
+  model,
+  awareness,
+  agentName,
+  platform,
+  proofs,
+  attempts,
+  round,
+}) {
   const models = [model || GROQ_DEFAULT_MODEL, ...GROQ_FALLBACK_MODELS].filter(
     (m, i, a) => a.indexOf(m) === i,
   );
   const binderLine = binders ? ` ${binders}` : '';
-  const system = `You invent Lean 4 + Mathlib proof tactics.
+  const awarenessText =
+    awareness ||
+    buildFractisiInventAwareness({
+      platform,
+      agentName,
+      theorem,
+      proofs,
+      attempts,
+      round,
+      priorError,
+    });
+
+  const system = `You are a Lean 4 + Mathlib invent agent inside FractiSI Multi-Agent shared World Awareness.
+You share one Solution.lean with peer agents (Tiny Footprint — not N private full copies).
+Use the shared board, peer attempts, and lake feedback when inventing.
 Output ONLY executable Lean tactic lines for the body after := by.
 ABSOLUTE RULES:
 - First token must be a Lean tactic (intro, aesop, simp, exact, refine, have, …).
 - No English prose, no explanations, no markdown.
-- Do NOT import Zeta23. Do NOT use sorry.
-- Prefer short scripts; if stuck output: aesop`;
+- Do NOT import Zeta23 or any Anthropic sealed library. Do NOT use sorry.
+- Prefer short scripts that could compose with peers; if stuck output: aesop`;
 
   const userParts = [
+    awarenessText,
+    '',
+    '=== Focus invent target ===',
     `Invent a proof for this Challenge theorem (Mathlib riemannZeta critical-line proportion):`,
     `theorem ${theorem}${binderLine} :`,
     `    ${stmt} := by`,
-    ``,
-    `Context: ChallengeDeps already defines Ncount, N0star, N0simple, Ndist, cMT, and Dirichlet variants.`,
-    `This is independent invent — do not assume Anthropic Zeta23 lemmas exist.`,
+    '',
+    'Context: ChallengeDeps already defines Ncount, N0star, N0simple, Ndist, cMT, and Dirichlet variants.',
+    'Independent invent — do not assume Anthropic Zeta23 lemmas exist.',
   ];
-  if (priorError) {
-    userParts.push('', 'Previous attempt failed lake build with:', priorError.slice(0, 2500));
-  }
 
   let last = null;
   for (const m of models) {
@@ -179,6 +284,8 @@ ABSOLUTE RULES:
         body,
         model: res.model,
         usage: res.usage,
+        awarenessInjected: true,
+        awarenessChars: awarenessText.length,
         rawPreview: res.content.slice(0, 400),
       };
     }
@@ -187,6 +294,8 @@ ABSOLUTE RULES:
     ok: false,
     error: last?.error || 'no_tactic_extracted',
     model: last?.model || models[0],
+    awarenessInjected: true,
+    awarenessChars: awarenessText.length,
     rawPreview: (last?.content || last?.raw || '').slice(0, 400),
   };
 }

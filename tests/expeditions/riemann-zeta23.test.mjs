@@ -126,6 +126,10 @@ describe('zeta23 invent receipt', () => {
     if (receipt.honesty.llmUsed) {
       assert.equal(receipt.honesty.llmProvider, 'groq');
       assert.ok(receipt.invent.llmCalls > 0);
+      // Awareness-wired invent receipts must record FractiSI prompt injection.
+      if (receipt.honesty.fractisiAwarenessInLlmPrompts) {
+        assert.ok(receipt.invent.awarenessInjections > 0);
+      }
     } else {
       assert.ok(receipt.plateau === true || receipt.ok === true);
     }

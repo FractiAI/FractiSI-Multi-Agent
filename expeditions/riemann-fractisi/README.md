@@ -1,14 +1,15 @@
 # Riemann FractiSI expedition
 
-## FractiSI + LLM invent (measured)
+## Awareness-injected LLM invent (measured)
 
 | Metric | Value |
 |---|---|
-| Wall clock | **46.53 s** (2 rounds) |
+| Wall clock | **29.94 s** (2 rounds) |
+| Awareness injections | **17** |
 | Closed | **0 / 17** |
-| Groq calls / ok | **17 / 15** |
+| Groq calls / ok | **17 / 13** |
+| Prior no-awareness | 46.53 s · 0/17 |
 | Sealed Anthropic corpus | no |
-| Anthropic baseline | ~1.5 days · ~60 LLM agents |
 
 ```bash
 export GROQ_API_KEY=…  # never commit
