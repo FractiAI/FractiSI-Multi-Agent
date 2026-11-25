@@ -116,14 +116,19 @@ describe('zeta23 invent receipt', () => {
     assert.equal(receipt.schema, ZETA23_INVENT_SCHEMA);
     assert.equal(receipt.mode, 'invent');
     assert.equal(receipt.honesty.sealedCorpusUsed, false);
-    assert.equal(receipt.honesty.llmUsed, false);
     assert.equal(receipt.invent.solutionImportsZeta23, false);
     assert.equal(receipt.invent.theoremCount, 17);
     assert.ok(receipt.invent.closedCount === 0 || receipt.ok === true);
     assert.ok(receipt.durationSeconds > 0);
     assert.equal(receipt.noCutoff, true);
     assert.equal(receipt.cutoffSeconds, null);
-    assert.ok(receipt.plateau === true || receipt.ok === true);
+    // Tactic-only invent plateaus; LLM invent may stop on max-rounds with llmUsed true.
+    if (receipt.honesty.llmUsed) {
+      assert.equal(receipt.honesty.llmProvider, 'groq');
+      assert.ok(receipt.invent.llmCalls > 0);
+    } else {
+      assert.ok(receipt.plateau === true || receipt.ok === true);
+    }
   });
 });
 

@@ -1,44 +1,35 @@
-# FractiSI Matched Invent Clock (ζ Challenge)
+# FractiSI LLM Invent Clock (ζ Challenge)
 
-**Short answer: matched invent — FractiSI (no cutoff) vs no-FractiSI (180 s cutoff), both Challenge-only, no sealed Anthropic corpus.** This VM has **no** Anthropic/OpenAI/HF keys, so both arms invent with Lean/Mathlib tactics only. Results: FractiSI **30.20 s** → plateau **0/17** closed · **17** sorries; no-FractiSI **34.12 s** → plateau **0/17** closed · **17** sorries (180 s budget unused — strategies exhausted). Neither arm is a win vs Anthropic ~**1.5 days** invent+formalize. RH remains **OPEN**.
+**Short answer: apples-to-apples invent now uses an LLM on the FractiSI arm.** FractiSI agents invent Lean proofs via **Groq** against Challenge-only statements (**no** sealed Anthropic corpus). First measured LLM invent: **46.53 s** · **2 invent rounds** · **17 Groq calls** (**15** returned tactic bodies) · **0 / 17** theorems closed · lake build still red · **2** sorries left where extraction failed. FractiSI **did** coordinate (4 agents). Invent engine = Groq models (`qwen/qwen3.8-27b`, fallbacks), not Lean-tactics-only. This is **not** a win vs Anthropic ~**1.5 days** / ~**60** agents. RH remains **OPEN**.
 
 **Document ID:** `WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24`  
-**Invent harness (FractiSI, no cutoff):** `lean/timing/run-zeta23-invent.mjs`  
-**Invent harness (no-kit, 180 s):** `lean/timing/run-zeta23-invent-no-kit.mjs`  
-**Receipts:** `…-invent-latest.json` · `…-invent-no-kit-latest.json`
+**Invent harness:** `lean/timing/run-zeta23-invent.mjs --llm`  
+**Receipt:** `lean/receipts/riemann-fractisi-zeta23-invent-latest.json`
 
-## Matched invent table
+## Matched context
 
-| Arm | Cutoff | Wall clock | Closed | Sorries | FractiSI | Sealed corpus | LLM |
-|---|---|---|---|---|---|---|---|
-| **FractiSI invent** | **none** | **30.20 s** (plateau) | **0 / 17** | **17** | yes | no | no |
-| **No-FractiSI invent** | **180 s** | **34.12 s** (plateau) | **0 / 17** | **17** | no | no | no |
-| Anthropic published | ~1.5 days | ~1.5 days | green formalization | — | no | N/A (they wrote it) | yes |
+| Arm | Invent engine | Result |
+|---|---|---|
+| **FractiSI + Groq LLM** (this run) | FractiSI + Groq | **46.53 s** · 0/17 closed · 15/17 LLM tactic proposals |
+| FractiSI Lean-tactics only (prior) | FractiSI + aesop/simp | 30.20 s plateau · 0/17 |
+| No-FractiSI Lean-tactics (prior) | no kit + aesop/simp · 180 s | 34.12 s plateau · 0/17 |
+| Anthropic published | ~60 LLM agents | ~1.5 days · green formalization |
 
-## Invented vs reused
+## Honesty
 
-| | Status |
+| Claim | Status |
 |---|---|
-| Analytic argument (Alpöge–Furman) | **Not invented** on this VM |
-| Tactic invent attempts | Both arms — **none closed** |
-| Mathlib + ChallengeDeps/Challenge | **Reused** trusted surface |
-| Anthropic Zeta23 proof library | **Forbidden** (not used) |
-
-## Protocol
-
-```text
-FractiSI arm = Challenge-only → FractiSI agents invent Solution (no cutoff) → plateau/green
-no-kit arm   = Challenge-only → sequential tactic invent → 180s cutoff or plateau
-forbid       = sealed Anthropic corpus; import Zeta23
-```
-
-Schemas: `zeta23-invent.v1` · `zeta23-invent-no-kit.v1`
+| Used LLM invent (Groq) under FractiSI | **Yes** |
+| Sealed Anthropic Zeta23 corpus | **No** |
+| Theorems closed this run | **0 / 17** |
+| Beats Anthropic ~1.5 d | **No** |
+| RH | **OPEN** |
 
 ## Reproduce
 
 ```bash
+export GROQ_API_KEY=…   # do not commit
 export PATH="$HOME/.elan/bin:$PATH"
 cd expeditions/riemann-fractisi/lean
-node timing/run-zeta23-invent.mjs --no-cutoff
-node timing/run-zeta23-invent-no-kit.mjs --cutoff-seconds 180
+node timing/run-zeta23-invent.mjs --llm --no-cutoff --max-rounds 2
 ```

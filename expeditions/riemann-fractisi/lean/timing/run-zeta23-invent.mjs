@@ -15,10 +15,13 @@
  * Matched invent (Player 1): FractiSI arm has **no cutoff** — run until green Solution
  * or honest plateau (strategies exhausted). No-FractiSI arm uses 180s separately.
  *
+ * LLM invent (apples-to-apples vs Anthropic): set GROQ_API_KEY and pass --llm.
+ * Agents invent Lean proof bodies via Groq; FractiSI coordinates. No sealed corpus.
+ *
  * Usage:
- *   node timing/run-zeta23-invent.mjs
- *   node timing/run-zeta23-invent.mjs --no-cutoff
- *   node timing/run-zeta23-invent.mjs --cutoff-seconds N   # optional only
+ *   GROQ_API_KEY=… node timing/run-zeta23-invent.mjs --llm --no-cutoff
+ *   node timing/run-zeta23-invent.mjs --llm --max-rounds 3
+ *   node timing/run-zeta23-invent.mjs --no-cutoff          # Lean tactics only
  */
 
 import { spawnSync } from 'node:child_process';
@@ -36,6 +39,12 @@ import {
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createPlatform } from '../../../../src/platform/create-platform.mjs';
+import {
+  inventProofWithGroq,
+  listLlmKeysPresent,
+  groqKeyPresent,
+  GROQ_DEFAULT_MODEL,
+} from '../../../../src/expeditions/riemann-zeta23-llm.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const EXPEDITION = resolve(__dirname, '../..');
@@ -186,6 +195,9 @@ function parseArgs(argv) {
   const out = {
     cutoffSeconds: DEFAULT_CUTOFF_SECONDS,
     noCutoff: true,
+    llm: false,
+    maxRounds: null,
+    model: GROQ_DEFAULT_MODEL,
     receipt: null,
     skipLake: false,
     help: false,
@@ -198,13 +210,19 @@ function parseArgs(argv) {
     } else if (a === '--cutoff-seconds') {
       out.cutoffSeconds = Number(argv[++i]);
       out.noCutoff = false;
-    } else if (a === '--receipt') out.receipt = resolve(argv[++i] ?? '');
+    } else if (a === '--llm') out.llm = true;
+    else if (a === '--max-rounds') out.maxRounds = Number(argv[++i]);
+    else if (a === '--model') out.model = argv[++i] || GROQ_DEFAULT_MODEL;
+    else if (a === '--receipt') out.receipt = resolve(argv[++i] ?? '');
     else if (a === '--skip-lake') out.skipLake = true;
     else if (a === '--help' || a === '-h') out.help = true;
   }
   if (out.cutoffSeconds != null && (!Number.isFinite(out.cutoffSeconds) || out.cutoffSeconds <= 0)) {
     out.cutoffSeconds = null;
     out.noCutoff = true;
+  }
+  if (out.maxRounds != null && (!Number.isFinite(out.maxRounds) || out.maxRounds <= 0)) {
+    out.maxRounds = null;
   }
   return out;
 }
@@ -237,8 +255,7 @@ function run(cmd, args, opts = {}) {
 
 function apiKeysPresent() {
   return {
-    ANTHROPIC_API_KEY: Boolean(process.env.ANTHROPIC_API_KEY),
-    OPENAI_API_KEY: Boolean(process.env.OPENAI_API_KEY),
+    ...listLlmKeysPresent(),
     GOOGLE_API_KEY: Boolean(process.env.GOOGLE_API_KEY),
     HF_TOKEN: Boolean(process.env.HF_TOKEN),
   };
@@ -383,12 +400,27 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help) {
     console.log(
-      'Usage: node timing/run-zeta23-invent.mjs [--no-cutoff] [--cutoff-seconds N] [--skip-lake] [--receipt PATH]',
+      'Usage: node timing/run-zeta23-invent.mjs [--llm] [--no-cutoff] [--max-rounds N] [--model ID] [--cutoff-seconds N] [--skip-lake] [--receipt PATH]',
     );
     process.exit(0);
   }
 
   const keys = apiKeysPresent();
+  if (args.llm && !groqKeyPresent()) {
+    console.error(
+      JSON.stringify(
+        {
+          ok: false,
+          error: 'GROQ_API_KEY required for --llm invent (apples-to-apples vs Anthropic LLM invent)',
+          hint: 'export GROQ_API_KEY=… then re-run. Do not commit the key.',
+        },
+        null,
+        2,
+      ),
+    );
+    process.exit(1);
+  }
+  const llmMode = Boolean(args.llm);
   const anyLlmKey = Object.values(keys).some(Boolean);
   const prep = prepareInventSandbox();
   if (prep.leaks.length) {
@@ -423,28 +455,35 @@ function main() {
   const byAgent = groupByAgent();
   const strategies = TACTIC_STRATEGIES.filter((s) => s.id !== 'exact_false_probe');
   const agentByName = new Map();
+  let lastBuildStderr = '';
 
   for (const agentName of byAgent.keys()) {
     const agent = platform.coordination.agents.register({
       name: agentName,
-      framework: 'expedition-zeta23-invent',
+      framework: llmMode ? 'expedition-zeta23-invent-llm' : 'expedition-zeta23-invent',
     });
     platform.coordination.agents.setStatus(agent.id, 'active');
     agentIds.push(agent.id);
     agentByName.set(agentName, agent);
   }
 
-  // Invent loop under FractiSI until cutoff or all closed.
+  // Invent loop under FractiSI until cutoff, maxRounds, green, or tactic plateau.
   let round = 0;
   let plateau = false;
   let compositionId = null;
+  let llmCalls = 0;
+  let llmOkCalls = 0;
+  const llmModelsUsed = new Set();
   while (performance.now() - t0 < cutoffMs) {
     round += 1;
+    if (args.maxRounds != null && round > args.maxRounds) {
+      steps.push({ name: 'max-rounds', ok: true, maxRounds: args.maxRounds, roundsCompleted: round - 1 });
+      break;
+    }
     let closedThisRound = 0;
     const strategy = strategies[(round - 1) % strategies.length];
     const roundContribIds = [];
 
-    // One invent proposal for this round (all agents claim their open theorems).
     for (const [agentName, thms] of byAgent.entries()) {
       if (performance.now() - t0 >= cutoffMs) break;
       const agent = agentByName.get(agentName);
@@ -454,7 +493,7 @@ function main() {
       const paths = openThms.map((t) => `Solution.lean#${t.name}`);
       const task = platform.coordination.ownership.claimTask({
         agentId: agent.id,
-        title: `invent ${agentName} round ${round} (${openThms.length} open)`,
+        title: `invent ${agentName} round ${round} (${openThms.length} open)${llmMode ? ' [llm]' : ''}`,
         paths,
       });
       taskIds.push(task.id);
@@ -463,28 +502,87 @@ function main() {
       if (!gate.ok) continue;
 
       for (const thm of openThms) {
-        proofs.set(thm.name, {
-          tacticId: strategy.id,
-          body: strategy.body,
-          closed: false,
-          round,
-        });
-        attempts.push({
-          atSeconds: (performance.now() - t0) / 1000,
-          agent: agentName,
-          theorem: thm.name,
-          strategy: strategy.id,
-          round,
-        });
+        if (performance.now() - t0 >= cutoffMs) break;
+        if (llmMode) {
+          llmCalls += 1;
+          const invented = inventProofWithGroq({
+            theorem: thm.name,
+            binders: thm.binders,
+            stmt: thm.stmt,
+            priorError: lastBuildStderr,
+            model: args.model,
+          });
+          if (invented.model) llmModelsUsed.add(invented.model);
+          if (invented.ok) {
+            llmOkCalls += 1;
+            proofs.set(thm.name, {
+              tacticId: `llm:${invented.model}`,
+              body: invented.body,
+              closed: false,
+              round,
+              llm: true,
+            });
+            attempts.push({
+              atSeconds: (performance.now() - t0) / 1000,
+              agent: agentName,
+              theorem: thm.name,
+              strategy: `llm:${invented.model}`,
+              round,
+              llm: true,
+              ok: true,
+            });
+          } else {
+            proofs.set(thm.name, {
+              tacticId: 'sorry_hold',
+              body: 'sorry',
+              closed: false,
+              round,
+              llm: true,
+              llmError: invented.error,
+            });
+            attempts.push({
+              atSeconds: (performance.now() - t0) / 1000,
+              agent: agentName,
+              theorem: thm.name,
+              strategy: 'llm_failed',
+              round,
+              llm: true,
+              ok: false,
+              error: invented.error,
+            });
+          }
+        } else {
+          proofs.set(thm.name, {
+            tacticId: strategy.id,
+            body: strategy.body,
+            closed: false,
+            round,
+          });
+          attempts.push({
+            atSeconds: (performance.now() - t0) / 1000,
+            agent: agentName,
+            theorem: thm.name,
+            strategy: strategy.id,
+            round,
+            llm: false,
+          });
+        }
       }
 
       const contrib = platform.composition.submitContribution({
         agentId: agent.id,
         taskId: task.id,
         paths,
-        summary: `invent round ${round} ${agentName}: strategy=${strategy.id}`,
+        summary: llmMode
+          ? `llm invent round ${round} ${agentName}`
+          : `invent round ${round} ${agentName}: strategy=${strategy.id}`,
         files: {},
-        meta: { invent: true, sealedCorpus: false, llm: false, strategy: strategy.id },
+        meta: {
+          invent: true,
+          sealedCorpus: false,
+          llm: llmMode,
+          strategy: llmMode ? 'groq' : strategy.id,
+        },
       });
       contribIds.push(contrib.id);
       roundContribIds.push(contrib.id);
@@ -501,22 +599,28 @@ function main() {
     if (!args.skipLake) {
       const lake = which('lake') || `${process.env.HOME}/.elan/bin/lake`;
       const remaining = noCutoff
-        ? 120_000
+        ? 180_000
         : cutoffMs - (performance.now() - t0);
       const build = run(lake, ['build', 'Solution'], {
         cwd: INVENT_ROOT,
-        timeoutMs: Math.max(20_000, Math.min(remaining, 120_000)),
+        timeoutMs: Math.max(20_000, Math.min(remaining, 180_000)),
       });
       buildOk = build.status === 0;
+      lastBuildStderr = (build.stderr || build.stdout || build.error || '').slice(-4000);
       steps.push({
         name: `lake-build-r${round}`,
         ok: buildOk,
         status: build.status,
-        strategy: strategy.id,
-        stderrTail: (build.stderr || build.stdout || build.error || '').slice(-1200),
+        strategy: llmMode ? 'llm' : strategy.id,
+        stderrTail: lastBuildStderr.slice(-1200),
       });
     } else {
-      steps.push({ name: `lake-build-r${round}`, ok: false, skipped: true, strategy: strategy.id });
+      steps.push({
+        name: `lake-build-r${round}`,
+        ok: false,
+        skipped: true,
+        strategy: llmMode ? 'llm' : strategy.id,
+      });
     }
 
     if (buildOk) {
@@ -541,7 +645,11 @@ function main() {
           compositionId = composed.composition.id;
           platform.composition.validate(compositionId, {
             passed: true,
-            checks: ['zeta23-invent-no-sealed-corpus', 'no-zeta23-import'],
+            checks: [
+              'zeta23-invent-no-sealed-corpus',
+              'no-zeta23-import',
+              llmMode ? 'llm-invent' : 'tactic-invent',
+            ],
           });
           steps.push({ name: `compose-r${round}`, ok: true, compositionId });
         }
@@ -550,7 +658,9 @@ function main() {
 
     const allClosed = [...proofs.values()].every((p) => p.closed);
     if (allClosed) break;
-    if (closedThisRound === 0 && round >= strategies.length) {
+
+    // Tactic-only plateau after exhausting strategies. LLM invent does not plateau that way.
+    if (!llmMode && closedThisRound === 0 && round >= strategies.length) {
       plateau = true;
       for (const thm of INVENT_THEOREMS) {
         if (!proofs.get(thm.name)?.closed) {
@@ -581,14 +691,15 @@ function main() {
   const explanation = [
     'FractiSI invent clock: Challenge-only ζ proportion statements; agents invent Solution without Anthropic Zeta23 sealed corpus.',
     noCutoff
-      ? 'No wall-clock cutoff on this FractiSI arm — stopped on green Solution or honest plateau.'
+      ? 'No wall-clock cutoff on this FractiSI arm — stopped on green Solution, max-rounds, or honest plateau.'
       : `Wall-clock cutoff was ${args.cutoffSeconds}s.`,
-    anyLlmKey
-      ? 'LLM API keys are present but this harness uses Lean/Mathlib tactic invent only (no model calls wired).'
-      : 'No Anthropic/OpenAI/Google/HF API keys on this VM — strongest invent engine available here is FractiSI-coordinated Lean/Mathlib tactic search.',
-    `Rounds=${round}; closed=${closedCount}/${INVENT_THEOREMS.length}; Solution sorries=${sorryEnd.sorryCount}; plateau=${plateau}; cutoffHit=${cutoffHit}.`,
-    'Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. This run invents only via local tactics; closing montgomery_taylor_* needs that analytic invention (or an LLM formalizer), not aesop.',
-    'RH remains OPEN.',
+    llmMode
+      ? `LLM invent ON via Groq (models: ${[...llmModelsUsed].join(', ') || args.model}); FractiSI coordinates agents. Apples-to-apples intent vs Anthropic LLM invent+formalize.`
+      : anyLlmKey
+        ? 'LLM keys present but --llm not set; used Lean/Mathlib tactic invent only.'
+        : 'No LLM keys — Lean/Mathlib tactic invent only.',
+    `Rounds=${round}; closed=${closedCount}/${INVENT_THEOREMS.length}; Solution sorries=${sorryEnd.sorryCount}; plateau=${plateau}; cutoffHit=${cutoffHit}; llmCalls=${llmCalls}; llmOkCalls=${llmOkCalls}.`,
+    'Anthropic baseline ~1.5 days / ~60 agents invents the analytic argument AND formalizes it. RH remains OPEN.',
   ].join(' ');
 
   const receipt = {
@@ -619,7 +730,9 @@ function main() {
         'ChallengeDeps / Challenge trusted statements (Anthropic challenge surface, Apache-2.0)',
       ],
       sealedCorpusUsed: false,
-      llmUsed: false,
+      llmUsed: llmMode,
+      llmProvider: llmMode ? 'groq' : null,
+      llmModels: [...llmModelsUsed],
       apiKeys: keys,
       anthropicBaselinePrimary: 'https://www.anthropic.com/research/riemann-zeta',
       anthropicBaselineCharacterization:
@@ -634,7 +747,12 @@ function main() {
       openCount: INVENT_THEOREMS.length - closedCount,
       rounds: round,
       attempts: attempts.length,
-      strategiesTried: strategies.map((s) => s.id),
+      strategiesTried: llmMode ? ['groq-llm'] : strategies.map((s) => s.id),
+      llmMode,
+      llmCalls,
+      llmOkCalls,
+      llmModels: [...llmModelsUsed],
+      maxRounds: args.maxRounds,
       solutionImportsZeta23: solutionImportsZeta23(INVENT_ROOT),
       sorryAtEnd: sorryEnd.sorryCount,
     },
@@ -690,7 +808,10 @@ function main() {
         closedCount,
         theoremCount: INVENT_THEOREMS.length,
         sorryAtEnd: sorryEnd.sorryCount,
-        llmKeys: anyLlmKey,
+        llmMode,
+        llmCalls,
+        llmOkCalls,
+        llmModels: [...llmModelsUsed],
         sealedCorpusUsed: false,
         explanation,
       },
