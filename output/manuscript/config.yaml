@@ -4,7 +4,7 @@ paper:
   title: "Measuring Shared-Representation Memory Claims"
   subtitle: "A reproducible benchmark of the Tiny Footprint Workstation: representation bytes, live memory, materialization latency and real-model key-value residency"
   version: "0.2.0"
-  date: "2026-11-25"
+  date: "2026-11-26"
 
 authors:
   - name: "Daniel Ari Friedman"

@@ -1,0 +1,240 @@
+{
+  "documentId": "WP-NEURAL-XRAY-RHYME-2026-11-25",
+  "registryId": "synthobs-neural-xray-rhyme-2026-11",
+  "title": "Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks by Combining Computational-Lab and Wiring/Wet-Lab Evidence?",
+  "seed": 20261125,
+  "engineShelfPinned": true,
+  "engineShelfSlot": 58,
+  "workingForm": {
+    "question": "Can FractiSI X-ray the hidden organizational structure of neural networks by combining computational-lab and wiring/wet-lab evidence?",
+    "answer": "YES — if the computational and wiring/wet-lab evidence converge on the same reproducible, predictive, and causally testable rhyme.",
+    "compact": "See the rhyme. Reconstruct. Predict. Intervene.",
+    "decisiveThreshold": "Successful blind prediction and intervention using a rhyme identified before the corresponding outcome is observed.",
+    "evidentiaryHierarchy": "correlation < structural correspondence < prediction < successful intervention"
+  },
+  "wiringSequenceSize": 5,
+  "stages": 8,
+  "anchors": {
+    "tier": "measured",
+    "available": true,
+    "path": "output/data/analysis_summary.json",
+    "representationVsOrganization": {
+      "claim": "exact lexical identity ≠ structural match",
+      "aiContextTinyVsDuplicated": 1.0236778787503424,
+      "rhymeDifferingTinyVsDuplicated": 1.5235018238665972,
+      "identicalAliasedHeapReduction": 0.7708776595744681,
+      "differingTinyHeapReduction": 0.13232510064193237
+    },
+    "selectiveReconstruction": {
+      "aiContextTinyP50Us": 8.52240625,
+      "rhymeDifferingTinyP50Us": 0.913625
+    }
+  },
+  "experiments": [
+    {
+      "id": "E1_xray_stages",
+      "title": "Integrated proof stages Observe→…→Consequence",
+      "n": 8,
+      "hits": 8,
+      "rate": 1,
+      "ordered": true,
+      "pass": true,
+      "rows": [
+        {
+          "id": "observe",
+          "top": "XR-01",
+          "gold": [
+            "XR-01"
+          ],
+          "hit": true
+        },
+        {
+          "id": "encode",
+          "top": "XR-02",
+          "gold": [
+            "XR-02"
+          ],
+          "hit": true
+        },
+        {
+          "id": "detect",
+          "top": "XR-03",
+          "gold": [
+            "XR-03"
+          ],
+          "hit": true
+        },
+        {
+          "id": "match",
+          "top": "XR-04",
+          "gold": [
+            "XR-04"
+          ],
+          "hit": true
+        },
+        {
+          "id": "reconstruct",
+          "top": "XR-05",
+          "gold": [
+            "XR-05"
+          ],
+          "hit": true
+        },
+        {
+          "id": "predict",
+          "top": "XR-06",
+          "gold": [
+            "XR-06"
+          ],
+          "hit": true
+        },
+        {
+          "id": "intervene",
+          "top": "XR-07",
+          "gold": [
+            "XR-07"
+          ],
+          "hit": true
+        },
+        {
+          "id": "consequence",
+          "top": "XR-08",
+          "gold": [
+            "XR-08"
+          ],
+          "hit": true
+        }
+      ]
+    },
+    {
+      "id": "E2_claims_abc",
+      "title": "Claims A/B/C (organization · persistence · utility)",
+      "complete": true,
+      "named": true,
+      "pass": true
+    },
+    {
+      "id": "E3_principal_criteria",
+      "title": "Principal-rhyme criteria Persistence→Intervention",
+      "n": 5,
+      "complete": true,
+      "names": [
+        "Persistence",
+        "Recurrence",
+        "Compression",
+        "Prediction",
+        "Intervention"
+      ],
+      "pass": true
+    },
+    {
+      "id": "E4_blind_split",
+      "title": "Blind Soft Story: discovery → locked → test",
+      "discovery": [
+        "WS-04",
+        "WS-05",
+        "WS-03"
+      ],
+      "blind": [
+        "WS-01",
+        "WS-02"
+      ],
+      "predRate": 1,
+      "pass": true,
+      "predictions": [
+        {
+          "id": "WS-01",
+          "familyHit": true,
+          "overlap": []
+        },
+        {
+          "id": "WS-02",
+          "familyHit": true,
+          "overlap": []
+        }
+      ]
+    },
+    {
+      "id": "E5_cross_domain",
+      "title": "Cross-domain computational ↔ wiring/wet-lab rhyme",
+      "n": 3,
+      "hits": 3,
+      "rate": 1,
+      "pass": true,
+      "rows": [
+        {
+          "pair": 1,
+          "rhyme": true,
+          "shared": [
+            "WS-05"
+          ]
+        },
+        {
+          "pair": 2,
+          "rhyme": true,
+          "shared": [
+            "WS-03"
+          ]
+        },
+        {
+          "pair": 3,
+          "rhyme": true,
+          "shared": [
+            "WS-02"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E6_measured_computational",
+      "title": "Measured computational-lab anchors",
+      "tier": "measured",
+      "available": true,
+      "path": "output/data/analysis_summary.json",
+      "representationVsOrganization": {
+        "claim": "exact lexical identity ≠ structural match",
+        "aiContextTinyVsDuplicated": 1.0236778787503424,
+        "rhymeDifferingTinyVsDuplicated": 1.5235018238665972,
+        "identicalAliasedHeapReduction": 0.7708776595744681,
+        "differingTinyHeapReduction": 0.13232510064193237
+      },
+      "selectiveReconstruction": {
+        "aiContextTinyP50Us": 8.52240625,
+        "rhymeDifferingTinyP50Us": 0.913625
+      },
+      "pass": true
+    },
+    {
+      "id": "E7_intervention_soft_story",
+      "title": "Soft Story intervention: disrupt organization → recognition drop",
+      "intactScore": 1.0759,
+      "disruptedScore": 0,
+      "predictedDrop": true,
+      "liveNeuralNet": false,
+      "pass": true
+    },
+    {
+      "id": "E8_honesty_boundary",
+      "title": "Honesty: full NN X-ray not claimed · decisive threshold open",
+      "openClaims": 5,
+      "provesCount": 2,
+      "falsifiable": true,
+      "thresholdNamed": true,
+      "answerBounded": true,
+      "pass": true
+    }
+  ],
+  "passCount": 8,
+  "total": 8,
+  "pass": true,
+  "majorResultShape": {
+    "claim": "YES — if the computational and wiring/wet-lab evidence converge on the same reproducible, predictive, and causally testable rhyme.",
+    "measured": {
+      "e1Rate": 1,
+      "e5Rate": 1,
+      "e6Tier": "measured",
+      "fullXrayClaimed": false,
+      "decisiveThresholdOpen": true
+    }
+  }
+}

@@ -19,7 +19,8 @@ describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
     assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 55));
     assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 56));
     assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 57));
-    assert.ok(INFINITE_OCTAVE_PAPER_CORPUS.length >= 15);
+    assert.ok(ENGINE_SHELF_PINS.some((p) => p.id === 58));
+    assert.ok(INFINITE_OCTAVE_PAPER_CORPUS.length >= 16);
   });
 
   it('builds large-engine processing instructions citing shelf + papers', () => {
@@ -31,6 +32,7 @@ describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
     assert.match(text, /ENGINE_SHELF #55/);
     assert.match(text, /ENGINE_SHELF #56/);
     assert.match(text, /ENGINE_SHELF #57/);
+    assert.match(text, /ENGINE_SHELF #58/);
     assert.match(text, /Principal Rhyme Theorem/);
     assert.match(text, /LINEAR \/ FLAT \/ AWARE/);
     assert.match(text, /operate AWARE/);
@@ -42,6 +44,7 @@ describe('riemann zeta23 Infinite Octave ENGINE_SHELF invent prompt', () => {
     assert.match(text, /library\/papers\/principal-rhyme-theorem/);
     assert.match(text, /library\/papers\/universal-rhyme-wet-lab/);
     assert.match(text, /library\/papers\/compositional-wet-lab-scale/);
+    assert.match(text, /library\/papers\/neural-xray-rhyme/);
     assert.match(text, /library\/papers\/infinite-octaves-omniversal/);
     assert.match(text, /library\/papers\/tiny-gateway-rhyming-templates/);
     assert.match(text, /library\/papers\/holographic-rhyme/);

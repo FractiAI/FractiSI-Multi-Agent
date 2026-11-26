@@ -282,6 +282,30 @@
       "destination": "/research/compositional-wet-lab-scale/"
     },
     {
+      "source": "/blog/neural-xray-rhyme/",
+      "destination": "/blog/neural-xray-rhyme/index.html"
+    },
+    {
+      "source": "/blog/neural-xray-rhyme",
+      "destination": "/blog/neural-xray-rhyme/"
+    },
+    {
+      "source": "/library/papers/neural-xray-rhyme/",
+      "destination": "/library/papers/neural-xray-rhyme/index.html"
+    },
+    {
+      "source": "/library/papers/neural-xray-rhyme",
+      "destination": "/library/papers/neural-xray-rhyme/"
+    },
+    {
+      "source": "/research/neural-xray-rhyme/",
+      "destination": "/research/neural-xray-rhyme/index.html"
+    },
+    {
+      "source": "/research/neural-xray-rhyme",
+      "destination": "/research/neural-xray-rhyme/"
+    },
+    {
       "source": "/library/papers/riemann-fractisi-expedition/",
       "destination": "/library/papers/riemann-fractisi-expedition/index.html"
     },
