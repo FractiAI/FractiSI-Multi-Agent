@@ -20,7 +20,11 @@ test('short-answer detector', () => {
   assert.equal(hasYesNoShortAnswer('Abstract without an answer.'), false);
 });
 
-test('repository papers pass the yes/no gate', () => {
+test('repository papers and blogs pass the yes/no gate', () => {
   const gate = checkYesNoPapers();
   assert.deepEqual(gate.problems, [], gate.problems.join('\n'));
+});
+
+test('voice-locked symposium blog title is accepted as a yes/no question', () => {
+  assert.equal(isYesNoQuestionTitle('The Multi-Agent World Inference Rhyme?'), true);
 });

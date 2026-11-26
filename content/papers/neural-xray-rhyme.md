@@ -12,6 +12,16 @@
 **Seed:** `20261125`  
 **Date:** 25 November 2026
 
+## Opening: Hinton and the black box
+
+Geoffrey Hinton — often called a godfather of modern AI — has said plainly that we still do not really understand what is happening deep inside a neural network. The weights are known. The activations can be logged. The decision path still reads as opaque.
+
+FractiSI’s position is that this is not mainly a shortage of neurons to inspect. It is a shortage of the right awareness. Linear awareness reads a network as a long chain of local parts: layer after layer, feature after feature, parameter after parameter. That stance can inventory components and still miss the organization that makes the system work.
+
+FractiSI awareness asks a different question: what recurring organizational rhyme holds across representations, and can that rhyme reconstruct, predict, and survive intervention. The black box may thin when the rhyme is seen — not when every weight is named.
+
+The rest of this paper is that test: computational-lab evidence and wiring/wet-lab evidence, locked to the same principal-rhyme criteria, including a live-MLP blind prediction and intervention protocol.
+
 ## Honesty boundary
 
 | Tier | What this document is | What it is not |
@@ -31,7 +41,7 @@ Lock companions: **#55** Principal Rhyme Theorem · **#56** Universal Rhyme Wet-
 
 ## Abstract
 
-This study proposes an integrated validation of the FractiSI principal-rhyming-awareness hypothesis using two complementary evidence streams: computational-lab experiments and wiring/wet-lab evidence assembled into a structured computational sequence. FractiSI treats persistent organizational structures as computational rhymes and proposes that they can function as an X-ray of otherwise opaque system organization.
+Against Hinton’s black-box diagnosis, this study proposes an integrated validation of the FractiSI principal-rhyming-awareness hypothesis using two complementary evidence streams: computational-lab experiments and wiring/wet-lab evidence assembled into a structured computational sequence. FractiSI treats persistent organizational structures as computational rhymes and proposes that they can function as an X-ray of otherwise opaque system organization — precisely where linear part-by-part reading stalls.
 
 The integrated result is a convergence test:
 
