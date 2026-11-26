@@ -20,14 +20,14 @@
     "path": "output/data/analysis_summary.json",
     "representationVsOrganization": {
       "claim": "exact lexical identity ≠ structural match",
-      "aiContextTinyVsDuplicated": 1.0220437425242879,
-      "rhymeDifferingTinyVsDuplicated": 1.5112330734509642,
+      "aiContextTinyVsDuplicated": 1.0236993461603312,
+      "rhymeDifferingTinyVsDuplicated": 1.4997953336062217,
       "identicalAliasedHeapReduction": 0.7708776595744681,
       "differingTinyHeapReduction": 0.13232510064193237
     },
     "selectiveReconstruction": {
-      "aiContextTinyP50Us": 8.518,
-      "rhymeDifferingTinyP50Us": 0.92071875
+      "aiContextTinyP50Us": 8.5378125,
+      "rhymeDifferingTinyP50Us": 0.916
     }
   },
   "experiments": [
@@ -193,14 +193,14 @@
       "path": "output/data/analysis_summary.json",
       "representationVsOrganization": {
         "claim": "exact lexical identity ≠ structural match",
-        "aiContextTinyVsDuplicated": 1.0220437425242879,
-        "rhymeDifferingTinyVsDuplicated": 1.5112330734509642,
+        "aiContextTinyVsDuplicated": 1.0236993461603312,
+        "rhymeDifferingTinyVsDuplicated": 1.4997953336062217,
         "identicalAliasedHeapReduction": 0.7708776595744681,
         "differingTinyHeapReduction": 0.13232510064193237
       },
       "selectiveReconstruction": {
-        "aiContextTinyP50Us": 8.518,
-        "rhymeDifferingTinyP50Us": 0.92071875
+        "aiContextTinyP50Us": 8.5378125,
+        "rhymeDifferingTinyP50Us": 0.916
       },
       "pass": true
     },

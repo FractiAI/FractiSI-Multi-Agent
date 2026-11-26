@@ -9,7 +9,7 @@
       "alt_text": "Lollipop chart of aggregate definitions. Published 84.5% clears the 80% line; equal weighting 74.3%, lossless only 77.0%, and without the anti-pattern baseline 55.5% do not.",
       "sha256": "b1e788a652ef4cf8a9b8242cd6d24d5604eb8070052f7182a61b19a31eecda64",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -23,7 +23,7 @@
       "alt_text": "A falling line from 83.6% at a small delta to 62.5% at a delta equal to the whole KV buffer; the lab's assumption sits at 81.4%, and it is below the 80% target by a delta of 25%.",
       "sha256": "b4f2e8008f6dacecdac2db897013de4d5aa1742f060543a609dfd43b25f1d41a",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -37,7 +37,7 @@
       "alt_text": "Three panels of per-session heap against sessions, one line per store design. At the largest session count, with a shared prompt, the duplicated store holds 7609 bytes per session and Tiny 5111.",
       "sha256": "088d0b6a512cbe776438058d0a14c9f2d4232185004e9ff2ca208f6791fbf7a1",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -51,7 +51,7 @@
       "alt_text": "Two panels of paired markers. With a shared prompt, Tiny's JSON reduction of 49.5% compares with a heap reduction of 32.8%; plain aliasing reaches 32.9%. With same-shape sessions, Tiny's JSON reduction of 49.8% compares with a heap reduction of 13.2%.",
       "sha256": "2e2a63461f1b0c9fee9666e710b1f8e170de2115c90b24024a07584a0cb4f59e",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -65,7 +65,7 @@
       "alt_text": "Grouped bars of bytes under 3 accountings. Duplicated holds about 150 MiB and shared about 24 MiB in each.",
       "sha256": "dfd13ca8b27bb4b7801d8dc66bd4b8a2fb65b6735356e25dbfce79414f0f01b2",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -79,7 +79,7 @@
       "alt_text": "Dumbbells of prefill time per turn for each model and backend, on a log scale. Speedups from reusing the prefix range from 1.3 to 3.5 times.",
       "sha256": "6613c08e50c2ddf6cb4169db3f0062072ab210a676eaa6853ca933570532376a",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -90,10 +90,10 @@
     "generated_by": "src/tiny_footprint_labs/figures/measured.py",
     "label": "fig:materialization_latency",
     "metadata": {
-      "alt_text": "Two panels of medians. With a shared prompt, the shipped engine is 1.02 times the duplicated store and 1.02 times without cloning. With same-shape sessions the ratios are 1.51 and 1.52.",
-      "sha256": "522ac7b087b69b36fd3bf10ff1e032e18dea050d38f40620319abde7443f6117",
+      "alt_text": "Two panels of medians. With a shared prompt, the shipped engine is 1.02 times the duplicated store and 1.02 times without cloning. With same-shape sessions the ratios are 1.50 and 1.51.",
+      "sha256": "415f90053aa866fbe377995fae4f822c5fbea3e485dfd0ff61b726b0f5782a84",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -107,7 +107,7 @@
       "alt_text": "Three lines of bytes against duplicate share. The rhyme is flat near 7.2 KiB; the cache falls from 13.1 KiB to 0.32 KiB, crossing below the rhyme by 60% duplicates.",
       "sha256": "ffef814381977a245cfb6e56e4b1cc7c5818a8173f0de8ce5706cec90484d2bb",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -121,7 +121,7 @@
       "alt_text": "Four rising curves on a log scale of sessions, saturating near 94.3%, 82.1%, 49.5% and 16.5% for progressively longer conversations; predicted lines track the measurements.",
       "sha256": "f57d3ff09266884df522ee994c5efc17cf123ce69a38180f76b2c9603bf102a4",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   },
@@ -135,7 +135,7 @@
       "alt_text": "A vendor schematic of five stacked layers: customer AI application, Tiny Footprint integration layer, Tiny Gateway runtime, memory layer, and customer hardware.",
       "sha256": "d17748b87a2425a7b6981c8a0813a0a9946a4387df3d9429b8da4511d14acc70",
       "source": "media/tiny-footprint-architecture.jpg (sha256 d17748b87a2425a7b6981c8a0813a0a9946a4387df3d9429b8da4511d14acc70)",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Introduction"
   },
@@ -149,7 +149,7 @@
       "alt_text": "Horizontal bars of reduction by workload: B 54.1%, C 82.4%, D 86.4%, E 99.5%, F 48.9%. gzip reaches further than the bar for B, D, F and less far for C.",
       "sha256": "ac5109e272e3c136040c2e45edb44faef9cd7f10a8e1f736f2ecfce1bd4e1d6d",
       "source": "output/data/analysis_summary.json",
-      "summary_sha256": "4ef1191b4e508c5fcc109d1585a74b2d988b53430db9ad8cf659610206269f19"
+      "summary_sha256": "ce50bf9b90fc5a875f38f26dae63cb8451c5ac28421e9e3fca54485355bce3c6"
     },
     "section": "Results"
   }
