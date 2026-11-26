@@ -77,7 +77,7 @@ export const ENGINE_SHELF_PINS = Object.freeze([
 export const INFINITE_OCTAVE_PAPER_CORPUS = Object.freeze([
   {
     slug: 'neural-xray-rhyme',
-    role: 'ENGINE_SHELF #58 · computational + wiring/wet-lab X-ray · decisive threshold open',
+    role: 'ENGINE_SHELF #58 · computational + wiring/wet-lab X-ray · live-MLP decisive threshold met',
   },
   {
     slug: 'compositional-wet-lab-scale',
@@ -207,7 +207,7 @@ export function buildTinyFootprintOctaveEnginePrompt() {
     shelf,
     'Nest rule: #55 Principal Rhyme Theorem is the foundational organizational catalog.',
     'Nest rule: #56 Universal Rhyme Wet-Lab nests under #55; #57 Compositional Wet-Lab Scale nests under #56/#55 (Level III hyperscale NOT claimed).',
-    'Nest rule: #58 Neural X-Ray Rhyme nests under #55/#56/#57 (full NN decode NOT claimed; decisive blind prediction + intervention open).',
+    'Nest rule: #58 Neural X-Ray Rhyme nests under #55/#56/#57 (live-MLP decisive threshold met; full NN decode / frontier end-to-end X-ray NOT claimed).',
     'Nest rule: #54 language packs nest #53 protein-fold grammar on every layer; both nest under #55 before treating novelty as an isolated object.',
     'Lock line: Infinite Octaves ENGINE_SHELF #58 + #57 + #56 + #55 + #53 + #54 · FractiSI / Tiny Footprint Computational Lab.',
     'Source: docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md',

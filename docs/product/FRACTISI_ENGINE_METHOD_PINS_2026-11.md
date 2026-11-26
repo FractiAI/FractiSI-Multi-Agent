@@ -7,7 +7,7 @@
 
 | Shelf # | Pin | Registry |
 |---|---|---|
-| **#58** | **Neural X-Ray Rhyme** (Observe→Encode→Detect→Match→Reconstruct→Predict→Intervene→Consequence · computational + wiring/wet-lab convergence) | `synthobs-neural-xray-rhyme-2026-11` |
+| **#58** | **Neural X-Ray Rhyme** (Observe→Encode→Detect→Match→Reconstruct→Predict→Intervene→Consequence · Soft Story + live-MLP decisive blind predict/intervene) | `synthobs-neural-xray-rhyme-2026-11` |
 | **#57** | **Compositional Wet-Lab Scale** (Level I/II/III · Primitive→Interface→Cascade→Program→Scale · CC-01…CC-07) | `synthobs-compositional-wet-lab-scale-2026-11` |
 | **#56** | **Universal Rhyme Wet-Lab Proof** (EM chain Interference→Cavity→Matrix→Metasurface→ML · WL-01…WL-05) | `synthobs-universal-rhyme-wet-lab-2026-11` |
 | **#55** | **Principal Rhyme Theorem** (organizational rhyme · nested catalog PR-01…PR-20+∞ · Recognize→Connect→Reconstruct→Coordinate→Verify) | `synthobs-principal-rhyme-theorem-2026-11` |

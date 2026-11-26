@@ -7,7 +7,7 @@ ENGINE_SHELF: **#58** pinned=`true`
 
 ## Summary
 
-Pass **8/8** · suite `true`
+Pass **10/10** · suite `true`
 Measured computational anchors: **measured**
 
 ## Experiments
@@ -19,7 +19,9 @@ Measured computational anchors: **measured**
 - **E5_cross_domain** Cross-domain computational ↔ wiring/wet-lab rhyme: pass=`true`
 - **E6_measured_computational** Measured computational-lab anchors: pass=`true`
 - **E7_intervention_soft_story** Soft Story intervention: disrupt organization → recognition drop: pass=`true`
-- **E8_honesty_boundary** Honesty: full NN X-ray not claimed · decisive threshold open: pass=`true`
+- **E8_honesty_boundary** Honesty: full NN decode not claimed · live decisive protocol bounded: pass=`true`
+- **E9_live_blind_prediction** Live MLP blind prediction (rhyme locked before outcomes): pass=`true`
+- **E10_live_intervention** Live MLP intervention (ablate locked rhyme → predicted flips): pass=`true`
 
 ## Major-result shape
 
@@ -27,7 +29,12 @@ Measured computational anchors: **measured**
   "e1Rate": 1,
   "e5Rate": 1,
   "e6Tier": "measured",
+  "e9BlindAcc": 1,
+  "e10RhymeFlip": 0.5313,
+  "e10ControlFlip": 0,
   "fullXrayClaimed": false,
-  "decisiveThresholdOpen": true
+  "decisiveThresholdOpen": false,
+  "decisiveThresholdMet": true,
+  "liveNeuralNet": true
 }
 

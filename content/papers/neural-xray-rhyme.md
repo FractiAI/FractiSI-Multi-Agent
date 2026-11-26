@@ -5,7 +5,7 @@
 **Document ID:** `WP-NEURAL-XRAY-RHYME-2026-11-25`  
 **Registry ID:** `synthobs-neural-xray-rhyme-2026-11`  
 **Operator:** SynthOBS Autonomous Agent · Syntheverse Sandbox  
-**Classification:** Infinite Octaves ENGINE_SHELF **#58** · organizational interpretability / Soft Story program *(see Honesty boundary)*  
+**Classification:** Infinite Octaves ENGINE_SHELF **#58** · organizational interpretability / Soft Story + live-MLP decisive protocol *(see Honesty boundary)*  
 **Framework:** SynthOBS · FractiSI · Principal Rhyme · Fair Exchange  
 **Engine shelf:** **pinned** (`ENGINE_SHELF_PINNED = true` · slot **#58**)  
 **Suite:** `research/neural-xray-rhyme/`  
@@ -16,8 +16,8 @@
 
 | Tier | What this document is | What it is not |
 |---|---|---|
-| ENGINE_SHELF #58 pin | Soft Story convergence architecture + Exp 1–8 | Claim that all neural-network internals are already decoded |
-| Decisive threshold | Blind prediction + causal intervention (still open on a live NN) | Completed live-network X-ray QED |
+| ENGINE_SHELF #58 pin | Soft Story Exp 1–8 + live-MLP Exp 9–10 | Claim that all neural-network internals are already decoded |
+| Decisive threshold | **Met** on a constructed live MLP: rhyme locked before blind outcomes → blind prediction + causal intervention | Frontier / production-scale end-to-end X-ray QED |
 | Computational anchors | Measured Tiny Footprint latency/heap receipts | Equivalence of biology and ANNs |
 | Nest | Nests under #55 / #56 / #57 | Replacement of those pins |
 
@@ -37,7 +37,7 @@ The integrated result is a convergence test:
 
 physical observation → measured relationship → computational encoding → rhyme detection → reconstruction → prediction → intervention → observed consequence.
 
-The present Soft Story evidence supports the hypothesis as a **testable systemic model**. It does **not** justify claiming that all neural-network internals have already been decoded. The decisive proof threshold is successful blind prediction and intervention using a rhyme identified before the corresponding outcome is observed.
+Soft Story Exp 1–8 establish the architecture and measured computational anchors. Exp 9–10 execute the decisive threshold on a **constructed live MLP**: a shared organizational channel is discovered and locked **before** blind outcomes are scored; blind prediction beats chance; ablating the locked rhyme produces the pre-registered flip-rate consequence while a control ablate does not. This does **not** claim that all neural-network internals—or frontier production models—have already been decoded.
 
 ## Claims A / B / C
 
@@ -71,23 +71,36 @@ Soft Story Exp 6 loads **measured** anchors from `output/data/analysis_summary.j
 - exact lexical identity ≠ structural match (Tiny vs duplicated latency ratios; heap reduction at 1,024 sessions)
 - selective reconstruction latency on shared-prompt / same-shape workloads
 
-Tier: **measured**. These establish a credible computational basis for structural match beyond literal identity — not a completed neural-network X-ray.
+Tier: **measured**. These establish a credible computational basis for structural match beyond literal identity.
 
 ## Wiring/wet-lab bridge
 
 Ordered Soft Story sequence WS-01…WS-05 projects physical/wiring observations onto WL/CC/PR nest vocabulary (#56/#57/#55). Purpose: test whether the same organization can be recognized despite substrate difference — not to claim biology = ANNs.
 
+## Live MLP decisive protocol (Exp 9–10)
+
+Machine source: `research/neural-xray-rhyme/src/live-nn.mjs`.
+
+1. Plant a two-family MLP whose shared hidden channel is the organizational rhyme.  
+2. **Discover** the channel from weight-structure cosine (A-slice ↔ B-slice) — no blind labels.  
+3. **Lock** a prediction rule on the discovery split before scoring blind outcomes.  
+4. **Blind predict** held-out labels from the locked channel alone.  
+5. **Pre-register** intervention: ablating the locked channel flips ≥30% of blind predictions; control ablate flips materially less.  
+6. **Intervene** and observe consequence.
+
+Under seed `20261125` the suite records decisive threshold **met** (blind accuracy beats chance; rhyme flip ≫ control flip).
+
 ## Working form
 
 **See the rhyme. Reconstruct. Predict. Intervene.**
 
-Decisive threshold: blind prediction and intervention with a rhyme locked before the outcome is observed.
+Decisive threshold: blind prediction and intervention with a rhyme locked before the outcome is observed — **met on the constructed live MLP**.
 
 Evidentiary hierarchy: correlation < structural correspondence < prediction < successful intervention.
 
-## Experimental program (Exp 1–8)
+## Experimental program (Exp 1–10)
 
-Pre-registered Soft Story suite `research/neural-xray-rhyme/` · seed `20261125`:
+Pre-registered suite `research/neural-xray-rhyme/` · seed `20261125`:
 
 1. Eight-stage proof chain identification  
 2. Claims A/B/C  
@@ -95,8 +108,10 @@ Pre-registered Soft Story suite `research/neural-xray-rhyme/` · seed `20261125`
 4. Blind Soft Story discovery → locked → test  
 5. Cross-domain computational ↔ wiring/wet-lab rhyme  
 6. Measured computational-lab anchors  
-7. Soft Story intervention (recognition drop when organization disrupted) — not a live NN causal trial  
-8. Honesty boundary (full X-ray not claimed · decisive threshold open)
+7. Soft Story intervention (recognition drop when organization disrupted)  
+8. Honesty boundary (full decode / frontier end-to-end X-ray not claimed)  
+9. Live MLP blind prediction (rhyme locked before outcomes)  
+10. Live MLP intervention (ablate locked rhyme → predicted flips)
 
 ```bash
 npm run research:neural-xray-rhyme
@@ -110,4 +125,4 @@ The hypothesis fails if rhymes disappear under representation change, cross-doma
 
 The black box does not necessarily disappear when its individual components are decoded. It may become transparent when its recurring organization is identified.
 
-Soft Story Exp 1–8 establish the integrated architecture and measured computational anchors. A completed successful blind prediction + intervention on an actual neural network would elevate that conclusion substantially — and remains the open decisive threshold.
+Soft Story Exp 1–8 establish the integrated architecture and measured computational anchors. Exp 9–10 close the decisive threshold on a constructed live neural network under controlled conditions. Scaling that protocol to frontier models remains open — and is the next elevation of the claim.

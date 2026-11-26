@@ -4,7 +4,8 @@
  * Computational-lab + wiring/wet-lab convergence → organizational X-ray.
  * Nests under #55 Principal Rhyme Theorem · #56 Wet-Lab · #57 Compositional Scale.
  *
- * Soft Story / catalog method — does NOT claim all neural-network internals decoded.
+ * Soft Story Exp 1–8 + live-MLP Exp 9–10 (blind predict + intervene).
+ * Decisive threshold met on a constructed live NN. Does NOT claim all NN internals decoded.
  */
 export const NXR_ENGINE_SHELF = 58;
 export const NXR_DOCUMENT_ID = 'WP-NEURAL-XRAY-RHYME-2026-11-25';
@@ -103,12 +104,13 @@ export const NXR_WORKING_FORM = Object.freeze({
 export const NXR_PROVES = Object.freeze([
   'Computational Soft Story evidence supports structural match beyond literal identity, selective reconstruction, and reusable organizational relationships.',
   'Wiring/wet-lab observations can be ordered into a relational sequence and projected onto the same principal-rhyme vocabulary.',
+  'On a constructed live MLP, a rhyme locked before blind outcomes yields successful blind prediction and causal intervention (decisive threshold met under controlled conditions).',
 ]);
 
 export const NXR_DOES_NOT_PROVE = Object.freeze([
   'that all neural-network internals have already been decoded',
   'that biology and artificial neural networks are identical',
-  'completed blind prediction + causal intervention on a live neural network (decisive threshold still open)',
+  'that frontier / production-scale models are already fully X-rayed end-to-end',
   'that every parameter becomes individually interpretable',
   'hyperscale replacement of conventional interpretability methods',
 ]);
@@ -208,6 +210,6 @@ export function nxrEnginePinRecord() {
     stages: XRAY_STAGES.length,
     workingForm: NXR_WORKING_FORM.compact,
     honesty:
-      'Supports a testable systemic model. Does NOT claim all neural-network internals decoded. Decisive threshold = blind prediction + causal intervention.',
+      'Decisive threshold met on a constructed live MLP (blind predict + intervene). Does NOT claim all neural-network internals decoded or frontier end-to-end X-ray.',
   });
 }

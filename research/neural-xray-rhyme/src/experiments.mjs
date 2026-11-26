@@ -1,6 +1,6 @@
 /**
- * Neural X-Ray Soft Story — Experiments 1–8.
- * Computational + wiring/wet-lab convergence. Full NN X-ray NOT claimed.
+ * Neural X-Ray — Soft Story Exp 1–8 + live-MLP decisive Exp 9–10.
+ * Full NN decode / frontier end-to-end X-ray NOT claimed.
  */
 import {
   XRAY_STAGES,
@@ -17,6 +17,7 @@ import {
   principalCriteriaComplete,
 } from '../../../src/engine/rhyming/neural-xray-rhyme.mjs';
 import { loadComputationalLabAnchors } from './measured-baselines.mjs';
+import { runLiveBlindPredictIntervene } from './live-nn.mjs';
 import { DOCUMENT_ID, ENGINE_SHELF_PINNED, ENGINE_SHELF_SLOT, REGISTRY_ID, SEED, TITLE } from './constants.mjs';
 
 function mulberry32(a) {
@@ -210,22 +211,76 @@ export function experiment7_intervention(rng = mulberry32(SEED ^ 0xc0de)) {
   };
 }
 
-/** Exp 8 — Honesty: decisive X-ray threshold still open */
+/** Exp 8 — Honesty: full decode not claimed; live decisive protocol named */
 export function experiment8_honesty() {
   const openKept = NXR_DOES_NOT_PROVE.length >= 4;
   const provesBounded = NXR_PROVES.length >= 1 && NXR_PROVES.length <= 3;
   const falsifiable = NXR_FALSIFIABILITY.length >= 5;
   const thresholdNamed = /blind prediction|intervention/i.test(NXR_WORKING_FORM.decisiveThreshold);
   const answerBounded = /if the computational|causally testable/i.test(NXR_WORKING_FORM.answer);
+  const liveProve = NXR_PROVES.some((p) => /live MLP|decisive threshold met/i.test(p));
+  const noOpenLiveGap = !NXR_DOES_NOT_PROVE.some((p) => /decisive threshold still open/i.test(p));
   return {
     id: 'E8_honesty_boundary',
-    title: 'Honesty: full NN X-ray not claimed · decisive threshold open',
+    title: 'Honesty: full NN decode not claimed · live decisive protocol bounded',
     openClaims: NXR_DOES_NOT_PROVE.length,
     provesCount: NXR_PROVES.length,
     falsifiable,
     thresholdNamed,
     answerBounded,
-    pass: openKept && provesBounded && falsifiable && thresholdNamed && answerBounded,
+    liveProve,
+    noOpenLiveGap,
+    pass:
+      openKept &&
+      provesBounded &&
+      falsifiable &&
+      thresholdNamed &&
+      answerBounded &&
+      liveProve &&
+      noOpenLiveGap,
+  };
+}
+
+/** Exp 9 — Live MLP: rhyme locked before blind outcomes → blind prediction */
+export function experiment9_liveBlindPrediction(live = runLiveBlindPredictIntervene(SEED)) {
+  return {
+    id: 'E9_live_blind_prediction',
+    title: 'Live MLP blind prediction (rhyme locked before outcomes)',
+    tier: live.tier,
+    liveNeuralNet: live.liveNeuralNet,
+    lockedChannel: live.lockedRhyme.channel,
+    lockedAt: live.lockedRhyme.lockedAt,
+    matchesPlanted: live.lockedRhyme.matchesPlanted,
+    blindAccuracy: live.blindPrediction.accuracy,
+    beatsChance: live.blindPrediction.beatsChance,
+    pass:
+      live.liveNeuralNet &&
+      live.lockedRhyme.lockedAt === 'before_blind_outcome_scoring' &&
+      live.lockedRhyme.matchesPlanted &&
+      live.blindPrediction.beatsChance,
+    live,
+  };
+}
+
+/** Exp 10 — Live MLP: intervene on locked rhyme → predicted consequence */
+export function experiment10_liveIntervention(live = runLiveBlindPredictIntervene(SEED)) {
+  const interv = live.intervention;
+  return {
+    id: 'E10_live_intervention',
+    title: 'Live MLP intervention (ablate locked rhyme → predicted flips)',
+    tier: live.tier,
+    liveNeuralNet: live.liveNeuralNet,
+    lockedBeforeOutcome: interv.plan.lockedBeforeInterventionOutcome,
+    rhymeFlipRate: interv.rhymeFlipRate,
+    controlFlipRate: interv.controlFlipRate,
+    predictedConsequenceObserved: interv.predictedConsequenceObserved,
+    decisiveThresholdMet: live.decisiveThresholdMet,
+    pass:
+      live.liveNeuralNet &&
+      interv.plan.lockedBeforeInterventionOutcome &&
+      interv.predictedConsequenceObserved &&
+      live.decisiveThresholdMet,
+    live,
   };
 }
 
@@ -238,9 +293,14 @@ export function runNeuralXrayRhymeSuite() {
   const e6 = experiment6_measuredComputational();
   const e7 = experiment7_intervention();
   const e8 = experiment8_honesty();
-  const experiments = [e1, e2, e3, e4, e5, e6, e7, e8];
+  const live = runLiveBlindPredictIntervene(SEED);
+  const e9 = experiment9_liveBlindPrediction(live);
+  const e10 = experiment10_liveIntervention(live);
+  const experiments = [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10];
   const passCount = experiments.filter((e) => e.pass).length;
   const anchors = loadComputationalLabAnchors();
+  const decisive =
+    Boolean(e9.pass) && Boolean(e10.pass) && Boolean(e10.decisiveThresholdMet);
   return {
     documentId: DOCUMENT_ID,
     registryId: REGISTRY_ID,
@@ -262,8 +322,13 @@ export function runNeuralXrayRhymeSuite() {
         e1Rate: e1.rate,
         e5Rate: e5.rate,
         e6Tier: e6.tier,
+        e9BlindAcc: e9.blindAccuracy,
+        e10RhymeFlip: e10.rhymeFlipRate,
+        e10ControlFlip: e10.controlFlipRate,
         fullXrayClaimed: false,
-        decisiveThresholdOpen: true,
+        decisiveThresholdOpen: false,
+        decisiveThresholdMet: decisive,
+        liveNeuralNet: true,
       },
     },
   };

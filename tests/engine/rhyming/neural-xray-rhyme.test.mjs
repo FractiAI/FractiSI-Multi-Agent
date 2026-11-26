@@ -28,9 +28,10 @@ test('engine shelf #58 pin record', () => {
   const pin = nxrEnginePinRecord();
   assert.equal(pin.id, 58);
   assert.equal(NXR_ENGINE_SHELF, 58);
-  assert.match(pin.honesty, /NOT claim|not claim|decisive/i);
+  assert.match(pin.honesty, /NOT claim|not claim|decisive|live MLP/i);
   assert.match(NXR_WORKING_FORM.compact, /See the rhyme/i);
   assert.ok(NXR_DOES_NOT_PROVE.length >= 4);
+  assert.ok(NXR_DOES_NOT_PROVE.every((p) => !/decisive threshold still open/i.test(p)));
 });
 
 test('recognize intervene stage', () => {

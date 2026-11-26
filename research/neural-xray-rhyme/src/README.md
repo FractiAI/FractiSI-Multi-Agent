@@ -1,5 +1,5 @@
-# Soft Story sources
+# Soft Story + live-MLP sources
 
-`constants.mjs` — document / registry / shelf pin.  
-`experiments.mjs` — Exp 1–8 regenerable under seed `20261125`.  
-`measured-baselines.mjs` — measured computational anchors from receipts.
+`experiments.mjs` — Exp 1–10 regenerable under seed `20261125`.  
+`live-nn.mjs` — constructed live MLP decisive protocol (blind predict + intervene).  
+`measured-baselines.mjs` — loads Tiny Footprint measured anchors.

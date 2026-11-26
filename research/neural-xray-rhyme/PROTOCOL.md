@@ -1,33 +1,34 @@
-# Neural X-Ray Rhyme — Soft Story protocol
+# Neural X-Ray Rhyme — protocol
 
-**Document:** `WP-NEURAL-XRAY-RHYME-2026-11-25`  
 **Registry:** `synthobs-neural-xray-rhyme-2026-11`  
 **ENGINE_SHELF:** #58 pinned · nests under #55 / #56 / #57  
 **Seed:** `20261125`
 
-## Honesty
+## Claim scope
 
-Supports a testable systemic model.  
-Does **not** claim all neural-network internals decoded.  
-Decisive threshold (blind prediction + causal intervention on a live NN) remains **open**.
+Soft Story Exp 1–8 + live-MLP Exp 9–10.  
+Does **not** claim all neural-network internals decoded or frontier end-to-end X-ray.  
+Decisive threshold (blind prediction + causal intervention with rhyme locked before outcomes) is **met** on the constructed live MLP.
 
-## Tier rules
+## Tiers
 
-| Tier | What |
+| Tier | Content |
 |---|---|
-| measured | Computational latency/heap from `output/data/analysis_summary.json` |
+| measured | Tiny Footprint latency/heap anchors; live MLP forward passes |
 | soft_story | Blind split, cross-domain match, Soft Story intervention board |
 
 ## Experiments
 
-1. XR stages Observe→…→Consequence  
+1. Eight-stage proof chain  
 2. Claims A/B/C  
 3. Principal-rhyme criteria  
-4. Blind discovery / locked / test  
-5. Cross-domain computational ↔ wiring/wet-lab  
+4. Blind Soft Story split  
+5. Cross-domain rhyme  
 6. Measured computational anchors  
-7. Soft Story intervention (not live NN)  
+7. Soft Story intervention  
 8. Honesty boundary  
+9. Live MLP blind prediction (rhyme locked before outcomes)  
+10. Live MLP intervention (ablate locked rhyme → predicted flips)
 
 ```bash
 npm run research:neural-xray-rhyme

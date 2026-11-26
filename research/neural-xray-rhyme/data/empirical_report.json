@@ -20,14 +20,14 @@
     "path": "output/data/analysis_summary.json",
     "representationVsOrganization": {
       "claim": "exact lexical identity ≠ structural match",
-      "aiContextTinyVsDuplicated": 1.0236778787503424,
-      "rhymeDifferingTinyVsDuplicated": 1.5235018238665972,
+      "aiContextTinyVsDuplicated": 1.0220437425242879,
+      "rhymeDifferingTinyVsDuplicated": 1.5112330734509642,
       "identicalAliasedHeapReduction": 0.7708776595744681,
       "differingTinyHeapReduction": 0.13232510064193237
     },
     "selectiveReconstruction": {
-      "aiContextTinyP50Us": 8.52240625,
-      "rhymeDifferingTinyP50Us": 0.913625
+      "aiContextTinyP50Us": 8.518,
+      "rhymeDifferingTinyP50Us": 0.92071875
     }
   },
   "experiments": [
@@ -193,14 +193,14 @@
       "path": "output/data/analysis_summary.json",
       "representationVsOrganization": {
         "claim": "exact lexical identity ≠ structural match",
-        "aiContextTinyVsDuplicated": 1.0236778787503424,
-        "rhymeDifferingTinyVsDuplicated": 1.5235018238665972,
+        "aiContextTinyVsDuplicated": 1.0220437425242879,
+        "rhymeDifferingTinyVsDuplicated": 1.5112330734509642,
         "identicalAliasedHeapReduction": 0.7708776595744681,
         "differingTinyHeapReduction": 0.13232510064193237
       },
       "selectiveReconstruction": {
-        "aiContextTinyP50Us": 8.52240625,
-        "rhymeDifferingTinyP50Us": 0.913625
+        "aiContextTinyP50Us": 8.518,
+        "rhymeDifferingTinyP50Us": 0.92071875
       },
       "pass": true
     },
@@ -215,17 +215,167 @@
     },
     {
       "id": "E8_honesty_boundary",
-      "title": "Honesty: full NN X-ray not claimed · decisive threshold open",
+      "title": "Honesty: full NN decode not claimed · live decisive protocol bounded",
       "openClaims": 5,
-      "provesCount": 2,
+      "provesCount": 3,
       "falsifiable": true,
       "thresholdNamed": true,
       "answerBounded": true,
+      "liveProve": true,
+      "noOpenLiveGap": true,
       "pass": true
+    },
+    {
+      "id": "E9_live_blind_prediction",
+      "title": "Live MLP blind prediction (rhyme locked before outcomes)",
+      "tier": "measured",
+      "liveNeuralNet": true,
+      "lockedChannel": 0,
+      "lockedAt": "before_blind_outcome_scoring",
+      "matchesPlanted": true,
+      "blindAccuracy": 1,
+      "beatsChance": true,
+      "pass": true,
+      "live": {
+        "tier": "measured",
+        "liveNeuralNet": true,
+        "spec": {
+          "inputDim": 8,
+          "hiddenDim": 6,
+          "outputDim": 2,
+          "nSamples": 64
+        },
+        "plantedRhymeChannel": 0,
+        "discoveryN": 32,
+        "blindN": 32,
+        "lockedRhyme": {
+          "channel": 0,
+          "threshold": 0.12652155255210928,
+          "rule": "pred = hidden[0] >= 0.126522 ? 1 : 0",
+          "discoveryTop": [
+            {
+              "channel": 0,
+              "cos": 1,
+              "energy": 3.1273
+            },
+            {
+              "channel": 5,
+              "cos": 0.319,
+              "energy": 0.0889
+            },
+            {
+              "channel": 2,
+              "cos": -0.046,
+              "energy": 0.1013
+            }
+          ],
+          "lockedAt": "before_blind_outcome_scoring",
+          "matchesPlanted": true
+        },
+        "blindPrediction": {
+          "accuracy": 1,
+          "chance": 0.5,
+          "beatsChance": true,
+          "n": 32,
+          "hits": 32
+        },
+        "intervention": {
+          "plan": {
+            "targetChannel": 0,
+            "controlChannel": 1,
+            "predicted": {
+              "rhymeAblateFlipRate": ">=0.30 of blind samples flip class",
+              "controlAblateFlipRate": "< rhyme flip rate − 0.20"
+            },
+            "lockedBeforeInterventionOutcome": true
+          },
+          "baselineAcc": 1,
+          "rhymeAblateAcc": 0.4688,
+          "controlAblateAcc": 1,
+          "rhymeFlipRate": 0.5313,
+          "controlFlipRate": 0,
+          "predictedConsequenceObserved": true
+        },
+        "decisiveThresholdMet": true
+      }
+    },
+    {
+      "id": "E10_live_intervention",
+      "title": "Live MLP intervention (ablate locked rhyme → predicted flips)",
+      "tier": "measured",
+      "liveNeuralNet": true,
+      "lockedBeforeOutcome": true,
+      "rhymeFlipRate": 0.5313,
+      "controlFlipRate": 0,
+      "predictedConsequenceObserved": true,
+      "decisiveThresholdMet": true,
+      "pass": true,
+      "live": {
+        "tier": "measured",
+        "liveNeuralNet": true,
+        "spec": {
+          "inputDim": 8,
+          "hiddenDim": 6,
+          "outputDim": 2,
+          "nSamples": 64
+        },
+        "plantedRhymeChannel": 0,
+        "discoveryN": 32,
+        "blindN": 32,
+        "lockedRhyme": {
+          "channel": 0,
+          "threshold": 0.12652155255210928,
+          "rule": "pred = hidden[0] >= 0.126522 ? 1 : 0",
+          "discoveryTop": [
+            {
+              "channel": 0,
+              "cos": 1,
+              "energy": 3.1273
+            },
+            {
+              "channel": 5,
+              "cos": 0.319,
+              "energy": 0.0889
+            },
+            {
+              "channel": 2,
+              "cos": -0.046,
+              "energy": 0.1013
+            }
+          ],
+          "lockedAt": "before_blind_outcome_scoring",
+          "matchesPlanted": true
+        },
+        "blindPrediction": {
+          "accuracy": 1,
+          "chance": 0.5,
+          "beatsChance": true,
+          "n": 32,
+          "hits": 32
+        },
+        "intervention": {
+          "plan": {
+            "targetChannel": 0,
+            "controlChannel": 1,
+            "predicted": {
+              "rhymeAblateFlipRate": ">=0.30 of blind samples flip class",
+              "controlAblateFlipRate": "< rhyme flip rate − 0.20"
+            },
+            "lockedBeforeInterventionOutcome": true
+          },
+          "baselineAcc": 1,
+          "rhymeAblateAcc": 0.4688,
+          "controlAblateAcc": 1,
+          "rhymeFlipRate": 0.5313,
+          "controlFlipRate": 0,
+          "predictedConsequenceObserved": true
+        },
+        "decisiveThresholdMet": true
+      }
     }
   ],
-  "passCount": 8,
-  "total": 8,
+  "passCount": 10,
+  "total": 10,
   "pass": true,
   "majorResultShape": {
     "claim": "YES — if the computational and wiring/wet-lab evidence converge on the same reproducible, predictive, and causally testable rhyme.",
@@ -233,8 +383,13 @@
       "e1Rate": 1,
       "e5Rate": 1,
       "e6Tier": "measured",
+      "e9BlindAcc": 1,
+      "e10RhymeFlip": 0.5313,
+      "e10ControlFlip": 0,
       "fullXrayClaimed": false,
-      "decisiveThresholdOpen": true
+      "decisiveThresholdOpen": false,
+      "decisiveThresholdMet": true,
+      "liveNeuralNet": true
     }
   }
 }

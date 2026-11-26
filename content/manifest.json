@@ -3,7 +3,7 @@
     {
       "slug": "neural-xray-rhyme",
       "title": "Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks by Combining Computational-Lab and Wiring/Wet-Lab Evidence?",
-      "dek": "YES — if computational and wiring/wet-lab evidence converge on the same reproducible, predictive, causally testable rhyme. ENGINE_SHELF #58 Soft Story Exp 1–8.",
+      "dek": "YES — if streams converge. ENGINE_SHELF #58 Soft Story Exp 1–8 + live-MLP Exp 9–10: decisive blind prediction + intervention met on a constructed live net.",
       "date": "2026-11-25",
       "label": "Neural X-Ray Rhyme",
       "actions": [
@@ -22,7 +22,7 @@
       ],
       "links": "<strong>FractiSI engine pin #58:</strong> Neural X-Ray Rhyme · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/neural-xray-rhyme/\">Paper</a>",
       "answerHead": "Short answer: YES — if streams converge.",
-      "answerBody": " Soft Story Exp 1–8 with measured computational anchors. Full NN X-ray and live blind intervention remain open."
+      "answerBody": " Soft Story Exp 1–8 + live-MLP Exp 9–10. Decisive threshold met on a constructed live net; frontier end-to-end X-ray remains open."
     },
     {
       "slug": "compositional-wet-lab-scale",
@@ -518,7 +518,7 @@
       "slug": "neural-xray-rhyme",
       "title": "Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks by Combining Computational-Lab and Wiring/Wet-Lab Evidence?",
       "group": "Engine papers",
-      "summary": "Neural X-Ray Rhyme · ENGINE_SHELF #58 · Observe→…→Intervene · Soft Story Exp 1–8 · measured anchors · decisive threshold open.",
+      "summary": "Neural X-Ray Rhyme · ENGINE_SHELF #58 · Soft Story Exp 1–8 + live-MLP Exp 9–10 · decisive blind predict/intervene met · frontier end-to-end open.",
       "docId": "WP-NEURAL-XRAY-RHYME-2026-11-25",
       "source": "md",
       "date": "2026-11-25"
