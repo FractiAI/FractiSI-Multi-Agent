@@ -9,6 +9,7 @@
 **Framework:** SynthOBS · FractiSI · Universal Rhyme · Fair Exchange  
 **Engine shelf:** **pinned** (`ENGINE_SHELF_PINNED = true` · slot **#57**)  
 **Suite:** `research/compositional-wet-lab-scale/`  
+**Standalone:** [`FractiAI/synthobs-compositional-wet-lab-scale`](https://github.com/FractiAI/synthobs-compositional-wet-lab-scale)  
 **Seed:** `20261125`  
 **Date:** 25 November 2026
 

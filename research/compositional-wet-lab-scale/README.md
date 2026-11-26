@@ -9,3 +9,5 @@ npm run research:compositional-wet-lab-scale
 Machine catalog: `src/engine/rhyming/compositional-wet-lab-scale.mjs`  
 Paper: `/library/papers/compositional-wet-lab-scale/`  
 Premise: `/library/papers/universal-rhyme-wet-lab/` (#56)
+
+Standalone: https://github.com/FractiAI/synthobs-compositional-wet-lab-scale

@@ -9,3 +9,5 @@ npm run research:universal-rhyme-wet-lab
 Machine catalog: `src/engine/rhyming/universal-rhyme-wet-lab.mjs`  
 Paper: `/library/papers/universal-rhyme-wet-lab/`  
 Companion scale: `/library/papers/compositional-wet-lab-scale/` (#57)
+
+Standalone: https://github.com/FractiAI/synthobs-universal-rhyme-wet-lab

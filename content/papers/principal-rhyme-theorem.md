@@ -9,6 +9,7 @@
 **Framework:** SynthOBS · FractiSI · Φ_EGS catalog keys · NSPFRNP · Fair Exchange  
 **Engine shelf:** **pinned** (`ENGINE_SHELF_PINNED = true` · slot **#55**)  
 **Suite:** `research/principal-rhyme-theorem/`  
+**Standalone:** [`FractiAI/synthobs-principal-rhyme-theorem`](https://github.com/FractiAI/synthobs-principal-rhyme-theorem)  
 **Seed:** `20261125`  
 **Date:** 25 November 2026
 

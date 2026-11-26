@@ -8,6 +8,7 @@
 **Classification:** Application companion Soft Story / computational expedition · Infinite Octaves ENGINE_SHELF #55 · FractiSI Rhyming World Model rhyme feature  
 **Date:** 18 November 2026  
 **Harness:** FractiSI Multi-Agent `research/pilot-rhyme-expedition/` · mirror `research/synthobs-pilot-rhyme-expedition/`  
+**Standalone:** [`FractiAI/synthobs-pilot-rhyme-expedition`](https://github.com/FractiAI/synthobs-pilot-rhyme-expedition)  
 **Ship blog:** `/ship-blog/pilot-rhyme-expedition`
 
 ## Honesty boundary

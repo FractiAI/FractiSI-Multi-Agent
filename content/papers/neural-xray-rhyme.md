@@ -9,6 +9,7 @@
 **Framework:** SynthOBS · FractiSI · Principal Rhyme · Fair Exchange  
 **Engine shelf:** **pinned** (`ENGINE_SHELF_PINNED = true` · slot **#58**)  
 **Suite:** `research/neural-xray-rhyme/`  
+**Standalone:** [`FractiAI/synthobs-neural-xray-rhyme`](https://github.com/FractiAI/synthobs-neural-xray-rhyme)  
 **Seed:** `20261125`  
 **Date:** 25 November 2026
 

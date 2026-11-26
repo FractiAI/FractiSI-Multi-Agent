@@ -37,3 +37,5 @@ Map of prior LLM / folding rhymes → cosmic fixtures: [`LLM_RHYME_LEGEND.md`](.
 - Blog: `/blog/cosmic-rhyme-expedition/`
 
 → ∞^∞
+
+Standalone: https://github.com/FractiAI/synthobs-cosmic-rhyme-expedition

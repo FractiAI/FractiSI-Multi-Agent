@@ -16,3 +16,5 @@ Receipts: `data/empirical_report.{json,md}` · Protocol: `PROTOCOL.md`
 Split from Cosmic Rhyme C5. Genome arm = demonstration/exploration on public panels.
 
 → ∞^∞
+
+Standalone: https://github.com/FractiAI/synthobs-llm-rhyme-cosmic-genome-expedition

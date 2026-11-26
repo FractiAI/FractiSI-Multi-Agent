@@ -319,10 +319,21 @@ function buildPaper(entry) {
   const docId = meta['document id'] || entry.docId || '';
   const type = tidyClass(meta);
   const peerBlog = blogBySlug[entry.slug];
+  const standaloneRaw = meta.standalone || '';
+  const standaloneHref =
+    standaloneRaw.match(/\((https:\/\/github\.com\/[^)\s]+)\)/)?.[1] ||
+    (standaloneRaw.match(/FractiAI\/[A-Za-z0-9._-]+/)
+      ? `https://github.com/${standaloneRaw.match(/FractiAI\/[A-Za-z0-9._-]+/)[0]}`
+      : '');
+  const standaloneLabel =
+    standaloneRaw.match(/FractiAI\/[A-Za-z0-9._-]+/)?.[0] || standaloneRaw.replace(/[\[\]()`]/g, '').trim();
   const metaRows = [
     date ? ['Published', fmtDate(date)] : null,
     ['Type', type],
     docId ? ['Document ID', `<code>${esc(docId)}</code>`] : null,
+    standaloneHref
+      ? ['Standalone', `<a href="${esc(standaloneHref)}"><code>${esc(standaloneLabel)}</code></a>`]
+      : null,
     ['Reading time', `${Math.max(1, Math.round(words(`${answerHtml || ''}${html}`) / 220))} min`],
   ].filter(Boolean);
   const actions = [

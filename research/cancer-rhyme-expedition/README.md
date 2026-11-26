@@ -26,3 +26,5 @@ Soft Story / computational expedition. Synthetic relational worlds labeled with 
 Mirror of SING 13 suite `research/synthobs-cancer-rhyme-expedition/`.
 
 → ∞^∞
+
+Standalone: https://github.com/FractiAI/synthobs-cancer-rhyme-expedition

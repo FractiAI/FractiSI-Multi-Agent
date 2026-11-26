@@ -8,6 +8,7 @@
 **Classification:** Application companion · Soft Story / computational expedition · **Rhyming Expedition** arm · **not** Infinite Octaves ENGINE_SHELF
 **Date:** 19 November 2026
 **Harness:** `research/synthobs-diverse-redundancy-inbreeding-expedition/`
+**Standalone:** [`FractiAI/synthobs-diverse-redundancy-inbreeding`](https://github.com/FractiAI/synthobs-diverse-redundancy-inbreeding)  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/diverse-redundancy-inbreeding/
 **Peers:** Aware Attention Head (octave redundancy) · Pilot Rhyme · Shared-World Collective Intelligence · Tiny Gateway Rhyming Templates
 

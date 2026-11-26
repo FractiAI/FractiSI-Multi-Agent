@@ -8,6 +8,7 @@
 **Classification:** Application companion · Soft Story / computational expedition · **Rhyming Expedition** arm · **not** Infinite Octaves ENGINE_SHELF
 **Date:** 20 November 2026
 **Harness:** `research/synthobs-relational-continuity-rhyme-expedition/`
+**Standalone:** [`FractiAI/synthobs-relational-continuity-rhyme`](https://github.com/FractiAI/synthobs-relational-continuity-rhyme)  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/relational-continuity-rhyme/
 **Peers:** Shared-World Collective Intelligence · Pilot Rhyme · Diverse Redundancy / Inbreeding · Rhyming Templates
 
