@@ -1,7 +1,10 @@
 /**
- * HTML for the fixed FractiSI Newsroom ticker tape.
+ * HTML for the fixed Fractal Goldilocks Channel (FGC) ticker tape.
  */
 import { recentNewsroomItems } from './headlines.mjs';
+
+export const FGC_NAME = 'Fractal Goldilocks Channel';
+export const FGC_SHORT = 'FGC';
 
 function esc(s) {
   return String(s)
@@ -28,8 +31,8 @@ export function newsroomTickerHtml(manifest, opts = {}) {
     .join('<span class="news-ticker-dot" aria-hidden="true">·</span>');
 
   // Duplicate the strip so CSS marquee can loop without a gap.
-  return `<aside class="news-ticker" role="region" aria-label="FractiSI Newsroom live headlines">
-  <a class="news-ticker-brand" href="/blog/">FractiSI Newsroom</a>
+  return `<aside class="news-ticker" role="region" aria-label="${FGC_NAME} live headlines">
+  <a class="news-ticker-brand" href="/blog/" title="${FGC_NAME}">${FGC_SHORT}</a>
   <span class="news-ticker-live" aria-hidden="true">Live</span>
   <div class="news-ticker-viewport">
     <div class="news-ticker-track">

@@ -1,5 +1,5 @@
 /**
- * FractiSI Newsroom — newscast headlines from recent blog posts.
+ * Fractal Goldilocks Channel (FGC) — newscast headlines from recent blog posts.
  * Window defaults to the past 24 hours (by blog `date`), with a fill from
  * newer posts if the window is thin so the ticker never goes empty.
  */

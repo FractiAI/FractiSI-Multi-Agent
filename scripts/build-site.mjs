@@ -52,7 +52,7 @@ const NAV = [
   ['/product/pricing/', 'Pricing'],
   ['/research/', 'Research'],
   ['/library/', 'Library'],
-  ['/blog/', 'Newsroom'],
+  ['/blog/', 'FGC'],
   ['/company/', 'Company'],
 ];
 
@@ -95,7 +95,7 @@ const FOOTER = `<footer class="site-footer">
         <h2>Research</h2>
         <a href="/research/">Overview</a>
         <a href="/library/">Library</a>
-        <a href="/blog/">Newsroom</a>
+        <a href="/blog/">FGC</a>
         <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
       </nav>
       <nav aria-label="Company">
@@ -460,9 +460,9 @@ function buildBlogIndex() {
 
   const body = `    <section class="newsroom">
       <header class="nr-hero">
-        <p class="kicker">FractiSI Newsroom</p>
+        <p class="kicker">Fractal Goldilocks Channel · FGC</p>
         <h1>World events through the Rhyming World Model lens</h1>
-        <p class="dek">Like a weather channel that reads new bands of the spectrum, FractiSI Newsroom watches the same public facts with rhyme, X-ray, wet-lab, and Soft Story instruments. Briefings below are newscast reads of our latest research notes.</p>
+        <p class="dek">Like a weather channel that reads new bands of the spectrum, the Fractal Goldilocks Channel watches the same public facts with rhyme, X-ray, wet-lab, and Soft Story instruments. Briefings below are newscast reads of our latest research notes.</p>
       </header>
       <section class="nr-instruments" aria-label="Observation instruments">
         <h2 class="nr-section-title">Instruments on air</h2>
@@ -486,9 +486,9 @@ ${bulletin}
 
   const newsroomPage = {
     path: '/blog/',
-    title: 'FractiSI Newsroom',
+    title: 'Fractal Goldilocks Channel',
     description:
-      'FractiSI Newsroom: world events through the Rhyming World Model lens. Live briefings from the past 24 hours, regenerated from public research notes.',
+      'Fractal Goldilocks Channel (FGC): world events through the Rhyming World Model lens. Live briefings from the past 24 hours, regenerated from public research notes.',
     body,
   };
   write('blog/index.html', page(newsroomPage));
