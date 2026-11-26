@@ -1,5 +1,10 @@
 /**
- * Library papers must be titled as yes/no questions and open with a Yes/No short answer.
+ * Library papers and blog posts must be titled as yes/no questions and open
+ * with a Yes/No short answer immediately under the title.
+ *
+ * Exception: the voice-locked symposium blog title
+ * (`The Multi-Agent World Inference Rhyme?`) stays as locked — it already ends
+ * in `?` and must keep Short answer: No under the h1.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,11 +15,17 @@ const YES_NO_STARTERS =
 
 const SHORT_ANSWER = /\*\*Short answer:\s*(YES|NO|Yes|No)\b/i;
 const SHORT_ANSWER_HTML = /<strong>\s*Short answer:\s*(YES|NO|Yes|No)\b/i;
+const ANSWER_HEAD = /^Short answer:\s*(YES|NO|Yes|No)\b/i;
+
+/** Mirrors Test Drive voice-lock hero — do not import testdrive (same layer). */
+const VOICE_LOCKED_BLOG_SLUG = 'aai-symposium-2026';
+const VOICE_LOCKED_BLOG_TITLE = 'The Multi-Agent World Inference Rhyme?';
 
 /** @param {string} title */
 export function isYesNoQuestionTitle(title) {
   const t = String(title || '').trim();
   if (!t.endsWith('?')) return false;
+  if (t === VOICE_LOCKED_BLOG_TITLE) return true;
   return YES_NO_STARTERS.test(t);
 }
 
@@ -23,11 +34,19 @@ export function hasYesNoShortAnswer(text) {
   return SHORT_ANSWER.test(text) || SHORT_ANSWER_HTML.test(text);
 }
 
+function builtLeadHasAnswer(html) {
+  const lead = html.match(/<h1>[\s\S]*?<\/h1>\s*([\s\S]{0,500})/);
+  const after = lead?.[1] || '';
+  return /class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(after);
+}
+
 /** @param {string} [root] */
 export function checkYesNoPapers(root = REPO_ROOT) {
   const problems = [];
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/manifest.json'), 'utf8'));
   const papers = manifest.papers || [];
+  const blogs = manifest.blog || [];
+
   for (const entry of papers) {
     if (!isYesNoQuestionTitle(entry.title)) {
       problems.push(`content/manifest.json papers[${entry.slug}]: title must be a yes/no question ending in ?`);
@@ -43,38 +62,43 @@ export function checkYesNoPapers(root = REPO_ROOT) {
     if (!hasYesNoShortAnswer(text)) {
       problems.push(`${path.relative(root, src)}: must begin with Short answer: Yes/No`);
     }
-    // Markdown H1 must match the yes/no form when present
     const h1 = text.match(/^#\s+(.+)$/m);
     if (h1 && !isYesNoQuestionTitle(h1[1].trim())) {
       problems.push(`${path.relative(root, src)}: H1 must be a yes/no question ending in ?`);
     }
-  }
-  // Blog entries that share a paper slug must keep the same yes/no title contract.
-  const paperSlugs = new Set(papers.map((p) => p.slug));
-  for (const entry of manifest.blog || []) {
-    if (!paperSlugs.has(entry.slug)) continue;
-    if (!isYesNoQuestionTitle(entry.title)) {
-      problems.push(`content/manifest.json blog[${entry.slug}]: paper-peer blog title must be a yes/no question`);
-    }
-    if (entry.answerHead && !/^Short answer:\s*(YES|NO|Yes|No)\b/i.test(entry.answerHead)) {
-      problems.push(`content/manifest.json blog[${entry.slug}]: answerHead must start with Short answer: Yes/No`);
-    }
-  }
-  // Built paper pages must place the Yes/No answer immediately under <h1>.
-  for (const entry of papers) {
     const built = path.join(root, 'library/papers', entry.slug, 'index.html');
     if (!fs.existsSync(built)) {
       problems.push(`library/papers/${entry.slug}/index.html: missing built page`);
-      continue;
-    }
-    const html = fs.readFileSync(built, 'utf8');
-    const lead = html.match(/<h1>[\s\S]*?<\/h1>\s*([\s\S]{0,500})/);
-    const after = lead?.[1] || '';
-    if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(after)) {
+    } else if (!builtLeadHasAnswer(fs.readFileSync(built, 'utf8'))) {
       problems.push(
         `library/papers/${entry.slug}/index.html: Short answer Yes/No must sit immediately under the title`,
       );
     }
   }
-  return { name: 'library papers are yes/no questions with Yes/No short answers', problems };
+
+  for (const entry of blogs) {
+    if (entry.slug === VOICE_LOCKED_BLOG_SLUG) {
+      if (entry.title !== VOICE_LOCKED_BLOG_TITLE) {
+        problems.push(
+          `content/manifest.json blog[${entry.slug}]: title must stay voice-locked as "${VOICE_LOCKED_BLOG_TITLE}"`,
+        );
+      }
+    } else if (!isYesNoQuestionTitle(entry.title)) {
+      problems.push(`content/manifest.json blog[${entry.slug}]: title must be a yes/no question ending in ?`);
+    }
+    if (!entry.answerHead || !ANSWER_HEAD.test(entry.answerHead)) {
+      problems.push(`content/manifest.json blog[${entry.slug}]: answerHead must start with Short answer: Yes/No`);
+    }
+    if (entry.dek && !/^(YES|NO)\b/.test(entry.dek)) {
+      problems.push(`content/manifest.json blog[${entry.slug}]: dek must begin with YES or NO`);
+    }
+    const built = path.join(root, 'blog', entry.slug, 'index.html');
+    if (!fs.existsSync(built)) {
+      problems.push(`blog/${entry.slug}/index.html: missing built page`);
+    } else if (!builtLeadHasAnswer(fs.readFileSync(built, 'utf8'))) {
+      problems.push(`blog/${entry.slug}/index.html: Short answer Yes/No must sit immediately under the title`);
+    }
+  }
+
+  return { name: 'library papers and blogs are yes/no questions with Yes/No short answers', problems };
 }

@@ -363,11 +363,16 @@ ${html}
 }
 
 function buildBlog(entry) {
+  if (!entry.answerHead || !/^Short answer:\s*(YES|NO|Yes|No)\b/i.test(entry.answerHead)) {
+    throw new Error(`blog ${entry.slug}: answerHead must start with Short answer: Yes/No`);
+  }
   const raw = read(`content/blog/${entry.slug}.html`);
-  const longDek = (entry.dek || '').length > 240;
-  const answer = entry.answerHead ? `<p class="answer"><strong>${esc(entry.answerHead)}</strong>${esc(entry.answerBody || '')}</p>\n` : '';
-  const lead = answer + (longDek ? `<p class="lead">${esc(entry.dek)}</p>\n` : '');
-  const body = lead + publicWording(raw).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
+  // Strip duplicate Short answer blocks from source HTML — header owns the lead.
+  const stripped = raw
+    .replace(/<section[^>]*aria-label="Short answer"[^>]*>[\s\S]*?<\/section>\s*/gi, '')
+    .replace(/<p class="answer">[\s\S]*?<\/p>\s*/gi, '');
+  const prose = publicWording(stripped).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
+  const answerHtml = `<p class="answer"><strong>${esc(entry.answerHead)}</strong>${esc(entry.answerBody || '')}</p>`;
   const peerPaper = paperBySlug[entry.slug];
   const actions = (entry.actions || []).slice(0, 3).map((a, i) =>
     `<a class="${i === 0 ? 'btn-primary' : 'btn-ghost'}" href="${a.href}">${esc(a.text)}</a>`).join('\n          ');
@@ -378,22 +383,26 @@ function buildBlog(entry) {
       <header class="doc-head">
         <p class="kicker">Blog${entry.label ? ' · ' + esc(entry.label) : ''}</p>
         <h1>${esc(entry.title)}</h1>
-        ${entry.dek && !longDek ? `<p class="dek">${esc(entry.dek)}</p>` : ''}
+        ${answerHtml}
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>${fmtDate(entry.date)}</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
-          <div><dt>Reading time</dt><dd>${Math.max(1, Math.round(words(body) / 220))} min</dd></div>
+          <div><dt>Reading time</dt><dd>${Math.max(1, Math.round(words(`${answerHtml}${prose}`) / 220))} min</dd></div>
         </dl>
         ${actions ? `<div class="doc-actions">\n          ${actions}\n        </div>` : ''}
       </header>
       <div class="prose">
-${body}
+${prose}
       </div>
       ${relatedCards(related)}
     </article>`;
+  const description = trimDek(
+    `${entry.answerHead}${entry.answerBody || ''}`.replace(/^Short answer:\s*/i, '') || entry.dek || entry.title,
+    200,
+  );
   write(
     `blog/${entry.slug}/index.html`,
-    page({ path: `/blog/${entry.slug}/`, title: entry.title, description: trimDek(entry.dek || entry.title, 200), ogType: 'article', body: doc }),
+    page({ path: `/blog/${entry.slug}/`, title: entry.title, description, ogType: 'article', body: doc }),
   );
 }
 
