@@ -60,5 +60,21 @@ export function checkYesNoPapers(root = REPO_ROOT) {
       problems.push(`content/manifest.json blog[${entry.slug}]: answerHead must start with Short answer: Yes/No`);
     }
   }
+  // Built paper pages must place the Yes/No answer immediately under <h1>.
+  for (const entry of papers) {
+    const built = path.join(root, 'library/papers', entry.slug, 'index.html');
+    if (!fs.existsSync(built)) {
+      problems.push(`library/papers/${entry.slug}/index.html: missing built page`);
+      continue;
+    }
+    const html = fs.readFileSync(built, 'utf8');
+    const lead = html.match(/<h1>[\s\S]*?<\/h1>\s*([\s\S]{0,500})/);
+    const after = lead?.[1] || '';
+    if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(after)) {
+      problems.push(
+        `library/papers/${entry.slug}/index.html: Short answer Yes/No must sit immediately under the title`,
+      );
+    }
+  }
   return { name: 'library papers are yes/no questions with Yes/No short answers', problems };
 }

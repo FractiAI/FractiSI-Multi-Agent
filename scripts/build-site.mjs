@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_VERSION = '50';
+const CSS_VERSION = '51';
 const SITE = 'https://fractisi.vercel.app';
 
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
@@ -234,19 +234,52 @@ const DOC_PEER = {
   paper: (slug) => `/blog/${slug}/`,
 };
 
+function shortAnswerToHtml(mdLine) {
+  if (!mdLine) return '';
+  const html = publicWording(marked.parse(mdLine)).trim();
+  return html.replace(/^<p>/, '<p class="answer">');
+}
+
+function extractHtmlShortAnswer(html) {
+  const m = html.match(
+    /<p>\s*<strong>\s*Short answer:\s*(YES|NO|Yes|No)[\s\S]*?<\/strong>[\s\S]*?<\/p>/i,
+  );
+  if (!m) return { answerHtml: '', bodyHtml: html };
+  const answerHtml = m[0].replace(/^<p>/i, '<p class="answer">');
+  const bodyHtml = html.replace(m[0], '').replace(/^\s+/, '');
+  return { answerHtml, bodyHtml };
+}
+
 function paperHtmlFromSource(entry) {
   const mdPath = `content/papers/${entry.slug}.md`;
   const htmlPath = `content/papers/${entry.slug}.html`;
   if (existsSync(join(ROOT, mdPath))) {
     const { title, meta, body, shortAnswer } = parseSource(read(mdPath));
-    const prefixed = shortAnswer ? `${shortAnswer}\n\n${body}` : body;
-    let html = publicWording(marked.parse(prefixed));
+    let html = publicWording(marked.parse(body));
     html = wrapHonesty(html);
+    const answerHtml = shortAnswerToHtml(shortAnswer);
     const abstract = firstParagraphAfter(html, 'abstract');
-    return { title: entry.title || title, meta, html, dek: entry.dek || trimDek(abstract || entry.summary || '') };
+    const plainAnswer = shortAnswer
+      ? shortAnswer.replace(/^\*\*Short answer:\s*/i, '').replace(/\*\*$/, '').trim()
+      : '';
+    return {
+      title: entry.title || title,
+      meta,
+      html,
+      answerHtml,
+      dek: entry.dek || plainAnswer || trimDek(abstract || entry.summary || ''),
+    };
   }
-  const html = read(htmlPath).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
-  return { title: entry.title, meta: {}, html: wrapHonesty(publicWording(html)), dek: entry.dek || trimDek(entry.summary || '') };
+  let html = read(htmlPath).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
+  html = wrapHonesty(publicWording(html));
+  const pulled = extractHtmlShortAnswer(html);
+  return {
+    title: entry.title,
+    meta: {},
+    html: pulled.bodyHtml,
+    answerHtml: pulled.answerHtml,
+    dek: entry.dek || trimDek(entry.summary || ''),
+  };
 }
 
 function tocHtml(html) {
@@ -281,7 +314,7 @@ function neighbors(kind, slug, group) {
 }
 
 function buildPaper(entry) {
-  const { title, meta, html, dek } = paperHtmlFromSource(entry);
+  const { title, meta, html, dek, answerHtml } = paperHtmlFromSource(entry);
   const date = entry.date || null;
   const docId = meta['document id'] || entry.docId || '';
   const type = tidyClass(meta);
@@ -290,7 +323,7 @@ function buildPaper(entry) {
     date ? ['Published', fmtDate(date)] : null,
     ['Type', type],
     docId ? ['Document ID', `<code>${esc(docId)}</code>`] : null,
-    ['Reading time', `${Math.max(1, Math.round(words(html) / 220))} min`],
+    ['Reading time', `${Math.max(1, Math.round(words(`${answerHtml || ''}${html}`) / 220))} min`],
   ].filter(Boolean);
   const actions = [
     peerBlog ? `<a class="btn-primary" href="/blog/${entry.slug}/">Read the blog post</a>` : '',
@@ -299,12 +332,16 @@ function buildPaper(entry) {
   const related = [];
   if (peerBlog) related.push({ href: `/blog/${entry.slug}/`, kind: 'Blog', title: peerBlog.title });
   related.push(...neighbors('paper', entry.slug, entry.group).slice(0, peerBlog ? 2 : 3));
+  if (!answerHtml) {
+    throw new Error(`paper ${entry.slug}: missing Yes/No short answer lead under title`);
+  }
+  // Yes/No short answer must sit directly under the title — never an abstract dek first.
   const body = `    <div class="doc-layout">
       <article class="doc doc-paper">
         <header class="doc-head">
           <p class="kicker">Paper · ${esc(entry.group)}</p>
           <h1>${esc(title)}</h1>
-          ${dek ? `<p class="dek">${esc(dek)}</p>` : ''}
+          ${answerHtml}
           <dl class="doc-meta">
             ${metaRows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n            ')}
           </dl>
