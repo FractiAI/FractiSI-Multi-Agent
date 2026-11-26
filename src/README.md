@@ -16,6 +16,7 @@ All logic, in Node (`*.mjs`) and Python ([`tiny_footprint_labs/`](tiny_footprint
 | [`gates/`](gates/README.md) | Repository structure rules |
 | [`labs/`](labs/README.md) | Adapters that run Python labs and report what actually ran |
 | [`manuscript/`](manuscript/README.md) | Token catalog, hydration, the hard-coded-value gate |
+| [`newsroom/`](newsroom/README.md) | FractiSI Newsroom ticker: 24h blog newscast headlines |
 | [`pipeline/`](pipeline/README.md) | The stage graph and the template binding |
 | [`reporting/`](reporting/README.md) | The customer report, suite report and results page |
 | [`sdk/`](sdk/README.md) | The public facade |
