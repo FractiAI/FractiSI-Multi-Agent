@@ -18,7 +18,7 @@ export const LAYERS = Object.freeze([
   ['analysis'],
   ['manuscript'],
   ['reporting', 'share', 'gates', 'docs_tools', 'testdrive'],
-  ['pipeline', 'verification', 'cli'],
+  ['pipeline', 'verification', 'cli', 'standalones'],
 ]);
 
 const layerOf = (folder) => LAYERS.findIndex((layer) => layer.includes(folder));
