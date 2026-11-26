@@ -1,4 +1,4 @@
-# The Universal Rhyme Wet-Lab Proof
+# Can Existing Wet-Lab Experiments Establish That Computation Can Live in Electromagnetic Fields?
 
 **Short answer: Yes — for important classes of computation.** Existing wet-lab experiments establish that computation can be physically instantiated in distributed electromagnetic fields. Hyperscale data-center replacement remains an open scaling question.
 

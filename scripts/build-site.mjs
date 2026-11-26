@@ -156,7 +156,12 @@ function parseSource(md) {
   const firstH2 = lines.findIndex((l, i) => i > titleIdx && /^## /.test(l));
   const head = lines.slice(titleIdx + 1, firstH2 < 0 ? lines.length : firstH2);
   const meta = {};
+  const shortAnswerLines = [];
   for (const l of head) {
+    if (/\*\*Short answer:\s*(YES|NO|Yes|No)\b/i.test(l) || /^Short answer:\s*(YES|NO|Yes|No)\b/i.test(l)) {
+      shortAnswerLines.push(l);
+      continue;
+    }
     let m = l.match(/^\*\*([^*:]+):\*\*\s*(.+?)\s*$/);
     if (m) meta[m[1].trim().toLowerCase()] = m[2].replace(/`/g, '').trim();
     m = l.match(/^\|\s*\*\*([^*|]+)\*\*\s*\|\s*(.+?)\s*\|\s*$/);
@@ -179,7 +184,8 @@ function parseSource(md) {
     .replace(/^.*intentionally long-form so QUESTFEST.*$/gm, '')
     .replace(/^### (?:What “full paper” means here|Seed and environment|Interpretation discipline)\s*\n[\s\S]*?(?=^#{2,3} )/gm, '')
     .replace(/^---\s*$/gm, '');
-  return { title, meta, body };
+  const shortAnswer = shortAnswerLines.join('\n').trim();
+  return { title, meta, body, shortAnswer };
 }
 
 function publicWording(html) {
@@ -232,8 +238,9 @@ function paperHtmlFromSource(entry) {
   const mdPath = `content/papers/${entry.slug}.md`;
   const htmlPath = `content/papers/${entry.slug}.html`;
   if (existsSync(join(ROOT, mdPath))) {
-    const { title, meta, body } = parseSource(read(mdPath));
-    let html = publicWording(marked.parse(body));
+    const { title, meta, body, shortAnswer } = parseSource(read(mdPath));
+    const prefixed = shortAnswer ? `${shortAnswer}\n\n${body}` : body;
+    let html = publicWording(marked.parse(prefixed));
     html = wrapHonesty(html);
     const abstract = firstParagraphAfter(html, 'abstract');
     return { title: entry.title || title, meta, html, dek: entry.dek || trimDek(abstract || entry.summary || '') };

@@ -1,6 +1,6 @@
-# FractiSI Paper-Math Invent (rank–trace ladder)
+# Did FractiSI Close an Anthropic-Comparable Invent Challenge on Riemann?
 
-**Short answer: paper-guided invent closed the InventMath lemma ladder 4/4** — scalar rank–trace cases, diagonal cell, finite real Lemma 3.2 form, and Theorem A assembly arithmetic (`2−R ≥ 2/3` when `R ≤ 4/3`) — from the public arXiv:2608.13637 outline. Challenge-only Mathlib. **No sealed Anthropic Zeta23.** Lake build green. **0** sorries. RH **OPEN**.
+**Short answer: No.** Anthropic-comparable Challenge headlines remain **0 / 17**. Paper-math InventMath ladder closed **4 / 4** (scalar rank–trace cases, diagonal cell, finite real Lemma 3.2 form, and Theorem A assembly arithmetic `2−R ≥ 2/3` when `R ≤ 4/3`) from the public arXiv:2608.13637 outline. Challenge-only Mathlib. **No sealed Anthropic Zeta23.** Lake build green. **0** sorries. RH **OPEN**.
 
 Measured invent-math: **11.28 s** · **4 / 4** ladder lemmas closed · FractiSI agents `invent-la` + `invent-assembly`.
 

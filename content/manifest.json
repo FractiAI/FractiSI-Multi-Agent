@@ -50,7 +50,7 @@
     },
     {
       "slug": "universal-rhyme-wet-lab",
-      "title": "The Universal Rhyme Wet-Lab Proof",
+      "title": "Can Existing Wet-Lab Experiments Establish That Computation Can Live in Electromagnetic Fields?",
       "dek": "YES — for important classes of computation. EM wet-lab chain Interference→Cavity→Matrix→Metasurface→ML pinned ENGINE_SHELF #56.",
       "date": "2026-11-25",
       "label": "Universal Rhyme Wet-Lab",
@@ -98,8 +98,8 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Anthropic-comparable invent campaign",
-      "dek": "InventMath 13/13 green; Challenge headlines 0/17 after compare invent. RH open. No sealed Zeta23.",
+      "title": "Did FractiSI Close an Anthropic-Comparable Invent Challenge on Riemann?",
+      "dek": "NO — Challenge headlines 0/17. InventMath ladder 4/4 green. RH open. No sealed Zeta23.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -117,8 +117,8 @@
         }
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> · Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: paper-math ladder 13/13; Anthropic-comparable Challenge close not met (0/17).",
-      "answerBody": " Compare invent ~10 min with Groq + InventMath. Remaining: Weil/RvM/prime-side stack. RH OPEN."
+      "answerHead": "Short answer: No.",
+      "answerBody": " Anthropic-comparable Challenge headlines 0/17. Paper-math InventMath ladder closed 4/4. RH OPEN."
     },
     {
       "slug": "adversarial-world",
@@ -534,9 +534,9 @@
     },
     {
       "slug": "universal-rhyme-wet-lab",
-      "title": "The Universal Rhyme Wet-Lab Proof",
+      "title": "Can Existing Wet-Lab Experiments Establish That Computation Can Live in Electromagnetic Fields?",
       "group": "Engine papers",
-      "summary": "Universal Rhyme Wet-Lab · ENGINE_SHELF #56 · EM chain WL-01…WL-05 · Soft Story Exp 1–7.",
+      "summary": "Universal Rhyme Wet-Lab · ENGINE_SHELF #56 · EM chain WL-01…WL-05 · Soft Story Exp 1–7 · yes/no title.",
       "docId": "WP-UNIVERSAL-RHYME-WET-LAB-2026-11-25",
       "source": "md",
       "date": "2026-11-25"
@@ -561,9 +561,9 @@
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "FractiSI Anthropic-comparable invent campaign",
+      "title": "Did FractiSI Close an Anthropic-Comparable Invent Challenge on Riemann?",
       "group": "Multi-agent research",
-      "summary": "InventMath 13/13 · headlines 0/17 · no sealed Zeta23 · RH OPEN.",
+      "summary": "Riemann FractiSI · Challenge invent not closed (0/17) · InventMath 4/4 · RH OPEN.",
       "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
       "source": "md",
       "date": "2026-11-24"
@@ -687,9 +687,9 @@
     },
     {
       "slug": "nvidia-goldilocks-awareness-expedition",
-      "title": "New Rhyming World Model, Not a New CEO",
+      "title": "Do NVIDIA and Jensen Huang Need a New Rhyming World Model More Than a New CEO?",
       "group": "Multi-agent research",
-      "summary": "Legacy Linear → Fractal Holographic Goldilocks Superintelligence Awareness, with NVIDIA and Jensen Huang as the leadership case.",
+      "summary": "NVIDIA Goldilocks awareness expedition · Rhyming World Model migration case · yes/no title.",
       "docId": "WP-NVIDIA-GOLDILOCKS-AWARENESS-EXPEDITION-EGS-2026-11-15",
       "source": "md",
       "date": "2026-11-15"
@@ -714,9 +714,9 @@
     },
     {
       "slug": "tiny-footprint-multi-agent",
-      "title": "Shared Worlds for Concurrent Agents",
+      "title": "Can Shared Worlds Serve Concurrent Agents Without Full World Copies?",
       "group": "Multi-agent research",
-      "summary": "The flagship paper. Discovery, convergence, gzip residual, rhyme against exact cache, density, selective reconstruction.",
+      "summary": "Tiny Footprint Multi-Agent · shared world + deltas vs naive copies · yes/no title.",
       "docId": "WP-FRACTISI-TINY-FOOTPRINT-MULTI-AGENT-2026-11",
       "source": "html",
       "date": "2026-11-05"

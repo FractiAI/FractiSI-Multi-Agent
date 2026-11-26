@@ -16,3 +16,4 @@ Rules about the repository itself. They run in tests and in project verification
 | [`site-links.mjs`](site-links.mjs) | Links in the published HTML pages must resolve, as vercel.json serves them. |
 | [`test-mirror.mjs`](test-mirror.mjs) | Tests mirror the source tree. |
 | [`thin-scripts.mjs`](thin-scripts.mjs) | Scripts orchestrate; they hold no logic. |
+| [`yes-no-papers.mjs`](yes-no-papers.mjs) | Library papers are yes/no questions that open with Short answer: Yes/No. |
