@@ -39,3 +39,6 @@ graft/
 # FractiSI local platform state
 .fractisi/
 
+
+# Packaged standalone trees
+output/standalones/

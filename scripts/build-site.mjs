@@ -16,9 +16,11 @@ import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, statSy
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
+import { newsroomTickerHtml } from '../src/newsroom/ticker.mjs';
+import { recentNewsroomItems } from '../src/newsroom/headlines.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_VERSION = '51';
+const CSS_VERSION = '52';
 const SITE = 'https://fractisi.vercel.app';
 
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
@@ -50,14 +52,17 @@ const NAV = [
   ['/product/pricing/', 'Pricing'],
   ['/research/', 'Research'],
   ['/library/', 'Library'],
-  ['/blog/', 'Blog'],
+  ['/blog/', 'FGC'],
   ['/company/', 'Company'],
 ];
 
+const TICKER = newsroomTickerHtml(manifest);
+
 function sectionOf(path) {
-  const hit = NAV.find(([href]) => href !== '/' && path.startsWith(href) && href !== '/product/');
   if (path.startsWith('/product/pricing')) return '/product/pricing/';
   if (path.startsWith('/product')) return '/product/';
+  if (path.startsWith('/blog') || path.startsWith('/newsroom')) return '/blog/';
+  const hit = NAV.find(([href]) => href !== '/' && path.startsWith(href) && href !== '/product/');
   return hit ? hit[0] : null;
 }
 
@@ -90,7 +95,7 @@ const FOOTER = `<footer class="site-footer">
         <h2>Research</h2>
         <a href="/research/">Overview</a>
         <a href="/library/">Library</a>
-        <a href="/blog/">Blog</a>
+        <a href="/blog/">FGC</a>
         <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
       </nav>
       <nav aria-label="Company">
@@ -127,6 +132,7 @@ ${body}
   </main>
 
   ${FOOTER}
+  ${TICKER}
 </body>
 </html>
 `;
@@ -412,25 +418,81 @@ const byDateDesc = (a, b) => (b.date || '').localeCompare(a.date || '') || a.tit
 
 function buildBlogIndex() {
   const posts = [...manifest.blog].sort(byDateDesc);
-  const rows = posts.map((p) => `        <a class="row" href="/blog/${p.slug}/">
+  const live = recentNewsroomItems(manifest, { maxItems: 8 });
+  const liveSlugs = new Set(live.map((i) => i.slug));
+
+  const briefing = live
+    .map(
+      (i) => `        <a class="nr-brief" href="${esc(i.href)}">
+          <span class="nr-brief-kicker">Live lens</span>
+          <span class="nr-brief-headline">${esc(i.headline)}</span>
+          <time datetime="${esc(i.date)}">${esc(shortDate(i.date))}</time>
+        </a>`,
+    )
+    .join('\n');
+
+  const instruments = [
+    ['Rhyme', 'Shared organizational structure across wordings'],
+    ['X-ray', 'Predict and intervene on the locked rhyme'],
+    ['Wet-lab', 'EM and wiring evidence on the same criteria'],
+    ['Soft Story', 'Regenerable computational boards under seed'],
+  ]
+    .map(
+      ([name, line]) =>
+        `        <div class="nr-instrument"><span class="nr-instrument-name">${esc(name)}</span><span class="nr-instrument-line">${esc(line)}</span></div>`,
+    )
+    .join('\n');
+
+  const bulletin = posts
+    .map((p) => {
+      const headline = live.find((i) => i.slug === p.slug)?.headline;
+      const liveTag = liveSlugs.has(p.slug) ? '<span class="nr-tag">24h</span>' : '';
+      return `        <a class="nr-bulletin-row" href="/blog/${p.slug}/">
           <time datetime="${p.date}">${shortDate(p.date)}</time>
-          <span class="row-main">
-            <span class="row-title">${esc(p.title)}</span>
-            <span class="row-dek">${esc(trimDek(p.dek || '', 180))}</span>
+          <span class="nr-bulletin-main">
+            <span class="nr-bulletin-headline">${esc(headline || trimDek(p.dek || p.title, 140))}</span>
+            <span class="nr-bulletin-title">${esc(p.title)}</span>
           </span>
-          <span class="row-tag">${esc(p.label || '')}</span>
-        </a>`).join('\n');
-  const body = `    <section class="index-page">
-      <header class="index-head">
-        <p class="kicker">Blog</p>
-        <h1>What we are testing, in plain language</h1>
-        <p class="dek">Short research notes on the experiments behind FractiSI. Each links to the full paper and to the code that regenerates the numbers.</p>
+          ${liveTag}
+        </a>`;
+    })
+    .join('\n');
+
+  const body = `    <section class="newsroom">
+      <header class="nr-hero">
+        <p class="kicker">Fractal Goldilocks Channel · FGC</p>
+        <h1>World events through the Rhyming World Model lens</h1>
+        <p class="dek">Like a weather channel that reads new bands of the spectrum, the Fractal Goldilocks Channel watches the same public facts with rhyme, X-ray, wet-lab, and Soft Story instruments. Briefings below are newscast reads of our latest research notes.</p>
       </header>
-      <div class="index-list" aria-label="Posts">
-${rows}
-      </div>
+      <section class="nr-instruments" aria-label="Observation instruments">
+        <h2 class="nr-section-title">Instruments on air</h2>
+        <div class="nr-instrument-row">
+${instruments}
+        </div>
+      </section>
+      <section class="nr-live" aria-label="Live 24-hour briefing">
+        <h2 class="nr-section-title">Live briefing · past 24 hours</h2>
+        <div class="nr-briefing">
+${briefing}
+        </div>
+      </section>
+      <section class="nr-bulletin" aria-label="Full bulletin">
+        <h2 class="nr-section-title">Bulletin board</h2>
+        <div class="nr-bulletin-list">
+${bulletin}
+        </div>
+      </section>
     </section>`;
-  write('blog/index.html', page({ path: '/blog/', title: 'Blog', description: 'Research notes on the experiments behind FractiSI Multi-Agent.', body }));
+
+  const newsroomPage = {
+    path: '/blog/',
+    title: 'Fractal Goldilocks Channel',
+    description:
+      'Fractal Goldilocks Channel (FGC): world events through the Rhyming World Model lens. Live briefings from the past 24 hours, regenerated from public research notes.',
+    body,
+  };
+  write('blog/index.html', page(newsroomPage));
+  write('newsroom/index.html', page({ ...newsroomPage, path: '/newsroom/' }));
 }
 
 const GROUP_ORDER = ['Multi-agent research', 'Wiring wet lab', 'Product papers', 'Tiny Gateway labs', 'Architecture'];
@@ -490,6 +552,13 @@ function applyChrome(rel) {
   if (/<footer class="site-footer">/.test(html)) html = html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, FOOTER);
   else html = html.replace(/<\/body>/, `  ${FOOTER}\n</body>`);
   html = html.replace(/href="(?:\.\.\/)*\/?css\/site\.css\?v=\d+"/, `href="/css/site.css?v=${CSS_VERSION}"`);
+  if (TICKER) {
+    if (/<aside class="news-ticker"/.test(html)) {
+      html = html.replace(/<aside class="news-ticker"[\s\S]*?<\/aside>/, TICKER.trim());
+    } else {
+      html = html.replace(/<\/body>/, `  ${TICKER}\n</body>`);
+    }
+  }
   if (html !== before) write(rel, html);
   return html !== before;
 }
@@ -503,6 +572,7 @@ buildLibraryIndex();
 
 const generated = new Set([
   'blog/index.html',
+  'newsroom/index.html',
   'library/index.html',
   ...manifest.blog.map((b) => `blog/${b.slug}/index.html`),
   ...manifest.papers.map((p) => `library/papers/${p.slug}/index.html`),
