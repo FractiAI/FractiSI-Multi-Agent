@@ -54,7 +54,8 @@
     "skin:auto-session": "node scripts/holographic-auto-session.mjs",
     "skin:auto-session:install": "node scripts/install-holographic-auto-session-protocol.mjs",
     "standalone:rhyme:package": "node scripts/publish-rhyme-standalones.mjs",
-    "standalone:rhyme:push": "node scripts/publish-rhyme-standalones.mjs --push"
+    "standalone:rhyme:push": "node scripts/publish-rhyme-standalones.mjs --push",
+    "research:golden-night-goldilocks-path": "node research/golden-night-goldilocks-path/scripts/run_empirical_pipeline.mjs"
   },
   "dependencies": {
     "isomorphic-git": "^1.30.1"

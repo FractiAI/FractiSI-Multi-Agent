@@ -1,0 +1,367 @@
+{
+  "documentId": "WP-GOLDEN-NIGHT-99-GOLDILOCKS-PATH-2026-11-27",
+  "registryId": "synthobs-golden-night-goldilocks-path-2026-11",
+  "series": "FractiSI Frontier Expedition Series",
+  "title": "The Golden Night",
+  "researchQuestion": "Is this the Goldilocks path to a new world operating system?",
+  "seed": 20261127,
+  "engineShelfPinned": false,
+  "trialsPerStrategy": 50000,
+  "totalTrials": 300000,
+  "omniLatticeNodes": 99,
+  "record": {
+    "documentId": "WP-GOLDEN-NIGHT-99-GOLDILOCKS-PATH-2026-11-27",
+    "registryId": "synthobs-golden-night-goldilocks-path-2026-11",
+    "seed": 20261127,
+    "engineShelfPinned": false,
+    "series": "FractiSI Frontier Expedition Series",
+    "title": "The Golden Night",
+    "researchQuestion": "Is this the Goldilocks path to a new world operating system?",
+    "omniLatticeNodes": 99,
+    "dimensions": 11,
+    "octavesPerDimension": 9,
+    "sequenceSteps": 9,
+    "strategies": 6,
+    "doesNotProve": [
+      "That present-day AI can perform an overnight physical civilization reflash",
+      "That modeled Soft Story outcomes will occur in reality",
+      "That universal SuperAI monetary issuance is currently operational policy",
+      "That the Goldilocks path remains superior under every adversarial or degraded coordination regime"
+    ]
+  },
+  "reference": {
+    "trialsPerStrategy": 50000,
+    "seed": 20261127,
+    "rows": [
+      {
+        "strategyId": "intelligence-first",
+        "label": "Intelligence-first",
+        "trials": 50000,
+        "meanCoherence": 0.7410949568958227,
+        "p10": 0.7300711887729314,
+        "criticalFailureRate": 0.4002,
+        "riskAdjustedCoherence": 0.6456297844725847
+      },
+      {
+        "strategyId": "infrastructure-first",
+        "label": "Infrastructure-first",
+        "trials": 50000,
+        "meanCoherence": 0.8441052536776746,
+        "p10": 0.8342121556673443,
+        "criticalFailureRate": 0.08946,
+        "riskAdjustedCoherence": 0.8003510596895257
+      },
+      {
+        "strategyId": "economy-first",
+        "label": "Economy-first",
+        "trials": 50000,
+        "meanCoherence": 0.7829982218911851,
+        "p10": 0.7723851853206531,
+        "criticalFailureRate": 0.18796,
+        "riskAdjustedCoherence": 0.7210960920315704
+      },
+      {
+        "strategyId": "centralized-control",
+        "label": "Centralized-control",
+        "trials": 50000,
+        "meanCoherence": 0.8071639463467692,
+        "p10": 0.7977929130732637,
+        "criticalFailureRate": 0.9949,
+        "riskAdjustedCoherence": 0.5200438939763656
+      },
+      {
+        "strategyId": "incremental-upgrade",
+        "label": "Incremental-upgrade",
+        "trials": 50000,
+        "meanCoherence": 0.8399022048432861,
+        "p10": 0.8305481542014246,
+        "criticalFailureRate": 0.04008,
+        "riskAdjustedCoherence": 0.809999506429494
+      },
+      {
+        "strategyId": "goldilocks-path",
+        "label": "Goldilocks path",
+        "trials": 50000,
+        "meanCoherence": 0.9281638357654209,
+        "p10": 0.9210941175845707,
+        "criticalFailureRate": 0.0296,
+        "riskAdjustedCoherence": 0.912076413525442
+      }
+    ],
+    "byId": {
+      "intelligence-first": {
+        "strategyId": "intelligence-first",
+        "label": "Intelligence-first",
+        "trials": 50000,
+        "meanCoherence": 0.7410949568958227,
+        "p10": 0.7300711887729314,
+        "criticalFailureRate": 0.4002,
+        "riskAdjustedCoherence": 0.6456297844725847
+      },
+      "infrastructure-first": {
+        "strategyId": "infrastructure-first",
+        "label": "Infrastructure-first",
+        "trials": 50000,
+        "meanCoherence": 0.8441052536776746,
+        "p10": 0.8342121556673443,
+        "criticalFailureRate": 0.08946,
+        "riskAdjustedCoherence": 0.8003510596895257
+      },
+      "economy-first": {
+        "strategyId": "economy-first",
+        "label": "Economy-first",
+        "trials": 50000,
+        "meanCoherence": 0.7829982218911851,
+        "p10": 0.7723851853206531,
+        "criticalFailureRate": 0.18796,
+        "riskAdjustedCoherence": 0.7210960920315704
+      },
+      "centralized-control": {
+        "strategyId": "centralized-control",
+        "label": "Centralized-control",
+        "trials": 50000,
+        "meanCoherence": 0.8071639463467692,
+        "p10": 0.7977929130732637,
+        "criticalFailureRate": 0.9949,
+        "riskAdjustedCoherence": 0.5200438939763656
+      },
+      "incremental-upgrade": {
+        "strategyId": "incremental-upgrade",
+        "label": "Incremental-upgrade",
+        "trials": 50000,
+        "meanCoherence": 0.8399022048432861,
+        "p10": 0.8305481542014246,
+        "criticalFailureRate": 0.04008,
+        "riskAdjustedCoherence": 0.809999506429494
+      },
+      "goldilocks-path": {
+        "strategyId": "goldilocks-path",
+        "label": "Goldilocks path",
+        "trials": 50000,
+        "meanCoherence": 0.9281638357654209,
+        "p10": 0.9210941175845707,
+        "criticalFailureRate": 0.0296,
+        "riskAdjustedCoherence": 0.912076413525442
+      }
+    },
+    "ranked": [
+      {
+        "strategyId": "goldilocks-path",
+        "label": "Goldilocks path",
+        "trials": 50000,
+        "meanCoherence": 0.9281638357654209,
+        "p10": 0.9210941175845707,
+        "criticalFailureRate": 0.0296,
+        "riskAdjustedCoherence": 0.912076413525442
+      },
+      {
+        "strategyId": "infrastructure-first",
+        "label": "Infrastructure-first",
+        "trials": 50000,
+        "meanCoherence": 0.8441052536776746,
+        "p10": 0.8342121556673443,
+        "criticalFailureRate": 0.08946,
+        "riskAdjustedCoherence": 0.8003510596895257
+      },
+      {
+        "strategyId": "incremental-upgrade",
+        "label": "Incremental-upgrade",
+        "trials": 50000,
+        "meanCoherence": 0.8399022048432861,
+        "p10": 0.8305481542014246,
+        "criticalFailureRate": 0.04008,
+        "riskAdjustedCoherence": 0.809999506429494
+      },
+      {
+        "strategyId": "centralized-control",
+        "label": "Centralized-control",
+        "trials": 50000,
+        "meanCoherence": 0.8071639463467692,
+        "p10": 0.7977929130732637,
+        "criticalFailureRate": 0.9949,
+        "riskAdjustedCoherence": 0.5200438939763656
+      },
+      {
+        "strategyId": "economy-first",
+        "label": "Economy-first",
+        "trials": 50000,
+        "meanCoherence": 0.7829982218911851,
+        "p10": 0.7723851853206531,
+        "criticalFailureRate": 0.18796,
+        "riskAdjustedCoherence": 0.7210960920315704
+      },
+      {
+        "strategyId": "intelligence-first",
+        "label": "Intelligence-first",
+        "trials": 50000,
+        "meanCoherence": 0.7410949568958227,
+        "p10": 0.7300711887729314,
+        "criticalFailureRate": 0.4002,
+        "riskAdjustedCoherence": 0.6456297844725847
+      }
+    ]
+  },
+  "sensitivity": {
+    "goldilocks": {
+      "strategyId": "goldilocks-path",
+      "label": "Goldilocks path",
+      "trials": 50000,
+      "meanCoherence": 0.8399648605970267,
+      "p10": 0.8329035480014717,
+      "criticalFailureRate": 0.11986,
+      "riskAdjustedCoherence": 0.7819955179232119
+    },
+    "incremental": {
+      "strategyId": "incremental-upgrade",
+      "label": "Incremental-upgrade",
+      "trials": 50000,
+      "meanCoherence": 0.8399170903746469,
+      "p10": 0.8304826641791048,
+      "criticalFailureRate": 0.03864,
+      "riskAdjustedCoherence": 0.8101078688241903
+    },
+    "advantageLost": true
+  },
+  "doesNotProve": [
+    "That present-day AI can perform an overnight physical civilization reflash",
+    "That modeled Soft Story outcomes will occur in reality",
+    "That universal SuperAI monetary issuance is currently operational policy",
+    "That the Goldilocks path remains superior under every adversarial or degraded coordination regime"
+  ],
+  "experiments": [
+    {
+      "id": "E1",
+      "title": "99-octave Omni-Lattice catalog (11×9)",
+      "pass": true,
+      "detail": {
+        "nodes": 99,
+        "dimensions": 11
+      },
+      "tier": "deterministic"
+    },
+    {
+      "id": "E2",
+      "title": "Six competing transition strategies registered",
+      "pass": true,
+      "detail": {
+        "strategies": [
+          "intelligence-first",
+          "infrastructure-first",
+          "economy-first",
+          "centralized-control",
+          "incremental-upgrade",
+          "goldilocks-path"
+        ]
+      },
+      "tier": "deterministic"
+    },
+    {
+      "id": "E3",
+      "title": "Weighted geometric mean coherence operator",
+      "pass": true,
+      "detail": {
+        "C": 0.9
+      },
+      "tier": "deterministic"
+    },
+    {
+      "id": "E4",
+      "title": "Goldilocks sequence has nine transition steps",
+      "pass": true,
+      "detail": {
+        "steps": 9
+      },
+      "tier": "deterministic"
+    },
+    {
+      "id": "E5",
+      "title": "Goldilocks path highest mean coherence in reference Monte Carlo",
+      "pass": true,
+      "detail": {
+        "mean": 0.9281638357654209,
+        "p10": 0.9210941175845707,
+        "leader": "goldilocks-path",
+        "table": [
+          {
+            "strategy": "Intelligence-first",
+            "mean": 0.741,
+            "p10": 0.73,
+            "criticalFailurePct": 40.02,
+            "riskAdjusted": 0.646
+          },
+          {
+            "strategy": "Infrastructure-first",
+            "mean": 0.844,
+            "p10": 0.834,
+            "criticalFailurePct": 8.95,
+            "riskAdjusted": 0.8
+          },
+          {
+            "strategy": "Economy-first",
+            "mean": 0.783,
+            "p10": 0.772,
+            "criticalFailurePct": 18.8,
+            "riskAdjusted": 0.721
+          },
+          {
+            "strategy": "Centralized-control",
+            "mean": 0.807,
+            "p10": 0.798,
+            "criticalFailurePct": 99.49,
+            "riskAdjusted": 0.52
+          },
+          {
+            "strategy": "Incremental-upgrade",
+            "mean": 0.84,
+            "p10": 0.831,
+            "criticalFailurePct": 4.01,
+            "riskAdjusted": 0.81
+          },
+          {
+            "strategy": "Goldilocks path",
+            "mean": 0.928,
+            "p10": 0.921,
+            "criticalFailurePct": 2.96,
+            "riskAdjusted": 0.912
+          }
+        ]
+      },
+      "tier": "simulated"
+    },
+    {
+      "id": "E6",
+      "title": "Goldilocks path lowest critical-failure rate among six strategies",
+      "pass": true,
+      "detail": {
+        "goldilocksCriticalPct": 2.96,
+        "centralizedCriticalPct": 99.49,
+        "intelligenceCriticalPct": 40.02
+      },
+      "tier": "simulated"
+    },
+    {
+      "id": "E7",
+      "title": "Risk-adjusted coherence favors Goldilocks over incremental-upgrade",
+      "pass": true,
+      "detail": {
+        "goldilocksRA": 0.912,
+        "incrementalRA": 0.81
+      },
+      "tier": "simulated"
+    },
+    {
+      "id": "E8",
+      "title": "Sensitivity: weakened Goldilocks loses risk-adjusted advantage",
+      "pass": true,
+      "detail": {
+        "weakenedRA": 0.782,
+        "incrementalRA": 0.81,
+        "advantageLost": true
+      },
+      "tier": "simulated"
+    }
+  ],
+  "passCount": 8,
+  "total": 8,
+  "pass": true
+}

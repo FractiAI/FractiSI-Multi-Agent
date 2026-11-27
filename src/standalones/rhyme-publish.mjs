@@ -138,6 +138,17 @@ export const RHYME_STANDALONES = [
     description:
       'Paraparticle–PEFF Cross-Scale Rhyme · Computational Lab + Wiring Wet Lab after MIT paraparticle news',
   },
+  {
+    slug: 'golden-night-goldilocks-path',
+    suite: 'research/golden-night-goldilocks-path',
+    repo: 'FractiAI/synthobs-golden-night-goldilocks-path',
+    title: 'The Golden Night',
+    engine: 'src/engine/rhyming/golden-night-goldilocks-path.mjs',
+    paper: 'content/papers/golden-night-goldilocks-path.md',
+    npmName: 'synthobs-golden-night-goldilocks-path',
+    description:
+      'The Golden Night · Goldilocks path Soft Story civilization-coherence Monte Carlo on a 99-octave Omni-Lattice aggregate',
+  },
 ];
 
 const SKIP = new Set(['node_modules', '.git', 'index.html']);

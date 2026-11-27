@@ -210,6 +210,30 @@
   ],
   "rewrites": [
     {
+      "source": "/research/golden-night-goldilocks-path",
+      "destination": "/research/golden-night-goldilocks-path/"
+    },
+    {
+      "source": "/research/golden-night-goldilocks-path/",
+      "destination": "/research/golden-night-goldilocks-path/index.html"
+    },
+    {
+      "source": "/library/papers/golden-night-goldilocks-path",
+      "destination": "/library/papers/golden-night-goldilocks-path/"
+    },
+    {
+      "source": "/library/papers/golden-night-goldilocks-path/",
+      "destination": "/library/papers/golden-night-goldilocks-path/index.html"
+    },
+    {
+      "source": "/blog/golden-night-goldilocks-path",
+      "destination": "/blog/golden-night-goldilocks-path/"
+    },
+    {
+      "source": "/blog/golden-night-goldilocks-path/",
+      "destination": "/blog/golden-night-goldilocks-path/index.html"
+    },
+    {
       "source": "/blog/principal-rhyme-theorem/",
       "destination": "/blog/principal-rhyme-theorem/index.html"
     },

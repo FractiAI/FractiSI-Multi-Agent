@@ -1,6 +1,30 @@
 {
   "blog": [
     {
+      "slug": "golden-night-goldilocks-path",
+      "title": "Is this the Goldilocks path to a new world operating system?",
+      "dek": "YES — as the strongest lab-model candidate among six strategies. Not overnight reflash.",
+      "date": "2026-11-28",
+      "label": "Golden Night Expedition",
+      "actions": [
+        {
+          "href": "/library/papers/golden-night-goldilocks-path/",
+          "text": "Read the full paper"
+        },
+        {
+          "href": "/research/golden-night-goldilocks-path/",
+          "text": "Suite"
+        },
+        {
+          "href": "/library/papers/principal-rhyme-theorem/",
+          "text": "Principal Rhyme"
+        }
+      ],
+      "links": "Paper: <a href=\"/library/papers/golden-night-goldilocks-path/\">The Golden Night</a> · <a href=\"/research/golden-night-goldilocks-path/\">Suite</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " As the strongest lab-model candidate among six transition strategies on a regenerable 99-octave Omni-Lattice board. Not as proof of overnight physical reflash."
+    },
+    {
       "slug": "paraparticle-peff-wiring-wet-lab",
       "title": "Do PEFF patterns recur across cognition, particles, and MIT paraparticles?",
       "dek": "YES — as a testable cross-domain rhyme and Wiring Wet Lab chain. Not a new force or physical identity claim.",
@@ -514,6 +538,15 @@
     }
   ],
   "papers": [
+    {
+      "slug": "golden-night-goldilocks-path",
+      "title": "Is This the Goldilocks Path to a New World Operating System?",
+      "group": "Frontier Soft Story",
+      "summary": "Golden Night Soft Story: Goldilocks full-stack path vs five strategies on an 11-dimension / 99-octave Omni-Lattice Monte Carlo (50k×6).",
+      "docId": "WP-GOLDEN-NIGHT-99-GOLDILOCKS-PATH-2026-11-27",
+      "source": "md",
+      "date": "2026-11-28"
+    },
     {
       "slug": "neural-xray-rhyme",
       "title": "Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks by Combining Computational-Lab and Wiring/Wet-Lab Evidence?",

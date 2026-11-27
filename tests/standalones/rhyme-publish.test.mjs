@@ -5,10 +5,11 @@ import { existsSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from '../../src/core/paths.mjs';
 
-test('catalog names eleven Neural X-Ray and rhyme standalones', () => {
-  assert.equal(RHYME_STANDALONES.length, 12);
+test('catalog names Neural X-Ray and rhyme standalones', () => {
+  assert.equal(RHYME_STANDALONES.length, 13);
   assert.ok(RHYME_STANDALONES.every((s) => s.repo.startsWith('FractiAI/synthobs-')));
   assert.ok(RHYME_STANDALONES.some((s) => s.slug === 'neural-xray-rhyme'));
+  assert.ok(RHYME_STANDALONES.some((s) => s.slug === 'golden-night-goldilocks-path'));
 });
 
 test('packages principal-rhyme-theorem with vendored engine and runnable script', () => {
