@@ -36,7 +36,7 @@
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>November 18, 2026</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
-          <div><dt>Reading time</dt><dd>1 min</dd></div>
+          <div><dt>Reading time</dt><dd>3 min</dd></div>
         </dl>
         <div class="doc-actions">
           <a class="btn-primary" href="/library/papers/pilot-rhyme-expedition/">Read the paper</a>
@@ -56,10 +56,13 @@
       <section class="brief-section" id="birds-eye-synthesis" aria-label="Lead and context">
         
         <div class="brief-block" id="birds-eye">
-          <p>Do Director and Pilot roles beat flat peer agents on multi-hop missions? Yes. On 100 six-hop missions, Director/Pilot arms recovered 100 of 100 while flat peers recovered 0. The shared store ran about 22% smaller than an exact-text cache.</p>
+          <p>Do Director and Pilot roles beat flat peer agents on multi-hop missions? Yes. On 100 six-hop missions, Director/Pilot arms recovered 100 of 100 while flat peers recovered 0. Role separation was not a soft preference; it was the difference between finishing the chain and losing it.</p>
+<p>The shared store ran about 22% smaller than an exact-text cache at matched task success. Buyers who assume more peer agents will close multi-hop gaps are looking at the wrong dial. The filing shows that how seats are named and how the world is shared can dominate headcount.</p>
         </div>
         <div class="brief-block" id="fgh-synthesis">
-          <p>Role separation plus a shared world lets one agent steer and another execute without reprinting the whole plan in every head.</p>
+          <p>Role separation plus a shared world lets one agent steer and another execute without reprinting the whole plan in every head. The Director holds mission intent and hop order. The Pilot executes the next step against a shared store instead of a private transcript. Flat peers chatter with equal seats and private copies; when hops stack, that chatter does not recover the chain.</p>
+<p>Multi-hop work is where peer equality breaks first. Each hop compounds small omissions. A shared world keeps the mission state once; role rhyme keeps steering and execution from fighting over the same context window. The expedition treats that pairing as an architecture result, not a management metaphor.</p>
+<p>Fractal Holographic Goldilocks reads Director/Pilot as a rhyme pattern for multi-agent seats. The claim is that designed roles plus shared state beat peer chatter when the mission spans many hops.</p>
         </div>
       </section>
       <section class="brief-section" id="key-insights" aria-label="Evidence">
@@ -77,25 +80,27 @@
         <div class="brief-block" id="signal-noise">
           <div class="brief-signal" data-signal="experimental">
   <p class="brief-signal-label"><span class="brief-signal-kind">Experimental evidence</span><span class="brief-signal-blurb">Measured lab or wet-lab evidence under matched conditions.</span></p>
-  <div class="brief-signal-body"><p>Director/Pilot: 100/100 recovery on six-hop missions. Flat peers: 0/100. Shared store about 22% smaller than exact-text cache at matched task success.</p></div>
+  <div class="brief-signal-body"><p>Director/Pilot recovered 100 of 100 on six-hop missions. Flat peers recovered 0 of 100 under the same mission set. The shared store ran about 22% smaller than an exact-text cache at matched task success. The accuracy gap and the store reduction moved together: role rhyme did not buy recovery by bloating memory. Flat peers failed the chain even when they had room to talk; Director/Pilot finished the hops with a leaner shared store.</p></div>
 </div>
 <div class="brief-signal" data-signal="interpretation">
   <p class="brief-signal-label"><span class="brief-signal-kind">Interpretation</span><span class="brief-signal-blurb">Reading of evidence; Fractal Holographic Goldilocks framing when labeled as such.</span></p>
-  <div class="brief-signal-body"><p>Role rhyme plus shared state beats peer chatter when hops stack. Fractal Holographic Goldilocks treats that as an architecture result.</p></div>
+  <div class="brief-signal-body"><p>Role rhyme plus shared state beats peer chatter when hops stack. The zero on the flat arm is not a soft miss; it is a structural failure under multi-hop load. Fractal Holographic Goldilocks treats that as an architecture result. Buyers should stop reading peer equality as a default virtue once missions leave single-hop work.</p></div>
 </div>
         </div>
       </section>
       <section class="brief-section" id="implications" aria-label="Why it matters">
         
         <div class="brief-block" id="why-it-matters">
-          <p>Multi-agent buyers should ask whether roles and shared state are designed, or whether every agent is a peer with a private copy.</p>
+          <p>Multi-agent buyers should ask whether roles and shared state are designed, or whether every agent is a peer with a private copy. Adding more flat peers does not repair a chain that already scores 0 of 100. The cost of the wrong seat design shows up as both failed missions and larger stores.</p>
+<p>Teams scaling agent headcount without naming Director and Pilot responsibilities will keep paying for reprints of the same plan. The filing says seat design and shared state are the first questions, not afterthoughts once the peer swarm is live.</p>
         </div>
       </section>
       <section class="brief-section" id="what-to-watch-do" aria-label="Next steps">
         
         <div class="brief-block" id="practical-orientation">
           <p class="brief-core-path">Read the story → follow the rhyme → open the paper → use synthesis to navigate next.</p>
-          <p>Compare Director/Pilot designs against flat peers on multi-hop work before scaling headcount. <a href="/library/papers/pilot-rhyme-expedition/">Paper</a> · <a href="/research/pilot-rhyme-expedition/">Suite</a></p>
+          <p>Compare Director/Pilot designs against flat peers on multi-hop work before scaling headcount. Hold the mission set fixed, measure recovery and store size together, and treat a 0/100 flat arm as a design failure rather than a staffing gap.</p>
+<p><a href="/library/papers/pilot-rhyme-expedition/">Paper</a> · <a href="/research/pilot-rhyme-expedition/">Suite</a></p>
         </div>
       </section>
     </div>

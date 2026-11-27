@@ -18,6 +18,9 @@ const HIERARCHY_IDS = [
   'supporting-papers',
 ];
 
+/** Minimum prose words in a SOURCE fragment — blocks programming-note stubs. */
+export const MIN_STORY_PROSE_WORDS = 350;
+
 /** Engineering dump / parallel-brief patterns banned from FGC news story bodies. */
 const FORBIDDEN_BODY = [
   { re: /ENGINE_SHELF/i, label: 'ENGINE_SHELF' },
@@ -33,6 +36,19 @@ const FORBIDDEN_BODY = [
   { re: /\bPlayer 1\b/i, label: 'Player 1 in public story' },
   { re: /\bREADME\.md\b/i, label: 'README.md in story body' },
 ];
+
+/** @param {string} html */
+export function proseWordCount(html) {
+  return String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z#0-9]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
 
 /** @param {string} html */
 export function builtBriefLooksComplete(html) {
@@ -65,6 +81,12 @@ export function checkExecutiveBriefs(root = REPO_ROOT) {
       if (!new RegExp(`data-brief=["']${id}["']`).test(fragment)) {
         problems.push(`content/blog/${entry.slug}.html: missing data-brief="${id}"`);
       }
+    }
+    const words = proseWordCount(fragment);
+    if (words < MIN_STORY_PROSE_WORDS) {
+      problems.push(
+        `content/blog/${entry.slug}.html: story too short (${words} words; need ≥${MIN_STORY_PROSE_WORDS}) — news story, not programming note`,
+      );
     }
     for (const { re, label } of FORBIDDEN_BODY) {
       if (re.test(fragment)) {
