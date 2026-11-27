@@ -5,5 +5,6 @@ Public name: **Fractal Goldilocks Channel / FGC**. Internal module folder remain
 - `executive-brief.mjs` — wire-service assembly, signal taxonomy (no README ALL-CAPS hierarchy banners)
 - `headlines.mjs` — 24h active-brief selection; ticker text = Yes/No news-desk titles from the manifest (no exclamation marks)
 - `ticker.mjs` — fixed bottom ticker chrome
+- `no-cable-brand.mjs` — scan lock: never name the cable network brand on FGC surfaces
 
 Do not invent event subtitles for the Test Drive hero from this surface. Briefs are the wire; papers are the deep-evidence layer.
