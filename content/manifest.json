@@ -1,6 +1,30 @@
 {
   "blog": [
     {
+      "slug": "neural-xray-rhyme-standalones",
+      "title": "Have FractiAI’s Neural X-Ray and rhyme kits shipped as full standalone repos?",
+      "dek": "YES — 11 of 11 public kits verified with README, deps, research scripts, and receipts after PR #72 / 6ba1f61b.",
+      "date": "2026-11-26",
+      "label": "Standalone kits ship",
+      "actions": [
+        {
+          "href": "/blog/neural-xray-rhyme/",
+          "text": "Neural X-Ray brief"
+        },
+        {
+          "href": "/library/papers/neural-xray-rhyme/",
+          "text": "Neural X-Ray paper"
+        },
+        {
+          "href": "https://github.com/FractiAI/FractiSI-Multi-Agent/pull/72",
+          "text": "PR #72"
+        }
+      ],
+      "links": "<strong>Packaging ship:</strong> 11 Neural X-Ray + rhyme standalone kits · <a href=\"https://github.com/FractiAI/FractiSI-Multi-Agent/pull/72\">PR #72</a> · merge <code>6ba1f61b</code>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " All 11 Neural X-Ray and rhyme standalone kits landed on public GitHub as self-contained packages (README, dependencies, research scripts, receipts) — not empty shells. PR #72 merged at 6ba1f61b."
+    },
+    {
       "slug": "neural-xray-rhyme",
       "title": "Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks by Combining Computational-Lab and Wiring/Wet-Lab Evidence?",
       "dek": "YES — if streams converge. Opens with Hinton’s black-box stance: linear awareness vs FractiSI rhyming awareness. ENGINE_SHELF #58 Soft Story Exp 1–8 + live-MLP Exp 9–10.",

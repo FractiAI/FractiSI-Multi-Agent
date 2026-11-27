@@ -1,9 +1,8 @@
 /**
- * Fractal Goldilocks Channel (FGC) · executive intelligence brief grammar.
+ * Fractal Goldilocks Channel (FGC) · CNBC / wire-service brief grammar.
  *
- * Posts inherit this hierarchy from the build pipeline:
- *   EXECUTIVE BRIEF → BIRD'S-EYE SYNTHESIS → KEY INSIGHTS → IMPLICATIONS
- *   → WHAT TO WATCH/DO → RELATED RHYMES → SUPPORTING PAPERS
+ * Public chrome is Yes/No title + Short answer + flowing prose.
+ * No README-style ALL-CAPS hierarchy banners (EXECUTIVE BRIEF / KEY INSIGHTS).
  *
  * Content fragments declare sections with data-brief="<id>".
  * Signal blocks use data-signal="fact|experimental|interpretation|hypothesis|speculation".
@@ -13,47 +12,50 @@
 export const FGC_NAME = 'Fractal Goldilocks Channel';
 export const FGC_SHORT = 'FGC';
 
-/** Canonical hierarchy labels (public chrome). */
+/**
+ * Soft on-page anchors (wire-service labels — not README ALL-CAPS banners).
+ * Order matches built section ids used by gates and tests.
+ */
 export const BRIEF_HIERARCHY = Object.freeze([
-  'EXECUTIVE BRIEF',
-  "BIRD'S-EYE SYNTHESIS",
-  'KEY INSIGHTS',
-  'IMPLICATIONS',
-  'WHAT TO WATCH/DO',
-  'RELATED RHYMES',
-  'SUPPORTING PAPERS',
+  'Lead',
+  'Context',
+  'Evidence',
+  'Why it matters',
+  'Next steps',
+  'Related briefs',
+  'Papers',
 ]);
 
 /** Body sections authors fill in content/blog/<slug>.html */
 export const BRIEF_SECTIONS = Object.freeze([
   {
     id: 'birds-eye',
-    hierarchy: "BIRD'S-EYE SYNTHESIS",
-    title: "Bird's-eye view",
+    hierarchy: 'Lead',
+    title: 'Lead',
     required: true,
   },
   {
     id: 'synthesis',
-    hierarchy: "BIRD'S-EYE SYNTHESIS",
-    title: 'Fractal Holographic Goldilocks synthesis',
+    hierarchy: 'Context',
+    title: 'Context',
     required: true,
   },
   {
     id: 'insights',
-    hierarchy: 'KEY INSIGHTS',
-    title: 'Separate signal from noise',
+    hierarchy: 'Evidence',
+    title: 'Evidence',
     required: true,
   },
   {
     id: 'implications',
-    hierarchy: 'IMPLICATIONS',
+    hierarchy: 'Why it matters',
     title: 'Why it matters',
     required: true,
   },
   {
     id: 'orientation',
-    hierarchy: 'WHAT TO WATCH/DO',
-    title: 'Practical orientation',
+    hierarchy: 'Next steps',
+    title: 'Next steps',
     required: true,
   },
 ]);
@@ -185,7 +187,7 @@ export function fallbackBirdsEye(entry) {
   const dek = String(entry.dek || '').replace(/^(YES|NO)\s*[—–-]\s*/i, '').trim();
   const lead = body || dek;
   if (lead) {
-    return `<p>${esc(lead)}</p><p>That is the executive takeaway from this Fractal Goldilocks Channel (FGC) brief. Soft Story means a regenerable computational lab receipt under a locked seed — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
+    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) brief. Soft Story means a regenerable computational lab receipt under a locked seed — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
   }
   return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under regenerable FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
 }
@@ -227,7 +229,7 @@ export function fallbackOrientation(entry) {
   const actions = entry.actions || [];
   const lines = [
     '<ul class="brief-orientation-list">',
-    '<li><strong>Understand.</strong> Treat the Short answer as the executive gate, then open the paper for regenerable methods and honesty rails.</li>',
+    '<li><strong>Understand.</strong> Treat the Short answer as the gate, then open the paper for regenerable methods and honesty rails.</li>',
     '<li><strong>Reconsider.</strong> Ask whether your stack organizes relationships (shared world / wiring) or only streams linear tokens.</li>',
     '<li><strong>Watch.</strong> Prefer kill boards, matched budgets, and seed-locked Soft Story receipts over marketing scoreboards.</li>',
     '<li><strong>Prepare.</strong> Favor architectures that cut redundancy without cutting accuracy under the same budget.</li>',
@@ -271,7 +273,7 @@ export function resolveBriefContent(fragmentHtml, entry) {
 }
 
 /**
- * Build the in-brief hierarchy rail.
+ * Soft on-page jump links (sentence case — no README ALL-CAPS banners).
  */
 export function briefRailHtml() {
   const items = BRIEF_HIERARCHY.map((label, i) => {
@@ -286,7 +288,7 @@ export function briefRailHtml() {
     ][i];
     return `<a class="brief-rail-item" href="#${id}">${esc(label)}</a>`;
   }).join('\n        ');
-  return `<nav class="brief-rail" aria-label="Executive brief hierarchy">
+  return `<nav class="brief-rail" aria-label="On this page">
         ${items}
       </nav>`;
 }
@@ -299,8 +301,8 @@ export function signalLegendHtml() {
     (s) =>
       `<li data-signal="${s.id}"><span class="brief-signal-kind">${esc(s.label)}</span><span class="brief-signal-blurb">${esc(s.blurb)}</span></li>`,
   ).join('\n          ');
-  return `<aside class="brief-signal-legend" aria-label="Signal taxonomy">
-        <p class="brief-section-kicker">Signal taxonomy</p>
+  return `<aside class="brief-signal-legend" aria-label="How claims are labeled">
+        <p class="brief-legend-intro">How claims are labeled</p>
         <ul>
           ${rows}
         </ul>
@@ -308,37 +310,33 @@ export function signalLegendHtml() {
 }
 
 /**
- * Assemble prose sections into labeled brief body HTML.
+ * Assemble prose sections into wire-service brief body HTML.
+ * No README hierarchy kickers; section ids stay for anchors and gates.
  * @param {Record<string, string>} sections
  * @param {string} honestyHtml
  */
 export function renderBriefBody(sections, honestyHtml = '') {
   const birdsInner = `
         <div class="brief-block" id="birds-eye">
-          <h2>${esc(BRIEF_SECTIONS[0].title)}</h2>
           ${decorateSignalBlocks(sections['birds-eye'])}
         </div>
         <div class="brief-block" id="fgh-synthesis">
-          <h2>${esc(BRIEF_SECTIONS[1].title)}</h2>
           ${decorateSignalBlocks(sections.synthesis)}
         </div>`;
 
   const insightsInner = `
         ${signalLegendHtml()}
         <div class="brief-block" id="signal-noise">
-          <h2>${esc(BRIEF_SECTIONS[2].title)}</h2>
           ${decorateSignalBlocks(sections.insights)}
         </div>`;
 
   const implicationsInner = `
         <div class="brief-block" id="why-it-matters">
-          <h2>${esc(BRIEF_SECTIONS[3].title)}</h2>
           ${decorateSignalBlocks(sections.implications)}
         </div>`;
 
   const orientationInner = `
         <div class="brief-block" id="practical-orientation">
-          <h2>${esc(BRIEF_SECTIONS[4].title)}</h2>
           <p class="brief-core-path">${esc(CORE_ORIENTATION)}</p>
           ${decorateSignalBlocks(sections.orientation)}
         </div>`;
@@ -347,28 +345,24 @@ export function renderBriefBody(sections, honestyHtml = '') {
     ? `\n      <div class="brief-honesty">\n${honestyHtml}\n      </div>`
     : '';
 
-  return `<div class="brief-body prose">
-      <section class="brief-section" id="birds-eye-synthesis" data-hierarchy="BIRD'S-EYE SYNTHESIS" aria-label="Bird's-eye synthesis">
-        <p class="brief-section-kicker">Bird's-eye synthesis</p>
+  return `<div class="brief-body prose brief-wire">
+      <section class="brief-section" id="birds-eye-synthesis" aria-label="Lead and context">
         ${birdsInner}
       </section>
-      <section class="brief-section" id="key-insights" data-hierarchy="KEY INSIGHTS" aria-label="Key insights">
-        <p class="brief-section-kicker">Key insights</p>
+      <section class="brief-section" id="key-insights" aria-label="Evidence">
         ${insightsInner}
       </section>
-      <section class="brief-section" id="implications" data-hierarchy="IMPLICATIONS" aria-label="Implications">
-        <p class="brief-section-kicker">Implications</p>
+      <section class="brief-section" id="implications" aria-label="Why it matters">
         ${implicationsInner}
       </section>
-      <section class="brief-section" id="what-to-watch-do" data-hierarchy="WHAT TO WATCH/DO" aria-label="What to watch and do">
-        <p class="brief-section-kicker">What to watch / do</p>
+      <section class="brief-section" id="what-to-watch-do" aria-label="Next steps">
         ${orientationInner}
       </section>${honesty}
     </div>`;
 }
 
 /**
- * Related rhymes + supporting papers footer blocks.
+ * Related briefs + papers footer blocks (wire closers — no README kickers).
  * @param {{ relatedRhymes: {href:string,kind:string,title:string}[], papers: {href:string,kind:string,title:string}[] }} opts
  */
 export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
@@ -385,18 +379,16 @@ export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
     )
     .join('\n          ');
 
-  return `<section class="brief-section related" id="related-rhymes" data-hierarchy="RELATED RHYMES" aria-label="Related rhymes">
-      <p class="brief-section-kicker">Related rhymes</p>
-      <h2>Connected pattern</h2>
-      <p class="brief-closer-dek">Neighbor briefs in the Fractal Goldilocks Channel. Follow the rhyme before diving into methods.</p>
+  return `<section class="brief-section related" id="related-rhymes" aria-label="Related briefs">
+      <h2>Related briefs</h2>
+      <p class="brief-closer-dek">Neighbor notes in the Fractal Goldilocks Channel. Follow the rhyme before diving into methods.</p>
       <div class="related-grid">
           ${rhymeCards || '<p class="brief-empty">No peer briefs linked yet.</p>'}
       </div>
     </section>
-    <section class="brief-section related" id="supporting-papers" data-hierarchy="SUPPORTING PAPERS" aria-label="Supporting papers">
-      <p class="brief-section-kicker">Supporting papers</p>
-      <h2>Deep evidence layer</h2>
-      <p class="brief-closer-dek">The brief is synthesis. The paper carries regenerable methods, receipts, and honesty rails.</p>
+    <section class="brief-section related" id="supporting-papers" aria-label="Papers">
+      <h2>Papers</h2>
+      <p class="brief-closer-dek">The brief is the wire. The paper carries regenerable methods, receipts, and honesty rails.</p>
       <div class="related-grid">
           ${paperCards || '<p class="brief-empty">Open the Library for the full paper set.</p>'}
       </div>
@@ -408,7 +400,7 @@ export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
  */
 export function dashboardOrientationHtml() {
   const steps = [
-    ['Read the brief', 'Executive gate + hierarchy'],
+    ['Read the brief', 'Yes/No gate + wire'],
     ['Follow the rhyme', 'Cross-domain pattern'],
     ['Open the paper', 'Deep evidence'],
     ['Navigate next', 'Related briefs'],

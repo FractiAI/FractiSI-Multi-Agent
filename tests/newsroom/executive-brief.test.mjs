@@ -16,20 +16,21 @@ import {
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
-test('brief hierarchy labels are locked', () => {
+test('brief hierarchy labels are wire-service soft anchors', () => {
   assert.deepEqual(BRIEF_HIERARCHY, [
-    'EXECUTIVE BRIEF',
-    "BIRD'S-EYE SYNTHESIS",
-    'KEY INSIGHTS',
-    'IMPLICATIONS',
-    'WHAT TO WATCH/DO',
-    'RELATED RHYMES',
-    'SUPPORTING PAPERS',
+    'Lead',
+    'Context',
+    'Evidence',
+    'Why it matters',
+    'Next steps',
+    'Related briefs',
+    'Papers',
   ]);
   assert.equal(BRIEF_SECTIONS.length, 5);
   assert.equal(SIGNAL_KINDS.length, 5);
   assert.match(CORE_ORIENTATION, /Read the brief → follow the rhyme → open the paper/);
   assert.equal(/!/.test(CORE_ORIENTATION), false);
+  assert.equal(BRIEF_HIERARCHY.some((l) => /EXECUTIVE BRIEF|KEY INSIGHTS/i.test(l)), false);
 });
 
 test('parseBriefSections reads data-brief markers', () => {
@@ -68,7 +69,7 @@ test('resolveBriefContent fills gaps from manifest only', () => {
   assert.match(sections.orientation, /library\/papers\/demo/);
 });
 
-test('every built FGC brief carries the executive hierarchy and yes/no lead', () => {
+test('every built FGC brief carries Yes/No lead without README hierarchy banners', () => {
   const manifest = JSON.parse(readFileSync(join(ROOT, 'content/manifest.json'), 'utf8'));
   assert.ok(manifest.blog.length >= 1);
   for (const entry of manifest.blog) {
@@ -77,20 +78,33 @@ test('every built FGC brief carries the executive hierarchy and yes/no lead', ()
     const html = readFileSync(built, 'utf8');
     const check = builtBriefLooksComplete(html);
     assert.equal(check.ok, true, `${entry.slug} missing ${check.missing.join(',')}`);
-    assert.match(html, /Executive brief · Fractal Goldilocks Channel/);
+    assert.match(html, /Fractal Goldilocks Channel/);
     assert.match(html, /class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i);
-    assert.match(html, /Signal taxonomy/);
+    assert.match(html, /How claims are labeled/);
+    assert.doesNotMatch(html, />EXECUTIVE BRIEF</);
+    assert.doesNotMatch(html, />KEY INSIGHTS</);
+    assert.doesNotMatch(html, /brief-section-kicker">Key insights/);
     assert.equal(/!/.test(html.match(/<p class="brief-path-line">[\s\S]*?<\/p>/)?.[0] || ''), false);
   }
 });
 
-test('FGC dashboard reads as executive intelligence surface', () => {
+test('FGC dashboard reads as wire-service intelligence surface', () => {
   const html = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
   assert.match(html, /Living executive intelligence dashboard/);
   assert.match(html, /How to use this channel/);
   assert.match(html, /Brief archive/);
   assert.match(html, /Active briefs/);
   assert.match(html, /Read the brief → follow the rhyme → open the paper/);
+  assert.match(html, /CNBC-style wire briefs/);
   assert.doesNotMatch(html, /weather channel/i);
   assert.equal(/!/.test(html.match(/<header class="nr-hero">[\s\S]*?<\/header>/)?.[0] || ''), false);
+});
+
+test('standalones packaging brief is on the FGC archive', () => {
+  const index = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
+  assert.match(index, /neural-xray-rhyme-standalones/);
+  const built = readFileSync(join(ROOT, 'blog/neural-xray-rhyme-standalones/index.html'), 'utf8');
+  assert.match(built, /Short answer:\s*Yes/i);
+  assert.match(built, /11 of 11|11 Neural X-Ray/i);
+  assert.match(built, /6ba1f61b/);
 });

@@ -29,7 +29,7 @@ import {
 } from '../src/newsroom/executive-brief.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_VERSION = '53';
+const CSS_VERSION = '54';
 const SITE = 'https://fractisi.vercel.app';
 
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
@@ -418,8 +418,8 @@ function buildBlog(entry) {
     papers.push({ href: '/library/', kind: 'Library', title: 'All FractiSI papers' });
   }
   const doc = `    <article class="doc doc-blog doc-brief">
-      <header class="doc-head brief-head" id="executive-brief" data-hierarchy="EXECUTIVE BRIEF">
-        <p class="kicker">Executive brief · ${FGC_NAME}${entry.label ? ' · ' + esc(entry.label) : ''}</p>
+      <header class="doc-head brief-head" id="executive-brief">
+        <p class="kicker">${FGC_NAME}${entry.label ? ' · ' + esc(entry.label) : ''}</p>
         <h1>${esc(entry.title)}</h1>
         ${answerHtml}
         <p class="brief-path-line">${esc(CORE_ORIENTATION)}</p>
@@ -464,10 +464,10 @@ function buildBlogIndex() {
     .join('\n');
 
   const instruments = [
-    ['Bird\'s-eye', 'What the development means in the larger pattern'],
+    ['Yes/No gate', 'Short answer under the title'],
+    ['Wire body', 'Lede, context, numbers — no README headers'],
     ['Signal rails', 'Fact · experimental · interpretation · hypothesis · speculation'],
-    ['Implications', 'Tech, orgs, society, human life, AI'],
-    ['Papers', 'Brief = synthesis · paper = deep evidence'],
+    ['Papers', 'Brief = wire · paper = deep evidence'],
   ]
     .map(
       ([name, line]) =>
@@ -496,7 +496,7 @@ function buildBlogIndex() {
       <header class="nr-hero">
         <p class="kicker">Fractal Goldilocks Channel · FGC · Executive intelligence</p>
         <h1>Living executive intelligence dashboard</h1>
-        <p class="dek">Dense briefs for leaders, explorers, scientists, builders, technologists, and AIs. Each note is an executive intelligence brief — bird's-eye pattern, Fractal Holographic Goldilocks synthesis, labeled signal vs noise, implications, and a path to the supporting paper. Papers remain the authoritative deep-research layer.</p>
+        <p class="dek">CNBC-style wire briefs for leaders, explorers, scientists, builders, technologists, and AIs. Each note opens with a Yes/No gate, then punchy context and labeled evidence — Fractal Holographic Goldilocks synthesis without README hierarchy banners. Papers remain the authoritative deep-research layer.</p>
       </header>
       ${dashboardOrientationHtml()}
       <section class="nr-instruments" aria-label="Brief reading rails">
