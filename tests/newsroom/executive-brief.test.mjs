@@ -23,12 +23,12 @@ test('brief hierarchy labels are wire-service soft anchors', () => {
     'Evidence',
     'Why it matters',
     'Next steps',
-    'Related briefs',
+    'Related stories',
     'Papers',
   ]);
   assert.equal(BRIEF_SECTIONS.length, 5);
   assert.equal(SIGNAL_KINDS.length, 5);
-  assert.match(CORE_ORIENTATION, /Read the brief → follow the rhyme → open the paper/);
+  assert.match(CORE_ORIENTATION, /Read the story → follow the rhyme → open the paper/);
   assert.equal(/!/.test(CORE_ORIENTATION), false);
   assert.equal(BRIEF_HIERARCHY.some((l) => /EXECUTIVE BRIEF|KEY INSIGHTS/i.test(l)), false);
 });

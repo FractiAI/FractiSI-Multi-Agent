@@ -22,7 +22,7 @@ export const BRIEF_HIERARCHY = Object.freeze([
   'Evidence',
   'Why it matters',
   'Next steps',
-  'Related briefs',
+  'Related stories',
   'Papers',
 ]);
 
@@ -69,7 +69,7 @@ export const SIGNAL_KINDS = Object.freeze([
   {
     id: 'experimental',
     label: 'Experimental evidence',
-    blurb: 'Measured lab or wet-lab receipt under regenerable locked conditions.',
+    blurb: 'Measured lab or wet-lab evidence under matched conditions.',
   },
   {
     id: 'interpretation',
@@ -89,7 +89,7 @@ export const SIGNAL_KINDS = Object.freeze([
 ]);
 
 export const CORE_ORIENTATION =
-  'Read the brief → follow the rhyme → open the paper → use synthesis to navigate next.';
+  'Read the story → follow the rhyme → open the paper → use synthesis to navigate next.';
 
 const SIGNAL_BY_ID = Object.fromEntries(SIGNAL_KINDS.map((s) => [s.id, s]));
 
@@ -358,7 +358,7 @@ export function renderBriefBody(sections, honestyHtml = '') {
 }
 
 /**
- * Related briefs + papers footer blocks (wire closers — no README kickers).
+ * Related stories + papers footer blocks (wire closers — no README kickers).
  * @param {{ relatedRhymes: {href:string,kind:string,title:string}[], papers: {href:string,kind:string,title:string}[] }} opts
  */
 export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
@@ -375,16 +375,16 @@ export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
     )
     .join('\n          ');
 
-  return `<section class="brief-section related" id="related-rhymes" aria-label="Related briefs">
-      <h2>Related briefs</h2>
-      <p class="brief-closer-dek">Neighbor notes in the Fractal Goldilocks Channel. Follow the rhyme before diving into methods.</p>
+  return `<section class="brief-section related" id="related-rhymes" aria-label="Related stories">
+      <h2>Related stories</h2>
+      <p class="brief-closer-dek">More FGC stories. Follow the rhyme before diving into methods.</p>
       <div class="related-grid">
           ${rhymeCards || '<p class="brief-empty">No peer briefs linked yet.</p>'}
       </div>
     </section>
     <section class="brief-section related" id="supporting-papers" aria-label="Papers">
       <h2>Papers</h2>
-      <p class="brief-closer-dek">The brief is the wire. The paper carries regenerable methods, receipts, and honesty rails.</p>
+      <p class="brief-closer-dek">The story is the news. The paper carries methods, receipts, and honesty rails.</p>
       <div class="related-grid">
           ${paperCards || '<p class="brief-empty">Open the Library for the full paper set.</p>'}
       </div>
