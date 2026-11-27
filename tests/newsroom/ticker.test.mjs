@@ -20,9 +20,11 @@ test('ticker duplicates the group for seamless marquee', () => {
   assert.equal(groups.length, 2);
 });
 
-test('FGC ticker marquee period is 82.5s (33% slower than 55s)', () => {
+test('FGC ticker marquee period is 120s (further slowdown past 82.5s)', () => {
   const css = readFileSync(join(root, 'css/site.css'), 'utf8');
-  assert.match(css, /animation:\s*news-ticker-scroll\s+82\.5s\s+linear\s+infinite/);
+  assert.match(css, /animation:\s*news-ticker-scroll\s+120s\s+linear\s+infinite/);
+  assert.equal(/animation:\s*news-ticker-scroll\s+82\.5s/.test(css), false);
+  assert.equal(/animation:\s*news-ticker-scroll\s+55s/.test(css), false);
 });
 
 test('FGC ticker reads as a golden Newsroom banner', () => {
