@@ -1,5 +1,5 @@
 /**
- * Fractal Goldilocks Channel (FGC) · CNBC / wire-service brief grammar.
+ * Fractal Goldilocks Channel (FGC) · wire-service brief grammar.
  *
  * Public chrome is Yes/No title + Short answer + flowing prose.
  * No README-style ALL-CAPS hierarchy banners (EXECUTIVE BRIEF / KEY INSIGHTS).

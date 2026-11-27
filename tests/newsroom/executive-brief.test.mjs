@@ -95,7 +95,10 @@ test('FGC dashboard reads as wire-service intelligence surface', () => {
   assert.match(html, /Brief archive/);
   assert.match(html, /Active briefs/);
   assert.match(html, /Read the brief → follow the rhyme → open the paper/);
-  assert.match(html, /CNBC-style wire briefs/);
+  assert.match(html, /Wire-style Yes\/No briefs/);
+  // Player 1: never name the cable network brand in FGC surfaces.
+  const cableBrand = String.fromCharCode(67, 78, 66, 67);
+  assert.doesNotMatch(html, new RegExp(cableBrand, 'i'));
   assert.doesNotMatch(html, /weather channel/i);
   assert.equal(/!/.test(html.match(/<header class="nr-hero">[\s\S]*?<\/header>/)?.[0] || ''), false);
 });

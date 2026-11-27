@@ -2,13 +2,13 @@
 
 One file per slug, named `<slug>.html`. The slug must match its entry in `../manifest.json`. Rebuild with `npm run build:site`.
 
-The `/blog/` index is the **Fractal Goldilocks Channel (FGC)** — a living executive intelligence dashboard. Each post is a **CNBC / wire-service brief**: Yes/No title, Short answer, punchy lede and numbers — not a README or install guide.
+The `/blog/` index is the **Fractal Goldilocks Channel (FGC)** — a living executive intelligence dashboard. Each post is a **wire-service brief**: Yes/No title, Short answer, punchy lede and numbers — not a README or install guide.
 
 ## Voice (Player 1 lock)
 
 Busy executives should **want to finish** every brief. Write clear stakes → plain finding → labeled evidence → topic-specific implications → concrete orientation.
 
-- **Do:** CNBC/Bloomberg morning-brief density; everyday stakes (budgets, fleets, trust, jobs); Soft Story explained once as a regenerable computational lab receipt.
+- **Do:** wire-service morning-brief density; everyday stakes (budgets, fleets, trust, jobs); Soft Story explained once as a regenerable computational lab receipt.
 - **Do not:** README headers (`EXECUTIVE BRIEF`, `KEY INSIGHTS`, setup bullets, install steps); cryptic catalog leads (ENGINE_SHELF-first openers); identical template paragraphs across posts; jargon walls; invented claims; exclamation marks in public chrome.
 - Synthesis, implications, and orientation must be **unique per topic** — fallbacks in `executive-brief.mjs` are last resorts only.
 

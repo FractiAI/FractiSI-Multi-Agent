@@ -496,7 +496,7 @@ function buildBlogIndex() {
       <header class="nr-hero">
         <p class="kicker">Fractal Goldilocks Channel · FGC · Executive intelligence</p>
         <h1>Living executive intelligence dashboard</h1>
-        <p class="dek">CNBC-style wire briefs for leaders, explorers, scientists, builders, technologists, and AIs. Each note opens with a Yes/No gate, then punchy context and labeled evidence — Fractal Holographic Goldilocks synthesis without README hierarchy banners. Papers remain the authoritative deep-research layer.</p>
+        <p class="dek">Wire-style Yes/No briefs for leaders, explorers, scientists, builders, technologists, and AIs. Each note opens with a Yes/No gate, then punchy context and labeled evidence — Fractal Holographic Goldilocks synthesis without README hierarchy banners. Papers remain the authoritative deep-research layer.</p>
       </header>
       ${dashboardOrientationHtml()}
       <section class="nr-instruments" aria-label="Brief reading rails">

@@ -2,7 +2,7 @@
 
 Public name: **Fractal Goldilocks Channel / FGC**. Internal module folder remains `newsroom/`.
 
-- `executive-brief.mjs` — CNBC / wire-service assembly, signal taxonomy (no README ALL-CAPS hierarchy banners)
+- `executive-brief.mjs` — wire-service assembly, signal taxonomy (no README ALL-CAPS hierarchy banners)
 - `headlines.mjs` — 24h active-brief selection; ticker text = Yes/No news-desk titles from the manifest (no exclamation marks)
 - `ticker.mjs` — fixed bottom ticker chrome
 
