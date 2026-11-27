@@ -20,7 +20,7 @@ The deterministic receipts are byte-identical across runs with the same plan and
 
 ## Bindings for this build {#sec:bindings}
 
-The plan hash is `df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770`. Measured receipts are bound to source fingerprint `5d0c06da1790d2bac0cfb680b356de0c70ffa1ea074f346bea3c3d43980cbc05`, covering 85 files, and verification rejects a receipt whose producer has changed. This build's token catalog holds 207 values, each recording its source path in the analysis summary. Historical receipts are bound by hash, with the suite receipt at `d5b16ee2da2ea07acbd5556fcca2108a5afade48f5662fb8ccb9affdac3fad61`. The renderer's commit and the PDF's hash are recorded in `output/data/render_receipt.json`.
+The plan hash is `df8dea398df3886fcbda8d22a44a55b81bfb2caba0cf788423762ab13df57770`. Measured receipts are bound to source fingerprint `aaa859dabbc3f3ce8905740332479afc42092fe5fb4d164b1f5a1be8478fad2a`, covering 86 files, and verification rejects a receipt whose producer has changed. This build's token catalog holds 207 values, each recording its source path in the analysis summary. Historical receipts are bound by hash, with the suite receipt at `d5b16ee2da2ea07acbd5556fcca2108a5afade48f5662fb8ccb9affdac3fad61`. The renderer's commit and the PDF's hash are recorded in `output/data/render_receipt.json`.
 
 ## Gates {#sec:gates}
 

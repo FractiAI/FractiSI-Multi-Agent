@@ -50,6 +50,7 @@
     "research:universal-rhyme-wet-lab": "node research/universal-rhyme-wet-lab/scripts/run_empirical_pipeline.mjs",
     "research:compositional-wet-lab-scale": "node research/compositional-wet-lab-scale/scripts/run_empirical_pipeline.mjs",
     "research:neural-xray-rhyme": "node research/neural-xray-rhyme/scripts/run_empirical_pipeline.mjs",
+    "research:paraparticle-peff-wiring-wet-lab": "node research/paraparticle-peff-wiring-wet-lab/scripts/run_empirical_pipeline.mjs",
     "skin:auto-session": "node scripts/holographic-auto-session.mjs",
     "skin:auto-session:install": "node scripts/install-holographic-auto-session-protocol.mjs",
     "standalone:rhyme:package": "node scripts/publish-rhyme-standalones.mjs",

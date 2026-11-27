@@ -234,6 +234,30 @@
       "destination": "/research/principal-rhyme-theorem/"
     },
     {
+      "source": "/blog/paraparticle-peff-wiring-wet-lab/",
+      "destination": "/blog/paraparticle-peff-wiring-wet-lab/index.html"
+    },
+    {
+      "source": "/blog/paraparticle-peff-wiring-wet-lab",
+      "destination": "/blog/paraparticle-peff-wiring-wet-lab/"
+    },
+    {
+      "source": "/library/papers/paraparticle-peff-wiring-wet-lab/",
+      "destination": "/library/papers/paraparticle-peff-wiring-wet-lab/index.html"
+    },
+    {
+      "source": "/library/papers/paraparticle-peff-wiring-wet-lab",
+      "destination": "/library/papers/paraparticle-peff-wiring-wet-lab/"
+    },
+    {
+      "source": "/research/paraparticle-peff-wiring-wet-lab/",
+      "destination": "/research/paraparticle-peff-wiring-wet-lab/index.html"
+    },
+    {
+      "source": "/research/paraparticle-peff-wiring-wet-lab",
+      "destination": "/research/paraparticle-peff-wiring-wet-lab/"
+    },
+    {
       "source": "/blog/universal-rhyme-wet-lab/",
       "destination": "/blog/universal-rhyme-wet-lab/index.html"
     },

@@ -127,6 +127,17 @@ export const RHYME_STANDALONES = [
     npmName: 'synthobs-adversarial-world',
     description: 'Adversarial World Soft Story rhyme board',
   },
+  {
+    slug: 'paraparticle-peff-wiring-wet-lab',
+    suite: 'research/paraparticle-peff-wiring-wet-lab',
+    repo: 'FractiAI/synthobs-paraparticle-peff-wiring-wet-lab',
+    title: 'Paraparticle–PEFF Cross-Scale Rhyme',
+    engine: 'src/engine/rhyming/paraparticle-peff-wiring-wet-lab.mjs',
+    paper: 'content/papers/paraparticle-peff-wiring-wet-lab.md',
+    npmName: 'synthobs-paraparticle-peff-wiring-wet-lab',
+    description:
+      'Paraparticle–PEFF Cross-Scale Rhyme · Computational Lab + Wiring Wet Lab after MIT paraparticle news',
+  },
 ];
 
 const SKIP = new Set(['node_modules', '.git', 'index.html']);

@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { REPO_ROOT } from '../../src/core/paths.mjs';
 
 test('catalog names eleven Neural X-Ray and rhyme standalones', () => {
-  assert.equal(RHYME_STANDALONES.length, 11);
+  assert.equal(RHYME_STANDALONES.length, 12);
   assert.ok(RHYME_STANDALONES.every((s) => s.repo.startsWith('FractiAI/synthobs-')));
   assert.ok(RHYME_STANDALONES.some((s) => s.slug === 'neural-xray-rhyme'));
 });

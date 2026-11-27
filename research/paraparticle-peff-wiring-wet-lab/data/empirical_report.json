@@ -1,0 +1,157 @@
+{
+  "documentId": "EXP-FRACTISI-PEFF-PARAPARTICLE-WIRING-WETLAB-2026-11-27",
+  "registryId": "synthobs-paraparticle-peff-wiring-wet-lab-2026-11",
+  "title": "The Paraparticle–PEFF Cross-Scale Rhyme",
+  "series": "FractiSI Frontier Expedition Series",
+  "seed": 20261127,
+  "engineShelfPinned": false,
+  "workingForm": {
+    "question": "Do internal PEFF organizational patterns recur across cognitive dynamics, particle events, and paraparticle quantum statistics, and can independently demonstrated mechanisms be wired into a larger FractiSI systemic proof?",
+    "answerBounded": "Yes — as a scientifically testable cross-domain organizational rhyme and a constructible Wiring Wet Lab chain. Not as a new force or physical identity claim.",
+    "rhyme": "State → Internal Organization → Relational Transformation → Observable Signature",
+    "wiring": "neural organization → oscillatory/phase organization → physical transformation → exchange/interference → non-classical statistics",
+    "compact": "Different systems. Same organizational rhyme under test."
+  },
+  "doesNotProve": [
+    "PEFF as a new fundamental force",
+    "thoughts as literal particles",
+    "paraparticles as PEFF excitations",
+    "universal equivalence of spin, phase, and polarity",
+    "a single physical mechanism connecting EEG and quantum statistics",
+    "discovery of a new elementary particle outside the cited quantum simulation"
+  ],
+  "record": {
+    "documentId": "EXP-FRACTISI-PEFF-PARAPARTICLE-WIRING-WETLAB-2026-11-27",
+    "registryId": "synthobs-paraparticle-peff-wiring-wet-lab-2026-11",
+    "series": "FractiSI Frontier Expedition Series",
+    "engineShelfPinned": false,
+    "question": "Do internal PEFF organizational patterns recur across cognitive dynamics, particle events, and paraparticle quantum statistics, and can independently demonstrated mechanisms be wired into a larger FractiSI systemic proof?",
+    "answerBounded": "Yes — as a scientifically testable cross-domain organizational rhyme and a constructible Wiring Wet Lab chain. Not as a new force or physical identity claim.",
+    "rhyme": "State → Internal Organization → Relational Transformation → Observable Signature",
+    "wiring": "neural organization → oscillatory/phase organization → physical transformation → exchange/interference → non-classical statistics",
+    "doesNotProve": [
+      "PEFF as a new fundamental force",
+      "thoughts as literal particles",
+      "paraparticles as PEFF excitations",
+      "universal equivalence of spin, phase, and polarity",
+      "a single physical mechanism connecting EEG and quantum statistics",
+      "discovery of a new elementary particle outside the cited quantum simulation"
+    ],
+    "falsifiers": [
+      "output of A cannot serve as input to B",
+      "relationship appears only after arbitrary rescaling",
+      "phase randomization preserves the result",
+      "shuffled controls produce the same structure",
+      "conventional models explain equally well",
+      "invariant disappears on held-out data",
+      "original experiment does not support the assumed mechanism"
+    ],
+    "chainIds": [
+      "PW-01",
+      "PW-02",
+      "PW-03",
+      "PW-04",
+      "PW-05"
+    ],
+    "mit": {
+      "arxiv": "2611.03908",
+      "exchangePhaseDeg": 180,
+      "qubits": 16
+    }
+  },
+  "experiments": [
+    {
+      "id": "E1",
+      "title": "Cognitive organization is measurable (supplied PEFF EEG)",
+      "pass": true,
+      "tier": "historical_supplied",
+      "subjects": 24,
+      "deltas": {
+        "higuchiDf": 0.06999999999999984,
+        "thetaC": 0.09000000000000008,
+        "alphaC": 0.08999999999999997,
+        "gammaC": 0.040000000000000036
+      }
+    },
+    {
+      "id": "E2",
+      "title": "Internal particle organization beats colliding labels",
+      "pass": true,
+      "tier": "simulated",
+      "labelPrecision": 0.5,
+      "rPrecision": 1
+    },
+    {
+      "id": "E3",
+      "title": "MIT paraparticle exchange benchmark encoded",
+      "pass": true,
+      "tier": "historical_literature",
+      "arxiv": "2611.03908",
+      "exchangePhaseDeg": 180,
+      "qubits": 16
+    },
+    {
+      "id": "E4",
+      "title": "Cross-domain organizational rhyme vs shuffle null",
+      "pass": true,
+      "tier": "simulated",
+      "meanSim": 0.957206541123718,
+      "nullMean": 0.7113942334647383,
+      "sims": {
+        "eeg_particle": 0.9476443926516861,
+        "particle_para": 0.9952145489271986,
+        "eeg_para": 0.9287606817922689
+      }
+    },
+    {
+      "id": "E5",
+      "title": "Polarity flip matches 180° phase inversion algebra",
+      "pass": true,
+      "tier": "deterministic",
+      "exchangeBenchmarkDeg": 180
+    },
+    {
+      "id": "E6",
+      "title": "Wiring Wet Lab chain admits PW-01…PW-05",
+      "pass": true,
+      "tier": "compositional",
+      "links": [
+        "PW-01",
+        "PW-02",
+        "PW-03",
+        "PW-04",
+        "PW-05"
+      ]
+    },
+    {
+      "id": "E7",
+      "title": "Falsifiers: phase randomize, shuffle, and bad link reject",
+      "pass": true,
+      "tier": "simulated",
+      "real": 0.9476443926516861,
+      "phased": 0.8826316384887012,
+      "shuffled": 0.6027858989548527,
+      "rejectsBad": true
+    },
+    {
+      "id": "E8",
+      "title": "Frozen R* recovers held-out para-like organization",
+      "pass": true,
+      "tier": "simulated",
+      "Rstar": {
+        "Df": 1.45,
+        "Mf": 0.1,
+        "C": 0.68,
+        "Phi": 0.9,
+        "X": 0.88,
+        "T": 0.78,
+        "S": 0.55
+      },
+      "heldOutMean": 0.9979825814872761,
+      "heldOutN": 10
+    }
+  ],
+  "passCount": 8,
+  "total": 8,
+  "pass": true
+}
