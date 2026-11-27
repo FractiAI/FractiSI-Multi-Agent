@@ -3,11 +3,21 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { builtBriefLooksComplete, checkExecutiveBriefs } from '../../src/gates/executive-briefs.mjs';
+import {
+  builtBriefLooksComplete,
+  checkExecutiveBriefs,
+  MIN_STORY_PROSE_WORDS,
+  proseWordCount,
+} from '../../src/gates/executive-briefs.mjs';
 
 test('repository FGC briefs pass the executive-brief gate', () => {
   const gate = checkExecutiveBriefs();
   assert.deepEqual(gate.problems, [], gate.problems.join('\n'));
+});
+
+test('proseWordCount strips tags and MIN_STORY_PROSE_WORDS blocks stubs', () => {
+  assert.equal(proseWordCount('<p>one two three</p>'), 3);
+  assert.ok(MIN_STORY_PROSE_WORDS >= 350);
 });
 
 test('builtBriefLooksComplete requires hierarchy ids and short answer', () => {
