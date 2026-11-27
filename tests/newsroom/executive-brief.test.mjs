@@ -108,12 +108,11 @@ test('FGC index reads as a standard newsroom head', () => {
   assert.equal(/!/.test(html.match(/<header class="nr-hero">[\s\S]*?<\/header>/)?.[0] || ''), false);
 });
 
-test('standalones packaging story is on the FGC archive', () => {
+test('shipping-status standalones post is retired from FGC', () => {
   const index = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
-  assert.match(index, /neural-xray-rhyme-standalones/);
-  const built = readFileSync(join(ROOT, 'blog/neural-xray-rhyme-standalones/index.html'), 'utf8');
-  assert.match(built, /Short answer:\s*Yes/i);
-  assert.match(built, /11 of 11|11 Neural X-Ray/i);
-  assert.doesNotMatch(built, /ENGINE_SHELF|Soft Story Exp|\bCNBC\b|\bPR\s*#\s*\d+/i);
-  assert.doesNotMatch(built, /FGC brief/i);
+  assert.doesNotMatch(index, /neural-xray-rhyme-standalones/);
+  assert.equal(existsSync(join(ROOT, 'blog/neural-xray-rhyme-standalones/index.html')), false);
+  assert.equal(existsSync(join(ROOT, 'content/blog/neural-xray-rhyme-standalones.html')), false);
+  const manifest = JSON.parse(readFileSync(join(ROOT, 'content/manifest.json'), 'utf8'));
+  assert.equal((manifest.blog || []).some((b) => b.slug === 'neural-xray-rhyme-standalones'), false);
 });

@@ -1,26 +1,6 @@
 {
   "blog": [
     {
-      "slug": "neural-xray-rhyme-standalones",
-      "title": "Have FractiAI\u2019s Neural X-Ray research packs gone fully public?",
-      "dek": "YES \u2014 all 11 packs are public and complete, not empty shells.",
-      "date": "2026-11-26",
-      "label": "Public release",
-      "actions": [
-        {
-          "href": "/blog/neural-xray-rhyme/",
-          "text": "Neural X-Ray story"
-        },
-        {
-          "href": "/library/papers/neural-xray-rhyme/",
-          "text": "Neural X-Ray paper"
-        }
-      ],
-      "links": "All 11 Neural X-Ray and rhyme research packs are public.",
-      "answerHead": "Short answer: Yes.",
-      "answerBody": " All 11 Neural X-Ray and rhyme research packs are public and complete \u2014 not empty shells."
-    },
-    {
       "slug": "neural-xray-rhyme",
       "title": "Can you X-ray what a neural net is doing?",
       "dek": "YES \u2014 on a constructed live net. Frontier end-to-end X-ray stays open.",
