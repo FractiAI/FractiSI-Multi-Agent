@@ -18,6 +18,18 @@ const HIERARCHY_IDS = [
   'supporting-papers',
 ];
 
+/** Engineering dump patterns banned from FGC executive news bodies. */
+const FORBIDDEN_BODY = [
+  { re: /ENGINE_SHELF/i, label: 'ENGINE_SHELF' },
+  { re: /\bCNBC\b/i, label: 'CNBC' },
+  { re: /\bnpm\s+run\b/i, label: 'npm run' },
+  { re: /scripts\/[a-z0-9._/-]+\.mjs/i, label: 'scripts path' },
+  { re: /src\/[a-z0-9._/-]+\.mjs/i, label: 'src path' },
+  { re: /\bSoft Story\b/i, label: 'Soft Story jargon' },
+  { re: /\bPR\s*#\s*\d+/i, label: 'PR number as story' },
+  { re: /brief-orientation-list/, label: 'orientation checklist' },
+];
+
 /** @param {string} html */
 export function builtBriefLooksComplete(html) {
   const missing = [];
@@ -48,6 +60,11 @@ export function checkExecutiveBriefs(root = REPO_ROOT) {
     for (const id of BRIEF_IDS) {
       if (!new RegExp(`data-brief=["']${id}["']`).test(fragment)) {
         problems.push(`content/blog/${entry.slug}.html: missing data-brief="${id}"`);
+      }
+    }
+    for (const { re, label } of FORBIDDEN_BODY) {
+      if (re.test(fragment)) {
+        problems.push(`content/blog/${entry.slug}.html: forbidden ${label} in executive news body`);
       }
     }
     const built = path.join(root, 'blog', entry.slug, 'index.html');

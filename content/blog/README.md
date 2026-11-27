@@ -1,5 +1,3 @@
 # content/blog
 
-HTML fragments for Fractal Goldilocks Channel (FGC) wire-service briefs.
-
-Each `<slug>.html` supplies `data-brief` sections consumed by `scripts/build-site.mjs`. Built output lands in `blog/<slug>/index.html` as Yes/No title + Short answer + flowing prose (no README hierarchy banners). See `AGENTS.md` for the section contract and signal taxonomy.
+HTML fragments for Fractal Goldilocks Channel (FGC) executive news briefs. Yes/No news articles — not README or ship logs. Manifest titles drive the ticker. See `AGENTS.md`.

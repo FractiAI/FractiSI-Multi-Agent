@@ -1,35 +1,32 @@
-# FGC brief content
+# FGC executive news briefs
 
 One file per slug, named `<slug>.html`. The slug must match its entry in `../manifest.json`. Rebuild with `npm run build:site`.
 
-The `/blog/` index is the **Fractal Goldilocks Channel (FGC)** newsroom — executive news for leaders (also explorers, scientists, builders, technologists, AIs). Each post is a **wire-service brief**: Yes/No title, Short answer, punchy lede and numbers — not a README or install guide.
+## Purpose (Player 1 lock)
 
-## Voice (Player 1 lock)
+`/blog/` is the **Fractal Goldilocks Channel (FGC)** newsroom — a **news channel for executives**.
 
-Busy executives should **want to finish** every brief. Write clear stakes → plain finding → labeled evidence → topic-specific implications → concrete orientation.
+Each post is a **news article**, not a README, changelog, kit ship log, install guide, or engineering dump.
 
-- **Do:** wire-service morning-brief density; everyday stakes (budgets, fleets, trust, jobs); Soft Story explained once as a regenerable computational lab receipt.
-- **Do not:** README headers (`EXECUTIVE BRIEF`, `KEY INSIGHTS`, setup bullets, install steps); cryptic catalog leads (ENGINE_SHELF-first openers); identical template paragraphs across posts; jargon walls; invented claims; exclamation marks in public chrome.
+Wire-service business journalism: punchy lede, context, stakes, numbers. Titles stay Yes/No and must **rhyme with top headlines** from major news desks (AP / Reuters / WSJ / business-TV cadence). Never name cable-network brands.
+
+## Voice
+
+- **Do:** Plain English stakes; short sentences; numbers over jargon.
+- **Do not:** README headers; setup/install; engine pins; `ENGINE_SHELF`; Soft Story / experiment ids; SHAs; file paths; npm/scripts; registry keys; “PR #N” as the story; invented claims; exclamation marks in public chrome.
+- When titles change, update ticker source so the feed matches (manifest titles drive `headlines.mjs`).
 - Synthesis, implications, and orientation must be **unique per topic** — fallbacks in `executive-brief.mjs` are last resorts only.
 
 ## Required `data-brief` sections
 
-New posts inherit wire-service assembly from `src/newsroom/executive-brief.mjs` via `scripts/build-site.mjs`. Fragments must declare:
-
-1. `data-brief="birds-eye"` — Lede (stakes + plain finding)
-2. `data-brief="synthesis"` — Fractal Holographic Goldilocks context (topic-specific)
-3. `data-brief="insights"` — Evidence with `data-signal="fact|experimental|interpretation|hypothesis|speculation"`
-4. `data-brief="implications"` — Why it matters (topic-specific)
-5. `data-brief="orientation"` — Next steps (understand / reconsider / watch / prepare / do — topic-specific)
-
-Optional trailing `<p class="honesty">…</p>`. Related briefs + papers are assembled by the builder. Built pages keep section ids for anchors; they do **not** print ALL-CAPS hierarchy banners.
+1. `birds-eye` — Lede
+2. `synthesis` — Context
+3. `insights` — Evidence (`data-signal`)
+4. `implications` — Why it matters
+5. `orientation` — Next steps in short prose (no Understand/Reconsider/Watch/Prepare/Do lists)
 
 ## Locks
 
-- Yes/No question titles + `answerHead` Short answer: Yes/No under h1 (manifest)
-- No exclamation marks in public brief chrome
-- Do not invent empirical claims; label Fractal Holographic Goldilocks interpretation vs evidence
-- Core path: Read the brief → follow the rhyme → open the paper → use synthesis to navigate next
-- Product name: **Fractal Goldilocks Channel (FGC)**
-
-Ticker lines: `src/newsroom/headlines.mjs`. Re-runnable structure helper: `node scripts/migrate-fgc-briefs.mjs` (skips already-structured fragments).
+- Yes/No news-desk titles + Short answer under h1
+- Body reads as a news article for executives
+- Product: **Fractal Goldilocks Channel (FGC)** / FGC Newsroom

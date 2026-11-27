@@ -1,5 +1,5 @@
 /**
- * Fractal Goldilocks Channel (FGC) · wire-service brief grammar.
+ * Fractal Goldilocks Channel (FGC) · executive news brief grammar.
  *
  * Public chrome is Yes/No title + Short answer + flowing prose.
  * No README-style ALL-CAPS hierarchy banners (EXECUTIVE BRIEF / KEY INSIGHTS).
@@ -64,12 +64,12 @@ export const SIGNAL_KINDS = Object.freeze([
   {
     id: 'fact',
     label: 'Fact',
-    blurb: 'Established public or documented fact; not a FractiSI Soft Story board.',
+    blurb: 'Established public or documented fact; not a FractiSI lab board.',
   },
   {
     id: 'experimental',
     label: 'Experimental evidence',
-    blurb: 'Measured lab / regenerable Soft Story / wet-lab receipt under a fixed seed.',
+    blurb: 'Measured lab or wet-lab receipt under regenerable locked conditions.',
   },
   {
     id: 'interpretation',
@@ -187,7 +187,7 @@ export function fallbackBirdsEye(entry) {
   const dek = String(entry.dek || '').replace(/^(YES|NO)\s*[—–-]\s*/i, '').trim();
   const lead = body || dek;
   if (lead) {
-    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) brief. Soft Story means a regenerable computational lab receipt under a locked seed — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
+    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) brief. Lab figures cited here are regenerable receipts under locked conditions — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
   }
   return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under regenerable FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
 }
@@ -199,7 +199,7 @@ export function fallbackBirdsEye(entry) {
 export function fallbackSynthesis(entry) {
   const label = entry.label ? esc(entry.label) : 'this research thread';
   return `<p><strong>${label}</strong> fits the Fractal Holographic Goldilocks reading only as organizational structure under matched criteria — the same class of question that shows up in multi-agent coordination, wet-lab wiring, sky panels, and genome boards. Rhyme means reusable structure, not identity of substrates.</p>
-<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat regenerable Soft Story receipts as evidence about how information is organized, then keep Soft Story, hypothesis, and speculation in separate lanes from settled fact.</p>`;
+<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat regenerable lab receipts as evidence about how information is organized, then keep measurement, hypothesis, and speculation in separate lanes from settled fact.</p>`;
 }
 
 /**
@@ -209,7 +209,7 @@ export function fallbackSynthesis(entry) {
 export function fallbackInsights(remainderHtml) {
   const cleaned = String(remainderHtml || '').trim();
   if (!cleaned) {
-    return `<div data-signal="interpretation"><p>See the supporting paper for the full evidence table. This brief keeps Soft Story measurements and Fractal Holographic Goldilocks interpretation on separate rails.</p></div>`;
+    return `<div data-signal="interpretation"><p>See the supporting paper for the full evidence table. This brief keeps measured results and Fractal Holographic Goldilocks interpretation on separate rails.</p></div>`;
   }
   return `<div data-signal="experimental">${cleaned}</div>
 <div data-signal="interpretation"><p><strong>Fractal Holographic Goldilocks interpretation:</strong> treat the blocks above as organizational evidence under regenerable conditions. Do not promote them into unfinished physics, clinical, or production claims.</p></div>`;
@@ -227,25 +227,21 @@ export function fallbackImplications() {
  */
 export function fallbackOrientation(entry) {
   const actions = entry.actions || [];
-  const lines = [
-    '<ul class="brief-orientation-list">',
-    '<li><strong>Understand.</strong> Treat the Short answer as the gate, then open the paper for regenerable methods and honesty rails.</li>',
-    '<li><strong>Reconsider.</strong> Ask whether your stack organizes relationships (shared world / wiring) or only streams linear tokens.</li>',
-    '<li><strong>Watch.</strong> Prefer kill boards, matched budgets, and seed-locked Soft Story receipts over marketing scoreboards.</li>',
-    '<li><strong>Prepare.</strong> Favor architectures that cut redundancy without cutting accuracy under the same budget.</li>',
+  const parts = [
+    '<p>Treat the Short answer as the gate, then open the paper for regenerable methods and honesty rails. Ask whether your stack organizes relationships in a shared world, or only streams private copies.</p>',
+    '<p>Prefer matched budgets and seed-locked lab receipts over marketing scoreboards. Favor architectures that cut redundancy without cutting accuracy under the same budget.</p>',
   ];
   if (actions.length) {
     const links = actions
       .map((a) => `<a href="${esc(a.href)}">${esc(a.text)}</a>`)
       .join(' · ');
-    lines.push(`<li><strong>Do.</strong> ${links}.</li>`);
+    parts.push(`<p>${links}</p>`);
   } else {
-    lines.push(
-      '<li><strong>Do.</strong> Read the related FGC briefs, then open the supporting paper before changing a production path.</li>',
+    parts.push(
+      '<p>Read the related FGC briefs, then open the supporting paper before changing a production path.</p>',
     );
   }
-  lines.push('</ul>');
-  return lines.join('\n');
+  return parts.join('\n');
 }
 
 /**

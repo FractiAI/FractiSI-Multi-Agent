@@ -2,8 +2,8 @@
   "blog": [
     {
       "slug": "neural-xray-rhyme-standalones",
-      "title": "Have FractiAI’s Neural X-Ray and rhyme kits shipped as full standalone repos?",
-      "dek": "YES — 11 of 11 public kits verified with README, deps, research scripts, and receipts after PR #72 / 6ba1f61b.",
+      "title": "Have FractiAI’s Neural X-Ray kits shipped as full public repos?",
+      "dek": "YES — 11 of 11 public kits verified with documentation, dependencies, research scripts, and receipts.",
       "date": "2026-11-26",
       "label": "Standalone kits ship",
       "actions": [
@@ -22,12 +22,12 @@
       ],
       "links": "<strong>Packaging ship:</strong> 11 Neural X-Ray + rhyme standalone kits · <a href=\"https://github.com/FractiAI/FractiSI-Multi-Agent/pull/72\">PR #72</a> · merge <code>6ba1f61b</code>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " All 11 Neural X-Ray and rhyme standalone kits landed on public GitHub as self-contained packages (README, dependencies, research scripts, receipts) — not empty shells. PR #72 merged at 6ba1f61b."
+      "answerBody": " All 11 Neural X-Ray and rhyme kits landed on public GitHub as self-contained packages — not empty shells."
     },
     {
       "slug": "neural-xray-rhyme",
-      "title": "Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks by Combining Computational-Lab and Wiring/Wet-Lab Evidence?",
-      "dek": "YES — if streams converge. Opens with Hinton’s black-box stance: linear awareness vs FractiSI rhyming awareness. ENGINE_SHELF #58 Soft Story Exp 1–8 + live-MLP Exp 9–10.",
+      "title": "Can FractiSI X-ray what happens inside a neural net?",
+      "dek": "YES — if streams converge. Decisive threshold met on a constructed live net; frontier end-to-end X-ray remains open.",
       "date": "2026-11-25",
       "label": "Neural X-Ray Rhyme",
       "actions": [
@@ -46,12 +46,12 @@
       ],
       "links": "<strong>FractiSI engine pin #58:</strong> Neural X-Ray Rhyme · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/neural-xray-rhyme/\">Paper</a>",
       "answerHead": "Short answer: YES — if streams converge.",
-      "answerBody": " Opens from Hinton’s black-box stance (linear awareness misses organization). Soft Story Exp 1–8 + live-MLP Exp 9–10. Decisive threshold met on a constructed live net; frontier end-to-end X-ray remains open."
+      "answerBody": " Opens from Hinton’s black-box stance. Decisive threshold met on a constructed live net; frontier end-to-end X-ray remains open."
     },
     {
       "slug": "compositional-wet-lab-scale",
-      "title": "Can Compositional Wet-Lab Evidence Establish That a Distributed Electromagnetic Computational Medium Can Scale Toward Data-Center Workloads?",
-      "dek": "YES — compositional physical proof. Level III Soft Story Exp 8–12: open catalog, compositional workload, measured digital baselines + historical WISE fJ/MAC, volume scaling 1→256. Hyperscale still NOT proven.",
+      "title": "Can electromagnetic wet-lab compute scale toward data-center work?",
+      "dek": "YES — compositional physical proof. Hyperscale replacement still not proven.",
       "date": "2026-11-25",
       "label": "Compositional Wet-Lab Scale",
       "actions": [
@@ -70,12 +70,12 @@
       ],
       "links": "<strong>FractiSI engine pin #57:</strong> Compositional Wet-Lab Scale · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/compositional-wet-lab-scale/\">Paper</a>",
       "answerHead": "Short answer: YES — compositional physical proof.",
-      "answerBody": " Level III Soft Story Exp 8–12 run with measured digital latency/heap and historical WISE fJ/MAC. Hyperscale replacement still not proven."
+      "answerBody": " Compositional physical proof with measured digital latency and heap baselines. Hyperscale replacement still not proven."
     },
     {
       "slug": "universal-rhyme-wet-lab",
-      "title": "Can Existing Wet-Lab Experiments Establish That Computation Can Live in Electromagnetic Fields?",
-      "dek": "YES — for important classes of computation. EM wet-lab chain Interference→Cavity→Matrix→Metasurface→ML pinned ENGINE_SHELF #56.",
+      "title": "Can computation live in electromagnetic fields?",
+      "dek": "YES — for important classes of computation. Hyperscale replacement remains open.",
       "date": "2026-11-25",
       "label": "Universal Rhyme Wet-Lab",
       "actions": [
@@ -94,12 +94,12 @@
       ],
       "links": "<strong>FractiSI engine pin #56:</strong> Universal Rhyme Wet-Lab · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/universal-rhyme-wet-lab/\">Paper</a>",
       "answerHead": "Short answer: Yes — for important classes of computation.",
-      "answerBody": " Wet-lab chain WL-01…WL-05 Soft Story Exp 1–7 under seed 20261125. Hyperscale replacement remains open."
+      "answerBody": " Wet-lab evidence supports computation in electromagnetic fields for important classes. Hyperscale replacement remains open."
     },
     {
       "slug": "principal-rhyme-theorem",
-      "title": "Is the Universe a Nested System of Rhymes?",
-      "dek": "YES — as a research formulation. Principal Rhyme Theorem pinned ENGINE_SHELF #55 with Soft Story Exp 1–7.",
+      "title": "Is the universe a nested system of rhymes?",
+      "dek": "YES — as a research formulation. Not Universe ontology QED.",
       "date": "2026-11-25",
       "label": "Principal Rhyme Theorem",
       "actions": [
@@ -118,12 +118,12 @@
       ],
       "links": "<strong>FractiSI engine pin #55:</strong> Principal Rhyme Theorem · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/principal-rhyme-theorem/\">Paper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " Organizational rhymes recur across substrates; Soft Story Exp 1–7 pass under seed 20261125. Not Universe ontology QED."
+      "answerBody": " Organizational rhymes recur across substrates under regenerable lab boards. Not Universe ontology QED."
     },
     {
       "slug": "riemann-fractisi-expedition",
-      "title": "Did FractiSI Close an Anthropic-Comparable Invent Challenge on Riemann?",
-      "dek": "NO — Challenge headlines 0/17. InventMath ladder 4/4 green. RH open. No sealed Zeta23.",
+      "title": "Did FractiSI close Anthropic’s Riemann invent challenge?",
+      "dek": "NO — Challenge headlines 0/17. Invent ladder 4/4 green. RH open.",
       "date": "2026-11-24",
       "label": "Riemann FractiSI Expedition",
       "actions": [
@@ -142,12 +142,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> · Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
       "answerHead": "Short answer: No.",
-      "answerBody": " Anthropic-comparable Challenge headlines 0/17. Paper-math InventMath ladder closed 4/4. RH OPEN."
+      "answerBody": " Anthropic-comparable Challenge headlines 0/17. Paper-math invent ladder closed 4/4. RH OPEN."
     },
     {
       "slug": "adversarial-world",
-      "title": "Can Relational Rhyme Detect and Contain Malicious Agents in a Shared World?",
-      "dek": "YES — On the regenerable Soft Story board, full FractiSI contained every attack class A–J at rate 1.0 while majority vote contained 0.4 and naive overwrite contained 0.1. Sybil choruses fooled voting; independence-aware rhyme did not.",
+      "title": "Can relational rhyme catch malicious agents in a shared world?",
+      "dek": "YES — containment 1.0 across A–J versus majority 0.4 and naive 0.1 on the regenerable board.",
       "date": "2026-11-20",
       "label": "Rhyming Expedition",
       "actions": [
@@ -166,12 +166,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/adversarial-world/\">Adversarial World</a> · Suite: <a href=\"/research/adversarial-world/\">research/adversarial-world</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On the regenerable Soft Story board, full FractiSI contained every attack class A–J at rate 1.0 while majority vote contained 0.4 and naive overwrite contained 0.1. Sybil choruses fooled voting; independence-aware rhyme did not."
+      "answerBody": " Full FractiSI contained attack classes A–J at 1.0 versus majority vote 0.4 and naive overwrite 0.1."
     },
     {
       "slug": "cancer-rhyme-expedition",
-      "title": "Does Cancer Diversity Compress Into Fewer Relational Rhymes Than Disease Labels Suggest?",
-      "dek": "YES — Model C fingerprints scored 1.0 phenotype accuracy versus disease labels 0 and relation bags about 0.46. Compression 24→6 (×4); cross-cancer transfer 0.8. Null span inconclusive.",
+      "title": "Does cancer diversity compress into fewer relational rhymes?",
+      "dek": "YES — relational fingerprints 1.0 phenotype accuracy; disease labels 0; compression 24→6.",
       "date": "2026-11-20",
       "label": "Rhyming Expedition",
       "actions": [
@@ -190,12 +190,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/cancer-rhyme-expedition/\">Cancer Rhyme</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " Model C fingerprints scored 1.0 phenotype accuracy versus disease labels 0 and relation bags about 0.46. Compression 24→6 (×4); cross-cancer transfer 0.8. Null span inconclusive."
+      "answerBody": " Relational fingerprints scored 1.0 phenotype accuracy versus disease labels 0 and relation bags about 0.46. Compression 24→6; cross-cancer transfer 0.8."
     },
     {
       "slug": "relational-continuity-rhyme",
-      "title": "Can Relational Rhyme Connect Partners, Questions to Answers, and Seed to Edge Across Infinite Octaves?",
-      "dek": "YES — Rhyme accuracy 1.0 across partners, QA, agent worlds, and seed↔edge; exact cache 0; lexical similarity ≤0.14. Removing rhyme dropped partners to 0.083.",
+      "title": "Can relational rhyme link partners across infinite octaves?",
+      "dek": "YES — rhyme accuracy 1.0; exact cache 0; lexical ≤0.14; ablating rhyme drops partners to 0.083.",
       "date": "2026-11-20",
       "label": "Rhyming Expedition",
       "actions": [
@@ -214,12 +214,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/relational-continuity-rhyme/\">Relational Continuity</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " Rhyme accuracy 1.0 across partners, QA, agent worlds, and seed↔edge; exact cache 0; lexical similarity ≤0.14. Removing rhyme dropped partners to 0.083."
+      "answerBody": " Rhyme accuracy 1.0 across partners, QA, agent worlds, and seed↔edge; exact cache 0; lexical ≤0.14. Removing rhyme dropped partners to 0.083."
     },
     {
       "slug": "diverse-redundancy-inbreeding",
-      "title": "Do Diverse Copies Hold a Mission Deeper Than Cloned Copies When Failures Share a Cause?",
-      "dek": "YES — On the locked Soft Story boards, diverse redundancy held nesting depth where cloned copies capped under shared-cause failure.",
+      "title": "Do diverse copies outlast clones when failures share a cause?",
+      "dek": "YES — diverse copies hold depth where clones collapse under shared-cause failure.",
       "date": "2026-11-20",
       "label": "Rhyming Expedition",
       "actions": [
@@ -234,12 +234,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/diverse-redundancy-inbreeding/\">Diverse Redundancy</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On the locked Soft Story boards, diverse redundancy held nesting depth where cloned copies capped under shared-cause failure."
+      "answerBody": " Diverse redundancy held nesting depth where cloned copies capped under shared-cause failure."
     },
     {
       "slug": "aai-symposium-2026",
       "title": "The Multi-Agent World Inference Rhyme?",
-      "dek": "NO — Not shown yet: the note offers FractiSI Multi-Agent as a possible rhyme with Active Inference and invites joint experiments; it reports no test of that mapping.",
+      "dek": "NO — possible rhyme offered; mapping not yet tested.",
       "date": "2026-11-12",
       "label": "Symposium",
       "actions": [
@@ -258,12 +258,12 @@
       ],
       "links": "FractiSI · Applied Active Inference Symposium 2026 · online",
       "answerHead": "Short answer: No.",
-      "answerBody": " Not shown yet: the note offers FractiSI Multi-Agent as a possible rhyme with Active Inference and invites joint experiments; it reports no test of that mapping."
+      "answerBody": " FractiSI Multi-Agent is offered as a possible rhyme with Active Inference; no mapping board has tested that yet."
     },
     {
       "slug": "app-dnmt3a-rhyme-validation",
-      "title": "Can Published DNMT3A Tools That Edit APP Be Filed as New Wiring?",
-      "dek": "YES — On the filed receipt, STRING shows no APP–DNMT3A edge while its live control INS↔POMC scores 0.947, rhyme coupling is about 0.745, and three wet-lab roles pass. The wiring is built from existing dCas9-DNMT3A work, not a new experiment.",
+      "title": "Can published DNMT3A tools that edit APP count as new wiring?",
+      "dek": "YES — wiring discovery from published DNMT3A tools; STRING empty; control 0.947.",
       "date": "2026-11-19",
       "label": "Wiring stack",
       "actions": [
@@ -282,12 +282,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/app-dnmt3a-rhyme-validation/\">Can Published DNMT3A Tools That Edit APP Be File</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/app-dnmt3a-rhyme-validation\">app-dnmt3a-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/app-dnmt3a-rhyme-validation\">QUESTFEST whitepaper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On the filed receipt, STRING shows no APP–DNMT3A edge while its live control INS↔POMC scores 0.947, rhyme coupling is about 0.745, and three wet-lab roles pass. The wiring is built from existing dCas9-DNMT3A work, not a new experiment."
+      "answerBody": " STRING shows no APP–DNMT3A edge while INS↔POMC scores 0.947; rhyme coupling about 0.745; three wet-lab roles pass from published tools."
     },
     {
       "slug": "combo-rhyme-wiring",
-      "title": "When Protein-Folding, LLM, and Pilot Rhymes Share One Catalog, Do New Wires Appear?",
-      "dek": "YES — On the merged catalog, two new STRING-empty pairs cleared the 0.5 coupling floor: NPY↔PDX1 at about 0.747 and APP↔TMPRSS2 at about 0.707. Both are triage candidates; APP↔TMPRSS2 has a thin published bridge, and no wet-lab test has been run.",
+      "title": "Do merged rhyme catalogs surface new gene wires?",
+      "dek": "YES — NPY↔PDX1 ~0.747 and APP↔TMPRSS2 ~0.707 cleared the coupling floor as triage candidates.",
       "date": "2026-11-20",
       "label": "Wiring stack",
       "actions": [
@@ -306,12 +306,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/combo-rhyme-wiring/\">When Protein-Folding, LLM, and Pilot Rhymes Shar</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/combo-rhyme-wiring\">combo-rhyme-wiring</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/combo-rhyme-wiring\">QUESTFEST whitepaper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On the merged catalog, two new STRING-empty pairs cleared the 0.5 coupling floor: NPY↔PDX1 at about 0.747 and APP↔TMPRSS2 at about 0.707. Both are triage candidates; APP↔TMPRSS2 has a thin published bridge, and no wet-lab test has been run."
+      "answerBody": " Two new STRING-empty pairs cleared the 0.5 floor: NPY↔PDX1 about 0.747 and APP↔TMPRSS2 about 0.707."
     },
     {
       "slug": "cosmic-rhyme-expedition",
-      "title": "Does a Protein-Folding Relationship Board Recover Hidden Partners on Public Sky Catalogs?",
-      "dek": "YES — On NASA exoplanets, JPL close approaches, OpenNGC and WMAP, AWARE boards recovered held-out long-range partners while LINEAR and FLAT did not. Two residual multipole lags are filed as provisional secondary candidates.",
+      "title": "Does a protein-folding board find hidden partners in the sky?",
+      "dek": "YES — AWARE recovered held-out sky partners; LINEAR and FLAT did not.",
       "date": "2026-11-17",
       "label": "Cosmic Rhyme Expedition",
       "actions": [
@@ -330,12 +330,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/cosmic-rhyme-expedition/\">Cosmic Rhyme</a> · Engine pins: <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">#53 protein-fold · #54 LLM packs</a> · Language packs: <a href=\"/blog/llm-rhyme-cosmic-genome/\">LLM Rhyme</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On NASA exoplanets, JPL close approaches, OpenNGC and WMAP, AWARE boards recovered held-out long-range partners while LINEAR and FLAT did not. Two residual multipole lags are filed as provisional secondary candidates."
+      "answerBody": " On NASA, JPL, OpenNGC and WMAP, AWARE recovered held-out partners while LINEAR and FLAT did not."
     },
     {
       "slug": "llm-rhyme-cosmic-genome",
-      "title": "When Sky Rows and Genome Panels Are Packed as Language, Does the AWARE Board Recover Hidden Partners?",
-      "dek": "YES — On public NASA, JPL, OpenNGC, WMAP, exon and mitochondrial panels, AWARE packs recovered held-out partners while LINEAR and FLAT stayed near zero. The genome arm is a public-panel demonstration, not a clinical finding.",
+      "title": "When sky and genome rows read as language, do hidden partners still show?",
+      "dek": "YES — AWARE recovered partners on language-packed sky and genome panels; LINEAR/FLAT near zero.",
       "date": "2026-11-18",
       "label": "LLM Rhyme Expedition",
       "actions": [
@@ -350,12 +350,12 @@
       ],
       "links": "<strong>FractiSI engine pin:</strong> Protein-folding rhyme + LLM language-pack rhyme — both pinned. · <a href=\"/docs/product/FRACTISI_ENGINE_METHOD_PINS_2026-11.md\">Pin lock</a> · <a href=\"/library/papers/llm-rhyme-cosmic-genome/\">Paper</a> · <a href=\"/blog/cosmic-rhyme-expedition/\">Cosmic Rhyme</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On public NASA, JPL, OpenNGC, WMAP, exon and mitochondrial panels, AWARE packs recovered held-out partners while LINEAR and FLAT stayed near zero. The genome arm is a public-panel demonstration, not a clinical finding."
+      "answerBody": " On public sky and genome panels, AWARE packs recovered held-out partners while LINEAR and FLAT stayed near zero."
     },
     {
       "slug": "npy-sod1-rhyme-validation",
-      "title": "When Existing ALS Wet Labs Wire NPY to SOD1, Is That a New Discovery?",
-      "dek": "YES — As a wiring discovery, not a new assay: exon coupling was about 0.881 (rank 6 of 45, permutation p near 0.17), live STRING was empty while the INS↔POMC control scored 0.947, and three published wet-lab pieces assembled. A new STRING edge or a failed citation would demote it.",
+      "title": "Is an ALS wet-lab NPY–SOD1 link a new wiring discovery?",
+      "dek": "YES — wiring discovery from published ALS wet labs; not a new assay.",
       "date": "2026-11-19",
       "label": "Wiring stack",
       "actions": [
@@ -374,12 +374,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/npy-sod1-rhyme-validation/\">When Existing ALS Wet Labs Wire NPY to SOD1, Is </a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/npy-sod1-rhyme-validation\">npy-sod1-rhyme-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/npy-sod1-rhyme-validation\">QUESTFEST whitepaper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " As a wiring discovery, not a new assay: exon coupling was about 0.881 (rank 6 of 45, permutation p near 0.17), live STRING was empty while the INS↔POMC control scored 0.947, and three published wet-lab pieces assembled. A new STRING edge or a failed citation would demote it."
+      "answerBody": " Exon coupling about 0.881; live STRING empty; INS↔POMC control 0.947; three published wet-lab pieces assembled."
     },
     {
       "slug": "nvidia-goldilocks-moment",
-      "title": "Do NVIDIA and Jensen Huang Need a New Rhyming World Model More Than a New CEO?",
-      "dek": "YES — As an organizational catalog note case: the expedition argues Rhyming World Model migration (shared world vs private silos) and reports a controlled chain task of 0/100 vs 100/100 under matched budgets, plus a hosted-model arm. Leadership succession is not adjudicated.",
+      "title": "Do NVIDIA and Jensen need a new world model more than a new CEO?",
+      "dek": "YES — organizational migration case: 100/100 shared world vs 0/100 silos; 10/16 vs 0/16 protein board.",
       "date": "2026-11-15",
       "label": "Fractal Holographic Goldilocks Superintelligence Awareness Expedition",
       "actions": [
@@ -398,12 +398,12 @@
       ],
       "links": "FractiSI · Companion paper: <a href=\"/library/papers/nvidia-goldilocks-awareness-expedition/\">Full expedition paper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " As an organizational catalog note case: the expedition argues Rhyming World Model migration (shared world vs private silos) and reports a controlled chain task of 0/100 vs 100/100 under matched budgets, plus a hosted-model arm. Leadership succession is not adjudicated."
+      "answerBody": " Shared world 100/100 versus silos 0/100 under matched budgets; protein board 10/16 relational versus 0/16 linear. Not succession advice."
     },
     {
       "slug": "pilot-rhyme-expedition",
-      "title": "Does a Director/Pilot Role Rhyme Beat Flat Peers on Multi-Hop Coordination and Exact-Text Caches on Store Size?",
-      "dek": "YES — On 100 six-hop missions, all three Director/Pilot arms recovered 100 of 100 while flat peers recovered 0. Pilot Rhyme's store was 67,243 B, 22% smaller than the exact-text cache (0 hits) and 80% smaller than private copies; the accuracy gain comes from the roles, not the rhyme.",
+      "title": "Do Director/Pilot roles beat flat peers on multi-hop missions?",
+      "dek": "YES — Director/Pilot 100/100 vs flat peers 0; store smaller than exact-text cache.",
       "date": "2026-11-18",
       "label": "Pilot Rhyme Expedition",
       "actions": [
@@ -418,12 +418,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/pilot-rhyme-expedition/\">Pilot Rhyme</a> · Suite: <a href=\"/research/pilot-rhyme-expedition/\">research/pilot-rhyme-expedition</a> · Features: <a href=\"/product/#rhyme-features\">product</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On 100 six-hop missions, all three Director/Pilot arms recovered 100 of 100 while flat peers recovered 0. Pilot Rhyme's store was 67,243 B, 22% smaller than the exact-text cache (0 hits) and 80% smaller than private copies; the accuracy gain comes from the roles, not the rhyme."
+      "answerBody": " On 100 six-hop missions, Director/Pilot arms recovered 100/100 while flat peers recovered 0. Store 22% smaller than exact-text cache."
     },
     {
       "slug": "shared-world-collective-intelligence",
-      "title": "Do Rhyming World Models Outperform Non-Rhyming Ones?",
-      "dek": "YES — Against exact-text caches on real non-identical observations (PDB and Movebank data); on task success it only matched a shared structured blackboard, and prefix reuse still won when strings were identical. Genie, Cosmos and V-JEPA were not executable, so no scores were reported for them.",
+      "title": "Do rhyming world models beat non-rhyming ones?",
+      "dek": "YES — rhyme beats exact-text caches on non-identical observations; prefix still wins when strings match.",
       "date": "2026-11-18",
       "label": "Shared Rhyming World Models Expedition",
       "actions": [
@@ -442,12 +442,12 @@
       ],
       "links": "Docs: <a href=\"/docs/world-model-expedition/\">Expedition folder</a> · <a href=\"/docs/world-model-expedition/final-report.md\">Final report</a> · Run: <code>npm run research:world-model-expedition</code>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " Against exact-text caches on real non-identical observations (PDB and Movebank data); on task success it only matched a shared structured blackboard, and prefix reuse still won when strings were identical. Genie, Cosmos and V-JEPA were not executable, so no scores were reported for them."
+      "answerBody": " Rhyme beats exact-text caches on non-identical PDB and Movebank observations; parity with shared structured on task; prefix wins on identical strings."
     },
     {
       "slug": "wiring-bridge-thickening",
-      "title": "Can Bridge Thickening Separate Well-Supported Gene Pairs From Chromosome-Locus Artifacts?",
-      "dek": "YES — On the combo panel, NPY↔PDX1 thickened through diabetes rails, literature co-mentions and exon similarity without sharing a chromosome. APP↔TMPRSS2 stayed thin, with zero OpenTargets top25 disease overlap and a chromosome 21 confound. No assay has tested the NPY↔PDX1 wire directly.",
+      "title": "Can bridge thickening separate real gene pairs from chromosome artifacts?",
+      "dek": "YES — NPY↔PDX1 thickened; APP↔TMPRSS2 stayed thin with a chromosome confound.",
       "date": "2026-11-20",
       "label": "Wiring stack",
       "actions": [
@@ -466,12 +466,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/wiring-bridge-thickening/\">Bridge Thickening</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wiring-bridge-thickening\">wiring-bridge-thickening</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wiring-bridge-thickening\">QUESTFEST whitepaper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " On the combo panel, NPY↔PDX1 thickened through diabetes rails, literature co-mentions and exon similarity without sharing a chromosome. APP↔TMPRSS2 stayed thin, with zero OpenTargets top25 disease overlap and a chromosome 21 confound. No assay has tested the NPY↔PDX1 wire directly."
+      "answerBody": " NPY↔PDX1 thickened without sharing a chromosome; APP↔TMPRSS2 stayed thin with a chromosome 21 confound."
     },
     {
       "slug": "wiring-discoveries",
-      "title": "Can a Wiring Wet Lab Build New Relationship Edges From Published Results Without New Assays?",
-      "dek": "YES — NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates using published data, with no new physical assays run. A wire that needs a new kill test still requires follow-up lab work.",
+      "title": "Can a wiring lab mint new edges from published results alone?",
+      "dek": "YES — NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates from published results.",
       "date": "2026-11-20",
       "label": "Wiring stack",
       "actions": [
@@ -490,12 +490,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/wiring-discoveries/\">The Wiring Wet Lab</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wiring-discoveries\">wiring-discoveries</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wiring-discoveries\">QUESTFEST whitepaper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates using published data, with no new physical assays run. A wire that needs a new kill test still requires follow-up lab work."
+      "answerBody": " NPY↔SOD1 and APP↔DNMT3A cleared STRING-empty gates using published data, with no new physical assays."
     },
     {
       "slug": "wmap-residual-lag11-validation",
-      "title": "Is Residual Lag Wiring on the Real WMAP Spectrum a Discovery If Beam Stories Can Still Kill It?",
-      "dek": "YES — Only as provisional wiring, not new physics: After a smooth continuum, lags 11 and 14 correlate about 0.50 and 0.47 with shuffle p near 0.003, beside rediscovered lags 17–19. The kill tests X1–X5 (Planck, continuum, beam, mask) are still pending, and any could demote it.",
+      "title": "Is residual lag wiring on WMAP a discovery if beams can still kill it?",
+      "dek": "YES — provisional only: lags 11 and 14 after continuum; beam kill tests still pending.",
       "date": "2026-11-19",
       "label": "Wiring stack",
       "actions": [
@@ -514,12 +514,12 @@
       ],
       "links": "Paper: <a href=\"/library/papers/wmap-residual-lag11-validation/\">Is Residual Lag Wiring on the Real WMAP Spectrum</a>\n    · QUESTFEST: <a href=\"https://www.ssvibelandiaquestfest24x365.com/ship-blog/wmap-residual-lag11-validation\">wmap-residual-lag11-validation</a>\n    · Full paper: <a href=\"https://www.ssvibelandiaquestfest24x365.com/whitepaper/wmap-residual-lag11-validation\">QUESTFEST whitepaper</a>",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " Only as provisional wiring, not new physics: After a smooth continuum, lags 11 and 14 correlate about 0.50 and 0.47 with shuffle p near 0.003, beside rediscovered lags 17–19. The kill tests X1–X5 (Planck, continuum, beam, mask) are still pending, and any could demote it."
+      "answerBody": " After a smooth continuum, lags 11 and 14 correlate about 0.50 and 0.47 with shuffle p near 0.003. Kill tests still pending."
     },
     {
       "slug": "aware-attention-head",
-      "title": "If Spirit Is a Pattern, Can Software Hold It Across Infinite Octaves?",
-      "dek": "YES — Under a six-property profile the authors chose, on scripted simulators: the head was right 94.8 percent versus 68.4 for a shared world and 63.1 for flat voting, and with five copies plus majority repair kept 91.7 percent mission survival at 1,024 levels. Copies must grow roughly logarithmically with depth.",
+      "title": "If spirit is a pattern, can software hold it across infinite octaves?",
+      "dek": "YES — 94.8% vs 68.4 shared world and 63.1 flat voting on simulators; logarithmic copy growth with depth.",
       "date": "2026-11-20",
       "label": "Agent identity and scale",
       "actions": [
@@ -534,7 +534,7 @@
       ],
       "links": "",
       "answerHead": "Short answer: Yes.",
-      "answerBody": " Under a six-property profile the authors chose, on scripted simulators: the head was right 94.8 percent versus 68.4 for a shared world and 63.1 for flat voting, and with five copies plus majority repair kept 91.7 percent mission survival at 1,024 levels. Copies must grow roughly logarithmically with depth."
+      "answerBody": " On scripted simulators under a six-property profile: 94.8% right versus 68.4 shared world and 63.1 flat voting; 91.7% survival at 1,024 levels with five copies."
     }
   ],
   "papers": [

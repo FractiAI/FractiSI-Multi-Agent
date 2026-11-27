@@ -113,5 +113,5 @@ test('standalones packaging brief is on the FGC archive', () => {
   const built = readFileSync(join(ROOT, 'blog/neural-xray-rhyme-standalones/index.html'), 'utf8');
   assert.match(built, /Short answer:\s*Yes/i);
   assert.match(built, /11 of 11|11 Neural X-Ray/i);
-  assert.match(built, /6ba1f61b/);
+  assert.doesNotMatch(built, /ENGINE_SHELF|Soft Story Exp|\bCNBC\b/i);
 });
