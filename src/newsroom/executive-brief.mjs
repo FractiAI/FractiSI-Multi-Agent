@@ -185,18 +185,19 @@ export function fallbackBirdsEye(entry) {
   const dek = String(entry.dek || '').replace(/^(YES|NO)\s*[—–-]\s*/i, '').trim();
   const lead = body || dek;
   if (lead) {
-    return `<p>${esc(lead)}</p><p>This brief situates that finding in the larger emerging pattern of Fractal Holographic Goldilocks research — shared organizational rhymes across substrates — without upgrading Soft Story boards into settled physics.</p>`;
+    return `<p>${esc(lead)}</p><p>That is the executive takeaway from this Fractal Goldilocks Channel (FGC) brief. Soft Story means a regenerable computational lab receipt under a locked seed — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
   }
-  return `<p>${esc(entry.title || 'This development')} sits in the FractiSI research pattern of testing whether shared organizational structure travels across domains under regenerable lab conditions.</p>`;
+  return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under regenerable FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
 }
 
 /**
  * Default synthesis paragraph — framing only, not new measurements.
+ * Prefer authoring a topic-specific synthesis in the fragment; this is a last resort.
  */
 export function fallbackSynthesis(entry) {
   const label = entry.label ? esc(entry.label) : 'this research thread';
-  return `<p>Fractal Holographic Goldilocks synthesis treats <strong>${label}</strong> as one node in a nested rhyme: the same organizational questions recur in multi-agent systems, wet-lab wiring, sky panels, and genome boards. Cross-domain rhyme here means reusable structure under matched criteria — not identity of substrates.</p>
-<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> read the lab receipts as evidence about organization and representation, then keep Soft Story, hypothesis, and speculation in separate lanes.</p>`;
+  return `<p><strong>${label}</strong> fits the Fractal Holographic Goldilocks reading only as organizational structure under matched criteria — the same class of question that shows up in multi-agent coordination, wet-lab wiring, sky panels, and genome boards. Rhyme means reusable structure, not identity of substrates.</p>
+<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat regenerable Soft Story receipts as evidence about how information is organized, then keep Soft Story, hypothesis, and speculation in separate lanes from settled fact.</p>`;
 }
 
 /**
@@ -213,10 +214,10 @@ export function fallbackInsights(remainderHtml) {
 }
 
 export function fallbackImplications() {
-  return `<p><strong>Technology and systems.</strong> Shared worlds, wiring, and rhyme boards change how agents and instruments organize context — often more than how a single model scores in isolation.</p>
-<p><strong>Organizations.</strong> Architecture beats personality swaps: the Rhyming World Model (roles, boundaries, shared maps) is the lever that keeps capable agents useful without suppressing them.</p>
-<p><strong>Society and human life.</strong> Clearer signal/noise labeling reduces the cost of following research claims when rent, jobs, and trust already feel tight.</p>
-<p><strong>AI.</strong> Dense briefs plus papers give downstream AIs a navigable catalog: brief for orientation, paper for regenerable depth.</p>`;
+  return `<p><strong>Technology and systems.</strong> How you organize shared context often moves the needle more than swapping a single model scoreboard.</p>
+<p><strong>Organizations.</strong> Architecture — roles, boundaries, shared maps — is the lever that keeps capable agents useful without suppressing them. Personality swaps rarely fix a brittle world model.</p>
+<p><strong>Society and human life.</strong> Clear labels on what is measured versus what is interpretation cut the cost of trusting research claims when budgets, jobs, and public trust already feel tight.</p>
+<p><strong>AI.</strong> FGC briefs orient; papers carry regenerable depth. Downstream agents and human readers both need that split.</p>`;
 }
 
 /**
@@ -226,10 +227,10 @@ export function fallbackOrientation(entry) {
   const actions = entry.actions || [];
   const lines = [
     '<ul class="brief-orientation-list">',
-    '<li><strong>Understand.</strong> Keep the Short answer as the executive gate; open the paper for regenerable methods and honesty rails.</li>',
+    '<li><strong>Understand.</strong> Treat the Short answer as the executive gate, then open the paper for regenerable methods and honesty rails.</li>',
     '<li><strong>Reconsider.</strong> Ask whether your stack organizes relationships (shared world / wiring) or only streams linear tokens.</li>',
-    '<li><strong>Watch.</strong> Kill boards, matched budgets, and seed-locked Soft Story receipts — not marketing scoreboards.</li>',
-    '<li><strong>Prepare.</strong> Prefer architectures that cut redundancy without cutting accuracy under the same budget.</li>',
+    '<li><strong>Watch.</strong> Prefer kill boards, matched budgets, and seed-locked Soft Story receipts over marketing scoreboards.</li>',
+    '<li><strong>Prepare.</strong> Favor architectures that cut redundancy without cutting accuracy under the same budget.</li>',
   ];
   if (actions.length) {
     const links = actions
@@ -238,7 +239,7 @@ export function fallbackOrientation(entry) {
     lines.push(`<li><strong>Do.</strong> ${links}.</li>`);
   } else {
     lines.push(
-      '<li><strong>Do.</strong> Read the related briefs, then open the supporting paper before changing a production path.</li>',
+      '<li><strong>Do.</strong> Read the related FGC briefs, then open the supporting paper before changing a production path.</li>',
     );
   }
   lines.push('</ul>');
