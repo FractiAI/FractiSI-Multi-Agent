@@ -18,7 +18,7 @@ const HIERARCHY_IDS = [
   'supporting-papers',
 ];
 
-/** Engineering dump patterns banned from FGC executive news bodies. */
+/** Engineering dump / parallel-brief patterns banned from FGC news story bodies. */
 const FORBIDDEN_BODY = [
   { re: /ENGINE_SHELF/i, label: 'ENGINE_SHELF' },
   { re: /\bCNBC\b/i, label: 'CNBC' },
@@ -28,6 +28,10 @@ const FORBIDDEN_BODY = [
   { re: /\bSoft Story\b/i, label: 'Soft Story jargon' },
   { re: /\bPR\s*#\s*\d+/i, label: 'PR number as story' },
   { re: /brief-orientation-list/, label: 'orientation checklist' },
+  { re: /\bmerge\s+<code>[0-9a-f]{7,}\b/i, label: 'merge SHA in story' },
+  { re: /commit\s+<code>[0-9a-f]{7,}/i, label: 'commit SHA in story' },
+  { re: /\bPlayer 1\b/i, label: 'Player 1 in public story' },
+  { re: /\bREADME\.md\b/i, label: 'README.md in story body' },
 ];
 
 /** @param {string} html */
@@ -89,6 +93,9 @@ export function checkExecutiveBriefs(root = REPO_ROOT) {
     }
     if (/How to use this channel|Brief reading rails|Living executive intelligence dashboard/i.test(html)) {
       problems.push('blog/index.html: README how-to / reading-rails chrome retired');
+    }
+    if (/Active briefs|Brief archive/i.test(html)) {
+      problems.push('blog/index.html: parallel brief product chrome retired — use On the wire / Story archive');
     }
     if (/weather channel/i.test(html)) {
       problems.push('blog/index.html: weather-channel framing retired for executive briefs');

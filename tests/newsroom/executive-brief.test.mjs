@@ -95,11 +95,12 @@ test('FGC index reads as a standard newsroom head', () => {
   assert.match(html, /Executive news for leaders/);
   assert.match(html, /Yes\/No headlines/);
   assert.match(html, /Papers hold the deep layer/);
-  assert.match(html, /Brief archive/);
-  assert.match(html, /Active briefs/);
+  assert.match(html, /Story archive/);
+  assert.match(html, /On the wire/);
   assert.doesNotMatch(html, /Living executive intelligence dashboard/);
   assert.doesNotMatch(html, /How to use this channel/);
   assert.doesNotMatch(html, /Brief reading rails/);
+  assert.doesNotMatch(html, /Active briefs|Brief archive/);
   // Player 1: never name the cable network brand in FGC surfaces.
   const cableBrand = String.fromCharCode(67, 78, 66, 67);
   assert.doesNotMatch(html, new RegExp(cableBrand, 'i'));
@@ -107,11 +108,12 @@ test('FGC index reads as a standard newsroom head', () => {
   assert.equal(/!/.test(html.match(/<header class="nr-hero">[\s\S]*?<\/header>/)?.[0] || ''), false);
 });
 
-test('standalones packaging brief is on the FGC archive', () => {
+test('standalones packaging story is on the FGC archive', () => {
   const index = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
   assert.match(index, /neural-xray-rhyme-standalones/);
   const built = readFileSync(join(ROOT, 'blog/neural-xray-rhyme-standalones/index.html'), 'utf8');
   assert.match(built, /Short answer:\s*Yes/i);
   assert.match(built, /11 of 11|11 Neural X-Ray/i);
-  assert.doesNotMatch(built, /ENGINE_SHELF|Soft Story Exp|\bCNBC\b/i);
+  assert.doesNotMatch(built, /ENGINE_SHELF|Soft Story Exp|\bCNBC\b|\bPR\s*#\s*\d+/i);
+  assert.doesNotMatch(built, /FGC brief/i);
 });

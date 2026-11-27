@@ -322,7 +322,7 @@ function neighbors(kind, slug, group) {
     .slice(0, 2);
   return pool.map((x) => ({
     href: kind === 'paper' ? `/library/papers/${x.slug}/` : `/blog/${x.slug}/`,
-    kind: kind === 'paper' ? 'Paper' : 'FGC brief',
+    kind: kind === 'paper' ? 'Paper' : 'FGC story',
     title: x.title,
   }));
 }
@@ -351,11 +351,11 @@ function buildPaper(entry) {
     ['Reading time', `${Math.max(1, Math.round(words(`${answerHtml || ''}${html}`) / 220))} min`],
   ].filter(Boolean);
   const actions = [
-    peerBlog ? `<a class="btn-primary" href="/blog/${entry.slug}/">Read the FGC brief</a>` : '',
+    peerBlog ? `<a class="btn-primary" href="/blog/${entry.slug}/">Read the story</a>` : '',
     `<a class="btn-ghost" href="/library/">All papers</a>`,
   ].join('\n          ');
   const related = [];
-  if (peerBlog) related.push({ href: `/blog/${entry.slug}/`, kind: 'FGC brief', title: peerBlog.title });
+  if (peerBlog) related.push({ href: `/blog/${entry.slug}/`, kind: 'FGC story', title: peerBlog.title });
   related.push(...neighbors('paper', entry.slug, entry.group).slice(0, peerBlog ? 2 : 3));
   if (!answerHtml) {
     throw new Error(`paper ${entry.slug}: missing Yes/No short answer lead under title`);
@@ -455,7 +455,7 @@ function buildBlogIndex() {
   const briefing = live
     .map(
       (i) => `        <a class="nr-brief" href="${esc(i.href)}">
-          <span class="nr-brief-kicker">Active brief</span>
+          <span class="nr-brief-kicker">Live</span>
           <span class="nr-brief-headline">${esc(i.headline)}</span>
           <time datetime="${esc(i.date)}">${esc(shortDate(i.date))}</time>
         </a>`,
@@ -485,14 +485,14 @@ function buildBlogIndex() {
         <h1>Fractal Goldilocks Channel</h1>
         <p class="dek">Executive news for leaders. Yes/No headlines, a short answer, and a wire body — news articles, not README notes. Papers hold the deep layer. Also for explorers, scientists, builders, technologists, and AIs.</p>
       </header>
-      <section class="nr-live" aria-label="Active briefs">
-        <h2 class="nr-section-title">Active briefs · past 24 hours</h2>
+      <section class="nr-live" aria-label="On the wire">
+        <h2 class="nr-section-title">On the wire · past 24 hours</h2>
         <div class="nr-briefing">
 ${briefing}
         </div>
       </section>
-      <section class="nr-bulletin" aria-label="Brief archive">
-        <h2 class="nr-section-title">Brief archive</h2>
+      <section class="nr-bulletin" aria-label="Story archive">
+        <h2 class="nr-section-title">Story archive</h2>
         <div class="nr-bulletin-list">
 ${bulletin}
         </div>
@@ -523,7 +523,7 @@ function buildLibraryIndex() {
       return `        <article class="paper-card">
           <h3><a href="/library/papers/${p.slug}/">${esc(p.title)}</a></h3>
           <p>${esc(trimDek(p.summary || p.dek || '', 200))}</p>
-          <p class="paper-card-links"><a href="/library/papers/${p.slug}/">Paper</a>${blog ? ` · <a href="/blog/${p.slug}/">FGC brief</a>` : ''}</p>
+          <p class="paper-card-links"><a href="/library/papers/${p.slug}/">Paper</a>${blog ? ` · <a href="/blog/${p.slug}/">FGC story</a>` : ''}</p>
         </article>`;
     }).join('\n');
     return `      <section class="index-group">

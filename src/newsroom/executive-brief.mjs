@@ -187,9 +187,9 @@ export function fallbackBirdsEye(entry) {
   const dek = String(entry.dek || '').replace(/^(YES|NO)\s*[—–-]\s*/i, '').trim();
   const lead = body || dek;
   if (lead) {
-    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) brief. Lab figures cited here are regenerable receipts under locked conditions — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
+    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) news story. Lab figures cited here were measured under locked conditions — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
   }
-  return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under regenerable FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
+  return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under locked FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
 }
 
 /**
@@ -199,7 +199,7 @@ export function fallbackBirdsEye(entry) {
 export function fallbackSynthesis(entry) {
   const label = entry.label ? esc(entry.label) : 'this research thread';
   return `<p><strong>${label}</strong> fits the Fractal Holographic Goldilocks reading only as organizational structure under matched criteria — the same class of question that shows up in multi-agent coordination, wet-lab wiring, sky panels, and genome boards. Rhyme means reusable structure, not identity of substrates.</p>
-<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat regenerable lab receipts as evidence about how information is organized, then keep measurement, hypothesis, and speculation in separate lanes from settled fact.</p>`;
+<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat locked lab measurements as evidence about how information is organized, then keep measurement, hypothesis, and speculation in separate lanes from settled fact.</p>`;
 }
 
 /**
@@ -209,17 +209,17 @@ export function fallbackSynthesis(entry) {
 export function fallbackInsights(remainderHtml) {
   const cleaned = String(remainderHtml || '').trim();
   if (!cleaned) {
-    return `<div data-signal="interpretation"><p>See the supporting paper for the full evidence table. This brief keeps measured results and Fractal Holographic Goldilocks interpretation on separate rails.</p></div>`;
+    return `<div data-signal="interpretation"><p>See the supporting paper for the full evidence table. This story keeps measured results and Fractal Holographic Goldilocks interpretation on separate rails.</p></div>`;
   }
   return `<div data-signal="experimental">${cleaned}</div>
-<div data-signal="interpretation"><p><strong>Fractal Holographic Goldilocks interpretation:</strong> treat the blocks above as organizational evidence under regenerable conditions. Do not promote them into unfinished physics, clinical, or production claims.</p></div>`;
+<div data-signal="interpretation"><p><strong>Fractal Holographic Goldilocks interpretation:</strong> treat the blocks above as organizational evidence under locked conditions. Do not promote them into unfinished physics, clinical, or production claims.</p></div>`;
 }
 
 export function fallbackImplications() {
   return `<p><strong>Technology and systems.</strong> How you organize shared context often moves the needle more than swapping a single model scoreboard.</p>
 <p><strong>Organizations.</strong> Architecture — roles, boundaries, shared maps — is the lever that keeps capable agents useful without suppressing them. Personality swaps rarely fix a brittle world model.</p>
 <p><strong>Society and human life.</strong> Clear labels on what is measured versus what is interpretation cut the cost of trusting research claims when budgets, jobs, and public trust already feel tight.</p>
-<p><strong>AI.</strong> FGC briefs orient; papers carry regenerable depth. Downstream agents and human readers both need that split.</p>`;
+<p><strong>AI.</strong> FGC stories orient; papers carry depth. Downstream agents and human readers both need that split.</p>`;
 }
 
 /**
@@ -228,8 +228,8 @@ export function fallbackImplications() {
 export function fallbackOrientation(entry) {
   const actions = entry.actions || [];
   const parts = [
-    '<p>Treat the Short answer as the gate, then open the paper for regenerable methods and honesty rails. Ask whether your stack organizes relationships in a shared world, or only streams private copies.</p>',
-    '<p>Prefer matched budgets and seed-locked lab receipts over marketing scoreboards. Favor architectures that cut redundancy without cutting accuracy under the same budget.</p>',
+    '<p>Treat the Short answer as the gate, then open the paper for methods and honesty rails. Ask whether your stack organizes relationships in a shared world, or only streams private copies.</p>',
+    '<p>Prefer matched budgets and seed-locked lab measurements over marketing scoreboards. Favor architectures that cut redundancy without cutting accuracy under the same budget.</p>',
   ];
   if (actions.length) {
     const links = actions
@@ -238,7 +238,7 @@ export function fallbackOrientation(entry) {
     parts.push(`<p>${links}</p>`);
   } else {
     parts.push(
-      '<p>Read the related FGC briefs, then open the supporting paper before changing a production path.</p>',
+      '<p>Read the related FGC stories, then open the supporting paper before changing a production path.</p>',
     );
   }
   return parts.join('\n');
