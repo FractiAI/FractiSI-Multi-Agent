@@ -8,6 +8,7 @@ import { checkSiteLinks } from './site-links.mjs';
 import { checkTestMirror } from './test-mirror.mjs';
 import { checkThinScripts } from './thin-scripts.mjs';
 import { checkYesNoPapers } from './yes-no-papers.mjs';
+import { checkExecutiveBriefs } from './executive-briefs.mjs';
 
 /** @param {string} [root] */
 export function runAllGates(root) {
@@ -21,5 +22,6 @@ export function runAllGates(root) {
     checkSiteLinks(root),
     checkResearchPaper(root),
     checkYesNoPapers(root),
+    checkExecutiveBriefs(root),
   ];
 }

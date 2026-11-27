@@ -1,0 +1,96 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  BRIEF_HIERARCHY,
+  BRIEF_SECTIONS,
+  CORE_ORIENTATION,
+  SIGNAL_KINDS,
+  builtBriefLooksComplete,
+  decorateSignalBlocks,
+  parseBriefSections,
+  resolveBriefContent,
+} from '../../src/newsroom/executive-brief.mjs';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
+
+test('brief hierarchy labels are locked', () => {
+  assert.deepEqual(BRIEF_HIERARCHY, [
+    'EXECUTIVE BRIEF',
+    "BIRD'S-EYE SYNTHESIS",
+    'KEY INSIGHTS',
+    'IMPLICATIONS',
+    'WHAT TO WATCH/DO',
+    'RELATED RHYMES',
+    'SUPPORTING PAPERS',
+  ]);
+  assert.equal(BRIEF_SECTIONS.length, 5);
+  assert.equal(SIGNAL_KINDS.length, 5);
+  assert.match(CORE_ORIENTATION, /Read the brief → follow the rhyme → open the paper/);
+  assert.equal(/!/.test(CORE_ORIENTATION), false);
+});
+
+test('parseBriefSections reads data-brief markers', () => {
+  const html = `
+<section data-brief="birds-eye"><p>Eye</p></section>
+<section data-brief="synthesis"><p>Syn</p></section>
+<section data-brief="insights"><div data-signal="fact"><p>F</p></div></section>
+<section data-brief="implications"><p>Imp</p></section>
+<section data-brief="orientation"><p>Do</p></section>
+`;
+  const { sections, structured } = parseBriefSections(html);
+  assert.equal(structured, true);
+  assert.match(sections['birds-eye'], /Eye/);
+  assert.match(sections.insights, /data-signal="fact"/);
+});
+
+test('decorateSignalBlocks labels taxonomy without inventing claims', () => {
+  const out = decorateSignalBlocks('<div data-signal="experimental"><p>0/16 vs 10/16</p></div>');
+  assert.match(out, /brief-signal-kind">Experimental evidence/);
+  assert.match(out, /0\/16 vs 10\/16/);
+  assert.equal(/!/.test(out), false);
+});
+
+test('resolveBriefContent fills gaps from manifest only', () => {
+  const { sections, structured } = resolveBriefContent('<p>Only remnant.</p>', {
+    title: 'Is X true?',
+    answerBody: ' Measured board under seed.',
+    dek: 'YES — measured board under seed.',
+    label: 'Demo',
+    actions: [{ href: '/library/papers/demo/', text: 'Paper' }],
+  });
+  assert.equal(structured, false);
+  assert.match(sections['birds-eye'], /Measured board under seed/);
+  assert.match(sections.synthesis, /Fractal Holographic Goldilocks/);
+  assert.match(sections.insights, /Only remnant/);
+  assert.match(sections.orientation, /library\/papers\/demo/);
+});
+
+test('every built FGC brief carries the executive hierarchy and yes/no lead', () => {
+  const manifest = JSON.parse(readFileSync(join(ROOT, 'content/manifest.json'), 'utf8'));
+  assert.ok(manifest.blog.length >= 1);
+  for (const entry of manifest.blog) {
+    const built = join(ROOT, 'blog', entry.slug, 'index.html');
+    assert.ok(existsSync(built), `missing ${entry.slug}`);
+    const html = readFileSync(built, 'utf8');
+    const check = builtBriefLooksComplete(html);
+    assert.equal(check.ok, true, `${entry.slug} missing ${check.missing.join(',')}`);
+    assert.match(html, /Executive brief · Fractal Goldilocks Channel/);
+    assert.match(html, /class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i);
+    assert.match(html, /Signal taxonomy/);
+    assert.equal(/!/.test(html.match(/<p class="brief-path-line">[\s\S]*?<\/p>/)?.[0] || ''), false);
+  }
+});
+
+test('FGC dashboard reads as executive intelligence surface', () => {
+  const html = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
+  assert.match(html, /Living executive intelligence dashboard/);
+  assert.match(html, /How to use this channel/);
+  assert.match(html, /Brief archive/);
+  assert.match(html, /Active briefs/);
+  assert.match(html, /Read the brief → follow the rhyme → open the paper/);
+  assert.doesNotMatch(html, /weather channel/i);
+  assert.equal(/!/.test(html.match(/<header class="nr-hero">[\s\S]*?<\/header>/)?.[0] || ''), false);
+});

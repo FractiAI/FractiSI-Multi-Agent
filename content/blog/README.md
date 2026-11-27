@@ -1,5 +1,5 @@
-# Blog content
+# content/blog
 
-Blog post bodies. Each file is the HTML between the post header and the footer.
+HTML fragments for Fractal Goldilocks Channel (FGC) executive intelligence briefs.
 
-Built by [`scripts/build-site.mjs`](../../scripts/build-site.mjs). See [`content/README.md`](../README.md).
+Each `<slug>.html` supplies `data-brief` sections consumed by `scripts/build-site.mjs`. Built output lands in `blog/<slug>/index.html`. See `AGENTS.md` for the section contract and signal taxonomy.

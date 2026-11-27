@@ -1,0 +1,79 @@
+/**
+ * FGC executive intelligence brief structure gate.
+ * Built blog pages must carry the hierarchy + Yes/No lead.
+ * Self-contained (same layer as newsroom — no cross-import).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { REPO_ROOT } from '../core/paths.mjs';
+
+const BRIEF_IDS = ['birds-eye', 'synthesis', 'insights', 'implications', 'orientation'];
+const HIERARCHY_IDS = [
+  'executive-brief',
+  'birds-eye-synthesis',
+  'key-insights',
+  'implications',
+  'what-to-watch-do',
+  'related-rhymes',
+  'supporting-papers',
+];
+
+/** @param {string} html */
+export function builtBriefLooksComplete(html) {
+  const missing = [];
+  for (const id of HIERARCHY_IDS) {
+    if (!html.includes(`id="${id}"`)) missing.push(id);
+  }
+  if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(html)) {
+    missing.push('short-answer');
+  }
+  return { ok: missing.length === 0, missing };
+}
+
+/** @param {string} [root] */
+export function checkExecutiveBriefs(root = REPO_ROOT) {
+  const problems = [];
+  const manifestPath = path.join(root, 'content/manifest.json');
+  if (!fs.existsSync(manifestPath)) {
+    return { name: 'FGC executive briefs carry hierarchy + Yes/No lead', problems: ['missing content/manifest.json'] };
+  }
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  for (const entry of manifest.blog || []) {
+    const src = path.join(root, 'content/blog', `${entry.slug}.html`);
+    if (!fs.existsSync(src)) {
+      problems.push(`content/blog/${entry.slug}.html: missing fragment`);
+      continue;
+    }
+    const fragment = fs.readFileSync(src, 'utf8');
+    for (const id of BRIEF_IDS) {
+      if (!new RegExp(`data-brief=["']${id}["']`).test(fragment)) {
+        problems.push(`content/blog/${entry.slug}.html: missing data-brief="${id}"`);
+      }
+    }
+    const built = path.join(root, 'blog', entry.slug, 'index.html');
+    if (!fs.existsSync(built)) {
+      problems.push(`blog/${entry.slug}/index.html: missing built brief`);
+      continue;
+    }
+    const html = fs.readFileSync(built, 'utf8');
+    const check = builtBriefLooksComplete(html);
+    if (!check.ok) {
+      problems.push(`blog/${entry.slug}/index.html: missing ${check.missing.join(', ')}`);
+    }
+  }
+
+  const index = path.join(root, 'blog/index.html');
+  if (!fs.existsSync(index)) {
+    problems.push('blog/index.html: missing FGC dashboard');
+  } else {
+    const html = fs.readFileSync(index, 'utf8');
+    if (!/Living executive intelligence dashboard/.test(html)) {
+      problems.push('blog/index.html: dashboard hero must read as executive intelligence');
+    }
+    if (/weather channel/i.test(html)) {
+      problems.push('blog/index.html: weather-channel framing retired for executive briefs');
+    }
+  }
+
+  return { name: 'FGC executive briefs carry hierarchy + Yes/No lead', problems };
+}

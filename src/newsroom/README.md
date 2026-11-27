@@ -1,3 +1,3 @@
-# Fractal Goldilocks Channel (FGC)
+# src/newsroom
 
-Builds the FGC bottom ticker: newscast headlines from blog posts in the past 24 hours, with click-through to `/blog/<slug>/`.
+Generators for the Fractal Goldilocks Channel (FGC): executive brief grammar, headline selection, and sitewide ticker HTML.

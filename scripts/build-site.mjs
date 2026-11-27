@@ -18,9 +18,18 @@ import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 import { newsroomTickerHtml } from '../src/newsroom/ticker.mjs';
 import { recentNewsroomItems } from '../src/newsroom/headlines.mjs';
+import {
+  briefRailHtml,
+  dashboardOrientationHtml,
+  renderBriefBody,
+  renderBriefClosers,
+  resolveBriefContent,
+  FGC_NAME,
+  CORE_ORIENTATION,
+} from '../src/newsroom/executive-brief.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_VERSION = '52';
+const CSS_VERSION = '53';
 const SITE = 'https://fractisi.vercel.app';
 
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
@@ -314,7 +323,7 @@ function neighbors(kind, slug, group) {
     .slice(0, 2);
   return pool.map((x) => ({
     href: kind === 'paper' ? `/library/papers/${x.slug}/` : `/blog/${x.slug}/`,
-    kind: kind === 'paper' ? 'Paper' : 'Blog',
+    kind: kind === 'paper' ? 'Paper' : 'FGC brief',
     title: x.title,
   }));
 }
@@ -332,11 +341,11 @@ function buildPaper(entry) {
     ['Reading time', `${Math.max(1, Math.round(words(`${answerHtml || ''}${html}`) / 220))} min`],
   ].filter(Boolean);
   const actions = [
-    peerBlog ? `<a class="btn-primary" href="/blog/${entry.slug}/">Read the blog post</a>` : '',
+    peerBlog ? `<a class="btn-primary" href="/blog/${entry.slug}/">Read the FGC brief</a>` : '',
     `<a class="btn-ghost" href="/library/">All papers</a>`,
   ].join('\n          ');
   const related = [];
-  if (peerBlog) related.push({ href: `/blog/${entry.slug}/`, kind: 'Blog', title: peerBlog.title });
+  if (peerBlog) related.push({ href: `/blog/${entry.slug}/`, kind: 'FGC brief', title: peerBlog.title });
   related.push(...neighbors('paper', entry.slug, entry.group).slice(0, peerBlog ? 2 : 3));
   if (!answerHtml) {
     throw new Error(`paper ${entry.slug}: missing Yes/No short answer lead under title`);
@@ -377,30 +386,42 @@ function buildBlog(entry) {
   const stripped = raw
     .replace(/<section[^>]*aria-label="Short answer"[^>]*>[\s\S]*?<\/section>\s*/gi, '')
     .replace(/<p class="answer">[\s\S]*?<\/p>\s*/gi, '');
-  const prose = publicWording(stripped).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
+  const prepared = publicWording(stripped).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
+  const { sections, honesty } = resolveBriefContent(prepared, entry);
+  const briefBody = renderBriefBody(sections, honesty);
   const answerHtml = `<p class="answer"><strong>${esc(entry.answerHead)}</strong>${esc(entry.answerBody || '')}</p>`;
   const peerPaper = paperBySlug[entry.slug];
   const actions = (entry.actions || []).slice(0, 3).map((a, i) =>
     `<a class="${i === 0 ? 'btn-primary' : 'btn-ghost'}" href="${a.href}">${esc(a.text)}</a>`).join('\n          ');
-  const related = [];
-  if (peerPaper) related.push({ href: `/library/papers/${entry.slug}/`, kind: 'Paper', title: peerPaper.title });
-  related.push(...neighbors('blog', entry.slug).slice(0, peerPaper ? 2 : 3));
-  const doc = `    <article class="doc doc-blog">
-      <header class="doc-head">
-        <p class="kicker">Blog${entry.label ? ' · ' + esc(entry.label) : ''}</p>
+  const relatedRhymes = neighbors('blog', entry.slug).slice(0, 3);
+  const papers = [];
+  if (peerPaper) {
+    papers.push({ href: `/library/papers/${entry.slug}/`, kind: 'Supporting paper', title: peerPaper.title });
+  }
+  for (const a of entry.actions || []) {
+    if (/\/library\/papers\//.test(a.href) && !papers.some((p) => p.href === a.href)) {
+      papers.push({ href: a.href, kind: 'Supporting paper', title: a.text });
+    }
+  }
+  if (!papers.length) {
+    papers.push({ href: '/library/', kind: 'Library', title: 'All FractiSI papers' });
+  }
+  const doc = `    <article class="doc doc-blog doc-brief">
+      <header class="doc-head brief-head" id="executive-brief" data-hierarchy="EXECUTIVE BRIEF">
+        <p class="kicker">Executive brief · ${FGC_NAME}${entry.label ? ' · ' + esc(entry.label) : ''}</p>
         <h1>${esc(entry.title)}</h1>
         ${answerHtml}
+        <p class="brief-path-line">${esc(CORE_ORIENTATION)}</p>
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>${fmtDate(entry.date)}</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
-          <div><dt>Reading time</dt><dd>${Math.max(1, Math.round(words(`${answerHtml}${prose}`) / 220))} min</dd></div>
+          <div><dt>Reading time</dt><dd>${Math.max(1, Math.round(words(`${answerHtml}${briefBody}`) / 220))} min</dd></div>
         </dl>
         ${actions ? `<div class="doc-actions">\n          ${actions}\n        </div>` : ''}
+        ${briefRailHtml()}
       </header>
-      <div class="prose">
-${prose}
-      </div>
-      ${relatedCards(related)}
+${briefBody}
+      ${renderBriefClosers({ relatedRhymes, papers })}
     </article>`;
   const description = trimDek(
     `${entry.answerHead}${entry.answerBody || ''}`.replace(/^Short answer:\s*/i, '') || entry.dek || entry.title,
@@ -424,7 +445,7 @@ function buildBlogIndex() {
   const briefing = live
     .map(
       (i) => `        <a class="nr-brief" href="${esc(i.href)}">
-          <span class="nr-brief-kicker">Live lens</span>
+          <span class="nr-brief-kicker">Active brief</span>
           <span class="nr-brief-headline">${esc(i.headline)}</span>
           <time datetime="${esc(i.date)}">${esc(shortDate(i.date))}</time>
         </a>`,
@@ -432,10 +453,10 @@ function buildBlogIndex() {
     .join('\n');
 
   const instruments = [
-    ['Rhyme', 'Shared organizational structure across wordings'],
-    ['X-ray', 'Predict and intervene on the locked rhyme'],
-    ['Wet-lab', 'EM and wiring evidence on the same criteria'],
-    ['Soft Story', 'Regenerable computational boards under seed'],
+    ['Bird\'s-eye', 'What the development means in the larger pattern'],
+    ['Signal rails', 'Fact · experimental · interpretation · hypothesis · speculation'],
+    ['Implications', 'Tech, orgs, society, human life, AI'],
+    ['Papers', 'Brief = synthesis · paper = deep evidence'],
   ]
     .map(
       ([name, line]) =>
@@ -447,37 +468,40 @@ function buildBlogIndex() {
     .map((p) => {
       const headline = live.find((i) => i.slug === p.slug)?.headline;
       const liveTag = liveSlugs.has(p.slug) ? '<span class="nr-tag">24h</span>' : '';
+      const yesNo = /^(YES|NO)\b/i.test(p.dek || '') ? String(p.dek).slice(0, 3).toUpperCase() : '';
+      const gate = yesNo ? `<span class="nr-gate">${esc(yesNo)}</span>` : '';
       return `        <a class="nr-bulletin-row" href="/blog/${p.slug}/">
           <time datetime="${p.date}">${shortDate(p.date)}</time>
           <span class="nr-bulletin-main">
             <span class="nr-bulletin-headline">${esc(headline || trimDek(p.dek || p.title, 140))}</span>
             <span class="nr-bulletin-title">${esc(p.title)}</span>
           </span>
-          ${liveTag}
+          ${gate}${liveTag}
         </a>`;
     })
     .join('\n');
 
-  const body = `    <section class="newsroom">
+  const body = `    <section class="newsroom nr-dashboard">
       <header class="nr-hero">
-        <p class="kicker">Fractal Goldilocks Channel · FGC</p>
-        <h1>World events through the Rhyming World Model lens</h1>
-        <p class="dek">Like a weather channel that reads new bands of the spectrum, the Fractal Goldilocks Channel watches the same public facts with rhyme, X-ray, wet-lab, and Soft Story instruments. Briefings below are newscast reads of our latest research notes.</p>
+        <p class="kicker">Fractal Goldilocks Channel · FGC · Executive intelligence</p>
+        <h1>Living executive intelligence dashboard</h1>
+        <p class="dek">Dense briefs for leaders, explorers, scientists, builders, technologists, and AIs. Each note is an executive intelligence brief — bird's-eye pattern, Fractal Holographic Goldilocks synthesis, labeled signal vs noise, implications, and a path to the supporting paper. Papers remain the authoritative deep-research layer.</p>
       </header>
-      <section class="nr-instruments" aria-label="Observation instruments">
-        <h2 class="nr-section-title">Instruments on air</h2>
+      ${dashboardOrientationHtml()}
+      <section class="nr-instruments" aria-label="Brief reading rails">
+        <h2 class="nr-section-title">Brief reading rails</h2>
         <div class="nr-instrument-row">
 ${instruments}
         </div>
       </section>
-      <section class="nr-live" aria-label="Live 24-hour briefing">
-        <h2 class="nr-section-title">Live briefing · past 24 hours</h2>
+      <section class="nr-live" aria-label="Active briefs">
+        <h2 class="nr-section-title">Active briefs · past 24 hours</h2>
         <div class="nr-briefing">
 ${briefing}
         </div>
       </section>
-      <section class="nr-bulletin" aria-label="Full bulletin">
-        <h2 class="nr-section-title">Bulletin board</h2>
+      <section class="nr-bulletin" aria-label="Brief archive">
+        <h2 class="nr-section-title">Brief archive</h2>
         <div class="nr-bulletin-list">
 ${bulletin}
         </div>
@@ -488,7 +512,7 @@ ${bulletin}
     path: '/blog/',
     title: 'Fractal Goldilocks Channel',
     description:
-      'Fractal Goldilocks Channel (FGC): world events through the Rhyming World Model lens. Live briefings from the past 24 hours, regenerated from public research notes.',
+      'Fractal Goldilocks Channel (FGC): executive intelligence briefs on Fractal Holographic Goldilocks research. Read the brief, follow the rhyme, open the paper.',
     body,
   };
   write('blog/index.html', page(newsroomPage));
@@ -508,7 +532,7 @@ function buildLibraryIndex() {
       return `        <article class="paper-card">
           <h3><a href="/library/papers/${p.slug}/">${esc(p.title)}</a></h3>
           <p>${esc(trimDek(p.summary || p.dek || '', 200))}</p>
-          <p class="paper-card-links"><a href="/library/papers/${p.slug}/">Paper</a>${blog ? ` · <a href="/blog/${p.slug}/">Blog</a>` : ''}</p>
+          <p class="paper-card-links"><a href="/library/papers/${p.slug}/">Paper</a>${blog ? ` · <a href="/blog/${p.slug}/">FGC brief</a>` : ''}</p>
         </article>`;
     }).join('\n');
     return `      <section class="index-group">

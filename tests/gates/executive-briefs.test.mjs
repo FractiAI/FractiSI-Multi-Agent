@@ -1,0 +1,49 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import test from 'node:test';
+import { builtBriefLooksComplete, checkExecutiveBriefs } from '../../src/gates/executive-briefs.mjs';
+
+test('repository FGC briefs pass the executive-brief gate', () => {
+  const gate = checkExecutiveBriefs();
+  assert.deepEqual(gate.problems, [], gate.problems.join('\n'));
+});
+
+test('builtBriefLooksComplete requires hierarchy ids and short answer', () => {
+  assert.equal(builtBriefLooksComplete('<h1>Q?</h1>').ok, false);
+  const html = HIERARCHY_FIXTURE;
+  assert.equal(builtBriefLooksComplete(html).ok, true);
+});
+
+test('negative control: missing data-brief or weather-channel dashboard fails', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'fgc-brief-'));
+  fs.mkdirSync(path.join(root, 'content/blog'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'blog/demo'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'content/manifest.json'),
+    JSON.stringify({ blog: [{ slug: 'demo', title: 'Is it true?', answerHead: 'Short answer: Yes.' }] }),
+  );
+  fs.writeFileSync(path.join(root, 'content/blog/demo.html'), '<p>no sections</p>');
+  fs.writeFileSync(path.join(root, 'blog/demo/index.html'), '<h1>Is it true?</h1>');
+  fs.mkdirSync(path.join(root, 'blog'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'blog/index.html'),
+    '<header class="nr-hero"><p class="dek">Like a weather channel that reads…</p></header>',
+  );
+  const problems = checkExecutiveBriefs(root).problems;
+  assert.ok(problems.some((p) => /data-brief="birds-eye"/.test(p)));
+  assert.ok(problems.some((p) => /weather-channel/.test(p)));
+});
+
+const HIERARCHY_FIXTURE = `
+<article>
+<header id="executive-brief"><h1>Q?</h1><p class="answer"><strong>Short answer: Yes.</strong></p></header>
+<section id="birds-eye-synthesis"></section>
+<section id="key-insights"></section>
+<section id="implications"></section>
+<section id="what-to-watch-do"></section>
+<section id="related-rhymes"></section>
+<section id="supporting-papers"></section>
+</article>
+`;
