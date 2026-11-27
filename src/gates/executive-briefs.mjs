@@ -64,11 +64,14 @@ export function checkExecutiveBriefs(root = REPO_ROOT) {
 
   const index = path.join(root, 'blog/index.html');
   if (!fs.existsSync(index)) {
-    problems.push('blog/index.html: missing FGC dashboard');
+    problems.push('blog/index.html: missing FGC newsroom');
   } else {
     const html = fs.readFileSync(index, 'utf8');
-    if (!/Living executive intelligence dashboard/.test(html)) {
-      problems.push('blog/index.html: dashboard hero must read as executive intelligence');
+    if (!/Fractal Goldilocks Channel/.test(html) || !/Executive news for leaders/.test(html)) {
+      problems.push('blog/index.html: newsroom head must state FGC purpose for leaders');
+    }
+    if (/How to use this channel|Brief reading rails|Living executive intelligence dashboard/i.test(html)) {
+      problems.push('blog/index.html: README how-to / reading-rails chrome retired');
     }
     if (/weather channel/i.test(html)) {
       problems.push('blog/index.html: weather-channel framing retired for executive briefs');

@@ -396,30 +396,6 @@ export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
 }
 
 /**
- * Dashboard strip copy for the FGC index.
- */
-export function dashboardOrientationHtml() {
-  const steps = [
-    ['Read the brief', 'Yes/No gate + wire'],
-    ['Follow the rhyme', 'Cross-domain pattern'],
-    ['Open the paper', 'Deep evidence'],
-    ['Navigate next', 'Related briefs'],
-  ]
-    .map(
-      ([t, s], i) =>
-        `<div class="nr-path-step"><span class="nr-path-num">${i + 1}</span><span class="nr-path-title">${esc(t)}</span><span class="nr-path-sub">${esc(s)}</span></div>`,
-    )
-    .join('\n        ');
-  return `<section class="nr-path" aria-label="How to use FGC">
-      <h2 class="nr-section-title">How to use this channel</h2>
-      <div class="nr-path-row">
-        ${steps}
-      </div>
-      <p class="nr-path-line">${esc(CORE_ORIENTATION)}</p>
-    </section>`;
-}
-
-/**
  * Lightweight structural check for a built brief page.
  * @param {string} html
  */

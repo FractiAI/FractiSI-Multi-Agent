@@ -16,7 +16,7 @@ test('builtBriefLooksComplete requires hierarchy ids and short answer', () => {
   assert.equal(builtBriefLooksComplete(html).ok, true);
 });
 
-test('negative control: missing data-brief or weather-channel dashboard fails', () => {
+test('negative control: missing data-brief or retired index chrome fails', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'fgc-brief-'));
   fs.mkdirSync(path.join(root, 'content/blog'), { recursive: true });
   fs.mkdirSync(path.join(root, 'blog/demo'), { recursive: true });
@@ -29,11 +29,13 @@ test('negative control: missing data-brief or weather-channel dashboard fails', 
   fs.mkdirSync(path.join(root, 'blog'), { recursive: true });
   fs.writeFileSync(
     path.join(root, 'blog/index.html'),
-    '<header class="nr-hero"><p class="dek">Like a weather channel that reads…</p></header>',
+    '<header class="nr-hero"><h1>Living executive intelligence dashboard</h1><p class="dek">Like a weather channel that reads…</p></header><h2>How to use this channel</h2><h2>Brief reading rails</h2>',
   );
   const problems = checkExecutiveBriefs(root).problems;
   assert.ok(problems.some((p) => /data-brief="birds-eye"/.test(p)));
   assert.ok(problems.some((p) => /weather-channel/.test(p)));
+  assert.ok(problems.some((p) => /README how-to|reading-rails/.test(p)));
+  assert.ok(problems.some((p) => /newsroom head must state FGC purpose/.test(p)));
 });
 
 const HIERARCHY_FIXTURE = `

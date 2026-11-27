@@ -20,7 +20,6 @@ import { newsroomTickerHtml } from '../src/newsroom/ticker.mjs';
 import { recentNewsroomItems } from '../src/newsroom/headlines.mjs';
 import {
   briefRailHtml,
-  dashboardOrientationHtml,
   renderBriefBody,
   renderBriefClosers,
   resolveBriefContent,
@@ -463,18 +462,6 @@ function buildBlogIndex() {
     )
     .join('\n');
 
-  const instruments = [
-    ['Yes/No gate', 'Short answer under the title'],
-    ['Wire body', 'Lede, context, numbers — no README headers'],
-    ['Signal rails', 'Fact · experimental · interpretation · hypothesis · speculation'],
-    ['Papers', 'Brief = wire · paper = deep evidence'],
-  ]
-    .map(
-      ([name, line]) =>
-        `        <div class="nr-instrument"><span class="nr-instrument-name">${esc(name)}</span><span class="nr-instrument-line">${esc(line)}</span></div>`,
-    )
-    .join('\n');
-
   const bulletin = posts
     .map((p) => {
       const headline = live.find((i) => i.slug === p.slug)?.headline;
@@ -494,17 +481,10 @@ function buildBlogIndex() {
 
   const body = `    <section class="newsroom nr-dashboard">
       <header class="nr-hero">
-        <p class="kicker">Fractal Goldilocks Channel · FGC · Executive intelligence</p>
-        <h1>Living executive intelligence dashboard</h1>
-        <p class="dek">Wire-style Yes/No briefs for leaders, explorers, scientists, builders, technologists, and AIs. Each note opens with a Yes/No gate, then punchy context and labeled evidence — Fractal Holographic Goldilocks synthesis without README hierarchy banners. Papers remain the authoritative deep-research layer.</p>
+        <p class="kicker">FGC Newsroom</p>
+        <h1>Fractal Goldilocks Channel</h1>
+        <p class="dek">Executive news for leaders. Yes/No headlines, a short answer, and a wire body — news articles, not README notes. Papers hold the deep layer. Also for explorers, scientists, builders, technologists, and AIs.</p>
       </header>
-      ${dashboardOrientationHtml()}
-      <section class="nr-instruments" aria-label="Brief reading rails">
-        <h2 class="nr-section-title">Brief reading rails</h2>
-        <div class="nr-instrument-row">
-${instruments}
-        </div>
-      </section>
       <section class="nr-live" aria-label="Active briefs">
         <h2 class="nr-section-title">Active briefs · past 24 hours</h2>
         <div class="nr-briefing">
@@ -523,7 +503,7 @@ ${bulletin}
     path: '/blog/',
     title: 'Fractal Goldilocks Channel',
     description:
-      'Fractal Goldilocks Channel (FGC): executive intelligence briefs on Fractal Holographic Goldilocks research. Read the brief, follow the rhyme, open the paper.',
+      'Fractal Goldilocks Channel (FGC): executive news for leaders — Yes/No headlines, short answer, wire body. Papers hold the deep layer.',
     body,
   };
   write('blog/index.html', page(newsroomPage));

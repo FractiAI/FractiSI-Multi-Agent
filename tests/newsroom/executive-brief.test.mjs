@@ -88,14 +88,18 @@ test('every built FGC brief carries Yes/No lead without README hierarchy banners
   }
 });
 
-test('FGC dashboard reads as wire-service intelligence surface', () => {
+test('FGC index reads as a standard newsroom head', () => {
   const html = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
-  assert.match(html, /Living executive intelligence dashboard/);
-  assert.match(html, /How to use this channel/);
+  assert.match(html, /FGC Newsroom/);
+  assert.match(html, /<h1>Fractal Goldilocks Channel<\/h1>/);
+  assert.match(html, /Executive news for leaders/);
+  assert.match(html, /Yes\/No headlines/);
+  assert.match(html, /Papers hold the deep layer/);
   assert.match(html, /Brief archive/);
   assert.match(html, /Active briefs/);
-  assert.match(html, /Read the brief → follow the rhyme → open the paper/);
-  assert.match(html, /Wire-style Yes\/No briefs/);
+  assert.doesNotMatch(html, /Living executive intelligence dashboard/);
+  assert.doesNotMatch(html, /How to use this channel/);
+  assert.doesNotMatch(html, /Brief reading rails/);
   // Player 1: never name the cable network brand in FGC surfaces.
   const cableBrand = String.fromCharCode(67, 78, 66, 67);
   assert.doesNotMatch(html, new RegExp(cableBrand, 'i'));

@@ -2,7 +2,7 @@
 
 One file per slug, named `<slug>.html`. The slug must match its entry in `../manifest.json`. Rebuild with `npm run build:site`.
 
-The `/blog/` index is the **Fractal Goldilocks Channel (FGC)** — a living executive intelligence dashboard. Each post is a **wire-service brief**: Yes/No title, Short answer, punchy lede and numbers — not a README or install guide.
+The `/blog/` index is the **Fractal Goldilocks Channel (FGC)** newsroom — executive news for leaders (also explorers, scientists, builders, technologists, AIs). Each post is a **wire-service brief**: Yes/No title, Short answer, punchy lede and numbers — not a README or install guide.
 
 ## Voice (Player 1 lock)
 
