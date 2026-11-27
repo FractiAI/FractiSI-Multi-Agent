@@ -9,6 +9,7 @@
 **Framework:** SynthOBS · FractiSI · Universal Rhyme · Fair Exchange  
 **Engine shelf:** **pinned** (`ENGINE_SHELF_PINNED = true` · slot **#56**)  
 **Suite:** `research/universal-rhyme-wet-lab/`  
+**Standalone:** [`FractiAI/synthobs-universal-rhyme-wet-lab`](https://github.com/FractiAI/synthobs-universal-rhyme-wet-lab)  
 **Seed:** `20261125`  
 **Date:** 25 November 2026
 

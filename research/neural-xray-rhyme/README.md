@@ -9,3 +9,5 @@ npm run research:neural-xray-rhyme
 Machine catalog: `src/engine/rhyming/neural-xray-rhyme.mjs`  
 Live protocol: `research/neural-xray-rhyme/src/live-nn.mjs`  
 Paper: `/library/papers/neural-xray-rhyme/`
+
+Standalone: https://github.com/FractiAI/synthobs-neural-xray-rhyme

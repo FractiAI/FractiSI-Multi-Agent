@@ -8,6 +8,7 @@
 **Classification:** Application companion · Soft Story / computational expedition · **Rhyming Expedition** arm · **not** Infinite Octaves ENGINE_SHELF · **not** clinical oncology  
 **Date:** 20 November 2026  
 **Harness:** `research/cancer-rhyme-expedition/`  
+**Standalone:** [`FractiAI/synthobs-cancer-rhyme-expedition`](https://github.com/FractiAI/synthobs-cancer-rhyme-expedition)  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/cancer-rhyme-expedition/  
 **Peers:** Relational Continuity · Shared-World Collective Intelligence · Pilot Rhyme · Diverse Redundancy / Inbreeding · Rhyming Templates · Tiny Gateway
 

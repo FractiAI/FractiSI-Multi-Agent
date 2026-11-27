@@ -8,6 +8,7 @@
 **Classification:** Application companion · Soft Story / computational expedition · **Rhyming Expedition** arm · **not** Infinite Octaves ENGINE_SHELF · **not** a pen-test of live systems  
 **Date:** 20 November 2026  
 **Harness:** `research/adversarial-world/`  
+**Standalone:** [`FractiAI/synthobs-adversarial-world`](https://github.com/FractiAI/synthobs-adversarial-world)  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/adversarial-world/  
 **Peers:** Shared-World Collective Intelligence · Predictive Shared State · World-model expedition (adversarial class) · Relational Continuity · Cancer Rhyme · Tiny Gateway
 

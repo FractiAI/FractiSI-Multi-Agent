@@ -8,3 +8,5 @@ npm run research:principal-rhyme-theorem
 
 Machine catalog: `src/engine/rhyming/principal-rhyme-theorem.mjs`  
 Paper: `/library/papers/principal-rhyme-theorem/`
+
+Standalone: https://github.com/FractiAI/synthobs-principal-rhyme-theorem

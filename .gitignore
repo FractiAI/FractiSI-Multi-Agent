@@ -40,5 +40,5 @@ graft/
 .fractisi/
 
 
-# Packaged standalone trees
+# Packaged standalone trees (published to FractiAI/synthobs-* via scripts/publish-rhyme-standalones.mjs)
 output/standalones/

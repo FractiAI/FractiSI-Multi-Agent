@@ -13,6 +13,7 @@
 **Ship blog:** `/ship-blog/cosmic-rhyme-expedition`  
 **Whitepaper surface:** `/whitepaper/cosmic-rhyme-expedition`  
 **Suite:** `research/synthobs-cosmic-rhyme-expedition/`  
+**Standalone:** [`FractiAI/synthobs-cosmic-rhyme-expedition`](https://github.com/FractiAI/synthobs-cosmic-rhyme-expedition)  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/cosmic-rhyme-expedition/  
 **Seed:** `20261117`  
 **Date:** 17 November 2026

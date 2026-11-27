@@ -37,3 +37,5 @@ Rebuild fixtures (optional): download raw into `/tmp/expdata` then `node scripts
 Soft Story / computational expedition. Depth model is nesting grammar, not a live agent fleet. Backblaze is drive hardware. Biology boards are Soft Story for agent diversity — not clinical genetics. **ENGINE_SHELF pin deferred.** Φ_EGS architectural key only.
 
 → ∞^∞
+
+Standalone: https://github.com/FractiAI/synthobs-diverse-redundancy-inbreeding

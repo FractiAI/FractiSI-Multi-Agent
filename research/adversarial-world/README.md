@@ -11,3 +11,5 @@ Soft Story / simulated local lab only — no real targets. ENGINE_SHELF pin defe
 Mirror of SING 13 `research/synthobs-adversarial-world-expedition/`.
 
 → ∞^∞
+
+Standalone: https://github.com/FractiAI/synthobs-adversarial-world

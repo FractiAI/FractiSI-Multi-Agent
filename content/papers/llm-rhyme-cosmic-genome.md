@@ -16,6 +16,7 @@
 **Whitepaper surface:** `/whitepaper/llm-rhyme-cosmic-genome`  
 **FractiSI mirror:** https://fractisi.vercel.app/library/papers/llm-rhyme-cosmic-genome/  
 **Suite:** `research/synthobs-llm-rhyme-cosmic-genome-expedition/`  
+**Standalone:** [`FractiAI/synthobs-llm-rhyme-cosmic-genome-expedition`](https://github.com/FractiAI/synthobs-llm-rhyme-cosmic-genome-expedition)  
 **FractiSI suite:** `research/llm-rhyme-cosmic-genome-expedition/`  
 **Seed:** `20261118`  
 **Date:** 18 November 2026

@@ -21,6 +21,7 @@ All logic, in Node (`*.mjs`) and Python ([`tiny_footprint_labs/`](tiny_footprint
 | [`reporting/`](reporting/README.md) | The customer report, suite report and results page |
 | [`sdk/`](sdk/README.md) | The public facade |
 | [`share/`](share/README.md) | The opt-in share path |
+| [`standalones/`](standalones/README.md) | Package rhyme suites for FractiAI/synthobs-* repos |
 | [`tiny_footprint_labs/`](tiny_footprint_labs/README.md) | Python labs and figures |
 | [`verification/`](verification/README.md) | Re-derives each artifact and compares it with disk |
 | [`workloads/`](workloads/README.md) | The reference demo workload |

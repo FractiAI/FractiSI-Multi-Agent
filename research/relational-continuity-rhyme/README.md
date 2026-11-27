@@ -27,3 +27,5 @@ exact_cache · embedding_sim (token Jaccard) · shared_structured · fractisi_mi
 Soft Story / computational expedition. Rhyme = structural relational recovery via a shared-world index — not embeddings, exact cache, or prefix reuse alone. H3 octaves are controlled representational transforms, not cosmology. **ENGINE_SHELF pin deferred.**
 
 → ∞^∞
+
+Standalone: https://github.com/FractiAI/synthobs-relational-continuity-rhyme
