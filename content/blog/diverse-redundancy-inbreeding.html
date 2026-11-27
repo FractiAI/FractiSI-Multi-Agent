@@ -1,17 +1,23 @@
 <section data-brief="birds-eye">
-<p>Do diverse backups beat identical clones when failures share a cause? Yes. Five cloned copies under shared-cause failure kept only about 0.26 survival at depth, while five diverse classes kept about 0.997. Adding more clones did not raise the clone arm. Public drive co-failure data moves the same way.</p>
+<p>Do diverse backups beat identical clones when failures share a cause? Yes. In a depth trial under shared-cause failure, five cloned copies kept only about 0.26 survival at depth, while five diverse classes kept about 0.997. Adding more clones did not raise the clone arm. The cliff is not a shortage of replicas. It is a shortage of independent failure classes.</p>
+<p>Public drive co-failure data moves the same way. Same-model clusters fail together more often than a shuffled null predicts, and when that measured common-cause fraction is plugged back into the depth model, clones still fall with depth while diverse classes stay near 1.0. Buyers who count copies and call the stack “redundant” are measuring the wrong thing.</p>
+<p>The stakes are operational. One bad model revision, one shared dependency, or one correlated outage can take every identical seat down at once. Diversity of class is the hedge. Copy count alone is not.</p>
 </section>
 <section data-brief="synthesis">
-<p>Replica count is not diversity. When failures share a cause, more clones deepen the cliff.</p>
+<p>Replica count is not diversity. When failures share a cause, more clones deepen the cliff. A fleet that prints nine copies of the same lineage still dies together if the lineage itself is the failure mode. A fleet that holds five different classes keeps a path open when one class drops.</p>
+<p>Reliability engineering already names the shared mode a common-cause failure. Hardware fleets see it as a model-year cluster. The trial files those shapes as one organizational rule: cloning the same seat many times is not the same as holding several different seats. Depth without diversity is inbreeding under another name.</p>
+<p>That is why the headline contrast is so sharp. At matched copy count, the diverse arm holds near-perfect survival where the clone arm collapses. The lever is independence of failure class, not the size of the print run.</p>
 </section>
 <section data-brief="insights">
-<div data-signal="experimental"><p>With a common-cause fraction, five cloned copies at depth 6 keep about 0.262 survival while five diverse classes keep about 0.997. Public Backblaze 2019 H1 same-model co-failures give an estimated common-cause fraction near 0.047; at that level the clone arm still falls with depth while the diverse arm stays near 1.0.</p></div>
-<div data-signal="interpretation"><p>Diversity of failure classes, not copy count, is the lever under shared-cause risk. Fractal Holographic Goldilocks keeps that line.</p></div>
+<div data-signal="experimental"><p>With a common-cause fraction, five cloned copies at depth 6 keep about 0.262 survival while five diverse classes keep about 0.997. Raising the clone arm from five to nine copies does not lift survival. Public Backblaze 2019 H1 same-model co-failures give an estimated common-cause fraction near 0.047; at that level the clone arm still falls with depth while the diverse arm stays near 1.0. The measured hardware fraction is modest, yet the depth gap remains decisive. Public drive co-failure data and the regenerable depth board therefore point in the same direction: shared-cause risk punishes identical copies and rewards class diversity.</p></div>
+<div data-signal="interpretation"><p>Diversity of failure classes, not copy count, is the lever under shared-cause risk. Fractal Holographic Goldilocks keeps that line. A stack that looks heavily replicated on paper can still be a single point of failure if every seat shares the same lineage. The organizational reading is narrow and practical: audit classes before celebrating headcount. Matched lab conditions show the shape; they do not certify a production fleet.</p></div>
 </section>
 <section data-brief="implications">
-<p>Reliability buyers should stop treating replica count as diversity.</p>
+<p>Reliability buyers should stop treating replica count as diversity. When a procurement sheet asks “how many copies,” the better follow-up is “how many independent failure classes.” If the answer collapses to one lineage, the next outage that hits that lineage will take the whole arm with it, no matter how large the print run looked on the budget line.</p>
+<p>Multi-agent and infrastructure teams face the same trap. Private clones of one agent, one model, or one dependency look like insurance until the shared cause arrives. Designs that seat different classes — different roles, different models, different failure modes — keep nesting depth when identical copies cannot. The cost of that design is organizational. The cost of skipping it is a cliff at depth.</p>
 </section>
 <section data-brief="orientation">
-<p>Audit whether your redundancy is clone-heavy or class-diverse. <a href="/library/papers/diverse-redundancy-inbreeding/">Paper</a> · <a href="/research/diverse-redundancy-inbreeding/">Suite</a></p>
+<p>Audit whether your redundancy is clone-heavy or class-diverse. Count independent failure classes the way you already count replicas, and pressure-test the stack under a shared-cause fraction before trusting depth. If clones and diverse classes diverge under that test, treat copy count as a vanity metric until the class mix changes.</p>
+<p><a href="/library/papers/diverse-redundancy-inbreeding/">Paper</a> · <a href="/research/diverse-redundancy-inbreeding/">Suite</a></p>
 </section>
 <p class="honesty">Matched lab conditions. Not a production reliability certification.</p>
