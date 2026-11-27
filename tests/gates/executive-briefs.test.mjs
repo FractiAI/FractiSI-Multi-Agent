@@ -45,7 +45,7 @@ test('negative control: missing data-brief or retired index chrome fails', () =>
   assert.ok(problems.some((p) => /data-brief="birds-eye"/.test(p)));
   assert.ok(problems.some((p) => /weather-channel/.test(p)));
   assert.ok(problems.some((p) => /README how-to|reading-rails/.test(p)));
-  assert.ok(problems.some((p) => /newsroom head must state FGC purpose/.test(p)));
+  assert.ok(problems.some((p) => /newsroom head must state FGC purpose|Fractal Rhyming lens/.test(p)));
 });
 
 const HIERARCHY_FIXTURE = `

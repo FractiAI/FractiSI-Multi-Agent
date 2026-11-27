@@ -110,8 +110,14 @@ export function checkExecutiveBriefs(root = REPO_ROOT) {
     problems.push('blog/index.html: missing FGC newsroom');
   } else {
     const html = fs.readFileSync(index, 'utf8');
-    if (!/Fractal Goldilocks Channel/.test(html) || !/Executive news for leaders/.test(html)) {
-      problems.push('blog/index.html: newsroom head must state FGC purpose for leaders');
+    if (
+      !/Fractal Goldilocks Channel/.test(html) ||
+      !/FractiSI Fractal Rhyming lens/.test(html) ||
+      !/AI and SI stories|AI\/SI stories/.test(html)
+    ) {
+      problems.push(
+        'blog/index.html: newsroom head must state FGC purpose — AI/SI stories through the FractiSI Fractal Rhyming lens',
+      );
     }
     if (/How to use this channel|Brief reading rails|Living executive intelligence dashboard/i.test(html)) {
       problems.push('blog/index.html: README how-to / reading-rails chrome retired');

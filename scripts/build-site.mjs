@@ -490,7 +490,7 @@ function buildBlogIndex() {
       <header class="nr-hero">
         <p class="kicker">FGC Newsroom</p>
         <h1>Fractal Goldilocks Channel</h1>
-        <p class="dek">Executive news for leaders. Yes/No headlines, a short answer, and a wire body — news articles, not README notes. Papers hold the deep layer. Also for explorers, scientists, builders, technologists, and AIs.</p>
+        <p class="dek">Latest AI and SI stories read through the FractiSI Fractal Rhyming lens — for clearer visibility and better decisions. Yes/No headlines, a short answer, and a full wire body. Papers hold the deep layer.</p>
       </header>
       <section class="nr-live" aria-label="On the wire">
         <h2 class="nr-section-title">On the wire · past 24 hours</h2>
@@ -510,7 +510,7 @@ ${bulletin}
     path: '/blog/',
     title: 'Fractal Goldilocks Channel',
     description:
-      'Fractal Goldilocks Channel (FGC): executive news for leaders — Yes/No headlines, short answer, wire body. Papers hold the deep layer.',
+      'Fractal Goldilocks Channel (FGC): latest AI/SI stories through the FractiSI Fractal Rhyming lens — for clearer visibility and better decisions. Papers hold the deep layer.',
     body,
   };
   write('blog/index.html', page(newsroomPage));

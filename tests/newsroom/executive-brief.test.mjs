@@ -92,7 +92,8 @@ test('FGC index reads as a standard newsroom head', () => {
   const html = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
   assert.match(html, /FGC Newsroom/);
   assert.match(html, /<h1>Fractal Goldilocks Channel<\/h1>/);
-  assert.match(html, /Executive news for leaders/);
+  assert.match(html, /FractiSI Fractal Rhyming lens/);
+  assert.match(html, /AI and SI stories|AI\/SI stories/);
   assert.match(html, /Yes\/No headlines/);
   assert.match(html, /Papers hold the deep layer/);
   assert.match(html, /Story archive/);
