@@ -1,5 +1,5 @@
 /**
- * Fractal Goldilocks Channel (FGC) · wire-service brief grammar.
+ * Fractal Goldilocks Channel (FGC) · executive news brief grammar.
  *
  * Public chrome is Yes/No title + Short answer + flowing prose.
  * No README-style ALL-CAPS hierarchy banners (EXECUTIVE BRIEF / KEY INSIGHTS).
@@ -22,7 +22,7 @@ export const BRIEF_HIERARCHY = Object.freeze([
   'Evidence',
   'Why it matters',
   'Next steps',
-  'Related briefs',
+  'Related stories',
   'Papers',
 ]);
 
@@ -64,12 +64,12 @@ export const SIGNAL_KINDS = Object.freeze([
   {
     id: 'fact',
     label: 'Fact',
-    blurb: 'Established public or documented fact; not a FractiSI Soft Story board.',
+    blurb: 'Established public or documented fact; not a FractiSI lab board.',
   },
   {
     id: 'experimental',
     label: 'Experimental evidence',
-    blurb: 'Measured lab / regenerable Soft Story / wet-lab receipt under a fixed seed.',
+    blurb: 'Measured lab or wet-lab evidence under matched conditions.',
   },
   {
     id: 'interpretation',
@@ -89,7 +89,7 @@ export const SIGNAL_KINDS = Object.freeze([
 ]);
 
 export const CORE_ORIENTATION =
-  'Read the brief → follow the rhyme → open the paper → use synthesis to navigate next.';
+  'Read the story → follow the rhyme → open the paper → use synthesis to navigate next.';
 
 const SIGNAL_BY_ID = Object.fromEntries(SIGNAL_KINDS.map((s) => [s.id, s]));
 
@@ -187,9 +187,9 @@ export function fallbackBirdsEye(entry) {
   const dek = String(entry.dek || '').replace(/^(YES|NO)\s*[—–-]\s*/i, '').trim();
   const lead = body || dek;
   if (lead) {
-    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) brief. Soft Story means a regenerable computational lab receipt under a locked seed — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
+    return `<p>${esc(lead)}</p><p>That is the takeaway from this Fractal Goldilocks Channel (FGC) news story. Lab figures cited here were measured under locked conditions — useful for organization and representation decisions, not an upgrade into settled physics or production SLAs.</p>`;
   }
-  return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under regenerable FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
+  return `<p>${esc(entry.title || 'This development')} asks whether shared organizational structure travels across domains under locked FractiSI lab conditions. Read the Short answer as the gate; open the paper for methods and honesty rails.</p>`;
 }
 
 /**
@@ -199,7 +199,7 @@ export function fallbackBirdsEye(entry) {
 export function fallbackSynthesis(entry) {
   const label = entry.label ? esc(entry.label) : 'this research thread';
   return `<p><strong>${label}</strong> fits the Fractal Holographic Goldilocks reading only as organizational structure under matched criteria — the same class of question that shows up in multi-agent coordination, wet-lab wiring, sky panels, and genome boards. Rhyme means reusable structure, not identity of substrates.</p>
-<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat regenerable Soft Story receipts as evidence about how information is organized, then keep Soft Story, hypothesis, and speculation in separate lanes from settled fact.</p>`;
+<p><strong>Interpretation (Fractal Holographic Goldilocks):</strong> treat locked lab measurements as evidence about how information is organized, then keep measurement, hypothesis, and speculation in separate lanes from settled fact.</p>`;
 }
 
 /**
@@ -209,17 +209,17 @@ export function fallbackSynthesis(entry) {
 export function fallbackInsights(remainderHtml) {
   const cleaned = String(remainderHtml || '').trim();
   if (!cleaned) {
-    return `<div data-signal="interpretation"><p>See the supporting paper for the full evidence table. This brief keeps Soft Story measurements and Fractal Holographic Goldilocks interpretation on separate rails.</p></div>`;
+    return `<div data-signal="interpretation"><p>See the supporting paper for the full evidence table. This story keeps measured results and Fractal Holographic Goldilocks interpretation on separate rails.</p></div>`;
   }
   return `<div data-signal="experimental">${cleaned}</div>
-<div data-signal="interpretation"><p><strong>Fractal Holographic Goldilocks interpretation:</strong> treat the blocks above as organizational evidence under regenerable conditions. Do not promote them into unfinished physics, clinical, or production claims.</p></div>`;
+<div data-signal="interpretation"><p><strong>Fractal Holographic Goldilocks interpretation:</strong> treat the blocks above as organizational evidence under locked conditions. Do not promote them into unfinished physics, clinical, or production claims.</p></div>`;
 }
 
 export function fallbackImplications() {
   return `<p><strong>Technology and systems.</strong> How you organize shared context often moves the needle more than swapping a single model scoreboard.</p>
 <p><strong>Organizations.</strong> Architecture — roles, boundaries, shared maps — is the lever that keeps capable agents useful without suppressing them. Personality swaps rarely fix a brittle world model.</p>
 <p><strong>Society and human life.</strong> Clear labels on what is measured versus what is interpretation cut the cost of trusting research claims when budgets, jobs, and public trust already feel tight.</p>
-<p><strong>AI.</strong> FGC briefs orient; papers carry regenerable depth. Downstream agents and human readers both need that split.</p>`;
+<p><strong>AI.</strong> FGC stories orient; papers carry depth. Downstream agents and human readers both need that split.</p>`;
 }
 
 /**
@@ -227,25 +227,21 @@ export function fallbackImplications() {
  */
 export function fallbackOrientation(entry) {
   const actions = entry.actions || [];
-  const lines = [
-    '<ul class="brief-orientation-list">',
-    '<li><strong>Understand.</strong> Treat the Short answer as the gate, then open the paper for regenerable methods and honesty rails.</li>',
-    '<li><strong>Reconsider.</strong> Ask whether your stack organizes relationships (shared world / wiring) or only streams linear tokens.</li>',
-    '<li><strong>Watch.</strong> Prefer kill boards, matched budgets, and seed-locked Soft Story receipts over marketing scoreboards.</li>',
-    '<li><strong>Prepare.</strong> Favor architectures that cut redundancy without cutting accuracy under the same budget.</li>',
+  const parts = [
+    '<p>Treat the Short answer as the gate, then open the paper for methods and honesty rails. Ask whether your stack organizes relationships in a shared world, or only streams private copies.</p>',
+    '<p>Prefer matched budgets and seed-locked lab measurements over marketing scoreboards. Favor architectures that cut redundancy without cutting accuracy under the same budget.</p>',
   ];
   if (actions.length) {
     const links = actions
       .map((a) => `<a href="${esc(a.href)}">${esc(a.text)}</a>`)
       .join(' · ');
-    lines.push(`<li><strong>Do.</strong> ${links}.</li>`);
+    parts.push(`<p>${links}</p>`);
   } else {
-    lines.push(
-      '<li><strong>Do.</strong> Read the related FGC briefs, then open the supporting paper before changing a production path.</li>',
+    parts.push(
+      '<p>Read the related FGC stories, then open the supporting paper before changing a production path.</p>',
     );
   }
-  lines.push('</ul>');
-  return lines.join('\n');
+  return parts.join('\n');
 }
 
 /**
@@ -362,7 +358,7 @@ export function renderBriefBody(sections, honestyHtml = '') {
 }
 
 /**
- * Related briefs + papers footer blocks (wire closers — no README kickers).
+ * Related stories + papers footer blocks (wire closers — no README kickers).
  * @param {{ relatedRhymes: {href:string,kind:string,title:string}[], papers: {href:string,kind:string,title:string}[] }} opts
  */
 export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
@@ -379,16 +375,16 @@ export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
     )
     .join('\n          ');
 
-  return `<section class="brief-section related" id="related-rhymes" aria-label="Related briefs">
-      <h2>Related briefs</h2>
-      <p class="brief-closer-dek">Neighbor notes in the Fractal Goldilocks Channel. Follow the rhyme before diving into methods.</p>
+  return `<section class="brief-section related" id="related-rhymes" aria-label="Related stories">
+      <h2>Related stories</h2>
+      <p class="brief-closer-dek">More FGC stories. Follow the rhyme before diving into methods.</p>
       <div class="related-grid">
           ${rhymeCards || '<p class="brief-empty">No peer briefs linked yet.</p>'}
       </div>
     </section>
     <section class="brief-section related" id="supporting-papers" aria-label="Papers">
       <h2>Papers</h2>
-      <p class="brief-closer-dek">The brief is the wire. The paper carries regenerable methods, receipts, and honesty rails.</p>
+      <p class="brief-closer-dek">The story is the news. The paper carries methods, receipts, and honesty rails.</p>
       <div class="related-grid">
           ${paperCards || '<p class="brief-empty">Open the Library for the full paper set.</p>'}
       </div>
