@@ -1,17 +1,22 @@
 <section data-brief="birds-eye">
-<p>Can relational rhyme keep partners linked across deep nests? Yes. Rhyme accuracy hit 1.0 across partners, question–answer gaps, agent worlds, and seed–edge links. Exact cache scored 0. Lexical similarity stayed at or below 0.14. Removing rhyme dropped partner recovery from 1.0 to 0.083.</p>
+<p>Can relational rhyme keep partners linked across deep nests? Yes. Rhyme accuracy hit 1.0 across partners, question–answer gaps, agent worlds, and seed–edge links. Exact cache scored 0. Lexical similarity stayed at or below 0.14.</p>
+<p>Removing rhyme dropped partner recovery from 1.0 to 0.083. That ablation is the stake for long-horizon stacks: when nests deepen and wording drifts, string caches lose the partner that relational rhyme still holds.</p>
 </section>
 <section data-brief="synthesis">
-<p>Exact text fails when wording drifts. Lexical similarity is not enough. Relational rhyme is the continuity layer.</p>
+<p>Exact text fails when wording drifts. Agents that describe the same partner in different words will miss each other if the only continuity layer is an exact cache. Lexical similarity tries to soften that miss, but on this panel it stayed at or below 0.14 — not enough to carry partners, questions, agent worlds, or seed–edge links.</p>
+<p>Relational rhyme is the continuity layer under test. It links partners by shared organization rather than by matching strings. That is why the same operation can cover partner recovery, question–answer gaps, agent-world continuity, and seed–edge links without needing four separate products.</p>
+<p>Long-horizon multi-agent systems feel this failure first. As nests deepen, private copies multiply and wording diverges. Teams that only budget for caches discover the break late, when partner recovery is already gone and nobody can say which link failed.</p>
 </section>
 <section data-brief="insights">
-<div data-signal="experimental"><p>Rhyme accuracy 1.0 across partner, QA, agent-world, and seed–edge tasks. Exact cache 0. Lexical similarity ≤0.14. Ablating rhyme drops partner recovery to 0.083.</p></div>
-<div data-signal="interpretation"><p>Continuity is relational, not lexical. Fractal Holographic Goldilocks keeps that distinction sharp.</p></div>
+<div data-signal="experimental"><p>Rhyme accuracy 1.0 across partner, QA, agent-world, and seed–edge tasks. Exact cache 0. Lexical similarity ≤0.14. Ablating rhyme drops partner recovery to 0.083. The ablation is the causal check inside the panel: the same stack without rhyme does not keep partners linked, which is why the 1.0 figure is attributed to relational rhyme rather than to a generic shared store.</p></div>
+<div data-signal="interpretation"><p>Continuity is relational, not lexical. Fractal Holographic Goldilocks keeps that distinction sharp. A cache that scores 0 when wording drifts is not a continuity strategy; a lexical band at or below 0.14 is not a rescue. Relational rhyme is the layer that held at 1.0 on this panel, and the ablation to 0.083 shows what falls when that layer is removed.</p></div>
 </section>
 <section data-brief="implications">
-<p>Long-horizon agent stacks that only cache strings will lose partners as nests deepen.</p>
+<p>Long-horizon agent stacks that only cache strings will lose partners as nests deepen. Leaders who treat exact match as memory will fund the wrong layer and discover the miss after multi-hop work is already failing.</p>
+<p>Architecture buyers should put partner-recovery ablations on the acceptance list. If removing rhyme collapses recovery toward 0.083 while lexical similarity stays weak, the product is not ready for deep nests no matter how fast the cache is.</p>
 </section>
 <section data-brief="orientation">
-<p>Test partner recovery after ablating rhyme before trusting string caches at depth. <a href="/library/papers/relational-continuity-rhyme/">Paper</a> · <a href="/research/relational-continuity-rhyme/">Suite</a></p>
+<p>Test partner recovery after ablating rhyme before trusting string caches at depth. Keep exact-cache 0 and lexical ≤0.14 in view when someone sells continuity as a matching problem.</p>
+<p><a href="/library/papers/relational-continuity-rhyme/">Paper</a> · <a href="/research/relational-continuity-rhyme/">Suite</a></p>
 </section>
 <p class="honesty">Yes on this panel. Exact cache 0; lexical ≤0.14; ablating rhyme drops partners to 0.083.</p>
