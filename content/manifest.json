@@ -121,30 +121,6 @@
       "answerBody": " Organizational rhymes recur across substrates under matched lab conditions. Not Universe ontology settled."
     },
     {
-      "slug": "riemann-fractisi-expedition",
-      "title": "Did FractiSI close Anthropic’s Riemann invent challenge?",
-      "dek": "NO — Challenge headlines 0/17. Invent ladder 4/4 green. RH still open.",
-      "date": "2026-11-24",
-      "label": "Riemann FractiSI Expedition",
-      "actions": [
-        {
-          "href": "/library/papers/riemann-fractisi-expedition/",
-          "text": "Read the full paper"
-        },
-        {
-          "href": "/expeditions/riemann-fractisi/",
-          "text": "Expedition"
-        },
-        {
-          "href": "/expeditions/riemann-fractisi/riemann-fractisi-results-report.md",
-          "text": "Results report"
-        }
-      ],
-      "links": "Paper: <a href=\"/library/papers/riemann-fractisi-expedition/\">Riemann FractiSI</a> · Expedition: <a href=\"/expeditions/riemann-fractisi/\">kit</a>",
-      "answerHead": "Short answer: No.",
-      "answerBody": " Challenge headlines 0/17. Paper-math invent ladder closed 4/4. Riemann Hypothesis remains open."
-    },
-    {
       "slug": "adversarial-world",
       "title": "Can shared-world rhyme catch malicious agents?",
       "dek": "YES — containment 1.0 across attack classes A–J vs majority 0.4 and naive 0.1.",
@@ -582,15 +558,6 @@
       "docId": "WP-ADVERSARIAL-WORLD-EGS-2026-11-20",
       "source": "md",
       "date": "2026-11-20"
-    },
-    {
-      "slug": "riemann-fractisi-expedition",
-      "title": "Did FractiSI Close an Anthropic-Comparable Invent Challenge on Riemann?",
-      "group": "Multi-agent research",
-      "summary": "Riemann FractiSI · Challenge invent not closed (0/17) · InventMath 4/4 · RH OPEN.",
-      "docId": "WP-RIEMANN-FRACTISI-EXPEDITION-EGS-2026-11-24",
-      "source": "md",
-      "date": "2026-11-24"
     },
     {
       "slug": "cancer-rhyme-expedition",
