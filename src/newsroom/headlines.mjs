@@ -9,6 +9,8 @@ import { REPO_ROOT } from '../core/paths.mjs';
 
 /** Curated newscast lines (no exclamation marks). Fallback: Short answer / title. */
 export const NEWSCAST_BY_SLUG = Object.freeze({
+  'neural-xray-rhyme-standalones':
+    'Eleven Neural X-Ray and rhyme kits now ship as public standalone repos — 11 of 11 verified',
   'neural-xray-rhyme':
     'Hinton still calls deep nets a black box. FractiSI X-rays the organizational rhyme instead',
   'compositional-wet-lab-scale':

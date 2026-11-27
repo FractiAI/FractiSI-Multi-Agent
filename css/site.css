@@ -920,9 +920,9 @@ body {
 }
 .brief-rail-item {
   font-family: var(--mono);
-  font-size: 0.64rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
   text-decoration: none;
   color: var(--muted);
   border: 1px solid var(--line);
@@ -941,14 +941,19 @@ body {
   border-top: 1px solid var(--line);
   scroll-margin-top: 5rem;
 }
-.brief-section-kicker {
+.brief-section-kicker,
+.brief-legend-intro {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 560;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--accent);
   margin: 0 0 0.85rem;
+}
+.doc-brief.brief-wire .brief-section,
+.brief-body.brief-wire .brief-section {
+  border-top-color: rgba(14, 74, 56, 0.12);
 }
 .brief-body .brief-block h2 {
   margin-top: 1.35rem;
