@@ -1,0 +1,427 @@
+{
+  "schema": "fractisi.riemann-expedition.ablation.v1",
+  "label": "riemann-fractisi-matched-ablation",
+  "trialStartedAt": "2026-11-25T02:23:25.422Z",
+  "trialEndedAt": "2026-11-25T02:23:39.029Z",
+  "honesty": {
+    "rhClaimStatus": "OPEN — Riemann hypothesis is not proved in this repository",
+    "whatThisMeasures": "Matched ablation of FractiSI task/claim/contribute/compose/git-integrate + lake build vs sequential no-kit file write + lake build, same frozen Lean payload bytes",
+    "whatThisDoesNotMeasure": [
+      "LLM proof search or model reasoning time",
+      "Mathlib analytic number theory / ζ formalization",
+      "Anthropic ~30h FLT formalization (unlike activity — withdrawn as a speed lead)",
+      "RH"
+    ],
+    "payloadsFrozenBeforeClock": true,
+    "authoringOfPayloadBytes": "pre-authored; identical SHA-256 both arms; written into sandbox inside the clock"
+  },
+  "payloadHashes": {
+    "RiemannExpedition/AgentCritical.lean": "7920f5219b5f4746e5d9cc24d269be49627c51f97a894b3937aedce54cd66d1f",
+    "RiemannExpedition/AgentProportion.lean": "0122853411b8dba30a548644536680dc627d70a46fcc14a18932dfced67bdc0a",
+    "RiemannExpedition/Phase0.lean": "71cf12c1c59d56685a7d8dd125e444126f2068cfca655f9cee285c328f926e4f",
+    "RiemannExpedition/PhaseN.lean": "0ab5844051101fd2426977da3c6d322f27544a71fea93db19391c5047a540469"
+  },
+  "commit": "57a16aac58e9c85f6e28f7cb2ba3ec24b232594d",
+  "prep": {
+    "noKitMissingBefore": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "fractisiMissingBefore": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "arms": {
+    "no_kit": {
+      "arm": "no_kit_sequential_write",
+      "startedAt": "2026-11-25T02:23:25.423Z",
+      "endedAt": "2026-11-25T02:23:26.685Z",
+      "durationSeconds": 1.262515,
+      "writeSeconds": 0.000144,
+      "written": [
+        "RiemannExpedition/AgentCritical.lean",
+        "RiemannExpedition/AgentProportion.lean",
+        "RiemannExpedition/Phase0.lean",
+        "RiemannExpedition/PhaseN.lean"
+      ],
+      "tasks": 0,
+      "contributions": 0,
+      "compositions": 0,
+      "agents": 0,
+      "coordination": false,
+      "hardGate": {
+        "ok": true,
+        "scan": {
+          "ok": true,
+          "hits": [],
+          "filesScanned": 10
+        },
+        "build": {
+          "status": 0,
+          "ok": true,
+          "stdout": "✔ [2/20] Built RiemannExpedition.Honesty\n✔ [3/20] Built RiemannExpedition.CriticalLine\n✔ [4/20] Built RiemannExpedition.ProportionLadder\n✔ [5/20] Built RiemannExpedition.Honesty:c.o\n✔ [6/20] Built RiemannExpedition.ProportionLadder:c.o\n✔ [7/20] Built RiemannExpedition.AgentCritical\n✔ [8/20] Built RiemannExpedition.AgentProportion\n✔ [9/20] Built RiemannExpedition.CriticalLine:c.o\n✔ [10/20] Built RiemannExpedition.AgentCritical:c.o\n✔ [11/20] Built RiemannExpedition.AgentProportion:c.o\n✔ [12/20] Built RiemannExpedition.Phase0\n✔ [13/20] Built RiemannExpedition.PhaseN\n✔ [14/20] Built RiemannExpedition\n✔ [15/20] Built RiemannExpedition.Phase0:c.o\n✔ [16/20] Built RiemannExpedition.PhaseN:c.o\n✔ [17/20] Built Main\n✔ [18/20] Built RiemannExpedition:c.o\n✔ [19/20] Built Main:c.o\n✔ [20/20] Built «riemann-check»\nBuild completed successfully.",
+          "stderr": "",
+          "error": null
+        },
+        "axioms": {
+          "constant": "RiemannExpedition.Phase0.critical_line_bundle",
+          "status": 0,
+          "ok": true,
+          "stdout": "'RiemannExpedition.Phase0.critical_line_bundle' does not depend on any axioms",
+          "stderr": "",
+          "error": null,
+          "note": "Recorded #print axioms output"
+        },
+        "meaning": "Pass = lake build green AND no sorry / user axiom / native_decide in scanned .lean code (comments/strings stripped; worktrees skipped)"
+      },
+      "ok": true,
+      "sandbox": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/no-kit"
+    },
+    "fractisi": {
+      "arm": "fractisi_coordinated_compose",
+      "startedAt": "2026-11-25T02:23:26.685Z",
+      "endedAt": "2026-11-25T02:23:39.029Z",
+      "durationSeconds": 12.343759,
+      "agents": 4,
+      "agentIds": [
+        "agent_fb913f1c",
+        "agent_7dd1dcac",
+        "agent_3530af5f",
+        "agent_784790a0"
+      ],
+      "tasks": 4,
+      "taskIds": [
+        "task_3237088b",
+        "task_e330eae0",
+        "task_d2815d8a",
+        "task_dd7a455c"
+      ],
+      "contributions": 4,
+      "contributionIds": [
+        "contrib_c11608b8",
+        "contrib_dfa28056",
+        "contrib_5986995a",
+        "contrib_e2750c90"
+      ],
+      "compositions": 1,
+      "compositionId": "comp_b43a7c4e",
+      "coordination": true,
+      "platformStatus": {
+        "tasks": {
+          "total": 4,
+          "open": 0,
+          "list": [
+            {
+              "id": "task_3237088b",
+              "title": "write RiemannExpedition/AgentCritical.lean",
+              "agentId": "agent_fb913f1c",
+              "paths": [
+                "RiemannExpedition/AgentCritical.lean"
+              ],
+              "dependsOn": [],
+              "status": "done",
+              "createdAt": "2026-11-25T02:23:26.697Z",
+              "updatedAt": "2026-11-25T02:23:26.721Z"
+            },
+            {
+              "id": "task_e330eae0",
+              "title": "write RiemannExpedition/AgentProportion.lean",
+              "agentId": "agent_7dd1dcac",
+              "paths": [
+                "RiemannExpedition/AgentProportion.lean"
+              ],
+              "dependsOn": [],
+              "status": "done",
+              "createdAt": "2026-11-25T02:23:26.731Z",
+              "updatedAt": "2026-11-25T02:23:26.756Z"
+            },
+            {
+              "id": "task_d2815d8a",
+              "title": "write RiemannExpedition/Phase0.lean",
+              "agentId": "agent_3530af5f",
+              "paths": [
+                "RiemannExpedition/Phase0.lean"
+              ],
+              "dependsOn": [],
+              "status": "done",
+              "createdAt": "2026-11-25T02:23:26.765Z",
+              "updatedAt": "2026-11-25T02:23:26.924Z"
+            },
+            {
+              "id": "task_dd7a455c",
+              "title": "write RiemannExpedition/PhaseN.lean",
+              "agentId": "agent_784790a0",
+              "paths": [
+                "RiemannExpedition/PhaseN.lean"
+              ],
+              "dependsOn": [],
+              "status": "done",
+              "createdAt": "2026-11-25T02:23:26.935Z",
+              "updatedAt": "2026-11-25T02:23:37.761Z"
+            }
+          ]
+        },
+        "contributions": 4,
+        "compositions": 1,
+        "agents": {
+          "total": 4,
+          "active": 4,
+          "list": [
+            {
+              "id": "agent_fb913f1c",
+              "name": "lemma-critical",
+              "framework": "expedition",
+              "status": "active",
+              "permissions": [
+                "read",
+                "propose"
+              ],
+              "capacity": 1,
+              "workspace": {
+                "agentId": "agent_fb913f1c",
+                "kind": "git_worktree",
+                "root": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi",
+                "label": "fractisi-agent_fb913f1c",
+                "paths": [],
+                "createdAt": "2026-11-25T02:23:26.688Z",
+                "branch": "fractisi/agent_fb913f1c",
+                "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_fb913f1c"
+              },
+              "metadata": {},
+              "registeredAt": "2026-11-25T02:23:26.687Z",
+              "updatedAt": "2026-11-25T02:23:26.696Z"
+            },
+            {
+              "id": "agent_7dd1dcac",
+              "name": "lemma-proportion",
+              "framework": "expedition",
+              "status": "active",
+              "permissions": [
+                "read",
+                "propose"
+              ],
+              "capacity": 1,
+              "workspace": {
+                "agentId": "agent_7dd1dcac",
+                "kind": "git_worktree",
+                "root": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi",
+                "label": "fractisi-agent_7dd1dcac",
+                "paths": [],
+                "createdAt": "2026-11-25T02:23:26.722Z",
+                "branch": "fractisi/agent_7dd1dcac",
+                "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_7dd1dcac"
+              },
+              "metadata": {},
+              "registeredAt": "2026-11-25T02:23:26.721Z",
+              "updatedAt": "2026-11-25T02:23:26.731Z"
+            },
+            {
+              "id": "agent_3530af5f",
+              "name": "phase0-composer",
+              "framework": "expedition",
+              "status": "active",
+              "permissions": [
+                "read",
+                "propose"
+              ],
+              "capacity": 1,
+              "workspace": {
+                "agentId": "agent_3530af5f",
+                "kind": "git_worktree",
+                "root": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi",
+                "label": "fractisi-agent_3530af5f",
+                "paths": [],
+                "createdAt": "2026-11-25T02:23:26.757Z",
+                "branch": "fractisi/agent_3530af5f",
+                "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_3530af5f"
+              },
+              "metadata": {},
+              "registeredAt": "2026-11-25T02:23:26.756Z",
+              "updatedAt": "2026-11-25T02:23:26.765Z"
+            },
+            {
+              "id": "agent_784790a0",
+              "name": "phasen-composer",
+              "framework": "expedition",
+              "status": "active",
+              "permissions": [
+                "read",
+                "propose"
+              ],
+              "capacity": 1,
+              "workspace": {
+                "agentId": "agent_784790a0",
+                "kind": "git_worktree",
+                "root": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi",
+                "label": "fractisi-agent_784790a0",
+                "paths": [],
+                "createdAt": "2026-11-25T02:23:26.925Z",
+                "branch": "fractisi/agent_784790a0",
+                "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_784790a0"
+              },
+              "metadata": {},
+              "registeredAt": "2026-11-25T02:23:26.925Z",
+              "updatedAt": "2026-11-25T02:23:26.934Z"
+            }
+          ]
+        }
+      },
+      "snapshotCounts": {
+        "tasks": 4,
+        "contributions": 4,
+        "compositions": 1,
+        "agents": 4
+      },
+      "evaluation": {
+        "contributionIds": [
+          "contrib_c11608b8",
+          "contrib_dfa28056",
+          "contrib_5986995a",
+          "contrib_e2750c90"
+        ],
+        "composable": true,
+        "issues": [],
+        "suggestedOrder": [
+          "contrib_c11608b8",
+          "contrib_dfa28056",
+          "contrib_5986995a",
+          "contrib_e2750c90"
+        ]
+      },
+      "integrated": {
+        "ok": true,
+        "sha": "a09e36d83f30838d185d4ee60448a382b6ebbb46",
+        "written": [
+          "RiemannExpedition/AgentCritical.lean",
+          "RiemannExpedition/AgentProportion.lean",
+          "RiemannExpedition/Phase0.lean",
+          "RiemannExpedition/PhaseN.lean"
+        ]
+      },
+      "steps": [
+        {
+          "name": "worktree-lemma-critical",
+          "ok": true,
+          "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_fb913f1c"
+        },
+        {
+          "name": "apply-lemma-critical",
+          "ok": true,
+          "written": [
+            "RiemannExpedition/AgentCritical.lean"
+          ]
+        },
+        {
+          "name": "worktree-lemma-proportion",
+          "ok": true,
+          "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_7dd1dcac"
+        },
+        {
+          "name": "apply-lemma-proportion",
+          "ok": true,
+          "written": [
+            "RiemannExpedition/AgentProportion.lean"
+          ]
+        },
+        {
+          "name": "worktree-phase0-composer",
+          "ok": true,
+          "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_3530af5f"
+        },
+        {
+          "name": "apply-phase0-composer",
+          "ok": true,
+          "written": [
+            "RiemannExpedition/Phase0.lean"
+          ]
+        },
+        {
+          "name": "worktree-phasen-composer",
+          "ok": true,
+          "path": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi/.fractisi/worktrees/agent_784790a0"
+        },
+        {
+          "name": "apply-phasen-composer",
+          "ok": true,
+          "written": [
+            "RiemannExpedition/PhaseN.lean"
+          ]
+        },
+        {
+          "name": "evaluateCompatibility",
+          "composable": true,
+          "issues": []
+        },
+        {
+          "name": "integrateComposition",
+          "ok": true,
+          "sha": "a09e36d83f30838d185d4ee60448a382b6ebbb46",
+          "written": [
+            "RiemannExpedition/AgentCritical.lean",
+            "RiemannExpedition/AgentProportion.lean",
+            "RiemannExpedition/Phase0.lean",
+            "RiemannExpedition/PhaseN.lean"
+          ]
+        }
+      ],
+      "hardGate": {
+        "ok": true,
+        "scan": {
+          "ok": true,
+          "hits": [],
+          "filesScanned": 10
+        },
+        "build": {
+          "status": 0,
+          "ok": true,
+          "stdout": "✔ [2/20] Built RiemannExpedition.Honesty\n✔ [3/20] Built RiemannExpedition.CriticalLine\n✔ [4/20] Built RiemannExpedition.ProportionLadder\n✔ [5/20] Built RiemannExpedition.Honesty:c.o\n✔ [6/20] Built RiemannExpedition.ProportionLadder:c.o\n✔ [7/20] Built RiemannExpedition.AgentCritical\n✔ [8/20] Built RiemannExpedition.AgentProportion\n✔ [9/20] Built RiemannExpedition.CriticalLine:c.o\n✔ [10/20] Built RiemannExpedition.AgentCritical:c.o\n✔ [11/20] Built RiemannExpedition.AgentProportion:c.o\n✔ [12/20] Built RiemannExpedition.Phase0\n✔ [13/20] Built RiemannExpedition.PhaseN\n✔ [14/20] Built RiemannExpedition.Phase0:c.o\n✔ [15/20] Built RiemannExpedition.PhaseN:c.o\n✔ [16/20] Built RiemannExpedition\n✔ [17/20] Built Main\n✔ [18/20] Built RiemannExpedition:c.o\n✔ [19/20] Built Main:c.o\n✔ [20/20] Built «riemann-check»\nBuild completed successfully.",
+          "stderr": "",
+          "error": null
+        },
+        "axioms": {
+          "constant": "RiemannExpedition.Phase0.critical_line_bundle",
+          "status": 0,
+          "ok": true,
+          "stdout": "'RiemannExpedition.Phase0.critical_line_bundle' does not depend on any axioms",
+          "stderr": "",
+          "error": null,
+          "note": "Recorded #print axioms output"
+        },
+        "meaning": "Pass = lake build green AND no sorry / user axiom / native_decide in scanned .lean code (comments/strings stripped; worktrees skipped)"
+      },
+      "ok": true,
+      "sandbox": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox/fractisi"
+    }
+  },
+  "comparison": {
+    "bothHardGateOk": true,
+    "noKitSeconds": 1.262515,
+    "fractisiSeconds": 12.343759,
+    "deltaSeconds": 11.081244,
+    "fractisiOverheadRatio": 9.7771,
+    "coordinationEvidence": {
+      "noKit": {
+        "tasks": 0,
+        "contributions": 0,
+        "compositions": 0
+      },
+      "fractisi": {
+        "tasks": 4,
+        "contributions": 4,
+        "compositions": 1,
+        "agents": 4
+      }
+    },
+    "interpretation": "Positive delta means FractiSI coordination path took longer than sequential write for this frozen-payload rebuild. That is an honest kit-overhead / coordination measurement, not a proof-search speedup."
+  },
+  "paths": {
+    "leanRoot": "/workspace/expeditions/riemann-fractisi/lean",
+    "receipt": "/workspace/expeditions/riemann-fractisi/lean/receipts/riemann-fractisi-ablation-2026-11-25T02-23-25-422Z.json",
+    "sandboxBase": "/workspace/expeditions/riemann-fractisi/.ablation-sandbox"
+  }
+}
