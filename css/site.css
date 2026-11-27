@@ -1097,7 +1097,7 @@ body {
 .news-ticker-track {
   display: flex;
   width: max-content;
-  animation: news-ticker-scroll 55s linear infinite;
+  animation: news-ticker-scroll 82.5s linear infinite;
 }
 .news-ticker-group {
   display: flex;
