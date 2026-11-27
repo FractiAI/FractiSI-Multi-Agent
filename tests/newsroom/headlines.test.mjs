@@ -40,8 +40,9 @@ test('ticker html links brand to /blog/ and items to blogs', () => {
   }, { nowMs: Date.UTC(2026, 10, 25, 18, 0, 0) });
   assert.match(html, /class="news-ticker"/);
   assert.match(html, /href="\/blog\/"/);
-  assert.match(html, />FGC</);
-  assert.match(html, /Fractal Goldilocks Channel/);
+  assert.match(html, /news-ticker-brand-mark">FGC</);
+  assert.match(html, /news-ticker-brand-room">Newsroom</);
+  assert.match(html, /Fractal Goldilocks Channel Newsroom/);
   assert.match(html, /href="\/blog\/neural-xray-rhyme\/"/);
   assert.equal(/!/.test(html), false);
 });

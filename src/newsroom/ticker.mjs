@@ -31,8 +31,11 @@ export function newsroomTickerHtml(manifest, opts = {}) {
     .join('<span class="news-ticker-dot" aria-hidden="true">·</span>');
 
   // Duplicate the strip so CSS marquee can loop without a gap.
-  return `<aside class="news-ticker" role="region" aria-label="${FGC_NAME} live headlines">
-  <a class="news-ticker-brand" href="/blog/" title="${FGC_NAME}">${FGC_SHORT}</a>
+  return `<aside class="news-ticker" role="region" aria-label="${FGC_NAME} Newsroom live headlines">
+  <a class="news-ticker-brand" href="/blog/" title="${FGC_NAME} Newsroom">
+    <span class="news-ticker-brand-mark">${FGC_SHORT}</span>
+    <span class="news-ticker-brand-room">Newsroom</span>
+  </a>
   <span class="news-ticker-live" aria-hidden="true">Live</span>
   <div class="news-ticker-viewport">
     <div class="news-ticker-track">

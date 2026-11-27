@@ -24,3 +24,15 @@ test('FGC ticker marquee period is 82.5s (33% slower than 55s)', () => {
   const css = readFileSync(join(root, 'css/site.css'), 'utf8');
   assert.match(css, /animation:\s*news-ticker-scroll\s+82\.5s\s+linear\s+infinite/);
 });
+
+test('FGC ticker reads as a golden Newsroom banner', () => {
+  const html = newsroomTickerHtml(
+    { blog: [{ slug: 'principal-rhyme-theorem', title: 'Q?', date: '2026-11-25' }] },
+    { nowMs: Date.UTC(2026, 10, 25, 18, 0, 0) },
+  );
+  assert.match(html, /news-ticker-brand-mark">FGC</);
+  assert.match(html, /news-ticker-brand-room">Newsroom</);
+  const css = readFileSync(join(root, 'css/site.css'), 'utf8');
+  assert.match(css, /\.news-ticker\s*\{[^}]*border-top:\s*3px solid var\(--signal\)/s);
+  assert.match(css, /\.news-ticker-brand\s*\{[^}]*linear-gradient\([^)]*var\(--signal\)/s);
+});
