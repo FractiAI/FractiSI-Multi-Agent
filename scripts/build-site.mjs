@@ -60,7 +60,7 @@ const NAV = [
   ['/product/pricing/', 'Pricing'],
   ['/research/', 'Research'],
   ['/library/', 'Library'],
-  ['/blog/', 'FGC'],
+  ['/blog/', 'News'],
   ['/test-drive/cigar-lounge/', 'Bach Cigar Lounge'],
   ['/company/', 'Company'],
 ];
@@ -104,7 +104,7 @@ const FOOTER = `<footer class="site-footer">
         <h2>Research</h2>
         <a href="/research/">Overview</a>
         <a href="/library/">Library</a>
-        <a href="/blog/">FGC</a>
+        <a href="/blog/">News</a>
         <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
       </nav>
       <nav aria-label="Company">
