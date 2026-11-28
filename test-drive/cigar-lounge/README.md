@@ -1,1 +1,3 @@
-# cigar-lounge\n\nBach Cigar Lounge holographic listening program. Edit `src/testdrive/cigar-lounge.mjs`, then regenerate this page.\n
+# Bach Cigar Lounge
+
+Holographic listening program. Contract: `src/testdrive/cigar-lounge.mjs`.

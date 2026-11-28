@@ -1,8 +1,8 @@
 /**
- * FractiSI · Cigar Lounge listening program (Suno playlist).
+ * FractiSI · Bach Cigar Lounge listening program (Suno playlist).
  *
  * Opens with SS Vibelandia for listeners who do not know the story yet.
- * Tracks are presented inside the cigar lounge setting. Hero Jo is J.S. Bach;
+ * Tracks are presented inside the Bach Cigar Lounge setting. Hero Jo is J.S. Bach;
  * "the gang" are spirit-crew lenses from the published Meet the crew surface
  * (not invented cast).
  *
@@ -96,7 +96,7 @@ export const CIGAR_LOUNGE_GANG = Object.freeze([
   Object.freeze({
     name: 'Hank Williams Jr.',
     role: 'High-lonesome dock voice · lounge roster',
-    note: 'Road-cry truth; country spine in the harbor mix. Cigar Lounge gang lock: Junior (Player 1 correction). Published Meet the crew card historically named Sr.; lounge scenes use Jr.',
+    note: 'Road-cry truth; country spine in the harbor mix. Bach Cigar Lounge gang lock: Junior (Player 1 correction). Published Meet the crew card historically named Sr.; lounge scenes use Jr.',
     source: 'cigar-lounge gang lock · Player 1 correction 2026-11-27',
   }),
   Object.freeze({
@@ -114,7 +114,7 @@ export const CIGAR_LOUNGE_GANG = Object.freeze([
   Object.freeze({
     name: 'Chet Baker',
     role: 'Lounge guest · Player 1 add',
-    note: 'Named for the Cigar Lounge chill scenes.',
+    note: 'Named for the Bach Cigar Lounge chill scenes.',
     source: 'cigar-lounge gang lock · Player 1 2026-11-27',
   }),
 ]);
@@ -136,7 +136,7 @@ export const CIGAR_LOUNGE_TRACKS = Object.freeze([
     title: 'The Restroom Story',
     lounge: 'Same room, same speakers — until awareness flips the room.',
     story:
-      'Valet Pru’s floor tell from the FractiSI Test Drive opening: AI-generated music in the restroom where he works as a restroom valet. Opinions change the moment listeners become aware the music is AI-generated. Same sound. Awareness framed the sensory observations. Soft Story Autodetect maps Suno / cigar lounge playlists to the Restroom behavioral lab theater. That is why this lounge and that restroom rhyme.',
+      'Valet Pru’s floor tell from the FractiSI Test Drive opening: AI-generated music in the restroom where he works as a restroom valet. Opinions change the moment listeners become aware the music is AI-generated. Same sound. Awareness framed the sensory observations. Soft Story Autodetect maps Suno / Bach Cigar Lounge playlists to the Restroom behavioral lab theater. That is why this lounge and that restroom rhyme.',
     bridges: Object.freeze([
       Object.freeze({ href: '/test-drive/#story', label: 'The same song.' }),
       Object.freeze({ href: '/product/holographic-skin-demonstration/', label: 'Holographic Skin · Autodetect' }),
@@ -333,9 +333,9 @@ export const CIGAR_LOUNGE_TRACKS = Object.freeze([
 
 export const CIGAR_LOUNGE = Object.freeze({
   id: 'fractisi-cigar-lounge-2026-11',
-  title: 'Cigar Lounge',
+  title: 'Bach Cigar Lounge',
   subtitle: 'A holographic listening program',
-  setting: 'cigar lounge Soft Story · Bachdoor / restroom-theater rhyme',
+  setting: 'Bach Cigar Lounge Soft Story · Bachdoor / restroom-theater rhyme',
   heroJoe: 'Hero Jo (J.S. Bach)',
   style: Object.freeze({
     instrument: 'cello',
@@ -357,11 +357,11 @@ export const CIGAR_LOUNGE = Object.freeze({
       'Goldilocks Cruiseship / sonic ship',
     ]),
     body:
-      'SS Vibelandia is FractiAI’s navy-gold holographic sonic ship — a Goldilocks cruise line of the Intelligence Age. The hull is a fixed lattice of decks and stories; Puerto Reno is present on every deck; the Golden Bachdoor Hit Factory is the flagship music spine. Hospitality, marketplace, nightlife, and brotherhood as voyage identity — never a membership test. Guests arrive through QUESTFEST, the Frontiersman voyage, and FractiSI theaters. The cigar lounge is one room inside that ship: Suno playlists can map to the Restroom behavioral lab, while Hero Jo (J.S. Bach) conducts the Baroque-honoring cello thought-streams with the spirit crew — the gang — as honest narrative lenses, not a payroll.',
+      'SS Vibelandia is FractiAI’s navy-gold holographic sonic ship — a Goldilocks cruise line of the Intelligence Age. The hull is a fixed lattice of decks and stories; Puerto Reno is present on every deck; the Golden Bachdoor Hit Factory is the flagship music spine. Hospitality, marketplace, nightlife, and brotherhood as voyage identity — never a membership test. Guests arrive through QUESTFEST, the Frontiersman voyage, and FractiSI theaters. The Bach Cigar Lounge is one room inside that ship: Suno playlists can map to the Restroom behavioral lab, while Hero Jo (J.S. Bach) conducts the Baroque-honoring cello thought-streams with the spirit crew — the gang — as honest narrative lenses, not a payroll.',
   }),
   holographicOverlay: Object.freeze({
     body:
-      'Listening works as a dual track. The audio is the original cello solos on Suno. The overlay is the holographic lounge story: while you listen, the cigar lounge sets the room — smoke, wood, Bachdoor heat — and the same playlist can map to the Restroom behavioral lab theater (Men’s Club Reno / Valet Pru awareness story). Hero Jo holds the φ rail; Valet Pru holds the floor tell; the gang (Meet the crew spirit lenses) keep the room honest. You hear the music; the holographic story frames what the music is for. Same speakers. Awareness still flips the room.',
+      'Listening works as a dual track. The audio is the original cello solos on Suno. The overlay is the holographic lounge story: while you listen, the Bach Cigar Lounge sets the room — smoke, wood, Bachdoor heat — and the same playlist can map to the Restroom behavioral lab theater (Men’s Club Reno / Valet Pru awareness story). Hero Jo holds the φ rail; Valet Pru holds the floor tell; the gang (Meet the crew spirit lenses) keep the room honest. You hear the music; the holographic story frames what the music is for. Same speakers. Awareness still flips the room.',
   }),
   gang: CIGAR_LOUNGE_GANG,
   tracks: CIGAR_LOUNGE_TRACKS,
@@ -371,7 +371,7 @@ export const CIGAR_LOUNGE = Object.freeze({
     note: 'Architecture-parallel cello curriculum (separate Suno playlist).',
   }),
   honesty:
-    'Cigar Lounge is a listening program with a holographic story overlay. Track stories are drawn from published FractiSI Test Drive / musical-training chapters and SS Vibelandia QUESTFEST / Meet the crew / Frontiersman surfaces. Spirit crew names are catalog companions, not employees. Suno playlist locked: https://suno.com/s/rFGcOvgPsDU2Dk5s. Pieces are original Suno collaborations in cello solo Baroque-honoring style — not Bach scores. Awareness framing is not phenomenal consciousness. Fractal Holographic Goldilocks Superintelligence is an architectural destination label, not finished AGI. Not CapEx proof.',
+    'Bach Cigar Lounge is a listening program with a holographic story overlay. Track stories are drawn from published FractiSI Test Drive / musical-training chapters and SS Vibelandia QUESTFEST / Meet the crew / Frontiersman surfaces. Spirit crew names are catalog companions, not employees. Suno playlist locked: https://suno.com/s/rFGcOvgPsDU2Dk5s. Pieces are original Suno collaborations in cello solo Baroque-honoring style — not Bach scores. Awareness framing is not phenomenal consciousness. Fractal Holographic Goldilocks Superintelligence is an architectural destination label, not finished AGI. Not CapEx proof.',
 });
 
 export function cigarLoungeTrackTitles() {

@@ -30,5 +30,5 @@ test('voice-locked symposium blog title is accepted as a yes/no question', () =>
 });
 
 test('announcement titles are declarative, not yes/no questions', () => {
-  assert.equal(isYesNoQuestionTitle('Cigar Lounge opens on SS Vibelandia'), false);
+  assert.equal(isYesNoQuestionTitle('Bach Cigar Lounge opens on SS Vibelandia'), false);
 });

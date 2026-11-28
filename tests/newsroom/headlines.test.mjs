@@ -46,7 +46,7 @@ test('manifest href can send live clicks to a program surface', () => {
       blog: [
         {
           slug: 'cigar-lounge-program',
-          title: 'On SS Vibelandia, the Cigar Lounge keeps the night',
+          title: 'On SS Vibelandia, the Bach Cigar Lounge keeps the night',
           date: '2026-11-29',
           href: '/test-drive/cigar-lounge/',
         },

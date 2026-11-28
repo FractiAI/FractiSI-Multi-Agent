@@ -15,7 +15,7 @@ import {
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const page = readFileSync(join(root, 'test-drive/cigar-lounge/index.html'), 'utf8');
 
-test('Cigar Lounge has 19 tracks and locked Suno URL', () => {
+test('Bach Cigar Lounge has 19 tracks and locked Suno URL', () => {
   assert.equal(cigarLoungeTrackCount(), 19);
   assert.equal(CIGAR_LOUNGE_TRACKS[0].title, 'Fourteen Year Crossing');
   assert.equal(CIGAR_LOUNGE_TRACKS[1].title, 'The Restroom Story');
@@ -51,6 +51,6 @@ test('program page ships landia, overlay, gang scene, and track graphics', () =>
   for (const title of cigarLoungeTrackTitles()) {
     assert.match(page, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
-  assert.match(page, /Cigar Lounge/);
+  assert.match(page, /Bach Cigar Lounge/);
   assert.match(page, /aria-current="page"/);
 });
