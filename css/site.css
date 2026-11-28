@@ -571,10 +571,12 @@ pre {
 .prose h2 { font-family: var(--sans); font-size: 1.6rem; font-weight: 620; letter-spacing: -0.03em; line-height: 1.2; color: var(--ink); margin: 3rem 0 0.7rem; padding: 0; border: 0; text-transform: none; scroll-margin-top: 5rem; }
 .prose h3 { font-family: var(--sans); font-size: 1.18rem; font-weight: 620; letter-spacing: -0.02em; color: var(--ink); margin: 2rem 0 0.4rem; scroll-margin-top: 5rem; }
 .doc-head .answer,
+.doc-head .announcement-lede,
 .prose .answer { border-left: 3px solid var(--accent, currentColor); padding: .5rem 0 .5rem 1rem; margin: 1.15rem 0 0; font-size: clamp(1.1rem, 1.7vw, 1.28rem); line-height: 1.5; color: var(--ink); letter-spacing: -0.01em; max-width: 40rem; }
 .doc-head .answer strong,
 .prose .answer strong { font-weight: 650; }
 .prose .answer { margin: 0 0 1.4rem; font-size: 1.05rem; line-height: 1.55; letter-spacing: 0; max-width: none; }
+.doc-head .announcement-lede { font-size: clamp(1.05rem, 1.55vw, 1.2rem); }
 .prose .lead { font-size: clamp(1.15rem, 1.8vw, 1.3rem); line-height: 1.55; color: var(--ink); letter-spacing: -0.01em; margin-top: 0; }
 .prose h4 { font-size: 1rem; font-weight: 620; margin: 1.5rem 0 0.3rem; color: var(--ink); }
 .prose p { margin: 0.9rem 0; }

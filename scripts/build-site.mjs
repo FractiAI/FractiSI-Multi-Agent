@@ -389,8 +389,12 @@ ${html}
 }
 
 function buildBlog(entry) {
-  if (!entry.answerHead || !/^Short answer:\s*(YES|NO|Yes|No)\b/i.test(entry.answerHead)) {
+  const announcement = String(entry.format || '').toLowerCase() === 'announcement';
+  if (!announcement && (!entry.answerHead || !/^Short answer:\s*(YES|NO|Yes|No)\b/i.test(entry.answerHead))) {
     throw new Error(`blog ${entry.slug}: answerHead must start with Short answer: Yes/No`);
+  }
+  if (announcement && entry.title?.trim()?.endsWith('?')) {
+    throw new Error(`blog ${entry.slug}: announcement title must not be a yes/no question`);
   }
   const raw = read(`content/blog/${entry.slug}.html`);
   // Strip duplicate Short answer blocks from source HTML — header owns the lead.
@@ -400,7 +404,9 @@ function buildBlog(entry) {
   const prepared = publicWording(stripped).replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${slugify(t)}">${t}</h2>`);
   const { sections, honesty } = resolveBriefContent(prepared, entry);
   const briefBody = renderBriefBody(sections, honesty);
-  const answerHtml = `<p class="answer"><strong>${esc(entry.answerHead)}</strong>${esc(entry.answerBody || '')}</p>`;
+  const leadHtml = announcement
+    ? `<p class="announcement-lede">${esc(entry.dek || entry.answerBody || '')}</p>`
+    : `<p class="answer"><strong>${esc(entry.answerHead)}</strong>${esc(entry.answerBody || '')}</p>`;
   const peerPaper = paperBySlug[entry.slug];
   const actions = (entry.actions || []).slice(0, 3).map((a, i) =>
     `<a class="${i === 0 ? 'btn-primary' : 'btn-ghost'}" href="${a.href}">${esc(a.text)}</a>`).join('\n          ');
@@ -421,12 +427,12 @@ function buildBlog(entry) {
       <header class="doc-head brief-head" id="executive-brief">
         <p class="kicker">${FGC_NAME}${entry.label ? ' · ' + esc(entry.label) : ''}</p>
         <h1>${esc(entry.title)}</h1>
-        ${answerHtml}
+        ${leadHtml}
         <p class="brief-path-line">${esc(CORE_ORIENTATION)}</p>
         <dl class="doc-meta">
           <div><dt>Published</dt><dd>${fmtDate(entry.date)}</dd></div>
           <div><dt>By</dt><dd>FractiAI Research</dd></div>
-          <div><dt>Reading time</dt><dd>${Math.max(1, Math.round(words(`${answerHtml}${briefBody}`) / 220))} min</dd></div>
+          <div><dt>Reading time</dt><dd>${Math.max(1, Math.round(words(`${leadHtml}${briefBody}`) / 220))} min</dd></div>
         </dl>
         ${actions ? `<div class="doc-actions">\n          ${actions}\n        </div>` : ''}
         ${briefRailHtml()}
@@ -435,7 +441,9 @@ ${briefBody}
       ${renderBriefClosers({ relatedRhymes, papers })}
     </article>`;
   const description = trimDek(
-    `${entry.answerHead}${entry.answerBody || ''}`.replace(/^Short answer:\s*/i, '') || entry.dek || entry.title,
+    announcement
+      ? (entry.dek || entry.answerBody || entry.title)
+      : (`${entry.answerHead}${entry.answerBody || ''}`.replace(/^Short answer:\s*/i, '') || entry.dek || entry.title),
     200,
   );
   write(

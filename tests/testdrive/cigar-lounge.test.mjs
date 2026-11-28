@@ -41,7 +41,8 @@ test('gang roster is locked and excludes Benicio Del Toro', () => {
 
 test('program page ships landia, overlay, gang scene, and track graphics', () => {
   assert.equal(existsSync(join(root, 'test-drive/cigar-lounge/index.html')), true);
-  assert.match(page, /SS-5 Landia/);
+  assert.match(page, /SS Vibelandia/);
+  assert.doesNotMatch(page, /SS-5\s*Landia/);
   assert.match(page, /Holographic story overlay/);
   assert.match(page, /cello/);
   assert.match(page, /Baroque/);

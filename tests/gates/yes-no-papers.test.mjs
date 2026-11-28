@@ -28,3 +28,7 @@ test('repository papers and blogs pass the yes/no gate', () => {
 test('voice-locked symposium blog title is accepted as a yes/no question', () => {
   assert.equal(isYesNoQuestionTitle('The Multi-Agent World Inference Rhyme?'), true);
 });
+
+test('announcement titles are declarative, not yes/no questions', () => {
+  assert.equal(isYesNoQuestionTitle('Cigar Lounge opens on SS Vibelandia'), false);
+});

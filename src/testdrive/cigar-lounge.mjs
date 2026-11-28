@@ -1,15 +1,15 @@
 /**
  * FractiSI · Cigar Lounge listening program (Suno playlist).
  *
- * Opens with SS-5 Landia (= published SS Vibelandia world) for listeners who
- * do not know the story yet. Tracks are presented inside the cigar lounge
- * Soft Story setting. Hero Jo is J.S. Bach; "the gang" are spirit-crew lenses
- * from the published Meet the crew surface (not invented cast).
+ * Opens with SS Vibelandia for listeners who do not know the story yet.
+ * Tracks are presented inside the cigar lounge setting. Hero Jo is J.S. Bach;
+ * "the gang" are spirit-crew lenses from the published Meet the crew surface
+ * (not invented cast).
  *
  * Style lock: cello · solo · Baroque-honoring · original pieces made with
  * Suno AI from these thought streams/titles — not Bach transcriptions.
  *
- * Suno URL stays placeholder until Player 1 supplies it.
+ * Suno URL locked from Player 1.
  */
 
 /** Bach Cigar Lounge Suno playlist — locked from Player 1. */
@@ -349,7 +349,7 @@ export const CIGAR_LOUNGE = Object.freeze({
   sunoPending: false,
   status: 'assembled',
   landiaIntro: Object.freeze({
-    name: 'SS-5 Landia',
+    name: 'SS Vibelandia',
     publishedName: 'SS Vibelandia',
     alsoKnownAs: Object.freeze([
       'SS Vibelandia',
@@ -357,11 +357,11 @@ export const CIGAR_LOUNGE = Object.freeze({
       'Goldilocks Cruiseship / sonic ship',
     ]),
     body:
-      'SS-5 Landia is the listening-program name for the published world of SS Vibelandia: FractiAI’s navy-gold holographic sonic ship — a Goldilocks cruise line of the Intelligence Age. The hull is a fixed lattice of decks and stories; Puerto Reno is present on every deck; the Golden Bachdoor Hit Factory is the flagship music spine. Hospitality, marketplace, nightlife, and brotherhood as voyage identity — never a membership test. Guests arrive through QUESTFEST, the Frontiersman voyage, and FractiSI Soft Story theaters. The cigar lounge is one Soft Story room inside that ship: Suno playlists Autodetect to the Restroom behavioral lab, while Hero Jo (J.S. Bach) conducts the Baroque-honoring cello thought-streams with the spirit crew — the gang — as honest narrative lenses, not a payroll.',
+      'SS Vibelandia is FractiAI’s navy-gold holographic sonic ship — a Goldilocks cruise line of the Intelligence Age. The hull is a fixed lattice of decks and stories; Puerto Reno is present on every deck; the Golden Bachdoor Hit Factory is the flagship music spine. Hospitality, marketplace, nightlife, and brotherhood as voyage identity — never a membership test. Guests arrive through QUESTFEST, the Frontiersman voyage, and FractiSI theaters. The cigar lounge is one room inside that ship: Suno playlists can map to the Restroom behavioral lab, while Hero Jo (J.S. Bach) conducts the Baroque-honoring cello thought-streams with the spirit crew — the gang — as honest narrative lenses, not a payroll.',
   }),
   holographicOverlay: Object.freeze({
     body:
-      'Listening works as a dual track. The audio is the original cello solos on Suno. The overlay is Soft Story: while you listen, the cigar lounge sets the room — smoke, wood, Bachdoor heat — and Autodetect can pin the same playlist to the Restroom behavioral lab theater (Men’s Club Reno / Valet Pru awareness story). Hero Jo holds the φ rail; Valet Pru holds the floor tell; the gang (Meet the crew spirit lenses) keep the room honest. You hear the music; the holographic story frames what the music is for. Same speakers. Awareness still flips the room.',
+      'Listening works as a dual track. The audio is the original cello solos on Suno. The overlay is the holographic lounge story: while you listen, the cigar lounge sets the room — smoke, wood, Bachdoor heat — and the same playlist can map to the Restroom behavioral lab theater (Men’s Club Reno / Valet Pru awareness story). Hero Jo holds the φ rail; Valet Pru holds the floor tell; the gang (Meet the crew spirit lenses) keep the room honest. You hear the music; the holographic story frames what the music is for. Same speakers. Awareness still flips the room.',
   }),
   gang: CIGAR_LOUNGE_GANG,
   tracks: CIGAR_LOUNGE_TRACKS,

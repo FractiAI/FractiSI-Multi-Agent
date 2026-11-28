@@ -2,8 +2,9 @@
   "blog": [
     {
       "slug": "cigar-lounge-program",
-      "title": "Does FractiSI’s Cigar Lounge play SS-5 Landia as a holographic listening program?",
-      "dek": "YES — nineteen Bach cello chapters, lounge gang, holographic overlay, and a live Suno playlist.",
+      "format": "announcement",
+      "title": "Cigar Lounge opens on SS Vibelandia",
+      "dek": "Nineteen Bach cello chapters, the lounge gang, a holographic story overlay, and a live Suno playlist — entertainment listening aboard the navy-gold sonic ship.",
       "date": "2026-11-29",
       "label": "Cigar Lounge",
       "actions": [
@@ -20,9 +21,7 @@
           "text": "Live Test Drive"
         }
       ],
-      "links": "Program: <a href=\"/test-drive/cigar-lounge/\">Cigar Lounge</a> · <a href=\"https://suno.com/s/rFGcOvgPsDU2Dk5s\">Suno</a> · <a href=\"/test-drive/musical/\">Musical Training</a>",
-      "answerHead": "Short answer: Yes.",
-      "answerBody": " Nineteen original cello chapters through SS-5 Landia, with Hero Jo (Bach) and the lounge gang, a holographic story overlay, and a live Suno playlist."
+      "links": "Program: <a href=\"/test-drive/cigar-lounge/\">Cigar Lounge</a> · <a href=\"https://suno.com/s/rFGcOvgPsDU2Dk5s\">Suno</a> · <a href=\"/test-drive/musical/\">Musical Training</a>"
     },
     {
       "slug": "golden-night-goldilocks-path",

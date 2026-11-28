@@ -51,12 +51,14 @@ export function proseWordCount(html) {
 }
 
 /** @param {string} html */
-export function builtBriefLooksComplete(html) {
+export function builtBriefLooksComplete(html, { announcement = false } = {}) {
   const missing = [];
   for (const id of HIERARCHY_IDS) {
     if (!html.includes(`id="${id}"`)) missing.push(id);
   }
-  if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(html)) {
+  if (announcement) {
+    if (!/class="announcement-lede"/.test(html)) missing.push('announcement-lede');
+  } else if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(html)) {
     missing.push('short-answer');
   }
   return { ok: missing.length === 0, missing };
@@ -99,7 +101,8 @@ export function checkExecutiveBriefs(root = REPO_ROOT) {
       continue;
     }
     const html = fs.readFileSync(built, 'utf8');
-    const check = builtBriefLooksComplete(html);
+    const announcement = String(entry.format || '').toLowerCase() === 'announcement';
+    const check = builtBriefLooksComplete(html, { announcement });
     if (!check.ok) {
       problems.push(`blog/${entry.slug}/index.html: missing ${check.missing.join(', ')}`);
     }

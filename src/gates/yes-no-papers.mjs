@@ -21,12 +21,23 @@ const ANSWER_HEAD = /^Short answer:\s*(YES|NO|Yes|No)\b/i;
 const VOICE_LOCKED_BLOG_SLUG = 'aai-symposium-2026';
 const VOICE_LOCKED_BLOG_TITLE = 'The Multi-Agent World Inference Rhyme?';
 
+/** Announcement posts use a declarative title — not a yes/no question. */
+export function isAnnouncementBlog(entry) {
+  return String(entry?.format || '').toLowerCase() === 'announcement';
+}
+
 /** @param {string} title */
 export function isYesNoQuestionTitle(title) {
   const t = String(title || '').trim();
   if (!t.endsWith('?')) return false;
   if (t === VOICE_LOCKED_BLOG_TITLE) return true;
   return YES_NO_STARTERS.test(t);
+}
+
+/** @param {string} title */
+export function isAnnouncementTitle(title) {
+  const t = String(title || '').trim();
+  return Boolean(t) && !t.endsWith('?');
 }
 
 /** @param {string} text */
@@ -83,8 +94,31 @@ export function checkYesNoPapers(root = REPO_ROOT) {
           `content/manifest.json blog[${entry.slug}]: title must stay voice-locked as "${VOICE_LOCKED_BLOG_TITLE}"`,
         );
       }
+    } else if (isAnnouncementBlog(entry)) {
+      if (!isAnnouncementTitle(entry.title)) {
+        problems.push(
+          `content/manifest.json blog[${entry.slug}]: announcement title must be declarative (no trailing ?)`,
+        );
+      }
     } else if (!isYesNoQuestionTitle(entry.title)) {
       problems.push(`content/manifest.json blog[${entry.slug}]: title must be a yes/no question ending in ?`);
+    }
+    if (isAnnouncementBlog(entry)) {
+      if (entry.answerHead) {
+        problems.push(
+          `content/manifest.json blog[${entry.slug}]: announcement posts omit answerHead — title is the announcement`,
+        );
+      }
+      if (entry.dek && /^(YES|NO)\b/.test(entry.dek)) {
+        problems.push(`content/manifest.json blog[${entry.slug}]: announcement dek must not begin with YES/NO`);
+      }
+      const built = path.join(root, 'blog', entry.slug, 'index.html');
+      if (!fs.existsSync(built)) {
+        problems.push(`blog/${entry.slug}/index.html: missing built page`);
+      } else if (!/class="announcement-lede"/.test(fs.readFileSync(built, 'utf8'))) {
+        problems.push(`blog/${entry.slug}/index.html: announcement lede must sit immediately under the title`);
+      }
+      continue;
     }
     if (!entry.answerHead || !ANSWER_HEAD.test(entry.answerHead)) {
       problems.push(`content/manifest.json blog[${entry.slug}]: answerHead must start with Short answer: Yes/No`);
