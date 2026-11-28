@@ -474,6 +474,8 @@ function buildBlogIndex() {
   const bulletin = posts
     .map((p) => {
       const headline = live.find((i) => i.slug === p.slug)?.headline || p.title;
+      const postHref =
+        typeof p.href === 'string' && p.href.startsWith('/') ? p.href : `/blog/${p.slug}/`;
       const teaser = trimDek(
         String(p.answerBody || p.dek || '')
           .replace(/^Short answer:\s*(YES|NO|Yes|No)\b[.—:\s-]*/i, '')
@@ -484,7 +486,7 @@ function buildBlogIndex() {
       const liveTag = liveSlugs.has(p.slug) ? '<span class="nr-tag">24h</span>' : '';
       const yesNo = /^(YES|NO)\b/i.test(p.dek || '') ? String(p.dek).slice(0, 3).toUpperCase() : '';
       const gate = yesNo ? `<span class="nr-gate">${esc(yesNo)}</span>` : '';
-      return `        <a class="nr-bulletin-row" href="/blog/${p.slug}/">
+      return `        <a class="nr-bulletin-row" href="${esc(postHref)}">
           <time datetime="${p.date}">${shortDate(p.date)}</time>
           <span class="nr-bulletin-main">
             <span class="nr-bulletin-headline">${esc(headline)}</span>

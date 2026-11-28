@@ -3,8 +3,8 @@
     {
       "slug": "cigar-lounge-program",
       "format": "announcement",
-      "title": "Cigar Lounge opens on SS Vibelandia",
-      "dek": "Nineteen Bach cello chapters, the lounge gang, a holographic story overlay, and a live Suno playlist — entertainment listening aboard the navy-gold sonic ship.",
+      "title": "On SS Vibelandia, the Cigar Lounge keeps the night",
+      "dek": "Hero Jo draws a cello through smoke and wood while the gang chills aboard the navy-gold sonic ship — nineteen chapters of the grand voyage, told from inside the room.",
       "date": "2026-11-29",
       "label": "Cigar Lounge",
       "actions": [
@@ -21,7 +21,8 @@
           "text": "Live Test Drive"
         }
       ],
-      "links": "Program: <a href=\"/test-drive/cigar-lounge/\">Cigar Lounge</a> · <a href=\"https://suno.com/s/rFGcOvgPsDU2Dk5s\">Suno</a> · <a href=\"/test-drive/musical/\">Musical Training</a>"
+      "links": "Program: <a href=\"/test-drive/cigar-lounge/\">Cigar Lounge</a> · <a href=\"https://suno.com/s/rFGcOvgPsDU2Dk5s\">Suno</a> · <a href=\"/test-drive/musical/\">Musical Training</a>",
+      "href": "/test-drive/cigar-lounge/"
     },
     {
       "slug": "golden-night-goldilocks-path",

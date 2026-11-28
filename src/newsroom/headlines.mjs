@@ -63,7 +63,9 @@ export function recentNewsroomItems(manifest, opts = {}) {
   return picked.map((b) => ({
     slug: b.slug,
     date: b.date,
-    href: `/blog/${b.slug}/`,
+    // Optional manifest `href` sends live ticker / briefing clicks to a program
+    // surface (e.g. Cigar Lounge) instead of the FGC article path.
+    href: typeof b.href === 'string' && b.href.startsWith('/') ? b.href : `/blog/${b.slug}/`,
     headline: newscastHeadline(b),
     title: b.title || b.slug,
   }));

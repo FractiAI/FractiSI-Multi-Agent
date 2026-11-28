@@ -39,6 +39,24 @@ test('24h window prefers same-day blogs and fills when thin', () => {
   assert.ok(items.every((i) => i.href.startsWith('/blog/')));
 });
 
+test('manifest href can send live clicks to a program surface', () => {
+  const now = Date.UTC(2026, 10, 29, 20, 0, 0);
+  const items = recentNewsroomItems(
+    {
+      blog: [
+        {
+          slug: 'cigar-lounge-program',
+          title: 'On SS Vibelandia, the Cigar Lounge keeps the night',
+          date: '2026-11-29',
+          href: '/test-drive/cigar-lounge/',
+        },
+      ],
+    },
+    { nowMs: now, minItems: 1, maxItems: 3 },
+  );
+  assert.equal(items[0].href, '/test-drive/cigar-lounge/');
+});
+
 test('ticker html links brand to /blog/ and items to blogs', () => {
   const title = 'Can FractiSI X-Ray the Hidden Organizational Structure of Neural Networks?';
   const html = newsroomTickerHtml({
