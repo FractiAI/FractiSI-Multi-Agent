@@ -394,8 +394,9 @@ export function renderBriefClosers({ relatedRhymes = [], papers = [] }) {
 /**
  * Lightweight structural check for a built brief page.
  * @param {string} html
+ * @param {{ announcement?: boolean }} [opts]
  */
-export function builtBriefLooksComplete(html) {
+export function builtBriefLooksComplete(html, { announcement = false } = {}) {
   const missing = [];
   for (const id of [
     'executive-brief',
@@ -408,7 +409,9 @@ export function builtBriefLooksComplete(html) {
   ]) {
     if (!html.includes(`id="${id}"`)) missing.push(id);
   }
-  if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(html)) {
+  if (announcement) {
+    if (!/class="announcement-lede"/.test(html)) missing.push('announcement-lede');
+  } else if (!/class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i.test(html)) {
     missing.push('short-answer');
   }
   return { ok: missing.length === 0, missing };
