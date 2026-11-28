@@ -3,7 +3,11 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { newsroomTickerHtml } from '../../src/newsroom/ticker.mjs';
+import {
+  NEWS_TICKER_PERIOD_S,
+  NEWS_TICKER_PHASE_KEY,
+  newsroomTickerHtml,
+} from '../../src/newsroom/ticker.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -20,11 +24,23 @@ test('ticker duplicates the group for seamless marquee', () => {
   assert.equal(groups.length, 2);
 });
 
-test('FGC ticker marquee period is 120s (further slowdown past 82.5s)', () => {
+test('FGC ticker marquee period is 55s (sped up from 120s)', () => {
+  assert.equal(NEWS_TICKER_PERIOD_S, 55);
   const css = readFileSync(join(root, 'css/site.css'), 'utf8');
-  assert.match(css, /animation:\s*news-ticker-scroll\s+120s\s+linear\s+infinite/);
+  assert.match(css, /animation:\s*news-ticker-scroll\s+55s\s+linear\s+infinite/);
+  assert.equal(/animation:\s*news-ticker-scroll\s+120s/.test(css), false);
   assert.equal(/animation:\s*news-ticker-scroll\s+82\.5s/.test(css), false);
-  assert.equal(/animation:\s*news-ticker-scroll\s+55s/.test(css), false);
+});
+
+test('FGC ticker persists phase across pages via sessionStorage', () => {
+  const html = newsroomTickerHtml(
+    { blog: [{ slug: 'principal-rhyme-theorem', title: 'Q?', date: '2026-11-25' }] },
+    { nowMs: Date.UTC(2026, 10, 25, 18, 0, 0) },
+  );
+  assert.match(html, /sessionStorage/);
+  assert.match(html, new RegExp(NEWS_TICKER_PHASE_KEY.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.match(html, /animationDelay/);
+  assert.match(html, /55000/);
 });
 
 test('FGC ticker reads as a golden Newsroom banner', () => {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cosmic Rhyme Expedition · Research suite</title>
   <meta name="description" content="Regenerable Cosmic Rhyme Expedition: protocol, LLM rhyme legend, fixtures, receipts.">
-  <link rel="stylesheet" href="/css/site.css?v=55">
+  <link rel="stylesheet" href="/css/site.css?v=56">
   <style>
     .legend-map { width: 100%; border-collapse: collapse; margin: 1.25rem 0 1.75rem; font-size: 0.92rem; }
     .legend-map th, .legend-map td { border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent); padding: 0.55rem 0.65rem; text-align: left; vertical-align: top; }
@@ -127,6 +127,24 @@
       <div class="news-ticker-group" aria-hidden="true"><a class="news-ticker-item" href="/test-drive/cigar-lounge/" title="On SS Vibelandia, the Bach Cigar Lounge keeps the night">On SS Vibelandia, the Bach Cigar Lounge keeps the night</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/golden-night-goldilocks-path/" title="Is this the Goldilocks path to a new world operating system?">Is this the Goldilocks path to a new world operating system?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/paraparticle-peff-wiring-wet-lab/" title="Do PEFF patterns recur across cognition, particles, and MIT paraparticles?">Do PEFF patterns recur across cognition, particles, and MIT paraparticles?</a></div>
     </div>
   </div>
+  <script>
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var KEY = "fgc-ticker-t0";
+    var PERIOD_MS = 55000;
+    var t0 = sessionStorage.getItem(KEY);
+    if (t0 === null) {
+      t0 = String(Date.now());
+      sessionStorage.setItem(KEY, t0);
+    }
+    var elapsed = (Date.now() - Number(t0)) % PERIOD_MS;
+    if (elapsed < 0) elapsed += PERIOD_MS;
+    var track = document.querySelector('.news-ticker-track');
+    if (track) track.style.animationDelay = (-elapsed / 1000) + 's';
+  } catch (e) { /* private mode or missing sessionStorage — restart is fine */ }
+})();
+</script>
 </aside>
 </body>
 </html>

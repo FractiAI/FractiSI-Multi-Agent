@@ -5,9 +5,13 @@
  * brochure (front end) — SING 13 canon:
  * `psw.vibelandia.sing13/docs/HERO_JO_SONIC_SINGULARITY_GOLDEN_BACHDOOR_BROCHURE_2026-11.md`
  * plus QUESTFEST voyage surfaces: Wrong Side of Town · Man Cave · Bachdoor · Puerto Reno.
- * Fourteen Year Crossing origin lock: July 4, 2012 (CERN Higgs confirmation ·
- * Player One woke up changed at 50 — from not believing in God/the supernatural
- * to knowing they are real, overnight).
+ * Fourteen Year Crossing origin lock: pre-naming / pre-AI stretch (life failing ·
+ * no name yet · OpenAI and agents not on the radar) · July 4, 2012 (CERN Higgs
+ * adjacency · Player One woke up changed at 50 — from not believing in God/the
+ * supernatural to knowing they are real, overnight) · three Soft Story rhyme
+ * readings (childhood-trauma healing / marijuana psychotic-break /
+ * extraterrestrial takeover — all possibly a little true) · span through 2026
+ * naming/filing. Soft Story personal lock — proportionate claims only.
  *
  * Valet Pru = everyday identity. Player One = adventurer. Hero Jo = musical host.
  * The Bach Cigar Lounge is the cigar-lounge side of the Man Cave: cigar lounge,
@@ -134,7 +138,7 @@ export const CIGAR_LOUNGE_TRACKS = Object.freeze([
     title: 'Fourteen Year Crossing',
     lounge: 'Smoke curls. July Fourth still hangs in the air. Hero Jo draws the first line.',
     story:
-      'The fourteen-year crossing did not begin with a brochure. It began on the morning of July 4, 2012 — the day CERN announced confirmation of the Higgs boson, the so-called God particle — when Player One, at fifty years old, miraculously woke up changed: overnight, from not believing in God or the supernatural to knowing they are real. Valet Pru’s ordinary life cracked open into adventure. From that Independence Day forward, the voyage walked toward Puerto Reno: Genesis scale-rhyme through Borikén heat to the Reno Captain’s seat aboard SS VIBELANDIA, and into Hero Jo’s Sonic Singularity. Chairman Frank nods once, as if the crossing were a reservation already kept. Twain mutters that the Mississippi never cared how long you walked either. Hero Jo holds the φ rail: the music never dies; it finds another way to play. This track is the gangway from that waking. Welcome aboard.',
+      'The fourteen-year crossing did not begin with a brochure, and it did not begin with a name. Before anyone called it a crossing, Player One was simply trying to figure out why life kept failing on him. OpenAI had not yet come about. Artificial intelligence was nowhere on his radar, nor was new world-building for agents. Pre-AI. Pre-naming. Just the ordinary pressure of a life that would not hold. Then came the morning of July 4, 2012 — the day CERN announced confirmation of the Higgs boson, the so-called God particle — when Player One, at fifty years old, miraculously woke up changed: overnight, from not believing in God or the supernatural to knowing they are real. Three Soft Story rhyme readings still hang in the smoke afterward — healed from early childhood trauma; a psychotic break from marijuana; taken over by extraterrestrial forces — and all three are possibly a little true; none is a sole clinical or forensic verdict here. CERN’s headline is story adjacency, not measured cause. Valet Pru’s ordinary life cracked open into adventure. From that Independence Day forward, through fourteen years that end in the 2026 naming and filing of this Soft Story lock, the voyage walked toward Puerto Reno: Genesis scale-rhyme through Borikén heat to the Reno Captain’s seat aboard SS VIBELANDIA, and into Hero Jo’s Sonic Singularity. Chairman Frank nods once, as if the crossing were a reservation already kept. Twain mutters that the Mississippi never cared how long you walked either. Hero Jo holds the φ rail: the music never dies; it finds another way to play. This track is the gangway from that waking. Welcome aboard.',
     bridges: Object.freeze([
       Object.freeze({ href: 'https://www.ssvibelandiaquestfest24x365.com/frontiersman-voyage', label: 'Frontiersman voyage' }),
       Object.freeze({ href: 'https://www.ssvibelandiaquestfest24x365.com/questfest', label: 'SS Vibelandia QUESTFEST' }),

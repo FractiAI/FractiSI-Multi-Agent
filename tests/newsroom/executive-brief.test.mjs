@@ -76,10 +76,16 @@ test('every built FGC brief carries Yes/No lead without README hierarchy banners
     const built = join(ROOT, 'blog', entry.slug, 'index.html');
     assert.ok(existsSync(built), `missing ${entry.slug}`);
     const html = readFileSync(built, 'utf8');
-    const check = builtBriefLooksComplete(html);
+    const announcement = String(entry.format || '').toLowerCase() === 'announcement';
+    const check = builtBriefLooksComplete(html, { announcement });
     assert.equal(check.ok, true, `${entry.slug} missing ${check.missing.join(',')}`);
     assert.match(html, /Fractal Goldilocks Channel/);
-    assert.match(html, /class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i);
+    if (announcement) {
+      assert.match(html, /class="announcement-lede"/);
+      assert.doesNotMatch(html, /class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i);
+    } else {
+      assert.match(html, /class="answer"[\s\S]*?Short answer:\s*(YES|NO|Yes|No)\b/i);
+    }
     assert.match(html, /How claims are labeled/);
     assert.doesNotMatch(html, />EXECUTIVE BRIEF</);
     assert.doesNotMatch(html, />KEY INSIGHTS</);

@@ -8,7 +8,7 @@
   <meta property="og:title" content="Bach Cigar Lounge · FractiSI">
   <meta property="og:description" content="Fourteen Year Crossing from July 4, 2012. Man Cave. Sonic Singularity. Welcome aboard.">
   <meta property="og:image" content="https://fractisi.vercel.app/test-drive/cigar-lounge/media/cigar-lounge-hero.jpg">
-  <link rel="stylesheet" href="/css/site.css?v=55">
+  <link rel="stylesheet" href="/css/site.css?v=56">
   <style>
     :root {
       --cl-amber: #c48a3a;
@@ -242,7 +242,7 @@
       <p class="chapter-n">Track 1</p>
       <h3>Fourteen Year Crossing</h3>
       <p class="lounge-beat">Smoke curls. July Fourth still hangs in the air. Hero Jo draws the first line.</p>
-      <p class="track-story"><strong>Story.</strong> The fourteen-year crossing did not begin with a brochure. It began on the morning of July 4, 2012 — the day CERN announced confirmation of the Higgs boson, the so-called God particle — when Player One, at fifty years old, miraculously woke up changed: overnight, from not believing in God or the supernatural to knowing they are real. Valet Pru’s ordinary life cracked open into adventure. From that Independence Day forward, the voyage walked toward Puerto Reno: Genesis scale-rhyme through Borikén heat to the Reno Captain’s seat aboard SS VIBELANDIA, and into Hero Jo’s Sonic Singularity. Chairman Frank nods once, as if the crossing were a reservation already kept. Twain mutters that the Mississippi never cared how long you walked either. Hero Jo holds the φ rail: the music never dies; it finds another way to play. This track is the gangway from that waking. Welcome aboard.</p>
+      <p class="track-story"><strong>Story.</strong> The fourteen-year crossing did not begin with a brochure, and it did not begin with a name. Before anyone called it a crossing, Player One was simply trying to figure out why life kept failing on him. OpenAI had not yet come about. Artificial intelligence was nowhere on his radar, nor was new world-building for agents. Pre-AI. Pre-naming. Just the ordinary pressure of a life that would not hold. Then came the morning of July 4, 2012 — the day CERN announced confirmation of the Higgs boson, the so-called God particle — when Player One, at fifty years old, miraculously woke up changed: overnight, from not believing in God or the supernatural to knowing they are real. Three Soft Story rhyme readings still hang in the smoke afterward — healed from early childhood trauma; a psychotic break from marijuana; taken over by extraterrestrial forces — and all three are possibly a little true; none is a sole clinical or forensic verdict here. CERN’s headline is story adjacency, not measured cause. Valet Pru’s ordinary life cracked open into adventure. From that Independence Day forward, through fourteen years that end in the 2026 naming and filing of this Soft Story lock, the voyage walked toward Puerto Reno: Genesis scale-rhyme through Borikén heat to the Reno Captain’s seat aboard SS VIBELANDIA, and into Hero Jo’s Sonic Singularity. Chairman Frank nods once, as if the crossing were a reservation already kept. Twain mutters that the Mississippi never cared how long you walked either. Hero Jo holds the φ rail: the music never dies; it finds another way to play. This track is the gangway from that waking. Welcome aboard.</p>
       <p class="bridge"><a href="https://www.ssvibelandiaquestfest24x365.com/frontiersman-voyage">Frontiersman voyage</a> · <a href="https://www.ssvibelandiaquestfest24x365.com/questfest">SS Vibelandia QUESTFEST</a></p>
     </article>
     <article class="chapter" id="track-2">
@@ -481,6 +481,24 @@
       <div class="news-ticker-group" aria-hidden="true"><a class="news-ticker-item" href="/test-drive/cigar-lounge/" title="On SS Vibelandia, the Bach Cigar Lounge keeps the night">On SS Vibelandia, the Bach Cigar Lounge keeps the night</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/golden-night-goldilocks-path/" title="Is this the Goldilocks path to a new world operating system?">Is this the Goldilocks path to a new world operating system?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/paraparticle-peff-wiring-wet-lab/" title="Do PEFF patterns recur across cognition, particles, and MIT paraparticles?">Do PEFF patterns recur across cognition, particles, and MIT paraparticles?</a></div>
     </div>
   </div>
+  <script>
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var KEY = "fgc-ticker-t0";
+    var PERIOD_MS = 55000;
+    var t0 = sessionStorage.getItem(KEY);
+    if (t0 === null) {
+      t0 = String(Date.now());
+      sessionStorage.setItem(KEY, t0);
+    }
+    var elapsed = (Date.now() - Number(t0)) % PERIOD_MS;
+    if (elapsed < 0) elapsed += PERIOD_MS;
+    var track = document.querySelector('.news-ticker-track');
+    if (track) track.style.animationDelay = (-elapsed / 1000) + 's';
+  } catch (e) { /* private mode or missing sessionStorage — restart is fine */ }
+})();
+</script>
 </aside>
 </body>
 </html>
