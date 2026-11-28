@@ -28,7 +28,7 @@ import {
 } from '../src/newsroom/executive-brief.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_VERSION = '55';
+const CSS_VERSION = '56';
 const SITE = 'https://fractisi.vercel.app';
 
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');

@@ -1124,7 +1124,8 @@ body {
 .news-ticker-track {
   display: flex;
   width: max-content;
-  animation: news-ticker-scroll 120s linear infinite;
+  /* 55s loop — faster than the prior 120s tape; JS keeps phase across navigations */
+  animation: news-ticker-scroll 55s linear infinite;
 }
 .news-ticker-group {
   display: flex;

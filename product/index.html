@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FractiSI Multi-Agent · The Fractal Holographic Goldilocks Rhyming World Model</title>
   <meta name="description" content="FractiSI Multi-Agent — The Fractal Holographic Goldilocks Rhyming World Model for Digital (and Human) Agents. Shared context once; per-agent deltas. Tested: 100 of 100 hidden answers found vs 0, up to 49% smaller messages, 36–62× more agents per machine. Community is free.">
-  <link rel="stylesheet" href="/css/site.css?v=55">
+  <link rel="stylesheet" href="/css/site.css?v=56">
   <style>
     .stack-table td:first-child { white-space: nowrap; font-weight: 600; }
     .foundations { font-family: var(--mono); font-size: 0.8rem; line-height: 1.7; color: var(--muted); margin: 0.9rem 0 0; }
@@ -292,6 +292,24 @@
       <div class="news-ticker-group" aria-hidden="true"><a class="news-ticker-item" href="/test-drive/cigar-lounge/" title="On SS Vibelandia, the Bach Cigar Lounge keeps the night">On SS Vibelandia, the Bach Cigar Lounge keeps the night</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/golden-night-goldilocks-path/" title="Is this the Goldilocks path to a new world operating system?">Is this the Goldilocks path to a new world operating system?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/paraparticle-peff-wiring-wet-lab/" title="Do PEFF patterns recur across cognition, particles, and MIT paraparticles?">Do PEFF patterns recur across cognition, particles, and MIT paraparticles?</a></div>
     </div>
   </div>
+  <script>
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var KEY = "fgc-ticker-t0";
+    var PERIOD_MS = 55000;
+    var t0 = sessionStorage.getItem(KEY);
+    if (!t0) {
+      t0 = String(Date.now());
+      sessionStorage.setItem(KEY, t0);
+    }
+    var elapsed = (Date.now() - Number(t0)) % PERIOD_MS;
+    if (elapsed < 0) elapsed += PERIOD_MS;
+    var track = document.querySelector('.news-ticker-track');
+    if (track) track.style.animationDelay = (-elapsed / 1000) + 's';
+  } catch (e) { /* private mode / no sessionStorage — restart is fine */ }
+})();
+</script>
 </aside>
 </body>
 </html>

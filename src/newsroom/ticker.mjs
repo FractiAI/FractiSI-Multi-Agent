@@ -6,12 +6,45 @@ import { recentNewsroomItems } from './headlines.mjs';
 export const FGC_NAME = 'Fractal Goldilocks Channel';
 export const FGC_SHORT = 'FGC';
 
+/** Marquee loop period in seconds (must match css/site.css). */
+export const NEWS_TICKER_PERIOD_S = 55;
+
+/** sessionStorage key for wall-clock t0 so the tape does not restart on each page. */
+export const NEWS_TICKER_PHASE_KEY = 'fgc-ticker-t0';
+
 function esc(s) {
   return String(s)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/**
+ * Inline boot: continue the marquee from session phase instead of restarting at 0.
+ * Prefers-reduced-motion leaves CSS alone (animation already disabled).
+ */
+export function newsTickerPhaseScript() {
+  const periodMs = NEWS_TICKER_PERIOD_S * 1000;
+  const key = NEWS_TICKER_PHASE_KEY;
+  return `<script>
+(function () {
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var KEY = ${JSON.stringify(key)};
+    var PERIOD_MS = ${periodMs};
+    var t0 = sessionStorage.getItem(KEY);
+    if (!t0) {
+      t0 = String(Date.now());
+      sessionStorage.setItem(KEY, t0);
+    }
+    var elapsed = (Date.now() - Number(t0)) % PERIOD_MS;
+    if (elapsed < 0) elapsed += PERIOD_MS;
+    var track = document.querySelector('.news-ticker-track');
+    if (track) track.style.animationDelay = (-elapsed / 1000) + 's';
+  } catch (e) { /* private mode / no sessionStorage — restart is fine */ }
+})();
+</script>`;
 }
 
 /**
@@ -43,5 +76,6 @@ export function newsroomTickerHtml(manifest, opts = {}) {
       <div class="news-ticker-group" aria-hidden="true">${links}</div>
     </div>
   </div>
+  ${newsTickerPhaseScript()}
 </aside>`;
 }
