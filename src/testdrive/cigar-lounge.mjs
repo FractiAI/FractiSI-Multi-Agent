@@ -2,8 +2,10 @@
  * Bach Cigar Lounge — Man Cave Sessions aboard SS VIBELANDIA.
  *
  * Grounded in Hero Jo · The Sonic Singularity · Golden Bachdoor Hit Factory
- * brochure (front end) and SING 13 / QUESTFEST published voyage surfaces:
- * Wrong Side of Town · men’s club night · Bachdoor · Puerto Reno.
+ * brochure (front end) — SING 13 canon:
+ * `psw.vibelandia.sing13/docs/HERO_JO_SONIC_SINGULARITY_GOLDEN_BACHDOOR_BROCHURE_2026-11.md`
+ * plus QUESTFEST voyage surfaces: Wrong Side of Town · Man Cave · Bachdoor · Puerto Reno.
+ * Fourteen Year Crossing origin lock: July 4, 2012 (CERN Higgs confirmation · Player One woke up changed).
  *
  * Valet Pru = everyday identity. Player One = adventurer. Hero Jo = musical host.
  * The Bach Cigar Lounge is the cigar-lounge side of the Man Cave: cigar lounge,
