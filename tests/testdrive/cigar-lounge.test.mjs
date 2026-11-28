@@ -21,6 +21,8 @@ test('Bach Cigar Lounge has 19 tracks and locked Suno URL', () => {
   assert.match(CIGAR_LOUNGE_TRACKS[0].story, /July 4,\s*2012/);
   assert.match(CIGAR_LOUNGE_TRACKS[0].story, /CERN|Higgs/i);
   assert.match(CIGAR_LOUNGE_TRACKS[0].story, /woke up changed/i);
+  assert.match(CIGAR_LOUNGE_TRACKS[0].story, /fifty/i);
+  assert.match(CIGAR_LOUNGE_TRACKS[0].story, /supernatural/i);
   assert.equal(CIGAR_LOUNGE_TRACKS[1].title, 'The Restroom Story');
   assert.equal(CIGAR_LOUNGE_TRACKS.at(-1).title, 'Exploring Goldilocks World Model');
   assert.equal(SUNO_PLAYLIST_URL, 'https://suno.com/s/rFGcOvgPsDU2Dk5s');

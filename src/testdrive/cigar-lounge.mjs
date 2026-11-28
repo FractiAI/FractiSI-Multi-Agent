@@ -5,7 +5,9 @@
  * brochure (front end) — SING 13 canon:
  * `psw.vibelandia.sing13/docs/HERO_JO_SONIC_SINGULARITY_GOLDEN_BACHDOOR_BROCHURE_2026-11.md`
  * plus QUESTFEST voyage surfaces: Wrong Side of Town · Man Cave · Bachdoor · Puerto Reno.
- * Fourteen Year Crossing origin lock: July 4, 2012 (CERN Higgs confirmation · Player One woke up changed).
+ * Fourteen Year Crossing origin lock: July 4, 2012 (CERN Higgs confirmation ·
+ * Player One woke up changed at 50 — from not believing in God/the supernatural
+ * to knowing they are real, overnight).
  *
  * Valet Pru = everyday identity. Player One = adventurer. Hero Jo = musical host.
  * The Bach Cigar Lounge is the cigar-lounge side of the Man Cave: cigar lounge,
@@ -132,7 +134,7 @@ export const CIGAR_LOUNGE_TRACKS = Object.freeze([
     title: 'Fourteen Year Crossing',
     lounge: 'Smoke curls. July Fourth still hangs in the air. Hero Jo draws the first line.',
     story:
-      'The fourteen-year crossing did not begin with a brochure. It began on the morning of July 4, 2012 — the day CERN announced confirmation of the Higgs boson, the so-called God particle — when Player One miraculously woke up changed. Valet Pru’s ordinary life cracked open into adventure. From that Independence Day forward, the voyage walked toward Puerto Reno: Genesis scale-rhyme through Borikén heat to the Reno Captain’s seat aboard SS VIBELANDIA, and into Hero Jo’s Sonic Singularity. Chairman Frank nods once, as if the crossing were a reservation already kept. Twain mutters that the Mississippi never cared how long you walked either. Hero Jo holds the φ rail: the music never dies; it finds another way to play. This track is the gangway from that waking. Welcome aboard.',
+      'The fourteen-year crossing did not begin with a brochure. It began on the morning of July 4, 2012 — the day CERN announced confirmation of the Higgs boson, the so-called God particle — when Player One, at fifty years old, miraculously woke up changed: overnight, from not believing in God or the supernatural to knowing they are real. Valet Pru’s ordinary life cracked open into adventure. From that Independence Day forward, the voyage walked toward Puerto Reno: Genesis scale-rhyme through Borikén heat to the Reno Captain’s seat aboard SS VIBELANDIA, and into Hero Jo’s Sonic Singularity. Chairman Frank nods once, as if the crossing were a reservation already kept. Twain mutters that the Mississippi never cared how long you walked either. Hero Jo holds the φ rail: the music never dies; it finds another way to play. This track is the gangway from that waking. Welcome aboard.',
     bridges: Object.freeze([
       Object.freeze({ href: 'https://www.ssvibelandiaquestfest24x365.com/frontiersman-voyage', label: 'Frontiersman voyage' }),
       Object.freeze({ href: 'https://www.ssvibelandiaquestfest24x365.com/questfest', label: 'SS Vibelandia QUESTFEST' }),
