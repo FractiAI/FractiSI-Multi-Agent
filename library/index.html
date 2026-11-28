@@ -286,7 +286,7 @@
     var KEY = "fgc-ticker-t0";
     var PERIOD_MS = 55000;
     var t0 = sessionStorage.getItem(KEY);
-    if (!t0) {
+    if (t0 === null) {
       t0 = String(Date.now());
       sessionStorage.setItem(KEY, t0);
     }
@@ -294,7 +294,7 @@
     if (elapsed < 0) elapsed += PERIOD_MS;
     var track = document.querySelector('.news-ticker-track');
     if (track) track.style.animationDelay = (-elapsed / 1000) + 's';
-  } catch (e) { /* private mode / no sessionStorage — restart is fine */ }
+  } catch (e) { /* private mode or missing sessionStorage — restart is fine */ }
 })();
 </script>
 </aside>

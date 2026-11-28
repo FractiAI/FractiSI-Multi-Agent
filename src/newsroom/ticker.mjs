@@ -27,6 +27,7 @@ function esc(s) {
 export function newsTickerPhaseScript() {
   const periodMs = NEWS_TICKER_PERIOD_S * 1000;
   const key = NEWS_TICKER_PHASE_KEY;
+  // No "!" characters — FGC ticker HTML forbids exclamation marks sitewide.
   return `<script>
 (function () {
   try {
@@ -34,7 +35,7 @@ export function newsTickerPhaseScript() {
     var KEY = ${JSON.stringify(key)};
     var PERIOD_MS = ${periodMs};
     var t0 = sessionStorage.getItem(KEY);
-    if (!t0) {
+    if (t0 === null) {
       t0 = String(Date.now());
       sessionStorage.setItem(KEY, t0);
     }
@@ -42,7 +43,7 @@ export function newsTickerPhaseScript() {
     if (elapsed < 0) elapsed += PERIOD_MS;
     var track = document.querySelector('.news-ticker-track');
     if (track) track.style.animationDelay = (-elapsed / 1000) + 's';
-  } catch (e) { /* private mode / no sessionStorage — restart is fine */ }
+  } catch (e) { /* private mode or missing sessionStorage — restart is fine */ }
 })();
 </script>`;
 }
