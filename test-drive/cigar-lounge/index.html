@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cigar Lounge · Bach Cello Program · FractiSI</title>
+  <meta name="description" content="SS-5 Landia cigar lounge listening program: 19 original cello solos with holographic story overlay. Hero Jo (J.S. Bach) and the gang. Listen on Suno.">
+  <meta property="og:title" content="Cigar Lounge · FractiSI">
+  <meta property="og:description" content="Nineteen Baroque-honoring cello thought-streams through SS-5 Landia. Holographic overlay. Suno playlist.">
+  <meta property="og:image" content="https://fractisi.vercel.app/test-drive/cigar-lounge/media/cigar-lounge-hero.jpg">
+  <link rel="stylesheet" href="/css/site.css?v=55">
+  <style>
+    :root {
+      --cl-amber: #c48a3a;
+      --cl-ink: #1a1410;
+      --cl-smoke: #3a2f28;
+      --cl-cream: #f3ebe1;
+    }
+    .cl-hero {
+      position: relative;
+      min-height: min(72vh, 34rem);
+      display: grid;
+      align-items: end;
+      color: #f7f1e8;
+      background: #120e0c center/cover no-repeat;
+      background-image:
+        linear-gradient(180deg, rgba(12,9,7,0.25) 0%, rgba(12,9,7,0.82) 70%, #0c0907 100%),
+        url('/test-drive/cigar-lounge/media/cigar-lounge-hero.jpg');
+      border-bottom: 1px solid rgba(196,138,58,0.35);
+    }
+    .cl-hero .wrap-inner { max-width: 44rem; padding: clamp(2rem,5vw,3.5rem); }
+    .cl-hero h1 {
+      font-family: var(--serif);
+      font-weight: 560;
+      letter-spacing: -0.03em;
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      margin: 0.35rem 0 0.55rem;
+      max-width: 14ch;
+      text-wrap: balance;
+    }
+    .cl-hero .sub { font-size: 1.12rem; color: #e7d6c2; margin: 0 0 0.85rem; }
+    .cl-hero .lede { color: #d8c4ae; max-width: 40rem; margin: 0 0 1.25rem; }
+    .cl-cta { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .playlist-pill {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.55rem 0.95rem; border-radius: 999px;
+      background: var(--cl-amber); color: #1a120a; text-decoration: none;
+      font-weight: 620; font-size: 0.94rem;
+    }
+    .playlist-pill:hover { filter: brightness(1.06); text-decoration: none; }
+    .ghost-pill {
+      display: inline-flex; align-items: center;
+      padding: 0.55rem 0.95rem; border-radius: 999px;
+      border: 1px solid rgba(231,214,194,0.45); color: #f7f1e8;
+      text-decoration: none; font-weight: 560; font-size: 0.94rem;
+      background: rgba(255,255,255,0.04);
+    }
+    .part-block { padding: clamp(1.75rem, 3vw, 2.75rem) 0; border-bottom: 1px solid var(--line); }
+    .part-kicker {
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--faint); margin: 0 0 0.35rem;
+    }
+    .part-block h2 {
+      font-family: var(--serif); font-weight: 560; letter-spacing: -0.025em;
+      font-size: clamp(1.45rem, 2.6vw, 1.85rem); margin: 0 0 0.35rem;
+    }
+    .part-blurb { color: var(--muted); margin: 0 0 1.25rem; }
+    .scene-fig, .track-fig { margin: 0 0 1rem; }
+    .scene-fig img, .track-fig img {
+      display: block; width: 100%; max-width: 52rem; height: auto;
+      border-radius: 0; object-fit: cover;
+    }
+    .chapter { padding: 1.35rem 0; border-top: 1px solid var(--line); }
+    .chapter:first-of-type { border-top: 1px solid var(--line-strong); }
+    .chapter-n { font-family: var(--mono); font-size: 0.78rem; color: var(--cl-amber); letter-spacing: 0.04em; margin: 0 0 0.25rem; }
+    .chapter h3 { font-size: 1.15rem; font-weight: 620; letter-spacing: -0.02em; margin: 0 0 0.35rem; }
+    .lounge-beat { color: var(--muted); font-style: italic; margin: 0 0 0.55rem; }
+    .chapter p { margin: 0 0 0.55rem; color: var(--ink-2); max-width: 42rem; }
+    .chapter .bridge { font-size: 0.92rem; color: var(--muted); margin: 0; }
+    .chapter .bridge a { color: var(--accent); }
+    .gang-grid {
+      list-style: none; margin: 1rem 0 0; padding: 0;
+      display: grid; gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+    .gang-card {
+      padding: 0.85rem 0.9rem 0.95rem;
+      border-top: 1px solid var(--line-strong);
+      background: transparent;
+    }
+    .gang-card strong { display: block; letter-spacing: -0.015em; }
+    .gang-role { display: block; color: var(--cl-amber); font-size: 0.86rem; margin: 0.2rem 0 0.45rem; }
+    .gang-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .honesty { font-size: 0.9rem; color: var(--muted); max-width: 42rem; margin: 1.5rem 0 0; }
+    .style-note {
+      max-width: 42rem; color: var(--ink-2); margin: 0 0 1rem;
+      padding-left: 0.85rem; border-left: 3px solid var(--cl-amber);
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">FractiSI</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/product/">Product</a>
+      <a href="/product/pricing/">Pricing</a>
+      <a href="/research/">Research</a>
+      <a href="/library/">Library</a>
+      <a href="/blog/">FGC</a>
+      <a href="/test-drive/cigar-lounge/" aria-current="page">Cigar Lounge</a>
+      <a href="/company/">Company</a>
+      <a class="button" href="/test-drive/">Start Test Drive</a>
+    </nav>
+  </header>
+
+  <section class="cl-hero">
+    <div class="wrap-inner">
+      <p class="kicker">Bach Cigar Lounge · cello solo · Baroque-honoring · original Suno pieces</p>
+      <h1>Cigar Lounge</h1>
+      <p class="sub">A holographic listening program through SS-5 Landia</p>
+      <p class="lede">Nineteen thought-stream chapters. Hero Jo — J.S. Bach — and the gang chill in the lounge while the cello carries the FractiSI architecture story. Listen on Suno; read the overlay here.</p>
+      <div class="cl-cta">
+        <a class="playlist-pill" href="https://suno.com/s/rFGcOvgPsDU2Dk5s" rel="noopener" target="_blank">Listen on Suno</a>
+        <a class="ghost-pill" href="#landia">Enter SS-5 Landia</a>
+        <a class="ghost-pill" href="/test-drive/musical/">Musical Training</a>
+      </div>
+      <p class="quiet" style="margin-top:0.9rem;color:#cbb79f">Playlist: <a href="https://suno.com/s/rFGcOvgPsDU2Dk5s" rel="noopener" target="_blank" style="color:#f0d7b0">suno.com/s/rFGcOvgPsDU2Dk5s</a></p>
+    </div>
+  </section>
+
+  <main class="wrap" id="program">
+    <section class="part-block" id="landia">
+      <p class="part-kicker">Whole concept</p>
+      <h2>SS-5 Landia</h2>
+      <p class="part-blurb">Published world: SS Vibelandia</p>
+      <figure class="scene-fig">
+        <img src="/test-drive/cigar-lounge/media/ss5-landia-ship.jpg" alt="SS-5 Landia holographic sonic ship" width="1280" height="720" loading="eager" decoding="async" />
+      </figure>
+      <p>SS-5 Landia is the listening-program name for the published world of SS Vibelandia: FractiAI’s navy-gold holographic sonic ship — a Goldilocks cruise line of the Intelligence Age. The hull is a fixed lattice of decks and stories; Puerto Reno is present on every deck; the Golden Bachdoor Hit Factory is the flagship music spine. Hospitality, marketplace, nightlife, and brotherhood as voyage identity — never a membership test. Guests arrive through QUESTFEST, the Frontiersman voyage, and FractiSI Soft Story theaters. The cigar lounge is one Soft Story room inside that ship: Suno playlists Autodetect to the Restroom behavioral lab, while Hero Jo (J.S. Bach) conducts the Baroque-honoring cello thought-streams with the spirit crew — the gang — as honest narrative lenses, not a payroll.</p>
+    </section>
+
+    <section class="part-block" id="overlay">
+      <p class="part-kicker">How listening works</p>
+      <h2>Holographic story overlay</h2>
+      <figure class="scene-fig">
+        <img src="/test-drive/cigar-lounge/media/holographic-overlay.jpg" alt="Cigar lounge with holographic story overlay" width="1280" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p>Listening works as a dual track. The audio is the original cello solos on Suno. The overlay is Soft Story: while you listen, the cigar lounge sets the room — smoke, wood, Bachdoor heat — and Autodetect can pin the same playlist to the Restroom behavioral lab theater (Men’s Club Reno / Valet Pru awareness story). Hero Jo holds the φ rail; Valet Pru holds the floor tell; the gang (Meet the crew spirit lenses) keep the room honest. You hear the music; the holographic story frames what the music is for. Same speakers. Awareness still flips the room.</p>
+      <p class="style-note"><strong>Style lock:</strong> cello · solo · Baroque-honoring. Original pieces made together with Suno AI from these thought streams and titles — in honor of J.S. Bach, not Bach transcriptions.</p>
+      <figure class="scene-fig">
+        <img src="/test-drive/cigar-lounge/media/hero-jo-bach-cello.jpg" alt="Hero Jo cello still life in Baroque lounge light" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+    </section>
+
+    <section class="part-block" id="gang">
+      <p class="part-kicker">The gang</p>
+      <h2>Chilling at the cigar lounge</h2>
+      <p class="part-blurb">Hero Jo is Bach. The gang are published spirit-crew lenses — catalog companions, not a payroll.</p>
+      <figure class="scene-fig">
+        <img src="/test-drive/cigar-lounge/media/gang-lounge-chill.jpg" alt="The gang chilling in the cigar lounge" width="1280" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <ul class="gang-grid" role="list">
+      <li class="gang-card">
+        <strong>Hero Jo (J.S. Bach)</strong>
+        <span class="gang-role">Architect &amp; φ rail</span>
+        <p>Order, fugue honesty, Fair Exchange in the counterpoint; the Bachdoor is named after this spine. In the lounge, Hero Jo is Bach.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Valet Pru</strong>
+        <span class="gang-role">Host · Downtown Reno · restroom-valet tell</span>
+        <p>Floor host who opens awareness before the stack; human door at info@fractiai.com.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Holographic VALETPRU (PL Taino)</strong>
+        <span class="gang-role">Valet layer for the stack</span>
+        <p>Greets attention, routes asks, holds Fair Exchange language. Door, not decoration.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Chairman Frank (Sinatra)</strong>
+        <span class="gang-role">Sovereign swing &amp; port governance</span>
+        <p>How a room gets kept — lights, loyalty, and the line nobody crosses twice.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Hero Twain (Mark Twain)</strong>
+        <span class="gang-role">River wit &amp; American witness</span>
+        <p>Desert-and-river plain speak; laughs at fraud, honors the crowd.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Marilyn Monroe</strong>
+        <span class="gang-role">Spotlight &amp; nerve</span>
+        <p>Being seen without armor; keeps glamour from hardening into lie.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Frida Kahlo</strong>
+        <span class="gang-role">Witness &amp; pattern</span>
+        <p>Ache and identity into color so the body stays on the honesty rail.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Pablo Picasso</strong>
+        <span class="gang-role">Fracture &amp; reassembly</span>
+        <p>Seeing every face at once without losing the person.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Leonardo da Vinci</strong>
+        <span class="gang-role">Polymath draftsmanship</span>
+        <p>Science, engineering, and beauty in one hand — frontiersman who refused one box.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Vincent van Gogh</strong>
+        <span class="gang-role">Starry urgency</span>
+        <p>Color as confession; feeling first is not weakness when honesty follows.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Jean-Michel Basquiat</strong>
+        <span class="gang-role">Crown &amp; wrong-side glyph</span>
+        <p>Street wall meets museum frame; keeps Puerto Reno neon in the art grammar.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Howard Hughes</strong>
+        <span class="gang-role">Silent sponsor &amp; altitude</span>
+        <p>Prototype courage and the long bet on beauty in machines.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Hank Williams Jr.</strong>
+        <span class="gang-role">High-lonesome dock voice · lounge roster</span>
+        <p>Road-cry truth; country spine in the harbor mix. Cigar Lounge gang lock: Junior (Player 1 correction). Published Meet the crew card historically named Sr.; lounge scenes use Jr.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Héctor Lavoe</strong>
+        <span class="gang-role">Clave soul</span>
+        <p>Salsa nerve and wrong-side phrasing.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Vinicius de Moraes</strong>
+        <span class="gang-role">Lyric architect</span>
+        <p>Bossa logic and romance-with-teeth.</p>
+      </li>
+      <li class="gang-card">
+        <strong>Chet Baker</strong>
+        <span class="gang-role">Lounge guest · Player 1 add</span>
+        <p>Named for the Cigar Lounge chill scenes.</p>
+      </li>
+      </ul>
+    </section>
+
+    <section class="part-block" id="tracks">
+      <p class="part-kicker">Nineteen tracks</p>
+      <h2>Inside the lounge</h2>
+      <p class="part-blurb">Each track is a cello chapter. The story is the FractiSI / SS Vibelandia path corresponding to the title.</p>
+    <article class="chapter" id="track-1">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-01-fourteen-year-crossing.jpg" alt="Fourteen Year Crossing — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 1</p>
+      <h3>Fourteen Year Crossing</h3>
+      <p class="lounge-beat">The door opens. Smoke, wood, and a long road already walked.</p>
+      <p>In the lounge this is the crossing that brings a frontiersman to Puerto Reno — the published SS Vibelandia voyage arc from Genesis scale-rhyme through Borikén convergence to the Reno Captain’s seat (QUESTFEST 24×365). The cello does not recite a payroll biography; it carries the lived span that lands Valet Pru’s host seat and the gangway “wherever you are.” Thought-stream title for an original Baroque-honoring cello solo.</p>
+      <p class="bridge"><a href="https://www.ssvibelandiaquestfest24x365.com/frontiersman-voyage">Frontiersman voyage</a> · <a href="https://www.ssvibelandiaquestfest24x365.com/questfest">SS Vibelandia QUESTFEST</a></p>
+    </article>
+    <article class="chapter" id="track-2">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-02-restroom-story.jpg" alt="The Restroom Story — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 2</p>
+      <h3>The Restroom Story</h3>
+      <p class="lounge-beat">Same room, same speakers — until awareness flips the room.</p>
+      <p>Valet Pru’s floor tell from the FractiSI Test Drive opening: AI-generated music in the restroom where he works as a restroom valet. Opinions change the moment listeners become aware the music is AI-generated. Same sound. Awareness framed the sensory observations. Soft Story Autodetect maps Suno / cigar lounge playlists to the Restroom behavioral lab theater. That is why this lounge and that restroom rhyme.</p>
+      <p class="bridge"><a href="/test-drive/#story">The same song.</a> · <a href="/product/holographic-skin-demonstration/">Holographic Skin · Autodetect</a></p>
+    </article>
+    <article class="chapter" id="track-3">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-03-into-the-unknown.jpg" alt="Into the Unknown — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 3</p>
+      <h3>Into the Unknown</h3>
+      <p class="lounge-beat">Beyond the familiar chairs — the frontier edge of the shared world.</p>
+      <p>Maps to Frontier’s Edge on the FractiSI musical / architecture path: where the known world meets the unknown. Agents encounter states and possibilities beyond established experience; the shared model must update. On the voyage side it is the frontiersman’s willingness to explore — not a gene test, a door.</p>
+      <p class="bridge"><a href="/test-drive/musical/#ch-9">Frontier’s Edge (musical)</a> · <a href="/test-drive/#4">Answers six links deep.</a></p>
+    </article>
+    <article class="chapter" id="track-4">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-04-synthiverse-sandbox.jpg" alt="The Synthiverse Sandbox — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 4</p>
+      <h3>The Synthiverse Sandbox</h3>
+      <p class="lounge-beat">First signal in a bounded yet generative world.</p>
+      <p>The Syntheverse Sandbox establishes the shared world of the FractiSI Multi-Agent Test Drive: agents perceive, explore, act, learn, and build a shared model. The cello becomes the first signal within that world — individual experience toward collective intelligence. (Spelling on the thought-stream title: Synthiverse; product spelling: Syntheverse.)</p>
+      <p class="bridge"><a href="/test-drive/#sandbox">Where you are.</a> · <a href="/test-drive/musical/#ch-1">Musical · Syntheverse Sandbox</a></p>
+    </article>
+    <article class="chapter" id="track-5">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-05-base-mainnet-colony.jpg" alt="Base Mainnet First Colony — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 5</p>
+      <h3>Base Mainnet First Colony</h3>
+      <p class="lounge-beat">Independent agents take seats at the same table.</p>
+      <p>The first colony emerges on Base Mainnet: independent agents begin operating within a shared digital world. Each brings its own perspective; the colony creates conditions for interaction, memory, coordination, and the first seeds of collective intelligence.</p>
+      <p class="bridge"><a href="/test-drive/#sandbox">Base Mainnet bedrock</a> · <a href="/test-drive/musical/#ch-2">Musical · Base Mainnet First Colony</a></p>
+    </article>
+    <article class="chapter" id="track-6">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-06-goldilocks-zero.jpg" alt="Goldilocks Zero — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 6</p>
+      <h3>Goldilocks Zero</h3>
+      <p class="lounge-beat">Not too much, not too little — the starting balance.</p>
+      <p>Goldilocks Zero is the starting condition: the balanced state from which FractiSI Multi-Agent can observe, compare, adapt, and act. Not maximum information or minimum information, but the right amount — where agents remain coherent while the world continues to change.</p>
+      <p class="bridge"><a href="/test-drive/#rhyme">Before Net Zero / rhyme</a> · <a href="/test-drive/musical/#ch-3">Musical · Goldilocks Zero</a></p>
+    </article>
+    <article class="chapter" id="track-7">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-07-net-zero.jpg" alt="Net Zero — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 7</p>
+      <h3>Net Zero</h3>
+      <p class="lounge-beat">Every pour balanced against the whole room.</p>
+      <p>Net Zero introduces balance across the shared world: every action, observation, and state change seeks coherence rather than accumulation. Agents coordinate around a continuously changing world without each recreating the whole. Balanced zero, not nothing zero.</p>
+      <p class="bridge"><a href="/test-drive/#rhyme">Net Zero, then rhyme.</a> · <a href="/test-drive/musical/#ch-4">Musical · Net Zero</a></p>
+    </article>
+    <article class="chapter" id="track-8">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-08-infinite-possibilities.jpg" alt="Infinite Possibilities Lattice — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 8</p>
+      <h3>Infinite Possibilities Lattice</h3>
+      <p class="lounge-beat">The room opens into paths not yet chosen.</p>
+      <p>The Infinite Possibilities Lattice opens the space of possible states and paths. Rather than one predetermined trajectory, FractiSI lets agents navigate an expanding possibility space — selecting, updating, and coordinating as new information reshapes what can happen next.</p>
+      <p class="bridge"><a href="/test-drive/#how-stack">Stack · generative possibility</a> · <a href="/test-drive/musical/#ch-5">Musical · Infinite Possibilities Lattice</a></p>
+    </article>
+    <article class="chapter" id="track-9">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-09-honeycomb-lattice.jpg" alt="Honeycomb Lattice — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 9</p>
+      <h3>Honeycomb Lattice</h3>
+      <p class="lounge-beat">Neighbors at the table — connected possibility.</p>
+      <p>The Honeycomb Lattice gives structure to infinite possibility. Individual possibilities become connected neighbors within a navigable geometry, allowing agents to discover relationships, move between states, and coordinate through shared structure.</p>
+      <p class="bridge"><a href="/test-drive/#how-stack">3D hexagon · eight-node honeycomb</a> · <a href="/test-drive/musical/#ch-6">Musical · Honeycomb Lattice</a></p>
+    </article>
+    <article class="chapter" id="track-10">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-10-infinite-octaves.jpg" alt="Infinite Octaves — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 10</p>
+      <h3>Infinite Octaves</h3>
+      <p class="lounge-beat">Same song, nested scales of hearing.</p>
+      <p>Infinite Octaves introduces scale: the same underlying world can be experienced across nested levels of resolution. Agents move between local detail and larger patterns without losing coherence — coordinating information across scales while preserving relationships that connect the whole.</p>
+      <p class="bridge"><a href="/test-drive/#how-stack">Infinite Octaves on the trunk</a> · <a href="/test-drive/musical/#ch-7">Musical · Infinite Octaves</a></p>
+    </article>
+    <article class="chapter" id="track-11">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-11-first-99-octaves.jpg" alt="First 99 Octaves — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 11</p>
+      <h3>First 99 Octaves</h3>
+      <p class="lounge-beat">A finite window into an effectively unlimited map.</p>
+      <p>The First 99 Octaves reveals the first structured span of the Infinite Octave system: Digits × Octaves 01–99 as a practical Story-depth map. Each octave adds resolution, relationship, and context for a richer shared world.</p>
+      <p class="bridge"><a href="/test-drive/#how-stack">Digits × Octaves 01–99 map</a> · <a href="/test-drive/musical/#ch-8">Musical · The First 99 Octaves</a></p>
+    </article>
+    <article class="chapter" id="track-12">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-12-tiny-footprint.jpg" alt="Tiny Footprint — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 12</p>
+      <h3>Tiny Footprint</h3>
+      <p class="lounge-beat">One shared score — deltas only after that.</p>
+      <p>Tiny Footprint is the central efficiency of FractiSI Multi-Agent: agents share the world once, then communicate the smallest meaningful changes — the deltas that matter — enabling greater agent density and collective capability within the same computational footprint.</p>
+      <p class="bridge"><a href="/test-drive/#1">Twelve agents, one copy.</a> · <a href="/test-drive/musical/#ch-11">Musical · Tiny Footprint</a></p>
+    </article>
+    <article class="chapter" id="track-13">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-13-holographic-rhyme-boundary.jpg" alt="Holographic Rhyme Boundary — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 13</p>
+      <h3>Holographic Rhyme Boundary</h3>
+      <p class="lounge-beat">What must be reconstructed — and what can stay silent.</p>
+      <p>The Holographic Rhyme Boundary is where the shared world becomes actionable. Boundary nodes identify patterns and relationships needed to reconstruct what matters without carrying everything forward. FractiSI uses these rhymes to preserve coherence while reducing unnecessary computation and communication.</p>
+      <p class="bridge"><a href="/test-drive/#3">Same job, different words.</a> · <a href="/test-drive/musical/#ch-10">Musical · Holographic Rhyme Boundary</a></p>
+    </article>
+    <article class="chapter" id="track-14">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-14-fractisi-multi-agent.jpg" alt="Fracti SI Multi-Agent — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 14</p>
+      <h3>Fracti SI Multi-Agent</h3>
+      <p class="lounge-beat">Human and AI agents at one table, one world.</p>
+      <p>FractiSI Multi-Agent brings the pieces together: human and AI agents as a coordinated collective within a shared world. Perception, memory, possibility, boundaries, and Tiny Footprint converge so every agent can contribute context and produce useful collective intelligence. (Thought-stream spacing: Fracti SI; product name: FractiSI.)</p>
+      <p class="bridge"><a href="/test-drive/#welcome">Why this is a Test Drive.</a> · <a href="/test-drive/musical/#ch-12">Musical · FractiSI Multi-Agent</a></p>
+    </article>
+    <article class="chapter" id="track-15">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-15-awareness.jpg" alt="Awareness — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 15</p>
+      <h3>Awareness</h3>
+      <p class="lounge-beat">The light that frames every note before the note changes.</p>
+      <p>Awareness is the transition from processing information to experiencing and understanding the world. Human and AI agents become participants in an evolving shared reality. On the live track this is also how you enter and leave the sandbox — by choice. Not a claim of phenomenal consciousness.</p>
+      <p class="bridge"><a href="/test-drive/#story">The same song.</a> · <a href="/test-drive/musical/#ch-13">Musical · Awareness</a></p>
+    </article>
+    <article class="chapter" id="track-16">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-16-recursive-self-awareness.jpg" alt="Recursive Self-Awareness — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 16</p>
+      <h3>Recursive Self-Awareness</h3>
+      <p class="lounge-beat">The room noticing how it notices.</p>
+      <p>The system begins to recognize and examine its own processes of awareness. Perception becomes an object of perception; prediction and interpretation become recursively observable and refinable. Awareness becomes both instrument and subject of discovery — opening the path toward Fractal Holographic Goldilocks Superintelligence as an architectural destination label.</p>
+      <p class="bridge"><a href="/test-drive/#futures">Rehearse the future.</a> · <a href="/test-drive/musical/#ch-14">Musical · Recursive Self-Awareness</a></p>
+    </article>
+    <article class="chapter" id="track-17">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-17-fractal-holographic-goldilocks.jpg" alt="Fractal Holographic Goldilocks — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 17</p>
+      <h3>Fractal Holographic Goldilocks</h3>
+      <p class="lounge-beat">The destination named on the ship’s rail.</p>
+      <p>Fractal Holographic Goldilocks Superintelligence is the architectural destination named across FractiSI and SS Vibelandia Soft Story — whole in every part, viable middle that keeps moving, shared world awareness rather than dump-everything control. Destination label, not a claim of finished AGI.</p>
+      <p class="bridge"><a href="/test-drive/#welcome">Test Drive · shared world awareness</a> · <a href="/product/">Product overview</a></p>
+    </article>
+    <article class="chapter" id="track-18">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-18-goldilocks-world-model.jpg" alt="Goldilocks World Model — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 18</p>
+      <h3>Goldilocks World Model</h3>
+      <p class="lounge-beat">One coherent map the table can share.</p>
+      <p>The Goldilocks Rhyming World Model integrates infinite possibilities, nested scales, shared context, and recursive awareness into a navigable whole. Human and AI agents perceive, predict, act, and update together — right balance of information, complexity, and coordination as the world changes.</p>
+      <p class="bridge"><a href="/test-drive/#futures">Predictive Shared State</a> · <a href="/test-drive/musical/#ch-15">Musical · Goldilocks Rhyming World Model</a></p>
+    </article>
+    <article class="chapter" id="track-19">
+      <figure class="track-fig">
+        <img src="/test-drive/cigar-lounge/media/track-19-exploring-goldilocks.jpg" alt="Exploring Goldilocks World Model — cigar lounge chapter graphic" width="960" height="720" loading="lazy" decoding="async" />
+      </figure>
+      <p class="chapter-n">Track 19</p>
+      <h3>Exploring Goldilocks World Model</h3>
+      <p class="lounge-beat">After midnight — still exploring, still updating.</p>
+      <p>Human and AI agents venture into the Goldilocks World, testing possibilities and learning through interaction. Each exploration generates new observations and updates the shared world model. Ongoing discovery: individual perspectives contribute to an increasingly coherent understanding of the whole. Run it yourself on the live Test Drive.</p>
+      <p class="bridge"><a href="/test-drive/#invite">Run it yourself.</a> · <a href="/test-drive/musical/#ch-16">Musical · Exploring Goldilocks World</a></p>
+    </article>
+    </section>
+
+    <section class="part-block" id="close">
+      <p class="part-kicker">Close</p>
+      <h2>Listen · overlay · Test Drive</h2>
+      <p class="honesty">Cigar Lounge is a listening program with a holographic story overlay. Track stories are drawn from published FractiSI Test Drive / musical-training chapters and SS Vibelandia QUESTFEST / Meet the crew / Frontiersman surfaces. Spirit crew names are catalog companions, not employees. Suno playlist locked: https://suno.com/s/rFGcOvgPsDU2Dk5s. Pieces are original Suno collaborations in cello solo Baroque-honoring style — not Bach scores. Awareness framing is not phenomenal consciousness. Fractal Holographic Goldilocks Superintelligence is an architectural destination label, not finished AGI. Not CapEx proof.</p>
+      <div class="cl-cta" style="margin-top:1.25rem">
+        <a class="playlist-pill" href="https://suno.com/s/rFGcOvgPsDU2Dk5s" rel="noopener" target="_blank">Listen on Suno</a>
+        <a class="ghost-pill" href="/test-drive/" style="color:inherit;border-color:var(--line-strong)">Live Test Drive</a>
+        <a class="ghost-pill" href="/blog/cigar-lounge-program/" style="color:inherit;border-color:var(--line-strong)">FGC story</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>FractiSI Multi-Agent · Cigar Lounge · parallel holographic listening path</p>
+  </footer>
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/">FractiSI</a>
+        <p>The Fractal Holographic Goldilocks Rhyming World Model for digital and human agents.</p>
+      </div>
+      <nav aria-label="Product">
+        <h2>Product</h2>
+        <a href="/product/">Overview</a>
+        <a href="/product/pricing/">Pricing</a>
+        <a href="/test-drive/">Test Drive</a>
+        <a href="/open/">Open source</a>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <a href="/research/">Overview</a>
+        <a href="/library/">Library</a>
+        <a href="/blog/">FGC</a>
+        <a href="/rhyming-vs-non-rhyming/">Rhyming vs non-rhyming</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>Company</h2>
+        <a href="/company/">About</a>
+        <a href="/recruit/">Founding CEO role</a>
+        <a href="https://github.com/FractiAI/FractiSI-Multi-Agent">GitHub</a>
+        <a href="mailto:valetpru@gmail.com">valetpru@gmail.com</a>
+      </nav>
+    </div>
+    <p class="foot-base">FractiSI Multi-Agent · Lab results, not production benchmarks · Open source</p>
+  </footer>
+  <aside class="news-ticker" role="region" aria-label="Fractal Goldilocks Channel Newsroom live headlines">
+  <a class="news-ticker-brand" href="/blog/" title="Fractal Goldilocks Channel Newsroom">
+    <span class="news-ticker-brand-mark">FGC</span>
+    <span class="news-ticker-brand-room">Newsroom</span>
+  </a>
+  <span class="news-ticker-live" aria-hidden="true">Live</span>
+  <div class="news-ticker-viewport">
+    <div class="news-ticker-track">
+      <div class="news-ticker-group"><a class="news-ticker-item" href="/blog/cigar-lounge-program/" title="Does FractiSI’s Cigar Lounge play SS-5 Landia as a holographic listening program?">Does FractiSI’s Cigar Lounge play SS-5 Landia as a holographic listening program?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/golden-night-goldilocks-path/" title="Is this the Goldilocks path to a new world operating system?">Is this the Goldilocks path to a new world operating system?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/paraparticle-peff-wiring-wet-lab/" title="Do PEFF patterns recur across cognition, particles, and MIT paraparticles?">Do PEFF patterns recur across cognition, particles, and MIT paraparticles?</a></div>
+      <div class="news-ticker-group" aria-hidden="true"><a class="news-ticker-item" href="/blog/cigar-lounge-program/" title="Does FractiSI’s Cigar Lounge play SS-5 Landia as a holographic listening program?">Does FractiSI’s Cigar Lounge play SS-5 Landia as a holographic listening program?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/golden-night-goldilocks-path/" title="Is this the Goldilocks path to a new world operating system?">Is this the Goldilocks path to a new world operating system?</a><span class="news-ticker-dot" aria-hidden="true">·</span><a class="news-ticker-item" href="/blog/paraparticle-peff-wiring-wet-lab/" title="Do PEFF patterns recur across cognition, particles, and MIT paraparticles?">Do PEFF patterns recur across cognition, particles, and MIT paraparticles?</a></div>
+    </div>
+  </div>
+</aside>
+</body>
+</html>

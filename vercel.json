@@ -210,6 +210,22 @@
   ],
   "rewrites": [
     {
+      "source": "/blog/cigar-lounge-program/",
+      "destination": "/blog/cigar-lounge-program/index.html"
+    },
+    {
+      "source": "/blog/cigar-lounge-program",
+      "destination": "/blog/cigar-lounge-program/"
+    },
+    {
+      "source": "/test-drive/cigar-lounge/",
+      "destination": "/test-drive/cigar-lounge/index.html"
+    },
+    {
+      "source": "/test-drive/cigar-lounge",
+      "destination": "/test-drive/cigar-lounge/"
+    },
+    {
       "source": "/research/golden-night-goldilocks-path",
       "destination": "/research/golden-night-goldilocks-path/"
     },

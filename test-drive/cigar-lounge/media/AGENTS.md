@@ -1,0 +1,1 @@
+# media\n\nGenerated assets for `/test-drive/cigar-lounge/`.\n

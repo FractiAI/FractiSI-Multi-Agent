@@ -1,6 +1,30 @@
 {
   "blog": [
     {
+      "slug": "cigar-lounge-program",
+      "title": "Does FractiSI’s Cigar Lounge play SS-5 Landia as a holographic listening program?",
+      "dek": "YES — nineteen Bach cello chapters, lounge gang, holographic overlay, and a live Suno playlist.",
+      "date": "2026-11-29",
+      "label": "Cigar Lounge",
+      "actions": [
+        {
+          "href": "/test-drive/cigar-lounge/",
+          "text": "Open the program"
+        },
+        {
+          "href": "https://suno.com/s/rFGcOvgPsDU2Dk5s",
+          "text": "Listen on Suno"
+        },
+        {
+          "href": "/test-drive/",
+          "text": "Live Test Drive"
+        }
+      ],
+      "links": "Program: <a href=\"/test-drive/cigar-lounge/\">Cigar Lounge</a> · <a href=\"https://suno.com/s/rFGcOvgPsDU2Dk5s\">Suno</a> · <a href=\"/test-drive/musical/\">Musical Training</a>",
+      "answerHead": "Short answer: Yes.",
+      "answerBody": " Nineteen original cello chapters through SS-5 Landia, with Hero Jo (Bach) and the lounge gang, a holographic story overlay, and a live Suno playlist."
+    },
+    {
       "slug": "golden-night-goldilocks-path",
       "title": "Is this the Goldilocks path to a new world operating system?",
       "dek": "YES — as the strongest lab-model candidate among six strategies. Not overnight reflash.",

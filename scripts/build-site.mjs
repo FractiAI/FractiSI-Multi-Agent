@@ -61,6 +61,7 @@ const NAV = [
   ['/research/', 'Research'],
   ['/library/', 'Library'],
   ['/blog/', 'FGC'],
+  ['/test-drive/cigar-lounge/', 'Cigar Lounge'],
   ['/company/', 'Company'],
 ];
 
